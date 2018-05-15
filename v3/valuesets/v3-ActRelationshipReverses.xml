@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActRelationshipReverses"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>A relationship between a source Act that seeks to reverse or undo the action of the prior target Act.</p>
+                  
+      <p>Example: A posted financial transaction (e.g., a debit transaction) was applied in error and must be reversed (e.g., by a credit transaction) the credit transaction is identified as an undo (or reversal) of the prior target transaction.</p>
+                  
+      <p>Constraints: the &quot;completion track&quot; mood of the target Act must be equally or more &quot;actual&quot; than the source act. I.e., when the target act is EVN the source act can be EVN, or any INT. If the target act is INT, the source act can be INT.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="date">
+      <valueDateTime value="2014-03-26"/>
+    </extension>
+    <extension url="id">
+      <valueString value="2014T1_2014-03-26_001283"/>
+    </extension>
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="notes">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v3-ActRelationshipReverses"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20007"/>
+  </identifier>
+  <name value="ActRelationshipReverses"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value=" A relationship between a source Act that seeks to reverse or undo the action of the prior target Act. Example: A posted financial transaction (e.g., a debit transaction) was applied in error and must be reversed (e.g., by a credit transaction) the credit transaction is identified as an undo (or reversal) of the prior target transaction. Constraints: the &quot;completion track&quot; mood of the target Act must be equally or more &quot;actual&quot; than the source act. I.e., when the target act is EVN the source act can be EVN, or any INT. If the target act is INT, the source act can be INT."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ActRelationshipType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="REV"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

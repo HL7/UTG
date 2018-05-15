@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-MdfRmimRowType"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>The row types for the tabular representation of an R-MIM.</p>
+                  
+      <p>
+                     
+        <b>Deprecation Comment:</b> Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used.
+      </p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
+    <valueString value="683-20081229"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-MdfRmimRowType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.77"/>
+  </identifier>
+  <name value="MdfRmimRowType"/>
+  <title value="MdfRmimRowType"/>
+  <status value="retired"/>
+  <date value="2017-07-31"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value=" The row types for the tabular representation of an R-MIM.  Deprecation Comment:&#xD;&#xA;Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
+  <content value="complete"/>
+  <concept id="10067">
+    <code value="assoc"/>
+    <display value="Association row"/>
+    <definition value=" Identifies an association leading from the class that is most directly above this row"/>
+  </concept>
+  <concept id="10066">
+    <code value="attr"/>
+    <display value="Attribute row"/>
+    <definition value=" Identifies an attribute of the &quot;class&quot; that is most directly above this row"/>
+  </concept>
+  <concept id="10065">
+    <code value="class"/>
+    <display value="Class row"/>
+    <definition value=" Identifies a &quot;class&quot; in the Refined Message Information Model"/>
+  </concept>
+  <concept id="10064">
+    <code value="rmim"/>
+    <display value="RMIM identifier"/>
+    <definition value=" Always the first row of the table, identifies the particular Refined Message Information Model in the nomenclature of the HL7 Repository"/>
+  </concept>
+  <concept id="10068">
+    <code value="stc"/>
+    <display value="Subtype constraint"/>
+    <definition value=" This row corresponds to a subcomponent of the row above; it would not normally be included in an Refined Message Information Model, but it is included in order to be able to state a constraint on the subtype. This is explained in 10.2.2.4."/>
+  </concept>
+</CodeSystem>

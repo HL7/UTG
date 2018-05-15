@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-RoleClassPhysician"/>
+  <language value="en"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="date">
+      <valueDateTime value="2012-03-15"/>
+    </extension>
+    <extension url="id">
+      <valueString value="00000000-0000-0000-0000-000000000000"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="backwardCompatible">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="notes">
+      <valueString value="retiredAsOfRelease: 1130-20120315 Indicates that the Value Set was retired from any further use as of the release indicated."/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="date">
+      <valueDateTime value="2014-03-26"/>
+    </extension>
+    <extension url="id">
+      <valueString value="2014T1_2014-03-26_001283"/>
+    </extension>
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="notes">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v3-RoleClassPhysician"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20158"/>
+  </identifier>
+  <name value="RoleClassPhysician"/>
+  <status value="active"/>
+  <date value="2012-03-15"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="PHYS"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

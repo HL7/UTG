@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ParticipationParticipation"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Indicates that the target of the participation is involved in some manner in the act, but does not qualify how.</p>
+                  
+      <p>This should 
+        <b>not</b> be used except when no more specific participation type is known or when the participation type is further clarified elsewhere. It should not be used lightly, and should never be used as a &quot;placeholder&quot; when a more appropriate specific type does not yet exist.
+      </p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="date">
+      <valueDateTime value="2014-03-26"/>
+    </extension>
+    <extension url="id">
+      <valueString value="2014T1_2014-03-26_001283"/>
+    </extension>
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="notes">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v3-ParticipationParticipation"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.19747"/>
+  </identifier>
+  <name value="ParticipationParticipation"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value=" Indicates that the target of the participation is involved in some manner in the act, but does not qualify how. This shouldnot&#xD;&#xA;be used except when no more specific participation type is known or when the participation type is further clarified elsewhere. It should not be used lightly, and should never be used as a &quot;placeholder&quot; when a more appropriate specific type does not yet exist."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ParticipationType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="PART"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

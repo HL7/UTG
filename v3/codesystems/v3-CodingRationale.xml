@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-CodingRationale"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Identifies how to interpret the instance of the code, codeSystem value in a set of translations.  Since HL7 (or a government body) may mandate that codes from certain code systems be sent in conformant messages, other synonyms that are sent in the translation set need to be distinguished among the originally captured source, the HL7 specified code, or some future role.  When this code is NULL, it indicates that the translation is an undefined type.  When valued, this property must contain one of the following values:</p>
+                  
+      <p>SRC - Source (or original) code HL7 - HL7 Specified or Mandated SH - both HL7 mandated and the original code (precoordination)</p>
+                  
+      <p>There may be additional values added to this value set as we work through the use of codes in messages and determine other Use Cases requiring special interpretation of the translations.</p>
+               
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-CodingRationale"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1074"/>
+  </identifier>
+  <name value="CodingRationale"/>
+  <title value="CodingRationale"/>
+  <status value="active"/>
+  <date value="2017-07-31"/>
+  <publisher value="HL7 International"/>
+  <contact>
+    <name value="Health Level Seven, Inc."/>
+  </contact>
+  <description value=" Identifies how to interpret the instance of the code, codeSystem value in a set of translations.  Since HL7 (or a government body) may mandate that codes from certain code systems be sent in conformant messages, other synonyms that are sent in the translation set need to be distinguished among the originally captured source, the HL7 specified code, or some future role.  When this code is NULL, it indicates that the translation is an undefined type.  When valued, this property must contain one of the following values: SRC - Source (or original) code HL7 - HL7 Specified or Mandated SH - both HL7 mandated and the original code (precoordination) There may be additional values added to this value set as we work through the use of codes in messages and determine other Use Cases requiring special interpretation of the translations."/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
+  <concept id="22615">
+    <code value="O"/>
+    <display value="originally produced code"/>
+    <definition value="  Description:&#xD;&#xA;Originally produced code."/>
+  </concept>
+  <concept id="23533">
+    <code value="OR"/>
+    <display value="original and required"/>
+    <definition value=" Originally produced code, required by the specification describing the use of the coded concept."/>
+  </concept>
+  <concept id="22617">
+    <code value="P"/>
+    <display value="post-coded"/>
+    <definition value="  Description:&#xD;&#xA;Post-coded from free text source&lt;/description&gt;"/>
+  </concept>
+  <concept id="23534">
+    <code value="PR"/>
+    <display value="post-coded and required"/>
+    <definition value=" Post-coded from free text source, required by the specification describing the use of the coded concept."/>
+  </concept>
+  <concept id="22616">
+    <code value="R"/>
+    <display value="required"/>
+    <definition value="  Description:&#xD;&#xA;Required standard code for HL7."/>
+  </concept>
+  <concept id="19252">
+    <code value="HL7"/>
+    <display value="HL7 Specified or Mandated"/>
+    <definition value=" HL7 Specified or Mandated"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="19253">
+    <code value="SH"/>
+    <display value="Both HL7 mandated and the original code"/>
+    <definition value=" Both HL7 mandated and the original code (precoordination)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="19251">
+    <code value="SRC"/>
+    <display value="Source (or original) code"/>
+    <definition value=" Source (or original) code"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+</CodeSystem>

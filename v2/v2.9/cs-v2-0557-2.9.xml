@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0557-2.9"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="FM"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
+    <valueUri value="http://hl7.org/v2/ch02c.html#Heading480"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
+    <valueString value="2.C.2.464"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
+    <valueCode value="User"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v2-0557-2.9"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.361"/>
+  </identifier>
+  <version value="1"/>
+  <name value="V2Table0557v2.9"/>
+  <title value="V2 Table: Payee Type"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2016-03-11"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/grahamegrieve/vocab-poc"/>
+    </telecom>
+  </contact>
+  <description value="Code system of concepts used to specify the type of payee (e.g., organization, person).  Used in the Payee Information (PYE) segment in HL7 Version 2.x messaging."/>
+  <purpose value="Underlying Code System for V2 table 0557 (Payee Type, version 2.9)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v2-0557-2.9"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://healthintersections.com.au/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://healthintersections.com.au/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://healthintersections.com.au/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://healthintersections.com.au/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="The payee is not a person/individual/being, but an entity commonly identified as an organization.  Examples could be a country healthcare payer, or an insurance company responsible for payment."/>
+    </extension>
+    <code value="ORG"/>
+    <display value="Payee Organization"/>
+    <definition value="Payee Organization"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="A person/individual/being."/>
+    </extension>
+    <code value="PERS"/>
+    <display value="Person"/>
+    <definition value="Person"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Person/individual/being responsible for payment."/>
+    </extension>
+    <code value="PPER"/>
+    <display value="Pay Person"/>
+    <definition value="Pay Person"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="A legal entity that controls and directs a worker under an express or implied contract of employment and a salary or wages in compensation.&#xD;&#xA;&#xD;&#xA;In worker&#x2019;s compensation cases, the Employer may be the &#x201C;organization&#x201D; responsible for paying the healthcare charges for employment related illness or injury."/>
+    </extension>
+    <code value="EMPL"/>
+    <display value="Employer"/>
+    <definition value="Employer"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>

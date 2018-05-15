@@ -1,0 +1,2594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-RoleCode"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>A set of codes further specifying the kind of Role; specific classification codes for further qualifying RoleClass codes.</p>
+               
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleCode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.111"/>
+  </identifier>
+  <name value="RoleCode"/>
+  <title value="RoleCode"/>
+  <status value="active"/>
+  <date value="2017-07-31"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value=" A set of codes further specifying the kind of Role; specific classification codes for further qualifying RoleClass codes."/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-relationshipKind">
+      <valueCode value="Specializes"/>
+    </extension>
+    <code value="ClassifiesClassCode"/>
+    <description value="The child code is a classification of the particular class group identified by the &#39;classCode&#39; in a RIM class as the parent code.  Used only in RIM backbone classes to link the code and classCode values."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
+  <concept id="21489">
+    <code value="_AffiliationRoleType"/>
+    <display value="AffiliationRoleType"/>
+    <definition value=" Concepts characterizing the type of association formed by player and scoper when there is a recognized Affiliate role by which the two parties are related.  Examples:&#xD;&#xA;Business Partner, Business Associate, Colleague"/>
+    <property>
+      <code value="ClassifiesClassCode"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+        <code value="AFFL"/>
+      </valueCoding>
+    </property>
+    <concept id="23767">
+      <code value="_AgentRoleType"/>
+      <display value="AgentRoleType"/>
+      <definition value=" Parties that may or should contribute or have contributed to an Act."/>
+      <concept id="23768">
+        <code value="AMENDER"/>
+        <display value="amender"/>
+        <definition value=" An entity which corrected, edited, or amended pre-existing information."/>
+      </concept>
+      <concept id="23769">
+        <code value="CLASSIFIER"/>
+        <display value="classifier"/>
+        <definition value=" An individual authorized to assign an original classification to information, including compilations of unclassified information, based on a determination that the information requires protection against unauthorized disclosure. The individual marks the information with immutable, computable, and human readable security labels in accordance with applicable security labeling policies.  The labeling policies provide instructions on whether and if so how the security labels may be later reclassified [i.e., upgraded, downgraded, used in derivative classification, or declassified] in a manner that preserves the overridden original classification binding and provenance."/>
+      </concept>
+      <concept id="23770">
+        <code value="CONSENTER"/>
+        <display value="consenter"/>
+        <definition value=" An entity or an entity&#39;s delegatee who is the grantee in an agreement such as a consent for services, advanced directive, or a privacy consent directive in accordance with jurisdictional, organizational, or patient policy."/>
+      </concept>
+      <concept id="23771">
+        <code value="CONSWIT"/>
+        <display value="consent witness"/>
+        <definition value=" An entity which has witnessed and attests to observing another entity being counseled about an agreement such as a consent for services, advanced directive, or a privacy consent directive."/>
+      </concept>
+      <concept id="23772">
+        <code value="COPART"/>
+        <display value="co-participant"/>
+        <definition value=" An entity which participates in the generation of and attest to veracity of content, but is not an author or coauthor. For example a surgeon who is required by institutional, regulatory, or legal rules to sign an operative report, but who was not involved in the authorship of that report."/>
+      </concept>
+      <concept id="23773">
+        <code value="DECLASSIFIER"/>
+        <display value="declassifier"/>
+        <definition value=" An individual which is authorized to declassify information based on a determination that the information no longer requires protection against unauthorized disclosure.  The individual marks the information being declassified using computable and human readable security labels indicating that this is copy of previously classified information is unclassified in accordance with applicable security labeling policies.  The labeling policies provide instructions on whether and if so how the security labels may be later reclassified [i.e., upgraded or used in derivative classification] in a manner that preserves the overridden original classification binding and provenance."/>
+      </concept>
+      <concept id="23774">
+        <code value="DELEGATEE"/>
+        <display value="delegatee"/>
+        <definition value=" A party to whom some right or authority is granted by a delegator."/>
+      </concept>
+      <concept id="23775">
+        <code value="DELEGATOR"/>
+        <display value="delegator"/>
+        <definition value=" A party that grants all or some portion its right or authority to another party."/>
+      </concept>
+      <concept id="23777">
+        <code value="DOWNGRDER"/>
+        <display value="downgrader"/>
+        <definition value=" An individual authorized to lower the classification level of labeled content and provide rationale for doing so as directed by a classification guide."/>
+      </concept>
+      <concept id="23776">
+        <code value="DRIVCLASSIFIER"/>
+        <display value="derivative classifier"/>
+        <definition value=" An individual who is only authorized to classify reproduced, extracted, or summarized classified information, or compile classified and unclassified information by applying classification markings derived from source material or as directed by a classification guide."/>
+      </concept>
+      <concept id="23779">
+        <code value="GRANTEE"/>
+        <display value="grantee"/>
+        <definition value=" An entity which accepts certain rights or authority from a grantor."/>
+      </concept>
+      <concept id="23778">
+        <code value="GRANTOR"/>
+        <display value="grantor"/>
+        <definition value=" An entity which agrees to confer certain rights or authority to a grantee."/>
+      </concept>
+      <concept id="23780">
+        <code value="INTPRTER"/>
+        <display value="interpreter"/>
+        <definition value=" An entity which converts spoken or written language into the language of key participants in an event such as when a provider is obtaining a patient&#39;s consent to treatment or permission to disclose information."/>
+      </concept>
+      <concept id="23781">
+        <code value="REVIEWER"/>
+        <display value="reviewer"/>
+        <definition value=" An entity authorized to filter information according to approved criteria."/>
+      </concept>
+      <concept id="23782">
+        <code value="VALIDATOR"/>
+        <display value="validator"/>
+        <definition value=" An entity authorized to validate information for inclusion in a record."/>
+      </concept>
+    </concept>
+    <concept id="22170">
+      <code value="_CoverageSponsorRoleType"/>
+      <display value="CoverageSponsorRoleType"/>
+      <definition value="  Description:&#xD;&#xA;Codes that indicate a specific type of sponsor.  Used when the sponsor&#39;s role is only either as a fully insured sponsor or only as a self-insured sponsor.  NOTE: Where a sponsor may be either, use the SponsorParticipationFunction.code (fully insured or self insured) to indicate the type of responsibility. (CO6-0057)"/>
+      <property>
+        <code value="ClassifiesClassCode"/>
+        <valueCoding>
+          <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+          <code value="SPNSR"/>
+        </valueCoding>
+      </property>
+      <concept id="22171">
+        <code value="FULLINS"/>
+        <display value="Fully insured coverage sponsor"/>
+        <definition value="  Description:&#xD;&#xA;An employer or organization that contracts with an underwriter to assumes the financial risk and administrative responsibility for coverage of health services for covered parties."/>
+      </concept>
+      <concept id="22172">
+        <code value="SELFINS"/>
+        <display value="Self insured coverage sponsor"/>
+        <definition value="  Description:&#xD;&#xA;An employer or organization that assumes the financial risk and administrative responsibility for coverage of health services for covered parties."/>
+      </concept>
+    </concept>
+    <concept id="22091">
+      <code value="_PayorRoleType"/>
+      <display value="PayorRoleType"/>
+      <definition value="  Description:&#xD;&#xA;PayorRoleType for a particular type of policy or program benefit package or plan where more detail about the coverage administration role of the Payor is required.  The functions performed by a Payor qualified by a PayorRoleType may be specified by the PayorParticpationFunction value set.  Examples:&#xD;&#xA;A Payor that is a TPA may administer a managed care plan without underwriting the risk."/>
+      <concept id="22093">
+        <code value="ENROLBKR"/>
+        <display value="Enrollment Broker"/>
+        <definition value="  Description:&#xD;&#xA;A payor that is responsible for functions related to the enrollment of covered parties."/>
+      </concept>
+      <concept id="22092">
+        <code value="TPA"/>
+        <display value="Third party administrator"/>
+        <definition value="  Description:&#xD;&#xA;Third party administrator (TPA) is a payor organization that processes health care claims without carrying insurance risk. Third party administrators are prominent players in the managed care industry and have the expertise and capability to administer all or a portion of the claims process. They are normally contracted by a health insurer or self-insuring companies to administer services, including claims administration, premium collection, enrollment and other administrative activities. Self-insured employers often contract with third party administrator to handle their insurance functions. Insurance companies oftentimes outsource the claims, utilization review or membership functions to a TPA. Sometimes TPAs only manage provider networks, only claims or only utilization review. While some third-party administrators may operate as units of insurance companies, they are often independent. However, hospitals or provider organizations desiring to set up their own health plans will often outsource certain responsibilities to TPAs.  TPAs may perform one or several payor functions, specified by the PayorParticipationFunction value set, such as provider management, enrollment, utilization management, and fee for service claims adjudication management."/>
+      </concept>
+      <concept id="22094">
+        <code value="UMO"/>
+        <display value="Utilization management organization"/>
+        <definition value="  Description:&#xD;&#xA;A payor that is responsible for review and case management of health services covered under a policy or program."/>
+      </concept>
+    </concept>
+    <concept id="22030">
+      <code value="RESPRSN"/>
+      <display value="responsible party"/>
+      <definition value=" The role played by a party who has legal responsibility for another party."/>
+      <concept id="22031">
+        <code value="EXCEST"/>
+        <display value="executor of estate"/>
+        <definition value=" The role played by a person acting as the estate executor for a deceased subscriber or policyholder who was the responsible party"/>
+      </concept>
+      <concept id="22033">
+        <code value="GUADLTM"/>
+        <display value="guardian ad lidem"/>
+        <definition value=" The role played by a person appointed by the court to look out for the best interests of a minor child during the course of legal proceedings."/>
+      </concept>
+      <concept id="22032">
+        <code value="GUARD"/>
+        <display value="guardian"/>
+        <definition value=" The role played by a person or institution legally empowered with responsibility for the care of a ward."/>
+      </concept>
+      <concept id="22034">
+        <code value="POWATT"/>
+        <display value="power of attorney"/>
+        <definition value=" A relationship between two people in which one person authorizes another to act for him in a manner which is a legally binding upon the person giving such authority as if he or she personally were to do the acts."/>
+        <concept id="22036">
+          <code value="DPOWATT"/>
+          <display value="durable power of attorney"/>
+          <definition value=" A relationship between two people in which one person authorizes another, usually a family member or relative, to act for him or her in a manner which is a legally binding upon the person giving such authority as if he or she personally were to do the acts that is often limited in the kinds of powers that can be assigned.  Unlike ordinary powers of attorney, durable powers can survive for long periods of time, and again, unlike standard powers of attorney, durable powers can continue after incompetency."/>
+        </concept>
+        <concept id="22035">
+          <code value="HPOWATT"/>
+          <display value="healthcare power of attorney"/>
+          <definition value=" A relationship between two people in which one person authorizes another to act for him or her in a manner which is a legally binding upon the person giving such authority as if he or she personally were to do the acts that continues (by its terms) to be effective even though the grantor has become mentally incompetent after signing the document."/>
+        </concept>
+        <concept id="22037">
+          <code value="SPOWATT"/>
+          <display value="special power of attorney"/>
+          <definition value=" A relationship between two people in which one person authorizes another to act for him or her in a manner which is a legally binding upon the person giving such authority as if he or she personally were to do the acts that is often limited in the kinds of powers that can be assigned."/>
+        </concept>
+      </concept>
+    </concept>
+  </concept>
+  <concept id="21326">
+    <code value="_AssignedRoleType"/>
+    <display value="AssignedRoleType"/>
+    <property>
+      <code value="ClassifiesClassCode"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+        <code value="ASSIGNED"/>
+      </valueCoding>
+    </property>
+    <concept id="22155">
+      <code value="_AssignedNonPersonLivingSubjectRoleType"/>
+      <display value="AssignedNonPersonLivingSubjectRoleType"/>
+      <definition value="  Description:&#xD;&#xA;A role type that is used to further qualify a non-person subject playing a role where the role class attribute is set to RoleClass AssignedEntity"/>
+      <property>
+        <code value="ClassifiesClassCode"/>
+        <valueCoding>
+          <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+          <code value="ASSIGNED"/>
+        </valueCoding>
+      </property>
+      <concept id="22156">
+        <code value="ASSIST"/>
+        <display value="Assistive non-person living subject"/>
+        <definition value="  Description:&#xD;&#xA;Dogs trained to assist the ill or physically challenged."/>
+      </concept>
+      <concept id="22157">
+        <code value="BIOTH"/>
+        <display value="Biotherapeutic non-person living subject"/>
+        <definition value="  Description:&#xD;&#xA;Animals, including fish and insects, and microorganisms which may participate as assigned entities in biotherapies."/>
+        <concept id="22159">
+          <code value="ANTIBIOT"/>
+          <display value="Antibiotic"/>
+          <definition value="  Description:&#xD;&#xA;Non-person living subject used as antibiotic.  Examples:&#xD;&#xA;Bacteriophage, is a virus that infects bacteria."/>
+        </concept>
+        <concept id="22158">
+          <code value="DEBR"/>
+          <display value="Debridement"/>
+          <definition value="  Description:&#xD;&#xA;Maggots raised for biodebridement.  Discussion:&#xD;&#xA;Maggot Debridement Therapy is the medical use of live maggots for cleaning non-healing wounds.  Examples:&#xD;&#xA;Removal of burnt skin."/>
+        </concept>
+      </concept>
+      <concept id="22160">
+        <code value="CCO"/>
+        <display value="Clinical Companion"/>
+        <definition value="  Description:&#xD;&#xA;Companion animals, such as dogs, cats, and rabbits, which may be provided to patients to improve general mood, decrease depression and loneliness, and distract from stress-inducing concerns to improve quality of life."/>
+      </concept>
+      <concept id="22161">
+        <code value="SEE"/>
+        <display value="Seeing"/>
+        <definition value="  Description:&#xD;&#xA;Dogs trained to assist persons who are seeing impaired or blind."/>
+      </concept>
+      <concept id="22162">
+        <code value="SNIFF"/>
+        <display value="Sniffing"/>
+        <definition value="  Description:&#xD;&#xA;Dogs trained or having the ability to detect imminent seizures or cancers in humans, probably as a result of volatile chemical (odors) given off by the malignancy of the host."/>
+      </concept>
+    </concept>
+  </concept>
+  <concept id="21120">
+    <code value="_CertifiedEntityType"/>
+    <display value="CertifiedEntityType"/>
+    <definition value=" Defines types of certifications for all entities"/>
+    <property>
+      <code value="ClassifiesClassCode"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+        <code value="QUAL"/>
+      </valueCoding>
+    </property>
+    <concept id="21132">
+      <code value="_PractitionerCertifiedEntityType"/>
+      <display value="PractitionerCertifiedEntityType"/>
+      <definition value=" Defines types of certifications for practitioners"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+    </concept>
+  </concept>
+  <concept id="23063">
+    <code value="_CitizenRoleType"/>
+    <display value="CitizenRoleType"/>
+    <definition value=" A role type used to qualify a person&#39;s legal status within a country or nation."/>
+    <concept id="23066">
+      <code value="CAS"/>
+      <display value="asylum seeker"/>
+      <definition value=" A person who has fled his or her home country to find a safe place elsewhere."/>
+      <concept id="23067">
+        <code value="CASM"/>
+        <display value="single minor asylum seeker"/>
+        <definition value=" A person who is someone of below legal age who has fled his or her home country,without his or her parents&#xD;&#xA;, to find a safe place elsewhere at time of categorization."/>
+      </concept>
+    </concept>
+    <concept id="23064">
+      <code value="CN"/>
+      <display value="national"/>
+      <definition value=" A person who is legally recognized as a member of a nation or country, with associated rights and obligations."/>
+    </concept>
+    <concept id="23070">
+      <code value="CNRP"/>
+      <display value="non-country member without residence permit"/>
+      <definition value=" A foreigner who is present in a country (which is foreign to him/her) unlawfully or without the country&#39;s authorization (may be called an illegal alien)."/>
+      <concept id="23071">
+        <code value="CNRPM"/>
+        <display value="non-country member minor without residence permit"/>
+        <definition value=" A person who is below legal age present in a country,without his or her parents&#xD;&#xA;, (which is foreign to him/her) unlawfully or without the country&#39;s authorization."/>
+      </concept>
+    </concept>
+    <concept id="23065">
+      <code value="CPCA"/>
+      <display value="permit card applicant"/>
+      <definition value=" A non-country member admitted to the territory of a nation or country as a non-resident for an explicit purpose."/>
+    </concept>
+    <concept id="23068">
+      <code value="CRP"/>
+      <display value="non-country member with residence permit"/>
+      <definition value=" A foreigner who is a resident of the country but does not have citizenship."/>
+      <concept id="23069">
+        <code value="CRPM"/>
+        <display value="non-country member minor with residence permit"/>
+        <definition value=" A person who is a resident below legal age of the countrywithout his or her parents&#xD;&#xA;and does not have citizenship."/>
+      </concept>
+    </concept>
+  </concept>
+  <concept id="21122">
+    <code value="_ContactRoleType"/>
+    <display value="ContactRoleType"/>
+    <definition value=" Types of contact for Role code &quot;CON&quot;"/>
+    <property>
+      <code value="ClassifiesClassCode"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+        <code value="CON"/>
+      </valueCoding>
+    </property>
+    <concept id="21119">
+      <code value="_AdministrativeContactRoleType"/>
+      <display value="AdministrativeContactRoleType"/>
+      <definition value=" A contact role used for business and/or administrative purposes."/>
+      <property>
+        <code value="ClassifiesClassCode"/>
+        <valueCoding>
+          <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+          <code value="CON"/>
+        </valueCoding>
+      </property>
+      <concept id="17623">
+        <code value="BILL"/>
+        <display value="Billing Contact"/>
+        <definition value=" A contact role used to identify a person within a Provider organization that can be contacted for billing purposes (e.g. about the content of the Invoice)."/>
+      </concept>
+      <concept id="21332">
+        <code value="ORG"/>
+        <display value="organizational contact"/>
+        <definition value=" A contact for an organization for administrative purposes. Contact role specifies a person acting as a liason for the organization. Example: HR Department representative."/>
+      </concept>
+      <concept id="17624">
+        <code value="PAYOR"/>
+        <display value="Payor Contact"/>
+        <definition value=" A contact role used to identify a person within a Payor organization to whom this communication is addressed."/>
+      </concept>
+    </concept>
+    <concept id="12209">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
+        <valueString value="636-20081219"/>
+      </extension>
+      <code value="ECON"/>
+      <display value="emergency contact"/>
+      <definition value=" A contact designated for contact in emergent situations."/>
+    </concept>
+    <concept id="12208">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
+        <valueString value="636-20081219"/>
+      </extension>
+      <code value="NOK"/>
+      <display value="next of kin"/>
+      <definition value=" Played by an individual who is designated as the next of kin for another individual which scopes the role."/>
+    </concept>
+  </concept>
+  <concept id="22400">
+    <code value="_IdentifiedEntityType"/>
+    <display value="IdentifiedEntityType"/>
+    <definition value="  Definition:&#xD;&#xA;A code representing the type of identifier that has been assigned to the identified entity (IDENT).  Examples:&#xD;&#xA;Example values include Social Insurance Number, Product Catalog ID, Product Model Number."/>
+    <concept id="23294">
+      <code value="_LocationIdentifiedEntityRoleCode"/>
+      <display value="LocationIdentifiedEntityRoleCode"/>
+      <definition value="  Description:&#xD;&#xA;Describes types of identifiers other than the primary location registry identifier for a service delivery location.  Identifiers may be assigned by a local service delivery organization, a formal body capable of accrediting the location for the capability to provide specific services or the identifier may be assigned at a jurisdictional level."/>
+      <concept id="23297">
+        <code value="ACHFID"/>
+        <display value="accreditation location identifier"/>
+        <definition value="  Description:&#xD;&#xA;Identifier assigned to a  location by the organization responsible for accrediting the location."/>
+      </concept>
+      <concept id="23295">
+        <code value="JURID"/>
+        <display value="jurisdiction location identifier"/>
+        <definition value="  Description:&#xD;&#xA;Identifier assigned to a location by a jurisdiction."/>
+      </concept>
+      <concept id="23296">
+        <code value="LOCHFID"/>
+        <display value="local location identifier"/>
+        <definition value="  Description:&#xD;&#xA;Identifier assigned to a  location by a local party (which could be the facility itself or organization overseeing a group of facilities)."/>
+      </concept>
+    </concept>
+  </concept>
+  <concept id="21128">
+    <code value="_LivingSubjectProductionClass"/>
+    <display value="LivingSubjectProductionClass"/>
+    <definition value=" Code indicating the primary use for which a living subject is bred or grown"/>
+    <concept id="11506">
+      <code value="BF"/>
+      <display value="Beef"/>
+      <definition value=" Cattle used for meat production"/>
+    </concept>
+    <concept id="11508">
+      <code value="BL"/>
+      <display value="Broiler"/>
+      <definition value=" Chickens raised for meat"/>
+    </concept>
+    <concept id="11507">
+      <code value="BR"/>
+      <display value="Breeder"/>
+      <definition value=" Breeding/genetic stock"/>
+    </concept>
+    <concept id="11509">
+      <code value="CO"/>
+      <display value="Companion"/>
+      <definition value=" Companion animals"/>
+    </concept>
+    <concept id="11510">
+      <code value="DA"/>
+      <display value="Dairy"/>
+      <definition value=" Milk production"/>
+    </concept>
+    <concept id="11511">
+      <code value="DR"/>
+      <display value="Draft"/>
+      <definition value=" Draft animals"/>
+    </concept>
+    <concept id="11512">
+      <code value="DU"/>
+      <display value="Dual"/>
+      <definition value=" Dual purpose.  Defined purposes based on species and breed"/>
+    </concept>
+    <concept id="11513">
+      <code value="FI"/>
+      <display value="Fiber"/>
+      <definition value=" Animals raised for their fur, hair or skins"/>
+    </concept>
+    <concept id="11514">
+      <code value="LY"/>
+      <display value="Layer"/>
+      <definition value=" Chickens raised for egg production"/>
+    </concept>
+    <concept id="11515">
+      <code value="MT"/>
+      <display value="Meat"/>
+      <definition value=" Animals raised for meat production"/>
+    </concept>
+    <concept id="11516">
+      <code value="MU"/>
+      <display value="Multiplier"/>
+      <definition value=" Poultry flocks used for chick/poult production"/>
+    </concept>
+    <concept id="11517">
+      <code value="PL"/>
+      <display value="Pleasure"/>
+      <definition value=" Animals rasied for recreation"/>
+    </concept>
+    <concept id="11518">
+      <code value="RC"/>
+      <display value="Racing"/>
+      <definition value=" Animals raised for racing perfomance"/>
+    </concept>
+    <concept id="11519">
+      <code value="SH"/>
+      <display value="Show"/>
+      <definition value=" Animals raised for shows"/>
+    </concept>
+    <concept id="11520">
+      <code value="VL"/>
+      <display value="Veal"/>
+      <definition value=" Cattle raised for veal meat production.  Implicit is the husbandry method."/>
+    </concept>
+    <concept id="11521">
+      <code value="WL"/>
+      <display value="Wool"/>
+      <definition value=" Sheep, goats and other mammals raised for their fiber"/>
+    </concept>
+    <concept id="11522">
+      <code value="WO"/>
+      <display value="Working"/>
+      <definition value=" Animals used to perform work"/>
+    </concept>
+  </concept>
+  <concept id="21532">
+    <code value="_MedicationGeneralizationRoleType"/>
+    <display value="MedicationGeneralizationRoleType"/>
+    <definition value=" Identifies the specific hierarchical relationship between the playing and scoping medications.  Examples:&#xD;&#xA;Generic, Generic Formulation, Therapeutic Class, etc."/>
+    <property>
+      <code value="ClassifiesClassCode"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+        <code value="GEN"/>
+      </valueCoding>
+    </property>
+    <concept id="23298">
+      <code value="DC"/>
+      <display value="therapeutic class"/>
+      <definition value="  Description:&#xD;&#xA;A categorization of medicinal products by their therapeutic properties and/or main therapeutic use."/>
+    </concept>
+    <concept id="21810">
+      <code value="GD"/>
+      <display value="generic drug"/>
+      <definition value=" Relates a manufactured drug product to the non-proprietary (generic) representation of its ingredients independent of strength, and form. The scoping entity identifies a unique combination of medicine ingredients; sometimes referred to as &quot;ingredient set&quot;."/>
+      <concept id="21814">
+        <code value="GDF"/>
+        <display value="generic drug form"/>
+        <definition value=" Relates a manufactured drug product to the non-proprietary (generic) representation of its ingredients and dose form, independent of strength of the ingredients. The scoping entity identifies a unique combination of medicine ingredients in a specific dose form."/>
+      </concept>
+      <concept id="21811">
+        <code value="GDS"/>
+        <display value="generic drug strength"/>
+        <definition value=" Relates a manufactured drug product to the non-proprietary (generic) representation of is ingredients with their strength.  The scoping entity identifies a unique combination of medicine ingredients with their strength."/>
+      </concept>
+      <concept id="21812">
+        <code value="GDSF"/>
+        <display value="generic drug strength form"/>
+        <definition value=" Relates a manufactured drug product to the non-proprietary (generic) representation of its ingredients with their strength in a specific dose form. The scoping entity identifies a unique combination of medicine ingredients with their strength in a single dose form."/>
+      </concept>
+    </concept>
+    <concept id="21813">
+      <code value="MGDSF"/>
+      <display value="manufactured drug strength form"/>
+      <definition value=" Relates a manufactured drug product to the non-proprietary (generic) representation of its ingredients with their strength in a specific dose form. The scoping entity identifies a unique combination of medicine ingredients with their strength in a single dose form."/>
+    </concept>
+  </concept>
+  <concept id="21129">
+    <code value="_MemberRoleType"/>
+    <display value="MemberRoleType"/>
+    <definition value=" Types of membership for Role code &quot;MBR&quot;"/>
+    <property>
+      <code value="ClassifiesClassCode"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+        <code value="MBR"/>
+      </valueCoding>
+    </property>
+    <concept id="12207">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+        <valueString value="May be covered by the Member of Entity with respect to Organization of role type tribal."/>
+      </extension>
+      <code value="TRB"/>
+      <display value="Tribal Member"/>
+      <definition value=" A person who is a member of a tribe."/>
+    </concept>
+  </concept>
+  <concept id="21131">
+    <code value="_PersonalRelationshipRoleType"/>
+    <display value="PersonalRelationshipRoleType"/>
+    <property>
+      <code value="ClassifiesClassCode"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+        <code value="PRS"/>
+      </valueCoding>
+    </property>
+    <concept id="17926">
+      <code value="FAMMEMB"/>
+      <display value="family member"/>
+      <definition value=" A relationship between two people characterizing their &quot;familial&quot; relationship"/>
+      <concept id="16360">
+        <code value="CHILD"/>
+        <display value="child"/>
+        <definition value=" The player of the role is a child of the scoping entity."/>
+        <concept id="11564">
+          <code value="CHLDADOPT"/>
+          <display value="adopted child"/>
+          <definition value=" The player of the role is a child taken into a family through legal means and raised by the scoping person (parent) as his or her own child."/>
+          <concept id="19756">
+            <code value="DAUADOPT"/>
+            <display value="adopted daughter"/>
+            <definition value=" The player of the role is a female child taken into a family through legal means and raised by the scoping person (parent) as his or her own child."/>
+          </concept>
+          <concept id="19757">
+            <code value="SONADOPT"/>
+            <display value="adopted son"/>
+            <definition value=" The player of the role is a male child taken into a family through legal means and raised by the scoping person (parent) as his or her own child."/>
+          </concept>
+        </concept>
+        <concept id="11565">
+          <code value="CHLDFOST"/>
+          <display value="foster child"/>
+          <definition value=" The player of the role is a child receiving parental care and nurture from the scoping person (parent) but not related to him or her through legal or blood ties."/>
+          <concept id="19758">
+            <code value="DAUFOST"/>
+            <display value="foster daughter"/>
+            <definition value=" The player of the role is a female child receiving parental care and nurture from the scoping person (parent) but not related to him or her through legal or blood ties."/>
+          </concept>
+          <concept id="19759">
+            <code value="SONFOST"/>
+            <display value="foster son"/>
+            <definition value=" The player of the role is a male child receiving parental care and nurture from the scoping person (parent) but not related to him or her through legal or blood ties."/>
+          </concept>
+        </concept>
+        <concept id="22915">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="DAUADOPT"/>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="DAUFOST"/>
+          </extension>
+          <code value="DAUC"/>
+          <display value="daughter"/>
+          <definition value="  Description:&#xD;&#xA;The player of the role is a female child (of any type) of scoping entity (parent)"/>
+          <concept id="16361">
+            <code value="DAU"/>
+            <display value="natural daughter"/>
+            <definition value=" The player of the role is a female offspring of the scoping entity (parent)."/>
+          </concept>
+          <concept id="19762">
+            <code value="STPDAU"/>
+            <display value="stepdaughter"/>
+            <definition value=" The player of the role is a daughter of the scoping person&#39;s spouse by a previous union."/>
+          </concept>
+        </concept>
+        <concept id="17930">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="DAU"/>
+          </extension>
+          <code value="NCHILD"/>
+          <display value="natural child"/>
+          <definition value=" The player of the role is an offspring of the scoping entity as determined by birth."/>
+          <concept id="16362">
+            <code value="SON"/>
+            <display value="natural son"/>
+            <definition value=" The player of the role is a male offspring of the scoping entity (parent)."/>
+          </concept>
+        </concept>
+        <concept id="22914">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="SONADOPT"/>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="SONFOST"/>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="SON"/>
+          </extension>
+          <code value="SONC"/>
+          <display value="son"/>
+          <definition value="  Description:&#xD;&#xA;The player of the role is a male child (of any type) of scoping entity (parent)"/>
+          <concept id="19763">
+            <code value="STPSON"/>
+            <display value="stepson"/>
+            <definition value=" The player of the role is a son of the scoping person&#39;s spouse by a previous union."/>
+          </concept>
+        </concept>
+        <concept id="11562">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="STPDAU"/>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="STPSON"/>
+          </extension>
+          <code value="STPCHLD"/>
+          <display value="step child"/>
+          <definition value=" The player of the role is a child of the scoping person&#39;s spouse by a previous union."/>
+        </concept>
+      </concept>
+      <concept id="22916">
+        <code value="EXT"/>
+        <display value="extended family member"/>
+        <definition value="  Description:&#xD;&#xA;A family member not having an immediate genetic or legal relationship e.g. Aunt, cousin, great grandparent, grandchild, grandparent, niece, nephew or uncle."/>
+        <concept id="19748">
+          <code value="AUNT"/>
+          <display value="aunt"/>
+          <definition value=" The player of the role is a sister of the scoping person&#39;s mother or father."/>
+          <concept id="22017">
+            <code value="MAUNT"/>
+            <display value="maternal aunt"/>
+            <definition value="  Description:&#xD;&#xA;The player of the role is a biological sister of the scoping person&#39;s biological mother."/>
+          </concept>
+          <concept id="22018">
+            <code value="PAUNT"/>
+            <display value="paternal aunt"/>
+            <definition value="  Description:&#xD;&#xA;The player of the role is a biological sister of the scoping person&#39;s biological father."/>
+          </concept>
+        </concept>
+        <concept id="19749">
+          <code value="COUSN"/>
+          <display value="cousin"/>
+          <definition value=" The player of the role is a relative of the scoping person descended from a common ancestor, such as a &#x9;grandparent, by two or more steps in a diverging line."/>
+          <concept id="22021">
+            <code value="MCOUSN"/>
+            <display value="maternal cousin"/>
+            <definition value="  Description:&#xD;&#xA;The player of the role is a biological relative of the scoping person descended from a common ancestor on the player&#39;s mother&#39;s side, such as a grandparent, by two or more steps in a diverging line."/>
+          </concept>
+          <concept id="22022">
+            <code value="PCOUSN"/>
+            <display value="paternal cousin"/>
+            <definition value="  Description:&#xD;&#xA;The player of the role is a biological relative of the scoping person descended from a common ancestor on the player&#39;s father&#39;s side, such as a grandparent, by two or more steps in a diverging line."/>
+          </concept>
+        </concept>
+        <concept id="19739">
+          <code value="GGRPRN"/>
+          <display value="great grandparent"/>
+          <definition value=" The player of the role is a parent of the scoping person&#39;s grandparent."/>
+          <concept id="19740">
+            <code value="GGRFTH"/>
+            <display value="great grandfather"/>
+            <definition value=" The player of the role is the father of the scoping person&#39;s grandparent."/>
+            <concept id="22013">
+              <code value="MGGRFTH"/>
+              <display value="maternal great-grandfather"/>
+              <definition value="  Description:&#xD;&#xA;The player of the role is the biological father of the scoping person&#39;s biological mother&#39;s parent."/>
+            </concept>
+            <concept id="22014">
+              <code value="PGGRFTH"/>
+              <display value="paternal great-grandfather"/>
+              <definition value="  Description:&#xD;&#xA;The player of the role is the biological father of the scoping person&#39;s biological father&#39;s parent."/>
+            </concept>
+          </concept>
+          <concept id="19741">
+            <code value="GGRMTH"/>
+            <display value="great grandmother"/>
+            <definition value=" The player of the role is the mother of the scoping person&#39;s grandparent."/>
+            <concept id="22015">
+              <code value="MGGRMTH"/>
+              <display value="maternal great-grandmother"/>
+              <definition value="  Description:&#xD;&#xA;The player of the role is the biological mother of the scoping person&#39;s biological mother&#39;s parent."/>
+            </concept>
+            <concept id="22016">
+              <code value="PGGRMTH"/>
+              <display value="paternal great-grandmother"/>
+              <definition value="  Description:&#xD;&#xA;The player of the role is the biological mother of the scoping person&#39;s biological father&#39;s parent."/>
+            </concept>
+          </concept>
+          <concept id="22011">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="MGGRFTH"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="MGGRMTH"/>
+            </extension>
+            <code value="MGGRPRN"/>
+            <display value="maternal great-grandparent"/>
+            <definition value="  Description:&#xD;&#xA;The player of the role is a biological parent of the scoping person&#39;s biological mother&#39;s parent."/>
+          </concept>
+          <concept id="22012">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PGGRFTH"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PGGRMTH"/>
+            </extension>
+            <code value="PGGRPRN"/>
+            <display value="paternal great-grandparent"/>
+            <definition value="  Description:&#xD;&#xA;The player of the role is a biological parent of the scoping person&#39;s biological father&#39;s parent."/>
+          </concept>
+        </concept>
+        <concept id="19745">
+          <code value="GRNDCHILD"/>
+          <display value="grandchild"/>
+          <definition value=" The player of the role is a child of the scoping person&#39;s son or daughter."/>
+          <concept id="19746">
+            <code value="GRNDDAU"/>
+            <display value="granddaughter"/>
+            <definition value=" The player of the role is a daughter of the scoping person&#39;s son or daughter."/>
+          </concept>
+          <concept id="19747">
+            <code value="GRNDSON"/>
+            <display value="grandson"/>
+            <definition value=" The player of the role is a son of the scoping person&#39;s son or daughter."/>
+          </concept>
+        </concept>
+        <concept id="16349">
+          <code value="GRPRN"/>
+          <display value="grandparent"/>
+          <definition value=" The player of the role is a parent of the scoping person&#39;s mother or father."/>
+          <concept id="16351">
+            <code value="GRFTH"/>
+            <display value="grandfather"/>
+            <definition value=" The player of the role is the father of the scoping person&#39;s mother or father."/>
+            <concept id="22009">
+              <code value="MGRFTH"/>
+              <display value="maternal grandfather"/>
+              <definition value="  Description:&#xD;&#xA;The player of the role is the biological father of the scoping person&#39;s biological mother."/>
+            </concept>
+            <concept id="22010">
+              <code value="PGRFTH"/>
+              <display value="paternal grandfather"/>
+              <definition value="  Description:&#xD;&#xA;The player of the role is the biological father of the scoping person&#39;s biological father."/>
+            </concept>
+          </concept>
+          <concept id="16350">
+            <code value="GRMTH"/>
+            <display value="grandmother"/>
+            <definition value=" The player of the role is the mother of the scoping person&#39;s mother or father."/>
+            <concept id="22007">
+              <code value="MGRMTH"/>
+              <display value="maternal grandmother"/>
+              <definition value="  Description:&#xD;&#xA;The player of the role is the biological mother of the scoping person&#39;s biological mother."/>
+            </concept>
+            <concept id="22008">
+              <code value="PGRMTH"/>
+              <display value="paternal grandmother"/>
+              <definition value="  Description:&#xD;&#xA;The player of the role is the biological mother of the scoping person&#39;s biological father."/>
+            </concept>
+          </concept>
+          <concept id="22005">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="MGRFTH"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="MGRMTH"/>
+            </extension>
+            <code value="MGRPRN"/>
+            <display value="maternal grandparent"/>
+            <definition value="  Description:&#xD;&#xA;The player of the role is the biological parent of the scoping person&#39;s biological mother."/>
+          </concept>
+          <concept id="22006">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PGRFTH"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PGRMTH"/>
+            </extension>
+            <code value="PGRPRN"/>
+            <display value="paternal grandparent"/>
+            <definition value="  Description:&#xD;&#xA;The player of the role is the biological parent of the scoping person&#39;s biological father."/>
+          </concept>
+        </concept>
+        <concept id="23601">
+          <code value="INLAW"/>
+          <display value="inlaw"/>
+          <definition value=" A relationship between an individual and a member of their spousal partner&#39;s immediate family."/>
+          <concept id="11563">
+            <code value="CHLDINLAW"/>
+            <display value="child-in-law"/>
+            <definition value=" The player of the role is the spouse of scoping person&#39;s child."/>
+            <concept id="19760">
+              <code value="DAUINLAW"/>
+              <display value="daughter in-law"/>
+              <definition value=" The player of the role is the wife of scoping person&#39;s son."/>
+            </concept>
+            <concept id="19761">
+              <code value="SONINLAW"/>
+              <display value="son in-law"/>
+              <definition value=" The player of the role is the husband of scoping person&#39;s daughter."/>
+            </concept>
+          </concept>
+          <concept id="19770">
+            <code value="PRNINLAW"/>
+            <display value="parent in-law"/>
+            <definition value=" The player of the role is the parent of scoping person&#39;s husband or wife."/>
+            <concept id="19771">
+              <code value="FTHINLAW"/>
+              <display value="father-in-law"/>
+              <definition value=" The player of the role is the father of the scoping person&#39;s husband or wife."/>
+            </concept>
+            <concept id="19772">
+              <code value="MTHINLAW"/>
+              <display value="mother-in-law"/>
+              <definition value=" The player of the role is the mother of the scoping person&#39;s husband or wife."/>
+              <designation>
+                <use>
+                  <system value="http://something...?"/>
+                  <code value="synonym"/>
+                </use>
+                <value value="MTHINLOAW"/>
+              </designation>
+            </concept>
+          </concept>
+          <concept id="19782">
+            <code value="SIBINLAW"/>
+            <display value="sibling in-law"/>
+            <definition value=" The player of the role is: (1) a sibling of the scoping person&#39;s spouse, or (2) the spouse of the scoping person&#39;s sibling, or (3) the spouse of a sibling of the scoping person&#39;s spouse."/>
+            <concept id="19783">
+              <code value="BROINLAW"/>
+              <display value="brother-in-law"/>
+              <definition value=" The player of the role is: (1) a brother of the scoping person&#39;s spouse, or (2) the husband of the scoping person&#39;s sister, or (3) the husband of a sister of the scoping person&#39;s spouse."/>
+            </concept>
+            <concept id="19784">
+              <code value="SISINLAW"/>
+              <display value="sister-in-law"/>
+              <definition value=" The player of the role is: (1) a sister of the scoping person&#39;s spouse, or (2) the wife of the scoping person&#39;s brother, or (3) the wife of a brother of the scoping person&#39;s spouse."/>
+              <designation>
+                <use>
+                  <system value="http://something...?"/>
+                  <code value="synonym"/>
+                </use>
+                <value value="SISLINLAW"/>
+              </designation>
+            </concept>
+          </concept>
+        </concept>
+        <concept id="19750">
+          <code value="NIENEPH"/>
+          <display value="niece/nephew"/>
+          <definition value=" The player of the role is a child of scoping person&#39;s brother or sister or of the brother or sister of the &#x9;scoping person&#39;s spouse."/>
+          <concept id="19751">
+            <code value="NEPHEW"/>
+            <display value="nephew"/>
+            <definition value=" The player of the role is a son of the scoping person&#39;s brother or sister or of the brother or sister of the &#x9;scoping person&#39;s spouse."/>
+          </concept>
+          <concept id="19752">
+            <code value="NIECE"/>
+            <display value="niece"/>
+            <definition value=" The player of the role is a daughter of the scoping person&#39;s brother or sister or of the brother or sister of the &#x9;scoping person&#39;s spouse."/>
+          </concept>
+        </concept>
+        <concept id="19753">
+          <code value="UNCLE"/>
+          <display value="uncle"/>
+          <definition value=" The player of the role is a brother of the scoping person&#39;s mother or father."/>
+          <concept id="22019">
+            <code value="MUNCLE"/>
+            <display value="maternal uncle"/>
+            <definition value="  Description:&#xD;&#xA;The player of the role is a biological brother of the scoping person&#39;s biological mother."/>
+          </concept>
+          <concept id="22020">
+            <code value="PUNCLE"/>
+            <display value="paternal uncle"/>
+            <definition value="  Description:&#xD;&#xA;The player of the role is a biological brother of the scoping person&#39;s biological father."/>
+          </concept>
+        </concept>
+      </concept>
+      <concept id="16346">
+        <code value="PRN"/>
+        <display value="parent"/>
+        <definition value=" The player of the role is one who begets, gives birth to, or nurtures and raises the scoping entity (child)."/>
+        <concept id="23602">
+          <code value="ADOPTP"/>
+          <display value="adoptive parent"/>
+          <definition value=" The player of the role (parent) has taken the scoper (child) into their family through legal means and raises them as his or her own child."/>
+          <concept id="23603">
+            <code value="ADOPTF"/>
+            <display value="adoptive father"/>
+            <definition value=" The player of the role (father) is a male who has taken the scoper (child) into their family through legal means and raises them as his own child."/>
+          </concept>
+          <concept id="23604">
+            <code value="ADOPTM"/>
+            <display value="adoptive mother"/>
+            <definition value=" The player of the role (father) is a female who has taken the scoper (child) into their family through legal means and raises them as her own child."/>
+          </concept>
+        </concept>
+        <concept id="16348">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="ADOPTF"/>
+          </extension>
+          <code value="FTH"/>
+          <display value="father"/>
+          <definition value=" The player of the role is a male who begets or raises or nurtures the scoping entity (child)."/>
+          <concept id="23633">
+            <code value="FTHFOST"/>
+            <display value="foster father"/>
+            <definition value=" The player of the role (parent) who is a male state-certified caregiver responsible for the scoper (child) who has been placed in the parent&#39;s care. The placement of the child is usually arranged through the government or a social-service agency, and temporary. The state, via a jurisdiction recognized child protection agency, stands as in loco parentis to the child, making all legal decisions while the foster parent is responsible for the day-to-day care of the specified child."/>
+          </concept>
+          <concept id="19765">
+            <code value="NFTH"/>
+            <display value="natural father"/>
+            <definition value=" The player of the role is a male who begets the scoping entity (child)."/>
+            <concept id="21455">
+              <code value="NFTHF"/>
+              <display value="natural father of fetus"/>
+              <definition value=" Indicates the biologic male parent of a fetus."/>
+            </concept>
+          </concept>
+          <concept id="19768">
+            <code value="STPFTH"/>
+            <display value="stepfather"/>
+            <definition value=" The player of the role is the husband of scoping person&#39;s mother and not the scoping person&#39;s natural father."/>
+          </concept>
+        </concept>
+        <concept id="16347">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="ADOPTM"/>
+          </extension>
+          <code value="MTH"/>
+          <display value="mother"/>
+          <definition value=" The player of the role is a female who conceives, gives birth to, or raises and nurtures the scoping entity (child)."/>
+          <concept id="23605">
+            <code value="GESTM"/>
+            <display value="gestational mother"/>
+            <definition value=" The player is a female whose womb carries the fetus of the scoper.  Generally used when the gestational mother and natural mother are not the same."/>
+          </concept>
+          <concept id="23632">
+            <code value="MTHFOST"/>
+            <display value="foster mother"/>
+            <definition value=" The player of the role (parent) who is a female state-certified caregiver responsible for the scoper (child) who has been placed in the parent&#39;s care. The placement of the child is usually arranged through the government or a social-service agency, and temporary. The state, via a jurisdiction recognized child protection agency, stands as in loco parentis to the child, making all legal decisions while the foster parent is responsible for the day-to-day care of the specified child."/>
+          </concept>
+          <concept id="19766">
+            <code value="NMTH"/>
+            <display value="natural mother"/>
+            <definition value=" The player of the role is a female who conceives or gives birth to the scoping entity (child)."/>
+            <concept id="23606">
+              <code value="NMTHF"/>
+              <display value="natural mother of fetus"/>
+              <definition value=" The player is the biologic female parent of the scoping fetus."/>
+            </concept>
+          </concept>
+          <concept id="19769">
+            <code value="STPMTH"/>
+            <display value="stepmother"/>
+            <definition value=" The player of the role is the wife of scoping person&#39;s father and not the scoping person&#39;s natural mother."/>
+          </concept>
+        </concept>
+        <concept id="19764">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="NFTH"/>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="NMTH"/>
+          </extension>
+          <code value="NPRN"/>
+          <display value="natural parent"/>
+        </concept>
+        <concept id="23631">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="FTHFOST"/>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="MTHFOST"/>
+          </extension>
+          <code value="PRNFOST"/>
+          <display value="foster parent"/>
+          <definition value=" The player of the role (parent) who is a state-certified caregiver responsible for the scoper (child) who has been placed in the parent&#39;s care. The placement of the child is usually arranged through the government or a social-service agency, and temporary. The state, via a jurisdiction recognized child protection agency, stands as in loco parentis to the child, making all legal decisions while the foster parent is responsible for the day-to-day care of the specified child."/>
+        </concept>
+        <concept id="19767">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="STPFTH"/>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="STPMTH"/>
+          </extension>
+          <code value="STPPRN"/>
+          <display value="step parent"/>
+          <definition value=" The player of the role is the spouse of the scoping person&#39;s parent and not the scoping person&#39;s natural parent."/>
+        </concept>
+      </concept>
+      <concept id="11567">
+        <code value="SIB"/>
+        <display value="sibling"/>
+        <definition value=" The player of the role shares one or both parents in common with the scoping entity."/>
+        <concept id="16359">
+          <code value="BRO"/>
+          <display value="brother"/>
+          <definition value=" The player of the role is a male sharing one or both parents in common with the scoping entity."/>
+          <concept id="19777">
+            <code value="HBRO"/>
+            <display value="half-brother"/>
+            <definition value=" The player of the role is a male related to the scoping entity by sharing only one biological parent."/>
+          </concept>
+          <concept id="19774">
+            <code value="NBRO"/>
+            <display value="natural brother"/>
+            <definition value=" The player of the role is a male having the same biological parents as the scoping entity."/>
+            <concept id="23608">
+              <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+                <valueCode value="FTWINBRO"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+                <valueCode value="ITWINBRO"/>
+              </extension>
+              <code value="TWINBRO"/>
+              <display value="twin brother"/>
+              <definition value=" The scoper was carried in the same womb as the male player and shares common biological parents."/>
+            </concept>
+          </concept>
+          <concept id="19780">
+            <code value="STPBRO"/>
+            <display value="stepbrother"/>
+            <definition value=" The player of the role is a son of the scoping person&#39;s stepparent."/>
+          </concept>
+        </concept>
+        <concept id="19776">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="HBRO"/>
+          </extension>
+          <code value="HSIB"/>
+          <display value="half-sibling"/>
+          <definition value=" The player of the role is related to the scoping entity by sharing only one biological parent."/>
+          <concept id="19778">
+            <code value="HSIS"/>
+            <display value="half-sister"/>
+            <definition value=" The player of the role is a female related to the scoping entity by sharing only one biological parent."/>
+          </concept>
+        </concept>
+        <concept id="19773">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="NBRO"/>
+          </extension>
+          <code value="NSIB"/>
+          <display value="natural sibling"/>
+          <definition value=" The player of the role has both biological parents in common with the scoping entity."/>
+          <concept id="19775">
+            <code value="NSIS"/>
+            <display value="natural sister"/>
+            <definition value=" The player of the role is a female having the same biological parents as the scoping entity."/>
+            <concept id="23609">
+              <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+                <valueCode value="FTWINSIS"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+                <valueCode value="ITWINSIS"/>
+              </extension>
+              <code value="TWINSIS"/>
+              <display value="twin sister"/>
+              <definition value=" The scoper was carried in the same womb as the female player and shares common biological parents."/>
+            </concept>
+          </concept>
+          <concept id="23607">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="TWINBRO"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="TWINSIS"/>
+            </extension>
+            <code value="TWIN"/>
+            <display value="twin"/>
+            <definition value=" The scoper and player were carried in the same womb and shared common biological parents."/>
+            <concept id="23613">
+              <code value="FTWIN"/>
+              <display value="fraternal twin"/>
+              <definition value=" The scoper and player were carried in the same womb and share common biological parents but are the product of distinct egg/sperm pairs."/>
+              <concept id="23614">
+                <code value="FTWINBRO"/>
+                <display value="fraternal twin brother"/>
+                <definition value=" The scoper was carried in the same womb as the male player and shares common biological parents but is the product of a distinct egg/sperm pair."/>
+              </concept>
+              <concept id="23615">
+                <code value="FTWINSIS"/>
+                <display value="fraternal twin sister"/>
+                <definition value=" The scoper was carried in the same womb as the female player and shares common biological parents but is the product of a distinct egg/sperm pair."/>
+              </concept>
+            </concept>
+            <concept id="23610">
+              <code value="ITWIN"/>
+              <display value="identical twin"/>
+              <definition value=" The scoper and player are offspring of the same egg-sperm pair."/>
+              <concept id="23611">
+                <code value="ITWINBRO"/>
+                <display value="identical twin brother"/>
+                <definition value=" The male scoper is an offspring of the same egg-sperm pair as the male player."/>
+              </concept>
+              <concept id="23612">
+                <code value="ITWINSIS"/>
+                <display value="identical twin sister"/>
+                <definition value=" The female scoper is an offspring of the same egg-sperm pair as the female player."/>
+              </concept>
+            </concept>
+          </concept>
+        </concept>
+        <concept id="16358">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="HSIS"/>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="NSIS"/>
+          </extension>
+          <code value="SIS"/>
+          <display value="sister"/>
+          <definition value=" The player of the role is a female sharing one or both parents in common with the scoping entity."/>
+          <concept id="19781">
+            <code value="STPSIS"/>
+            <display value="stepsister"/>
+            <definition value=" The player of the role is a daughter of the scoping person&#39;s stepparent."/>
+          </concept>
+        </concept>
+        <concept id="19779">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="STPBRO"/>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="STPSIS"/>
+          </extension>
+          <code value="STPSIB"/>
+          <display value="step sibling"/>
+          <definition value=" The player of the role is a child of the scoping person&#39;s stepparent."/>
+        </concept>
+      </concept>
+      <concept id="19755">
+        <code value="SIGOTHR"/>
+        <display value="significant other"/>
+        <definition value=" A person who is important to one&#39;s well being; especially a spouse or one in a similar relationship.  (The player is the one who is important)"/>
+        <concept id="19754">
+          <code value="DOMPART"/>
+          <display value="domestic partner"/>
+          <definition value=" The player of the role cohabits with the scoping person but is not the scoping person&#39;s spouse."/>
+        </concept>
+        <concept id="23721">
+          <code value="FMRSPS"/>
+          <display value="former spouse"/>
+          <definition value=" Player of the role was previously joined to the scoping person in marriage and this marriage is now dissolved and inactive.  Usage Note:&#xD;&#xA;This is significant to indicate as some jurisdictions have different legal requirements for former spouse to access the patient&#39;s record, from a general friend."/>
+        </concept>
+        <concept id="19742">
+          <code value="SPS"/>
+          <display value="spouse"/>
+          <definition value=" The player of the role is a marriage partner of the scoping person."/>
+          <concept id="19743">
+            <code value="HUSB"/>
+            <display value="husband"/>
+            <definition value=" The player of the role is a man joined to a woman (scoping person) in marriage."/>
+          </concept>
+          <concept id="19744">
+            <code value="WIFE"/>
+            <display value="wife"/>
+            <definition value=" The player of the role is a woman joined to a man (scoping person) in marriage."/>
+          </concept>
+        </concept>
+      </concept>
+    </concept>
+    <concept id="19737">
+      <code value="FRND"/>
+      <display value="unrelated friend"/>
+      <definition value=" The player of the role is a person who is known, liked, and trusted by the scoping person."/>
+    </concept>
+    <concept id="19738">
+      <code value="NBOR"/>
+      <display value="neighbor"/>
+      <definition value=" The player of the role lives near or next to the &#x9;scoping person."/>
+    </concept>
+    <concept id="23542">
+      <code value="ONESELF"/>
+      <display value="self"/>
+      <definition value=" The relationship that a person has with his or her self."/>
+    </concept>
+    <concept id="16364">
+      <code value="ROOM"/>
+      <display value="Roommate"/>
+      <definition value=" One who shares living quarters with the subject."/>
+    </concept>
+  </concept>
+  <concept id="21961">
+    <code value="_PolicyOrProgramCoverageRoleType"/>
+    <display value="PolicyOrProgramCoverageRoleType"/>
+    <definition value="  Description:&#xD;&#xA;A role recognized through the eligibility of an identified party for benefits covered under an insurance policy or a program based on meeting eligibility criteria. Eligibility as a covered party may be conditioned on the party meeting criteria to qualify for coverage under a policy or program, which may be mandated by law.  These criteria may be:   The sole basis for coverage, e.g., being differently abled may qualify a person for disability coverage  May more fully qualify a covered party role e.g, being differently abled may qualify an adult child as a dependent  May impact the level of coverage for a covered party under a policy or program, e.g., being differently abled may qualify a program eligible for additional benefits.  Discussion:&#xD;&#xA;The Abstract Value Set &quot;CoverageRoleType&quot;, which was developed for use in the Canadian realm &quot;pre-coordinate&quot; coverage roles with other roles that a covered party must play in order to be eligible for coverage, e.g., &quot;handicapped dependent&quot;.   These role.codes may only be used with COVPTY to avoid overlapping concepts that would result from using them to specify the specializations of COVPTY, e.g., the role.class DEPEN should not be used with the role.code family dependent because that relationship has overlapping concepts due to the role.code precoodination and is conveyed in FICO with the personal relationship role that has a PART role link to the covered party role.  For the same reasons, the role.class DEPEN should not be used with the role.code HANDIC (handicapped dependent); the role.code DIFFABLE (differently abled) should be used instead. In summary, the coded concepts in the Abstract Value Set &quot;CoveredPartyRoleType&quot; can be &quot;post-coordinated&quot; with the &quot;RoleClassCoveredParty&quot; Abstract Value Set.  Decoupling these concepts is intended to support an expansive range of covered party concepts and their semantic comparability."/>
+    <concept id="21123">
+      <code value="_CoverageRoleType"/>
+      <display value="CoverageRoleType"/>
+      <definition value=" Role recognized through the issuance of insurance coverage to an identified covered party who has this relationship with the policy holder such as the policy holder themselves (self), spouse, child, etc"/>
+      <concept id="21319">
+        <code value="FAMDEP"/>
+        <display value="family dependent"/>
+        <definition value=" The player of the role is dependent of the scoping entity."/>
+      </concept>
+      <concept id="18880">
+        <code value="HANDIC"/>
+        <display value="handicapped dependent"/>
+        <definition value=" Covered party is a dependent of the policy holder with a physical or mental disability causing a disadvantage that makes independent achievement unusually difficult."/>
+      </concept>
+      <concept id="18881">
+        <code value="INJ"/>
+        <display value="injured plaintiff"/>
+        <definition value=" Covered party is an injured party with a legal claim for compensation against a policy holder under an insurance policy."/>
+      </concept>
+      <concept id="18878">
+        <code value="SELF"/>
+        <display value="self"/>
+        <definition value=" Covered party is the policy holder.  Also known as the subscriber."/>
+      </concept>
+      <concept id="18882">
+        <code value="SPON"/>
+        <display value="sponsored dependent"/>
+        <definition value=" Covered party is an individual that the policy holder has assumed responsibility for, such as foster child or legal ward."/>
+      </concept>
+      <concept id="21318">
+        <code value="STUD"/>
+        <display value="student"/>
+        <definition value=" Covered party to an insurance policy has coverage through full-time or part-time attendance at a recognized educational institution as defined by a particular insurance policy."/>
+        <concept id="18893">
+          <code value="FSTUD"/>
+          <display value="full-time student"/>
+          <definition value=" Covered party to an insurance policy has coverage through full-time attendance at a recognized educational institution as defined by a particular insurance policy."/>
+        </concept>
+        <concept id="18894">
+          <code value="PSTUD"/>
+          <display value="part-time student"/>
+          <definition value=" Covered party to an insurance policy has coverage through part-time attendance at a recognized educational institution as defined by a particular insurance policy."/>
+        </concept>
+      </concept>
+      <concept id="18891">
+        <code value="ADOPT"/>
+        <display value="adopted child"/>
+        <definition value=" A child taken into one&#39;s family through legal means and raised as one&#39;s own child."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="retired"/>
+        </property>
+      </concept>
+      <concept id="18884">
+        <code value="GCHILD"/>
+        <display value="grandchild"/>
+        <definition value=" A child of one&#39;s son or daughter."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="retired"/>
+        </property>
+      </concept>
+      <concept id="18887">
+        <code value="GPARNT"/>
+        <display value="grandparent"/>
+        <definition value=" parent of a parent of the subject."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="retired"/>
+        </property>
+      </concept>
+      <concept id="18889">
+        <code value="NAT"/>
+        <display value="natural child"/>
+        <definition value=" A child as determined by birth."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="retired"/>
+        </property>
+      </concept>
+      <concept id="18885">
+        <code value="NIENE"/>
+        <display value="niece/nephew"/>
+        <definition value=" A child of one&#39;s brother or sister or of the brother or sister of one&#39;s spouse."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="retired"/>
+        </property>
+      </concept>
+      <concept id="18886">
+        <code value="PARNT"/>
+        <display value="parent"/>
+        <definition value=" One that begets or brings forth offspring or a person who brings up and cares for for another (Webster&#39;s Collegiate Dictionary)"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="retired"/>
+        </property>
+      </concept>
+      <concept id="18879">
+        <code value="SPSE"/>
+        <display value="spouse"/>
+        <definition value=" A marriage partner; a husband or wife."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="retired"/>
+        </property>
+      </concept>
+      <concept id="18890">
+        <code value="STEP"/>
+        <display value="step child"/>
+        <definition value=" A child receiving parental care and nurture from a person who is related to them through marriage to their parent."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="retired"/>
+        </property>
+      </concept>
+    </concept>
+    <concept id="21948">
+      <code value="_CoveredPartyRoleType"/>
+      <display value="covered party role type"/>
+      <definition value=" A role recognized through the eligibility of an identified living subject for benefits covered under an insurance policy or a program.  Eligibility as a covered party may be conditioned on a relationship with (1) the policy holder such as the policy holder who is covered as an individual under a poliy or as a party sponsored for coverage by the policy holder.  Example:&#xD;&#xA;An employee as a subscriber; or (2) on being scoped another covered party such as the subscriber, as in the case of a dependent.  Discussion:&#xD;&#xA;The Abstract Value Set &quot;CoverageRoleType&quot;, which was developed for use in the Canadian realm &quot;pre-coordinate&quot; coverage roles with other roles that a covered party must play in order to be eligible for coverage, e.g., &quot;handicapped dependent&quot;.  Other codes in the Abstract Value Set CoveredPartyRoleType domain can be &quot;post-coordinated&quot; with the EligiblePartyRoleType codes to denote comparable concepts.  Decoupling the concepts is intended to support a wider range of concepts and semantic comparability of coded concepts."/>
+      <property>
+        <code value="ClassifiesClassCode"/>
+        <valueCoding>
+          <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+          <code value="COVPTY"/>
+        </valueCoding>
+      </property>
+      <concept id="21962">
+        <code value="_ClaimantCoveredPartyRoleType"/>
+        <display value="ClaimantCoveredPartyRoleType"/>
+        <definition value="  Description&#xD;&#xA;A role recognized through the eligibility of a party play a claimant for benefits covered or provided under an insurance policy."/>
+        <property>
+          <code value="ClassifiesClassCode"/>
+          <valueCoding>
+            <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+            <code value="COVPTY"/>
+          </valueCoding>
+        </property>
+        <concept id="21964">
+          <code value="CRIMEVIC"/>
+          <display value="crime victim"/>
+          <definition value="  Description:&#xD;&#xA;A person playing the role of program eligible under a program based on allegations of being the victim of a crime.  Discussion:&#xD;&#xA;This CoveredPartyRoleType.code is typically used when the CoveredPartyRole class code is &quot;program eligible&quot; and the person&#39;s status as a crime victim meets jurisdictional or program criteria."/>
+        </concept>
+        <concept id="21966">
+          <code value="INJWKR"/>
+          <display value="injured worker"/>
+          <definition value="  Description:&#xD;&#xA;A person playing the role of program eligible under a workers compensation program based on the filing of work-related injury claim.  Discussion:&#xD;&#xA;This CoveredPartyRoleType.code is used when the CoveredPartyRole class code is either &quot;program eligible&quot;, a &quot;named insured&quot;, and &quot;individual insured&quot;,  or &quot;dependent&quot;, and the person&#39;s status as differently abled or &quot;handicapped&quot; meets jurisdictional, policy, or program criteria."/>
+        </concept>
+      </concept>
+      <concept id="21975">
+        <code value="_DependentCoveredPartyRoleType"/>
+        <display value="DependentCoveredPartyRoleType"/>
+        <definition value="  Description:&#xD;&#xA;A role recognized through the eligibility of a party to play a dependent for benefits covered or provided under a health insurance policy because of an association with the subscriber that is recognized by the policy underwriter."/>
+        <property>
+          <code value="ClassifiesClassCode"/>
+          <valueCoding>
+            <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+            <code value="COVPTY"/>
+          </valueCoding>
+        </property>
+        <concept id="21976">
+          <code value="COCBEN"/>
+          <display value="continuity of coverage beneficiary"/>
+          <definition value="  Description:&#xD;&#xA;A person playing the role of an individual insured with continuity of coverage under a policy which is being terminated based on loss of original status that was the basis for coverage.  Criteria for qualifying for continuity of coverage may be set by law.  Discussion:&#xD;&#xA;This CoveredPartyRoleType.code is typically used when the CoveredPartyRole class code is either &quot;program eligible&quot; or &quot;subscriber&quot; and the person&#39;s status as a continuity of coverage beneficiary meets jurisdictional or policy criteria."/>
+        </concept>
+        <concept id="21965">
+          <code value="DIFFABL"/>
+          <display value="differently abled"/>
+          <definition value="  Description:&#xD;&#xA;A person playing the role of program eligible under a program based on meeting criteria for health or functional limitation set by law or by the program.  Discussion:&#xD;&#xA;This CoveredPartyRoleType.code is typically used when the CoveredPartyRole class code is either &quot;program eligible&quot;, &quot;named insured&quot;, &quot;individual insured&quot;, or &quot;dependent&quot;, and the person&#39;s status as differently abled meets jurisdictional, policy, or program criteria."/>
+        </concept>
+        <concept id="21972">
+          <code value="WARD"/>
+          <display value="ward"/>
+          <definition value="  Description:&#xD;&#xA;A person, who is a minor or is deemed incompetent, who plays the role of a program eligible where eligibility for coverage is based on meeting program eligibility criteria for status as a ward of a court or jurisdiction.  Discussion:&#xD;&#xA;This CoveredPartyRoleType.code is typically used when the CoveredPartyRole class code is a &quot;claimant&quot;, &quot;program eligible&quot;, a &quot;named insured&quot;, an &quot;individual Insured&quot; or a &quot;dependent&quot;, and the person&#39;s status as a ward meets program or policy criteria. In the case of a ward covered under a program providing financial or health benefits, a governmental agency may take temporary custody of a minor or incompetent for his/her protection and care, e.g., if the ward is suffering from neglect or abuse, or has been in trouble with the law."/>
+        </concept>
+      </concept>
+      <concept id="21973">
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+          <valueCode value="COCBEN"/>
+        </extension>
+        <code value="_IndividualInsuredPartyRoleType"/>
+        <display value="IndividualInsuredPartyRoleType"/>
+        <definition value=" A role recognized through the eligibility of a party to play an individual insured for benefits covered or provided under an insurance policy where the party is also the policy holder."/>
+        <property>
+          <code value="ClassifiesClassCode"/>
+          <valueCoding>
+            <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+            <code value="COVPTY"/>
+          </valueCoding>
+        </property>
+        <concept id="21977">
+          <code value="RETIREE"/>
+          <display value="retiree"/>
+          <definition value="  Description:&#xD;&#xA;A person playing the role of an individual insured under a policy based on meeting criteria for the employment status of retired set by law or the policy.  Discussion:&#xD;&#xA;This CoveredPartyRoleType.code is typically used when the CoveredPartyRole class code is either &quot;program eligible&quot; or &quot;subscriber&quot; and the person&#39;s status as a retiree meets jurisdictional or policy criteria."/>
+        </concept>
+      </concept>
+      <concept id="21963">
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+          <valueCode value="CRIMEVIC"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+          <valueCode value="INJWKR"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+          <valueCode value="DIFFABL"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+          <valueCode value="WARD"/>
+        </extension>
+        <code value="_ProgramEligiblePartyRoleType"/>
+        <display value="ProgramEligiblePartyRoleType"/>
+        <definition value="  Description:&#xD;&#xA;A role recognized through the eligibility of a party to play a program eligible for benefits covered or provided under a program."/>
+        <concept id="21967">
+          <code value="INDIG"/>
+          <display value="member of an indigenous people"/>
+          <definition value="  Description:&#xD;&#xA;A person playing the role of program eligible under a program based on aboriginal ancestry or as a member of an aboriginal community.  Discussion:&#xD;&#xA;This CoveredPartyRoleType.code is typically used when the CoveredPartyRole class code is &quot;program eligible&quot; and the person&#39;s status as a member of an indigenous people meets jurisdictional or program criteria."/>
+        </concept>
+        <concept id="21968">
+          <code value="MIL"/>
+          <display value="military"/>
+          <definition value="  Definition:&#xD;&#xA;A person playing the role of program eligible under a program based on military status.  Discussion:&#xD;&#xA;This CoveredPartyRoleType.code is typically used when the CoveredPartyRole class code is either &quot;program eligible&quot; or &quot;subscriber&quot; and the person&#39;s status as a member of the military meets jurisdictional or program criteria"/>
+          <concept id="21969">
+            <code value="ACTMIL"/>
+            <display value="active duty military"/>
+            <definition value="  Description:&#xD;&#xA;A person playing the role of program eligible under a program based on active military status.  Discussion:&#xD;&#xA;This CoveredPartyRoleType.code is typically used when the CoveredPartyRole class code is either &quot;program eligible&quot; or &quot;subscriber&quot; and the persons status as active duty military meets jurisdictional or program criteria."/>
+          </concept>
+          <concept id="21970">
+            <code value="RETMIL"/>
+            <display value="retired military"/>
+            <definition value="  Description:&#xD;&#xA;A person playing the role of program eligible under a program based on retired military status.  Discussion:&#xD;&#xA;This CoveredPartyRoleType.code is typically used when the CoveredPartyRole class code is either &quot;program eligible&quot; or &quot;subscriber&quot; and the persons status as retired military meets jurisdictional or program criteria."/>
+          </concept>
+          <concept id="21971">
+            <code value="VET"/>
+            <display value="veteran"/>
+            <definition value="  Description:&#xD;&#xA;A person playing the role of program eligible under a program based on status as a military veteran.  Discussion:&#xD;&#xA;This CoveredPartyRoleType.code is typically used when the CoveredPartyRole class code is either &quot;program eligible&quot; or &quot;subscriber&quot; and the persons status as a veteran meets jurisdictional or program criteria."/>
+          </concept>
+        </concept>
+      </concept>
+      <concept id="21974">
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+          <valueCode value="COCBEN"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+          <valueCode value="RETIREE"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+          <valueCode value="MIL"/>
+        </extension>
+        <code value="_SubscriberCoveredPartyRoleType"/>
+        <display value="SubscriberCoveredPartyRoleType"/>
+        <definition value="  Description:&#xD;&#xA;A role recognized through the eligibility of a party to play a subscriber for benefits covered or provided under a health insurance policy."/>
+        <property>
+          <code value="ClassifiesClassCode"/>
+          <valueCoding>
+            <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+            <code value="COVPTY"/>
+          </valueCoding>
+        </property>
+      </concept>
+    </concept>
+  </concept>
+  <concept id="21133">
+    <code value="_ResearchSubjectRoleBasis"/>
+    <display value="ResearchSubjectRoleBasis"/>
+    <definition value=" Specifies the administrative functionality within a formal experimental design for which the ResearchSubject role was established.  Examples: screening - role is used for pre-enrollment evaluation portion of the design; enrolled - role is used for subjects admitted to the active treatment portion of the design."/>
+    <property>
+      <code value="ClassifiesClassCode"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+        <code value="RESBJ"/>
+      </valueCoding>
+    </property>
+    <concept id="21621">
+      <code value="ERL"/>
+      <display value="enrollment"/>
+      <definition value="  Definition:&#xD;&#xA;The specific role being played by a research subject participating in the active treatment or primary data collection portion of a research study."/>
+    </concept>
+    <concept id="21620">
+      <code value="SCN"/>
+      <display value="screening"/>
+      <definition value="  Definition:&#xD;&#xA;The specific role being played by a research subject participating in the pre-enrollment evaluation portion of  a research study."/>
+    </concept>
+  </concept>
+  <concept id="21134">
+    <code value="_ServiceDeliveryLocationRoleType"/>
+    <display value="ServiceDeliveryLocationRoleType"/>
+    <definition value=" A role of a place that further classifies the setting (e.g., accident site, road side, work site, community location) in which services are delivered."/>
+    <property>
+      <code value="ClassifiesClassCode"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+        <code value="SDLOC"/>
+      </valueCoding>
+    </property>
+    <concept id="21126">
+      <code value="_DedicatedServiceDeliveryLocationRoleType"/>
+      <display value="DedicatedServiceDeliveryLocationRoleType"/>
+      <definition value=" A role of a place that further classifies a setting that is intended to house the provision of services."/>
+      <property>
+        <code value="ClassifiesClassCode"/>
+        <valueCoding>
+          <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+          <code value="DSDLOC"/>
+        </valueCoding>
+      </property>
+      <concept id="21124">
+        <code value="_DedicatedClinicalLocationRoleType"/>
+        <display value="DedicatedClinicalLocationRoleType"/>
+        <definition value=" A role of a place that further classifies the clinical setting (e.g., cardiology clinic, primary care clinic, rehabilitation hospital, skilled nursing facility) in which care is delivered during an encounter."/>
+        <concept id="10902">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+            <valueString value="Need Realm"/>
+          </extension>
+          <code value="DX"/>
+          <display value="Diagnostics or therapeutics unit"/>
+          <definition value=" A practice setting where diagnostic procedures or therapeutic interventions are performed"/>
+          <concept id="10903">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+              <valueString value="Need Realm"/>
+            </extension>
+            <code value="CVDX"/>
+            <display value="Cardiovascular diagnostics or therapeutics unit"/>
+            <definition value=" A practice setting where cardiovascular diagnostic procedures or therapeutic interventions are performed (e.g., cardiac catheterization lab, echocardiography suite)"/>
+            <concept id="10904">
+              <code value="CATH"/>
+              <display value="Cardiac catheterization lab"/>
+            </concept>
+            <concept id="10905">
+              <code value="ECHO"/>
+              <display value="Echocardiography lab"/>
+            </concept>
+          </concept>
+          <concept id="10906">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+              <valueString value="Need Realm"/>
+            </extension>
+            <code value="GIDX"/>
+            <display value="Gastroenterology diagnostics or therapeutics lab"/>
+            <definition value=" A practice setting where GI procedures (such as endoscopies) are performed"/>
+            <concept id="10907">
+              <code value="ENDOS"/>
+              <display value="Endoscopy lab"/>
+              <definition value=" (X12N 261QD0000N)"/>
+              <designation>
+                <use>
+                  <system value="http://something...?"/>
+                  <code value="deprecated alias"/>
+                </use>
+                <value value="Ambulatory Health Care Facilities; Clinic/Center; Endoscopy"/>
+              </designation>
+            </concept>
+          </concept>
+          <concept id="10908">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+              <valueString value="Need Realm"/>
+            </extension>
+            <code value="RADDX"/>
+            <display value="Radiology diagnostics or therapeutics unit"/>
+            <definition value=" A practice setting where radiology services (diagnostic or therapeutic) are provided            (X12N 261QR0200N)"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="Ambulatory Health Care Facilities; Clinic/Center; Radiology"/>
+            </designation>
+            <concept id="10909">
+              <code value="RADO"/>
+              <display value="Radiation oncology unit"/>
+              <definition value=" (X12N 261QX0203N)"/>
+              <designation>
+                <use>
+                  <system value="http://something...?"/>
+                  <code value="deprecated alias"/>
+                </use>
+                <value value="Ambulatory Health Care Facilities; Clinic/Center; Oncology, Radiation"/>
+              </designation>
+            </concept>
+            <concept id="10910">
+              <code value="RNEU"/>
+              <display value="Neuroradiology unit"/>
+            </concept>
+          </concept>
+        </concept>
+        <concept id="10602">
+          <code value="HOSP"/>
+          <display value="Hospital"/>
+          <definition value=" An acute care institution that provides medical, surgical, or psychiatric care and treatment for the sick or the injured."/>
+          <concept id="13792">
+            <code value="CHR"/>
+            <display value="Chronic Care Facility"/>
+            <definition value=" (1) A hospital including a physical plant and personnel that provides multidisciplinary diagnosis and treatment for diseases that have one or more of the following characteristics: is permanent; leaves residual disability; is caused by nonreversible pathological alteration; requires special training of the patient for rehabilitation; and/or may be expected to require a long period of supervision or care. In addition, patients require the safety, security, and shelter of these specialized inpatient or partial hospitalization settings. (2) A hospital that provides medical and skilled nursing services to patients with long-term illnesses who are not in an acute phase but who require an intensity of services not available in nursing homes"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="Hospitals; Chronic Disease Hospital"/>
+            </designation>
+          </concept>
+          <concept id="10603">
+            <code value="GACH"/>
+            <display value="Hospitals; General Acute Care Hospital"/>
+            <definition value=" (X12N 282N00000N)"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="General acute care hospital"/>
+            </designation>
+          </concept>
+          <concept id="13799">
+            <code value="MHSP"/>
+            <display value="Military Hospital"/>
+            <definition value=" A health care facility operated by the Department of Defense or other military operation."/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="MilitaryHospital"/>
+            </designation>
+          </concept>
+          <concept id="20024">
+            <code value="PSYCHF"/>
+            <display value="Psychatric Care Facility"/>
+            <definition value=" Healthcare facility that cares for patients with psychiatric illness(s)."/>
+          </concept>
+          <concept id="10604">
+            <code value="RH"/>
+            <display value="Rehabilitation hospital"/>
+            <definition value=" (X12N 283X00000N)"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="Hospitals; Rehabilitation Hospital"/>
+            </designation>
+            <concept id="23216">
+              <code value="RHAT"/>
+              <display value="addiction treatment center"/>
+              <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include life training and/or social support to people with addictions."/>
+            </concept>
+            <concept id="23217">
+              <code value="RHII"/>
+              <display value="intellectual impairment center"/>
+              <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include adaptation, rehabilitation and social integration services for people with intellectual and/or pervasive development disorders such as autism or severe behaviour disorder."/>
+            </concept>
+            <concept id="23218">
+              <code value="RHMAD"/>
+              <display value="parents with adjustment difficulties center"/>
+              <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may social support services for adolescents who are pregnant or have child and are experiencing adaptation issues/difficulties in their current or eventual parenting role."/>
+            </concept>
+            <concept id="23219">
+              <code value="RHPI"/>
+              <display value="physical impairment center"/>
+              <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include adaptation, rehabilitation and social integration services for people with physical impairments."/>
+              <concept id="23220">
+                <code value="RHPIH"/>
+                <display value="physical impairment - hearing center"/>
+                <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services for people with hearing impairments."/>
+              </concept>
+              <concept id="23221">
+                <code value="RHPIMS"/>
+                <display value="physical impairment - motor skills center"/>
+                <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services for people with motor skill impairments."/>
+              </concept>
+              <concept id="23222">
+                <code value="RHPIVS"/>
+                <display value="physical impairment - visual skills center"/>
+                <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services for people with visual skill impairments."/>
+              </concept>
+            </concept>
+            <concept id="23223">
+              <code value="RHYAD"/>
+              <display value="youths with adjustment difficulties center"/>
+              <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include life training and/or social support services for the adaption, rehabilitation and social integration of youths with adjustment difficulties."/>
+            </concept>
+          </concept>
+        </concept>
+        <concept id="10596">
+          <code value="HU"/>
+          <display value="Hospital unit"/>
+          <concept id="10911">
+            <code value="BMTU"/>
+            <display value="Bone marrow transplant unit"/>
+          </concept>
+          <concept id="10597">
+            <code value="CCU"/>
+            <display value="Coronary care unit"/>
+          </concept>
+          <concept id="10912">
+            <code value="CHEST"/>
+            <display value="Chest unit"/>
+            <definition value=" A specialty unit in hospital that focuses on chronic respirator patients and pulmonary failure"/>
+          </concept>
+          <concept id="10913">
+            <code value="EPIL"/>
+            <display value="Epilepsy unit"/>
+          </concept>
+          <concept id="10598">
+            <code value="ER"/>
+            <display value="Emergency room"/>
+            <definition value=" The section of a health care facility for providing rapid treatment to victims of sudden illness or trauma."/>
+            <concept id="10914">
+              <code value="ETU"/>
+              <display value="Emergency trauma unit"/>
+            </concept>
+          </concept>
+          <concept id="10915">
+            <code value="HD"/>
+            <display value="Hemodialysis unit"/>
+          </concept>
+          <concept id="23224">
+            <code value="HLAB"/>
+            <display value="hospital laboratory"/>
+            <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include tests done based on clinical specimens to get health information about a patient as pertaining to the diagnosis, treatment and prevention of disease.  Hospital laboratories may be further divided into specialized units such as Anatomic Pathology, Microbiology, and Biochemistry."/>
+            <concept id="23225">
+              <code value="INLAB"/>
+              <display value="inpatient laboratory"/>
+              <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include tests are done on clinical specimens to get health information about a patient pertaining to the diagnosis, treatment, and prevention of disease for a hospital visit longer than one day."/>
+            </concept>
+            <concept id="23226">
+              <code value="OUTLAB"/>
+              <display value="outpatient laboratory"/>
+              <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include tests are done on clinical specimens to get health information about a patient pertaining to the diagnosis, treatment, and prevention of disease for same day visits."/>
+            </concept>
+          </concept>
+          <concept id="23230">
+            <code value="HRAD"/>
+            <display value="radiology unit"/>
+            <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include the branch of medicine that uses ionizing and non-ionizing radiation to diagnose and treat diseases.  The radiology unit may be further divided into subspecialties such as Imaging, Cardiovascular, Thoracic, and Ultrasound."/>
+          </concept>
+          <concept id="23231">
+            <code value="HUSCS"/>
+            <display value="specimen collection site"/>
+            <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include collecting specimens and/or samples from patients for laboratory testing purposes, but does not perform any tests or analysis functions."/>
+          </concept>
+          <concept id="10599">
+            <code value="ICU"/>
+            <display value="Intensive care unit"/>
+            <concept id="10916">
+              <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+                <valueString value="Need Realm"/>
+              </extension>
+              <code value="PEDICU"/>
+              <display value="Pediatric intensive care unit"/>
+              <concept id="10917">
+                <code value="PEDNICU"/>
+                <display value="Pediatric neonatal intensive care unit"/>
+              </concept>
+            </concept>
+          </concept>
+          <concept id="23228">
+            <code value="INPHARM"/>
+            <display value="inpatient pharmacy"/>
+            <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include providing judicious, safe, efficacious, appropriate and cost effective use of medicines for treatment of patients for visits longer than one day. The distinction between inpatient pharmacies and retail (or outpatient) pharmacies is that they are part of a patient&#39;s continuity of care while staying in the hospital."/>
+          </concept>
+          <concept id="23227">
+            <code value="MBL"/>
+            <display value="medical laboratory"/>
+            <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which include biochemistry, hematology, microbiology, immunochemistry, and toxicology."/>
+          </concept>
+          <concept id="10918">
+            <code value="NCCS"/>
+            <display value="Neurology critical care and stroke unit"/>
+          </concept>
+          <concept id="10919">
+            <code value="NS"/>
+            <display value="Neurosurgery unit"/>
+          </concept>
+          <concept id="23229">
+            <code value="OUTPHARM"/>
+            <display value="outpatient pharmacy"/>
+            <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include providing judicious, safe, efficacious, appropriate and cost effective use of medicines for treatment of patients for outpatient visits and may also be used for discharge prescriptions."/>
+          </concept>
+          <concept id="10920">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+              <valueString value="Need Realm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PEDICU"/>
+            </extension>
+            <code value="PEDU"/>
+            <display value="Pediatric unit"/>
+          </concept>
+          <concept id="10600">
+            <code value="PHU"/>
+            <display value="Psychiatric hospital unit"/>
+            <definition value=" (X12N 273R00000N)"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="Hospital Units; Psychiatric Unit"/>
+            </designation>
+          </concept>
+          <concept id="10601">
+            <code value="RHU"/>
+            <display value="Rehabilitation hospital unit"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="Hospital Units; Rehabilitation Unit"/>
+            </designation>
+          </concept>
+          <concept id="10921">
+            <code value="SLEEP"/>
+            <display value="Sleep disorders unit"/>
+            <definition value=" (X12N 261QA1200N)"/>
+          </concept>
+        </concept>
+        <concept id="10605">
+          <code value="NCCF"/>
+          <display value="Nursing or custodial care facility"/>
+          <concept id="10606">
+            <code value="SNF"/>
+            <display value="Skilled nursing facility"/>
+            <definition value=" (X12N 314000000N)"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="Nursing &amp; Custodial Care Facilities; Skilled Nursing Facility"/>
+            </designation>
+          </concept>
+        </concept>
+        <concept id="10589">
+          <code value="OF"/>
+          <display value="Outpatient facility"/>
+          <concept id="10922">
+            <code value="ALL"/>
+            <display value="Allergy clinic"/>
+          </concept>
+          <concept id="10923">
+            <code value="AMPUT"/>
+            <display value="Amputee clinic"/>
+          </concept>
+          <concept id="10924">
+            <code value="BMTC"/>
+            <display value="Bone marrow transplant clinic"/>
+          </concept>
+          <concept id="10925">
+            <code value="BREAST"/>
+            <display value="Breast clinic"/>
+          </concept>
+          <concept id="10926">
+            <code value="CANC"/>
+            <display value="Child and adolescent neurology clinic"/>
+          </concept>
+          <concept id="10927">
+            <code value="CAPC"/>
+            <display value="Child and adolescent psychiatry clinic"/>
+          </concept>
+          <concept id="10590">
+            <code value="CARD"/>
+            <display value="Ambulatory Health Care Facilities; Clinic/Center; Rehabilitation: Cardiac Facilities"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="Cardiology clinic"/>
+            </designation>
+            <concept id="10961">
+              <code value="PEDCARD"/>
+              <display value="Pediatric cardiology clinic"/>
+            </concept>
+          </concept>
+          <concept id="10928">
+            <code value="COAG"/>
+            <display value="Coagulation clinic"/>
+          </concept>
+          <concept id="10929">
+            <code value="CRS"/>
+            <display value="Colon and rectal surgery clinic"/>
+          </concept>
+          <concept id="10930">
+            <code value="DERM"/>
+            <display value="Dermatology clinic"/>
+          </concept>
+          <concept id="10931">
+            <code value="ENDO"/>
+            <display value="Endocrinology clinic"/>
+            <concept id="10954">
+              <code value="PEDE"/>
+              <display value="Pediatric endocrinology clinic"/>
+            </concept>
+          </concept>
+          <concept id="10932">
+            <code value="ENT"/>
+            <display value="Otorhinolaryngology clinic"/>
+          </concept>
+          <concept id="10933">
+            <code value="FMC"/>
+            <display value="Family medicine clinic"/>
+          </concept>
+          <concept id="10934">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+              <valueString value="Need Realm"/>
+            </extension>
+            <code value="GI"/>
+            <display value="Gastroenterology clinic"/>
+            <concept id="10955">
+              <code value="PEDGI"/>
+              <display value="Pediatric gastroenterology clinic"/>
+            </concept>
+          </concept>
+          <concept id="10591">
+            <code value="GIM"/>
+            <display value="General internal medicine clinic"/>
+          </concept>
+          <concept id="10935">
+            <code value="GYN"/>
+            <display value="Gynecology clinic"/>
+          </concept>
+          <concept id="10936">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+              <valueString value="Need Realm"/>
+            </extension>
+            <code value="HEM"/>
+            <display value="Hematology clinic"/>
+            <concept id="10956">
+              <code value="PEDHEM"/>
+              <display value="Pediatric hematology clinic"/>
+            </concept>
+          </concept>
+          <concept id="10937">
+            <code value="HTN"/>
+            <display value="Hypertension clinic"/>
+          </concept>
+          <concept id="10938">
+            <code value="IEC"/>
+            <display value="Impairment evaluation center"/>
+            <definition value=" Focuses on assessing disability"/>
+          </concept>
+          <concept id="10939">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+              <valueString value="Need Realm"/>
+            </extension>
+            <code value="INFD"/>
+            <display value="Infectious disease clinic"/>
+            <concept id="10958">
+              <code value="PEDID"/>
+              <display value="Pediatric infectious disease clinic"/>
+            </concept>
+          </concept>
+          <concept id="10940">
+            <code value="INV"/>
+            <display value="Infertility clinic"/>
+          </concept>
+          <concept id="10941">
+            <code value="LYMPH"/>
+            <display value="Lympedema clinic"/>
+          </concept>
+          <concept id="10942">
+            <code value="MGEN"/>
+            <display value="Medical genetics clinic"/>
+          </concept>
+          <concept id="10943">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+              <valueString value="Need Realm"/>
+            </extension>
+            <code value="NEPH"/>
+            <display value="Nephrology clinic"/>
+            <concept id="10959">
+              <code value="PEDNEPH"/>
+              <display value="Pediatric nephrology clinic"/>
+            </concept>
+          </concept>
+          <concept id="10944">
+            <code value="NEUR"/>
+            <display value="Neurology clinic"/>
+          </concept>
+          <concept id="10945">
+            <code value="OB"/>
+            <display value="Obstetrics clinic"/>
+          </concept>
+          <concept id="10946">
+            <code value="OMS"/>
+            <display value="Oral and maxillofacial surgery clinic"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="Ambulatory Health Care Facilities; Clinic/Center; Surgery, Oral/Maxillofacial"/>
+            </designation>
+          </concept>
+          <concept id="10947">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+              <valueString value="Need Realm"/>
+            </extension>
+            <code value="ONCL"/>
+            <display value="Medical oncology clinic"/>
+            <concept id="10957">
+              <code value="PEDHO"/>
+              <display value="Pediatric oncology clinic"/>
+            </concept>
+          </concept>
+          <concept id="10948">
+            <code value="OPH"/>
+            <display value="Opthalmology clinic"/>
+          </concept>
+          <concept id="23232">
+            <code value="OPTC"/>
+            <display value="optometry clinic"/>
+            <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include examination, diagnosis, treatment, management, and prevention of diseases and disorders of the eye as well as prescribing and fitting appropriate corrective lenses (glasses or contact lenses) as needed.  Optometry clinics may also provide tests for visual field screening, measuring intra-ocular pressure and ophthalmoscopy, as and when required."/>
+          </concept>
+          <concept id="10949">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+              <valueString value="Need Realm"/>
+            </extension>
+            <code value="ORTHO"/>
+            <display value="Orthopedics clinic"/>
+            <concept id="10950">
+              <code value="HAND"/>
+              <display value="Hand clinic"/>
+            </concept>
+          </concept>
+          <concept id="10951">
+            <code value="PAINCL"/>
+            <display value="Pain clinic"/>
+            <definition value=" (X12N 261QP3300N)"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="Ambulatory Health Care Facilities; Clinic/Center; Pain"/>
+            </designation>
+          </concept>
+          <concept id="10952">
+            <code value="PC"/>
+            <display value="Primary care clinic"/>
+            <definition value=" (X12N 261QP2300N)"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="Ambulatory Health Care Facilities; Clinic/Center; Primary Care"/>
+            </designation>
+          </concept>
+          <concept id="10953">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+              <valueString value="Need Realm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PEDCARD"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PEDE"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PEDGI"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PEDHEM"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PEDID"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PEDNEPH"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PEDHO"/>
+            </extension>
+            <code value="PEDC"/>
+            <display value="Pediatrics clinic"/>
+            <concept id="10960">
+              <code value="PEDRHEUM"/>
+              <display value="Pediatric rheumatology clinic"/>
+            </concept>
+          </concept>
+          <concept id="10962">
+            <code value="POD"/>
+            <display value="Podiatry clinic"/>
+            <definition value=" (X12N 261QP1100N)"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="Ambulatory Health Care Facilities; Clinic/Center; Podiatric"/>
+            </designation>
+          </concept>
+          <concept id="10963">
+            <code value="PREV"/>
+            <display value="Preventive medicine clinic"/>
+          </concept>
+          <concept id="10964">
+            <code value="PROCTO"/>
+            <display value="Proctology clinic"/>
+          </concept>
+          <concept id="18103">
+            <code value="PROFF"/>
+            <display value="Provider&#39;s Office"/>
+            <definition value=" Location where healthcare service was delivered, identified as the healthcare provider&#39;s practice office."/>
+          </concept>
+          <concept id="10965">
+            <code value="PROS"/>
+            <display value="Prosthodontics clinic"/>
+          </concept>
+          <concept id="10966">
+            <code value="PSI"/>
+            <display value="Psychology clinic"/>
+          </concept>
+          <concept id="10967">
+            <code value="PSY"/>
+            <display value="Psychiatry clinic"/>
+          </concept>
+          <concept id="10593">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+              <valueCode value="PEDRHEUM"/>
+            </extension>
+            <code value="RHEUM"/>
+            <display value="Rheumatology clinic"/>
+          </concept>
+          <concept id="10594">
+            <code value="SPMED"/>
+            <display value="Sports medicine clinic"/>
+          </concept>
+          <concept id="10968">
+            <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+              <valueString value="Need Realm"/>
+            </extension>
+            <code value="SU"/>
+            <display value="Surgery clinic"/>
+            <concept id="10969">
+              <code value="PLS"/>
+              <display value="Plastic surgery clinic"/>
+            </concept>
+            <concept id="10970">
+              <code value="URO"/>
+              <display value="Urology clinic"/>
+            </concept>
+          </concept>
+          <concept id="10971">
+            <code value="TR"/>
+            <display value="Transplant clinic"/>
+          </concept>
+          <concept id="10972">
+            <code value="TRAVEL"/>
+            <display value="Travel and geographic medicine clinic"/>
+          </concept>
+          <concept id="10973">
+            <code value="WND"/>
+            <display value="Wound clinic"/>
+          </concept>
+        </concept>
+        <concept id="10607">
+          <code value="RTF"/>
+          <display value="Residential treatment facility"/>
+          <concept id="10974">
+            <code value="PRC"/>
+            <display value="Pain rehabilitation center"/>
+          </concept>
+          <concept id="10608">
+            <code value="SURF"/>
+            <display value="Substance use rehabilitation facility"/>
+            <definition value=" (X12N 324500000N)"/>
+            <designation>
+              <use>
+                <system value="http://something...?"/>
+                <code value="deprecated alias"/>
+              </use>
+              <value value="Residential Treatment Facilities; Substance Use Rehabilitation Facility"/>
+            </designation>
+          </concept>
+        </concept>
+      </concept>
+      <concept id="21125">
+        <code value="_DedicatedNonClinicalLocationRoleType"/>
+        <display value="DedicatedNonClinicalLocationRoleType"/>
+        <definition value=" A role of a place that further classifies a setting that is intended to house the provision of non-clinical services."/>
+        <concept id="18099">
+          <code value="DADDR"/>
+          <display value="Delivery Address"/>
+          <definition value=" Location address where medical supplies were transported to for use."/>
+        </concept>
+        <concept id="18100">
+          <code value="MOBL"/>
+          <display value="Mobile Unit"/>
+          <definition value=" Location (mobile) where healthcare service was delivered."/>
+          <concept id="18097">
+            <code value="AMB"/>
+            <display value="Ambulance"/>
+            <definition value=" Location (mobile) where healthcare service was delivered, identified specifically as an ambulance."/>
+          </concept>
+        </concept>
+        <concept id="18102">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="INPHARM"/>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+            <valueCode value="OUTPHARM"/>
+          </extension>
+          <code value="PHARM"/>
+          <display value="Pharmacy"/>
+          <definition value=" Location where healthcare service was delivered, identified as a pharmacy."/>
+        </concept>
+      </concept>
+    </concept>
+    <concept id="21127">
+      <code value="_IncidentalServiceDeliveryLocationRoleType"/>
+      <display value="IncidentalServiceDeliveryLocationRoleType"/>
+      <property>
+        <code value="ClassifiesClassCode"/>
+        <valueCoding>
+          <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+          <code value="ISDLOC"/>
+        </valueCoding>
+      </property>
+      <concept id="20844">
+        <code value="ACC"/>
+        <display value="accident site"/>
+        <definition value=" Location of an accident where healthcare service was delivered, such as a roadside."/>
+      </concept>
+      <concept id="18098">
+        <code value="COMM"/>
+        <display value="Community Location"/>
+        <definition value=" Community location where healthcare is delivered."/>
+        <concept id="23233">
+          <code value="CSC"/>
+          <display value="community service center"/>
+          <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include providing front-line services to the population of a defined geographic area such as: healthcare services and social services, preventive or curative, rehabilitation or reintegration."/>
+        </concept>
+      </concept>
+      <concept id="18101">
+        <code value="PTRES"/>
+        <display value="Patient&#39;s Residence"/>
+        <definition value=" location where healthcare was delivered which is the residence of the Patient."/>
+      </concept>
+      <concept id="20846">
+        <code value="SCHOOL"/>
+        <display value="school"/>
+        <definition value=" Location where healthcare service was delivered, identified as a school or educational facility."/>
+      </concept>
+      <concept id="23234">
+        <code value="UPC"/>
+        <display value="underage protection center"/>
+        <definition value="  Description:&#xD;&#xA;A location that plays the role of delivering services which may include: social emergency services required for a young person as required under any jurisdictional youth laws, child placement, and family mediation in the defined geographical area the SDL is responsible for. It may provide expertise in a judiciary setting on child custody, adoption and biological history research."/>
+      </concept>
+      <concept id="20845">
+        <code value="WORK"/>
+        <display value="work site"/>
+        <definition value=" Location where healthcare service was delivered, identified as a work place."/>
+      </concept>
+    </concept>
+  </concept>
+  <concept id="21135">
+    <code value="_SpecimenRoleType"/>
+    <display value="SpecimenRoleType"/>
+    <property>
+      <code value="ClassifiesClassCode"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+        <code value="SPEC"/>
+      </valueCoding>
+    </property>
+    <concept id="16517">
+      <code value="C"/>
+      <display value="Calibrator"/>
+      <definition value=" A specimen used for initial calibration settings of an instrument"/>
+    </concept>
+    <concept id="16519">
+      <code value="G"/>
+      <display value="Group"/>
+      <definition value=" A set of patient samples in which the individuals of the group may or may not be identified."/>
+    </concept>
+    <concept id="16520">
+      <code value="L"/>
+      <display value="Pool"/>
+      <definition value=" Aliquots of individual specimens combined to form a single specimen representing all of the included individuals."/>
+    </concept>
+    <concept id="16516">
+      <code value="P"/>
+      <display value="Patient"/>
+      <definition value=" A specimen that has been collected from a patient."/>
+    </concept>
+    <concept id="16521">
+      <code value="Q"/>
+      <display value="Quality Control"/>
+      <definition value=" A specimen specifically used to verify the sensitivity, specificity, accuracy or other perfomance parameter of a diagnostic test."/>
+      <concept id="16526">
+        <code value="B"/>
+        <display value="Blind"/>
+        <definition value=" Quality Control specimen submitted to the lab whose identity and composition is not known to the lab."/>
+      </concept>
+      <concept id="16522">
+        <code value="E"/>
+        <display value="Electronic QC"/>
+        <definition value=" An electronically simulated QC specimen"/>
+      </concept>
+      <concept id="16525">
+        <code value="F"/>
+        <display value="Filler Proficiency"/>
+        <definition value=" Specimen used for testing proficiency of an organization performing testing (how does this differ from O?)"/>
+      </concept>
+      <concept id="16524">
+        <code value="O"/>
+        <display value="Operator Proficiency"/>
+        <definition value=" A specimen used for evaluation of operator proficiency (operator in what context?)"/>
+      </concept>
+      <concept id="16523">
+        <code value="V"/>
+        <display value="Verifying"/>
+        <definition value=" A specimen used for periodic calibration checks of instruments"/>
+      </concept>
+    </concept>
+    <concept id="16518">
+      <code value="R"/>
+      <display value="Replicate"/>
+      <definition value=" A portion of an original patent sample that is tested at the same time as the original sample"/>
+    </concept>
+  </concept>
+  <concept id="21949">
+    <code value="CLAIM"/>
+    <display value="claimant"/>
+    <definition value=" A party that makes a claim for coverage under a policy."/>
+  </concept>
+  <concept id="21580">
+    <code value="communityLaboratory"/>
+    <display value="Community Laboratory"/>
+  </concept>
+  <concept id="18109">
+    <code value="GT"/>
+    <display value="Guarantor"/>
+    <definition value=" An individual or organization that makes or gives a promise, assurance, pledge to pay or has paid the healthcare service provider."/>
+  </concept>
+  <concept id="21581">
+    <code value="homeHealth"/>
+    <display value="Home Health"/>
+  </concept>
+  <concept id="21576">
+    <code value="laboratory"/>
+    <display value="Laboratory"/>
+  </concept>
+  <concept id="21578">
+    <code value="pathologist"/>
+    <display value="Pathologist"/>
+  </concept>
+  <concept id="18108">
+    <code value="PH"/>
+    <display value="Policy Holder"/>
+    <definition value=" Policy holder for the insurance policy."/>
+  </concept>
+  <concept id="21577">
+    <code value="phlebotomist"/>
+    <display value="Phlebotomist"/>
+  </concept>
+  <concept id="21950">
+    <code value="PROG"/>
+    <display value="program eligible"/>
+    <definition value=" A party that meets the eligibility criteria for coverage under a program."/>
+  </concept>
+  <concept id="18106">
+    <code value="PT"/>
+    <display value="Patient"/>
+    <definition value=" The recipient for the service(s) and/or product(s) when they are not the covered party."/>
+  </concept>
+  <concept id="21579">
+    <code value="subject"/>
+    <display value="Self"/>
+  </concept>
+  <concept id="21582">
+    <code value="thirdParty"/>
+    <display value="Third Party"/>
+  </concept>
+  <concept id="21331">
+    <code value="_AdministrativeLocationRoleType"/>
+    <display value="AdministrativeLocationRoleType"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21121">
+    <code value="_ClinicalOrganizationRoleType"/>
+    <display value="ClinicalOrganizationRoleType"/>
+    <definition value=" A role of an organization that further classifies the clincial responsibility for the healthcare care delivered during an encounter.  E.g. cardiology service, pediatric service, nursing services."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21330">
+    <code value="_CommissioningPartyRoleType"/>
+    <display value="CommissioningPartyRoleType"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21409">
+    <code value="_DeviceOperatorType"/>
+    <display value="DeviceOperatorType"/>
+    <definition value=" Indicates the type of person that is responsible for operating the device related to the incident reported in ICSR. Examples include: Physician, Nurse, Medical Technician, Respiratory Technician."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21328">
+    <code value="_EmployeeRoleType"/>
+    <display value="EmployeeRoleType"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21325">
+    <code value="_HealthcareProviderRoleType"/>
+    <display value="HealthcareProviderRoleType"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21324">
+    <code value="_LicensedRoleType"/>
+    <display value="LicensedRoleType"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21130">
+    <code value="_NDCRelatedDrugEntityType"/>
+    <display value="NDCRelatedDrugEntityType"/>
+    <definition value=" NDC Regulated Drug Entity Type"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21329">
+    <code value="_OrganizationPartRoleType"/>
+    <display value="OrganizationPartRoleType"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22080">
+    <code value="_ProductProcessingOrganizationRoleType"/>
+    <display value="ProductProcessingOrganizationRoleType"/>
+    <definition value="  Description:&#xD;&#xA;Indicates the role that an organization takes in the process by which a product goes from an original manufacturer to the eventual consumer.  Examples:&#xD;&#xA;Manufacturer, re-processor  Note:&#xD;&#xA;These two values are currently used in adverse event and product problem reporting."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22045">
+    <code value="_ProductSafetyReportPartyRoleType"/>
+    <display value="ProductSafetyReportPartyRoleType"/>
+    <definition value="  Description:&#xD;&#xA;Captures the different roles that are recorded to characterize the qualifications or stations in life of persons or organizations who participate as senders or as receivers of adverse event or product problem reports.  Example:&#xD;&#xA;Example values may include: physician, healthcare facility, attorney, family member, regulatory agency.  Initial effort to find defined concepts for this value set will focus on the HIPAA provider taxonomy."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21327">
+    <code value="_QualifiedRoleType"/>
+    <display value="QualifiedRoleType"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="18888">
+    <code value="DEP"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21954">
+    <code value="DEPEN"/>
+    <display value="dependent"/>
+    <definition value=" A party covered under a policy based on association with a subscriber."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="18107">
+    <code value="FM"/>
+    <display value="Family Member"/>
+    <definition value=" A member of the covered party&#39;s family. This could be the spouse, a parent, a grand parent, a sibling, etc."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21952">
+    <code value="INDIV"/>
+    <display value="individual"/>
+    <definition value=" A party covered under a policy as the policyholder."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21951">
+    <code value="NAMED"/>
+    <display value="named insured"/>
+    <definition value=" A party to an insurance policy to whom the insurer agrees to indemnify for losses, provides benefits for, or renders services."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="19725">
+    <code value="PSYCHCF"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21953">
+    <code value="SUBSCR"/>
+    <display value="subscriber"/>
+    <definition value=" A party covered under a policy based on association with a sponsor who is the policy holder, and whose association may provide for the eligibility of dependents for coverage"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+</CodeSystem>

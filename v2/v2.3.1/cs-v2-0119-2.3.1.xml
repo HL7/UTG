@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0119-2.3.1"/>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
+    <valueString value="4"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
+    <valueCode value="HL7"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v2-0119-2.3.1"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.48"/>
+  </identifier>
+  <version value="4"/>
+  <name value="V2Table0119v2.3.1"/>
+  <title value="V2 Table: Order Control Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2016-03-11"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/grahamegrieve/vocab-poc"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts which are used to determine the function of the order segment.  Depending on the message, the action specified by one of these control codes may refer to an order or an individual service.  Used in Version 2.x messaging of orders in the ORC segment."/>
+  <purpose value="Underlying Code System for V2 table 0119 (Order Control Codes, version 2.3.1)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v2-0119-2.3.1"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://healthintersections.com.au/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://healthintersections.com.au/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://healthintersections.com.au/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://healthintersections.com.au/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <code value="NW"/>
+    <display value="New order (O01)"/>
+    <definition value="New order (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <code value="OK"/>
+    <display value="Order accepted &amp; OK (O02)"/>
+    <definition value="Order accepted &amp; OK (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <code value="UA"/>
+    <display value="Unable to accept order (O02/ORR)"/>
+    <definition value="Unable to accept order (O02/ORR)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="5">
+    <code value="CA"/>
+    <display value="Cancel order request (O01)"/>
+    <definition value="Cancel order request (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="6">
+    <code value="OC"/>
+    <display value="Order canceled (O01)"/>
+    <definition value="Order canceled (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="7">
+    <code value="CR"/>
+    <display value="Canceled as requested (O02)"/>
+    <definition value="Canceled as requested (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="8">
+    <code value="UC"/>
+    <display value="Unable to cancel (O02)"/>
+    <definition value="Unable to cancel (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="10">
+    <code value="DC"/>
+    <display value="Discontinue order request (O01)"/>
+    <definition value="Discontinue order request (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="11">
+    <code value="OD"/>
+    <display value="Order discontinued (O01)"/>
+    <definition value="Order discontinued (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="12">
+    <code value="DR"/>
+    <display value="Discontinued as requested (O02)"/>
+    <definition value="Discontinued as requested (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="13">
+    <code value="UD"/>
+    <display value="Unable to discontinue (O02)"/>
+    <definition value="Unable to discontinue (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="15">
+    <code value="HD"/>
+    <display value="Hold order request (O01)"/>
+    <definition value="Hold order request (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="16">
+    <code value="OH"/>
+    <display value="Order held (O01)"/>
+    <definition value="Order held (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="17">
+    <code value="UH"/>
+    <display value="Unable to put on hold (O02)"/>
+    <definition value="Unable to put on hold (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="18">
+    <code value="HR"/>
+    <display value="On hold as requested (O02)"/>
+    <definition value="On hold as requested (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="20">
+    <code value="RL"/>
+    <display value="Release previous hold (O01)"/>
+    <definition value="Release previous hold (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="21">
+    <code value="OE"/>
+    <display value="Order released (O01)"/>
+    <definition value="Order released (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="22">
+    <code value="OR"/>
+    <display value="Released as requested"/>
+    <definition value="Released as requested"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="23">
+    <code value="UR"/>
+    <display value="Unable to release (O02)"/>
+    <definition value="Unable to release (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="25">
+    <code value="RP"/>
+    <display value="Order replace request (O01)"/>
+    <definition value="Order replace request (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="26">
+    <code value="RU"/>
+    <display value="Replaced unsolicited (O01)"/>
+    <definition value="Replaced unsolicited (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="27">
+    <code value="RO"/>
+    <display value="Replacement order (O01)"/>
+    <definition value="Replacement order (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="28">
+    <code value="RQ"/>
+    <display value="Replaced as requested (O02)"/>
+    <definition value="Replaced as requested (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="29">
+    <code value="UM"/>
+    <display value="Unable to replace (O02)"/>
+    <definition value="Unable to replace (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="31">
+    <code value="PA"/>
+    <display value="Parent order (O01/ORU)"/>
+    <definition value="Parent order (O01/ORU)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="32">
+    <code value="CH"/>
+    <display value="Child order (O01/ORU)"/>
+    <definition value="Child order (O01/ORU)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="34">
+    <code value="XO"/>
+    <display value="Change order request (O01)"/>
+    <definition value="Change order request (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="35">
+    <code value="XX"/>
+    <display value="Order changed, unsol. (O01)"/>
+    <definition value="Order changed, unsol. (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="36">
+    <code value="UX"/>
+    <display value="Unable to change (O02)"/>
+    <definition value="Unable to change (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="37">
+    <code value="XR"/>
+    <display value="Changed as requested (O02)"/>
+    <definition value="Changed as requested (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="39">
+    <code value="DE"/>
+    <display value="Data errors (O01/O02)"/>
+    <definition value="Data errors (O01/O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="40">
+    <code value="RE"/>
+    <display value="Observations to follow (O01/R01)"/>
+    <definition value="Observations to follow (O01/R01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="41">
+    <code value="RR"/>
+    <display value="Request received (O02)"/>
+    <definition value="Request received (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="42">
+    <code value="SR"/>
+    <display value="Response to send order status request (O02(Q06)"/>
+    <definition value="Response to send order status request (O02(Q06)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="43">
+    <code value="SS"/>
+    <display value="Send order status request (O01)"/>
+    <definition value="Send order status request (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="44">
+    <code value="SC"/>
+    <display value="Status changed (O01)"/>
+    <definition value="Status changed (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="45">
+    <code value="SN"/>
+    <display value="Send order number (O01)"/>
+    <definition value="Send order number (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="46">
+    <code value="NA"/>
+    <display value="Number assigned (O02)"/>
+    <definition value="Number assigned (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="47">
+    <code value="CN"/>
+    <display value="Combined result (R01)"/>
+    <definition value="Combined result (R01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="49">
+    <code value="RF"/>
+    <display value="Refill order request (O01)"/>
+    <definition value="Refill order request (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="50">
+    <code value="AF"/>
+    <display value="Order refill request approval (O02)"/>
+    <definition value="Order refill request approval (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="51">
+    <code value="DF"/>
+    <display value="Order refill request denied (O02)"/>
+    <definition value="Order refill request denied (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="52">
+    <code value="FU"/>
+    <display value="Order refilled, unsolicited (O01)"/>
+    <definition value="Order refilled, unsolicited (O01)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="53">
+    <code value="OF"/>
+    <display value="Order refilled as requested (O02)"/>
+    <definition value="Order refilled as requested (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="54">
+    <code value="UF"/>
+    <display value="Unable to refill (O02)"/>
+    <definition value="Unable to refill (O02)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="55">
+    <code value="LI"/>
+    <display value="Link order to patient care problem or goal"/>
+    <definition value="Link order to patient care problem or goal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="56">
+    <code value="UN"/>
+    <display value="Unlink order from patient care problem or goal"/>
+    <definition value="Unlink order from patient care problem or goal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>

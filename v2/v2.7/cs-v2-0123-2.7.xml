@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0123-2.7"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="OO"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
+    <valueUri value="http://hl7.org/v2/ch02c.html#Heading45"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
+    <valueString value="2.C.2.29"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
+    <valueCode value="HL7"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v2-0123-2.7"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.51"/>
+  </identifier>
+  <version value="3"/>
+  <name value="V2Table0123v2.7"/>
+  <title value="V2 Table: Result Status"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2016-03-11"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/grahamegrieve/vocab-poc"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts which specify a status of results for an order.  Used in HL7 Version 2.x messaging in the OBR segment."/>
+  <purpose value="Underlying Code System for V2 table 0123 (Result Status, version 2.7)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v2-0123-2.7"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://healthintersections.com.au/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://healthintersections.com.au/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://healthintersections.com.au/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://healthintersections.com.au/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <code value="O"/>
+    <display value="Order received; specimen not yet received"/>
+    <definition value="Order received; specimen not yet received"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <code value="I"/>
+    <display value="No results available; specimen received, procedure incomplete"/>
+    <definition value="No results available; specimen received, procedure incomplete"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <code value="S"/>
+    <display value="No results available; procedure scheduled, but not done"/>
+    <definition value="No results available; procedure scheduled, but not done"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <code value="A"/>
+    <display value="Some, but not all, results available"/>
+    <definition value="Some, but not all, results available"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="5">
+    <code value="P"/>
+    <display value="Preliminary: A verified early result is available, final results not yet obtained"/>
+    <definition value="Preliminary: A verified early result is available, final results not yet obtained"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="6">
+    <code value="C"/>
+    <display value="Correction to results"/>
+    <definition value="Correction to results"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="7">
+    <code value="R"/>
+    <display value="Results stored; not yet verified"/>
+    <definition value="Results stored; not yet verified"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="8">
+    <code value="F"/>
+    <display value="Final results; results stored and verified.  Can only be changed with a corrected result."/>
+    <definition value="Final results; results stored and verified.  Can only be changed with a corrected result."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="9">
+    <code value="X"/>
+    <display value="No results available; Order canceled."/>
+    <definition value="No results available; Order canceled."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="10">
+    <code value="Y"/>
+    <display value="No order on record for this test.  (Used only on queries)"/>
+    <definition value="No order on record for this test.  (Used only on queries)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="11">
+    <code value="Z"/>
+    <display value="No record of this patient. (Used only on queries)"/>
+    <definition value="No record of this patient. (Used only on queries)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>

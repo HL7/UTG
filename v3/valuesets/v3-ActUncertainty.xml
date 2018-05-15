@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActUncertainty"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>A code indicating whether the Act statement as a whole, with its subordinate components has been asserted to be uncertain in any way. </p>
+                  
+      <p>
+                     
+        <i>Examples:</i> Patient might have had a cholecystectomy procedure in the past (but isn&#39;t sure).
+      </p>
+                  
+      <p>
+                     
+        <i>Constraints:</i> Uncertainty asserted using this attribute applies to the combined meaning of the Act statement established by all descriptive attributes (e.g., Act.code, Act.effectiveTime, Observation.value, SubstanceAdministration.doseQuantity, etc.), and the meanings of any components.
+      </p>
+                  
+      <p>
+                     
+        <i>Discussion:</i>This is not intended for use to replace or compete with uncertainty associated with a Observation.values alone or other individual attributes of the class. Such pointed indications of uncertainty should be specified by applying the PPD, UVP or UVN data type extensions to the specific attribute. Particularly if the uncertainty is uncertainty of a quantitative measurement value, this must still be represented by a PPD&lt;PQ&gt; in the value and NOT using the uncertaintyCode. Also, when differential diagnoses are enumerated or weighed for probability, the UVP&lt;CD&gt; or UVN&lt;CD&gt; must be used, not the uncertaintyCode. The use of the uncertaintyCode is appropriate only if the entirety of the Act and its dependent Acts is questioned.
+      </p>
+                  
+      <p>Note that very vague uncertainty may be thought related to negationInd, however, the two concepts are really independent. One may be very uncertain about an event, but that does not mean that one is certain about the negation of the event.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="date">
+      <valueDateTime value="2014-03-26"/>
+    </extension>
+    <extension url="id">
+      <valueString value="2014T1_2014-03-26_001283"/>
+    </extension>
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="notes">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v3-ActUncertainty"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.16899"/>
+  </identifier>
+  <name value="ActUncertainty"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value=" A code indicating whether the Act statement as a whole, with its subordinate components has been asserted to be uncertain in any way.  Examples:&#xD;&#xA;Patient might have had a cholecystectomy procedure in the past (but isn&#39;t sure).  Constraints:&#xD;&#xA;Uncertainty asserted using this attribute applies to the combined meaning of the Act statement established by all descriptive attributes (e.g., Act.code, Act.effectiveTime, Observation.value, SubstanceAdministration.doseQuantity, etc.), and the meanings of any components.  Discussion:&#xD;&#xA;This is not intended for use to replace or compete with uncertainty associated with a Observation.values alone or other individual attributes of the class. Such pointed indications of uncertainty should be specified by applying the PPD, UVP or UVN data type extensions to the specific attribute. Particularly if the uncertainty is uncertainty of a quantitative measurement value, this must still be represented by a PPD&lt;PQ&gt; in the value and NOT using the uncertaintyCode. Also, when differential diagnoses are enumerated or weighed for probability, the UVP&lt;CD&gt; or UVN&lt;CD&gt; must be used, not the uncertaintyCode. The use of the uncertaintyCode is appropriate only if the entirety of the Act and its dependent Acts is questioned. Note that very vague uncertainty may be thought related to negationInd, however, the two concepts are really independent. One may be very uncertain about an event, but that does not mean that one is certain about the negation of the event."/>
+</ValueSet>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0731-2.7"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="FM"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
+    <valueUri value="http://hl7.org/v2/ch06.html#Heading85"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
+    <valueString value="6.5.2.24"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
+    <valueCode value="User"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v2-0731-2.7"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.392"/>
+  </identifier>
+  <version value="1"/>
+  <name value="V2Table0731v2.7"/>
+  <title value="V2 Table: DRG Diagnosis Determination Status"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2016-03-11"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/grahamegrieve/vocab-poc"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined cCode system of concepts specifying the status of a diagnosis for a diagnosis related group (DRG) determination.  US Realm. Used in HL7 Version 2.x messaging in the DG1 segment."/>
+  <purpose value="Underlying Code System for V2 table 0731 (DRG Diagnosis Determination Status, version 2.7)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v2-0731-2.7"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://healthintersections.com.au/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://healthintersections.com.au/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://healthintersections.com.au/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://healthintersections.com.au/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <code value="0"/>
+    <display value="Valid code"/>
+    <definition value="Valid code"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <code value="1"/>
+    <display value="Invalid code"/>
+    <definition value="Invalid code"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <code value="2"/>
+    <display value="Two primary diagnosis codes"/>
+    <definition value="Two primary diagnosis codes"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <code value="3"/>
+    <display value="Invalid for this gender"/>
+    <definition value="Invalid for this gender"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="5">
+    <code value="4"/>
+    <display value="Invalid for this age"/>
+    <definition value="Invalid for this age"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>

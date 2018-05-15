@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActControlVariable"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>An observation form that determines parameters or attributes of an Act. Examples are the settings of a ventilator machine as parameters of a ventilator treatment act; the controls on dillution factors of a chemical analyzer as a parameter of a laboratory observation act; the settings of a physiologic measurement assembly (e.g., time skew) or the position of the body while measuring blood pressure.</p>
+                  
+      <p>Control variables are forms of observations because just as with clinical observations, the Observation.code determines the parameter and the Observation.value assigns the value. While control variables sometimes can be observed (by noting the control settings or an actually measured feedback loop) they are not primary observations, in the sense that a control variable without a primary act is of no use (e.g., it makes no sense to record a blood pressure position without recording a blood pressure, whereas it does make sense to record a systolic blood pressure without a diastolic blood pressure).</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="date">
+      <valueDateTime value="2014-03-26"/>
+    </extension>
+    <extension url="id">
+      <valueString value="2014T1_2014-03-26_001283"/>
+    </extension>
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="notes">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v3-ActControlVariable"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.16857"/>
+  </identifier>
+  <name value="ActControlVariable"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value=" An observation form that determines parameters or attributes of an Act. Examples are the settings of a ventilator machine as parameters of a ventilator treatment act; the controls on dillution factors of a chemical analyzer as a parameter of a laboratory observation act; the settings of a physiologic measurement assembly (e.g., time skew) or the position of the body while measuring blood pressure. Control variables are forms of observations because just as with clinical observations, the Observation.code determines the parameter and the Observation.value assigns the value. While control variables sometimes can be observed (by noting the control settings or an actually measured feedback loop) they are not primary observations, in the sense that a control variable without a primary act is of no use (e.g., it makes no sense to record a blood pressure position without recording a blood pressure, whereas it does make sense to record a systolic blood pressure without a diastolic blood pressure)."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_ActControlVariable"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-SecurityIntegrityProvenanceReportedByObservationValue"/>
+  <language value="en"/>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v3-SecurityIntegrityProvenanceReportedByObservationValue"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20487"/>
+  </identifier>
+  <name value="SecurityIntegrityProvenanceReportedByObservationValue"/>
+  <status value="active"/>
+  <date value="2017-07-31"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ObservationValue"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_SECINTPRVRBOBV"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

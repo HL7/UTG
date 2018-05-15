@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-EntityNamePartTypeR2"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>
+                     
+        <b>Description:</b>Indicates whether the name part is a given name, family name, prefix, suffix, etc.
+      </p>
+               
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartTypeR2"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1121"/>
+  </identifier>
+  <name value="EntityNamePartTypeR2"/>
+  <title value="EntityNamePartTypeR2"/>
+  <status value="active"/>
+  <date value="2017-07-31"/>
+  <publisher value="HL7"/>
+  <description value="  Description:&#xD;&#xA;Indicates whether the name part is a given name, family name, prefix, suffix, etc."/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-relationshipKind">
+      <valueCode value="NonDefinitionallyQualifiedBy"/>
+    </extension>
+    <code value="MayBeQualifiedBy"/>
+    <description value="Relationship points from a concept in EntityNamePartType to a concept in  EntityNamePartQualifier and indicates that the former concept may be qualified by the latter."/>
+    <type value="Coding"/>
+  </property>
+  <concept id="22786">
+    <code value="DEL"/>
+    <display value="delimiter"/>
+    <definition value="  Description:&#xD;&#xA;A delimiter has no meaning other than being literally printed in this name representation. A delimiter has no implicit leading and trailing white space."/>
+  </concept>
+  <concept id="22784">
+    <code value="FAM"/>
+    <display value="family"/>
+    <definition value="  Description:&#xD;&#xA;Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father."/>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="AD"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="BR"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="CL"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="IN"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="MID"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="PFX"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="SP"/>
+      </valueCoding>
+    </property>
+  </concept>
+  <concept id="22785">
+    <code value="GIV"/>
+    <display value="given"/>
+    <definition value="  Description:&#xD;&#xA;Given name. Note: don&#39;t call it &quot;first name&quot; since the given names do not always come first."/>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="AD"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="BR"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="CL"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="IN"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="PFX"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="SFX"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="SP"/>
+      </valueCoding>
+    </property>
+  </concept>
+  <concept id="22787">
+    <code value="TITLE"/>
+    <display value="title"/>
+    <definition value="  Description:&#xD;&#xA;Part of the name that is acquired as a title due to academic, legal, employment or nobility status etc.  Note:&#xD;&#xA;Title name parts include name parts that come after the name such as qualifications, even if they are not always considered to be titles."/>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="AC"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="LS"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="NB"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="PFX"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="PR"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="SFX"/>
+      </valueCoding>
+    </property>
+  </concept>
+</CodeSystem>

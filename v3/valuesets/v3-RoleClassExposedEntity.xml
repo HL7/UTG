@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-RoleClassExposedEntity"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>A role played by an entity that has been exposed to a person or animal suffering a contagious disease, or with a location from which a toxin has been distributed.  The player of the role is normally a person or animal, but it is possible that other entity types could become exposed.  The role is scoped by the source of the exposure, and it is quite possible for a person playing the role of exposed party to also become the scoper a role played by another person.  That is to say, once a person has become infected, it is possible, perhaps likely, for that person to infect others.</p>
+                  
+      <p>Management of exposures and tracking exposed parties is a key function within public health, and within most public health contexts - exposed parties are known as &quot;contacts.&quot;</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="date">
+      <valueDateTime value="2014-03-26"/>
+    </extension>
+    <extension url="id">
+      <valueString value="2014T1_2014-03-26_001283"/>
+    </extension>
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="notes">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v3-RoleClassExposedEntity"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20131"/>
+  </identifier>
+  <name value="RoleClassExposedEntity"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value=" A role played by an entity that has been exposed to a person or animal suffering a contagious disease, or with a location from which a toxin has been distributed.  The player of the role is normally a person or animal, but it is possible that other entity types could become exposed.  The role is scoped by the source of the exposure, and it is quite possible for a person playing the role of exposed party to also become the scoper a role played by another person.  That is to say, once a person has become infected, it is possible, perhaps likely, for that person to infect others. Management of exposures and tracking exposed parties is a key function within public health, and within most public health contexts - exposed parties are known as &quot;contacts.&quot;"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="EXPR"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

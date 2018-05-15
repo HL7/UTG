@@ -1,0 +1,1657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-ActReason"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>A set of codes specifying the motivation, cause, or rationale of an Act, when such rationale is not reasonably represented as an ActRelationship of type &quot;has reason&quot; linking to another Act.</p>
+                  
+      <p>
+                     
+        <i>Examples:</i> Example reasons that might qualify for being coded in this field might be: &quot;routine requirement&quot;, &quot;infectious disease reporting requirement&quot;, &quot;on patient request&quot;, &quot;required by law&quot;.
+      </p>
+               
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ActReason"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.8"/>
+  </identifier>
+  <name value="ActReason"/>
+  <title value="ActReason"/>
+  <status value="active"/>
+  <date value="2017-07-31"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value=" A set of codes specifying the motivation, cause, or rationale of an Act, when such rationale is not reasonably represented as an ActRelationship of type &quot;has reason&quot; linking to another Act.  Examples:&#xD;&#xA;Example reasons that might qualify for being coded in this field might be: &quot;routine requirement&quot;, &quot;infectious disease reporting requirement&quot;, &quot;on patient request&quot;, &quot;required by law&quot;."/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
+  <concept id="20937">
+    <code value="_ActAccommodationReason"/>
+    <display value="ActAccommodationReason"/>
+    <definition value=" Identifies the reason the patient is assigned to this accommodation type"/>
+    <concept id="17429">
+      <code value="ACCREQNA"/>
+      <display value="Accommodation Requested Not Available"/>
+      <definition value=" Accommodation requested is not available."/>
+    </concept>
+    <concept id="17430">
+      <code value="FLRCNV"/>
+      <display value="Floor Convenience"/>
+      <definition value=" Accommodation is assigned for floor convenience."/>
+    </concept>
+    <concept id="17428">
+      <code value="MEDNEC"/>
+      <display value="Medical Necessity"/>
+      <definition value=" Required for medical reasons(s)."/>
+    </concept>
+    <concept id="14880">
+      <code value="PAT"/>
+      <display value="Patient request"/>
+      <definition value=" The Patient requested the action"/>
+    </concept>
+  </concept>
+  <concept id="22164">
+    <code value="_ActCoverageReason"/>
+    <display value="ActCoverageReason"/>
+    <definition value="  Description:&#xD;&#xA;Codes used to specify reasons or criteria relating to coverage provided under a policy or program.  May be used to convey reasons pertaining to coverage contractual provisions, including criteria for eligibility, coverage limitations, coverage maximums, or financial participation required of covered parties."/>
+    <concept id="21493">
+      <code value="_EligibilityActReasonCode"/>
+      <display value="EligibilityActReasonCode"/>
+      <definition value=" Identifies the reason or rational for why a person is eligibile for benefits under an insurance policy or progam.  Examples:&#xD;&#xA;A person is a claimant under an automobile insurance policy are client deceased &amp; adopted client has been given a new policy identifier.  A new employee is eligible for health insurance as an employment benefit.  A person meets a government program eligibility criteria for financial, age or health status."/>
+      <concept id="20940">
+        <code value="_ActIneligibilityReason"/>
+        <display value="ActIneligibilityReason"/>
+        <definition value=" Identifies the reason or rational for why a person is not eligibile for benefits under an insurance policy. Examples are client deceased &amp; adopted client has been given a new policy identifier."/>
+        <concept id="19731">
+          <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+            <valueString value="Definition seems incomplete. It expresses the circumstances of suspension, but does not clearly state &quot;what it is&quot;."/>
+          </extension>
+          <code value="COVSUS"/>
+          <display value="coverage suspended"/>
+          <definition value=" When a client has no contact with the health system for an extended period, coverage is suspended.  Client will be reinstated to original start date upon proof of identification, residency etc. Example: Coverage may be suspended during a strike situation, when employer benefits for employees are not covered (i.e. not in effect)."/>
+        </concept>
+        <concept id="19729">
+          <code value="DECSD"/>
+          <display value="deceased"/>
+          <definition value=" Client deceased."/>
+        </concept>
+        <concept id="19730">
+          <code value="REGERR"/>
+          <display value="registered in error"/>
+          <definition value=" Client was registered in error."/>
+        </concept>
+      </concept>
+      <concept id="21555">
+        <code value="_CoverageEligibilityReason"/>
+        <display value="CoverageEligibilityReason"/>
+        <definition value=" Definition: Identifies the reason or rational for why a person is eligibile for benefits under an insurance policy or progam.  Examples:&#xD;&#xA;A person is a claimant under an automobile insurance policy are client deceased &amp; adopted client has been given a new policy identifier.  A new employee is eligible for health insurance as an employment benefit.  A person meets a government program eligibility criteria for financial, age or health status."/>
+        <concept id="21565">
+          <code value="AGE"/>
+          <display value="age eligibility"/>
+          <definition value=" A person becomes eligible for a program based on age.  Example:&#xD;&#xA;In the U.S., a person who is 65 years of age or older is eligible for Medicare."/>
+        </concept>
+        <concept id="21558">
+          <code value="CRIME"/>
+          <display value="crime victim"/>
+          <definition value=" A person becomes eligible for insurance or a program because of crime related health condition or injury.  Example:&#xD;&#xA;A person is a claimant under the U.S. Crime Victims Compensation program."/>
+        </concept>
+        <concept id="21560">
+          <code value="DIS"/>
+          <display value="disability"/>
+          <definition value=" A person becomes a claimant under a disability income insurance policy or a disability rehabilitation program because of a health condition or injury which limits the person&#39;s ability to earn an income or function without institutionalization."/>
+        </concept>
+        <concept id="21556">
+          <code value="EMPLOY"/>
+          <display value="employment benefit"/>
+          <definition value=" A person becomes eligible for insurance provided as an employment benefit based on employment status."/>
+        </concept>
+        <concept id="21564">
+          <code value="FINAN"/>
+          <display value="financial eligibility"/>
+          <definition value=" A person becomes eligible for a program based on financial criteria.  Example:&#xD;&#xA;A person whose family income is below a financial threshold for eligibility for Medicaid or SCHIP."/>
+        </concept>
+        <concept id="21562">
+          <code value="HEALTH"/>
+          <display value="health status"/>
+          <definition value=" A person becomes eligible for a program because of a qualifying health condition or injury.  Examples:&#xD;&#xA;A person is determined to have a qualifying health conditions include pregnancy, HIV/AIDs, tuberculosis, end stage renal disease, breast or cervical cancer, or other condition requiring specialized health services, hospice, institutional or community based care provided under a program"/>
+        </concept>
+        <concept id="21566">
+          <code value="MULTI"/>
+          <display value="multiple criteria eligibility"/>
+          <definition value=" A person becomes eligible for a program based on more than one criterion.  Examples:&#xD;&#xA;In the U.S., a child whose familiy income meets Medicaid financial thresholds and whose age is less than 18 is eligible for the Early and Periodic Screening, Diagnostic, and Treatment program (EPSDT).  A person whose family income meets Medicaid financial thresholds and whose age is 65 years or older is eligible for Medicaid and Medicare, and are referred to as dual eligibles."/>
+        </concept>
+        <concept id="21561">
+          <code value="PNC"/>
+          <display value="property and casualty condition"/>
+          <definition value=" A person becomes a claimant under a property and casualty insurance policy because of a related health condition or injury resulting from a circumstance covered under the terms of the policy.  Example:&#xD;&#xA;A person is a claimant under a homeowners insurance policy because of an injury sustained on the policyholderaTMs premises."/>
+        </concept>
+        <concept id="21563">
+          <code value="STATUTORY"/>
+          <display value="statutory eligibility"/>
+          <definition value=" A person becomes eligible for a program based on statutory criteria.  Examples:&#xD;&#xA;A person is a member of an indigenous group, a veteran of military service, or  in the U.S., a recipient of adoption assistance and foster care under Title IV-E of the Social Security."/>
+        </concept>
+        <concept id="21559">
+          <code value="VEHIC"/>
+          <display value="motor vehicle accident victim"/>
+          <definition value=" A person becomes a claimant under a motor vehicle accident insurance because of a motor vehicle accident related health condition or injury."/>
+        </concept>
+        <concept id="21557">
+          <code value="WORK"/>
+          <display value="work related"/>
+          <definition value=" A person becomes eligible for insurance or a program because of a work related health condition or injury.  Example:&#xD;&#xA;A person is a claimant under the U.S. Black Lung Program."/>
+        </concept>
+      </concept>
+    </concept>
+    <concept id="22168">
+      <code value="_ActCoverageProviderReason"/>
+      <display value="ActCoverageProviderReason"/>
+      <definition value="  Description:&#xD;&#xA;Identifies the reason or rationale for coverage of a service or product based on characteristics of the provider, e.g., contractual relationship to payor, such as in or out-of-network; relationship of the covered party to the provider.  Example:&#xD;&#xA;In closed managed care plan, a covered party is assigned a primary care provider who provides primary care services and authorizes referrals and ancillary and non-primary care services."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+    </concept>
+    <concept id="22169">
+      <code value="_ActCoverageServiceReason"/>
+      <display value="ActCoverageServiceReason"/>
+      <definition value="  Description:&#xD;&#xA;Identifies the reason or rationale for coverage of a service or product based on clinical efficacy criteria or practices prescribed by the payor."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+    </concept>
+    <concept id="22165">
+      <code value="_CoverageExclusionReason"/>
+      <display value="CoverageExclusionReason"/>
+      <definition value="  Definition:&#xD;&#xA;Identifies the reason or rationale for coverage of a service or product based on coverage exclusions related to the risk of adverse selection by covered parties."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+    </concept>
+    <concept id="22166">
+      <code value="_CoverageFinancialParticipationReason"/>
+      <display value="CoverageFinancialParticipationReason"/>
+      <definition value="  Description:&#xD;&#xA;Identifies the reason or rationale for coverage of a service or product based on financial participation responsibilities of the covered party."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+    </concept>
+    <concept id="22167">
+      <code value="_CoverageLimitationReason"/>
+      <display value="CoverageLimitationReason"/>
+      <definition value="  Description:&#xD;&#xA;Identifies the reason or rationale for  limitations on the coverage of a service or product based on coverage contract provisions.  Example:&#xD;&#xA;The maximum cost per unit; or the maximum number of units per period, which is typically the policy or program effective time."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+    </concept>
+  </concept>
+  <concept id="22675">
+    <code value="_ActInformationManagementReason"/>
+    <display value="ActInformationManagementReason"/>
+    <definition value="  Description:&#xD;&#xA;The rationale or purpose for an act relating to information management, such as archiving information for the purpose of complying with an enterprise data retention policy."/>
+    <concept id="22676">
+      <code value="_ActHealthInformationManagementReason"/>
+      <display value="ActHealthInformationManagementReason"/>
+      <definition value="  Description:&#xD;&#xA;The rationale or purpose for an act relating to health information management, such as archiving information for the purpose of complying with an organization policy or jurisdictional law relating to  data retention."/>
+      <concept id="22198">
+        <code value="_ActConsentInformationAccessOverrideReason"/>
+        <display value="ActConsentInformationAccessOverrideReason"/>
+        <definition value=" To perform one or more operations on information to which the patient has not consented as deemed necessary by authorized entities for providing care in the best interest of the patient; providing immediately needed health care for an emergent condition;  or for protecting public or third party safety.  Usage Notes:&#xD;&#xA;Used to convey the reason that a provider or other entity may or has accessed personal healthcare information.  Typically, this involves overriding the subject&#39;s consent directives."/>
+        <concept id="22194">
+          <code value="OVRER"/>
+          <display value="emergency treatment override"/>
+          <definition value=" To perform one or more operations on information to which the patient has not consented by authorized entities for treating a condition which poses an immediate threat to the patient&#39;s health and which requires immediate medical intervention.  Usage Notes:&#xD;&#xA;The patient is unable to provide consent, but the provider determines they have an urgent healthcare related reason to access the record."/>
+        </concept>
+        <concept id="23877">
+          <code value="OVRINCOMP"/>
+          <display value="incompetency override"/>
+          <definition value=" To perform one or more operations on information to which the patient has not consented because deemed incompetent to provide consent.  Usage Note:&#xD;&#xA;Maps to v2 CON-16 Subject Competence Indicator (ID) 01791 Definition: Identifies whether the subject was deemed competent to provide consent. Refer to table HL7 Table 0136 - Yes/No Indicator and CON-23 Non-Subject Consenter Reason User-defined Table 0502 - Non-Subject Consenter Reason code NC &quot;Subject is not competent to consent&quot;."/>
+        </concept>
+        <concept id="22197">
+          <code value="OVRPJ"/>
+          <display value="professional judgment override"/>
+          <definition value=" To perform one or more operations on information to which the patient declined to consent for providing health care.  Usage Notes:&#xD;&#xA;The patient, while able to give consent, has not.  However the provider believes it is in the patient&#39;s interest to access the record without patient consent."/>
+        </concept>
+        <concept id="22195">
+          <code value="OVRPS"/>
+          <display value="public safety override"/>
+          <definition value=" To perform one or more operations on information to which the patient has not consented for public safety reasons.  Usage Notes:&#xD;&#xA;The patient, while able to give consent, has not.  However, the provider believes that access to masked patient information is justified because of concerns related to public safety."/>
+        </concept>
+        <concept id="22196">
+          <code value="OVRTPS"/>
+          <display value="third party safety override"/>
+          <definition value=" To perform one or more operations on information to which the patient has not consented for third party safety.  Usage Notes:&#xD;&#xA;The patient, while able to give consent, has not.  However, the provider believes that access to masked patient information is justified because of concerns related to the health and safety of one or more third parties."/>
+        </concept>
+      </concept>
+      <concept id="23408">
+        <code value="PurposeOfUse"/>
+        <display value="purpose of use"/>
+        <definition value=" Reason for performing one or more operations on information, which may be permitted by source system&#39;s security policy in accordance with one or more privacy policies and consent directives.  Usage Notes:&#xD;&#xA;The rationale or purpose for an act relating to the management of personal health information, such as collecting personal health information for research or public health purposes."/>
+        <concept id="22678">
+          <code value="HMARKT"/>
+          <display value="healthcare marketing"/>
+          <definition value=" To perform one or more operations on information for marketing services and products related to health care."/>
+        </concept>
+        <concept id="22686">
+          <code value="HOPERAT"/>
+          <display value="healthcare operations"/>
+          <definition value=" To perform one or more operations on information used for conducting administrative and contractual activities related to the provision of health care."/>
+          <concept id="23412">
+            <code value="DONAT"/>
+            <display value="donation"/>
+            <definition value=" To perform one or more operations on information used for cadaveric organ, eye or tissue donation."/>
+          </concept>
+          <concept id="23413">
+            <code value="FRAUD"/>
+            <display value="fraud"/>
+            <definition value=" To perform one or more operations on information used for fraud detection and prevention processes."/>
+          </concept>
+          <concept id="23414">
+            <code value="GOV"/>
+            <display value="government"/>
+            <definition value=" To perform one or more operations on information used within government processes."/>
+          </concept>
+          <concept id="22692">
+            <code value="HACCRED"/>
+            <display value="health accreditation"/>
+            <definition value=" To perform one or more operations on information for conducting activities related to meeting accreditation criteria."/>
+          </concept>
+          <concept id="22689">
+            <code value="HCOMPL"/>
+            <display value="health compliance"/>
+            <definition value=" To perform one or more operations on information used for conducting activities required to meet a mandate."/>
+          </concept>
+          <concept id="23415">
+            <code value="HDECD"/>
+            <display value="decedent"/>
+            <definition value=" To perform one or more operations on information used for handling deceased patient matters."/>
+          </concept>
+          <concept id="23416">
+            <code value="HDIRECT"/>
+            <display value="directory"/>
+            <definition value=" To perform one or more operation operations on information used to manage a patient directory.  Examples:&#xD;&#xA;  facility enterprise payer health information exchange patient directory"/>
+          </concept>
+          <concept id="22690">
+            <code value="HLEGAL"/>
+            <display value="legal"/>
+            <definition value=" To perform one or more operations on information for conducting activities required by legal proceeding."/>
+          </concept>
+          <concept id="22688">
+            <code value="HOUTCOMS"/>
+            <display value="health outcome measure"/>
+            <definition value=" To perform one or more operations on information used for assessing results and comparative effectiveness achieved by health care practices and interventions."/>
+          </concept>
+          <concept id="22691">
+            <code value="HPRGRP"/>
+            <display value="health program reporting"/>
+            <definition value=" To perform one or more operations on information used for conducting activities to meet program accounting requirements."/>
+          </concept>
+          <concept id="22687">
+            <code value="HQUALIMP"/>
+            <display value="health quality improvement"/>
+            <definition value=" To perform one or more operations on information used for conducting administrative activities to improve health care quality."/>
+          </concept>
+          <concept id="22695">
+            <code value="HSYSADMIN"/>
+            <display value="health system administration"/>
+            <definition value=" To perform one or more operations on information to administer the electronic systems used for the delivery of health care."/>
+            <concept id="23871">
+              <code value="LABELING"/>
+              <display value="labeling"/>
+              <definition value=" To perform one or more operations on information to assign, persist, and manage labels to healthcare data to characterize various aspects, such as its security classification, sensitivity, compartment, integrity, and provenance; applicable privacy, consent, security, provenance, and trust policies; and handling caveats such as purpose of use, obligations, and refrain policies. Label management includes classification of target data by constructing and binding of a label set per applicable policies, security policy information file semantics, and classification guides.  Label management also includes process and procedures for subsequent revision of a label for, e.g., reclassification, downgrading classification, and declassification. Label revisions may be triggered by, e.g., expiry of classification period; changes in applicable policy, e.g., revocation of a consent directive; or changes in the governing policy domain in which the data is relocated or a copy of the data is sent.  If a label is revised, an audit log should be kept and the provenance of the label changes should be tracked."/>
+            </concept>
+            <concept id="23872">
+              <code value="METAMGT"/>
+              <display value="metadata management"/>
+              <definition value=" To perform one or more operations on information to assign, persist, and manage metadata to healthcare data to characterize various aspects used for its indexing, discovery, retrieval, and processing by systems, applications, and end users.  For example, master index identifier, media type, and location."/>
+            </concept>
+          </concept>
+          <concept id="22694">
+            <code value="MEMADMIN"/>
+            <display value="member administration"/>
+            <definition value=" To perform one or more operations on information to administer health care coverage to an enrollee under a policy or program."/>
+          </concept>
+          <concept id="23875">
+            <code value="MILCDM"/>
+            <display value="military command"/>
+            <definition value=" To perform one or more operations on information for conducting activities required by military processes, procedures, policies, or law."/>
+          </concept>
+          <concept id="22693">
+            <code value="PATADMIN"/>
+            <display value="patient administration"/>
+            <definition value=" To perform one or more operations on information used for operational activities conducted to administer the delivery of health care to a patient."/>
+          </concept>
+          <concept id="22696">
+            <code value="PATSFTY"/>
+            <display value="patient safety"/>
+            <definition value=" To perform one or more operations on information in processes related to ensuring the safety of health care."/>
+          </concept>
+          <concept id="23417">
+            <code value="PERFMSR"/>
+            <display value="performance measure"/>
+            <definition value=" To perform one or more operations on information used for monitoring performance of recommended health care practices and interventions."/>
+          </concept>
+          <concept id="23418">
+            <code value="RECORDMGT"/>
+            <display value="records management"/>
+            <definition value=" To perform one or more operations on information used within the health records management process."/>
+          </concept>
+          <concept id="23873">
+            <code value="SYSDEV"/>
+            <display value="system development"/>
+            <definition value=" To perform one or more operations on information to design, develop, implement, test, or deploy a healthcare system or application."/>
+            <concept id="23874">
+              <code value="HTEST"/>
+              <display value="test health data"/>
+              <definition value=" To perform one or more operations on information that is simulated or synthetic health data used for testing system capabilities outside of a production or operational system environment.  Usage Note:&#xD;&#xA;Data marked with a HTEST security label enables an access control system to permit interfacing systems or end users provisioned with a clearance, which includes a HTEST purpose of use attribute, to test, verify, or validate that a system or application will operate in production as intended based on design specifications."/>
+            </concept>
+          </concept>
+          <concept id="23419">
+            <code value="TRAIN"/>
+            <display value="training"/>
+            <definition value=" To perform one or more operations on information used in training and education."/>
+          </concept>
+        </concept>
+        <concept id="22685">
+          <code value="HPAYMT"/>
+          <display value="healthcare payment"/>
+          <definition value=" To perform one or more operations on information for conducting financial or contractual activities related to payment for provision of health care."/>
+          <concept id="23421">
+            <code value="CLMATTCH"/>
+            <display value="claim attachment"/>
+            <definition value=" To perform one or more operations on information for provision of additional clinical evidence in support of a request for coverage or payment for health services."/>
+          </concept>
+          <concept id="23422">
+            <code value="COVAUTH"/>
+            <display value="coverage authorization"/>
+            <definition value=" To perform one or more operations on information for conducting prior authorization or predetermination of coverage for services."/>
+          </concept>
+          <concept id="23456">
+            <code value="COVERAGE"/>
+            <display value="coverage under policy or program"/>
+            <definition value=" To perform one or more operations on information for conducting activities related to coverage under a program or policy."/>
+            <concept id="23420">
+              <code value="ELIGDTRM"/>
+              <display value="eligibility determination"/>
+              <definition value=" To perform one or more operations on information used for conducting eligibility determination for coverage in a program or policy.  May entail review of financial status or disability assessment."/>
+            </concept>
+            <concept id="23457">
+              <code value="ELIGVER"/>
+              <display value="eligibility verification"/>
+              <definition value=" To perform one or more operations on information used for conducting eligibility verification of coverage in a program or policy.  May entail provider contacting coverage source (e.g., government health program such as workers compensation or health plan) for confirmation of enrollment, eligibility for specific services, and any applicable copays."/>
+            </concept>
+            <concept id="23458">
+              <code value="ENROLLM"/>
+              <display value="enrollment"/>
+              <definition value=" To perform one or more operations on information used for enrolling a covered party in a program or policy.  May entail recording of covered party&#39;s and any dependent&#39;s demographic information and benefit choices."/>
+            </concept>
+            <concept id="23876">
+              <code value="MILDCRG"/>
+              <display value="military discharge"/>
+              <definition value=" To perform one or more operations on information for the process of releasing military personnel from their service obligations, which may include determining service merit, discharge benefits, and disability assessment."/>
+            </concept>
+          </concept>
+          <concept id="23423">
+            <code value="REMITADV"/>
+            <display value="remittance advice"/>
+            <definition value=" To perform one or more operations on information about the amount remitted for a health care claim."/>
+          </concept>
+        </concept>
+        <concept id="22679">
+          <code value="HRESCH"/>
+          <display value="healthcare research"/>
+          <definition value=" To perform one or more operations on information for conducting scientific investigations to obtain health care knowledge.  Use of the data iincludes basic and applied research such as biomedical, population origin or ancestry, translational research, and disease, discipline, specialty specific healthcare research and clinical trial research."/>
+          <concept id="23864">
+            <code value="BIORCH"/>
+            <display value="biomedical research"/>
+            <definition value=" To perform one or more operations on information for conducting scientific investigations to obtain health care knowledge. Use of the data must be related to specified biomedical basic or applied research.  For example, research on rare plants to determine whether biologic properties may be useful for pharmaceutical development. May be used in combination with clinical trial and other healthcare research purposes of use."/>
+          </concept>
+          <concept id="23424">
+            <code value="CLINTRCH"/>
+            <display value="clinical trial research"/>
+            <definition value=" To perform one or more operations on information for conducting scientific investigations in accordance with clinical trial protocols to obtain health care knowledge."/>
+            <concept id="23868">
+              <code value="CLINTRCHNPC"/>
+              <display value="clinical trial research without patient care"/>
+              <definition value=" To perform one or more operations on information for conducting scientific investigations in accordance with clinical trial protocols to obtain health care knowledge without provision of patient care. May be post-coordinated or used with other purposes of use such as disease, discipline, specialty, population origins or ancestry, translational healthcare research. For example, a clinical trial conducted on laboratory specimens collected from a specified patient population."/>
+            </concept>
+            <concept id="23869">
+              <code value="CLINTRCHPC"/>
+              <display value="clinical trial research with patient care"/>
+              <definition value=" To perform one or more operations on information for conducting scientific investigations with patient care in accordance with clinical trial protocols to obtain health care knowledge. May be post-coordinated or used with other purposes of use such as disease, discipline, specialty, population origins or ancestry, translational healthcare research. For example, an &quot;off-label&quot; drug used for cancer therapy administer to a specified patient population."/>
+            </concept>
+            <concept id="23870">
+              <code value="PRECLINTRCH"/>
+              <display value="preclinical trial research"/>
+              <definition value=" To perform one or more operations on information in preparation for conducting scientific investigation to obtain health care knowledge, such as research on animals or review of patient health records, to determine the feasibility of a clinical trial study; assist with protocol design; or in preparation for institutional review board or ethics committee approval process.  May be post-coordinated or used with other purposes of use such as disease, discipline, specialty, population origins or ancestry, translational healthcare research."/>
+            </concept>
+          </concept>
+          <concept id="23865">
+            <code value="DSRCH"/>
+            <display value="disease specific healthcare research"/>
+            <definition value=" To perform one or more operations on information for conducting scientific investigations to obtain health care knowledge. Use of the data must be related to specified conditions, diagnosis, or disease healthcare research.  For example, conducting cancer research by testing reaction of tumor cells to certain biologics. May be used in combination with clinical trial and other healthcare research purposes of use."/>
+          </concept>
+          <concept id="23866">
+            <code value="POARCH"/>
+            <display value="population origins or ancestry healthcare research"/>
+            <definition value=" To perform one or more operations on information, including genealogical pedigrees, historical records, surveys, family health data, health records, and genetic information, for conducting scientific investigations to obtain health care knowledge. Use of the data must be related to population origins and/or ancestry healthcare research.  For example, gathering genetic specimens from a specific population in order to determine the ancestry and population origins of that group. May be used in combination with clinical trial and other healthcare research purposes of use."/>
+          </concept>
+          <concept id="23867">
+            <code value="TRANSRCH"/>
+            <display value="translational healthcare research"/>
+            <definition value=" To perform one or more operations on information for conducting scientific investigations to obtain health care knowledge related to evidence based medicine during the course of providing healthcare treatment.  Sometimes referred to as &quot;bench to bedside&quot;, which is the iterative feedback loop between healthcare research and clinical trials with input from information collected in the course of routine provision of healthcare. For example, by extending a patient encounter to conduct a survey related to a research topic such as attitudes about use of a wellness device that a patient agreed to use. May be used in combination with clinical trial and other healthcare research purposes of use."/>
+          </concept>
+        </concept>
+        <concept id="23425">
+          <code value="PATRQT"/>
+          <display value="patient requested"/>
+          <definition value=" To perform one or more operations on information in response to a patient&#39;s request."/>
+          <concept id="23426">
+            <code value="FAMRQT"/>
+            <display value="family requested"/>
+            <definition value=" To perform one or more operations on information in response to a request by a family member authorized by the patient."/>
+          </concept>
+          <concept id="23427">
+            <code value="PWATRNY"/>
+            <display value="power of attorney"/>
+            <definition value=" To perform one or more operations on information in response to a request by a person appointed as the patient&#39;s legal representative."/>
+          </concept>
+          <concept id="23428">
+            <code value="SUPNWK"/>
+            <display value="support network"/>
+            <definition value=" To perform one or more operations on information in response to a request by a person authorized by the patient."/>
+          </concept>
+        </concept>
+        <concept id="23409">
+          <code value="PUBHLTH"/>
+          <display value="public health"/>
+          <definition value=" To perform one or more operations on information for conducting public health activities, such as the reporting of notifiable conditions."/>
+          <concept id="23410">
+            <code value="DISASTER"/>
+            <display value="disaster"/>
+            <definition value=" To perform one or more operations on information used for provision of immediately needed health care to a population of living subjects located in a disaster zone."/>
+          </concept>
+          <concept id="23411">
+            <code value="THREAT"/>
+            <display value="threat"/>
+            <definition value=" To perform one or more operations on information used to prevent injury or disease to living subjects who may be the target of violence."/>
+          </concept>
+        </concept>
+        <concept id="22680">
+          <code value="TREAT"/>
+          <display value="treatment"/>
+          <definition value=" To perform one or more operations on information for provision of health care."/>
+          <concept id="22683">
+            <code value="CAREMGT"/>
+            <display value="Care Management"/>
+            <definition value=" To perform one or more operations on information for provision of health care coordination."/>
+          </concept>
+          <concept id="22684">
+            <code value="CLINTRL"/>
+            <display value="clinical trial"/>
+            <definition value=" To perform health care as part of the clinical trial protocol."/>
+          </concept>
+          <concept id="22682">
+            <code value="ETREAT"/>
+            <display value="Emergency Treatment"/>
+            <definition value=" To perform one or more operations on information for provision of immediately needed health care for an emergent condition."/>
+          </concept>
+          <concept id="22681">
+            <code value="POPHLTH"/>
+            <display value="population health"/>
+            <definition value=" To perform one or more operations on information for provision of health care to a population of living subjects, e.g., needle exchange program."/>
+          </concept>
+        </concept>
+      </concept>
+      <concept id="22677">
+        <code value="_ActHealthInformationPrivacyReason"/>
+        <display value="ActHealthInformationPrivacyReason"/>
+        <definition value="  Description:&#xD;&#xA;The rationale or purpose for an act relating to the management of personal health information, such as collecting personal health information for research or public health purposes."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="retired"/>
+        </property>
+      </concept>
+    </concept>
+    <concept id="22697">
+      <code value="_ActInformationPrivacyReason"/>
+      <display value="ActInformationPrivacyReason"/>
+      <definition value="  Description:&#xD;&#xA;The rationale or purpose for an act relating to the management of personal information, such as disclosing personal tax information for the purpose of complying with a court order."/>
+      <concept id="22708">
+        <code value="MARKT"/>
+        <display value="marketing"/>
+        <definition value="  Description:&#xD;&#xA;"/>
+      </concept>
+      <concept id="22699">
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+          <valueCode value="LEGAL"/>
+        </extension>
+        <code value="OPERAT"/>
+        <display value="operations"/>
+        <definition value="  Description:&#xD;&#xA;Administrative and contractual processes required to support an activity, product, or service"/>
+        <concept id="22704">
+          <code value="ACCRED"/>
+          <display value="accreditation"/>
+          <definition value="  Description:&#xD;&#xA;Operational activities conducted for the purposes of meeting of criteria defined by an accrediting entity for an activity, product, or service"/>
+        </concept>
+        <concept id="22702">
+          <code value="COMPL"/>
+          <display value="compliance"/>
+          <definition value="  Description:&#xD;&#xA;Operational activities required to meet a mandate related to an activity, product, or service"/>
+        </concept>
+        <concept id="22705">
+          <code value="ENADMIN"/>
+          <display value="entity administration"/>
+          <definition value="  Description:&#xD;&#xA;Operational activities conducted to administer information relating to entities involves with an activity, product, or service"/>
+        </concept>
+        <concept id="22701">
+          <code value="OUTCOMS"/>
+          <display value="outcome measure"/>
+          <definition value="  Description:&#xD;&#xA;Operational activities conducted for the purposes of assessing the results of an activity, product, or service"/>
+        </concept>
+        <concept id="22703">
+          <code value="PRGRPT"/>
+          <display value="program reporting"/>
+          <definition value="  Description:&#xD;&#xA;Operational activities conducted to meet program accounting requirements related to an activity, product, or service"/>
+        </concept>
+        <concept id="22700">
+          <code value="QUALIMP"/>
+          <display value="quality improvement"/>
+          <definition value="  Description:&#xD;&#xA;Operational activities conducted for the purposes of improving the quality of an activity, product, or service"/>
+        </concept>
+        <concept id="22706">
+          <code value="SYSADMN"/>
+          <display value="system administration"/>
+          <definition value="  Description:&#xD;&#xA;Operational activities conducted to administer the electronic systems used for an activity, product, or service"/>
+        </concept>
+      </concept>
+      <concept id="22698">
+        <code value="PAYMT"/>
+        <display value="payment"/>
+        <definition value="  Description:&#xD;&#xA;Administrative, financial, and contractual processes related to payment for an activity, product, or service"/>
+      </concept>
+      <concept id="22707">
+        <code value="RESCH"/>
+        <display value="research"/>
+        <definition value="  Description:&#xD;&#xA;Investigative activities conducted for the purposes of obtaining knowledge"/>
+      </concept>
+      <concept id="22709">
+        <code value="SRVC"/>
+        <display value="service"/>
+        <definition value="  Description:&#xD;&#xA;Provision of a service, product, or capability to an individual or organization"/>
+      </concept>
+    </concept>
+  </concept>
+  <concept id="23235">
+    <code value="_ActInvalidReason"/>
+    <display value="ActInvalidReason"/>
+    <definition value="  Description:&#xD;&#xA;Types of reasons why a substance is invalid for use."/>
+    <concept id="23238">
+      <code value="ADVSTORAGE"/>
+      <display value="adverse storage condition"/>
+      <definition value="  Description:&#xD;&#xA;Storage conditions caused the substance to be ineffective."/>
+      <concept id="23239">
+        <code value="COLDCHNBRK"/>
+        <display value="cold chain break"/>
+        <definition value="  Description:&#xD;&#xA;Cold chain was not maintained for the substance."/>
+      </concept>
+    </concept>
+    <concept id="23236">
+      <code value="EXPLOT"/>
+      <display value="expired lot"/>
+      <definition value="  Description:&#xD;&#xA;The lot from which the substance was drawn was expired."/>
+    </concept>
+    <concept id="23240">
+      <code value="OUTSIDESCHED"/>
+      <display value="administered outside recommended schedule or practice"/>
+      <definition value=" The substance was administered outside of the recommended schedule or practice."/>
+    </concept>
+    <concept id="23237">
+      <code value="PRODRECALL"/>
+      <display value="product recall"/>
+      <definition value="  Description:&#xD;&#xA;The substance was recalled by the manufacturer."/>
+    </concept>
+  </concept>
+  <concept id="20941">
+    <code value="_ActInvoiceCancelReason"/>
+    <display value="ActInvoiceCancelReason"/>
+    <definition value=" Domain specifies the codes used to describe reasons why a Provider is cancelling an Invoice or Invoice Grouping."/>
+    <concept id="19733">
+      <code value="INCCOVPTY"/>
+      <display value="incorrect covered party as patient"/>
+      <definition value=" The covered party (patient) specified with the Invoice is not correct."/>
+    </concept>
+    <concept id="19735">
+      <code value="INCINVOICE"/>
+      <display value="incorrect billing"/>
+      <definition value=" The billing information, specified in the Invoice Elements, is not correct.  This could include incorrect costing for items included in the Invoice."/>
+    </concept>
+    <concept id="19734">
+      <code value="INCPOLICY"/>
+      <display value="incorrect policy"/>
+      <definition value=" The policy specified with the Invoice is not correct.  For example, it may belong to another Adjudicator or Covered Party."/>
+    </concept>
+    <concept id="19736">
+      <code value="INCPROV"/>
+      <display value="incorrect provider"/>
+      <definition value=" The provider specified with the Invoice is not correct."/>
+    </concept>
+  </concept>
+  <concept id="21529">
+    <code value="_ActNoImmunizationReason"/>
+    <display value="ActNoImmunizationReason"/>
+    <definition value=" A coded description of the reason for why a patient did not receive a scheduled immunization. (important for public health strategy"/>
+    <concept id="21745">
+      <code value="IMMUNE"/>
+      <display value="immunity"/>
+      <definition value="  Definition:&#xD;&#xA;Testing has shown that the patient already has immunity to the agent targeted by the immunization."/>
+    </concept>
+    <concept id="21747">
+      <code value="MEDPREC"/>
+      <display value="medical precaution"/>
+      <definition value="  Definition:&#xD;&#xA;The patient currently has a medical condition for which the vaccine is contraindicated or for which precaution is warranted."/>
+    </concept>
+    <concept id="21744">
+      <code value="OSTOCK"/>
+      <display value="product out of stock"/>
+      <definition value="  Definition:&#xD;&#xA;There was no supply of the product on hand to perform the service."/>
+    </concept>
+    <concept id="21740">
+      <code value="PATOBJ"/>
+      <display value="patient objection"/>
+      <definition value="  Definition:&#xD;&#xA;The patient or their guardian objects to receiving the vaccine."/>
+    </concept>
+    <concept id="21742">
+      <code value="PHILISOP"/>
+      <display value="philosophical objection"/>
+      <definition value="  Definition:&#xD;&#xA;The patient or their guardian objects to receiving the vaccine because of philosophical beliefs."/>
+    </concept>
+    <concept id="21741">
+      <code value="RELIG"/>
+      <display value="religious objection"/>
+      <definition value="  Definition:&#xD;&#xA;The patient or their guardian objects to receiving the vaccine on religious grounds."/>
+    </concept>
+    <concept id="21746">
+      <code value="VACEFF"/>
+      <display value="vaccine efficacy concerns"/>
+      <definition value="  Definition:&#xD;&#xA;The intended vaccine has expired or is otherwise believed to no longer be effective.  Example:&#xD;&#xA;Due to temperature exposure."/>
+    </concept>
+    <concept id="21743">
+      <code value="VACSAF"/>
+      <display value="vaccine safety concerns"/>
+      <definition value="  Definition:&#xD;&#xA;The patient or their guardian objects to receiving the vaccine because of concerns over its safety."/>
+    </concept>
+  </concept>
+  <concept id="21530">
+    <code value="_ActSupplyFulfillmentRefusalReason"/>
+    <display value="ActSupplyFulfillmentRefusalReason"/>
+    <definition value=" Indicates why a fulfiller refused to fulfill a supply order, and considered it important to notify other providers of their decision.  E.g. &quot;Suspect fraud&quot;, &quot;Possible abuse&quot;, &quot;Contraindicated&quot;. (used when capturing &#39;refusal to fill&#39; annotations)"/>
+    <concept id="21748">
+      <code value="FRR01"/>
+      <display value="order stopped"/>
+      <definition value="  Definition:&#xD;&#xA;The order has been stopped by the prescriber but this fact has not necessarily captured electronically.  Example:&#xD;&#xA;A verbal stop, a fax, etc."/>
+    </concept>
+    <concept id="21749">
+      <code value="FRR02"/>
+      <display value="stale-dated order"/>
+      <definition value="  Definition:&#xD;&#xA;Order has not been fulfilled within a reasonable amount of time, and may not be current."/>
+    </concept>
+    <concept id="21750">
+      <code value="FRR03"/>
+      <display value="incomplete data"/>
+      <definition value="  Definition:&#xD;&#xA;Data needed to safely act on the order which was expected to become available independent of the order is not yet available  Example:&#xD;&#xA;Lab results, diagnostic imaging, etc."/>
+    </concept>
+    <concept id="21751">
+      <code value="FRR04"/>
+      <display value="product unavailable"/>
+      <definition value="  Definition:&#xD;&#xA;Product not available or manufactured. Cannot supply."/>
+    </concept>
+    <concept id="21752">
+      <code value="FRR05"/>
+      <display value="ethical/religious"/>
+      <definition value="  Definition:&#xD;&#xA;The dispenser has ethical, religious or moral objections to fulfilling the order/dispensing the product."/>
+    </concept>
+    <concept id="21753">
+      <code value="FRR06"/>
+      <display value="unable to provide care"/>
+      <definition value="  Definition:&#xD;&#xA;Fulfiller not able to provide appropriate care associated with fulfilling the order.  Example:&#xD;&#xA;Therapy requires ongoing monitoring by fulfiller and fulfiller will be ending practice, leaving town, unable to schedule necessary time, etc."/>
+    </concept>
+  </concept>
+  <concept id="22391">
+    <code value="_ClinicalResearchEventReason"/>
+    <display value="ClinicalResearchEventReason"/>
+    <definition value="  Definition:&#xD;&#xA;Specifies the reason that an event occurred in a clinical research study."/>
+    <concept id="21623">
+      <code value="RET"/>
+      <display value="retest"/>
+      <definition value="  Definition:&#xD;&#xA;The event occurred so that a test or observation performed at a prior event could be performed again due to conditions set forth in the protocol."/>
+    </concept>
+    <concept id="21622">
+      <code value="SCH"/>
+      <display value="scheduled"/>
+      <definition value="  Definition:&#xD;&#xA;The event occurred due to it being scheduled in the research protocol."/>
+    </concept>
+    <concept id="21624">
+      <code value="TRM"/>
+      <display value="termination"/>
+      <definition value="  Definition:&#xD;&#xA;The event occurred in order to terminate the subject&#39;s participation in the study."/>
+    </concept>
+    <concept id="21625">
+      <code value="UNS"/>
+      <display value="unscheduled"/>
+      <definition value="  Definition:&#xD;&#xA;The event that occurred was initiated by a study participant (e.g. the subject or the investigator), and did not occur for protocol reasons."/>
+    </concept>
+  </concept>
+  <concept id="22392">
+    <code value="_ClinicalResearchObservationReason"/>
+    <display value="ClinicalResearchObservationReason"/>
+    <definition value="  Definition:&#xD;&#xA;SSpecifies the reason that a test was performed or observation collected in a clinical research study.  Note:&#xD;&#xA;This set of codes are not strictly reasons, but are used in the currently Normative standard.  Future revisions of the specification will model these as ActRelationships and thes codes may subsequently be retired.  Thus, these codes should not be used for new specifications."/>
+    <concept id="21628">
+      <code value="NPT"/>
+      <display value="non-protocol"/>
+      <definition value="  Definition:&#xD;&#xA;The observation or test was neither defined or scheduled in the study protocol."/>
+    </concept>
+    <concept id="21626">
+      <code value="PPT"/>
+      <display value="per protocol"/>
+      <definition value="  Definition:&#xD;&#xA;The observation or test occurred due to it being defined in the research protocol, and during an activity or event that was scheduled in the protocol."/>
+    </concept>
+    <concept id="21627">
+      <code value="UPT"/>
+      <display value="per definition"/>
+      <definition value="  :&#xD;&#xA;The observation or test occurred as defined in the research protocol, but at a point in time not specified in the study protocol."/>
+    </concept>
+  </concept>
+  <concept id="22393">
+    <code value="_CombinedPharmacyOrderSuspendReasonCode"/>
+    <display value="CombinedPharmacyOrderSuspendReasonCode"/>
+    <definition value="  Description:&#xD;&#xA;Indicates why the prescription should be suspended."/>
+    <concept id="21691">
+      <code value="ALTCHOICE"/>
+      <display value="try another treatment first"/>
+      <definition value="  Description:&#xD;&#xA;This therapy has been ordered as a backup to a preferred therapy.  This order will be released when and if the preferred therapy is unsuccessful."/>
+    </concept>
+    <concept id="21689">
+      <code value="CLARIF"/>
+      <display value="prescription requires clarification"/>
+      <definition value="  Description:&#xD;&#xA;Clarification is required before the order can be acted upon."/>
+    </concept>
+    <concept id="21694">
+      <code value="DRUGHIGH"/>
+      <display value="drug level too high"/>
+      <definition value="  Description:&#xD;&#xA;The current level of the medication in the patient&#39;s system is too high.  The medication is suspended to allow the level to subside to a safer level."/>
+    </concept>
+    <concept id="21684">
+      <code value="HOSPADM"/>
+      <display value="admission to hospital"/>
+      <definition value="  Description:&#xD;&#xA;The patient has been admitted to a care facility and their community medications are suspended until hospital discharge."/>
+    </concept>
+    <concept id="21687">
+      <code value="LABINT"/>
+      <display value="lab interference issues"/>
+      <definition value="  Description:&#xD;&#xA;The therapy would interfere with a planned lab test and the therapy is being withdrawn until the test is completed."/>
+    </concept>
+    <concept id="21695">
+      <code value="NON-AVAIL"/>
+      <display value="patient not-available"/>
+      <definition value="  Description:&#xD;&#xA;Patient not available for a period of time due to a scheduled therapy, leave of absence or other reason."/>
+    </concept>
+    <concept id="21692">
+      <code value="PREG"/>
+      <display value="parent is pregnant/breast feeding"/>
+      <definition value="  Description:&#xD;&#xA;The patient is pregnant or breast feeding.  The therapy will be resumed when the pregnancy is complete and the patient is no longer breastfeeding."/>
+    </concept>
+    <concept id="21685">
+      <code value="SALG"/>
+      <display value="allergy"/>
+      <definition value="  Description:&#xD;&#xA;The patient is believed to be allergic to a substance that is part of the therapy and the therapy is being temporarily withdrawn to confirm."/>
+    </concept>
+    <concept id="21690">
+      <code value="SDDI"/>
+      <display value="drug interacts with another drug"/>
+      <definition value="  Description:&#xD;&#xA;The drug interacts with a short-term treatment that is more urgently required.  This order will be resumed when the short-term treatment is complete."/>
+    </concept>
+    <concept id="21688">
+      <code value="SDUPTHER"/>
+      <display value="duplicate therapy"/>
+      <definition value="  Description:&#xD;&#xA;Another short-term co-occurring therapy fulfills the same purpose as this therapy.  This therapy will be resumed when the co-occuring therapy is complete."/>
+    </concept>
+    <concept id="21686">
+      <code value="SINTOL"/>
+      <display value="suspected intolerance"/>
+      <definition value="  Description:&#xD;&#xA;The patient is believed to have an intolerance to a substance that is part of the therapy and the therapy is being temporarily withdrawn to confirm."/>
+    </concept>
+    <concept id="21696">
+      <code value="SURG"/>
+      <display value="patient scheduled for surgery"/>
+      <definition value="  Description:&#xD;&#xA;The drug is contraindicated for patients receiving surgery and the patient is scheduled to be admitted for surgery in the near future.  The drug will be resumed when the patient has sufficiently recovered from the surgery."/>
+    </concept>
+    <concept id="21693">
+      <code value="WASHOUT"/>
+      <display value="waiting for old drug to wash out"/>
+      <definition value="  Description:&#xD;&#xA;The patient was previously receiving a medication contraindicated with the current medication.  The current medication will remain on hold until the prior medication has been cleansed from their system."/>
+    </concept>
+  </concept>
+  <concept id="22809">
+    <code value="_ControlActNullificationReasonCode"/>
+    <display value="ControlActNullificationReasonCode"/>
+    <definition value="  Description:&#xD;&#xA;Identifies reasons for nullifying (retracting) a particular control act."/>
+    <concept id="22024">
+      <code value="ALTD"/>
+      <display value="altered decision"/>
+      <definition value="  Description:&#xD;&#xA;The decision on which the recorded information was based was changed before the decision had an effect.  Example:&#xD;&#xA;Aborted prescription before patient left office, released prescription before suspend took effect."/>
+    </concept>
+    <concept id="22023">
+      <code value="EIE"/>
+      <display value="entered in error"/>
+      <definition value="  Description:&#xD;&#xA;The information was recorded incorrectly or was recorded in the wrong record."/>
+    </concept>
+    <concept id="22908">
+      <code value="NORECMTCH"/>
+      <display value="no record match"/>
+      <definition value="  Description:&#xD;&#xA;There is no match for the record in the database."/>
+    </concept>
+  </concept>
+  <concept id="23277">
+    <code value="_ControlActNullificationRefusalReasonType"/>
+    <display value="ControlActNullificationRefusalReasonType"/>
+    <definition value="  Description:&#xD;&#xA;Reasons to refuse a transaction to be undone."/>
+    <concept id="23015">
+      <code value="INRQSTATE"/>
+      <display value="in requested state"/>
+      <definition value=" The record is already in the requested state."/>
+    </concept>
+    <concept id="22907">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+        <valueCode value="NORECMTCH"/>
+      </extension>
+      <code value="NOMATCH"/>
+      <display value="no match"/>
+      <definition value="  Description:&#xD;&#xA;There is no match."/>
+      <concept id="22909">
+        <code value="NOPRODMTCH"/>
+        <display value="no product match"/>
+        <definition value="  Description:&#xD;&#xA;There is no match for the product in the master file repository."/>
+      </concept>
+      <concept id="22910">
+        <code value="NOSERMTCH"/>
+        <display value="no service match"/>
+        <definition value="  Description:&#xD;&#xA;There is no match for the service in the master file repository."/>
+      </concept>
+      <concept id="23279">
+        <code value="NOVERMTCH"/>
+        <display value="no version match"/>
+        <definition value="  Description:&#xD;&#xA;There is no match for the record and version."/>
+      </concept>
+    </concept>
+    <concept id="22911">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+        <valueCode value="NOUSERPERM"/>
+      </extension>
+      <code value="NOPERM"/>
+      <display value="no permission"/>
+      <definition value="  Description:&#xD;&#xA;There is no permission."/>
+      <concept id="22913">
+        <code value="NOAGNTPERM"/>
+        <display value="no agent permission"/>
+        <definition value="  Description:&#xD;&#xA;The agent does not have permission."/>
+      </concept>
+      <concept id="22912">
+        <code value="NOUSRPERM"/>
+        <display value="no user permission"/>
+        <definition value="  Description:&#xD;&#xA;The user does not have permission."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="retired"/>
+        </property>
+      </concept>
+    </concept>
+    <concept id="23278">
+      <code value="WRNGVER"/>
+      <display value="wrong version"/>
+      <definition value="  Description:&#xD;&#xA;The record and version requested to update is not the current version."/>
+    </concept>
+  </concept>
+  <concept id="21491">
+    <code value="_ControlActReason"/>
+    <display value="ControlActReason"/>
+    <definition value=" Identifies why a specific query, request, or other trigger event occurred."/>
+    <concept id="21701">
+      <code value="_MedicationOrderAbortReasonCode"/>
+      <display value="medication order abort reason"/>
+      <definition value="  Description:&#xD;&#xA;Indicates the reason the medication order should be aborted."/>
+      <concept id="21706">
+        <code value="DISCONT"/>
+        <display value="product discontinued"/>
+        <definition value="  Description:&#xD;&#xA;The medication is no longer being manufactured or is otherwise no longer available."/>
+      </concept>
+      <concept id="21703">
+        <code value="INEFFECT"/>
+        <display value="ineffective"/>
+        <definition value="  Description:&#xD;&#xA;The therapy has been found to not have the desired therapeutic benefit on the patient."/>
+      </concept>
+      <concept id="21702">
+        <code value="MONIT"/>
+        <display value="response to monitoring"/>
+        <definition value="  Description:&#xD;&#xA;Monitoring the patient while taking the medication, the decision has been made that the therapy is no longer appropriate."/>
+      </concept>
+      <concept id="21704">
+        <code value="NOREQ"/>
+        <display value="no longer required for treatment"/>
+        <definition value="  Description:&#xD;&#xA;The underlying condition has been resolved or has evolved such that a different treatment is no longer needed."/>
+      </concept>
+      <concept id="21709">
+        <code value="NOTCOVER"/>
+        <display value="not covered"/>
+        <definition value="  Description:&#xD;&#xA;The product does not have (or no longer has) coverage under the patientaTMs insurance policy."/>
+      </concept>
+      <concept id="21710">
+        <code value="PREFUS"/>
+        <display value="patient refuse"/>
+        <definition value="  Description:&#xD;&#xA;The patient refused to take the product."/>
+      </concept>
+      <concept id="21707">
+        <code value="RECALL"/>
+        <display value="product recalled"/>
+        <definition value="  Description:&#xD;&#xA;The manufacturer or other agency has requested that stocks of a medication be removed from circulation."/>
+      </concept>
+      <concept id="23262">
+        <code value="REPLACE"/>
+        <display value="change in order"/>
+        <definition value="  Description:&#xD;&#xA;Item in current order is no longer in use as requested and a new one has/will be created to replace it."/>
+        <concept id="21705">
+          <code value="DOSECHG"/>
+          <display value="change in medication/dose"/>
+          <definition value="  Description:&#xD;&#xA;The medication is being re-prescribed at a different dosage."/>
+        </concept>
+      </concept>
+      <concept id="23263">
+        <code value="REPLACEFIX"/>
+        <display value="error in order"/>
+        <definition value="  Description:&#xD;&#xA;Current order was issued with incorrect data and a new order has/will be created to replace it."/>
+      </concept>
+      <concept id="21708">
+        <code value="UNABLE"/>
+        <display value="unable to use"/>
+        <definition value="  Description:&#xD;&#xA;&lt;The patient is not (or is no longer) able to use the medication in a manner prescribed.  Example:&#xD;&#xA;CanaTMt swallow."/>
+      </concept>
+    </concept>
+    <concept id="21711">
+      <code value="_MedicationOrderReleaseReasonCode"/>
+      <display value="medication order release reason"/>
+      <definition value="  Definition:&#xD;&#xA;A collection of concepts that indicate why the prescription should be released from suspended state."/>
+      <concept id="21713">
+        <code value="HOLDDONE"/>
+        <display value="suspend reason no longer applies"/>
+        <definition value="  Definition:&#xD;&#xA;The original reason for suspending the medication has ended."/>
+      </concept>
+      <concept id="21712">
+        <code value="HOLDINAP"/>
+        <display value="suspend reason inappropriate"/>
+        <definition value="  Definition:&#xD;&#xA;"/>
+      </concept>
+    </concept>
+    <concept id="23634">
+      <code value="_ModifyPrescriptionReasonType"/>
+      <display value="ModifyPrescriptionReasonType"/>
+      <definition value=" Types of reason why a prescription is being changed."/>
+      <concept id="23635">
+        <code value="ADMINERROR"/>
+        <display value="administrative error in order"/>
+        <definition value=" Order was created with incorrect data and is changed to reflect the intended accuracy of the order."/>
+      </concept>
+      <concept id="23636">
+        <code value="CLINMOD"/>
+        <display value="clinical modification"/>
+        <definition value=" Order is changed based on a clinical reason."/>
+      </concept>
+    </concept>
+    <concept id="22849">
+      <code value="_PharmacySupplyEventAbortReason"/>
+      <display value="PharmacySupplyEventAbortReason"/>
+      <definition value="  Definition:&#xD;&#xA;Identifies why the dispense event was not completed."/>
+      <concept id="22855">
+        <code value="CONTRA"/>
+        <display value="contraindication"/>
+        <definition value="  Definition:&#xD;&#xA;Contraindication identified"/>
+      </concept>
+      <concept id="22852">
+        <code value="FOABORT"/>
+        <display value="order aborted"/>
+        <definition value="  Definition:&#xD;&#xA;Order to be fulfilled was aborted"/>
+      </concept>
+      <concept id="22853">
+        <code value="FOSUSP"/>
+        <display value="order suspended"/>
+        <definition value="  Definition:&#xD;&#xA;Order to be fulfilled was suspended"/>
+      </concept>
+      <concept id="22850">
+        <code value="NOPICK"/>
+        <display value="not picked up"/>
+        <definition value="  Definition:&#xD;&#xA;Patient did not come to get medication"/>
+      </concept>
+      <concept id="22851">
+        <code value="PATDEC"/>
+        <display value="patient changed mind"/>
+        <definition value="  Definition:&#xD;&#xA;Patient changed their mind regarding obtaining medication"/>
+      </concept>
+      <concept id="22854">
+        <code value="QUANTCHG"/>
+        <display value="change supply quantity"/>
+        <definition value="  Definition:&#xD;&#xA;Patient requested a revised quantity of medication"/>
+      </concept>
+    </concept>
+    <concept id="21721">
+      <code value="_PharmacySupplyEventStockReasonCode"/>
+      <display value="pharmacy supply event stock reason"/>
+      <definition value="  Definition:&#xD;&#xA;A collection of concepts that indicates the reason for a &quot;bulk supply&quot; of medication."/>
+      <concept id="21722">
+        <code value="FLRSTCK"/>
+        <display value="floor stock"/>
+        <definition value="  Definition:&#xD;&#xA;The bulk supply is issued to replenish a ward for local dispensing.  (Includes both mobile and fixed-location ward stocks.)"/>
+      </concept>
+      <concept id="21725">
+        <code value="LTC"/>
+        <display value="long term care use"/>
+        <definition value="  Definition:&#xD;&#xA;The bulk supply will be administered within a long term care facility."/>
+      </concept>
+      <concept id="21724">
+        <code value="OFFICE"/>
+        <display value="office use"/>
+        <definition value="  Definition:&#xD;&#xA;The bulk supply is intended for general clinician office use."/>
+      </concept>
+      <concept id="21726">
+        <code value="PHARM"/>
+        <display value="pharmacy transfer"/>
+        <definition value="  Definition:&#xD;&#xA;The bulk supply is being transferred to another dispensing facility to.  Example:&#xD;&#xA;Alleviate a temporary shortage."/>
+      </concept>
+      <concept id="21723">
+        <code value="PROG"/>
+        <display value="program use"/>
+        <definition value="  Definition:&#xD;&#xA;The bulk supply is intended for dispensing according to a specific program.  Example:&#xD;&#xA;Mass immunization."/>
+      </concept>
+    </concept>
+    <concept id="21727">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+        <valueCode value="DISCONT"/>
+      </extension>
+      <code value="_PharmacySupplyRequestRenewalRefusalReasonCode"/>
+      <display value="pharmacy supply request renewal refusal reason"/>
+      <definition value="  Definition:&#xD;&#xA;A collection of concepts that identifies why a renewal prescription has been refused."/>
+      <concept id="21732">
+        <code value="ALREADYRX"/>
+        <display value="new prescription exists"/>
+        <definition value="  Definition:&#xD;&#xA;Patient has already been given a new (renewal) prescription."/>
+      </concept>
+      <concept id="21731">
+        <code value="FAMPHYS"/>
+        <display value="family physician must authorize further fills"/>
+        <definition value="  Definition:&#xD;&#xA;Request for further authorization must be done through patient&#39;s family physician."/>
+      </concept>
+      <concept id="21733">
+        <code value="MODIFY"/>
+        <display value="modified prescription exists"/>
+        <definition value="  Definition:&#xD;&#xA;Therapy has been changed and new prescription issued"/>
+      </concept>
+      <concept id="21728">
+        <code value="NEEDAPMT"/>
+        <display value="patient must make appointment"/>
+        <definition value="  Definition:&#xD;&#xA;Patient must see prescriber prior to further fills."/>
+      </concept>
+      <concept id="21730">
+        <code value="NOTAVAIL"/>
+        <display value="prescriber not available"/>
+        <definition value="  Definition:&#xD;&#xA;Original prescriber is no longer available to prescribe and no other prescriber has taken responsibility for the patient."/>
+      </concept>
+      <concept id="21729">
+        <code value="NOTPAT"/>
+        <display value="patient no longer in this practice"/>
+        <definition value="  Definition:&#xD;&#xA;Patient no longer or has never been under this prescribers care."/>
+      </concept>
+      <concept id="21734">
+        <code value="ONHOLD"/>
+        <display value="medication on hold"/>
+        <definition value="  Definition:&#xD;&#xA;This medication is on hold."/>
+      </concept>
+      <concept id="22867">
+        <code value="PRNA"/>
+        <display value="product not available"/>
+        <definition value="  Description:&#xD;&#xA;This product is not available or manufactured."/>
+      </concept>
+      <concept id="23625">
+        <code value="STOPMED"/>
+        <display value="prescriber stopped medication for patient"/>
+        <definition value=" Renewing or original prescriber informed patient to stop using the medication."/>
+      </concept>
+      <concept id="21735">
+        <code value="TOOEARLY"/>
+        <display value="too early"/>
+        <definition value="  Definition:&#xD;&#xA;The patient should have medication remaining."/>
+      </concept>
+    </concept>
+    <concept id="21736">
+      <code value="_SupplyOrderAbortReasonCode"/>
+      <display value="supply order abort reason"/>
+      <definition value="  Definition:&#xD;&#xA;A collection of concepts that indicates why the prescription should no longer be allowed to be dispensed (but can still administer what is already being dispensed)."/>
+      <concept id="21737">
+        <code value="IMPROV"/>
+        <display value="condition improved"/>
+        <definition value="  Definition:&#xD;&#xA;The patient&#39;s medical condition has nearly abated."/>
+      </concept>
+      <concept id="21990">
+        <code value="INTOL"/>
+        <display value="intolerance"/>
+        <definition value="  Description:&#xD;&#xA;The patient has an intolerance to the medication."/>
+      </concept>
+      <concept id="21739">
+        <code value="NEWSTR"/>
+        <display value="new strength"/>
+        <definition value="  Definition:&#xD;&#xA;The current medication will be replaced by a new strength of the same medication."/>
+      </concept>
+      <concept id="21738">
+        <code value="NEWTHER"/>
+        <display value="new therapy"/>
+        <definition value="  Definition:&#xD;&#xA;A new therapy will be commenced when current supply exhausted."/>
+      </concept>
+    </concept>
+    <concept id="21492">
+      <code value="_ControlActReasonConditionNullify"/>
+      <display value="ControlActReasonConditionNullify"/>
+      <definition value=" Indicates why the ConditionaTMs status was changed to Nullified.Examples&#xD;&#xA;administrative error, diagnostic error."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+    </concept>
+  </concept>
+  <concept id="22395">
+    <code value="_GenericUpdateReasonCode"/>
+    <display value="GenericUpdateReasonCode"/>
+    <definition value="  Description:&#xD;&#xA;Identifies why a change is being made to a  record."/>
+    <concept id="21673">
+      <code value="CHGDATA"/>
+      <display value="information change"/>
+      <definition value="  Description:&#xD;&#xA;Information has changed since the record was created."/>
+    </concept>
+    <concept id="21674">
+      <code value="FIXDATA"/>
+      <display value="error correction"/>
+      <definition value="  Description:&#xD;&#xA;Previously recorded information was erroneous and is being corrected."/>
+    </concept>
+    <concept id="23469">
+      <code value="MDATA"/>
+      <display value="merge data"/>
+      <definition value=" Information is combined into the record."/>
+    </concept>
+    <concept id="21672">
+      <code value="NEWDATA"/>
+      <display value="new information"/>
+      <definition value="  Description:&#xD;&#xA;New information has become available to supplement the record."/>
+    </concept>
+    <concept id="23470">
+      <code value="UMDATA"/>
+      <display value="unmerge data"/>
+      <definition value=" Information is separated from the record."/>
+    </concept>
+  </concept>
+  <concept id="21715">
+    <code value="_PatientProfileQueryReasonCode"/>
+    <display value="patient profile query reason"/>
+    <definition value="  Definition:&#xD;&#xA;A collection of concepts identifying why the patient&#39;s profile is being queried."/>
+    <concept id="22221">
+      <code value="ADMREV"/>
+      <display value="administrative review"/>
+      <definition value="  Definition:&#xD;&#xA;To evaluate for service authorization, payment, reporting, or performance/outcome measures."/>
+    </concept>
+    <concept id="21719">
+      <code value="LEGAL"/>
+      <display value="subpoena"/>
+      <definition value="  Definition:&#xD;&#xA;To provide information as a result of a subpoena."/>
+    </concept>
+    <concept id="21717">
+      <code value="PATCAR"/>
+      <display value="patient care"/>
+      <definition value="  Definition:&#xD;&#xA;To obtain records as part of patient care."/>
+    </concept>
+    <concept id="21716">
+      <code value="PATREQ"/>
+      <display value="patient request query"/>
+      <definition value="  Definition:&#xD;&#xA;Patient requests information from their profile."/>
+    </concept>
+    <concept id="21720">
+      <code value="PRCREV"/>
+      <display value="practice review"/>
+      <definition value="  Definition:&#xD;&#xA;To evaluate the provider&#39;s current practice for professional-improvement reasons."/>
+    </concept>
+    <concept id="21991">
+      <code value="REGUL"/>
+      <display value="regulatory review"/>
+      <definition value="  Description:&#xD;&#xA;Review for the purpose of regulatory compliance."/>
+    </concept>
+    <concept id="21718">
+      <code value="RSRCH"/>
+      <display value="research"/>
+      <definition value="  Definition:&#xD;&#xA;To provide research data, as authorized by the patient."/>
+    </concept>
+    <concept id="21992">
+      <code value="VALIDATION"/>
+      <display value="validation review"/>
+      <definition value="  Description:&#xD;&#xA;To validate the patient&#39;s record.  Example:&#xD;&#xA;Merging or unmerging records."/>
+    </concept>
+  </concept>
+  <concept id="22863">
+    <code value="_PharmacySupplyRequestFulfillerRevisionRefusalReasonCode"/>
+    <display value="PharmacySupplyRequestFulfillerRevisionRefusalReasonCode"/>
+    <definition value="  Definition:&#xD;&#xA;Indicates why the request to transfer a prescription from one dispensing facility to another has been refused."/>
+    <concept id="22864">
+      <code value="LOCKED"/>
+      <display value="locked"/>
+      <definition value="  Definition:&#xD;&#xA;The prescription may not be reassigned from the original pharmacy."/>
+    </concept>
+    <concept id="22865">
+      <code value="NOUSERPERM"/>
+      <display value="no user permission"/>
+      <definition value="  Definition:&#xD;&#xA;The user does not have permission"/>
+    </concept>
+    <concept id="22866">
+      <code value="UNKWNTARGET"/>
+      <display value="unknown target"/>
+      <definition value="  Definition:&#xD;&#xA;The target facility does not recognize the dispensing facility."/>
+    </concept>
+  </concept>
+  <concept id="22906">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+      <valueCode value="NOMATCH"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+      <valueCode value="NOPERM"/>
+    </extension>
+    <code value="_RefusalReasonCode"/>
+    <display value="RefusalReasonCode"/>
+    <definition value="  Description:&#xD;&#xA;Identifies why a request to add (or activate) a record is being refused.  Examples include the receiving system not able to match the identifier and find that record in the receiving system, having no permission, or a detected issue exists which precludes the requested action."/>
+  </concept>
+  <concept id="20942">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+      <valueCode value="PAT"/>
+    </extension>
+    <code value="_SchedulingActReason"/>
+    <display value="SchedulingActReason"/>
+    <definition value=" Reasons for cancelling or rescheduling an Appointment"/>
+    <concept id="14885">
+      <code value="BLK"/>
+      <display value="Unexpected Block (of Schedule)"/>
+      <definition value=" The time slots previously allocated are now blocked and no longer available for booking Appointments"/>
+    </concept>
+    <concept id="14884">
+      <code value="DEC"/>
+      <display value="Patient Deceased"/>
+      <definition value=" The Patient is deceased"/>
+    </concept>
+    <concept id="14882">
+      <code value="FIN"/>
+      <display value="No Financial Backing"/>
+      <definition value=" Patient unable to pay and not covered by insurance"/>
+    </concept>
+    <concept id="14883">
+      <code value="MED"/>
+      <display value="Medical Status Altered"/>
+      <definition value=" The medical condition of the Patient has changed"/>
+    </concept>
+    <concept id="14886">
+      <code value="MTG"/>
+      <display value="In an outside meeting"/>
+      <definition value=" The Physician is in a meeting.  For example, he/she may request administrative time to talk to family after appointment"/>
+    </concept>
+    <concept id="14881">
+      <code value="PHY"/>
+      <display value="Physician request"/>
+      <definition value=" The Physician requested the action"/>
+    </concept>
+  </concept>
+  <concept id="23014">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+      <valueCode value="NORECMTCH"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+      <valueCode value="INRQSTATE"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+      <valueCode value="NOUSERPERM"/>
+    </extension>
+    <code value="_StatusRevisionRefusalReasonCode"/>
+    <display value="StatusRevisionRefusalReasonCode"/>
+    <definition value=" Indicates why the act revision (status update) is being refused."/>
+    <concept id="23016">
+      <code value="FILLED"/>
+      <display value="fully filled"/>
+      <definition value=" Ordered quantity has already been completely fulfilled."/>
+    </concept>
+  </concept>
+  <concept id="22856">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+      <valueCode value="NOUSERPERM"/>
+    </extension>
+    <code value="_SubstanceAdministrationPermissionRefusalReasonCode"/>
+    <display value="SubstanceAdministrationPermissionRefusalReasonCode"/>
+    <definition value="  Definition:&#xD;&#xA;Indicates why the requested authorization to prescribe or dispense a medication has been refused."/>
+    <concept id="22858">
+      <code value="PATINELIG"/>
+      <display value="patient not eligible"/>
+      <definition value="  Definition:&#xD;&#xA;Patient not eligible for drug"/>
+    </concept>
+    <concept id="22857">
+      <code value="PROTUNMET"/>
+      <display value="protocol not met"/>
+      <definition value="  Definition:&#xD;&#xA;Patient does not meet required protocol"/>
+    </concept>
+    <concept id="22859">
+      <code value="PROVUNAUTH"/>
+      <display value="provider not authorized"/>
+      <definition value="  Definition:&#xD;&#xA;Provider is not authorized to prescribe or dispense"/>
+    </concept>
+  </concept>
+  <concept id="21531">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
+      <valueCode value="PAT"/>
+    </extension>
+    <code value="_SubstanceAdminSubstitutionNotAllowedReason"/>
+    <display value="SubstanceAdminSubstitutionNotAllowedReason"/>
+    <definition value=" Reasons why substitution of a substance administration request is not permitted."/>
+    <concept id="22259">
+      <code value="ALGINT"/>
+      <display value="allergy intolerance"/>
+      <definition value="  Definition:&#xD;&#xA;Patient has had a prior allergic intolerance response to alternate product or one of its components."/>
+    </concept>
+    <concept id="22260">
+      <code value="COMPCON"/>
+      <display value="compliance concern"/>
+      <definition value="  Definition:&#xD;&#xA;Patient has compliance issues with medication such as differing appearance, flavor, size, shape or consistency."/>
+    </concept>
+    <concept id="21815">
+      <code value="THERCHAR"/>
+      <display value="therapeutic characteristics"/>
+      <definition value=" The prescribed product has specific clinical release or other therapeutic characteristics not shared by other substitutable medications."/>
+    </concept>
+    <concept id="22261">
+      <code value="TRIAL"/>
+      <display value="clinical trial drug"/>
+      <definition value="  Definition:&#xD;&#xA;The specific manufactured drug is part of a clinical trial."/>
+    </concept>
+  </concept>
+  <concept id="20943">
+    <code value="_SubstanceAdminSubstitutionReason"/>
+    <display value="SubstanceAdminSubstitutionReason"/>
+    <concept id="19989">
+      <code value="CT"/>
+      <display value="continuing therapy"/>
+      <definition value=" Indicates that the decision to substitute or to not substitute was driven by a desire to maintain consistency with a pre-existing therapy.  I.e. The performer provided the same item/service as had been previously provided rather than providing exactly what was ordered, or rather than substituting with a lower-cost equivalent."/>
+    </concept>
+    <concept id="19990">
+      <code value="FP"/>
+      <display value="formulary policy"/>
+      <definition value=" Indicates that the decision to substitute or to not substitute was driven by a policy expressed within the formulary."/>
+    </concept>
+    <concept id="19987">
+      <code value="OS"/>
+      <display value="out of stock"/>
+      <definition value=" In the case of &#39;substitution&#39;, indicates that the substitution occurred because the ordered item was not in stock.  In the case of &#39;no substitution&#39;, indicates that a cheaper equivalent was not substituted because it was not in stock."/>
+    </concept>
+    <concept id="19988">
+      <code value="RR"/>
+      <display value="regulatory requirement"/>
+      <definition value=" Indicates that the decision to substitute or to not substitute was driven by a jurisdictional regulatory requirement mandating or prohibiting substitution."/>
+    </concept>
+  </concept>
+  <concept id="20944">
+    <code value="_TransferActReason"/>
+    <display value="TransferActReason"/>
+    <definition value=" The explanation for why a patient is moved from one location to another within the organization"/>
+    <concept id="15984">
+      <code value="ER"/>
+      <display value="Error"/>
+      <definition value=" Moved to an error in placing the patient in the original location."/>
+    </concept>
+    <concept id="15985">
+      <code value="RQ"/>
+      <display value="Request"/>
+      <definition value=" Moved at the request of the patient."/>
+    </concept>
+  </concept>
+  <concept id="20938">
+    <code value="_ActAdjudicationReason"/>
+    <display value="ActAdjudicationReason"/>
+    <definition value=" Explanatory codes that describe reasons why an Adjudicator has financially adjusted an invoice (claim). A companion domain (ActAdjudicationInformationCode) includes information reasons which do not have a financial impact on an invoice (claim). Example adjudication reason code is  AA-CLAIM-0011 - Only Basic Procedure/Test Eligible. Codes from this domain further rationalizes ActAdjudicationCodes (e.g. AA - Adjudicated with Adjustment), which are used to describe the process of adjudicating an invoice.  For AS - Adjudicated as Submitted, there should be no specification of ActAdjudicationReason codes, as there are no financial adjustments against the invoice."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22209">
+    <code value="_ActBillableServiceReason"/>
+    <display value="ActBillableServiceReason"/>
+    <definition value="  Definition:&#xD;&#xA;This domain is used to document reasons for providing a billable service; the billable services may include both clinical services and social services."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <concept id="20939">
+      <code value="_ActBillableClinicalServiceReason"/>
+      <display value="ActBillableClinicalServiceReason"/>
+      <definition value=" Reason for Clinical Service being performed. This domain excludes reasons specified by diagnosed conditions. Examples of values from this domain include duplicate therapy and fraudulent prescription."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <concept id="22210">
+        <code value="_MedicallyNecessaryDuplicateProcedureReason"/>
+        <display value="MedicallyNecessaryDuplicateProcedureReason"/>
+        <definition value="  Definition:&#xD;&#xA;This domain is used to document why the procedure is a duplicate of one ordered/charged previously for the same patient within the same date of service and has been determined to be medically necessary.  Example:&#xD;&#xA;A doctor needs a different view in a chest X-Ray."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="retired"/>
+        </property>
+      </concept>
+    </concept>
+  </concept>
+  <concept id="22081">
+    <code value="_ActCoverageLevelRasonCode"/>
+    <display value="ActCoverageLevelRasonCode"/>
+    <definition value="  Description:&#xD;&#xA;Represents the reason for the level of coverage provided under the policy or program in terms of the types of entities that may play covered parties based on their personal relationships or employment status."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22077">
+    <code value="_ActImmunizationReason"/>
+    <display value="ActImmunizationReason"/>
+    <definition value="  Description:&#xD;&#xA;A coded description of the reason for why a patient was administered an immunization.  Examples:&#xD;&#xA;Post Exposure - Reason, Universal Immunization Program, Outbreak Control, Universal School Program"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22394">
+    <code value="_ConrolActNullificationReasonCode"/>
+    <display value="ConrolActNullificationReasonCode"/>
+    <definition value="  Description:&#xD;&#xA;Identifies reasons for nullifying (retracting) a particular control act.  Examples:&#xD;&#xA;&quot;Entered in error&quot;, &quot;altered decision&quot;, etc."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21569">
+    <code value="_NonPerformanceReasonCode"/>
+    <display value="NonPerformanceReasonCode"/>
+    <definition value=" The reason the action wasn&#39;t performed, e.g. why the medication was not taken. If an action wasn&quot;t performed, it is often clinically important to know why the action wasn&quot;t taken.  Examples:&#xD;&#xA;Patient refused, clinically inappropriate, absolute contraindication etc."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21408">
+    <code value="_ReasonForNotEvaluatingDevice"/>
+    <display value="ReasonForNotEvaluatingDevice"/>
+    <definition value=" Code assigned to indicate the rationale for not performing an evaluation investigation on a device for which a defect has been reported. Examples include: device received in a condition that made analysis impossible, device evaluation anticipated but not yet begun, device not made by company."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="21568">
+    <code value="_ReferralReasonCode"/>
+    <display value="ReferralReasonCode"/>
+    <definition value=" The reason a referral was made.  Examples:&#xD;&#xA;Specialized Medical Assistance, Other Care Requirements."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="17436">
+    <code value="BONUS"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22082">
+    <code value="CHD"/>
+    <display value="Children only"/>
+    <definition value="  Description:&#xD;&#xA;The level of coverage under the policy or program is available only to children"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22083">
+    <code value="DEP"/>
+    <display value="Dependents only"/>
+    <definition value="  Description:&#xD;&#xA;The level of coverage under the policy or program is available only to a subscriber&#39;s dependents."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22084">
+    <code value="ECH"/>
+    <display value="Employee and children"/>
+    <definition value="  Description:&#xD;&#xA;The level of coverage under the policy or program is available to an employee and his or her children."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="17438">
+    <code value="EDU"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22085">
+    <code value="EMP"/>
+    <display value="Employee only"/>
+    <definition value="  Description:&#xD;&#xA;The level of coverage under the policy or program is available only to an employee."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22086">
+    <code value="ESP"/>
+    <display value="Employee and spouse"/>
+    <definition value="  Description:&#xD;&#xA;The level of coverage under the policy or program is available to an employee and his or her spouse."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22087">
+    <code value="FAM"/>
+    <display value="Family"/>
+    <definition value="  Description:&#xD;&#xA;The level of coverage under the policy or program is available to a subscriber&#39;s family."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22088">
+    <code value="IND"/>
+    <display value="Individual"/>
+    <definition value="  Description:&#xD;&#xA;The level of coverage under the policy or program is available to an individual."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="19726">
+    <code value="INVOICE"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="17435">
+    <code value="PROA"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="17437">
+    <code value="RECOV"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="17434">
+    <code value="RETRO"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22089">
+    <code value="SPC"/>
+    <display value="Spouse and children"/>
+    <definition value="  Description:&#xD;&#xA;The level of coverage under the policy or program is available to a subscriber&#39;s spouse and children"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="22090">
+    <code value="SPO"/>
+    <display value="Spouse only"/>
+    <definition value="  Description:&#xD;&#xA;The level of coverage under the policy or program is available only to a subscribers spouse"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept id="19727">
+    <code value="TRAN"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+</CodeSystem>

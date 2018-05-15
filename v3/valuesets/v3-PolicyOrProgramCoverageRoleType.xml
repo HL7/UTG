@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-PolicyOrProgramCoverageRoleType"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>
+                     
+        <b>Description:</b> A role recognized through the eligibility of an identified party for benefits covered under an insurance policy or a program based on meeting eligibility criteria.
+      </p>
+                  
+      <p>Eligibility as a covered party may be conditioned on the party meeting criteria to qualify for coverage under a policy or program, which may be mandated by law.  These criteria may be: </p>
+                  
+      <ol>
+                     
+        <li>
+                        
+          <p>The sole basis for coverage, e.g., being differently abled may qualify a person for disability coverage</p>
+                     
+        </li>
+                     
+        <li>
+                        
+          <p>May more fully qualify a covered party role e.g, being differently abled may qualify an adult child as a dependent</p>
+                     
+        </li>
+                     
+        <li>
+                        
+          <p>May impact the level of coverage for a covered party under a policy or program, e.g., being differently abled may qualify a program eligible for additional benefits.</p>
+                     
+        </li>
+                  
+      </ol>
+                  
+      <p>
+                     
+        <b>Discussion:</b>  The Abstract Value Set &quot;CoverageRoleType&quot;, which was developed for use in the Canadian realm &quot;pre-coordinate&quot; coverage roles with other roles that a covered party must play in order to be eligible for coverage, e.g., &quot;handicapped dependent&quot;.   These role.codes may only be used with COVPTY to avoid overlapping concepts that would result from using them to specify the specializations of COVPTY, e.g., the role.class DEPEN should not be used with the role.code family dependent because that relationship has overlapping concepts due to the role.code precoodination and is conveyed in FICO with the personal relationship role that has a PART role link to the covered party role.  For the same reasons, the role.class DEPEN should not be used with the role.code HANDIC (handicapped dependent); the role.code DIFFABLE (differently abled) should be used instead.
+      </p>
+                  
+      <p>In summary, the coded concepts in the Abstract Value Set &quot;CoveredPartyRoleType&quot; can be &quot;post-coordinated&quot; with the &quot;RoleClassCoveredParty&quot; Abstract Value Set.  Decoupling these concepts is intended to support an expansive range of covered party concepts and their semantic comparability.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="date">
+      <valueDateTime value="2014-03-26"/>
+    </extension>
+    <extension url="id">
+      <valueString value="2014T1_2014-03-26_001283"/>
+    </extension>
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="notes">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v3-PolicyOrProgramCoverageRoleType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.19809"/>
+  </identifier>
+  <name value="PolicyOrProgramCoverageRoleType"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="  Description:&#xD;&#xA;A role recognized through the eligibility of an identified party for benefits covered under an insurance policy or a program based on meeting eligibility criteria. Eligibility as a covered party may be conditioned on the party meeting criteria to qualify for coverage under a policy or program, which may be mandated by law.  These criteria may be:   The sole basis for coverage, e.g., being differently abled may qualify a person for disability coverage  May more fully qualify a covered party role e.g, being differently abled may qualify an adult child as a dependent  May impact the level of coverage for a covered party under a policy or program, e.g., being differently abled may qualify a program eligible for additional benefits.  Discussion:&#xD;&#xA;The Abstract Value Set &quot;CoverageRoleType&quot;, which was developed for use in the Canadian realm &quot;pre-coordinate&quot; coverage roles with other roles that a covered party must play in order to be eligible for coverage, e.g., &quot;handicapped dependent&quot;.   These role.codes may only be used with COVPTY to avoid overlapping concepts that would result from using them to specify the specializations of COVPTY, e.g., the role.class DEPEN should not be used with the role.code family dependent because that relationship has overlapping concepts due to the role.code precoodination and is conveyed in FICO with the personal relationship role that has a PART role link to the covered party role.  For the same reasons, the role.class DEPEN should not be used with the role.code HANDIC (handicapped dependent); the role.code DIFFABLE (differently abled) should be used instead. In summary, the coded concepts in the Abstract Value Set &quot;CoveredPartyRoleType&quot; can be &quot;post-coordinated&quot; with the &quot;RoleClassCoveredParty&quot; Abstract Value Set.  Decoupling these concepts is intended to support an expansive range of covered party concepts and their semantic comparability."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_PolicyOrProgramCoverageRoleType"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

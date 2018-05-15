@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0914-2.8.1"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="OO"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
+    <valueUri value="http://hl7.org/v2/ch02c.html#Heading554"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
+    <valueString value="2.C.2.538"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
+    <valueCode value="User"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v2-0914-2.8.1"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.421"/>
+  </identifier>
+  <version value="1"/>
+  <name value="V2Table0914v2.8.1"/>
+  <title value="V2 Table: Root Cause"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2016-03-11"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/grahamegrieve/vocab-poc"/>
+    </telecom>
+  </contact>
+  <description value="Code system of concepts specifying the root cause.  Used in HL7 Version 2.x messaging in the OBX segment."/>
+  <purpose value="Underlying Code System for V2 table 0914 (Root Cause, version 2.8.1)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v2-0914-2.8.1"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://healthintersections.com.au/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://healthintersections.com.au/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://healthintersections.com.au/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://healthintersections.com.au/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Enter (AP) when ANALYSIS PROCESS is the reason due to:&lt;p&gt;&#xE2;&#x80;&#xA2; Product or supply failure (reagents, calibrators, QC material)&lt;p&gt;&#xE2;&#x80;&#xA2; Equipment or instrumentation failure"/>
+    </extension>
+    <code value="AP"/>
+    <display value="Analysis Process"/>
+    <definition value="Analysis Process"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Enter (IM) when INFORMATION MANAGEMENT is the reason due to:&lt;p&gt;&#xE2;&#x80;&#xA2; Database or Programming issues&lt;p&gt;&#xE2;&#x80;&#xA2; Overriding of test results&lt;p&gt;&#xE2;&#x80;&#xA2; Inaccurate calculations&lt;p&gt;&#xE2;&#x80;&#xA2; Inaccurate flagging, reference ranges, units of measure&lt;p&gt;&#xE2;&#x80;&#xA2; Incomplete/inaccurate tran"/>
+    </extension>
+    <code value="IM"/>
+    <display value="Information Management"/>
+    <definition value="Information Management"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Enter (L) when LABORATORY is the reason due to:&lt;p&gt;&#xE2;&#x80;&#xA2; Data Entry error&lt;p&gt;&#xE2;&#x80;&#xA2; Testing/Technical error&lt;p&gt;&#xE2;&#x80;&#xA2; Repeat testing causing change to test result"/>
+    </extension>
+    <code value="L"/>
+    <display value="Laboratory"/>
+    <definition value="Laboratory"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Enter (NA) when NOT-APPLICABLE is the reason due to:&lt;p&gt;&#xE2;&#x80;&#xA2; If no revisions performed or&lt;p&gt;&#xE2;&#x80;&#xA2; unable to determine reason for revision&lt;p&gt;Note:  Do not use NA if result code status is not corrected (revised) or if a preliminary release of results with a cor"/>
+    </extension>
+    <code value="NA"/>
+    <display value="Not Applicable"/>
+    <definition value="Not Applicable"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="5">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Enter (PD) when new or changed PLACER DATA information is the reason due to:&lt;p&gt;&#xE2;&#x80;&#xA2; Changed patient demographics or&lt;p&gt;&#xE2;&#x80;&#xA2; Result code data provided by the client on the requisition or specimen manifest that will be entered during order entry (i.e. Previous"/>
+    </extension>
+    <code value="PD"/>
+    <display value="Placer Data"/>
+    <definition value="Placer Data"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>
