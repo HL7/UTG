@@ -1,0 +1,364 @@
+// entries in this file get added to the generated class. "Class" in the line above is just the plain Class name e.g. BaseConformance
+// whatever is between -- [Class] --------- and ---- will be added to the generated class without modification
+
+-- Element --
+  public void addExtension(String url, Type value) {
+    Extension ex = new Extension();
+    ex.setUrl(url);
+    ex.setValue(value);
+    getExtension().add(ex);    
+  }
+
+
+   public Extension getExtensionByUrl(String theUrl) {
+     org.apache.commons.lang3.Validate.notBlank(theUrl, "theUrl must not be blank or null");
+     ArrayList<Extension> retVal = new ArrayList<Extension>();
+     for (Extension next : getExtension()) {
+       if (theUrl.equals(next.getUrl())) {
+         retVal.add(next);
+       }
+     }
+     if (retVal.size() == 0)
+       return null;
+     else {
+       org.apache.commons.lang3.Validate.isTrue(retVal.size() == 1, "Url "+theUrl+" must have only one match");
+       return retVal.get(0);
+     }
+   }
+  
+----
+
+-- BaseConformance --
+
+  @Override
+  public String toString() {
+    return getUrl();
+  }
+  
+----
+
+-- ElementDefinition.imports --
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+
+----
+
+-- TypeRefComponent --
+
+  public boolean hasTarget() {
+    return Utilities.existsInList(getCode(), "Reference", "canonical");
+  }
+----
+
+// todo: should this be .getId()> 
+-- ElementDefinition --
+  
+  public String toString() {
+    if (hasId())
+      return getId();
+    if (hasSliceName())
+      return getPath()+":"+getSliceName();
+    else
+      return getPath();
+  }
+    
+  public void makeBase(String path, int min, String max) {
+    ElementDefinitionBaseComponent self = getBase();
+    self.setPath(path);
+    self.setMin(min);
+    self.setMax(max);
+  }
+  
+  public void makeBase() {
+    ElementDefinitionBaseComponent self = getBase();
+    self.setPath(getPath());
+    self.setMin(getMin());
+    self.setMax(getMax());
+  }
+  
+  
+  
+  public String typeSummary() {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (TypeRefComponent tr : type) {
+      if (tr.hasCode())
+        b.append(tr.getCode());
+    }
+    return b.toString();
+   }
+  
+  public TypeRefComponent getType(String code) {
+    for (TypeRefComponent tr : getType()) 
+      if (tr.getCode().equals(code))
+        return tr;
+    TypeRefComponent tr = new TypeRefComponent();
+    tr.setCode(code);
+    type.add(tr);
+    return tr;
+  }
+
+  public static final boolean NOT_MODIFIER = false;
+  public static final boolean NOT_IN_SUMMARY = false;
+  public static final boolean IS_MODIFIER = true;
+  public static final boolean IS_IN_SUMMARY = true;
+  public ElementDefinition(boolean defaults, boolean modifier, boolean inSummary) {
+    super();
+    if (defaults) {
+      setIsModifier(modifier);
+      setIsSummary(inSummary);
+    }
+  }  
+
+----
+
+
+-- StructureMap.imports --
+import org.hl7.fhir.r4.utils.StructureMapUtilities;
+----
+  
+-- StructureMap --
+
+  public String toString() {
+    return StructureMapUtilities.render(this);
+  }
+
+----
+
+-- StructureMapGroupComponent --
+
+  public String toString() {
+    return StructureMapUtilities.groupToString(this);
+  }
+
+----
+
+-- StructureMapGroupRuleComponent --
+
+  public String toString() {
+    return StructureMapUtilities.ruleToString(this);
+  }
+
+----
+
+-- StructureMapGroupRuleSourceComponent --
+
+  public String toString() {
+    return StructureMapUtilities.sourceToString(this);
+  }
+
+----
+
+-- StructureMapGroupRuleTargetComponent --
+
+  public String toString() {
+    return StructureMapUtilities.targetToString(this);
+  }
+
+----
+
+
+-- StructureMapGroupRuleTargetParameterComponent --
+
+  public String toString() {
+    return StructureMapUtilities.paramToString(this);
+  }
+
+----
+
+
+
+-- StructureMapGroupRuleTargetParameterComponent --
+
+      public String toString() {
+        return value == null ? "null!" : value.toString();
+      }
+
+
+----
+
+
+-- MetadataResource --
+      @Override
+      public String toString() {
+        return fhirType()+"["+getUrl()+"]";
+      }
+----
+
+-- BackboneElement --
+
+  public void checkNoModifiers(String noun, String verb) throws FHIRException {
+        if (hasModifierExtension()) {
+          throw new FHIRException("Found unknown Modifier Exceptions on "+noun+" doing "+verb);
+        }
+        
+  }
+----
+
+-- DomainResource --
+
+  public void checkNoModifiers(String noun, String verb) throws FHIRException {
+        if (hasModifierExtension()) {
+          throw new FHIRException("Found unknown Modifier Exceptions on "+noun+" doing "+verb);
+        }
+        
+  }
+
+  public void addExtension(String url, Type value) {
+    Extension ex = new Extension();
+    ex.setUrl(url);
+    ex.setValue(value);
+    getExtension().add(ex);    
+  }
+  
+
+
+
+  public boolean hasExtension(String url) {
+    for (Extension e : getExtension())
+      if (url.equals(e.getUrl()))
+        return true;
+    return false;
+    }
+    
+       public Extension getExtensionByUrl(String theUrl) {
+     org.apache.commons.lang3.Validate.notBlank(theUrl, "theUrl must not be blank or null");
+     ArrayList<Extension> retVal = new ArrayList<Extension>();
+     for (Extension next : getExtension()) {
+       if (theUrl.equals(next.getUrl())) {
+         retVal.add(next);
+       }
+     }
+     if (retVal.size() == 0)
+       return null;
+     else {
+       org.apache.commons.lang3.Validate.isTrue(retVal.size() == 1, "Url "+theUrl+" must have only one match");
+       return retVal.get(0);
+     }
+   }
+  
+
+----
+
+-- CodeType.implements --
+ICoding    
+----
+
+-- Coding.implements --
+ICoding
+----
+
+-- Quantity.implements --
+ICoding    
+----
+
+-- CodeType --
+
+	private String system;
+	
+  @Override
+  public String getSystem() {
+    return system;
+  }
+
+  @Override
+  public boolean hasSystem() {
+    return system != null;
+  }
+  
+  public CodeType setSystem(String system) {
+    this.system = system;
+    return this;
+  }
+
+  @Override
+  public String getVersion() {
+    return null;
+  }
+
+  @Override
+  public boolean hasVersion() {
+    return false;
+  }
+  
+  @Override
+  public String getDisplay() {
+    return null;
+  }
+
+  @Override
+  public boolean hasDisplay() {
+    return false;
+  }
+  
+----
+
+-- CodeSystem --
+  public PropertyComponent getProperty(String code) {
+    for (PropertyComponent pd : getProperty()) {
+      if (pd.getCode().equalsIgnoreCase(code))
+        return pd;
+    }
+    return null;
+  }
+----
+
+-- Quantity --
+
+      @Override
+      public String getVersion() {
+        return null;
+      }
+
+      @Override
+      public boolean hasVersion() {
+        return false;
+      }
+
+      @Override
+      public boolean supportsVersion() {
+        return false;
+      }
+
+      @Override
+      public String getDisplay() {
+        return null;
+      }
+
+      @Override
+      public boolean hasDisplay() {
+        return false;
+      }
+
+      @Override
+      public boolean supportsDisplay() {
+        return false;
+      }
+
+
+----
+
+-- Resource --
+
+  public String getLanguage(String defValue) {
+    return hasLanguage() ? getLanguage() : defValue;
+  }
+
+----
+
+-- Coding --
+      @Override
+      public boolean supportsVersion() {
+        return true;
+      }
+
+      @Override
+      public boolean supportsDisplay() {
+        return true;
+      }
+
+
+      public boolean is(String system, String code) {
+        return hasSystem() && hasCode() &&  this.getSystem().equals(system) && this.getCode().equals(code);
+      }
+      
+----
+
