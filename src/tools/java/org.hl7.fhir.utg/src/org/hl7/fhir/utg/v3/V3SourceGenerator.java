@@ -5,12 +5,16 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -28,6 +32,7 @@ import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.Factory;
+import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.UriType;
@@ -148,18 +153,41 @@ public class V3SourceGenerator extends BaseGenerator {
 
   public void generateCodeSystems() throws Exception {
     List<Element> list = new ArrayList<Element>();
+    ListResource manifest = createCodeSystemManifest();
     XMLUtil.getNamedChildren(mif, "codeSystem", list);
     for (Element l : list) {
       CodeSystem cs = generateV3CodeSystem(l);
       csmap.put(cs.getUserString("oid"), cs);
+      String referenceUrl = cs.getUrl();
+      Date releaseDate = cs.getDate();
+      if (releaseDate != null) {
+        DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
+        String releaseDateString = df.format(releaseDate);
+        referenceUrl += "|" + releaseDateString;
+      }
+      manifest.addEntry(new ListResource.ListEntryComponent(new org.hl7.fhir.r4.model.Reference(referenceUrl)));
     }
     postProcess();
+    saveCodeSystemManifest(manifest);
     for (CodeSystem cs : csmap.values())
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v3", "codeSystems", cs.getId())+".xml"), cs);
     System.out.println("Save v3 code systems ("+Integer.toString(csmap.size())+" found)");
   }
 
-
+  private ListResource createCodeSystemManifest() throws Exception {
+    ListResource manifest = new ListResource();
+    manifest.setId(UUID.randomUUID().toString());
+    manifest.setTitle("V3 Code System Release Manifest");
+    manifest.setStatus(ListResource.ListStatus.CURRENT);
+    manifest.setMode(ListResource.ListMode.WORKING);
+    return manifest;
+  }
+  
+  private void saveCodeSystemManifest(ListResource manifest) throws Exception {
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "release", "v3-CodeSystem-Manifest.xml")), manifest);
+    System.out.println("Code System Manifest saved");
+  }
+  
   private CodeSystem generateV3CodeSystem(Element item) throws Exception {
     CodeSystem cs = new CodeSystem();
     cs.setId("v3-"+makeSafeId(item.getAttribute("name")));
