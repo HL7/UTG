@@ -72,7 +72,7 @@ public class V3SourceGenerator extends BaseGenerator {
 
   public class ConceptDomain {
     private String name; 
-    private XhtmlNode definition;
+    //private XhtmlNode definition;
     private String text;
     private List<ConceptDomain> children = new ArrayList<ConceptDomain>();
     public String parent;
@@ -94,7 +94,7 @@ public class V3SourceGenerator extends BaseGenerator {
       ConceptDomain cd = new ConceptDomain();
       cd.name = e.getAttribute("name");
       Element xhtml = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "definition"), "text");
-      cd.definition = new XhtmlParser().parseHtmlNode(xhtml);
+      //cd.definition = new XhtmlParser().parseHtmlNode(xhtml);
       cd.text = XMLUtil.htmlToXmlEscapedPlainText(xhtml);
       Element spec = XMLUtil.getNamedChild(e, "specializesDomain");
       if (spec != null)
@@ -204,7 +204,7 @@ public class V3SourceGenerator extends BaseGenerator {
   
   private void saveCodeSystemManifest(ListResource manifest) throws Exception {
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "release", "v3-CodeSystem-Manifest.xml")), manifest);
-    System.out.println("Code System Manifest saved");
+    System.out.println("V3 Code System Manifest saved");
   }
   
   private CodeSystem generateV3CodeSystem(Element item) throws Exception {
@@ -679,7 +679,8 @@ public class V3SourceGenerator extends BaseGenerator {
       Element child = XMLUtil.getFirstChild(item);
       while (child != null) {
         if (child.getNodeName().equals("targetConcept")) {
-          List<String> parents = (List<String>) cd.getUserData("parents");
+          @SuppressWarnings("unchecked")
+		  List<String> parents = (List<String>) cd.getUserData("parents");
           if (parents == null) {
             parents = new ArrayList<String>(); 
             cd.setUserData("parents", parents);
@@ -753,7 +754,7 @@ public class V3SourceGenerator extends BaseGenerator {
   
   private void saveValueSetManifest(ListResource manifest) throws Exception {
 	    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "release", "v3-ValueSet-Manifest.xml")), manifest);
-	    System.out.println("Value Set Manifest saved");
+	    System.out.println("V3 Value Set Manifest saved");
 	  }
   
   private void postProcess(HashMap<String, ValueSet> vsmap) throws Exception {

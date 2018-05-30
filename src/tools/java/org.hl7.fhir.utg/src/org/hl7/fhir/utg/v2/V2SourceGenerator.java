@@ -18,7 +18,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
+import org.hl7.fhir.dstu3.model.Enumerations.ResourceType;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.model.BooleanType;
@@ -26,13 +28,14 @@ import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Extension;
-import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.IntegerType;
+import org.hl7.fhir.r4.model.ListResource;
+import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
+import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
@@ -570,16 +573,20 @@ public class V2SourceGenerator extends BaseGenerator {
     return count;
   }
 
-  public void generateCodeSystems() throws FileNotFoundException, IOException {
+  public void generateCodeSystems() throws Exception {
     int c = 0;
     int h = 0;
+    
+    ListResource csManifest = createManifestList("V2 Code System Release Manifest");
+    ListResource vsManifest = createManifestList("V2 Value Set Release Manifest");
+    
     for (String n : sorted(tables.keySet())) {
       if (!n.equals("0000")) {
         Table t = tables.get(n);
         Set<String> oids = t.getOids();
         for (String oid : oids) {
           TableVersion tv = t.lastVersionForOid(oid);
-          generateCodeSystem(t, tv);
+          generateCodeSystem(t, tv, csManifest, vsManifest);
           c++;
         }
         for (String v : sorted(t.versions.keySet())) {
@@ -587,7 +594,7 @@ public class V2SourceGenerator extends BaseGenerator {
             TableVersion tv = t.versions.get(v);
             if (!(new File(Utilities.path(dest, "v2", "v"+v)).exists()))
               Utilities.createDirectory(Utilities.path(dest, "v2", "v"+v));          
-            generateVersionCodeSystem(t, tv);
+            generateVersionCodeSystem(t, tv, csManifest, vsManifest);
             h++;
             //          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+n, "vs-"+cs.getId())+".xml"), produceValueSet(n, cs.getId()+"-"+n, cs, t, tv));
           }
@@ -595,9 +602,67 @@ public class V2SourceGenerator extends BaseGenerator {
       }
     }
     System.out.println("Saved v2 code systems ("+Integer.toString(c)+" found, with "+Integer.toString(h)+" past versions)");
+    
+    saveManifest(csManifest, vsManifest);
   }
 
-  private void generateCodeSystem(Table t, TableVersion tv) throws FileNotFoundException, IOException {
+  private ListResource createManifestList(String title) throws Exception {
+	    ListResource manifest = new ListResource();
+	    manifest.setId(UUID.randomUUID().toString());   
+	    manifest.setStatus(ListResource.ListStatus.CURRENT);
+	    manifest.setMode(ListResource.ListMode.WORKING);
+	   
+	    if (title != null)
+	    	manifest.setTitle(title);
+
+	    return manifest;
+  }
+  
+  private ListEntryComponent createCodeSystemListEntry(CodeSystem cs) {
+	  String url = cs.getUrl();
+//      String version = cs.getVersion();
+//      
+//      if (version != null) {
+//        url += "|" + version;
+//      }
+      
+      Reference referenceEntry = new Reference(url);
+      referenceEntry.setType(ResourceType.CODESYSTEM.getDisplay());
+      
+      ListEntryComponent entry = new ListEntryComponent(referenceEntry);
+      
+      return entry;
+  }
+  
+  private ListEntryComponent createValueSetListEntry(ValueSet vs) {
+	  String url = vs.getUrl();
+//      String version = vs.getVersion();
+//      
+//      if (version != null) {
+//        url += "|" + version;
+//      }
+      
+      Reference referenceEntry = new Reference(url);
+      referenceEntry.setType(ResourceType.VALUESET.getDisplay());
+      
+      ListEntryComponent entry = new ListEntryComponent(referenceEntry);
+      
+      return entry;
+  }  
+  
+  private void saveManifest(ListResource csManifest, ListResource vsManifest) throws Exception {
+	  if (csManifest != null) {
+	    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "release", "v2-CodeSystem-Manifest.xml")), csManifest);
+	    System.out.println("V2 Code System Manifest saved");
+	  }
+	  
+	  if (vsManifest != null) {
+  	    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "release", "v2-ValueSet-Manifest.xml")), vsManifest);	  
+	    System.out.println("V2 Value Set Manifest saved");
+	  }
+  }
+  
+  private void generateCodeSystem(Table t, TableVersion tv, ListResource csManifest, ListResource vsManifest) throws FileNotFoundException, IOException {
     CodeSystem cs = new CodeSystem();
     if (tv == t.master) {
       cs.setId("v2-"+t.id);
@@ -668,11 +733,15 @@ public class V2SourceGenerator extends BaseGenerator {
         c.addProperty().setCode("backwardsCompatible").setValue(new BooleanType(te.backwardsCompatible));
     }    
 
+    ValueSet vs = produceValueSet("Master", cs, t, tv);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "cs-"+cs.getId())+".xml"), cs);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "vs-"+cs.getId())+".xml"), produceValueSet("Master", cs, t, tv));
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "vs-"+cs.getId())+".xml"), vs);
+    
+    csManifest.addEntry(createCodeSystemListEntry(cs));
+    vsManifest.addEntry(createValueSetListEntry(vs));
   }
 
-  private void generateVersionCodeSystem(Table t, TableVersion tv) throws FileNotFoundException, IOException {
+  private void generateVersionCodeSystem(Table t, TableVersion tv, ListResource csManifest, ListResource vsManifest) throws FileNotFoundException, IOException {
     CodeSystem cs = new CodeSystem();
     cs.setId("v2-"+t.id+"-"+tv.version);
     cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/"+cs.getId());
@@ -739,8 +808,12 @@ public class V2SourceGenerator extends BaseGenerator {
         c.addProperty().setCode("backwardsCompatible").setValue(new BooleanType(te.backwardsCompatible));
     }    
 
+    ValueSet vs = produceValueSet("Master", cs, t, tv);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+tv.version, "cs-"+cs.getId())+".xml"), cs);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+tv.version, "vs-"+cs.getId())+".xml"), produceValueSet("Master", cs, t, tv));
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+tv.version, "vs-"+cs.getId())+".xml"), vs);
+    
+    csManifest.addEntry(createCodeSystemListEntry(cs));
+    vsManifest.addEntry(createValueSetListEntry(vs));
   }
   
   private String codeForType(int type) {
@@ -814,7 +887,6 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.addProperty().setCode("generate").setUri("http://healthintersections.com.au/csprop/generate").setType(PropertyType.BOOLEAN).setDescription("whether to generate table");
     cs.addProperty().setCode("version").setUri("http://healthintersections.com.au/csprop/version").setType(PropertyType.BOOLEAN).setDescription("Business version of table metadata");
     
-    Map<String, String> codes = new HashMap<String, String>();
     int count = 0;
     for (String n : sorted(tables.keySet())) {
       if (!n.equals("0000")) {
@@ -824,7 +896,6 @@ public class V2SourceGenerator extends BaseGenerator {
           ConceptDefinitionComponent c = cs.addConcept();
           c.setCode(t.id);
           count++;
-          String name = t.getName();
           c.setDisplay(t.name);
           c.setDefinition(tv.description);
           c.addProperty().setCode("oid").setValue(new StringType(t.oid));
