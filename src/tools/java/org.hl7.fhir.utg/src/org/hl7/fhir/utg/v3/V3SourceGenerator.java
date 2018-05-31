@@ -5,22 +5,17 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.hl7.fhir.dstu3.model.Enumerations.ResourceType;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.r4.formats.XmlParser;
@@ -34,9 +29,7 @@ import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.ListResource;
-import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
 import org.hl7.fhir.r4.model.MetadataResource;
-import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
@@ -52,6 +45,7 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.r4.model.ValueSet.FilterOperator;
 import org.hl7.fhir.utg.BaseGenerator;
+import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
@@ -156,13 +150,13 @@ public class V3SourceGenerator extends BaseGenerator {
 
   public void generateCodeSystems() throws Exception {
     List<Element> list = new ArrayList<Element>();
-    ListResource manifest = createManifestList("V3 Code System Release Manifest");
+    ListResource manifest = ListResourceExt.createManifestList("V3 Code System Release Manifest");
     XMLUtil.getNamedChildren(mif, "codeSystem", list);
     for (Element l : list) {
       CodeSystem cs = generateV3CodeSystem(l);
       csmap.put(cs.getUserString("oid"), cs);
                  
-      manifest.addEntry(createCodeSystemListEntry(cs));
+      manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, true));
     }
     
     postProcess();
@@ -171,37 +165,7 @@ public class V3SourceGenerator extends BaseGenerator {
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v3", "codeSystems", cs.getId())+".xml"), cs);
     System.out.println("Save v3 code systems ("+Integer.toString(csmap.size())+" found)");
   }
-
-  private ListResource createManifestList(String title) throws Exception {
-    ListResource manifest = new ListResource();
-    manifest.setId(UUID.randomUUID().toString());   
-    manifest.setStatus(ListResource.ListStatus.CURRENT);
-    manifest.setMode(ListResource.ListMode.WORKING);
-   
-    if (title != null)
-    	manifest.setTitle(title);
-
-    return manifest;
-  }
-  
-  private ListEntryComponent createCodeSystemListEntry(CodeSystem cs) {
-	  String url = cs.getUrl();
-      Date releaseDate = cs.getDate();
-      
-      if (releaseDate != null) {
-        DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
-        String releaseDateString = df.format(releaseDate);
-        url += "|" + releaseDateString;
-      }
-      
-      Reference referenceEntry = new Reference(url);
-      referenceEntry.setType(ResourceType.CODESYSTEM.getDisplay());
-      
-      ListEntryComponent entry = new ListEntryComponent(referenceEntry);
-      
-      return entry;
-  }
-  
+ 
   private void saveCodeSystemManifest(ListResource manifest) throws Exception {
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "release", "v3-CodeSystem-Manifest.xml")), manifest);
     System.out.println("V3 Code System Manifest saved");
@@ -719,14 +683,14 @@ public class V3SourceGenerator extends BaseGenerator {
 
   public void generateValueSets() throws Exception {
     List<Element> list = new ArrayList<Element>();
-    ListResource manifest = createManifestList("V3 Value Set Release Manifest");
+    ListResource manifest = ListResourceExt.createManifestList("V3 Value Set Release Manifest");
     XMLUtil.getNamedChildren(mif, "valueSet", list);
     HashMap<String, ValueSet> vsmap = new HashMap<String, ValueSet>();
     for (Element l : list){
       ValueSet vs = generateV3ValueSet(l);
       vsmap.put(vs.getUserString("oid"), vs);
       
-      manifest.addEntry(createValueSetListEntry(vs));
+      manifest.addEntry(ListResourceExt.createValueSetListEntry(vs, true));
     }
     postProcess(vsmap);   
     saveValueSetManifest(manifest);
@@ -739,23 +703,7 @@ public class V3SourceGenerator extends BaseGenerator {
         System.out.println(" ..unknown.. "+s);
   }
 
-  private ListEntryComponent createValueSetListEntry(ValueSet vs) {
-	  String url = vs.getUrl();
-      Date releaseDate = vs.getDate();
-      
-      if (releaseDate != null) {
-        DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
-        String releaseDateString = df.format(releaseDate);
-        url += "|" + releaseDateString;
-      }
-      
-      Reference referenceEntry = new Reference(url);
-      referenceEntry.setType(ResourceType.VALUESET.getDisplay());
-      
-      ListEntryComponent entry = new ListEntryComponent(referenceEntry);
-      
-      return entry;
-  }
+
   
   private void saveValueSetManifest(ListResource manifest) throws Exception {
 	    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "release", "v3-ValueSet-Manifest.xml")), manifest);

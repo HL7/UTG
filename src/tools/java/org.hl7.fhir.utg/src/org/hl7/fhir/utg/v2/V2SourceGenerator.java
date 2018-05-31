@@ -18,9 +18,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
 
-import org.hl7.fhir.dstu3.model.Enumerations.ResourceType;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.model.BooleanType;
@@ -30,8 +28,6 @@ import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.IntegerType;
 import org.hl7.fhir.r4.model.ListResource;
-import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
-import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.r4.model.UriType;
@@ -44,6 +40,7 @@ import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.utg.BaseGenerator;
+import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utilities.Utilities;
 
 public class V2SourceGenerator extends BaseGenerator {
@@ -577,8 +574,8 @@ public class V2SourceGenerator extends BaseGenerator {
     int c = 0;
     int h = 0;
     
-    ListResource csManifest = createManifestList("V2 Code System Release Manifest");
-    ListResource vsManifest = createManifestList("V2 Value Set Release Manifest");
+    ListResource csManifest = ListResourceExt.createManifestList("V2 Code System Release Manifest");
+    ListResource vsManifest = ListResourceExt.createManifestList("V2 Value Set Release Manifest");
     
     for (String n : sorted(tables.keySet())) {
       if (!n.equals("0000")) {
@@ -605,50 +602,6 @@ public class V2SourceGenerator extends BaseGenerator {
     
     saveManifest(csManifest, vsManifest);
   }
-
-  private ListResource createManifestList(String title) throws Exception {
-	    ListResource manifest = new ListResource();
-	    manifest.setId(UUID.randomUUID().toString());   
-	    manifest.setStatus(ListResource.ListStatus.CURRENT);
-	    manifest.setMode(ListResource.ListMode.WORKING);
-	   
-	    if (title != null)
-	    	manifest.setTitle(title);
-
-	    return manifest;
-  }
-  
-  private ListEntryComponent createCodeSystemListEntry(CodeSystem cs) {
-	  String url = cs.getUrl();
-//      String version = cs.getVersion();
-//      
-//      if (version != null) {
-//        url += "|" + version;
-//      }
-      
-      Reference referenceEntry = new Reference(url);
-      referenceEntry.setType(ResourceType.CODESYSTEM.getDisplay());
-      
-      ListEntryComponent entry = new ListEntryComponent(referenceEntry);
-      
-      return entry;
-  }
-  
-  private ListEntryComponent createValueSetListEntry(ValueSet vs) {
-	  String url = vs.getUrl();
-//      String version = vs.getVersion();
-//      
-//      if (version != null) {
-//        url += "|" + version;
-//      }
-      
-      Reference referenceEntry = new Reference(url);
-      referenceEntry.setType(ResourceType.VALUESET.getDisplay());
-      
-      ListEntryComponent entry = new ListEntryComponent(referenceEntry);
-      
-      return entry;
-  }  
   
   private void saveManifest(ListResource csManifest, ListResource vsManifest) throws Exception {
 	  if (csManifest != null) {
@@ -737,8 +690,8 @@ public class V2SourceGenerator extends BaseGenerator {
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "cs-"+cs.getId())+".xml"), cs);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "vs-"+cs.getId())+".xml"), vs);
     
-    csManifest.addEntry(createCodeSystemListEntry(cs));
-    vsManifest.addEntry(createValueSetListEntry(vs));
+    csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, (String)null));
+    vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, (String)null));
   }
 
   private void generateVersionCodeSystem(Table t, TableVersion tv, ListResource csManifest, ListResource vsManifest) throws FileNotFoundException, IOException {
@@ -812,8 +765,8 @@ public class V2SourceGenerator extends BaseGenerator {
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+tv.version, "cs-"+cs.getId())+".xml"), cs);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+tv.version, "vs-"+cs.getId())+".xml"), vs);
     
-    csManifest.addEntry(createCodeSystemListEntry(cs));
-    vsManifest.addEntry(createValueSetListEntry(vs));
+    csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, (String)null));
+    vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, (String)null));
   }
   
   private String codeForType(int type) {

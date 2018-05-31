@@ -2,16 +2,12 @@ package org.hl7.fhir.utg.v3;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -19,13 +15,14 @@ import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.DateTimeType;
+import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.convertors.VersionConvertor_30_40;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utg.BaseGenerator;
+import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -51,8 +48,9 @@ public class CDASourceGenerator extends BaseGenerator {
 
   }
 
-  public void loadValueSetsSource() throws IOException, URISyntaxException, FHIRException {
+  public void loadValueSetsSource() throws Exception {
     Map<String, String> oids = new HashMap<String, String>();
+    ListResource vsManifest = ListResourceExt.createManifestList("CDA Value Set Manifest") ;
     listValueSets(oids);
     for (String oid : sorted(oids.keySet())) {
       String name = sanitize(oids.get(oid));
@@ -63,6 +61,9 @@ public class CDASourceGenerator extends BaseGenerator {
           checkCompose(oids.get(oid), cmp);
         for (ConceptSetComponent cmp : vs.getCompose().getExclude()) 
           checkCompose(oids.get(oid), cmp);
+        
+        vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, false));
+        
         new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "cda", "ccda-"+name+".xml")), vs);
 //        System.out.println("fetch "+oid+": "+name+": ok");
       } catch (Exception e) {
@@ -70,11 +71,21 @@ public class CDASourceGenerator extends BaseGenerator {
       }
     }
     System.out.println(Integer.toString(oids.size())+" CDA value sets saved");
+    
+    saveManifest(vsManifest);
+    
     System.out.println("Unknown systems");
     for (String s : sorted(systems)) 
       if (!knownCS.contains(s)) 
         System.out.println("  "+s);
   }
+  
+  private void saveManifest(ListResource vsManifest) throws Exception {
+	  if (vsManifest != null) {
+  	    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "release", "cda-ValueSet-Manifest.xml")), vsManifest);	  
+	    System.out.println("CDA Value Set Manifest saved");
+	  }
+  }  
 
   private String sanitize(String string) {
     StringBuilder b = new StringBuilder();
@@ -101,7 +112,6 @@ public class CDASourceGenerator extends BaseGenerator {
   }
   
   private void listValueSets(Map<String, String> oids) throws IOException {
-    Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
     BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(cdasource), "UTF-8"));         
     String line = br.readLine(); // skip the headers
     while ((line = br.readLine()) != null) {
@@ -136,7 +146,6 @@ public class CDASourceGenerator extends BaseGenerator {
       String purposeEC = cols[7].trim();
       String code = cols[8].trim();
       String description = cols[9].trim();
-      String codeSystemName = cols[10].trim();
       String codeSystemOID = cols[11].trim();
       String codeSystemVersion = cols[12].trim();
       String codeSystem = identifyOID(codeSystemOID);
