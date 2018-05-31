@@ -515,6 +515,11 @@ public class V3SourceGenerator extends BaseGenerator {
   
   private void processConcept(Element item, CodeSystem cs) throws Exception {
     ConceptDefinitionComponent cd = cs.addConcept();
+    
+    String isSelectable = item.getAttribute("isSelectable");   
+    if (!Utilities.noString(isSelectable))
+      cd.addExtension(csext("isSelectable"), Factory.newString_(isSelectable));  
+    	
     Element child = XMLUtil.getFirstChild(item);
     while (child != null) {
       if (child.getNodeName().equals("annotations"))
