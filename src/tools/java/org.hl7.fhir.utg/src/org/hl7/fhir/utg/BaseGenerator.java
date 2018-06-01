@@ -45,8 +45,10 @@ public class BaseGenerator {
   }
 
   protected String makeSafeId(String s) {
-    if (s.contains("("))
-      s = s.substring(0, s.indexOf("("));
+    if (s.contains("(")) {
+    	s = s.replace('(', '-').replace(')', ' ').trim();
+    }
+    
     return Utilities.makeId(s);
   }
 

@@ -29,18 +29,18 @@ public class ListResourceExt {
 	public static ListEntryComponent createListEntry(String url, String version, String type) {
 		if (Utilities.noString(url))
 			return null;
-	      
-	    if (!Utilities.noString(version))
-	        url += "|" + version;
-	      
-	    Reference referenceEntry = new Reference(url);
-	    
-	    if (!Utilities.noString(type))
-	    	referenceEntry.setType(type);
-	      
-	    ListEntryComponent entry = new ListEntryComponent(referenceEntry);
-	      
-	    return entry;
+
+		if (!Utilities.noString(version))
+			url += "|" + version;
+
+		Reference referenceEntry = new Reference(url);
+
+		if (!Utilities.noString(type))
+			referenceEntry.setType(type);
+
+		ListEntryComponent entry = new ListEntryComponent(referenceEntry);
+
+		return entry;
 	}	
 
 	public static ListEntryComponent createCodeSystemListEntry(CodeSystem resource, String version) {	
@@ -55,7 +55,7 @@ public class ListResourceExt {
 		      
 		    if (releaseDate != null) {
 		        DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
-		        version =  "|" + df.format(releaseDate);
+		        version =  df.format(releaseDate);
 		    }
 		}
 		else {
@@ -77,7 +77,7 @@ public class ListResourceExt {
 		      
 		    if (releaseDate != null) {
 		        DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
-		        version =  "|" + df.format(releaseDate);
+		        version =  df.format(releaseDate);
 		    }
 		}
 		else {
