@@ -138,7 +138,7 @@ public class UTGGenerator extends BaseGenerator {
     
     cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
     cs.setPublisher("HL7, Inc");
-    cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/grahamegrieve/vocab-poc");
+    cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
     cs.setDescription("Concept Domains - includes both v2 abd v3 concept domains");
     cs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
     cs.setCaseSensitive(true); 
