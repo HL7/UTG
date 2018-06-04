@@ -589,8 +589,10 @@ public class V2SourceGenerator extends BaseGenerator {
         for (String v : sorted(t.versions.keySet())) {
           if (!v.contains(" ")) {
             TableVersion tv = t.versions.get(v);
-            if (!(new File(Utilities.path(dest, "v2", "v"+v)).exists()))
-              Utilities.createDirectory(Utilities.path(dest, "v2", "v"+v));          
+            if (!(new File(Utilities.path(dest, "v2", "codeSystems", "v"+v)).exists()))
+              Utilities.createDirectory(Utilities.path(dest, "v2", "codeSystems", "v"+v));     
+            if (!(new File(Utilities.path(dest, "v2", "valueSets", "v"+v)).exists()))
+                Utilities.createDirectory(Utilities.path(dest, "v2", "valueSets", "v"+v));
             generateVersionCodeSystem(t, tv, csManifest, vsManifest);
             h++;
             //          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+n, "vs-"+cs.getId())+".xml"), produceValueSet(n, cs.getId()+"-"+n, cs, t, tv));
@@ -638,7 +640,7 @@ public class V2SourceGenerator extends BaseGenerator {
     }
     cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
     cs.setPublisher("HL7, Inc");
-    cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/grahamegrieve/vocab-poc");
+    cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
     if (tv.csoid != null && objects.containsKey(tv.csoid))
       cs.setDescription(objects.get(tv.csoid).description);
     else if (!Utilities.noString(tv.description))
@@ -687,8 +689,8 @@ public class V2SourceGenerator extends BaseGenerator {
     }    
 
     ValueSet vs = produceValueSet("Master", cs, t, tv);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "cs-"+cs.getId())+".xml"), cs);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "vs-"+cs.getId())+".xml"), vs);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "cs-"+cs.getId())+".xml"), cs);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "valueSets", "vs-"+cs.getId())+".xml"), vs);
     
     csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, (String)null));
     vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, (String)null));
@@ -709,7 +711,7 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.csoid);
     cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
     cs.setPublisher("HL7, Inc");
-    cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/grahamegrieve/vocab-poc");
+    cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
     if (tv.csoid != null && objects.containsKey(tv.csoid))
       cs.setDescription(objects.get(tv.csoid).description);
     else if (!Utilities.noString(tv.description))
@@ -762,8 +764,8 @@ public class V2SourceGenerator extends BaseGenerator {
     }    
 
     ValueSet vs = produceValueSet("Master", cs, t, tv);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+tv.version, "cs-"+cs.getId())+".xml"), cs);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+tv.version, "vs-"+cs.getId())+".xml"), vs);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "v"+tv.version, "cs-"+cs.getId())+".xml"), cs);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "valueSets", "v"+tv.version, "vs-"+cs.getId())+".xml"), vs);
     
     csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, (String)null));
     vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, (String)null));
@@ -805,7 +807,7 @@ public class V2SourceGenerator extends BaseGenerator {
       vs.addIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.vsoid);
     vs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
     vs.setPublisher("HL7, Inc");
-    vs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/grahamegrieve/vocab-poc");
+    vs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
     vs.setDescription("V2 Table "+t.id+" Version "+vid+" ("+t.name+")");
     vs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
 
@@ -824,7 +826,7 @@ public class V2SourceGenerator extends BaseGenerator {
     
     cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
     cs.setPublisher("HL7, Inc");
-    cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/grahamegrieve/vocab-poc");
+    cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
     cs.setDescription("Master List of V2 Tables");
     cs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
     cs.setCaseSensitive(true); 
