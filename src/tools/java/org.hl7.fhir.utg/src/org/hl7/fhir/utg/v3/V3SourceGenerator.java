@@ -477,12 +477,36 @@ public class V3SourceGenerator extends BaseGenerator {
     }    
   }
   
+	private void addConceptProperty(CodeSystem cs, String propertyName, PropertyType type, String description)
+			throws Exception {
+		PropertyComponent pd = cs.addProperty();
+		pd.setCode(propertyName);
+		pd.setUri("http://hl7.org/fhir/concept-properties#" + propertyName);
+		pd.setType(type);
+		pd.setDescription(description);
+	} 
+  
   private void processConcept(Element item, CodeSystem cs) throws Exception {
     ConceptDefinitionComponent cd = cs.addConcept();
+    final String NotSelectableProperty = "notSelectable";
     
-    String isSelectable = item.getAttribute("isSelectable");   
-    if (!Utilities.noString(isSelectable))
-      cd.addExtension(csext("isSelectable"), Factory.newString_(isSelectable));  
+    String isSelectable = item.getAttribute("isSelectable");  
+    
+		if (!Utilities.noString(isSelectable)) {
+			// cd.addExtension(csext("isSelectable"), Factory.newString_(isSelectable));
+			Boolean bIsSelectable = !Boolean.parseBoolean(isSelectable);
+
+			PropertyComponent pc = cs.getProperty(NotSelectableProperty);
+			if (pc == null) {
+				addConceptProperty(cs, NotSelectableProperty, PropertyType.BOOLEAN,
+						"Indicates that the code is abstract - only intended to be used as a selector for other concepts");
+			}
+
+			ConceptPropertyComponent cpc = cd.addProperty();
+			cpc.setCode(NotSelectableProperty);
+			cpc.setValue(new BooleanType(bIsSelectable));
+		}
+   
     	
     Element child = XMLUtil.getFirstChild(item);
     while (child != null) {
