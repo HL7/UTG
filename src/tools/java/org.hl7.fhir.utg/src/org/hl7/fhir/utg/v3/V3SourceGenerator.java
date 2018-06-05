@@ -617,7 +617,9 @@ public class V3SourceGenerator extends BaseGenerator {
   private void processConceptProperty(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
     String id = item.getAttribute("name");
     if (id.equals("internalId")) {
-      cd.setId(item.getAttribute("value")); 
+      //cd.setId(item.getAttribute("value"));
+    	// Skip internal ID
+    	return;
     } else {
       PropertyComponent pd = cs.getProperty(id);
       if (pd == null)
