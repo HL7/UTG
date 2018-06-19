@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0357-2.8"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="InM"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
+    <valueUri value="http://hl7.org/v2/ch02c.html#Heading298"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
+    <valueString value="2.C.2.282"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
+    <valueCode value="HL7"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v2-0357-2.8"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.217"/>
+  </identifier>
+  <version value="2"/>
+  <name value="V2Table0357v2.8"/>
+  <title value="V2 Table: Message Error Condition Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2016-03-11"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/grahamegrieve/vocab-poc"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts specifying the HL7 (communications) error code.  Used in the ERR segment in HL7 Version 2.x messaging."/>
+  <purpose value="Underlying Code System for V2 table 0357 (Message Error Condition Codes, version 2.8)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v2-0357-2.8"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://healthintersections.com.au/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://healthintersections.com.au/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://healthintersections.com.au/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://healthintersections.com.au/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Success. Optional, as the AA conveys success. Used for systems that must always return a status code."/>
+    </extension>
+    <code value="0"/>
+    <display value="Message accepted"/>
+    <definition value="Message accepted"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Error: The message segments were not in the proper order, or required segments are missing."/>
+    </extension>
+    <code value="100"/>
+    <display value="Segment sequence error"/>
+    <definition value="Segment sequence error"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Error: A required field is missing from a segment"/>
+    </extension>
+    <code value="101"/>
+    <display value="Required field missing"/>
+    <definition value="Required field missing"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Error: The field contained data of the wrong data type, e.g., an NM field contained &quot;FOO&quot;."/>
+    </extension>
+    <code value="102"/>
+    <display value="Data type error"/>
+    <definition value="Data type error"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="5">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Error: A field of data type ID or IS was compared against the corresponding table, and no match was found."/>
+    </extension>
+    <code value="103"/>
+    <display value="Table value not found"/>
+    <definition value="Table value not found"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="6">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Error: a value exceeded the normative length, or the length that the application is able to safely handle."/>
+    </extension>
+    <code value="104"/>
+    <display value="Value too long"/>
+    <definition value="Value too long"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="7">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Rejection: The Message Type is not supported."/>
+    </extension>
+    <code value="200"/>
+    <display value="Unsupported message type"/>
+    <definition value="Unsupported message type"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="8">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Rejection: The Event Code is not supported."/>
+    </extension>
+    <code value="201"/>
+    <display value="Unsupported event code"/>
+    <definition value="Unsupported event code"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="9">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Rejection: The Processing ID is not supported."/>
+    </extension>
+    <code value="202"/>
+    <display value="Unsupported processing id"/>
+    <definition value="Unsupported processing id"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="10">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Rejection:  The Version ID is not supported."/>
+    </extension>
+    <code value="203"/>
+    <display value="Unsupported version id"/>
+    <definition value="Unsupported version id"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="11">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Rejection: The ID of the patient, order, etc., was not found. Used for transactions other than additions, e.g., transfer of a non-existent patient."/>
+    </extension>
+    <code value="204"/>
+    <display value="Unknown key identifier"/>
+    <definition value="Unknown key identifier"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="12">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Rejection: The ID of the patient, order, etc., already exists. Used in response to addition transactions (Admit, New Order, etc.)."/>
+    </extension>
+    <code value="205"/>
+    <display value="Duplicate key identifier"/>
+    <definition value="Duplicate key identifier"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="13">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Rejection: The transaction could not be performed at the application storage level, e.g., database locked."/>
+    </extension>
+    <code value="206"/>
+    <display value="Application record locked"/>
+    <definition value="Application record locked"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="14">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Rejection: A catchall for internal errors not explicitly covered by other codes."/>
+    </extension>
+    <code value="207"/>
+    <display value="Application internal error"/>
+    <definition value="Application internal error"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>

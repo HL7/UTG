@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-ResponseLevel"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Specifies whether a response is expected from the addressee of this interaction and what level of detail that response should include</p>
+               
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ResponseLevel"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.108"/>
+  </identifier>
+  <name value="ResponseLevel"/>
+  <title value="ResponseLevel"/>
+  <status value="active"/>
+  <date value="2017-07-31"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value=" Specifies whether a response is expected from the addressee of this interaction and what level of detail that response should include"/>
+  <content value="complete"/>
+  <concept id="14763">
+    <code value="C"/>
+    <display value="completion"/>
+    <definition value=" Respond with exceptions and a notification of completion"/>
+  </concept>
+  <concept id="14765">
+    <code value="D"/>
+    <display value="detail"/>
+    <definition value=" Respond with exceptions, completion, modifications and include more detail information (if applicable)"/>
+  </concept>
+  <concept id="14762">
+    <code value="E"/>
+    <display value="exception"/>
+    <definition value=" Respond with exceptions only"/>
+  </concept>
+  <concept id="14766">
+    <code value="F"/>
+    <display value="confirmation"/>
+    <definition value=" Respond with exceptions, completion, and modification with detail (as above), and send positive confirmations even if no modifications are being made."/>
+  </concept>
+  <concept id="14767">
+    <code value="N"/>
+    <display value="message-control"/>
+    <definition value=" Respond only with message level acknowledgements, i.e., only notify acceptance or rejection of the message, do not include any application-level detail"/>
+  </concept>
+  <concept id="14764">
+    <code value="R"/>
+    <display value="modification"/>
+    <definition value=" Respond with exceptions, completions and modifications or revisions done before completion"/>
+  </concept>
+  <concept id="14768">
+    <code value="X"/>
+    <display value="none"/>
+    <definition value=" Do not send any kind of response"/>
+  </concept>
+</CodeSystem>

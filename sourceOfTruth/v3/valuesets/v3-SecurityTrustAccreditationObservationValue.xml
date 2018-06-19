@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-SecurityTrustAccreditationObservationValue"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Values for security metadata observation made about the formal declaration by an authority or neutral third party that validates the technical, security, trust, and business practice conformance of Trust Agents to facilitate security, interoperability, and trust among participants within a security domain or trust framework.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="date">
+      <valueDateTime value="2014-08-07"/>
+    </extension>
+    <extension url="id">
+      <valueString value="2014T2_2014-08-07_001306"/>
+    </extension>
+    <extension url="author">
+      <valueString value="FHIR (Kathleen Connor)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="notes">
+      <valueString value="Add ActTrustPolicyType concept domain to ActPolicyType branch of the ActCode concept domain.  Add TrustPolicy concept codes to the Act.code system.  Add 15 value sets binding c:TrustPolicy to 15 Concept Domains."/>
+    </extension>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v3-SecurityTrustAccreditationObservationValue"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20539"/>
+  </identifier>
+  <name value="SecurityTrustAccreditationObservationValue"/>
+  <status value="active"/>
+  <date value="2014-08-07"/>
+  <description value=" Values for security metadata observation made about the formal declaration by an authority or neutral third party that validates the technical, security, trust, and business practice conformance of Trust Agents to facilitate security, interoperability, and trust among participants within a security domain or trust framework."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ObservationValue"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="TRSTACCRDOBV"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-ParticipationFunction"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>This code is used to specify the exact function an actor had in a service in all necessary detail. This domain may include local extensions (CWE).</p>
+               
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ParticipationFunction"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.88"/>
+  </identifier>
+  <name value="ParticipationFunction"/>
+  <title value="ParticipationFunction"/>
+  <status value="active"/>
+  <date value="2017-07-31"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value=" This code is used to specify the exact function an actor had in a service in all necessary detail. This domain may include local extensions (CWE)."/>
+  <content value="complete"/>
+  <concept id="22338">
+    <code value="_AuthorizedParticipationFunction"/>
+    <display value="AuthorizedParticipationFunction"/>
+    <definition value=" This code is used to specify the exact function an actor is authorized to have in a service in all necessary detail."/>
+    <concept id="22341">
+      <code value="_AuthorizedReceiverParticipationFunction"/>
+      <display value="AuthorizedReceiverParticipationFunction"/>
+      <definition value=" This code is used to specify the exact function an actor is authorized to have as a receiver of information that is the subject of a consent directive or consent override."/>
+      <concept id="22900">
+        <code value="AUCG"/>
+        <display value="caregiver information receiver"/>
+        <definition value="  Description:&#xD;&#xA;Caregiver authorized to receive patient health information."/>
+      </concept>
+      <concept id="22901">
+        <code value="AULR"/>
+        <display value="legitimate relationship information receiver"/>
+        <definition value="  Description:&#xD;&#xA;Provider with legitimate relationship authorized to receive patient health information."/>
+      </concept>
+      <concept id="22902">
+        <code value="AUTM"/>
+        <display value="care team information receiver"/>
+        <definition value="  Description:&#xD;&#xA;Member of care team authorized to receive patient health information."/>
+      </concept>
+      <concept id="22903">
+        <code value="AUWA"/>
+        <display value="work area information receiver"/>
+        <definition value="  Description:&#xD;&#xA;Entities within specified work area authorized to receive patient health information."/>
+      </concept>
+    </concept>
+    <concept id="22339">
+      <code value="_ConsenterParticipationFunction"/>
+      <display value="ConsenterParticipationFunction"/>
+      <definition value=" This code is used to specify the exact function an actor is authorized to have in authoring a consent directive."/>
+      <concept id="22894">
+        <code value="GRDCON"/>
+        <display value="legal guardian consent author"/>
+        <definition value="  Description:&#xD;&#xA;Legal guardian of the subject of consent authorized to author a consent directive for the subject of consent."/>
+      </concept>
+      <concept id="22896">
+        <code value="POACON"/>
+        <display value="healthcare power of attorney consent author"/>
+        <definition value="  Description:&#xD;&#xA;Person authorized with healthcare power of attorney to author a  consent directive for the subject of consent."/>
+      </concept>
+      <concept id="22895">
+        <code value="PRCON"/>
+        <display value="personal representative consent author"/>
+        <definition value="  Description:&#xD;&#xA;Personal representative of the subject of consent authorized to author a consent directive for the subject of consent."/>
+      </concept>
+      <concept id="22897">
+        <code value="PROMSK"/>
+        <display value="authorized provider masking author"/>
+        <definition value="  Definition:&#xD;&#xA;Provider authorized to mask information to protect the patient, a third party, or to ensure that the provider has consulted with the patient prior to release of this information."/>
+      </concept>
+      <concept id="22893">
+        <code value="SUBCON"/>
+        <display value="subject of consent author"/>
+        <definition value="  Description:&#xD;&#xA;Subject of consent authorized to author a consent directive."/>
+      </concept>
+    </concept>
+    <concept id="22340">
+      <code value="_OverriderParticipationFunction"/>
+      <display value="OverriderParticipationFunction"/>
+      <definition value=" This code is used to specify the exact function an actor is authorized to have in authoring a consent override."/>
+      <concept id="22898">
+        <code value="AUCOV"/>
+        <display value="consent overrider"/>
+        <definition value="  Description:&#xD;&#xA;Entity authorized to override a consent directive."/>
+      </concept>
+      <concept id="22899">
+        <code value="AUEMROV"/>
+        <display value="emergency overrider"/>
+        <definition value="  Description:&#xD;&#xA;Entity  authorized to override a consent directive or privacy policy in an emergency."/>
+      </concept>
+    </concept>
+  </concept>
+  <concept id="22222">
+    <code value="_CoverageParticipationFunction"/>
+    <display value="CoverageParticipationFunction"/>
+    <definition value="  Definition:&#xD;&#xA;Set of codes indicating the manner in which sponsors, underwriters, and payers participate in a policy or program."/>
+    <concept id="22223">
+      <code value="_PayorParticipationFunction"/>
+      <display value="PayorParticipationFunction"/>
+      <definition value="  Definition:&#xD;&#xA;Set of codes indicating the manner in which payors participate in a policy or program.&lt;/"/>
+      <concept id="22226">
+        <code value="CLMADJ"/>
+        <display value="claims adjudication"/>
+        <definition value="  Definition:&#xD;&#xA;Manages all operations required to adjudicate fee for service claims or managed care encounter reports."/>
+      </concept>
+      <concept id="22229">
+        <code value="ENROLL"/>
+        <display value="enrollment broker"/>
+        <definition value="  Definition:&#xD;&#xA;Managing the enrollment of covered parties."/>
+      </concept>
+      <concept id="22228">
+        <code value="FFSMGT"/>
+        <display value="ffs management"/>
+        <definition value="  Definition:&#xD;&#xA;Managing all operations required to administer a fee for service or indemnity health plan including enrolling covered parties and providing customer service, provider contracting, claims payment, care management and utilization review."/>
+      </concept>
+      <concept id="22227">
+        <code value="MCMGT"/>
+        <display value="managed care management"/>
+        <definition value="  Definition:&#xD;&#xA;Managing all operations required to administer a managed care plan including enrolling covered parties and providing customer service,, provider contracting, claims payment, care management and utilization review."/>
+      </concept>
+      <concept id="22230">
+        <code value="PROVMGT"/>
+        <display value="provider management"/>
+        <definition value="  Definition:&#xD;&#xA;Managing provider contracting, provider services, credentialing, profiling, performance measures, and ensuring network adequacy."/>
+      </concept>
+      <concept id="22231">
+        <code value="UMGT"/>
+        <display value="utilization management"/>
+        <definition value="  Definition:&#xD;&#xA;Managing utilization of services by ensuring that providers adhere to, e.g., payeraTMs clinical protocols for medical appropriateness and standards of medical necessity.  May include management of authorizations for services and referrals."/>
+      </concept>
+    </concept>
+    <concept id="22224">
+      <code value="_SponsorParticipationFunction"/>
+      <display value="SponsorParticipationFunction"/>
+      <definition value="  Definition:&#xD;&#xA;Set of codes indicating the manner in which sponsors participate in a policy or program. NOTE: use only when the Sponsor is not further specified with a SponsorRoleType as being either a fully insured sponsor or a self insured sponsor."/>
+      <concept id="22232">
+        <code value="FULINRD"/>
+        <display value="fully insured"/>
+        <definition value="  Definition:&#xD;&#xA;Responsibility taken by a sponsor to contract with one or more underwriters for the assumption of full responsibility for the risk and administration of a policy or program."/>
+      </concept>
+      <concept id="22233">
+        <code value="SELFINRD"/>
+        <display value="self insured"/>
+        <definition value="  Definition:&#xD;&#xA;Responsibility taken by a sponsor to organize the underwriting of risk and administration of a policy or program."/>
+      </concept>
+    </concept>
+    <concept id="22225">
+      <code value="_UnderwriterParticipationFunction"/>
+      <display value="UnderwriterParticipationFunction"/>
+      <definition value="  Definition:&#xD;&#xA;Set of codes indicating the manner in which underwriters participate in a policy or program."/>
+      <concept id="22234">
+        <code value="PAYORCNTR"/>
+        <display value="payor contracting"/>
+        <definition value="  Definition:&#xD;&#xA;Contracting for the provision and administration of health services to payors while retaining the risk for coverage.  Contracting may be for all provision and administration; or for provision of certain types of services; for provision of services by region; and by types of administration, e.g., claims adjudication, enrollment, provider management, and utilization management.  Typically done by underwriters for sponsors who need coverage provided to covered parties in multiple regions.  The underwriter may act as the payor in some, but not all of the regions in which coverage is provided."/>
+      </concept>
+      <concept id="22235">
+        <code value="REINS"/>
+        <display value="reinsures"/>
+        <definition value="  Definition:&#xD;&#xA;Underwriting reinsurance for another underwriter for the policy or program."/>
+      </concept>
+      <concept id="22236">
+        <code value="RETROCES"/>
+        <display value="retrocessionaires"/>
+        <definition value="  Definition:&#xD;&#xA;Underwriting reinsurance for another reinsurer."/>
+      </concept>
+      <concept id="22237">
+        <code value="SUBCTRT"/>
+        <display value="subcontracting risk"/>
+        <definition value="  Definition:&#xD;&#xA;Delegating risk for a policy or program to one or more subcontracting underwriters, e.g., a major health insurer may delegate risk for provision of coverage under a national health plan to other underwriters by region ."/>
+      </concept>
+      <concept id="22238">
+        <code value="UNDERWRTNG"/>
+        <display value="underwriting"/>
+        <definition value="  Definition:&#xD;&#xA;Provision of underwriting analysis for another underwriter without assumption of risk."/>
+      </concept>
+    </concept>
+  </concept>
+  <concept id="10278">
+    <code value="ADMPHYS"/>
+    <display value="admitting physician"/>
+    <definition value=" A physician who admitted a patient to a hospital or other care unit that is the context of this service."/>
+  </concept>
+  <concept id="10274">
+    <code value="ANEST"/>
+    <display value="anesthesist"/>
+    <definition value=" In a typical anesthesia setting an anesthesiologist or anesthesia resident in charge of the anesthesia and life support, but only a witness to the surgical procedure itself.  To clarify responsibilities anesthesia should always be represented as a separate service related to the surgery."/>
+  </concept>
+  <concept id="10275">
+    <code value="ANRS"/>
+    <display value="anesthesia nurse"/>
+    <definition value=" In a typical anesthesia setting the nurse principally assisting the anesthesiologist during the critical periods."/>
+  </concept>
+  <concept id="23655">
+    <code value="ASSEMBLER"/>
+    <display value="assembly software"/>
+    <definition value="A device that operates independently of an author on custodian&#39;s algorithms for data extraction of existing information for purpose of generating a new artifact. UsageConstraint:&#xD;&#xA;ASSEMBLER ParticipationFunction should be used with DEV (device) ParticipationType."/>
+  </concept>
+  <concept id="10277">
+    <code value="ATTPHYS"/>
+    <display value="attending physician"/>
+    <definition value=" A physician who is primarily responsible for a patient during the hospitalization, which is the context of the service."/>
+  </concept>
+  <concept id="23722">
+    <code value="COMPOSER"/>
+    <display value="composer software"/>
+    <definition value="A device used by an author to record new information, which may also be used by the author to select existing information for aggregation with newly recorded information for the purpose of generating a new artifact. UsageConstraint:&#xD;&#xA;COMPOSER ParticipationFunction should be used with DEV (device) ParticipationType.  Usage Note:&#xD;&#xA;This code will enable implementers to more specifically represent the manner in which a Device participated in and facilitated the generation of a CDA Clinical Document or a CDA Entry by the responsible Author, which is comprised of the Author&#39;s newly entered content, and may include the pre-existing content selected by the Author, for the purpose of establishing the provenance and accountability for these acts."/>
+  </concept>
+  <concept id="10279">
+    <code value="DISPHYS"/>
+    <display value="discharging physician"/>
+    <definition value=" A physician who discharged a patient from a hospital or other care unit that is the context of this service."/>
+  </concept>
+  <concept id="10269">
+    <code value="FASST"/>
+    <display value="first assistant surgeon"/>
+    <definition value=" In a typical surgery setting the assistant facing the primary surgeon.  The first assistant performs parts of the operation and assists in others (e.g., incision, approach, electrocoutering, ligatures, sutures)."/>
+  </concept>
+  <concept id="10276">
+    <code value="MDWF"/>
+    <display value="midwife"/>
+    <definition value=" A person (usually female) helping a woman deliver a baby. Responsibilities vary locally, ranging from a mere optional assistant to a full required participant, responsible for (normal) births and pre- and post-natal care for both mother and baby."/>
+  </concept>
+  <concept id="10273">
+    <code value="NASST"/>
+    <display value="nurse assistant"/>
+    <definition value=" In a typical surgery setting the non-sterile nurse handles material supply from the stock, forwards specimen to pathology, and helps with other non-sterile tasks (e.g., phone calls, etc.)."/>
+  </concept>
+  <concept id="10281">
+    <code value="PCP"/>
+    <display value="primary care physician"/>
+    <definition value=" The healthcare provider that holds primary responsibility for the overall care of a patient."/>
+  </concept>
+  <concept id="10268">
+    <code value="PRISURG"/>
+    <display value="primary surgeon"/>
+    <definition value=" In a typical surgery setting the primary performing surgeon."/>
+  </concept>
+  <concept id="23656">
+    <code value="REVIEWER"/>
+    <display value="reviewer"/>
+    <definition value=" A verifier who is accountable for reviewing and asserting that the verification of an Act complies with jurisdictional or organizational policy.  UsageConstraint:&#xD;&#xA;UsageConstraint:  Specifies the exact function that an actor is authorized to have as a verifier of an Act.  Connotes that a specialized verifier asserts compliance for veracity of the review per jurisdictional or organizational policy.  E.g., The Provider who takes responsibility for authenticity of a record submitted to a payer. REVIEW ParticipationFunction should be used with VFR (verifier)"/>
+  </concept>
+  <concept id="10280">
+    <code value="RNDPHYS"/>
+    <display value="rounding physician"/>
+    <definition value=" A physician who made rounds on a patient in a hospital or other care center."/>
+  </concept>
+  <concept id="10270">
+    <code value="SASST"/>
+    <display value="second assistant surgeon"/>
+    <definition value=" In a typical surgery setting the assistant who primarily holds the hooks."/>
+  </concept>
+  <concept id="10271">
+    <code value="SNRS"/>
+    <display value="scrub nurse"/>
+    <definition value=" In a typical surgery setting the nurse in charge of the instrumentation."/>
+  </concept>
+  <concept id="10272">
+    <code value="TASST"/>
+    <display value="third assistant"/>
+    <definition value=" In a typical surgery setting there is rarely a third assistant (e.g., in some Hip operations the third assistant postures the affected leg)."/>
+  </concept>
+</CodeSystem>

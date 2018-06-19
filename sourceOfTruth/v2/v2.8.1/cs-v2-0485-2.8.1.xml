@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0485-2.8.1"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="OO"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
+    <valueUri value="http://hl7.org/v2/ch02c.html#Heading415"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
+    <valueString value="2.C.2.399"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
+    <valueCode value="User"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v2-0485-2.8.1"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.310"/>
+  </identifier>
+  <version value="1"/>
+  <name value="V2Table0485v2.8.1"/>
+  <title value="V2 Table: Extended Priority Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2016-03-11"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/grahamegrieve/vocab-poc"/>
+    </telecom>
+  </contact>
+  <description value="Code system of concepts describing the urgency of a request carried in an order.  Used in HL7 Version 2.x messaging in timing/quantity; in older versions of the Standard was used in the TQ datatype, but in later versions it is used in the TQ1 segment (which replaced the TQ datatype which has been withdrawn)."/>
+  <purpose value="Underlying Code System for V2 table 0485 (Extended Priority Codes, version 2.8.1)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v2-0485-2.8.1"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://healthintersections.com.au/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://healthintersections.com.au/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://healthintersections.com.au/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://healthintersections.com.au/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="With highest priority"/>
+    </extension>
+    <code value="S"/>
+    <display value="Stat"/>
+    <definition value="Stat"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Fill after S orders"/>
+    </extension>
+    <code value="A"/>
+    <display value="ASAP"/>
+    <definition value="ASAP"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Default"/>
+    </extension>
+    <code value="R"/>
+    <display value="Routine"/>
+    <definition value="Routine"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <code value="P"/>
+    <display value="Preop"/>
+    <definition value="Preop"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="5">
+    <code value="C"/>
+    <display value="Callback"/>
+    <definition value="Callback"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="6">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="A request implying that it is critical to come as close as possible to the requested time, e.g., for a trough anti-microbial level."/>
+    </extension>
+    <code value="T"/>
+    <display value="Timing critical"/>
+    <definition value="Timing critical"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="7">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Timing critical within &lt;integer&gt; seconds."/>
+    </extension>
+    <code value="TS&lt;integer&gt;"/>
+    <display value="Timing critical within &lt;integer&gt; seconds."/>
+    <definition value="Timing critical within &lt;integer&gt; seconds."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="8">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Timing critical within &lt;integer&gt; minutes."/>
+    </extension>
+    <code value="TM&lt;integer&gt;"/>
+    <display value="Timing critical within &lt;integer&gt; minutes."/>
+    <definition value="Timing critical within &lt;integer&gt; minutes."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="9">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Timing critical within &lt;integer&gt; hours."/>
+    </extension>
+    <code value="TH&lt;integer&gt;"/>
+    <display value="Timing critical within &lt;integer&gt; hours."/>
+    <definition value="Timing critical within &lt;integer&gt; hours."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="10">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Timing critical within &lt;integer&gt; days."/>
+    </extension>
+    <code value="TD&lt;integer&gt;"/>
+    <display value="Timing critical within &lt;integer&gt; days."/>
+    <definition value="Timing critical within &lt;integer&gt; days."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="11">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Timing critical within &lt;integer&gt; weeks."/>
+    </extension>
+    <code value="TW&lt;integer&gt;"/>
+    <display value="Timing critical within &lt;integer&gt; weeks."/>
+    <definition value="Timing critical within &lt;integer&gt; weeks."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="12">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Timing critical within &lt;integer&gt; months."/>
+    </extension>
+    <code value="TL&lt;integer&gt;"/>
+    <display value="Timing critical within &lt;integer&gt; months."/>
+    <definition value="Timing critical within &lt;integer&gt; months."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="13">
+    <code value="PRN"/>
+    <display value="As needed"/>
+    <definition value="As needed"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>

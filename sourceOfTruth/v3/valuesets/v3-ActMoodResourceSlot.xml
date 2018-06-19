@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActMoodResourceSlot"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Periods of time on a schedule for a resource.  Appointments occupy sets of one or more booked slots.  A slot that is open for appointments is considered available and a slot that is held back for administrative purposes is considered blocked.  A Resource slot that is &quot;tentatively&quot; booked is referred to as reserved.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="date">
+      <valueDateTime value="2014-03-26"/>
+    </extension>
+    <extension url="id">
+      <valueString value="2014T1_2014-03-26_001283"/>
+    </extension>
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="notes">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v3-ActMoodResourceSlot"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.19949"/>
+  </identifier>
+  <name value="ActMoodResourceSlot"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value=" Periods of time on a schedule for a resource.  Appointments occupy sets of one or more booked slots.  A slot that is open for appointments is considered available and a slot that is held back for administrative purposes is considered blocked.  A Resource slot that is &quot;tentatively&quot; booked is referred to as reserved."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ActMood"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="SLOT"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

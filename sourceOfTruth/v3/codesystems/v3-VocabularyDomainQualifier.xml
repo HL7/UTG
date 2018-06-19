@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-VocabularyDomainQualifier"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Vocabulary domain qualifiers are concepts that are used in domain constraints to specify behavior of the new domain.</p>
+                  
+      <p>Code system retired.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
+    <valueString value="584-20081027"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-VocabularyDomainQualifier"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.147"/>
+  </identifier>
+  <name value="VocabularyDomainQualifier"/>
+  <title value="VocabularyDomainQualifier"/>
+  <status value="retired"/>
+  <date value="2017-07-31"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value=" Vocabulary domain qualifiers are concepts that are used in domain constraints to specify behavior of the new domain. Code system retired."/>
+  <content value="complete"/>
+  <concept id="21294">
+    <code value="_Extensibility"/>
+    <display value="Extensibility"/>
+    <definition value=" The extensibility of coding determines whether or not extensions are allowed in the domain of a coded attribute."/>
+    <concept id="11049">
+      <code value="CNE"/>
+      <display value="Coded No Extensions"/>
+      <definition value=" The coded attribute allows only concepts from the defined value set. No extensions are allowed."/>
+    </concept>
+    <concept id="11048">
+      <code value="CWE"/>
+      <display value="Coded With Extensions"/>
+      <definition value=" The coded attribute allows local codes or user entered text to be sent when the concept that the user would like to express is not a member of the defined value set.  If the concept that the user wants to express is represented by a code in the standard value set, the standard code must be sent.  The local code can be sent in addition to the standard code if desired.  Only if the concept that the user wants to express is NOT represented by a standard code, can a solitary local code be sent."/>
+    </concept>
+  </concept>
+  <concept id="21295">
+    <code value="_RealmOfUse"/>
+    <display value="RealmOfUse"/>
+    <definition value=" The jurisdiction or realm within which the domain will be used. A realm might be a country, a group of countries, a region of the world, or an organization."/>
+    <concept id="20838">
+      <code value="Canada"/>
+      <display value="Canada"/>
+    </concept>
+    <concept id="20837">
+      <code value="NorthAmerica"/>
+      <display value="North America"/>
+    </concept>
+    <concept id="20836">
+      <code value="USA"/>
+      <display value="United States"/>
+    </concept>
+    <concept id="11051">
+      <code value="UV"/>
+      <display value="Universal"/>
+      <definition value=" The root or universal HL7 jurisdiction or realm from which all subsequent specializations are derived."/>
+      <designation>
+        <use>
+          <system value="http://something...?"/>
+          <code value="synonym"/>
+        </use>
+        <value value="U"/>
+      </designation>
+    </concept>
+  </concept>
+</CodeSystem>

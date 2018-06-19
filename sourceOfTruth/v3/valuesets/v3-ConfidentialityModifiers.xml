@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ConfidentialityModifiers"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Modifiers of role based access rights  (multiple allowed)</p>
+                  
+      <p>
+                     
+        <i>Usage Note: </i>All codes that are referenced by this value set were retired as of the November 2013 Harmonization cycle. Guidance for what to use instead of the v:ConfidentialityModifers leaf concepts: celebrity, sensitive, and taboo:  These codes have been revised and are now included under v:ActCode at: 
+      </p>
+                  
+      <ul>
+                     
+        <li>V:ActInformationSensitivityPolicy:2.16.840.1.113883.1.11.20429 - taboo</li>
+                     
+        <li>V:InformationSensitivityPolicy:2.16.840.1.113883.1.11.20428 - celebrity/VIP and patient requested sensitivity</li>
+                  
+      </ul>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="date">
+      <valueDateTime value="2014-03-26"/>
+    </extension>
+    <extension url="id">
+      <valueString value="2014T1_2014-03-26_001283"/>
+    </extension>
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="notes">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v3-ConfidentialityModifiers"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.10236"/>
+  </identifier>
+  <name value="ConfidentialityModifiers"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value=" Modifiers of role based access rights  (multiple allowed)  Usage Note:&#xD;&#xA;All codes that are referenced by this value set were retired as of the November 2013 Harmonization cycle. Guidance for what to use instead of the v:ConfidentialityModifers leaf concepts: celebrity, sensitive, and taboo:  These codes have been revised and are now included under v:ActCode at:  V:ActInformationSensitivityPolicy:2.16.840.1.113883.1.11.20429 - taboo V:InformationSensitivityPolicy:2.16.840.1.113883.1.11.20428 - celebrity/VIP and patient requested sensitivity"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-Confidentiality"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_ConfidentialityModifiers"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

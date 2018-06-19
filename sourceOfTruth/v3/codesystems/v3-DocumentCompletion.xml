@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-DocumentCompletion"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Identifies the current completion state of a clinical document.</p>
+               
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-DocumentCompletion"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.33"/>
+  </identifier>
+  <name value="DocumentCompletion"/>
+  <title value="DocumentCompletion"/>
+  <status value="active"/>
+  <date value="2017-07-31"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value=" Identifies the current completion state of a clinical document."/>
+  <content value="complete"/>
+  <concept id="10581">
+    <code value="AU"/>
+    <display value="authenticated"/>
+    <definition value=" A completion status in which a document has been signed manually or electronically by one or more individuals who attest to its accuracy.  No explicit determination is made that the assigned individual has performed the authentication.  While the standard allows multiple instances of authentication, it would be typical to have a single instance of authentication, usually by the assigned individual."/>
+  </concept>
+  <concept id="10576">
+    <code value="DI"/>
+    <display value="dictated"/>
+    <definition value=" A completion status in which information has been orally recorded but not yet transcribed."/>
+  </concept>
+  <concept id="10577">
+    <code value="DO"/>
+    <display value="documented"/>
+    <definition value=" A completion status in which document content, other than dictation, has been received but has not been translated into the final electronic format.  Examples include paper documents, whether hand-written or typewritten, and intermediate electronic forms, such as voice to text."/>
+  </concept>
+  <concept id="10579">
+    <code value="IN"/>
+    <display value="incomplete"/>
+    <definition value=" A completion status in which information is known to be missing from a transcribed document."/>
+  </concept>
+  <concept id="10578">
+    <code value="IP"/>
+    <display value="in progress"/>
+    <definition value=" A workflow status where the material has been assigned to personnel to perform the task of transcription. The document remains in this state until the document is transcribed."/>
+  </concept>
+  <concept id="10582">
+    <code value="LA"/>
+    <display value="legally authenticated"/>
+    <definition value=" A completion status in which a document has been signed manually or electronically by the individual who is legally responsible for that document. This is the most mature state in the workflow progression."/>
+  </concept>
+  <concept id="23537">
+    <code value="NU"/>
+    <display value="nullified document"/>
+    <definition value=" A completion status in which a document was created in error or was placed in the wrong chart. The document is no longer available."/>
+  </concept>
+  <concept id="10580">
+    <code value="PA"/>
+    <display value="pre-authenticated"/>
+    <definition value=" A completion status in which a document is transcribed but not authenticated."/>
+  </concept>
+  <concept id="23538">
+    <code value="UC"/>
+    <display value="unsigned completed document"/>
+    <definition value=" A completion status where the document is complete and there is no expectation that the document will be signed."/>
+  </concept>
+</CodeSystem>

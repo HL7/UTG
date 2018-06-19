@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-EntityStatus"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Codes representing the defined possible states of an Entity, as defined by the Entity class state machine.</p>
+               
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityStatus"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1061"/>
+  </identifier>
+  <name value="EntityStatus"/>
+  <title value="EntityStatus"/>
+  <status value="active"/>
+  <date value="2017-07-31"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value=" Codes representing the defined possible states of an Entity, as defined by the Entity class state machine."/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
+  <concept id="16006">
+    <code value="normal"/>
+    <display value="normal"/>
+    <definition value=" The &#39;typical&#39; state. Excludes &quot;nullified&quot; which represents the termination state of an Entity record instance that was created in error."/>
+    <concept id="16007">
+      <code value="active"/>
+      <display value="active"/>
+      <definition value=" The state representing the fact that the Entity record is currently active."/>
+    </concept>
+    <concept id="22187">
+      <code value="inactive"/>
+      <display value="inactive"/>
+      <definition value="  Definition:&#xD;&#xA;The state representing the fact that the entity is inactive."/>
+    </concept>
+    <concept id="16008">
+      <code value="terminated"/>
+      <display value="terminated"/>
+      <definition value=" The state representing the normal termination of an Entity record."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+    </concept>
+  </concept>
+  <concept id="16009">
+    <code value="nullified"/>
+    <display value="nullified"/>
+    <definition value=" The state representing the termination of an Entity record instance that was created in error."/>
+  </concept>
+</CodeSystem>
