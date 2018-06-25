@@ -120,7 +120,8 @@ public class UTGGenerator extends BaseGenerator {
     v2.generateCodeSystems();
     v3.generateCodeSystems();
     v3.generateValueSets();
-    cda.loadValueSetsSource();
+    // Do not load cda value sets at this point
+    // cda.loadValueSetsSource();
     System.out.println("finished");
   }
 
