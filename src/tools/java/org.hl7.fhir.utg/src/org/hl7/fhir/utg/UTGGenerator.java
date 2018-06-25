@@ -156,7 +156,7 @@ public class UTGGenerator extends BaseGenerator {
     int count = cs.getConcept().size() + v3.addConceptDomains(cs.getConcept(), codes);
     count = count + v2.addConceptDomains(cs, codes);
      
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v3", "codeSystems", "conceptdomains.xml")), cs);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "unified", "conceptdomains.xml")), cs);
     System.out.println("Save conceptdomains ("+Integer.toString(count)+" found)");
   }
 
