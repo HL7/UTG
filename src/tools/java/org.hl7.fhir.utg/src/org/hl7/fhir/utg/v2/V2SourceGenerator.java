@@ -641,6 +641,7 @@ public class V2SourceGenerator extends BaseGenerator {
 	  Result result = new StreamResult(new File("C:\\utg\\content-export\\release\\v2-Manifest.xml"));
 	  Source source = new DOMSource(document);
 	  transformer.transform(source, result);
+      System.out.println("V2 Manifest saved");
   }
   
   public void mergeV2Manifests() throws Exception {

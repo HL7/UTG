@@ -757,6 +757,7 @@ public class V3SourceGenerator extends BaseGenerator {
 	  Result result = new StreamResult(new File("C:\\utg\\content-export\\release\\v3-Manifest.xml"));
 	  Source source = new DOMSource(document);
 	  transformer.transform(source, result);
+	  System.out.println("V3 Manifest saved");
   }
   
   public void mergeV3Manifests() throws Exception {
