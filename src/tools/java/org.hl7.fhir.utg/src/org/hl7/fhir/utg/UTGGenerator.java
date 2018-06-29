@@ -118,6 +118,7 @@ public class UTGGenerator extends BaseGenerator {
     generateConceptDomains();
     v2.generateTables();
     v2.generateCodeSystems();
+    v2.mergeV2Manifests();
     v3.generateCodeSystems();
     v3.generateValueSets();
     v3.mergeV3Manifests();

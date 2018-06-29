@@ -19,6 +19,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Result;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.model.BooleanType;
@@ -42,6 +52,13 @@ import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.utg.BaseGenerator;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utilities.Utilities;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 public class V2SourceGenerator extends BaseGenerator {
 
@@ -616,6 +633,65 @@ public class V2SourceGenerator extends BaseGenerator {
 	    System.out.println("V2 Value Set Manifest saved");
 	  }
   }
+  
+  
+  private void saveV2Manifest(Document document) throws Exception {
+	  TransformerFactory factory = TransformerFactory.newInstance();
+	  Transformer transformer = factory.newTransformer();
+	  Result result = new StreamResult(new File("C:\\utg\\content-export\\release\\v2-Manifest.xml"));
+	  Source source = new DOMSource(document);
+	  transformer.transform(source, result);
+  }
+  
+  public void mergeV2Manifests() throws Exception {
+	  File codeSystemManifestFile = new File("C:\\utg\\content-export\\release\\v2-CodeSystem-Manifest.xml");
+	  File valueSetSystemManifestFile = new File("C:\\utg\\content-export\\release\\v2-ValueSet-Manifest.xml");
+	  Document doc = merge(codeSystemManifestFile, valueSetSystemManifestFile);
+	  removeXMLNSAttribute(doc);
+	  saveV2Manifest(doc);
+  }
+  
+  
+  private static Document merge(File... files) throws Exception {
+	    DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
+	        .newInstance();
+	    docBuilderFactory
+	        .setIgnoringElementContentWhitespace(true);
+	    DocumentBuilder docBuilder = docBuilderFactory
+	        .newDocumentBuilder();
+	    Document base = docBuilder.parse(files[0]);
+	    Element rootNode = base.getDocumentElement();
+	    
+	    for (int i = 1; i < files.length; i++) {
+	      Document merge = docBuilder.parse(files[i]);
+	      NodeList nextResults = merge.getDocumentElement().getElementsByTagName("entry");
+	     
+	      for (int j = 0; j < nextResults.getLength(); j++) {
+	        Node kid = nextResults.item(j);
+	        kid = base.importNode(kid, true);
+	        rootNode.appendChild(kid);
+	      }
+	    }
+	    return base;
+  }
+  
+	private static Document removeXMLNSAttribute(Document doc) throws ParserConfigurationException, SAXException, IOException {
+		NodeList nodeList = doc.getElementsByTagName("*");
+		for ( int i = 0; i < nodeList.getLength(); i++ ) {
+			if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
+				Element ele = (Element) nodeList.item(i);
+				NamedNodeMap nnm = ele.getAttributes();
+				for (int a = nnm.getLength() - 1; a >= 0; a--) { // back to front because of remove in loop!
+					Attr attr = (Attr)nnm.item(a);
+					if (attr.getNodeName().startsWith("xmlns")) {
+						ele.removeAttributeNode(attr);
+					}
+				}
+			}
+		}
+		return doc;
+	}
+  
   
   private void generateCodeSystem(Table t, TableVersion tv, ListResource csManifest, ListResource vsManifest) throws FileNotFoundException, IOException {
     CodeSystem cs = new CodeSystem();

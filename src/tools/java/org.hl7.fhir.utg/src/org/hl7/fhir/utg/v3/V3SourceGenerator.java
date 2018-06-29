@@ -762,7 +762,6 @@ public class V3SourceGenerator extends BaseGenerator {
   public void mergeV3Manifests() throws Exception {
 	  File codeSystemManifestFile = new File("C:\\utg\\content-export\\release\\v3-CodeSystem-Manifest.xml");
 	  File valueSetSystemManifestFile = new File("C:\\utg\\content-export\\release\\v3-ValueSet-Manifest.xml");
-	  //Document doc = merge("/*[local-name()='List']/*[local-name()='entry']", codeSystemManifestFile, valueSetSystemManifestFile);
 	  Document doc = merge(codeSystemManifestFile, valueSetSystemManifestFile);
 	  removeXMLNSAttribute(doc);
 	  saveV3Manifest(doc);
