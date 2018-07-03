@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -78,6 +79,7 @@ public class V3SourceGenerator extends BaseGenerator {
   private List<ConceptDomain> v3ConceptDomains = new ArrayList<ConceptDomain>();
   private Set<String> notations = new HashSet<String>();
   private Set<String> systems = new HashSet<String>();
+
 
   public class ConceptDomain {
     private String name; 
@@ -863,10 +865,12 @@ public class V3SourceGenerator extends BaseGenerator {
     return vs;
   }
   
+  
   private void checkCompose(String string, ConceptSetComponent cmp) {
     if (cmp.hasSystem())
       systems.add(cmp.getSystem());
   }
+  
   
   private void processHeader(Element item, ValueSet vs) throws Exception {
     Element child = XMLUtil.getFirstChild(item);
@@ -959,6 +963,18 @@ public class V3SourceGenerator extends BaseGenerator {
         html.setName("div");
         vs.getText().setDiv(html);
         vs.getText().setStatus(NarrativeStatus.GENERATED);
+        
+        Element grandChild = XMLUtil.getFirstChild(child);
+        while (grandChild != null) {
+        	if (grandChild.getNodeName().equals("p")) {
+        		Element greatGrandChild = XMLUtil.getFirstChild(grandChild);
+            	if (greatGrandChild != null && greatGrandChild.getNodeName().equals("i") && greatGrandChild.getTextContent() != null && greatGrandChild.getTextContent().startsWith("Steward:")) {
+            		vs.addExtension(vsext("steward"), new StringType(grandChild.getTextContent().trim()) );
+            	}
+        	}
+        	grandChild = XMLUtil.getNextSibling(grandChild);
+        }
+        
       } else
         throw new Exception("Unprocessed element "+child.getNodeName());
       child = XMLUtil.getNextSibling(child);
