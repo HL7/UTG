@@ -6,6 +6,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
@@ -154,27 +157,69 @@ public class PropertyExport {
     	
     	cd.setCode(rs.getString("propertyName"));
     	cd.setDisplay(rs.getString("propertyDescription"));
-    	cd.addExtension(csext("propertyDT"), new StringType(rs.getString("propertyDT")));
-    	cd.addExtension(csext("propertyAddTS"), new StringType(rs.getString("propertyAddTS")));
-    	cd.addExtension(csext("propertyIsMandatory"), new StringType(rs.getString("propertyIsMandatory")));
-    	cd.addExtension(csext("propertyIsMandatory"), new StringType(rs.getString("propertyIsMandatory")));
-    	cd.addExtension(csext("propertyDefaultValue"), new StringType(rs.getString("propertyDefaultValue")));
-    	cd.addExtension(csext("usedInRepository"), new StringType(rs.getString("usedInRepository")));
-    	cd.addExtension(csext("usedInMif"), new StringType(rs.getString("usedInMif")));
-    	cd.addExtension(csext("propertyActive"), new StringType(rs.getString("propertyActive")));
-    	cd.addExtension(csext("propertyDefaultHandlingCode"), new StringType(rs.getString("propertyDefaultHandlingCode")));
     	
+    	// Add propertyDT
+    	ConceptPropertyComponent cpc = cd.addProperty();
+    	cpc.setCode("propertyDT");
+    	cpc.setValue(new StringType(rs.getString("propertyDT")));
+    	
+    	// Add propertyAddTS property
+    	cpc = cd.addProperty();
+    	cpc.setCode("propertyAddTS");
+    	cpc.setValue(new StringType(rs.getString("propertyAddTS")));
+    	
+    	// Add propertyIsMandatory property
+    	cpc = cd.addProperty();
+    	cpc.setCode("propertyIsMandatory");
+    	cpc.setValue(new StringType(rs.getString("propertyIsMandatory")));
+
+    	// Add propertyDefaultValue property
+    	cpc = cd.addProperty();
+    	cpc.setCode("propertyDefaultValue");
+    	cpc.setValue(new StringType(rs.getString("propertyDefaultValue")));
+
+    	// Add propertyDefaultValue property
+    	cpc = cd.addProperty();
+    	cpc.setCode("usedInRepository");
+    	cpc.setValue(new StringType(rs.getString("usedInRepository")));
+
+    	// Add usedInMif property
+    	cpc = cd.addProperty();
+    	cpc.setCode("usedInMif");
+    	cpc.setValue(new StringType(rs.getString("usedInMif")));
+    	
+    	// Add propertyActive property
+    	cpc = cd.addProperty();
+    	cpc.setCode("propertyActive");
+    	cpc.setValue(new StringType(rs.getString("propertyActive")));
+
+    	// Add propertyDefaultHandlingCode property
+    	cpc = cd.addProperty();
+    	cpc.setCode("propertyDefaultHandlingCode");
+    	cpc.setValue(new StringType(rs.getString("propertyDefaultHandlingCode")));
+
     }
     
     
     private static CodeSystem initCodeSystem() throws Exception {
         CodeSystem cs = new CodeSystem();
         cs.setId("v3-Properties");
-        cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-Properties");
-        cs.setName("v3-Properties");
-        cs.setTitle("v3-Properties");
-        //cs.setUserData("oid", item.getAttribute("codeSystemId"));
+        cs.setLanguage("en");
+        cs.setUrl("http://terminology.hl7.org//codesystem//v3-Properties");
+        cs.setName("v3-Properties Code System");
+        cs.setTitle("v3-Properties  Code System");
+        cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+ "2.16.840.1.113883.5.X");
         cs.setStatus(PublicationStatus.ACTIVE);
+        
+        String buildDate = "2018-07-31";
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        date = df.parse(buildDate);
+        
+        cs.setDate(date);
+        cs.setPublisher("HL7");
+        cs.setDescription("Maintenance code system Uset to represent all properties used by HL7 Vocbaulary artifacts.");
+        
         return cs;
     }
     
