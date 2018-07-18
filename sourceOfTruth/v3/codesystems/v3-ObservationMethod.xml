@@ -21,7 +21,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ObservationMethod"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ObservationMethod"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.84"/>
@@ -52,491 +52,901 @@
     <description value="Haven&#39;t a clue!"/>
     <type value="string"/>
   </property>
-  <concept id="21094">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <code value="_DecisionObservationMethod"/>
     <display value="DecisionObservationMethod"/>
     <definition value=" Provides codes for decision methods, initially for assessing the causality of events."/>
-    <concept id="19992">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="ALGM"/>
       <display value="algorithm"/>
       <definition value=" Reaching a decision through the application of an algorithm designed to weigh the different factors involved."/>
-      <concept id="19993">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="BYCL"/>
         <display value="bayesian calculation"/>
         <definition value=" Reaching a decision through the use of Bayesian statistical analysis."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="19991">
+    <concept>
       <code value="GINT"/>
       <display value="global introspection"/>
       <definition value=" Reaching a decision by consideration of the totality of factors involved in order to reach a judgement."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="22644">
+  <concept>
     <code value="_GeneticObservationMethod"/>
     <display value="GeneticObservationMethod"/>
     <definition value=" A code that provides additional detail about the means or technique used to ascertain the genetic analysis. Example, PCR, Micro Array"/>
-    <concept id="22645">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="PCR"/>
       <display value="PCR"/>
       <definition value="  Description:&#xD;&#xA;Polymerase Chain Reaction"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="23444">
+  <concept>
     <code value="_ObservationMethodAggregate"/>
     <display value="observation method aggregate"/>
     <definition value=" Provides additional detail about the aggregation methods used to compute the aggregated values for an observation. This is an abstract code."/>
-    <concept id="23447">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="AVERAGE"/>
       <display value="average"/>
       <definition value=" Average of non-null values in the referenced set of values"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23445">
+    <concept>
       <code value="COUNT"/>
       <display value="count"/>
       <definition value=" Count of non-null values in the referenced set of values"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23453">
+    <concept>
       <code value="MAX"/>
       <display value="maxima"/>
       <definition value=" Largest of all non-null values in the referenced set of values."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23454">
+    <concept>
       <code value="MEDIAN"/>
       <display value="median"/>
       <definition value=" The median of all non-null values in the referenced set of values."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23452">
+    <concept>
       <code value="MIN"/>
       <display value="minima"/>
       <definition value=" Smallest of all non-null values in the referenced set of values."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23455">
+    <concept>
       <code value="MODE"/>
       <display value="mode"/>
       <definition value=" The most common value of all non-null values in the referenced set of values."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23450">
+    <concept>
       <code value="STDEV.P"/>
       <display value="population standard deviation"/>
       <definition value=" Standard Deviation of the values in the referenced set of values, computed over the population."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23448">
+    <concept>
       <code value="STDEV.S"/>
       <display value="sample standard deviation"/>
       <definition value=" Standard Deviation of the values in the referenced set of values, computed over a sample of the population."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23446">
+    <concept>
       <code value="SUM"/>
       <display value="sum"/>
       <definition value=" Sum of non-null values in the referenced set of values"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23451">
+    <concept>
       <code value="VARIANCE.P"/>
       <display value="population variance"/>
       <definition value=" Variance of the values in the referenced set of values, computed over the population."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23449">
+    <concept>
       <code value="VARIANCE.S"/>
       <display value="sample variance"/>
       <definition value=" Variance of the values in the referenced set of values, computed over a sample of the population."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="21512">
+  <concept>
     <code value="_VerificationMethod"/>
     <display value="VerificationMethod"/>
-    <concept id="21515">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="VDOC"/>
       <display value="document verification"/>
       <definition value=" Verification by means of document.  Example:&#xD;&#xA;Fax, letter, attachment to e-mail."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21514">
+    <concept>
       <code value="VREG"/>
       <display value="registry verification"/>
       <definition value=" verification by means of  a response to an electronic query  Example:&#xD;&#xA;query message to a Covered Party registry application or Coverage Administrator."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21513">
+    <concept>
       <code value="VTOKEN"/>
       <display value="electronic token verification"/>
       <definition value=" Verification by means of electronic token.  Example:&#xD;&#xA;smartcard, magnetic swipe card, RFID device."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21516">
+    <concept>
       <code value="VVOICE"/>
       <display value="voice-based verification"/>
       <definition value=" Verification by means of voice.  Example:&#xD;&#xA;By speaking with or calling the Coverage Administrator or Covered Party"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="14080">
+  <concept>
     <code value="0001"/>
     <display value="Complement fixation"/>
     <definition value=" Complement fixation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14081">
+  <concept>
     <code value="0002"/>
     <display value="Computed axial tomography"/>
     <definition value=" Computed axial tomography"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14082">
+  <concept>
     <code value="0003"/>
     <display value="HLAR agar test"/>
     <definition value=" Susceptibility, High Level Aminoglycoside Resistance agar test"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14083">
+  <concept>
     <code value="0004"/>
     <display value="Macroscopic observation"/>
     <definition value=" Visual, Macroscopic observation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14084">
+  <concept>
     <code value="0005"/>
     <display value="Magnetic resonance"/>
     <definition value=" Computed, Magnetic resonance"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14085">
+  <concept>
     <code value="0006"/>
     <display value="Morphometry"/>
     <definition value=" Computed, Morphometry"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14086">
+  <concept>
     <code value="0007"/>
     <display value="Positron emission tomography"/>
     <definition value=" Computed, Positron emission tomography"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14087">
+  <concept>
     <code value="0008"/>
     <display value="SAMHSA confirmation"/>
     <definition value=" SAMHSA drug assay confirmation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14088">
+  <concept>
     <code value="0009"/>
     <display value="SAMHSA screening"/>
     <definition value=" SAMHSA drug assay screening"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14089">
+  <concept>
     <code value="0010"/>
     <display value="Serum Neutralization"/>
     <definition value=" Serum Neutralization"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14090">
+  <concept>
     <code value="0011"/>
     <display value="Titration"/>
     <definition value=" Titration"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14091">
+  <concept>
     <code value="0012"/>
     <display value="Ultrasound"/>
     <definition value=" Ultrasound"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14092">
+  <concept>
     <code value="0013"/>
     <display value="X-ray crystallography"/>
     <definition value=" X-ray crystallography"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14093">
+  <concept>
     <code value="0014"/>
     <display value="Agglutination"/>
     <definition value=" Agglutination"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14094">
+  <concept>
     <code value="0015"/>
     <display value="Buffered acidified plate agglutination"/>
     <definition value=" Agglutination, Buffered acidified plate"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14095">
+  <concept>
     <code value="0016"/>
     <display value="Card agglutination"/>
     <definition value=" Agglutination, Card"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14096">
+  <concept>
     <code value="0017"/>
     <display value="Hemagglutination"/>
     <definition value=" Agglutination, Hemagglutination"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14097">
+  <concept>
     <code value="0018"/>
     <display value="Hemagglutination inhibition"/>
     <definition value=" Agglutination, Hemagglutination inhibition"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14098">
+  <concept>
     <code value="0019"/>
     <display value="Latex agglutination"/>
     <definition value=" Agglutination, Latex"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14099">
+  <concept>
     <code value="0020"/>
     <display value="Plate agglutination"/>
     <definition value=" Agglutination, Plate"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14100">
+  <concept>
     <code value="0021"/>
     <display value="Rapid agglutination"/>
     <definition value=" Agglutination, Rapid Plate"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14101">
+  <concept>
     <code value="0022"/>
     <display value="RBC agglutination"/>
     <definition value=" Agglutination, RBC"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14102">
+  <concept>
     <code value="0023"/>
     <display value="Rivanol agglutination"/>
     <definition value=" Agglutination, Rivanol"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14103">
+  <concept>
     <code value="0024"/>
     <display value="Tube agglutination"/>
     <definition value=" Agglutination, Tube"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14104">
+  <concept>
     <code value="0025"/>
     <display value="Bioassay"/>
     <definition value=" Bioassay"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14105">
+  <concept>
     <code value="0026"/>
     <display value="Animal Inoculation"/>
     <definition value=" Bioassay, Animal Inoculation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14106">
+  <concept>
     <code value="0027"/>
     <display value="Cytotoxicity"/>
     <definition value=" Bioassay, Cytotoxicity"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14107">
+  <concept>
     <code value="0028"/>
     <display value="Embryo infective dose 50"/>
     <definition value=" Bioassay, Embryo Infective Dose 50"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14108">
+  <concept>
     <code value="0029"/>
     <display value="Embryo lethal dose 50"/>
     <definition value=" Bioassay, Embryo Lethal Dose 50"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14109">
+  <concept>
     <code value="0030"/>
     <display value="Mouse intercerebral inoculation"/>
     <definition value=" Bioassay, Mouse intercerebral inoculation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14110">
+  <concept>
     <code value="0031"/>
     <display value="Bioassay, qualitative"/>
     <definition value=" Bioassay, qualitative"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14111">
+  <concept>
     <code value="0032"/>
     <display value="Bioassay, quantitative"/>
     <definition value=" Bioassay, quantitative"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14112">
+  <concept>
     <code value="0033"/>
     <display value="Chemical method"/>
     <definition value=" Chemical"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14113">
+  <concept>
     <code value="0034"/>
     <display value="Differential light absorption chemical test"/>
     <definition value=" Chemical, Differential light absorption"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14114">
+  <concept>
     <code value="0035"/>
     <display value="Dipstick"/>
     <definition value=" Chemical, Dipstick"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14115">
+  <concept>
     <code value="0036"/>
     <display value="Dipstick colorimetric laboratory test"/>
     <definition value=" Chemical, Dipstick colorimetric laboratory test"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14116">
+  <concept>
     <code value="0037"/>
     <display value="Test strip"/>
     <definition value=" Chemical, Test strip"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14117">
+  <concept>
     <code value="0038"/>
     <display value="Chromatography"/>
     <definition value=" Chromatography"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14118">
+  <concept>
     <code value="0039"/>
     <display value="Affinity chromatography"/>
     <definition value=" Chromatography, Affinity"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14119">
+  <concept>
     <code value="0040"/>
     <display value="Gas liquid chromatography"/>
     <definition value=" Chromatography, Gas liquid"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14120">
+  <concept>
     <code value="0041"/>
     <display value="High performance liquid chromatography"/>
     <definition value=" Chromatography, High performance liquid"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14121">
+  <concept>
     <code value="0042"/>
     <display value="Liquid Chromatography"/>
     <definition value=" Chromatography, Liquid"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14122">
+  <concept>
     <code value="0043"/>
     <display value="Protein A affinity chromatography"/>
     <definition value=" Chromatography, Protein A affinity"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14123">
+  <concept>
     <code value="0044"/>
     <display value="Coagulation"/>
     <definition value=" Coagulation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14124">
+  <concept>
     <code value="0045"/>
     <display value="Tilt tube coagulation time"/>
     <definition value=" Coagulation, Tilt tube"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14125">
+  <concept>
     <code value="0046"/>
     <display value="Tilt tube reptilase induced coagulation"/>
     <definition value=" Coagulation, Tilt tube reptilase induced"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14126">
+  <concept>
     <code value="0047"/>
     <display value="Automated count"/>
     <definition value=" Count, Automated"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14127">
+  <concept>
     <code value="0048"/>
     <display value="Manual cell count"/>
     <definition value=" Count, Manual"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14128">
+  <concept>
     <code value="0049"/>
     <display value="Platelet count, Rees-Ecker"/>
     <definition value=" Count, Platelet, Rees-Ecker"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14129">
+  <concept>
     <code value="0050"/>
     <display value="Aerobic Culture"/>
     <definition value=" Culture, Aerobic"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14130">
+  <concept>
     <code value="0051"/>
     <display value="Anaerobic Culture"/>
     <definition value=" Culture, Anaerobic"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14131">
+  <concept>
     <code value="0052"/>
     <display value="Chicken embryo culture"/>
     <definition value=" Culture, Chicken Embryo"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14132">
+  <concept>
     <code value="0053"/>
     <display value="Delayed secondary enrichment"/>
     <definition value=" Culture, Delayed secondary enrichment"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14133">
+  <concept>
     <code value="0054"/>
     <display value="Microaerophilic Culture"/>
     <definition value=" Culture, Microaerophilic"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14134">
+  <concept>
     <code value="0055"/>
     <display value="Quantitative microbial culture, cup"/>
     <definition value=" Culture, Quantitative microbial, cup"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14135">
+  <concept>
     <code value="0056"/>
     <display value="Quantitative microbial culture, droplet"/>
     <definition value=" Culture, Quantitative microbial, droplet"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14136">
+  <concept>
     <code value="0057"/>
     <display value="Quantitative microbial culture, filter paper"/>
     <definition value=" Culture, Quantitative microbial, filter paper"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14137">
+  <concept>
     <code value="0058"/>
     <display value="Quantitative microbial culture, pad culture"/>
     <definition value=" Culture, Quantitative microbial, pad"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14138">
+  <concept>
     <code value="0059"/>
     <display value="Quantitative microbial culture, pour plate"/>
     <definition value=" Culture, Quantitative microbial, pour plate"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14139">
+  <concept>
     <code value="0060"/>
     <display value="Quantitative microbial culture, surface streak"/>
     <definition value=" Culture, Quantitative microbial, surface streak"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14140">
+  <concept>
     <code value="0061"/>
     <display value="Somatic Cell culture"/>
     <definition value=" Culture, Somatic Cell"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14141">
+  <concept>
     <code value="0062"/>
     <display value="Agar diffusion"/>
     <definition value=" Diffusion, Agar"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14142">
+  <concept>
     <code value="0063"/>
     <display value="Agar Gel Immunodiffusion"/>
     <definition value=" Diffusion, Agar Gel Immunodiffusion"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14143">
+  <concept>
     <code value="0064"/>
     <display value="Electrophoresis"/>
     <definition value=" Electrophoresis"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14144">
+  <concept>
     <code value="0065"/>
     <display value="Agaorse gel electrophoresis"/>
     <definition value=" Electrophoresis, Agaorse gel"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14145">
+  <concept>
     <code value="0066"/>
     <display value="Electrophoresis, citrate agar"/>
     <definition value=" Electrophoresis, citrate agar"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14146">
+  <concept>
     <code value="0067"/>
     <display value="Immunoelectrophoresis"/>
     <definition value=" Electrophoresis, Immuno"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14147">
+  <concept>
     <code value="0068"/>
     <display value="Polyacrylamide gel electrophoresis"/>
     <definition value=" Electrophoresis, Polyacrylamide gel"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14148">
+  <concept>
     <code value="0069"/>
     <display value="Starch gel electrophoresis"/>
     <definition value=" Electrophoresis, Starch gel"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14149">
+  <concept>
     <code value="0070"/>
     <display value="ELISA"/>
     <definition value=" ELISA"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14150">
+  <concept>
     <code value="0071"/>
     <display value="ELISA, antigen capture"/>
     <definition value=" ELISA, antigen capture"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14151">
+  <concept>
     <code value="0072"/>
     <display value="ELISA, avidin biotin peroxidase complex"/>
     <definition value=" ELISA, avidin biotin peroxidase complex"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14152">
+  <concept>
     <code value="0073"/>
     <display value="Kinetic ELISA"/>
     <definition value=" ELISA, Kinetic"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14153">
+  <concept>
     <code value="0074"/>
     <display value="ELISA, peroxidase-antiperoxidase"/>
     <definition value=" ELISA, peroxidase-antiperoxidase"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14154">
+  <concept>
     <code value="0075"/>
     <display value="API 20 Strep"/>
     <definition value=" Identification, API 20 Strep"/>
@@ -544,8 +954,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux - streptococcis and enterococci"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14155">
+  <concept>
     <code value="0076"/>
     <display value="API 20A"/>
     <definition value=" Identification, API 20A"/>
@@ -553,8 +967,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux - 24hr anaerobic ID"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14156">
+  <concept>
     <code value="0077"/>
     <display value="API 20C AUX"/>
     <definition value=" Identification, API 20C AUX"/>
@@ -562,8 +980,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux - identification of yeast"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14157">
+  <concept>
     <code value="0078"/>
     <display value="API 20E"/>
     <definition value=" Identification, API 20E"/>
@@ -571,8 +993,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux -identification of Enterobacteriacae; non-fermenting GNB"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14158">
+  <concept>
     <code value="0079"/>
     <display value="API 20NE"/>
     <definition value=" Identification, API 20NE"/>
@@ -580,8 +1006,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux - gram negative non-Enterobacteriaeciae"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14159">
+  <concept>
     <code value="0080"/>
     <display value="API 50 CH"/>
     <definition value=" Identification, API 50 CH"/>
@@ -589,8 +1019,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14160">
+  <concept>
     <code value="0081"/>
     <display value="API An-IDENT"/>
     <definition value=" Identification, API An-IDENT"/>
@@ -598,8 +1032,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14161">
+  <concept>
     <code value="0082"/>
     <display value="API Coryne"/>
     <definition value=" Identification, API Coryne"/>
@@ -607,8 +1045,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14162">
+  <concept>
     <code value="0083"/>
     <display value="API Rapid 20E"/>
     <definition value=" Identification, API Rapid 20E"/>
@@ -616,8 +1058,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux - 4 hour identification of Enterobacteriaciae"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14163">
+  <concept>
     <code value="0084"/>
     <display value="API Staph"/>
     <definition value=" Identification, API Staph"/>
@@ -625,8 +1071,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14164">
+  <concept>
     <code value="0085"/>
     <display value="API ZYM"/>
     <definition value=" Identification, API ZYM"/>
@@ -634,13 +1084,21 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14165">
+  <concept>
     <code value="0086"/>
     <display value="Bacterial identification"/>
     <definition value=" Identification, Bacterial"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14166">
+  <concept>
     <code value="0087"/>
     <display value="mini VIDAS"/>
     <definition value=" Identification, mini VIDAS"/>
@@ -648,13 +1106,21 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14167">
+  <concept>
     <code value="0088"/>
     <display value="Phage susceptibility typing"/>
     <definition value=" Identification, Phage susceptibility typing"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14168">
+  <concept>
     <code value="0089"/>
     <display value="Quad-FERM+"/>
     <definition value=" Identification, Quad-FERM+"/>
@@ -662,8 +1128,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux - 2-hour identification of Neisseria"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14169">
+  <concept>
     <code value="0090"/>
     <display value="RAPIDEC Staph"/>
     <definition value=" Identification, RAPIDEC Staph"/>
@@ -671,13 +1141,21 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14170">
+  <concept>
     <code value="0091"/>
     <display value="Staphaurex"/>
     <definition value=" Identification, Staphaurex"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14171">
+  <concept>
     <code value="0092"/>
     <display value="VIDAS"/>
     <definition value=" Identification, VIDAS"/>
@@ -685,8 +1163,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14172">
+  <concept>
     <code value="0093"/>
     <display value="Vitek"/>
     <definition value=" Identification, Vitek"/>
@@ -694,8 +1176,12 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14173">
+  <concept>
     <code value="0094"/>
     <display value="VITEK 2"/>
     <definition value=" Identification, VITEK 2"/>
@@ -703,952 +1189,1720 @@
       <code value="howApplies"/>
       <valueString value="bioMerieux"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14174">
+  <concept>
     <code value="0095"/>
     <display value="Immune stain"/>
     <definition value=" Immune stain"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14175">
+  <concept>
     <code value="0096"/>
     <display value="Immunofluorescent antibody, direct"/>
     <definition value=" Immune stain, Immunofluorescent antibody, direct"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14176">
+  <concept>
     <code value="0097"/>
     <display value="Immunofluorescent antibody, indirect"/>
     <definition value=" Immune stain, Immunofluorescent antibody, indirect"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14177">
+  <concept>
     <code value="0098"/>
     <display value="Immunoperoxidase, Avidin-Biotin Complex"/>
     <definition value=" Immune stain, Immunoperoxidase, Avidin-Biotin Complex"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14178">
+  <concept>
     <code value="0099"/>
     <display value="Immunoperoxidase, Peroxidase anti-peroxidase complex"/>
     <definition value=" Immune stain, Immunoperoxidase, Peroxidase anti-peroxidase complex"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14179">
+  <concept>
     <code value="0100"/>
     <display value="Immunoperoxidase, Protein A-peroxidase complex"/>
     <definition value=" Immune stain, Immunoperoxidase, Protein A-peroxidase complex"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14180">
+  <concept>
     <code value="0101"/>
     <display value="Immunoassay"/>
     <definition value=" Immunoassay"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14181">
+  <concept>
     <code value="0102"/>
     <display value="Immunoassay, qualitative, multiple step"/>
     <definition value=" Immunoassay, qualitative, multiple step"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14182">
+  <concept>
     <code value="0103"/>
     <display value="Immunoassay, qualitative, single step"/>
     <definition value=" Immunoassay, qualitative, single step"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14183">
+  <concept>
     <code value="0104"/>
     <display value="Radioimmunoassay"/>
     <definition value=" Immunoassay, Radioimmunoassay"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14184">
+  <concept>
     <code value="0105"/>
     <display value="Immunoassay, semi-quantitative, multiple step"/>
     <definition value=" Immunoassay, semi-quantitative, multiple step"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14185">
+  <concept>
     <code value="0106"/>
     <display value="Immunoassay, semi-quantitative, single step"/>
     <definition value=" Immunoassay, semi-quantitative, single step"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14186">
+  <concept>
     <code value="0107"/>
     <display value="Microscopy"/>
     <definition value=" Microscopy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14187">
+  <concept>
     <code value="0108"/>
     <display value="Darkfield microscopy"/>
     <definition value=" Microscopy, Darkfield"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14188">
+  <concept>
     <code value="0109"/>
     <display value="Electron microscopy"/>
     <definition value=" Microscopy, Electron"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14189">
+  <concept>
     <code value="0110"/>
     <display value="Electron microscopy tomography"/>
     <definition value=" Microscopy, Electron microscopy tomography"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14190">
+  <concept>
     <code value="0111"/>
     <display value="Electron microscopy, negative stain"/>
     <definition value=" Microscopy, Electron, negative stain"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14191">
+  <concept>
     <code value="0112"/>
     <display value="Electron microscopy, thick section"/>
     <definition value=" Microscopy, Electron, thick section transmission"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14192">
+  <concept>
     <code value="0113"/>
     <display value="Electron microscopy, thin section"/>
     <definition value=" Microscopy, Electron, thin section transmission"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14193">
+  <concept>
     <code value="0114"/>
     <display value="Microscopy, Light"/>
     <definition value=" Microscopy, Light"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14194">
+  <concept>
     <code value="0115"/>
     <display value="Polarizing light microscopy"/>
     <definition value=" Microscopy, Polarized light"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14195">
+  <concept>
     <code value="0116"/>
     <display value="Scanning electron microscopy"/>
     <definition value=" Microscopy, Scanning electron"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14196">
+  <concept>
     <code value="0117"/>
     <display value="Transmission electron microscopy"/>
     <definition value=" Microscopy, Transmission electron"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14197">
+  <concept>
     <code value="0118"/>
     <display value="Transparent tape direct examination"/>
     <definition value=" Microscopy, Transparent tape direct examination"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14198">
+  <concept>
     <code value="0119"/>
     <display value="3 Self-Sustaining Sequence Replication"/>
     <definition value=" Molecular, 3 Self-Sustaining Sequence Replication"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14199">
+  <concept>
     <code value="0120"/>
     <display value="Branched Chain DNA"/>
     <definition value=" Molecular, Branched Chain DNA"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14200">
+  <concept>
     <code value="0121"/>
     <display value="Hybridization Protection Assay"/>
     <definition value=" Molecular, Hybridization Protection Assay"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14201">
+  <concept>
     <code value="0122"/>
     <display value="Immune blot"/>
     <definition value=" Molecular, Immune blot"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14202">
+  <concept>
     <code value="0123"/>
     <display value="In-situ hybridization"/>
     <definition value=" Molecular, In-situ hybridization"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14203">
+  <concept>
     <code value="0124"/>
     <display value="Ligase Chain Reaction"/>
     <definition value=" Molecular, Ligase Chain Reaction"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14204">
+  <concept>
     <code value="0125"/>
     <display value="Ligation Activated Transcription"/>
     <definition value=" Molecular, Ligation Activated Transcription"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14205">
+  <concept>
     <code value="0126"/>
     <display value="Nucleic Acid Probe"/>
     <definition value=" Molecular, Nucleic Acid Probe"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14207">
+  <concept>
     <code value="0128"/>
     <display value="Nucleic acid probe with amplification"/>
     <definition value=" Molecular, Nucleic acid probe with amplification  Rationale:Duplicate of code 0126. Use code 0126 instead."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14208">
+  <concept>
     <code value="0129"/>
     <display value="Nucleic acid probe with target amplification"/>
     <definition value=" Molecular, Nucleic acid probe with target amplification"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14209">
+  <concept>
     <code value="0130"/>
     <display value="Nucleic acid reverse transcription"/>
     <definition value=" Molecular, Nucleic acid reverse transcription"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14210">
+  <concept>
     <code value="0131"/>
     <display value="Nucleic Acid Sequence Based Analysis"/>
     <definition value=" Molecular, Nucleic Acid Sequence Based Analysis"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14211">
+  <concept>
     <code value="0132"/>
     <display value="Polymerase chain reaction"/>
     <definition value=" Molecular, Polymerase chain reaction"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14212">
+  <concept>
     <code value="0133"/>
     <display value="Q-Beta Replicase or probe amplification category method"/>
     <definition value=" Molecular, Q-Beta Replicase or probe amplification category method"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14213">
+  <concept>
     <code value="0134"/>
     <display value="Restriction Fragment Length Polymorphism"/>
     <definition value=" Molecular, Restriction Fragment Length Polymorphism"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14214">
+  <concept>
     <code value="0135"/>
     <display value="Southern Blot"/>
     <definition value=" Molecular, Southern Blot"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14215">
+  <concept>
     <code value="0136"/>
     <display value="Strand Displacement Amplification"/>
     <definition value=" Molecular, Strand Displacement Amplification"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14216">
+  <concept>
     <code value="0137"/>
     <display value="Transcription Mediated Amplification"/>
     <definition value=" Molecular, Transcription Mediated Amplification"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14217">
+  <concept>
     <code value="0138"/>
     <display value="Western Blot"/>
     <definition value=" Molecular, Western Blot"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14218">
+  <concept>
     <code value="0139"/>
     <display value="Flocculation"/>
     <definition value=" Precipitation, Flocculation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14219">
+  <concept>
     <code value="0140"/>
     <display value="Immune precipitation"/>
     <definition value=" Precipitation, Immune precipitation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14220">
+  <concept>
     <code value="0141"/>
     <display value="Milk ring test"/>
     <definition value=" Precipitation, Milk ring test"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14221">
+  <concept>
     <code value="0142"/>
     <display value="Precipitin"/>
     <definition value=" Precipitation, Precipitin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14222">
+  <concept>
     <code value="0143"/>
     <display value="Acid fast stain"/>
     <definition value=" Stain, Acid fast"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14223">
+  <concept>
     <code value="0144"/>
     <display value="Acid fast stain, fluorochrome"/>
     <definition value=" Stain, Acid fast, fluorochrome"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14224">
+  <concept>
     <code value="0145"/>
     <display value="Acid fast stain, Kinyoun&#39;s cold carbolfuchsin"/>
     <definition value=" Stain, Acid fast, Kinyoun&#39;s cold carbolfuchsin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14225">
+  <concept>
     <code value="0146"/>
     <display value="Acid fast stain, Ziehl-Neelsen"/>
     <definition value=" Stain, Acid fast, Ziehl-Neelsen"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14226">
+  <concept>
     <code value="0147"/>
     <display value="Acid phosphatase stain"/>
     <definition value=" Stain, Acid phosphatase"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14227">
+  <concept>
     <code value="0148"/>
     <display value="Acridine orange stain"/>
     <definition value=" Stain, Acridine orange"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14228">
+  <concept>
     <code value="0149"/>
     <display value="Active brilliant orange KH stain"/>
     <definition value=" Stain, Active brilliant orange KH"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14229">
+  <concept>
     <code value="0150"/>
     <display value="Alazarin red S stain"/>
     <definition value=" Stain, Alazarin red S"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14230">
+  <concept>
     <code value="0151"/>
     <display value="Alcian blue stain"/>
     <definition value=" Stain, Alcian blue"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14231">
+  <concept>
     <code value="0152"/>
     <display value="Alcian blue with Periodic acid Schiff stain"/>
     <definition value=" Stain, Alcian blue with Periodic acid Schiff"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14232">
+  <concept>
     <code value="0153"/>
     <display value="Argentaffin stain"/>
     <definition value=" Stain, Argentaffin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14233">
+  <concept>
     <code value="0154"/>
     <display value="Argentaffin silver stain"/>
     <definition value=" Stain, Argentaffin silver"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14234">
+  <concept>
     <code value="0155"/>
     <display value="Azure-eosin stain"/>
     <definition value=" Stain, Azure-eosin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14235">
+  <concept>
     <code value="0156"/>
     <display value="Basic Fuschin stain"/>
     <definition value=" Stain, Basic Fuschin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14236">
+  <concept>
     <code value="0157"/>
     <display value="Bennhold stain"/>
     <definition value=" Stain, Bennhold"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14237">
+  <concept>
     <code value="0158"/>
     <display value="Bennhold&#39;s Congo red stain"/>
     <definition value=" Stain, Bennhold&#39;s Congo red"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14238">
+  <concept>
     <code value="0159"/>
     <display value="Bielschowsky stain"/>
     <definition value=" Stain, Bielschowsky"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14239">
+  <concept>
     <code value="0160"/>
     <display value="Bielschowsky&#39;s silver stain"/>
     <definition value=" Stain, Bielschowsky&#39;s silver"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14240">
+  <concept>
     <code value="0161"/>
     <display value="Bleach stain"/>
     <definition value=" Stain, Bleach"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14241">
+  <concept>
     <code value="0162"/>
     <display value="Bodian stain"/>
     <definition value=" Stain, Bodian"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14242">
+  <concept>
     <code value="0163"/>
     <display value="Brown-Brenn stain"/>
     <definition value=" Stain, Brown-Brenn"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14243">
+  <concept>
     <code value="0164"/>
     <display value="Butyrate-esterase stain"/>
     <definition value=" Stain, Butyrate-esterase"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14244">
+  <concept>
     <code value="0165"/>
     <display value="Calcofluor white fluorescent stain"/>
     <definition value=" Stain, Calcofluor white fluorescent"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14245">
+  <concept>
     <code value="0166"/>
     <display value="Carbol-fuchsin stain"/>
     <definition value=" Stain, Carbol-fuchsin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14246">
+  <concept>
     <code value="0167"/>
     <display value="Carmine stain"/>
     <definition value=" Stain, Carmine"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14247">
+  <concept>
     <code value="0168"/>
     <display value="Churukian-Schenk stain"/>
     <definition value=" Stain, Churukian-Schenk"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14248">
+  <concept>
     <code value="0169"/>
     <display value="Congo red stain"/>
     <definition value=" Stain, Congo red"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14249">
+  <concept>
     <code value="0170"/>
     <display value="Cresyl echt violet stain"/>
     <definition value=" Stain, Cresyl echt violet"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14250">
+  <concept>
     <code value="0171"/>
     <display value="Crystal violet stain"/>
     <definition value=" Stain, Crystal violet"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14251">
+  <concept>
     <code value="0172"/>
     <display value="De Galantha stain"/>
     <definition value=" Stain, De Galantha"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14252">
+  <concept>
     <code value="0173"/>
     <display value="Dieterle silver impregnation stain"/>
     <definition value=" Stain, Dieterle silver impregnation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14253">
+  <concept>
     <code value="0174"/>
     <display value="Fite-Farco stain"/>
     <definition value=" Stain, Fite-Farco"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14254">
+  <concept>
     <code value="0175"/>
     <display value="Fontana-Masson silver stain"/>
     <definition value=" Stain, Fontana-Masson silver"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14255">
+  <concept>
     <code value="0176"/>
     <display value="Fouchet stain"/>
     <definition value=" Stain, Fouchet"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14256">
+  <concept>
     <code value="0177"/>
     <display value="Gomori stain"/>
     <definition value=" Stain, Gomori"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14257">
+  <concept>
     <code value="0178"/>
     <display value="Gomori methenamine silver stain"/>
     <definition value=" Stain, Gomori methenamine silver"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14258">
+  <concept>
     <code value="0179"/>
     <display value="Gomori-Wheatly trichrome stain"/>
     <definition value=" Stain, Gomori-Wheatly trichrome"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14259">
+  <concept>
     <code value="0180"/>
     <display value="Gridley stain"/>
     <definition value=" Stain, Gridley"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14260">
+  <concept>
     <code value="0181"/>
     <display value="Grimelius silver stain"/>
     <definition value=" Stain, Grimelius silver"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14261">
+  <concept>
     <code value="0182"/>
     <display value="Grocott stain"/>
     <definition value=" Stain, Grocott"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14262">
+  <concept>
     <code value="0183"/>
     <display value="Grocott methenamine silver stain"/>
     <definition value=" Stain, Grocott methenamine silver"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14263">
+  <concept>
     <code value="0184"/>
     <display value="Hale&#39;s colloidal ferric oxide stain"/>
     <definition value=" Stain, Hale&#39;s colloidal ferric oxide"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14264">
+  <concept>
     <code value="0185"/>
     <display value="Hale&#39;s colloidal iron stain"/>
     <definition value=" Stain, Hale&#39;s colloidal iron"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14265">
+  <concept>
     <code value="0186"/>
     <display value="Hansel stain"/>
     <definition value=" Stain, Hansel"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14266">
+  <concept>
     <code value="0187"/>
     <display value="Harris regressive hematoxylin and eosin stain"/>
     <definition value=" Stain, Harris regressive hematoxylin and eosin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14267">
+  <concept>
     <code value="0188"/>
     <display value="Hematoxylin and eosin stain"/>
     <definition value=" Stain, Hematoxylin and eosin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14268">
+  <concept>
     <code value="0189"/>
     <display value="Highman stain"/>
     <definition value=" Stain, Highman"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14269">
+  <concept>
     <code value="0190"/>
     <display value="Holzer stain"/>
     <definition value=" Stain, Holzer"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14270">
+  <concept>
     <code value="0191"/>
     <display value="Iron hematoxylin stain"/>
     <definition value=" Stain, Iron hematoxylin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14271">
+  <concept>
     <code value="0192"/>
     <display value="Jones stain"/>
     <definition value=" Stain, Jones"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14272">
+  <concept>
     <code value="0193"/>
     <display value="Jones methenamine silver stain"/>
     <definition value=" Stain, Jones methenamine silver"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14273">
+  <concept>
     <code value="0194"/>
     <display value="Kossa stain"/>
     <definition value=" Stain, Kossa"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14274">
+  <concept>
     <code value="0195"/>
     <display value="Lawson-Van Gieson stain"/>
     <definition value=" Stain, Lawson-Van Gieson"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14275">
+  <concept>
     <code value="0196"/>
     <display value="Loeffler methylene blue stain"/>
     <definition value=" Stain, Loeffler methylene blue"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14276">
+  <concept>
     <code value="0197"/>
     <display value="Luxol fast blue with cresyl violet stain"/>
     <definition value=" Stain, Luxol fast blue with cresyl violet"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14277">
+  <concept>
     <code value="0198"/>
     <display value="Luxol fast blue with Periodic acid-Schiff stain"/>
     <definition value=" Stain, Luxol fast blue with Periodic acid-Schiff"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14278">
+  <concept>
     <code value="0199"/>
     <display value="MacNeal&#39;s tetrachrome blood stain"/>
     <definition value=" Stain, MacNeal&#39;s tetrachrome blood"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14279">
+  <concept>
     <code value="0200"/>
     <display value="Mallory-Heidenhain stain"/>
     <definition value=" Stain, Mallory-Heidenhain"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14280">
+  <concept>
     <code value="0201"/>
     <display value="Masson trichrome stain"/>
     <definition value=" Stain, Masson trichrome"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14281">
+  <concept>
     <code value="0202"/>
     <display value="Mayer mucicarmine stain"/>
     <definition value=" Stain, Mayer mucicarmine"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14282">
+  <concept>
     <code value="0203"/>
     <display value="Mayers progressive hematoxylin and eosin stain"/>
     <definition value=" Stain, Mayers progressive hematoxylin and eosin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14283">
+  <concept>
     <code value="0204"/>
     <display value="May-Grunwald Giemsa stain"/>
     <definition value=" Stain, May-Grunwald Giemsa"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14284">
+  <concept>
     <code value="0205"/>
     <display value="Methyl green stain"/>
     <definition value=" Stain, Methyl green"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14285">
+  <concept>
     <code value="0206"/>
     <display value="Methyl green pyronin stain"/>
     <definition value=" Stain, Methyl green pyronin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14286">
+  <concept>
     <code value="0207"/>
     <display value="Modified Gomori-Wheatly trichrome stain"/>
     <definition value=" Stain, Modified Gomori-Wheatly trichrome"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14287">
+  <concept>
     <code value="0208"/>
     <display value="Modified Masson trichrome stain"/>
     <definition value=" Stain, Modified Masson trichrome"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14288">
+  <concept>
     <code value="0209"/>
     <display value="Modified trichrome stain"/>
     <definition value=" Stain, Modified trichrome"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14289">
+  <concept>
     <code value="0210"/>
     <display value="Movat pentachrome stain"/>
     <definition value=" Stain, Movat pentachrome"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14290">
+  <concept>
     <code value="0211"/>
     <display value="Mucicarmine stain"/>
     <definition value=" Stain, Mucicarmine"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14291">
+  <concept>
     <code value="0212"/>
     <display value="Neutral red stain"/>
     <definition value=" Stain, Neutral red"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14292">
+  <concept>
     <code value="0213"/>
     <display value="Night blue stain"/>
     <definition value=" Stain, Night blue"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14293">
+  <concept>
     <code value="0214"/>
     <display value="Non-specific esterase stain"/>
     <definition value=" Stain, Non-specific esterase"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14294">
+  <concept>
     <code value="0215"/>
     <display value="Oil red-O stain"/>
     <definition value=" Stain, Oil red-O"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14295">
+  <concept>
     <code value="0216"/>
     <display value="Orcein stain"/>
     <definition value=" Stain, Orcein"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14296">
+  <concept>
     <code value="0217"/>
     <display value="Perls&#39; stain"/>
     <definition value=" Stain, Perls&#39;"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14297">
+  <concept>
     <code value="0218"/>
     <display value="Phosphotungstic acid-hematoxylin stain"/>
     <definition value=" Stain, Phosphotungstic acid-hematoxylin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14298">
+  <concept>
     <code value="0219"/>
     <display value="Potassium ferrocyanide stain"/>
     <definition value=" Stain, Potassium ferrocyanide"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14299">
+  <concept>
     <code value="0220"/>
     <display value="Prussian blue stain"/>
     <definition value=" Stain, Prussian blue"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14300">
+  <concept>
     <code value="0221"/>
     <display value="Putchler modified Bennhold stain"/>
     <definition value=" Stain, Putchler modified Bennhold"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14301">
+  <concept>
     <code value="0222"/>
     <display value="Quinacrine fluorescent stain"/>
     <definition value=" Stain, Quinacrine fluorescent"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14302">
+  <concept>
     <code value="0223"/>
     <display value="Reticulin stain"/>
     <definition value=" Stain, Reticulin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14303">
+  <concept>
     <code value="0224"/>
     <display value="Rhodamine stain"/>
     <definition value=" Stain, Rhodamine"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14304">
+  <concept>
     <code value="0225"/>
     <display value="Safranin stain"/>
     <definition value=" Stain, Safranin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14305">
+  <concept>
     <code value="0226"/>
     <display value="Schmorl stain"/>
     <definition value=" Stain, Schmorl"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14306">
+  <concept>
     <code value="0227"/>
     <display value="Seiver-Munger stain"/>
     <definition value=" Stain, Seiver-Munger"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14307">
+  <concept>
     <code value="0228"/>
     <display value="Silver stain"/>
     <definition value=" Stain, Silver"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14308">
+  <concept>
     <code value="0229"/>
     <display value="Specific esterase stain"/>
     <definition value=" Stain, Specific esterase"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14309">
+  <concept>
     <code value="0230"/>
     <display value="Steiner silver stain"/>
     <definition value=" Stain, Steiner silver"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14310">
+  <concept>
     <code value="0231"/>
     <display value="Sudan III stain"/>
     <definition value=" Stain, Sudan III"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14311">
+  <concept>
     <code value="0232"/>
     <display value="Sudan IVI stain"/>
     <definition value=" Stain, Sudan IVI"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14312">
+  <concept>
     <code value="0233"/>
     <display value="Sulfated alcian blue stain"/>
     <definition value=" Stain, Sulfated alcian blue"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14313">
+  <concept>
     <code value="0234"/>
     <display value="Supravital stain"/>
     <definition value=" Stain, Supravital"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14314">
+  <concept>
     <code value="0235"/>
     <display value="Thioflavine-S stain"/>
     <definition value=" Stain, Thioflavine-S"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14315">
+  <concept>
     <code value="0236"/>
     <display value="Three micron Giemsa stain"/>
     <definition value=" Stain, Three micron Giemsa"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14316">
+  <concept>
     <code value="0237"/>
     <display value="Vassar-Culling stain"/>
     <definition value=" Stain, Vassar-Culling"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14317">
+  <concept>
     <code value="0238"/>
     <display value="Vital Stain"/>
     <definition value=" Stain, Vital"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14318">
+  <concept>
     <code value="0239"/>
     <display value="von Kossa stain"/>
     <definition value=" Stain, von Kossa"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14322">
+  <concept>
     <code value="0243"/>
     <display value="Minimum bactericidal concentration test, macrodilution"/>
     <definition value=" Susceptibility, Minimum bactericidal concentration, macrodilution"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14323">
+  <concept>
     <code value="0244"/>
     <display value="Minimum bactericidal concentration test, microdilution"/>
     <definition value=" Susceptibility, Minimum bactericidal concentration, microdilution"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14326">
+  <concept>
     <code value="0247"/>
     <display value="Turbidometric"/>
     <definition value=" Turbidometric"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14327">
+  <concept>
     <code value="0248"/>
     <display value="Refractometric"/>
     <definition value=" Turbidometric, Refractometric"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14328">
+  <concept>
     <code value="0249"/>
     <display value="Thin layer chromatography (TLC)"/>
     <definition value=" Chromatography, Thin Layer"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14329">
+  <concept>
     <code value="0250"/>
     <display value="EMIT"/>
     <definition value=" Immunoassay, enzyme-multiplied technique (EMIT)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14330">
+  <concept>
     <code value="0251"/>
     <display value="Flow cytometry (FC)"/>
     <definition value=" Flow Cytometry"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14331">
+  <concept>
     <code value="0252"/>
     <display value="Radial immunodiffusion (RID)"/>
     <definition value=" Radial Immunodiffusion"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14332">
+  <concept>
     <code value="0253"/>
     <display value="Fluorescence polarization immunoassay (FPIA)"/>
     <definition value=" Immunoassay, Fluorescence Polarization"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14333">
+  <concept>
     <code value="0254"/>
     <display value="Immunofixation electrophoresis (IFE)"/>
     <definition value=" Electrophoresis, Immunofixation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14334">
+  <concept>
     <code value="0255"/>
     <display value="Equilibrium dialysis"/>
     <definition value=" Dialysis, Direct Equilibrium"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14335">
+  <concept>
     <code value="0256"/>
     <display value="Kleihauer-Betke acid elution"/>
     <definition value=" Acid Elution, Kleihauer-Betke Method"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14336">
+  <concept>
     <code value="0257"/>
     <display value="Anti-complement immunofluorescence (ACIF)"/>
     <definition value=" Immunofluorescence, Anti-Complement"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14337">
+  <concept>
     <code value="0258"/>
     <display value="GC/MS"/>
     <definition value=" Gas Chromatography/Mass Spectroscopy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14338">
+  <concept>
     <code value="0259"/>
     <display value="Nephelometry"/>
     <definition value=" Light Scatter, Nephelometry"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14339">
+  <concept>
     <code value="0260"/>
     <display value="IgE immunoassay antibody"/>
     <definition value=" Immunoassay, IgE Antibody Test"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14340">
+  <concept>
     <code value="0261"/>
     <display value="Lymphocyte Microcytotoxicity Assay"/>
     <definition value=" Lymphocyte Microcytotoxicity Assay"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14341">
+  <concept>
     <code value="0262"/>
     <display value="Spectrophotometry"/>
     <definition value=" Spectrophotometry"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14342">
+  <concept>
     <code value="0263"/>
     <display value="Atomic absorption spectrophotometry (AAS)"/>
     <definition value=" Spectrophotometry, Atomic Absorption"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14343">
+  <concept>
     <code value="0264"/>
     <display value="Ion selective electrode (ISE)"/>
     <definition value=" Electrochemical, Ion Selective Electrode"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14344">
+  <concept>
     <code value="0265"/>
     <display value="Gas chromatography (GC)"/>
     <definition value=" Chromatography, Gas"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14345">
+  <concept>
     <code value="0266"/>
     <display value="Isoelectric focusing (IEF)"/>
     <definition value=" Isoelectric Focusing"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14346">
+  <concept>
     <code value="0267"/>
     <display value="Immunochemiluminescence"/>
     <definition value=" Immunoassay, Chemiluminescent"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14347">
+  <concept>
     <code value="0268"/>
     <display value="Microparticle enzyme immunoassay (MEIA)"/>
     <definition value=" Immunoassay, Microparticle Enzyme"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14348">
+  <concept>
     <code value="0269"/>
     <display value="ICP/MS"/>
     <definition value=" Inductively-Coupled Plasma/Mass Spectrometry"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14349">
+  <concept>
     <code value="0270"/>
     <display value="Immunoradiometric assay (IRMA)"/>
     <definition value=" Immunoassay, Immunoradiometric Assay"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14350">
+  <concept>
     <code value="0271"/>
     <display value="Photo optical clot detection"/>
     <definition value=" Coagulation, Photo Optical Clot Detection"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="21454">
+  <concept>
     <code value="0280"/>
     <display value="Susceptibility Testing"/>
     <definition value=" Test methods designed to determine a microorganismaTMs susceptibility to being killed by an antibiotic."/>
-    <concept id="14319">
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="0240"/>
       <display value="Antibiotic sensitivity, disk"/>
       <definition value=" Susceptibility, Antibiotic sensitivity, disk"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="14320">
+    <concept>
       <code value="0241"/>
       <display value="BACTEC susceptibility test"/>
       <definition value=" Susceptibility, BACTEC susceptibility test"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="14321">
+    <concept>
       <code value="0242"/>
       <display value="Disk dilution"/>
       <definition value=" Susceptibility, Disk dilution"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21445">
+    <concept>
       <code value="0272"/>
       <display value="Minimum Inhibitory Concentration"/>
       <definition value=" Testing to measure the minimum concentration of the antibacterial agent in a given culture medium below which bacterial growth is not inhibited."/>
-      <concept id="14324">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="0245"/>
         <display value="Minimum Inhibitory Concentration, macrodilution"/>
         <definition value=" Susceptibility, Minimum Inhibitory concentration, macrodilution"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14325">
+      <concept>
         <code value="0246"/>
         <display value="Minimum Inhibitory Concentration, microdilution"/>
         <definition value=" Susceptibility, Minimum Inhibitory concentration, microdilution"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21446">
+    <concept>
       <code value="0273"/>
       <display value="Viral Genotype Susceptibility"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21447">
+    <concept>
       <code value="0274"/>
       <display value="Viral Phenotype Susceptibility"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21448">
+    <concept>
       <code value="0275"/>
       <display value="Gradient Strip"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21449">
+    <concept>
       <code value="0275a"/>
       <display value="Minimum Lethal Concentration (MLC)"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21450">
+    <concept>
       <code value="0276"/>
       <display value="Slow Mycobacteria Susceptibility"/>
       <definition value=" Testing to measure the minimum concentration of the antibacterial agent in a given culture medium below which bacterial growth is not inhibited."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21451">
+    <concept>
       <code value="0277"/>
       <display value="Serum bactericidal titer"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21452">
+    <concept>
       <code value="0278"/>
       <display value="Agar screen"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21453">
+    <concept>
       <code value="0279"/>
       <display value="Disk induction"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="21943">
+  <concept>
     <code value="_AllergyTestObservationMethod"/>
     <display value="allergy test observation"/>
     <definition value="  Description:&#xD;&#xA;Provides additional methodology information not present in the associated AllergyTestCode term."/>
     <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
-  </concept>
-  <concept id="21944">
-    <code value="_CommonClinicalObservationMethod"/>
-    <display value="common clinical observation"/>
-    <definition value="  Description:&#xD;&#xA;Used in a patient care message to value simple clinical (non-lab) observation methods, such as found in SOAP (subjective, objective, assessment, plan) progress notes: subjective section (used for history from patient and other informants); objective section (used for physical exam, lab, and other common results), and assessment section (used for the clinicians assessment of the implications of subjective and objective sections)."/>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
   </concept>
-  <concept id="14206">
+  <concept>
+    <code value="_CommonClinicalObservationMethod"/>
+    <display value="common clinical observation"/>
+    <definition value="  Description:&#xD;&#xA;Used in a patient care message to value simple clinical (non-lab) observation methods, such as found in SOAP (subjective, objective, assessment, plan) progress notes: subjective section (used for history from patient and other informants); objective section (used for physical exam, lab, and other common results), and assessment section (used for the clinicians assessment of the implications of subjective and objective sections)."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept>
     <code value="0127"/>
     <display value="Nucleic acid probe"/>
     <definition value=" Molecular, Nucleic acid probe"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>

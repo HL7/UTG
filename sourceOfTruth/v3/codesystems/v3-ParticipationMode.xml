@@ -26,7 +26,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ParticipationMode"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1064"/>
@@ -41,79 +41,139 @@
   </contact>
   <description value=" A set of codes specifying the modality by which the Entity playing the Role is participating in the Act.  Examples:&#xD;&#xA;Physically present, over the telephone, written communication.  Rationale:&#xD;&#xA;Particularly for author (originator) participants this is used to specify whether the information represented by the act was initially provided verbally, (hand-)written, or electronically.  Open Issue:&#xD;&#xA;There needs to be a reexamination of the hierarchies as there seems to be some muddling between ELECTRONIC and other concepts that involve electronic communication that are in other hierarchies."/>
   <content value="complete"/>
-  <concept id="16554">
+  <concept>
     <code value="ELECTRONIC"/>
     <display value="electronic data"/>
     <definition value=" Participation by non-human-languaged based electronic signal"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="16556">
+  <concept>
     <code value="PHYSICAL"/>
     <display value="physical presence"/>
     <definition value=" Participation by direct action where subject and actor are in the same location. (The participation involves more than communication.)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="16557">
+  <concept>
     <code value="REMOTE"/>
     <display value="remote presence"/>
     <definition value=" Participation by direct action where subject and actor are in separate locations, and the actions of the actor are transmitted by electronic or mechanical means. (The participation involves more than communication.)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="16544">
+  <concept>
     <code value="VERBAL"/>
     <display value="verbal"/>
     <definition value=" Participation by voice communication"/>
-    <concept id="16547">
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="DICTATE"/>
       <display value="dictated"/>
       <definition value=" Participation by pre-recorded voice.  Communication is limited to one direction (from the recorder to recipient)."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="16545">
+    <concept>
       <code value="FACE"/>
       <display value="face-to-face"/>
       <definition value=" Participation by voice communication where parties speak to each other directly."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="16546">
+    <concept>
       <code value="PHONE"/>
       <display value="telephone"/>
       <definition value=" Participation by voice communication where the voices of the communicating parties are transported over an electronic medium"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="16548">
+    <concept>
       <code value="VIDEOCONF"/>
       <display value="videoconferencing"/>
       <definition value=" Participation by voice and visual communication where the voices and images of the communicating parties are transported over an electronic medium"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="16549">
+  <concept>
     <code value="WRITTEN"/>
     <display value="written"/>
     <definition value=" Participation by human language recorded on a physical material"/>
-    <concept id="16552">
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="FAXWRIT"/>
       <display value="telefax"/>
       <definition value=" Participation by text or diagrams printed on paper that have been transmitted over a fax device"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="16550">
+    <concept>
       <code value="HANDWRIT"/>
       <display value="handwritten"/>
       <definition value=" Participation by text or diagrams printed on paper or other recording medium"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23720">
+    <concept>
       <code value="MAILWRIT"/>
       <display value="mail"/>
       <definition value=" Participation by text or diagrams printed on paper transmitted physically (e.g. by courier service, postal service)."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23719">
+    <concept>
       <code value="ONLINEWRIT"/>
       <display value="online written"/>
       <definition value=" Participation by text or diagrams submitted by computer network, e.g. online survey."/>
-      <concept id="16553">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="EMAILWRIT"/>
         <display value="email"/>
         <definition value=" Participation by text or diagrams transmitted over an electronic mail system."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="16551">
+    <concept>
       <code value="TYPEWRIT"/>
       <display value="typewritten"/>
       <definition value=" Participation by text or diagrams printed on paper or other recording medium where the recording was performed using a typewriter, typesetter, computer or similar mechanism."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
 </CodeSystem>

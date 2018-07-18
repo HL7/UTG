@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ContainerCap"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ContainerCap"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.26"/>
@@ -26,39 +26,77 @@
   </contact>
   <description value=" The type of cap associated with a container"/>
   <content value="complete"/>
-  <concept id="21052">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <code value="_MedicationCap"/>
     <display value="MedicationCap"/>
     <definition value=" Cap types for medication containers"/>
-    <concept id="16186">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="CHILD"/>
       <display value="ChildProof"/>
       <definition value=" A cap designed to be difficult to open for children.  Generally requires multiple simultaneous actions (e.g. squeeze and twist) to open.  Used for products that may be dangerous if ingested or overdosed by children."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="16185">
+    <concept>
       <code value="EASY"/>
       <display value="EasyOpen"/>
       <definition value=" A cap designed to be easily removed.  For products intended to be opened by persons with limited strength or dexterity."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="14053">
+  <concept>
     <code value="FILM"/>
     <display value="Film"/>
     <definition value=" A non-reactive plastic film covering over the opening of a container."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14052">
+  <concept>
     <code value="FOIL"/>
     <display value="Foil"/>
     <definition value=" A foil covering (type of foil not specified) over the opening of a container"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14051">
+  <concept>
     <code value="PUSH"/>
     <display value="Push Cap"/>
     <definition value=" A non-threaded cap that forms a tight-fitting closure on a container by pushing the fitted end into the conatiner opening"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14050">
+  <concept>
     <code value="SCR"/>
     <display value="Screw Cap"/>
     <definition value=" A threaded cap that is screwed onto the opening of a container"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

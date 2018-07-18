@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ResponseLevel"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ResponseLevel"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.108"/>
@@ -26,39 +26,67 @@
   </contact>
   <description value=" Specifies whether a response is expected from the addressee of this interaction and what level of detail that response should include"/>
   <content value="complete"/>
-  <concept id="14763">
+  <concept>
     <code value="C"/>
     <display value="completion"/>
     <definition value=" Respond with exceptions and a notification of completion"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14765">
+  <concept>
     <code value="D"/>
     <display value="detail"/>
     <definition value=" Respond with exceptions, completion, modifications and include more detail information (if applicable)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14762">
+  <concept>
     <code value="E"/>
     <display value="exception"/>
     <definition value=" Respond with exceptions only"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14766">
+  <concept>
     <code value="F"/>
     <display value="confirmation"/>
     <definition value=" Respond with exceptions, completion, and modification with detail (as above), and send positive confirmations even if no modifications are being made."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14767">
+  <concept>
     <code value="N"/>
     <display value="message-control"/>
     <definition value=" Respond only with message level acknowledgements, i.e., only notify acceptance or rejection of the message, do not include any application-level detail"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14764">
+  <concept>
     <code value="R"/>
     <display value="modification"/>
     <definition value=" Respond with exceptions, completions and modifications or revisions done before completion"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14768">
+  <concept>
     <code value="X"/>
     <display value="none"/>
     <definition value=" Do not send any kind of response"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

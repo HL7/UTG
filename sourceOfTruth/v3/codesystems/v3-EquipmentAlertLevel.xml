@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-EquipmentAlertLevel"/>
   <language value="en"/>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EquipmentAlertLevel"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-EquipmentAlertLevel"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.49"/>
@@ -17,24 +17,40 @@
     <name value="Health Level Seven"/>
   </contact>
   <content value="complete"/>
-  <concept id="10900">
+  <concept>
     <code value="C"/>
     <display value="Critical"/>
     <definition value=" Shut Down, Fix Problem and Re-init"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10897">
+  <concept>
     <code value="N"/>
     <display value="Normal"/>
     <definition value=" No Corrective Action Needed"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10899">
+  <concept>
     <code value="S"/>
     <display value="Serious"/>
     <definition value=" Corrective Action Required"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10898">
+  <concept>
     <code value="W"/>
     <display value="Warning"/>
     <definition value=" Corrective Action Anticipated"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

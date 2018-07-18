@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-QueryPriority"/>
   <language value="en"/>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-QueryPriority"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-QueryPriority"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.102"/>
@@ -17,14 +17,22 @@
     <name value="Health Level Seven"/>
   </contact>
   <content value="complete"/>
-  <concept id="10145">
+  <concept>
     <code value="D"/>
     <display value="Deferred"/>
     <definition value=" Query response is deferred."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10146">
+  <concept>
     <code value="I"/>
     <display value="Immediate"/>
     <definition value=" Query response is immediate."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

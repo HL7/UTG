@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0167-2.8"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="OO"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
+    <valueUri value="http://hl7.org/v2/ch02c.html#Heading128"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
+    <valueString value="2.C.2.112"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
+    <valueCode value="HL7"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0167-2.8"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.85"/>
+  </identifier>
+  <version value="2"/>
+  <name value="V2Table0167v2.8"/>
+  <title value="V2 Table: Substitution Status"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2018-07-01"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/HL7/UTG"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts  which specify the substitution status.  Used in HL7 Version 2.x messaging in the RXE, RXD, and RXG segments."/>
+  <purpose value="Underlying Code System for V2 table 0167 (Substitution Status, version 2.8)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0167-2.8"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://healthintersections.com.au/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://healthintersections.com.au/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://healthintersections.com.au/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://healthintersections.com.au/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <code value="N"/>
+    <display value="No substitute was dispensed.  This is equivalent to the default (null) value."/>
+    <definition value="No substitute was dispensed.  This is equivalent to the default (null) value."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <code value="G"/>
+    <display value="A generic substitution was dispensed."/>
+    <definition value="A generic substitution was dispensed."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <code value="T"/>
+    <display value="A therapeutic substitution was dispensed."/>
+    <definition value="A therapeutic substitution was dispensed."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <code value="0"/>
+    <display value="No product selection indicated"/>
+    <definition value="No product selection indicated"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="5">
+    <code value="1"/>
+    <display value="Substitution not allowed by prescriber"/>
+    <definition value="Substitution not allowed by prescriber"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="6">
+    <code value="2"/>
+    <display value="Substitution allowed - patient requested product dispensed"/>
+    <definition value="Substitution allowed - patient requested product dispensed"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="7">
+    <code value="3"/>
+    <display value="Substitution allowed - pharmacist selected product dispensed"/>
+    <definition value="Substitution allowed - pharmacist selected product dispensed"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="8">
+    <code value="4"/>
+    <display value="Substitution allowed - generic drug not in stock"/>
+    <definition value="Substitution allowed - generic drug not in stock"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="9">
+    <code value="5"/>
+    <display value="Substitution allowed - brand drug dispensed as a generic"/>
+    <definition value="Substitution allowed - brand drug dispensed as a generic"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="10">
+    <code value="7"/>
+    <display value="Substitution not allowed - brand drug mandated by law"/>
+    <definition value="Substitution not allowed - brand drug mandated by law"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="11">
+    <code value="8"/>
+    <display value="Substitution allowed - generic drug not available in marketplace"/>
+    <definition value="Substitution allowed - generic drug not available in marketplace"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>

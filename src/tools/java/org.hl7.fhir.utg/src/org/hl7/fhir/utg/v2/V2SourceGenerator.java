@@ -701,9 +701,9 @@ public class V2SourceGenerator extends BaseGenerator {
     } else {
       cs.setId("v2-"+t.id+"-"+tv.version);
     }
-    cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/"+cs.getId());
+    cs.setUrl("http://terminology.hl7.org/CodeSystem/"+cs.getId());
     knownCS.add(cs.getUrl());
-    cs.setValueSet("http://hl7.org/fhir/ig/vocab-poc/ValueSet/"+cs.getId());
+    cs.setValueSet("http://terminology.hl7.org/ValueSet/"+cs.getId());
       
     cs.setVersion(tv.csversion);
     cs.setName("V2Table"+t.id);
@@ -776,9 +776,9 @@ public class V2SourceGenerator extends BaseGenerator {
   private void generateVersionCodeSystem(Table t, TableVersion tv, ListResource csManifest, ListResource vsManifest) throws FileNotFoundException, IOException {
     CodeSystem cs = new CodeSystem();
     cs.setId("v2-"+t.id+"-"+tv.version);
-    cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/"+cs.getId());
+    cs.setUrl("http://terminology.hl7.org/CodeSystem/"+cs.getId());
     knownCS.add(cs.getUrl());
-    cs.setValueSet("http://hl7.org/fhir/ig/vocab-poc/ValueSet/"+cs.getId());
+    cs.setValueSet("http://terminology.hl7.org/ValueSet/"+cs.getId());
       
     cs.setVersion(tv.csversion);
     cs.setName("V2Table"+t.id+"v"+tv.version);
@@ -874,7 +874,7 @@ public class V2SourceGenerator extends BaseGenerator {
   private ValueSet produceValueSet(String vid, CodeSystem cs, Table t, TableVersion tv) {
     ValueSet vs = new ValueSet();
     vs.setId(cs.getId());
-    vs.setUrl("http://hl7.org/fhir/ig/vocab-poc/ValueSet/"+vs.getId());
+    vs.setUrl("http://terminology.hl7.org/ValueSet/"+vs.getId());
     vs.setVersion(cs.getVersion());
     vs.setName("V2Table"+t.id+"Version"+vid);
     vs.setTitle("V2 Table "+t.id+" Version "+vid);
@@ -895,7 +895,7 @@ public class V2SourceGenerator extends BaseGenerator {
   public void generateTables() throws FileNotFoundException, IOException {
     CodeSystem cs = new CodeSystem();
     cs.setId("v2-tables");
-    cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/"+cs.getId());
+    cs.setUrl("http://hl7.org/terminology.hl7.org/CodeSystem/"+cs.getId());
     cs.setName("V2Tables");
     cs.setTitle("V2 Table List");
     cs.setStatus(PublicationStatus.ACTIVE);

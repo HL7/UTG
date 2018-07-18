@@ -14,7 +14,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ContentProcessingMode"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ContentProcessingMode"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1110"/>
@@ -29,14 +29,22 @@
   </contact>
   <description value="  Description:&#xD;&#xA;Identifies the order in which content should be processed."/>
   <content value="complete"/>
-  <concept id="21995">
+  <concept>
     <code value="SEQL"/>
     <display value="Sequential"/>
     <definition value="  Description:&#xD;&#xA;The content should be processed in a sequential fashion."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="21996">
+  <concept>
     <code value="UNOR"/>
     <display value="Unordered"/>
     <definition value="  Description:&#xD;&#xA;The content may be processed in any order."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-CalendarCycle"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-CalendarCycle"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.9"/>
@@ -26,13 +26,27 @@
   </contact>
   <description value=" Calendar cycle identifiers"/>
   <content value="complete"/>
-  <concept id="21046">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
       <valueString value="1211-20130629"/>
     </extension>
     <code value="_CalendarCycleOneLetter"/>
     <display value="CalendarCycleOneLetter"/>
-    <concept id="10689">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="CW"/>
       <display value="week (continuous)"/>
       <designation>
@@ -42,8 +56,16 @@
         </use>
         <value value="W"/>
       </designation>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10686">
+    <concept>
       <code value="CY"/>
       <display value="year"/>
       <designation>
@@ -53,8 +75,16 @@
         </use>
         <value value="Y"/>
       </designation>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10691">
+    <concept>
       <code value="D"/>
       <display value="day of the month"/>
       <designation>
@@ -64,8 +94,16 @@
         </use>
         <value value="DM"/>
       </designation>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10694">
+    <concept>
       <code value="DW"/>
       <display value="day of the week (begins with Monday)"/>
       <designation>
@@ -75,8 +113,16 @@
         </use>
         <value value="J"/>
       </designation>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10695">
+    <concept>
       <code value="H"/>
       <display value="hour of the day"/>
       <designation>
@@ -86,8 +132,16 @@
         </use>
         <value value="HD"/>
       </designation>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10687">
+    <concept>
       <code value="M"/>
       <display value="month of the year"/>
       <designation>
@@ -97,8 +151,16 @@
         </use>
         <value value="MY"/>
       </designation>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10697">
+    <concept>
       <code value="N"/>
       <display value="minute of the hour"/>
       <designation>
@@ -108,8 +170,16 @@
         </use>
         <value value="NH"/>
       </designation>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10699">
+    <concept>
       <code value="S"/>
       <display value="second of the minute"/>
       <designation>
@@ -119,9 +189,17 @@
         </use>
         <value value="SN"/>
       </designation>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="21047">
+  <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
       <valueString value="1211-20130629"/>
     </extension>
@@ -151,42 +229,90 @@
     </extension>
     <code value="_CalendarCycleTwoLetter"/>
     <display value="CalendarCycleTwoLetter"/>
-    <concept id="21048">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="_GregorianCalendarCycle"/>
       <display value="GregorianCalendarCycle"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10692">
+    <concept>
       <code value="CD"/>
       <display value="day (continuous)"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10696">
+    <concept>
       <code value="CH"/>
       <display value="hour (continuous)"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10688">
+    <concept>
       <code value="CM"/>
       <display value="month (continuous)"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10698">
+    <concept>
       <code value="CN"/>
       <display value="minute (continuous)"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10700">
+    <concept>
       <code value="CS"/>
       <display value="second (continuous)"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10693">
+    <concept>
       <code value="DY"/>
       <display value="day of the year"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10690">
+    <concept>
       <code value="WY"/>
       <display value="week of the year"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="23532">
+  <concept>
     <code value="WM"/>
     <display value="week of the month"/>
     <definition value=" The week with the month&#39;s first Thursday in it (analagous to the ISO 8601 definition for week of the year)."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

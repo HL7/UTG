@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-ActRelationshipJoin"/>
   <language value="en"/>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ActRelationshipJoin"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipJoin"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.12"/>
@@ -17,24 +17,40 @@
     <name value="Health Level Seven"/>
   </contact>
   <content value="complete"/>
-  <concept id="10364">
+  <concept>
     <code value="D"/>
     <display value="detached"/>
     <definition value=" Detach this branch from the other branches so it will not be resynchronized with the other branches."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10362">
+  <concept>
     <code value="K"/>
     <display value="kill"/>
     <definition value=" When all other concurrent branches are terminated, interrupt and discontinue this branch."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10361">
+  <concept>
     <code value="W"/>
     <display value="wait"/>
     <definition value=" Wait for this branch to terminate."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10363">
+  <concept>
     <code value="X"/>
     <display value="exclusive wait"/>
     <definition value=" Wait for any one of the branches in the set of exclusive wait branches to terminate, then discontinue all the other exclusive wait branches."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ResponseMode"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ResponseMode"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1126"/>
@@ -23,19 +23,31 @@
   <publisher value="HL7"/>
   <description value=" Specifies the mode, immediate versus deferred or queued, by which a receiver should communicate its receiver responsibilities."/>
   <content value="complete"/>
-  <concept id="21433">
+  <concept>
     <code value="D"/>
     <display value="deferred"/>
     <definition value=" The receiver may respond in a non-immediate manner. Note: this will be the default value."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="21432">
+  <concept>
     <code value="I"/>
     <display value="immediate"/>
     <definition value=" The receiver is required to assume that the sender is blocking and behave appropriately by sending an immediate response."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="21434">
+  <concept>
     <code value="Q"/>
     <display value="queue"/>
     <definition value=" The receiver shall keep any application responses in a queue until such time as the queue is polled."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

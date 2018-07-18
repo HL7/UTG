@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-RelationshipConjunction"/>
   <language value="en"/>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RelationshipConjunction"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-RelationshipConjunction"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.106"/>
@@ -17,19 +17,31 @@
     <name value="Health Level Seven"/>
   </contact>
   <content value="complete"/>
-  <concept id="10366">
+  <concept>
     <code value="AND"/>
     <display value="and"/>
     <definition value=" This condition must be true."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10367">
+  <concept>
     <code value="OR"/>
     <display value="or"/>
     <definition value=" At least one of the condition among all OR conditions must be true."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10368">
+  <concept>
     <code value="XOR"/>
     <display value="exclusive or"/>
     <definition value=" One and only one of the XOR conditions must be true."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

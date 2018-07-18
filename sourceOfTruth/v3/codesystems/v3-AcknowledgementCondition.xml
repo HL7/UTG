@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-AcknowledgementCondition"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-AcknowledgementCondition"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1050"/>
@@ -34,25 +34,41 @@
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
-  <concept id="10126">
+  <concept>
     <code value="AL"/>
     <display value="Always"/>
     <definition value=" Always send an acknowledgement."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10128">
+  <concept>
     <code value="ER"/>
     <display value="Error/reject only"/>
     <definition value=" Send an acknowledgement for error/reject conditions only."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10127">
+  <concept>
     <code value="NE"/>
     <display value="Never"/>
     <definition value=" Never send an acknowledgement."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10129">
+  <concept>
     <code value="SU"/>
     <display value="Successful only"/>
     <definition value=" Send an acknowledgement for successful completions only."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>

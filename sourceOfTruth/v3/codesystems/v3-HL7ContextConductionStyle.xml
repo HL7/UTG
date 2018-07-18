@@ -7,7 +7,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">The styles of context conduction usable by relationships within a static model derived from tyhe HL7 Reference Information Model.</div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-HL7ContextConductionStyle"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-HL7ContextConductionStyle"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1129"/>
@@ -22,19 +22,31 @@
   </contact>
   <description value="The styles of context conduction usable by relationships within a static model derived from tyhe HL7 Reference Information Model."/>
   <content value="complete"/>
-  <concept id="23085">
+  <concept>
     <code value="C"/>
     <display value="conduction-indicator-based"/>
     <definition value="  Definition:&#xD;&#xA;Context conduction is defined using the contextConductionCode and contextConductionInd attributes on ActRelationship and Participation.  UsageNotes:&#xD;&#xA;This approach is deprecated as of March, 2010."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="23084">
+  <concept>
     <code value="I"/>
     <display value="inferred"/>
     <definition value="  Definition:&#xD;&#xA;Context conduction is not explicitly defined.  The recipient of an instance must infer conduction based on the semantics of the model and what is deemed &quot;reasonable&quot;.  UsageNotes:&#xD;&#xA;Because this approach can lead to variation in instance interpretation, its use is discouraged."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="23086">
+  <concept>
     <code value="V"/>
     <display value="vocabulary-based"/>
     <definition value="  Definition:&#xD;&#xA;Context conduction is defined using the ActRelationship.blockedContextActRelationshipType and blockedContextParticipationType attributes and the &quot;conductible&quot; property on the ActRelationshipType and ParticipationType code systems."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

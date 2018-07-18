@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-EntityDeterminer"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-EntityDeterminer"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.30"/>
@@ -42,17 +42,25 @@
     <description value="The formal name for the class clone under this code"/>
     <type value="code"/>
   </property>
-  <concept id="10881">
+  <concept>
     <code value="INSTANCE"/>
     <display value="specific"/>
     <definition value="  Description:&#xD;&#xA;A determiner that specifies that the Entity object represents a particular physical thing (as opposed to a universal, kind, or class of physical thing).  Discussion:&#xD;&#xA;It does not matter whether an INSTANCE still exists as a whole at the point in time (or process) when we mention it, for example, a drug product lot is an INSTANCE even though it has been portioned out for retail purpose."/>
-    <concept id="23599">
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="GROUP"/>
       <display value="specific group"/>
       <definition value=" A determiner that specifies that the Entity object represents a particular collection of physical things (as opposed to a universal, kind, or class of physical thing).  While the collection may resolve to having only a single individual (or even no individuals), the potential should exist for it to cover multiple individuals."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="10879">
+  <concept>
     <code value="KIND"/>
     <display value="described"/>
     <definition value="  Description:&#xD;&#xA;A determiner that specifies that the Entity object represents a universal, kind or class of physical thing (as opposed to a particular thing)."/>
@@ -60,18 +68,30 @@
       <code value="Name:Class"/>
       <valueCode value="Kind"/>
     </property>
-    <concept id="23600">
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="GROUPKIND"/>
       <display value="described group"/>
       <definition value=" A determiner that specifies that the Entity object represents a universal, kind or class of collections physical things.  While the collection may resolve to having only a single individual (or even no individuals), the potential should exist for it to cover multiple individuals."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10880">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="589-20081114"/>
       </extension>
       <code value="QUANTIFIED_KIND"/>
       <display value="described quantified"/>
       <definition value=" The described quantified determiner indicates that the given Entity is taken as a general description of a specific amount of a thing. For example, QUANTIFIED_KIND of syringe (quantity = 3,) stands for exactly three syringes."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="retired"/>

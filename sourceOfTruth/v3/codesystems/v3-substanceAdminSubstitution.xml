@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-substanceAdminSubstitution"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-substanceAdminSubstitution"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1070"/>
@@ -26,54 +26,104 @@
   </contact>
   <description value=" Identifies what sort of change is permitted or has occurred between the therapy that was ordered and the therapy that was/will be provided."/>
   <content value="complete"/>
-  <concept id="21284">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <code value="_ActSubstanceAdminSubstitutionCode"/>
     <display value="ActSubstanceAdminSubstitutionCode"/>
     <definition value="  Description:&#xD;&#xA;Substitution occurred or is permitted with another product that may potentially have different ingredients, but having the same biological and therapeutic effects."/>
-    <concept id="23107">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="E"/>
       <display value="equivalent"/>
       <definition value="  Description:&#xD;&#xA;Substitution occurred or is permitted with another bioequivalent and therapeutically equivalent product."/>
-      <concept id="23108">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="EC"/>
         <display value="equivalent composition"/>
         <definition value="  Description:&#xD;&#xA; Substitution occurred or is permitted with another product that is a:  pharmaceutical alternative containing the same active ingredient but is formulated with different salt, ester pharmaceutical equivalent that has the same active ingredient, strength, dosage form and route of administration  Examples:&#xD;&#xA;   Pharmaceutical alternative:Erythromycin Ethylsuccinate for Erythromycin Stearate  Pharmaceutical equivalent:Lisonpril for Zestril"/>
-        <concept id="23109">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="BC"/>
           <display value="brand composition"/>
           <definition value="  Description:&#xD;&#xA; Substitution occurred or is permitted between equivalent Brands but not Generics  Examples:&#xD;&#xA;  Zestril  for Prinivil Coumadin for Jantoven"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="16623">
+        <concept>
           <code value="G"/>
           <display value="generic composition"/>
           <definition value="  Description:&#xD;&#xA;Substitution occurred or is permitted between equivalent Generics but not Brands  Examples:&#xD;&#xA;  Lisnopril (Lupin Corp) for Lisnopril (Wockhardt Corp)"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="16624">
+      <concept>
         <code value="TE"/>
         <display value="therapeutic alternative"/>
         <definition value="  Description:&#xD;&#xA;Substitution occurred or is permitted with another product having the same therapeutic objective and safety profile.  Examples:&#xD;&#xA;  ranitidine for Tagamet"/>
-        <concept id="23105">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="TB"/>
           <display value="therapeutic brand"/>
           <definition value="  Description:&#xD;&#xA;Substitution occurred or is permitted between therapeutically equivalent Brands but not Generics&gt; Examples:&#xD;&#xA;  Zantac for Tagamet"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23106">
+        <concept>
           <code value="TG"/>
           <display value="therapeutic generic"/>
           <definition value="  Description:&#xD;&#xA;Substitution occurred or is permitted between therapeutically equivalent Generics but not Brands&gt; Examples:&#xD;&#xA;  Ranitidine  for cimetidine"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
     </concept>
-    <concept id="16625">
+    <concept>
       <code value="F"/>
       <display value="formulary"/>
       <definition value="  Description:&#xD;&#xA;This substitution was performed or is permitted based on formulary guidelines."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="16622">
+    <concept>
       <code value="N"/>
       <display value="none"/>
       <definition value=" No substitution occurred or is permitted."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
 </CodeSystem>

@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-AddressUse"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-AddressUse"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1119"/>
@@ -26,99 +26,193 @@
   </contact>
   <description value=" Codes that provide guidance around the circumstances in which a given address should be used."/>
   <content value="complete"/>
-  <concept id="22729">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <code value="_GeneralAddressUse"/>
     <display value="_GeneralAddressUse"/>
     <definition value="  Description:&#xD;&#xA;Address uses that can apply to both postal and telecommunication addresses."/>
-    <concept id="22730">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="BAD"/>
       <display value="bad address"/>
       <definition value="  Description:&#xD;&#xA;A flag indicating that the address is bad, in fact, useless."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22731">
+    <concept>
       <code value="CONF"/>
       <display value="confidential address"/>
       <definition value="  Description:&#xD;&#xA;Indicates that the address is considered sensitive and should only be shared or published in accordance with organizational controls governing patient demographic information with increased sensitivity. Uses of Addresses.   Lloyd to supply more complete description."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22732">
+    <concept>
       <code value="H"/>
       <display value="home address"/>
       <definition value="  Description:&#xD;&#xA;A communication address at a home, attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available."/>
-      <concept id="22733">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="HP"/>
         <display value="primary home"/>
         <definition value="  Description:&#xD;&#xA;The primary home, to reach a person after business hours."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22734">
+      <concept>
         <code value="HV"/>
         <display value="vacation home"/>
         <definition value="  Description:&#xD;&#xA;A vacation home, to reach a person while on vacation."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="23468">
+    <concept>
       <code value="OLD"/>
       <display value="no longer in use"/>
       <definition value=" This address is no longer in use.  Usage Note:&#xD;&#xA;Address may also carry valid time ranges. This code is used to cover the situations where it is known that the address is no longer valid, but no particular time range for its use is known."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22735">
+    <concept>
       <code value="TMP"/>
       <display value="temporary address"/>
       <definition value="  Description:&#xD;&#xA;A temporary address, may be good for visit or mailing. Note that an address history can provide more detailed information."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22736">
+    <concept>
       <code value="WP"/>
       <display value="work place"/>
       <definition value="  Description:&#xD;&#xA;An office address. First choice for business related contacts during business hours."/>
-      <concept id="22737">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="DIR"/>
         <display value="direct"/>
         <definition value="  Description:&#xD;&#xA;Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a &#39;private line&#39;."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22738">
+      <concept>
         <code value="PUB"/>
         <display value="public"/>
         <definition value="  Description:&#xD;&#xA;Indicates a work place address or telecommunication address that is a &#39;standard&#39; address which may reach a reception service, mail-room, or other intermediary prior to the target entity."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
   </concept>
-  <concept id="22739">
+  <concept>
     <code value="_PostalAddressUse"/>
     <display value="_PostalAddressUse"/>
     <definition value="  Description:&#xD;&#xA;Address uses that only apply to postal addresses, not telecommunication addresses."/>
-    <concept id="22740">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="PHYS"/>
       <display value="physical visit address"/>
       <definition value="  Description:&#xD;&#xA;Used primarily to visit an address."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22741">
+    <concept>
       <code value="PST"/>
       <display value="postal address"/>
       <definition value="  Description:&#xD;&#xA;Used to send mail."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="22742">
+  <concept>
     <code value="_TelecommunicationAddressUse"/>
     <display value="_TelecommunicationAddressUse"/>
     <definition value="  Description:&#xD;&#xA;Address uses that only apply to telecommunication addresses, not postal addresses."/>
-    <concept id="22743">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="AS"/>
       <display value="answering service"/>
       <definition value="  Description:&#xD;&#xA;An automated answering machine used for less urgent cases and if the main purpose of contact is to leave a message or access an automated announcement."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22744">
+    <concept>
       <code value="EC"/>
       <display value="emergency contact"/>
       <definition value="  Description:&#xD;&#xA;A contact specifically designated to be used for emergencies. This is the first choice in emergencies, independent of any other use codes."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22745">
+    <concept>
       <code value="MC"/>
       <display value="mobile contact)"/>
       <definition value="  Description:&#xD;&#xA;A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22746">
+    <concept>
       <code value="PG"/>
       <display value="pager"/>
       <definition value="  Description:&#xD;&#xA;A paging device suitable to solicit a callback or to leave a very short message."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
 </CodeSystem>

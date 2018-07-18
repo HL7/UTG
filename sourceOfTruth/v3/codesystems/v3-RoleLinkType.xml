@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-RoleLinkType"/>
   <language value="en"/>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RoleLinkType"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-RoleLinkType"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.107"/>
@@ -49,7 +49,7 @@
     <description value="Sort key for outboundLink relationship from Role to RoleLink"/>
     <type value="code"/>
   </property>
-  <concept id="21429">
+  <concept>
     <code value="REL"/>
     <display value="related"/>
     <definition value=" An action taken with respect to a subject Entity by a regulatory or authoritative body with supervisory capacity over that entity. The action is taken in response to behavior by the subject Entity that body finds to be undesirable. Suspension, license restrictions, monetary fine, letter of reprimand, mandated training, mandated supervision, etc.Examples:&#xD;&#xA;"/>
@@ -69,7 +69,11 @@
       <code value="Sort:Role:outboundLink:RoleLink"/>
       <valueCode value="A________"/>
     </property>
-    <concept id="21302">
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
         <valueString value="PM TC needs to add an example that includes the notion of &quot;covers for&quot;, &quot;supports,&quot; &quot;delegates.&quot;   Need to consider additional concepts and a more precise definition."/>
       </extension>
@@ -92,8 +96,12 @@
         <code value="Sort:Role:outboundLink:RoleLink"/>
         <valueCode value="AE_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23100">
+    <concept>
       <code value="CONT"/>
       <display value="has contact"/>
       <definition value="This relationship indicates the target Role provides or receives information regarding the target role.  For example, AssignedEntity is a contact for a ServiceDeliveryLocation."/>
@@ -113,8 +121,12 @@
         <code value="Sort:Role:outboundLink:RoleLink"/>
         <valueCode value="AF_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="11605">
+    <concept>
       <code value="DIRAUTH"/>
       <display value="has direct authority over"/>
       <definition value=" The source Role has direct authority over the target role in a chain of authority."/>
@@ -134,13 +146,21 @@
         <code value="Sort:Role:outboundLink:RoleLink"/>
         <valueCode value="AA_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22184">
+    <concept>
       <code value="IDENT"/>
       <display value="Identification"/>
       <definition value="  Description:&#xD;&#xA;The source role provides identification for the target role. The source role must be IDENT. The player entity of the source role is constrained to be the same as (i.e. the equivalent of, or equal to) the player of the target role if present. If the player is absent from the source role, then it is assumed to be the same as the player of the target role."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="11606">
+    <concept>
       <code value="INDAUTH"/>
       <display value="has indirect authority over"/>
       <definition value=" The source Role has indirect authority over the target role in a chain of authority."/>
@@ -160,8 +180,12 @@
         <code value="Sort:Role:outboundLink:RoleLink"/>
         <valueCode value="AB_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="11604">
+    <concept>
       <code value="PART"/>
       <display value="has part"/>
       <definition value=" The target Role is part of the Source Role."/>
@@ -181,8 +205,12 @@
         <code value="Sort:Role:outboundLink:RoleLink"/>
         <valueCode value="AC_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="15952">
+    <concept>
       <code value="REPL"/>
       <display value="replaces"/>
       <definition value=" This relationship indicates that the source Role replaces (or subsumes) the target Role.  Allows for new identifiers and/or new effective time for a registry entry or a certification, etc."/>
@@ -201,6 +229,10 @@
       <property>
         <code value="Sort:Role:outboundLink:RoleLink"/>
         <valueCode value="AD_______"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
       </property>
     </concept>
   </concept>

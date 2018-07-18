@@ -16,7 +16,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ObservationValue"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1063"/>
@@ -39,1442 +39,2752 @@
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
-  <concept id="22268">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <code value="_ActCoverageAssessmentObservationValue"/>
     <display value="ActCoverageAssessmentObservationValue"/>
     <definition value=" Codes specify the category of observation, evidence, or document used to assess for services, e.g., discharge planning, or to establish eligibility for coverage under a policy or program. The type of evidence is coded as observation values."/>
-    <concept id="22306">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="_ActFinancialStatusObservationValue"/>
       <display value="ActFinancialStatusObservationValue"/>
       <definition value=" Code specifying financial indicators used to assess or establish eligibility for coverage under a policy or program; e.g., pay stub; tax or income document; asset document; living expenses."/>
-      <concept id="22316">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ASSET"/>
         <display value="asset"/>
         <definition value=" Codes specifying asset indicators used to assess or establish eligibility for coverage under a policy or program."/>
-        <concept id="22320">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="ANNUITY"/>
           <display value="annuity"/>
           <definition value=" Indicator of annuity ownership or status as beneficiary."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22317">
+        <concept>
           <code value="PROP"/>
           <display value="real property"/>
           <definition value=" Indicator of real property ownership, e.g., deed or real estate contract."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22318">
+        <concept>
           <code value="RETACCT"/>
           <display value="retirement investment account"/>
           <definition value=" Indicator of retirement investment account ownership."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22319">
+        <concept>
           <code value="TRUST"/>
           <display value="trust"/>
           <definition value=" Indicator of status as trust beneficiary."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="22307">
+      <concept>
         <code value="INCOME"/>
         <display value="income"/>
         <definition value=" Code specifying income indicators used to assess or establish eligibility for coverage under a policy or program; e.g., pay or pension check, child support payments received or provided, and taxes paid."/>
-        <concept id="22311">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="CHILD"/>
           <display value="child support"/>
           <definition value=" Indicator of child support payments received or provided."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22314">
+        <concept>
           <code value="DISABL"/>
           <display value="disability pay"/>
           <definition value=" Indicator of disability income replacement payment."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22310">
+        <concept>
           <code value="INVEST"/>
           <display value="investment income"/>
           <definition value=" Indicator of investment income, e.g., dividend check, annuity payment; real estate rent, investment divestiture proceeds; trust or endowment check."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22308">
+        <concept>
           <code value="PAY"/>
           <display value="paid employment"/>
           <definition value=" Indicator of paid employment, e.g., letter of hire, contract, employer letter; copy of pay check or pay stub."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22309">
+        <concept>
           <code value="RETIRE"/>
           <display value="retirement pay"/>
           <definition value=" Indicator of retirement payment, e.g., pension check."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22312">
+        <concept>
           <code value="SPOUSAL"/>
           <display value="spousal or partner support"/>
           <definition value=" Indicator of spousal or partner support payments received or provided; e.g., alimony payment; support stipulations in a divorce settlement."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22313">
+        <concept>
           <code value="SUPPLE"/>
           <display value="income supplement"/>
           <definition value=" Indicator of income supplement, e.g., gifting, parental income support; stipend, or grant."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22315">
+        <concept>
           <code value="TAX"/>
           <display value="tax obligation"/>
           <definition value=" Indicator of tax obligation or payment, e.g., statement of taxable income."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="22321">
+      <concept>
         <code value="LIVEXP"/>
         <display value="living expense"/>
         <definition value=" Codes specifying living expense indicators used to assess or establish eligibility for coverage under a policy or program."/>
-        <concept id="22327">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="CLOTH"/>
           <display value="clothing expense"/>
           <definition value=" Indicator of clothing expenses."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22329">
+        <concept>
           <code value="FOOD"/>
           <display value="food expense"/>
           <definition value=" Indicator of transportation expenses."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22326">
+        <concept>
           <code value="HEALTH"/>
           <display value="health expense"/>
           <definition value=" Indicator of health expenses; including medication costs, health service costs, financial participations, and health coverage premiums."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22324">
+        <concept>
           <code value="HOUSE"/>
           <display value="household expense"/>
           <definition value=" Indicator of housing expense, e.g., household appliances, fixtures, furnishings, and maintenance and repairs."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22328">
+        <concept>
           <code value="LEGAL"/>
           <display value="legal expense"/>
           <definition value=" Indicator of legal expenses."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22323">
+        <concept>
           <code value="MORTG"/>
           <display value="mortgage"/>
           <definition value=" Indicator of mortgage amount, interest, and payments."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22322">
+        <concept>
           <code value="RENT"/>
           <display value="rent"/>
           <definition value=" Indicator of rental or lease payments."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22330">
+        <concept>
           <code value="SUNDRY"/>
           <display value="sundry expense"/>
           <definition value=" Indicator of transportation expenses."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22325">
+        <concept>
           <code value="TRANS"/>
           <display value="transportation expense"/>
           <definition value=" Indicator of transportation expenses, e.g., vehicle payments, vehicle insurance, vehicle fuel, and vehicle maintenance and repairs."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="22331">
+        <concept>
           <code value="UTIL"/>
           <display value="utility expense"/>
           <definition value=" Indicator of transportation expenses."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
     </concept>
-    <concept id="22295">
+    <concept>
       <code value="ELSTAT"/>
       <display value="eligibility indicator"/>
       <definition value=" Code specifying eligibility indicators used to assess or establish eligibility for coverage under a policy or program eligibility status, e.g., certificates of creditable coverage; student enrollment; adoption, marriage or birth certificate."/>
-      <concept id="22304">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ADOPT"/>
         <display value="adoption document"/>
         <definition value=" Indicator of adoption."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22303">
+      <concept>
         <code value="BTHCERT"/>
         <display value="birth certificate"/>
         <definition value=" Indicator of birth."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22299">
+      <concept>
         <code value="CCOC"/>
         <display value="creditable coverage document"/>
         <definition value=" Indicator of creditable coverage."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22301">
+      <concept>
         <code value="DRLIC"/>
         <display value="driver license"/>
         <definition value=" Indicator of driving status."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22305">
+      <concept>
         <code value="FOSTER"/>
         <display value="foster child document"/>
         <definition value=" Indicator of foster child status."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22296">
+      <concept>
         <code value="MEMBER"/>
         <display value="program or policy member"/>
         <definition value=" Indicator of status as covered member under a policy or program, e.g., member id card or coverage document."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22302">
+      <concept>
         <code value="MIL"/>
         <display value="military identification"/>
         <definition value=" Indicator of military status."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22300">
+      <concept>
         <code value="MRGCERT"/>
         <display value="marriage certificate"/>
         <definition value=" Indicator of marriage status."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22297">
+      <concept>
         <code value="PASSPORT"/>
         <display value="passport"/>
         <definition value=" Indicator of citizenship."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22298">
+      <concept>
         <code value="STUDENRL"/>
         <display value="student enrollment"/>
         <definition value=" Indicator of student status."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="22290">
+    <concept>
       <code value="HLSTAT"/>
       <display value="health status"/>
       <definition value=" Code specifying non-clinical indicators related to health status used to assess or establish eligibility for coverage under a policy or program, e.g., pregnancy, disability, drug use, mental health issues."/>
-      <concept id="22293">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="DISABLE"/>
         <display value="disabled"/>
         <definition value=" Indication of disability."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22294">
+      <concept>
         <code value="DRUG"/>
         <display value="drug use"/>
         <definition value=" Indication of drug use."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22292">
+      <concept>
         <code value="IVDRG"/>
         <display value="IV drug use"/>
         <definition value=" Indication of IV drug use ."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22291">
+      <concept>
         <code value="PGNT"/>
         <display value="pregnant"/>
         <definition value=" Non-clinical report of pregnancy."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="22286">
+    <concept>
       <code value="LIVDEP"/>
       <display value="living dependency"/>
       <definition value=" Code specifying observations related to living dependency, such as dependent upon spouse for activities of daily living."/>
-      <concept id="22288">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="RELDEP"/>
         <display value="relative dependent"/>
         <definition value=" Continued living in private residence requires functional and health care assistance from one or more relatives."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22287">
+      <concept>
         <code value="SPSDEP"/>
         <display value="spouse dependent"/>
         <definition value=" Continued living in private residence requires functional and health care assistance from spouse or life partner."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22289">
+      <concept>
         <code value="URELDEP"/>
         <display value="unrelated person dependent"/>
         <definition value=" Continued living in private residence requires functional and health care assistance from one or more unrelated persons."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="22277">
+    <concept>
       <code value="LIVSIT"/>
       <display value="living situation"/>
       <definition value=" Code specifying observations related to living situation for a person in a private residence."/>
-      <concept id="22281">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ALONE"/>
         <display value="alone"/>
         <definition value=" Living alone.  Maps to PD1-2   Living arrangement   (IS)   00742 [A]"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22278">
+      <concept>
         <code value="DEPCHD"/>
         <display value="dependent children"/>
         <definition value=" Living with one or more dependent children requiring moderate supervision."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22280">
+      <concept>
         <code value="DEPSPS"/>
         <display value="dependent spouse"/>
         <definition value=" Living with disabled spouse requiring functional and health care assistance"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22279">
+      <concept>
         <code value="DEPYGCHD"/>
         <display value="dependent young children"/>
         <definition value=" Living with one or more dependent children requiring intensive supervision"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22284">
+      <concept>
         <code value="FAM"/>
         <display value="live with family"/>
         <definition value=" Living with family. Maps to PD1-2   Living arrangement   (IS)   00742 [F]"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22283">
+      <concept>
         <code value="RELAT"/>
         <display value="relative"/>
         <definition value=" Living with one or more relatives. Maps to PD1-2   Living arrangement   (IS)   00742 [R]"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22282">
+      <concept>
         <code value="SPS"/>
         <display value="spouse only"/>
         <definition value=" Living only with spouse or life partner. Maps to PD1-2   Living arrangement   (IS)   00742 [S]"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22285">
+      <concept>
         <code value="UNREL"/>
         <display value="unrelated person"/>
         <definition value=" Living with one or more unrelated persons."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="22269">
+    <concept>
       <code value="SOECSTAT"/>
       <display value="socio economic status"/>
       <definition value=" Code specifying observations or indicators related to socio-economic status used to assess to assess for services, e.g., discharge planning, or to establish eligibility for coverage under a policy or program."/>
-      <concept id="22275">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ABUSE"/>
         <display value="abuse victim"/>
         <definition value=" Indication of abuse victim."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22270">
+      <concept>
         <code value="HMLESS"/>
         <display value="homeless"/>
         <definition value=" Indication of status as homeless."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22271">
+      <concept>
         <code value="ILGIM"/>
         <display value="illegal immigrant"/>
         <definition value=" Indication of status as illegal immigrant."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22272">
+      <concept>
         <code value="INCAR"/>
         <display value="incarcerated"/>
         <definition value=" Indication of status as incarcerated."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22273">
+      <concept>
         <code value="PROB"/>
         <display value="probation"/>
         <definition value=" Indication of probation status."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22276">
+      <concept>
         <code value="REFUG"/>
         <display value="refugee"/>
         <definition value=" Indication of refugee status."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22274">
+      <concept>
         <code value="UNEMPL"/>
         <display value="unemployed"/>
         <definition value=" Indication of unemployed status."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
   </concept>
-  <concept id="21496">
+  <concept>
     <code value="_AllergyTestValue"/>
     <display value="AllergyTestValue"/>
     <definition value=" Indicates the result of a particular allergy test.  E.g. Negative, Mild, Moderate, Severe"/>
-    <concept id="22816">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="A0"/>
       <display value="no reaction"/>
       <definition value="  Description:&#xD;&#xA;Patient exhibits no reaction to the challenge agent."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22817">
+    <concept>
       <code value="A1"/>
       <display value="minimal reaction"/>
       <definition value="  Description:&#xD;&#xA;Patient exhibits a minimal reaction to the challenge agent."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22818">
+    <concept>
       <code value="A2"/>
       <display value="mild reaction"/>
       <definition value="  Description:&#xD;&#xA;Patient exhibits a mild reaction to the challenge agent."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22819">
+    <concept>
       <code value="A3"/>
       <display value="moderate reaction"/>
       <definition value="  Description:&#xD;&#xA;Patient exhibits moderate reaction to the challenge agent."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22820">
+    <concept>
       <code value="A4"/>
       <display value="severe reaction"/>
       <definition value="  Description:&#xD;&#xA;Patient exhibits a severe reaction to the challenge agent."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="23783">
+  <concept>
     <code value="_CompositeMeasureScoring"/>
     <display value="CompositeMeasureScoring"/>
     <definition value=" Observation values that communicate the method used in a quality measure to combine the component measure results included in an composite measure."/>
-    <concept id="23784">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="ALLORNONESCR"/>
       <display value="All-or-nothing Scoring"/>
       <definition value=" Code specifying that the measure uses all-or-nothing scoring. All-or-nothing scoring places an individual in the numerator of the composite measure if and only if they are in the numerator of all component measures in which they are in the denominator."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23785">
+    <concept>
       <code value="LINEARSCR"/>
       <display value="Linear Scoring"/>
       <definition value=" Code specifying that the measure uses linear scoring. Linear scoring computes the fraction of component measures in which the individual appears in the numerator, giving equal weight to each component measure."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23786">
+    <concept>
       <code value="OPPORSCR"/>
       <display value="Opportunity Scoring"/>
       <definition value=" Code specifying that the measure uses opportunity-based scoring. In opportunity-based scoring the measure score is determined by combining the denominator and numerator of each component measure to determine an overall composite score."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23787">
+    <concept>
       <code value="WEIGHTSCR"/>
       <display value="Weighted Scoring"/>
       <definition value=" Code specifying that the measure uses weighted scoring. Weighted scoring assigns a factor to each component measure to weight that measure&#39;s contribution to the overall score."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="22627">
+  <concept>
     <code value="_CoverageLimitObservationValue"/>
     <display value="CoverageLimitObservationValue"/>
     <definition value="  Description:&#xD;&#xA;Coded observation values for coverage limitations, for e.g., types of claims or types of parties covered under a policy or program."/>
-    <concept id="22630">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="_CoverageLevelObservationValue"/>
       <display value="CoverageLevelObservationValue"/>
       <definition value="  Description:&#xD;&#xA;Coded observation values for types of covered parties under a policy or program based on their personal relationships or employment status."/>
-      <concept id="22631">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ADC"/>
         <display value="adult child"/>
         <definition value="  Description:&#xD;&#xA;Child over an age as specified by coverage policy or program, e.g., student, differently abled, and income dependent."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22632">
+      <concept>
         <code value="CHD"/>
         <display value="child"/>
         <definition value="  Description:&#xD;&#xA;Dependent biological, adopted, foster child as specified by coverage policy or program."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22633">
+      <concept>
         <code value="DEP"/>
         <display value="dependent"/>
         <definition value="  Description:&#xD;&#xA;Person requiring functional and/or financial assistance from another person as specified by coverage policy or program."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22634">
+      <concept>
         <code value="DP"/>
         <display value="domestic partner"/>
         <definition value="  Description:&#xD;&#xA;Persons registered as a family unit in a domestic partner registry as specified by law and by coverage policy or program."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22635">
+      <concept>
         <code value="ECH"/>
         <display value="employee"/>
         <definition value="  Description:&#xD;&#xA;An individual employed by an employer who receive remuneration in wages, salary, commission, tips, piece-rates, or pay-in-kind through the employeraTMs payment system (i.e., not a contractor) as specified by coverage policy or program."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22636">
+      <concept>
         <code value="FLY"/>
         <display value="family coverage"/>
         <definition value="  Description:&#xD;&#xA;As specified by coverage policy or program."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22637">
+      <concept>
         <code value="IND"/>
         <display value="individual"/>
         <definition value="  Description:&#xD;&#xA;Person as specified by coverage policy or program."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22638">
+      <concept>
         <code value="SSP"/>
         <display value="same sex partner"/>
         <definition value="  Description:&#xD;&#xA;A pair of people of the same gender who live together as a family as specified by coverage policy or program, e.g., Naomi and Ruth from the Book of Ruth; Socrates and Alcibiades"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="22629">
+    <concept>
       <code value="_CoverageItemLimitObservationValue"/>
       <display value="CoverageItemLimitObservationValue"/>
       <definition value="  Description:&#xD;&#xA;Coded observation values for types or instances of items for which coverage is provided under a policy or program, e.g., a type of vehicle or a named work of art."/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
-    <concept id="22628">
+    <concept>
       <code value="_CoverageLocationLimitObservationValue"/>
       <display value="CoverageLocationLimitObservationValue"/>
       <definition value="  Description:&#xD;&#xA;Coded observation values for types or instances of locations for which coverage is provided under a policy or program, e.g., in the covered party home, in state or in the country."/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
   </concept>
-  <concept id="23726">
+  <concept>
     <code value="_CriticalityObservationValue"/>
     <display value="CriticalityObservationValue"/>
     <definition value=" A clinical judgment as to the worst case result of a future exposure (including substance administration). When the worst case result is assessed to have a life-threatening or organ system threatening potential, it is considered to be of high criticality."/>
-    <concept id="23727">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="CRITH"/>
       <display value="high criticality"/>
       <definition value=" Worst case result of a future exposure is assessed to be life-threatening or having high potential for organ system failure."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23728">
+    <concept>
       <code value="CRITL"/>
       <display value="low criticality"/>
       <definition value=" Worst case result of a future exposure is not assessed to be life-threatening or having high potential for organ system failure."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23729">
+    <concept>
       <code value="CRITU"/>
       <display value="unable to assess criticality"/>
       <definition value=" Unable to assess the worst case result of a future exposure."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="22648">
+  <concept>
     <code value="_GeneticObservationValue"/>
     <display value="GeneticObservationValue"/>
     <definition value="  Description:&#xD;&#xA;The domain contains genetic analysis specific observation values, e.g. Homozygote, Heterozygote, etc."/>
-    <concept id="22649">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="Homozygote"/>
       <display value="HOMO"/>
       <definition value="  Description:&#xD;&#xA;An individual having different alleles at one or more loci regarding a specific character"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="23037">
+  <concept>
     <code value="_ObservationMeasureScoring"/>
     <display value="ObservationMeasureScoring"/>
     <definition value=" Observation values used to indicate the type of scoring (e.g. proportion, ratio) used by a health quality measure."/>
-    <concept id="23553">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="COHORT"/>
       <display value="cohort measure scoring"/>
       <definition value=" A measure in which either short-term cross-section or long-term longitudinal analysis is performed over a group of subjects defined by a set of common properties or defining characteristics (e.g., Male smokers between the ages of 40 and 50 years, exposure to treatment, exposure duration)."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23038">
+    <concept>
       <code value="CONTVAR"/>
       <display value="continuous variable measure scoring"/>
       <definition value=" A measure score in which each individual value for the measure can fall anywhere along a continuous scale (e.g., mean time to thrombolytics which aggregates the time in minutes from a case presenting with chest pain to the time of administration of thrombolytics)."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23039">
+    <concept>
       <code value="PROPOR"/>
       <display value="proportion measure scoring"/>
       <definition value=" A score derived by dividing the number of cases that meet a criterion for quality (the numerator) by the number of eligible cases within a given time frame (the denominator) where the numerator cases are a subset of the denominator cases (e.g., percentage of eligible women with a mammogram performed in the last year)."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23040">
+    <concept>
       <code value="RATIO"/>
       <display value="ratio measure scoring"/>
       <definition value=" A score that may have a value of zero or greater that is derived by dividing a count of one type of data by a count of another type of data (e.g., the number of patients with central lines who develop infection divided by the number of central line days)."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="23041">
+  <concept>
     <code value="_ObservationMeasureType"/>
     <display value="ObservationMeasureType"/>
     <definition value=" Observation values used to indicate what kind of health quality measure is used."/>
-    <concept id="23650">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="COMPOSITE"/>
       <display value="composite measure type"/>
       <definition value=" A measure that is composed from one or more other measures and indicates an overall summary of those measures."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23652">
+    <concept>
       <code value="EFFICIENCY"/>
       <display value="efficiency measure type"/>
       <definition value=" A measure related to the efficiency of medical treatment."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23653">
+    <concept>
       <code value="EXPERIENCE"/>
       <display value="experience measure type"/>
       <definition value=" A measure related to the level of patient engagement or patient experience of care."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23042">
+    <concept>
       <code value="OUTCOME"/>
       <display value="outcome measure type"/>
       <definition value=" A measure that indicates the result of the performance (or non-performance) of a function or process."/>
-      <concept id="23862">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="INTERM-OM"/>
         <display value="intermediate clinical outcome measure"/>
         <definition value=" A measure that evaluates the change over time of a physiologic state observable that is associated with a specific long-term health outcome."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="23861">
+      <concept>
         <code value="PRO-PM"/>
         <display value="intermediate clinical outcome measure"/>
         <definition value=" A measure that is a comparison of patient reported outcomes for a single or multiple patients collected via an instrument specifically designed to obtain input directly from patients."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="23043">
+    <concept>
       <code value="PROCESS"/>
       <display value="process measure type"/>
       <definition value=" A measure which focuses on a process which leads to a certain outcome, meaning that a scientific basis exists for believing that the process, when executed well, will increase the probability of achieving a desired outcome."/>
-      <concept id="23863">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="APPROPRIATE"/>
         <display value="appropriate use process measure"/>
         <definition value=" A measure that assesses the use of one or more processes where the expected health benefit exceeds the expected negative consequences."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="23651">
+    <concept>
       <code value="RESOURCE"/>
       <display value="resource use measure type"/>
       <definition value=" A measure related to the extent of use of clinical resources or cost of care."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23654">
+    <concept>
       <code value="STRUCTURE"/>
       <display value="structure measure type"/>
       <definition value=" A measure related to the structure of patient care."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="23044">
+  <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
       <valueString value="1221-20130726"/>
     </extension>
     <code value="_ObservationPopulationInclusion"/>
     <display value="ObservationPopulationInclusion"/>
     <definition value=" Observation values used to assert various populations that a subject falls into."/>
-    <concept id="23442">
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1221-20130726"/>
       </extension>
       <code value="DENEX"/>
       <display value="denominator exclusions"/>
       <definition value=" Patients who should be removed from the eMeasure population and denominator before determining if numerator criteria are met. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23046">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1221-20130726"/>
       </extension>
       <code value="DENEXCEP"/>
       <display value="denominator exceptions"/>
       <definition value=" Denominator exceptions are those conditions that should remove a patient, procedure or unit of measurement from the denominator only if the numerator criteria are not met. Denominator exceptions allow for adjustment of the calculated score for those providers with higher risk populations. Denominator exceptions are used only in proportion eMeasures. They are not appropriate for ratio or continuous variable eMeasures.  Denominator exceptions allow for the exercise of clinical judgment and should be specifically defined where capturing the information in a structured manner fits the clinical workflow. Generic denominator exception reasons used in proportion eMeasures fall into three general categories:  Medical reasons Patient reasons System reasons"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23045">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1221-20130726"/>
       </extension>
       <code value="DENOM"/>
       <display value="denominator"/>
       <definition value=" It can be the same as the initial patient population or a subset of the initial patient population to further constrain the population for the purpose of the eMeasure. Different measures within an eMeasure set may have different Denominators. Continuous Variable eMeasures do not have a Denominator, but instead define a Measure Population."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23528">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1221-20130726"/>
       </extension>
       <code value="IP"/>
       <display value="initial population"/>
       <definition value=" The initial population refers to all entities to be evaluated by a specific quality measure who share a common set of specified characteristics within a specific measurement set to which a given measure belongs."/>
-      <concept id="23047">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
           <valueString value="1221-20130726"/>
         </extension>
         <code value="IPP"/>
         <display value="initial patient population"/>
         <definition value=" The initial patient population refers to all patients to be evaluated by a specific quality measure who share a common set of specified characteristics within a specific measurement set to which a given measure belongs. Details often include information based upon specific age groups, diagnoses, diagnostic and procedure codes, and enrollment periods."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="23048">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1221-20130726"/>
       </extension>
       <code value="MSRPOPL"/>
       <display value="measure population"/>
       <definition value=" Measure population is used only in continuous variable eMeasures. It is a narrative description of the eMeasure population. &#xA;(e.g., all patients seen in the Emergency Department during the measurement period)."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23049">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1221-20130726"/>
       </extension>
       <code value="NUMER"/>
       <display value="numerator"/>
       <definition value=" Numerators are used in proportion and ratio eMeasures. In proportion measures the numerator criteria are the processes or outcomes expected for each patient, procedure, or other unit of measurement defined in the denominator. In ratio measures the numerator is related, but not directly derived from the denominator (e.g., a numerator listing the number of central line blood stream infections and a denominator indicating the days per thousand of central line usage in a specific time period)."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23443">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1221-20130726"/>
       </extension>
       <code value="NUMEX"/>
       <display value="numerator exclusions"/>
       <definition value=" Numerator Exclusions are used only in ratio eMeasures to define instances that should not be included in the numerator data. (e.g., if the number of central line blood stream infections per 1000 catheter days were to exclude infections with a specific bacterium, that bacterium would be listed as a numerator exclusion.)"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="21099">
+  <concept>
     <code value="_PartialCompletionScale"/>
     <display value="PartialCompletionScale"/>
-    <concept id="18126">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="G"/>
       <display value="Great extent"/>
       <definition value=" Value for Act.partialCompletionCode attribute that implies 81-99% completion"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="18125">
+    <concept>
       <code value="LE"/>
       <display value="Large extent"/>
       <definition value=" Value for Act.partialCompletionCode attribute that implies 61-80% completion"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="18124">
+    <concept>
       <code value="ME"/>
       <display value="Medium extent"/>
       <definition value=" Value for Act.partialCompletionCode attribute that implies 41-60% completion"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="18122">
+    <concept>
       <code value="MI"/>
       <display value="Minimal extent"/>
       <definition value=" Value for Act.partialCompletionCode attribute that implies 1-20% completion"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="18121">
+    <concept>
       <code value="N"/>
       <display value="None"/>
       <definition value=" Value for Act.partialCompletionCode attribute that implies 0% completion"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="18123">
+    <concept>
       <code value="S"/>
       <display value="Some extent"/>
       <definition value=" Value for Act.partialCompletionCode attribute that implies 21-40% completion"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="23483">
+  <concept>
     <code value="_SecurityObservationValue"/>
     <display value="SecurityObservationValue"/>
     <definition value=" Observation values used to indicate security observation metadata."/>
-    <concept id="23485">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="_SECCATOBV"/>
       <display value="security category"/>
       <definition value=" Abstract security observation values used to indicate security category metadata.  Examples:&#xD;&#xA;Codes conveying:  privacy law information sensitivity consent directive types"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23484">
+    <concept>
       <code value="_SECCLASSOBV"/>
       <display value="security classification"/>
       <definition value=" Abstract security observation values used to indicate security classification metadata.  Examples:&#xD;&#xA;Confidentiality Codes"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23486">
+    <concept>
       <code value="_SECCONOBV"/>
       <display value="security control"/>
       <definition value=" Abstract security observation values used to indicate security control metadata.  Examples:&#xD;&#xA;Codes conveying dissemination controls, information handling caveats, purpose of use, refrain policies, and obligations to which custodians and information receivers must comply."/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23487">
+    <concept>
       <code value="_SECINTOBV"/>
       <display value="security integrity"/>
       <definition value=" Abstract security observation values used to indicate security integrity metadata.  Examples:&#xD;&#xA;Codes conveying integrity status, integrity confidence, and provenance."/>
-      <concept id="23497">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="_SECALTINTOBV"/>
         <display value="alteration integrity"/>
         <definition value=" Abstract security metadata observation values used to indicate mechanism used for authorized alteration of an IT resource (data, information object, service, or system capability)"/>
-        <concept id="23498">
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="ABSTRED"/>
           <display value="abstracted"/>
           <definition value=" Security metadata observation values used to indicate the use of a more abstract version of the content, e.g., replacing exact value of an age or date field with a range, or remove the left digits of a credit card number or SSN."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23499">
+        <concept>
           <code value="AGGRED"/>
           <display value="aggregated"/>
           <definition value=" Security metadata observation values used to indicate the use of an algorithmic combination of actual values with the result of an aggregate function, e.g., average, sum, or count in order to limit disclosure of an IT resource (data, information object, service, or system capability) to the minimum necessary."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23500">
+        <concept>
           <code value="ANONYED"/>
           <display value="anonymized"/>
           <definition value=" Security metadata observation value conveying the alteration integrity of an IT resource (data, information object, service, or system capability) by used to indicate the mechanism by which software systems can strip portions of the resource that could allow the identification of the source of the information or the information subject.  No key to relink the data is retained."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23501">
+        <concept>
           <code value="MAPPED"/>
           <display value="mapped"/>
           <definition value=" Security metadata observation value used to indicate that the IT resource semantic content has been transformed from one encoding to another.  Usage Note:&#xD;&#xA;&quot;MAP&quot; code does not indicate the semantic fidelity of the transformed content. To indicate semantic fidelity for maps of HL7 to other code systems, this security alteration integrity observation may be further specified using an Act valued with Value Set: MapRelationship (2.16.840.1.113883.1.11.11052). Semantic fidelity of the mapped IT Resource may also be indicated using a SecurityIntegrityConfidenceObservation."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23502">
+        <concept>
           <code value="MASKED"/>
           <display value="masked"/>
           <definition value=" Security metadata observation value conveying the alteration integrity of an IT resource (data, information object, service, or system capability) by indicating the mechanism by which software systems can make data unintelligible (that is, as unreadable and unusable by algorithmically transforming plaintext into ciphertext) such that it can only be accessed or used by authorized users.  An authorized user may be provided a key to decrypt per license or &quot;shared secret&quot;.  Usage Note:&#xD;&#xA;&quot;MASKED&quot; may be used, per applicable policy, as a flag to indicate to a user or receiver that some portion of an IT resource has been further encrypted, and may be accessed only by an authorized user or receiver to which a decryption key is provided."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23503">
+        <concept>
           <code value="PSEUDED"/>
           <display value="pseudonymized"/>
           <definition value=" Security metadata observation value conveying the alteration integrity of an IT resource (data, information object, service, or system capability), by indicating the mechanism by which software systems can strip portions of the resource that could allow the identification of the source of the information or the information subject.  Custodian may retain a key to relink data necessary to reidentify the information subject.  Rationale:&#xD;&#xA;Personal data which has been processed to make it impossible to know whose data it is. Used particularly for secondary use of health data. In some cases, it may be possible for authorized individuals to restore the identity of the individual, e.g.,for public health case management.  Based on ISO/TS 25237:2008 Health informatics&#xE2;&#x20AC;&#x201D;Pseudonymization"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23504">
+        <concept>
           <code value="REDACTED"/>
           <display value="redacted"/>
           <definition value=" Security metadata observation value used to indicate the mechanism by which software systems can filter an IT resource (data, information object, service, or system capability) to remove any portion of the resource that is not authorized to be access, used, or disclosed.  Usage Note:&#xD;&#xA;&quot;REDACTED&quot; may be used, per applicable policy, as a flag to indicate to a user or receiver that some portion of an IT resource has filtered and not included in the content accessed or received."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23730">
+        <concept>
           <code value="SUBSETTED"/>
           <display value="subsetted"/>
           <definition value=" Metadata observation used to indicate that some information has been removed from the source object when the view this object contains was constructed because of configuration options when the view was created. The content may not be suitable for use as the basis of a record update  Usage Note:&#xD;&#xA;This is not suitable to be used when information is removed for security reasons - see the code REDACTED for this use."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23505">
+        <concept>
           <code value="SYNTAC"/>
           <display value="syntactic transform"/>
           <definition value=" Security metadata observation value used to indicate that the IT resource syntax has been transformed from one syntactical representation to another.  Usage Note:&#xD;&#xA;&quot;SYNTAC&quot; code does not indicate the syntactical correctness of the syntactically transformed IT resource."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23506">
+        <concept>
           <code value="TRSLT"/>
           <display value="translated"/>
           <definition value=" Security metadata observation value used to indicate that the IT resource has been translated from one human language to another.  Usage Note:&#xD;&#xA;&quot;TRSLT&quot; does not indicate the fidelity of the translation or the languages translated. The fidelity of the IT Resource translation may be indicated using a SecurityIntegrityConfidenceObservation. To indicate languages, use the Value Set:HumanLanguage (2.16.840.1.113883.1.11.11526)"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23507">
+        <concept>
           <code value="VERSIONED"/>
           <display value="versioned"/>
           <definition value=" Security metadata observation value conveying the alteration integrity of an IT resource (data, information object, service, or system capability)  which indicates that the resource only retains versions of an IT resource  for access and use per applicable policy  Usage Note:&#xD;&#xA;When this code is used, expectation is that the system has removed historical versions of the data that falls outside the time period deemed to be the effective time of the applicable version."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="23494">
+      <concept>
         <code value="_SECDATINTOBV"/>
         <display value="data integrity"/>
         <definition value=" Abstract security observation values used to indicate data integrity metadata.  Examples:&#xD;&#xA;Codes conveying the mechanism used to preserve the accuracy and consistency of an IT resource such as a digital signature and a cryptographic hash function."/>
-        <concept id="23495">
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="CRYTOHASH"/>
           <display value="cryptographic hash function"/>
           <definition value=" Security metadata observation value used to indicate the mechanism by which software systems can establish that data was not modified in transit.  Rationale:&#xD;&#xA;This definition is intended to align with the ISO 22600-2 3.3.19 definition of cryptographic checkvalue: Information which is derived by performing a cryptographic transformation (see cryptography) on the data unit.  The derivation of the checkvalue may be performed in one or more steps and is a result of a mathematical function of the key and a data unit. It is usually used to check the integrity of a data unit.  Examples:&#xD;&#xA;  SHA-1 SHA-2 (Secure Hash Algorithm)"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23496">
+        <concept>
           <code value="DIGSIG"/>
           <display value="digital signature"/>
           <definition value=" Security metadata observation value used to indicate the mechanism by which software systems use digital signature to establish that data has not been modified.  Rationale:&#xD;&#xA;This definition is intended to align with the ISO 22600-2 3.3.26 definition of digital signature:  Data appended to, or a cryptographic transformation (see cryptography) of, a data unit that allows a recipient of the data unit to prove the source and integrity of the data unit and protect against forgery e.g., by the recipient."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="23489">
+      <concept>
         <code value="_SECINTCONOBV"/>
         <display value="integrity confidence"/>
         <definition value=" Abstract security observation value used to indicate integrity confidence metadata.  Examples:&#xD;&#xA;Codes conveying the level of reliability and trustworthiness of an IT resource."/>
-        <concept id="23490">
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="HRELIABLE"/>
           <display value="highly reliable"/>
           <definition value=" Security metadata observation value used to indicate that the veracity or trustworthiness of an IT resource (data, information object, service, or system capability) for a specified purpose of use is perceived to be or deemed by policy to be very high."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23491">
+        <concept>
           <code value="RELIABLE"/>
           <display value="reliable"/>
           <definition value=" Security metadata observation value used to indicate that the veracity or trustworthiness of an IT resource (data, information object, service, or system capability) for a specified purpose of use is perceived to be or deemed by policy to be adequate."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23492">
+        <concept>
           <code value="UNCERTREL"/>
           <display value="uncertain reliability"/>
           <definition value=" Security metadata observation value used to indicate that the veracity or trustworthiness of an IT resource (data, information object, service, or system capability) for a specified purpose of use is perceived to be or deemed by policy to be uncertain."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23493">
+        <concept>
           <code value="UNRELIABLE"/>
           <display value="unreliable"/>
           <definition value=" Security metadata observation value used to indicate that the veracity or trustworthiness of an IT resource (data, information object, service, or system capability) for a specified purpose of use is perceived to be or deemed by policy to be inadequate."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="23508">
+      <concept>
         <code value="_SECINTPRVOBV"/>
         <display value="provenance"/>
         <definition value=" Abstract security metadata observation value used to indicate the provenance of an IT resource (data, information object, service, or system capability).  Examples:&#xD;&#xA;Codes conveying the provenance metadata about the entity reporting an IT resource."/>
-        <concept id="23518">
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="_SECINTPRVABOBV"/>
           <display value="provenance asserted by"/>
           <definition value=" Abstract security provenance metadata observation value used to indicate the entity that asserted an IT resource (data, information object, service, or system capability).  Examples:&#xD;&#xA;Codes conveying the provenance metadata about the entity asserting the resource."/>
-          <concept id="23519">
+          <property>
+            <code value="notSelectable"/>
+            <valueBoolean value="true"/>
+          </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="CLINAST"/>
             <display value="clinician asserted"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was asserted by a clinician."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23523">
+          <concept>
             <code value="DEVAST"/>
             <display value="device asserted"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was asserted by a device."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23520">
+          <concept>
             <code value="HCPAST"/>
             <display value="healthcare professional asserted"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was asserted by a healthcare professional."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23526">
+          <concept>
             <code value="PACQAST"/>
             <display value="patient acquaintance asserted"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was asserted by a patient acquaintance."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23524">
+          <concept>
             <code value="PATAST"/>
             <display value="patient asserted"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was asserted by a patient."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23522">
+          <concept>
             <code value="PAYAST"/>
             <display value="payer asserted"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was asserted by a payer."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23521">
+          <concept>
             <code value="PROAST"/>
             <display value="professional asserted"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was asserted by a professional."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23525">
+          <concept>
             <code value="SDMAST"/>
             <display value="substitute decision maker asserted"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was asserted by a substitute decision maker."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
-        <concept id="23509">
+        <concept>
           <code value="_SECINTPRVRBOBV"/>
           <display value="provenance reported by"/>
           <definition value=" Abstract security provenance metadata observation value used to indicate the entity that reported the resource (data, information object, service, or system capability).  Examples:&#xD;&#xA;Codes conveying the provenance metadata about the entity reporting an IT resource."/>
-          <concept id="23510">
+          <property>
+            <code value="notSelectable"/>
+            <valueBoolean value="true"/>
+          </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="CLINRPT"/>
             <display value="clinician reported"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was reported by a clinician."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23514">
+          <concept>
             <code value="DEVRPT"/>
             <display value="device reported"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was reported by a device."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23511">
+          <concept>
             <code value="HCPRPT"/>
             <display value="healthcare professional reported"/>
             <definition value="Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was reported by a healthcare professional."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23517">
+          <concept>
             <code value="PACQRPT"/>
             <display value="patient acquaintance reported"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was reported by a patient acquaintance."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23515">
+          <concept>
             <code value="PATRPT"/>
             <display value="patient reported"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was reported by a patient."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23513">
+          <concept>
             <code value="PAYRPT"/>
             <display value="payer reported"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was reported by a payer."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23512">
+          <concept>
             <code value="PRORPT"/>
             <display value="professional reported"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was reported by a professional."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23516">
+          <concept>
             <code value="SDMRPT"/>
             <display value="substitute decision maker reported"/>
             <definition value=" Security provenance metadata observation value used to indicate that an IT resource (data, information object, service, or system capability) was reported by a substitute decision maker."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
       </concept>
-      <concept id="23488">
+      <concept>
         <code value="_SECINTSTOBV"/>
         <display value="integrity status"/>
         <definition value=" Abstract security observation values used to indicate integrity status metadata.  Examples:&#xD;&#xA;Codes, such as those in the HL7 DocumentClassification code system conveying the workflow status of resource as authenticated, legally authenticated, and in progress."/>
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="23672">
+    <concept>
       <code value="SECTRSTOBV"/>
       <display value="security trust observation"/>
       <definition value=" Observation value used to indicate aspects of trust applicable to an IT resource (data, information object, service, or system capability)."/>
-      <concept id="23673">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="TRSTACCRDOBV"/>
         <display value="trust accreditation observation"/>
         <definition value=" Values for security trust accreditation metadata observation made about the formal declaration by an authority or neutral third party that validates the technical, security, trust, and business practice conformance of Trust Agents to facilitate security, interoperability, and trust among participants within a security domain or trust framework."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="23674">
+      <concept>
         <code value="TRSTAGREOBV"/>
         <display value="trust agreement observation"/>
         <definition value=" Values for security trust agreement metadata observation made about privacy and security requirements with which a security domain must comply. [ISO IEC 10181-1]&#xA;[ISO IEC 10181-1]"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="23675">
+      <concept>
         <code value="TRSTCERTOBV"/>
         <display value="trust certificate observation"/>
         <definition value=" Values for security trust certificate metadata observation made about a set of security-relevant data issued by a security authority or trusted third party, together with security information which is used to provide the integrity and data origin authentication services for an IT resource (data, information object, service, or system capability). [Based on ISO IEC 10181-1] For example, a Certificate Policy (CP), which is a named set of rules that indicates the applicability of a certificate to a particular community and/or class of application with common security requirements.  A particular Certificate Policy might indicate the applicability of a type of certificate to the authentication of electronic data interchange transactions for the trading of goods within a given price range.  Another example is Cross Certification with Federal Bridge."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="23717">
+      <concept>
         <code value="TRSTFWKOBV"/>
         <display value="none supplied 5"/>
         <definition value=" Values for security trust framework metadata observation made about a complete set of contracts, regulations or commitments that enable participating actors to rely on certain assertions by other actors to fulfill their information security requirements. [Kantara Initiative]"/>
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="23676">
+      <concept>
         <code value="TRSTLOAOBV"/>
         <display value="trust assurance observation"/>
         <definition value=" Values for security trust assurance metadata observation made about the digital quality or reliability of a trust assertion, activity, capability, information exchange, mechanism, process, or protocol."/>
-        <concept id="23677">
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="LOAAN"/>
           <display value="authentication level of assurance value"/>
           <definition value=" The value assigned as the indicator of the digital quality or reliability of the verification and validation process used to verify the claimed identity of an entity by securely associating an identifier and its authenticator. [Based on ISO 7498-2] For example, the degree of confidence in the vetting process used to establish the identity of the individual to whom the credential was issued, and 2) the degree of confidence that the individual who uses the credential is the individual to whom the credential was issued. [OMB M-04-04 E-Authentication Guidance for Federal Agencies]"/>
-          <concept id="23678">
+          <property>
+            <code value="notSelectable"/>
+            <valueBoolean value="true"/>
+          </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="LOAAN1"/>
             <display value="low authentication level of assurance"/>
             <definition value=" Indicator of low digital quality or reliability of the digital reliability of the verification and validation process used to verify the claimed identity of an entity by securely associating an identifier and its authenticator. [Based on ISO 7498-2] The degree of confidence in the vetting process used to establish the identity of the individual to whom the credential was issued, and 2) the degree of confidence that the individual who uses the credential is the individual to whom the credential was issued. [OMB M-04-04 E-Authentication Guidance for Federal Agencies] Low authentication level of assurance indicates that the relying party may have little or no confidence in the asserted identity&#39;s validity. Level 1 requires little or no confidence in the asserted identity. No identity proofing is required at this level, but the authentication mechanism should provide some assurance that the same claimant is accessing the protected transaction or data. A wide range of available authentication technologies can be employed and any of the token methods of Levels 2, 3, or 4, including Personal Identification Numbers (PINs), may be used. To be authenticated, the claimant must prove control of the token through a secure authentication protocol. At Level 1, long-term shared authentication secrets may be revealed to verifiers.  Assertions issued about claimants as a result of a successful authentication are either cryptographically authenticated by relying parties (using approved methods) or are obtained directly from a trusted party via a secure authentication protocol.   [Summary of the technical requirements specified in NIST SP 800-63 for the four levels of assurance defined by the December 2003, the Office of Management and Budget (OMB) issued Memorandum M-04-04, E-Authentication Guidance for Federal Agencies.]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23679">
+          <concept>
             <code value="LOAAN2"/>
             <display value="basic authentication level of assurance"/>
             <definition value=" Indicator of basic digital quality or reliability of the digital reliability of the verification and validation process used to verify the claimed identity of an entity by securely associating an identifier and its authenticator. [Based on ISO 7498-2] The degree of confidence in the vetting process used to establish the identity of the individual to whom the credential was issued, and 2) the degree of confidence that the individual who uses the credential is the individual to whom the credential was issued. [OMB M-04-04 E-Authentication Guidance for Federal Agencies] Basic authentication level of assurance indicates that the relying party may have some confidence in the asserted identity&#39;s validity. Level 2 requires confidence that the asserted identity is accurate. Level 2 provides for single-factor remote network authentication, including identity-proofing requirements for presentation of identifying materials or information. A wide range of available authentication technologies can be employed, including any of the token methods of Levels 3 or 4, as well as passwords. Successful authentication requires that the claimant prove through a secure authentication protocol that the claimant controls the token.  Eavesdropper, replay, and online guessing attacks are prevented.  &#xA;Long-term shared authentication secrets, if used, are never revealed to any party except the claimant and verifiers operated by the CSP; however, session (temporary) shared secrets may be provided to independent verifiers by the CSP. Approved cryptographic techniques are required. Assertions issued about claimants as a result of a successful authentication are either cryptographically authenticated by relying parties (using approved methods) or are obtained directly from a trusted party via a secure authentication protocol.   [Summary of the technical requirements specified in NIST SP 800-63 for the four levels of assurance defined by the December 2003, the Office of Management and Budget (OMB) issued Memorandum M-04-04, E-Authentication Guidance for Federal Agencies.]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23680">
+          <concept>
             <code value="LOAAN3"/>
             <display value="medium authentication level of assurance"/>
             <definition value=" Indicator of medium digital quality or reliability of the digital reliability of verification and validation of the process used to verify the claimed identity of an entity by securely associating an identifier and its authenticator. [Based on ISO 7498-2] The degree of confidence in the vetting process used to establish the identity of the individual to whom the credential was issued, and 2) the degree of confidence that the individual who uses the credential is the individual to whom the credential was issued. [OMB M-04-04 E-Authentication Guidance for Federal Agencies] Medium authentication level of assurance indicates that the relying party may have high confidence in the asserted identity&#39;s validity.  Level 3 is appropriate for transactions that need high confidence in the accuracy of the asserted identity. Level 3 provides multifactor remote network authentication. At this level, identity-proofing procedures require verification of identifying materials and information. Authentication is based on proof of possession of a key or password through a cryptographic protocol. Cryptographic strength mechanisms should protect the primary authentication token (a cryptographic key) against compromise by the protocol threats, including eavesdropper, replay, online guessing, verifier impersonation, and man-in-the-middle attacks. A minimum of two authentication factors is required. Three kinds of tokens may be used:  &quot;soft&quot; cryptographic token, which has the key stored on a general-purpose computer, &quot;hard&quot; cryptographic token, which has the key stored on a special hardware device, and &quot;one-time password&quot; device token, which has symmetric key stored on a personal hardware device that is a cryptographic module validated at FIPS 140-2 Level 1 or higher. Validation testing of cryptographic modules and algorithms for conformance to Federal Information Processing Standard (FIPS) 140-2, Security Requirements for Cryptographic Modules, is managed by NIST. Authentication requires that the claimant prove control of the token through a secure authentication protocol. The token must be unlocked with a password or biometric representation, or a password must be used in a secure authentication protocol, to establish two-factor authentication. Long-term shared authentication secrets, if used, are never revealed to any party except the claimant and verifiers operated directly by the CSP; however, session (temporary) shared secrets may be provided to independent verifiers by the CSP. Approved cryptographic techniques are used for all operations.  Assertions issued about claimants as a result of a successful authentication are either cryptographically authenticated by relying parties (using approved methods) or are obtained directly from a trusted party via a secure authentication protocol.    [Summary of the technical requirements specified in NIST SP 800-63 for the four levels of assurance defined by the December 2003, the Office of Management and Budget (OMB) issued Memorandum M-04-04, E-Authentication Guidance for Federal Agencies.]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23681">
+          <concept>
             <code value="LOAAN4"/>
             <display value="high authentication level of assurance"/>
             <definition value=" Indicator of high digital quality or reliability of the digital reliability of the verification and validation process used to verify the claimed identity of an entity by securely associating an identifier and its authenticator. [Based on ISO 7498-2] The degree of confidence in the vetting process used to establish the identity of the individual to whom the credential was issued, and 2) the degree of confidence that the individual who uses the credential is the individual to whom the credential was issued. [OMB M-04-04 E-Authentication Guidance for Federal Agencies] High authentication level of assurance indicates that the relying party may have very high confidence in the asserted identity&#39;s validity. Level 4 is for transactions that need very high confidence in the accuracy of the asserted identity. Level 4 provides the highest practical assurance of remote network authentication. Authentication is based on proof of possession of a key through a cryptographic protocol. This level is similar to Level 3 except that only &#xE2;&#x20AC;&#x153;hard&#xE2;&#x20AC;? cryptographic tokens are allowed, cryptographic module validation requirements are strengthened, and subsequent critical data transfers must be authenticated via a key that is bound to the authentication process. The token should be a hardware cryptographic module validated at FIPS 140-2 Level 2 or higher overall with at least FIPS 140-2 Level 3 physical security. This level requires a physical token, which cannot readily be copied, and operator authentication at Level 2 and higher, and ensures good, two-factor remote authentication. Level 4 requires strong cryptographic authentication of all parties and all sensitive data transfers between the parties. Either public key or symmetric key technology may be used. Authentication requires that the claimant prove through a secure authentication protocol that the claimant controls the token. Eavesdropper, replay, online guessing, verifier impersonation, and man-in-the-middle attacks are prevented. Long-term shared authentication secrets, if used, are never revealed to any party except the claimant and verifiers operated directly by the CSP; however, session (temporary) shared secrets may be provided to independent verifiers by the CSP. Strong approved cryptographic techniques are used for all operations. All sensitive data transfers are cryptographically authenticated using keys bound to the authentication process.   [Summary of the technical requirements specified in NIST SP 800-63 for the four levels of assurance defined by the December 2003, the Office of Management and Budget (OMB) issued Memorandum M-04-04, E-Authentication Guidance for Federal Agencies.]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
-        <concept id="23682">
+        <concept>
           <code value="LOAAP"/>
           <display value="authentication process level of assurance value"/>
           <definition value=" The value assigned as the indicator of the digital quality or reliability of a defined sequence of messages between a Claimant and a Verifier that demonstrates that the Claimant has possession and control of a valid token to establish his/her identity, and optionally, demonstrates to the Claimant that he or she is communicating with the intended Verifier. [Based on NIST SP 800-63-2]"/>
-          <concept id="23683">
+          <property>
+            <code value="notSelectable"/>
+            <valueBoolean value="true"/>
+          </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="LOAAP1"/>
             <display value="low authentication process level of assurance"/>
             <definition value=" Indicator of the low digital quality or reliability of a defined sequence of messages between a Claimant and a Verifier that demonstrates that the Claimant has possession and control of a valid token to establish his/her identity, and optionally, demonstrates to the Claimant that he or she is communicating with the intended Verifier. [Based on NIST SP 800-63-2] Low authentication process level of assurance indicates that (1) long-term shared authentication secrets may be revealed to verifiers; and (2) assertions and assertion references require protection from manufacture/modification and reuse attacks.  [Summary of the technical requirements specified in NIST SP 800-63 for the four levels of assurance defined by the December 2003, the Office of Management and Budget (OMB) issued Memorandum M-04-04, E-Authentication Guidance for Federal Agencies.]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23684">
+          <concept>
             <code value="LOAAP2"/>
             <display value="basic authentication process level of assurance"/>
             <definition value=" Indicator of the basic digital quality or reliability of a defined sequence of messages between a Claimant and a Verifier that demonstrates that the Claimant has possession and control of a valid token to establish his/her identity, and optionally, demonstrates to the Claimant that he or she is communicating with the intended Verifier. [Based on NIST SP 800-63-2] Basic authentication process level of assurance indicates that long-term shared authentication secrets are never revealed to any other party except Credential Service Provider (CSP).  Sessions (temporary) shared secrets may be provided to independent verifiers by CSP. Long-term shared authentication secrets, if used, are never revealed to any other party except Verifiers operated by the Credential Service Provider (CSP); however, session (temporary) shared secrets may be provided to independent Verifiers by the CSP. In addition to Level 1 requirements, assertions are resistant to disclosure, redirection, capture and substitution attacks. Approved cryptographic techniques are required.  [Summary of the technical requirements specified in NIST SP 800-63 for the four levels of assurance defined by the December 2003, the Office of Management and Budget (OMB) issued Memorandum M-04-04, E-Authentication Guidance for Federal Agencies.]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23685">
+          <concept>
             <code value="LOAAP3"/>
             <display value="medium authentication process level of assurance"/>
             <definition value=" Indicator of the medium digital quality or reliability of a defined sequence of messages between a Claimant and a Verifier that demonstrates that the Claimant has possession and control of a valid token to establish his/her identity, and optionally, demonstrates to the Claimant that he or she is communicating with the intended Verifier. [Based on NIST SP 800-63-2] Medium authentication process level of assurance indicates that the token can be unlocked with password, biometric, or uses a secure multi-token authentication protocol to establish two-factor authentication.  Long-term shared authentication secrets are never revealed to any party except the Claimant and Credential Service Provider (CSP). Authentication requires that the Claimant prove, through a secure authentication protocol, that he or she controls the token. The Claimant unlocks the token with a password or biometric, or uses a secure multi-token authentication protocol to establish two-factor authentication (through proof of possession of a physical or software token in combination with some memorized secret knowledge). Long-term shared authentication secrets, if used, are never revealed to any party except the Claimant and Verifiers operated directly by the CSP; however, session (temporary) shared secrets may be provided to independent Verifiers by the CSP. In addition to Level 2 requirements, assertions are protected against repudiation by the Verifier."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23686">
+          <concept>
             <code value="LOAAP4"/>
             <display value="high authentication process level of assurance"/>
             <definition value=" Indicator of the high digital quality or reliability of a defined sequence of messages between a Claimant and a Verifier that demonstrates that the Claimant has possession and control of a valid token to establish his/her identity, and optionally, demonstrates to the Claimant that he or she is communicating with the intended Verifier. [Based on NIST SP 800-63-2] High authentication process level of assurance indicates all sensitive data transfer are cryptographically authenticated using keys bound to the authentication process.  Level 4 requires strong cryptographic authentication of all communicating parties and all sensitive data transfers between the parties. Either public key or symmetric key technology may be used. Authentication requires that the Claimant prove through a secure authentication protocol that he or she controls the token. All protocol threats at Level 3 are required to be prevented at Level 4. Protocols shall also be strongly resistant to man-in-the-middle attacks. Long-term shared authentication secrets, if used, are never revealed to any party except the Claimant and Verifiers operated directly by the CSP; however, session (temporary) shared secrets may be provided to independent Verifiers by the CSP. Approved cryptographic techniques are used for all operations. All sensitive data transfers are cryptographically authenticated using keys bound to the authentication process.   [Summary of the technical requirements specified in NIST SP 800-63 for the four levels of assurance defined by the December 2003, the Office of Management and Budget (OMB) issued Memorandum M-04-04, E-Authentication Guidance for Federal Agencies.]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
-        <concept id="23687">
+        <concept>
           <code value="LOAAS"/>
           <display value="assertion level of assurance value"/>
           <definition value=" The value assigned as the indicator of the high quality or reliability of the statement from a Verifier to a Relying Party (RP) that contains identity information about a Subscriber. Assertions may also contain verified attributes."/>
-          <concept id="23688">
+          <property>
+            <code value="notSelectable"/>
+            <valueBoolean value="true"/>
+          </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="LOAAS1"/>
             <display value="low assertion level of assurance"/>
             <definition value=" Indicator of the low quality or reliability of the statement from a Verifier to a Relying Party (RP) that contains identity information about a Subscriber. Assertions may also contain verified attributes. Assertions and assertion references require protection from modification and reuse attacks.  [Summary of the technical requirements specified in NIST SP 800-63 for the four levels of assurance defined by the December 2003, the Office of Management and Budget (OMB) issued Memorandum M-04-04, E-Authentication Guidance for Federal Agencies.]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23689">
+          <concept>
             <code value="LOAAS2"/>
             <display value="basic assertion level of assurance"/>
             <definition value=" Indicator of the basic quality or reliability of the statement from a Verifier to a Relying Party (RP) that contains identity information about a Subscriber. Assertions may also contain verified attributes. Assertions are resistant to disclosure, redirection, capture and substitution attacks.  Approved cryptographic techniques are required for all assertion protocols.  [Summary of the technical requirements specified in NIST SP 800-63 for the four levels of assurance defined by the December 2003, the Office of Management and Budget (OMB) issued Memorandum M-04-04, E-Authentication Guidance for Federal Agencies.]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23690">
+          <concept>
             <code value="LOAAS3"/>
             <display value="medium assertion level of assurance"/>
             <definition value=" Indicator of the medium quality or reliability of the statement from a Verifier to a Relying Party (RP) that contains identity information about a Subscriber. Assertions may also contain verified attributes. Assertions are protected against repudiation by the verifier.  [Summary of the technical requirements specified in NIST SP 800-63 for the four levels of assurance defined by the December 2003, the Office of Management and Budget (OMB) issued Memorandum M-04-04, E-Authentication Guidance for Federal Agencies.]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23691">
+          <concept>
             <code value="LOAAS4"/>
             <display value="high assertion level of assurance"/>
             <definition value=" Indicator of the high quality or reliability of the statement from a Verifier to a Relying Party (RP) that contains identity information about a Subscriber. Assertions may also contain verified attributes. Strongly resistant to man-in-the-middle attacks. &quot;Bearer&quot; assertions are not used.  &quot;Holder-of-key&quot; assertions may be used. RP maintains records of the assertions.  [Summary of the technical requirements specified in NIST SP 800-63 for the four levels of assurance defined by the December 2003, the Office of Management and Budget (OMB) issued Memorandum M-04-04, E-Authentication Guidance for Federal Agencies.]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
-        <concept id="23712">
+        <concept>
           <code value="LOACM"/>
           <display value="token and credential management level of assurance value)"/>
           <definition value=" Indicator of the digital quality or reliability of the activities performed by the Credential Service Provider (CSP) subsequent to electronic authentication registration, identity proofing and issuance activities to manage and safeguard the integrity of an issued credential and its binding to an identity. [Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
-          <concept id="23713">
+          <property>
+            <code value="notSelectable"/>
+            <valueBoolean value="true"/>
+          </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="LOACM1"/>
             <display value="low token and credential management level of assurance"/>
             <definition value=" Indicator of the low digital quality or reliability of the activities performed by the Credential Service Provider (CSP) subsequent to electronic authentication registration, identity proofing and issuance activities to manage and safeguard the integrity of an issued credential and its binding to an identity. Little or no confidence that an individual has maintained control over a token that has been entrusted to him or her and that that token has not been compromised. Characteristics include weak identity binding to tokens and plaintext passwords or secrets not transmitted across a network. [Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23714">
+          <concept>
             <code value="LOACM2"/>
             <display value="basic token and credential management level of assurance"/>
             <definition value=" Indicator of the basic digital quality or reliability of the activities performed by the Credential Service Provider (CSP) subsequent to electronic authentication registration, identity proofing and issuance activities to manage and safeguard the integrity of an issued credential and its binding to an identity.  Some confidence that an individual has maintained control over a token that has been entrusted to him or her and that that token has not been compromised. Characteristics include:  Verification must prove claimant controls the token; token resists online guessing, replay, session hijacking, and eavesdropping attacks; and  token is at least weakly resistant to man-in-the middle attacks. [Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23715">
+          <concept>
             <code value="LOACM3"/>
             <display value="medium token and credential management level of assurance"/>
             <definition value=" Indicator of the medium digital quality or reliability of the activities performed by the Credential Service Provider (CSP) subsequent to electronic authentication registration, identity proofing and issuance activities to manage and safeguard the integrity of an issued credential and it&#xE2;&#x20AC;&#x2122;s binding to an identity.  High confidence that an individual has maintained control over a token that has been entrusted to him or her and that that token has not been compromised. Characteristics  include: Ownership of token verifiable through security authentication protocol and credential management protects against verifier impersonation attacks. [Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23716">
+          <concept>
             <code value="LOACM4"/>
             <display value="high token and credential management level of assurance"/>
             <definition value=" Indicator of the high digital quality or reliability of the activities performed by the Credential Service Provider (CSP) subsequent to electronic authentication registration, identity proofing and issuance activities to manage and safeguard the integrity of an issued credential and it&#xE2;&#x20AC;&#x2122;s binding to an identity.  Very high confidence that an individual has maintained control over a token that has been entrusted to him or her and that that token has not been compromised. Characteristics include: Verifier can prove control of token through a secure protocol; credential management supports strong cryptographic authentication of all communication parties. [Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
-        <concept id="23692">
+        <concept>
           <code value="LOAID"/>
           <display value="identity proofing level of assurance"/>
           <definition value=" Indicator of the quality or reliability in the process of ascertaining that an individual is who he or she claims to be."/>
-          <concept id="23693">
+          <property>
+            <code value="notSelectable"/>
+            <valueBoolean value="true"/>
+          </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="LOAID1"/>
             <display value="low identity proofing level of assurance"/>
             <definition value=" Indicator of low digital quality or reliability in the process of ascertaining that an individual is who he or she claims to be.  Requires that a continuity of identity be maintained but does not require identity proofing. [Based on Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23694">
+          <concept>
             <code value="LOAID2"/>
             <display value="basic identity proofing level of assurance"/>
             <definition value=" Indicator of some digital quality or reliability in the process of ascertaining that that an individual is who he or she claims to be. Requires identity proofing via presentation of identifying material or information. [Based on Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23695">
+          <concept>
             <code value="LOAID3"/>
             <display value="medium identity proofing level of assurance"/>
             <definition value=" Indicator of high digital quality or reliability in the process of ascertaining that an individual is who he or she claims to be.  Requires identity proofing procedures for verification of identifying materials and information. [Based on Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23696">
+          <concept>
             <code value="LOAID4"/>
             <display value="high identity proofing level of assurance"/>
             <definition value=" Indicator of high digital quality or reliability in the process of ascertaining that an individual is who he or she claims to be.  Requires identity proofing procedures for verification of identifying materials and information. [Based on Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
-        <concept id="23697">
+        <concept>
           <code value="LOANR"/>
           <display value="non-repudiation level of assurance value"/>
           <definition value=" Indicator of the digital quality or reliability in the process of establishing proof of delivery and proof of origin. [Based on ISO 7498-2]"/>
-          <concept id="23698">
+          <property>
+            <code value="notSelectable"/>
+            <valueBoolean value="true"/>
+          </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="LOANR1"/>
             <display value="low non-repudiation level of assurance"/>
             <definition value=" Indicator of low digital quality or reliability in the process of establishing proof of delivery and proof of origin. [Based on ISO 7498-2]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23699">
+          <concept>
             <code value="LOANR2"/>
             <display value="basic non-repudiation level of assurance"/>
             <definition value=" Indicator of basic digital quality or reliability in the process of establishing proof of delivery and proof of origin. [Based on ISO 7498-2]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23700">
+          <concept>
             <code value="LOANR3"/>
             <display value="medium non-repudiation level of assurance"/>
             <definition value=" Indicator of medium digital quality or reliability in the process of establishing proof of delivery and proof of origin. [Based on ISO 7498-2]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23701">
+          <concept>
             <code value="LOANR4"/>
             <display value="high non-repudiation level of assurance"/>
             <definition value=" Indicator of high digital quality or reliability in the process of establishing proof of delivery and proof of origin. [Based on ISO 7498-2]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
-        <concept id="23702">
+        <concept>
           <code value="LOARA"/>
           <display value="remote access level of assurance value"/>
           <definition value=" Indicator of the digital quality or reliability of the information exchange between network-connected devices where the information cannot be reliably protected end-to-end by a single organization&#xE2;&#x20AC;&#x2122;s security controls. [Based on NIST SP 800-63-2]"/>
-          <concept id="23703">
+          <property>
+            <code value="notSelectable"/>
+            <valueBoolean value="true"/>
+          </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="LOARA1"/>
             <display value="low remote access level of assurance"/>
             <definition value=" Indicator of low digital quality or reliability of the information exchange between network-connected devices where the information cannot be reliably protected end-to-end by a single organization&#xE2;&#x20AC;&#x2122;s security controls. [Based on NIST SP 800-63-2]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23704">
+          <concept>
             <code value="LOARA2"/>
             <display value="basic remote access level of assurance"/>
             <definition value=" Indicator of basic digital quality or reliability of the information exchange between network-connected devices where the information cannot be reliably protected end-to-end by a single organization&#xE2;&#x20AC;&#x2122;s security controls. [Based on NIST SP 800-63-2]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23705">
+          <concept>
             <code value="LOARA3"/>
             <display value="medium remote access level of assurance"/>
             <definition value=" Indicator of medium digital quality or reliability of the information exchange between network-connected devices where the information cannot be reliably protected end-to-end by a single organization&#xE2;&#x20AC;&#x2122;s security controls. [Based on NIST SP 800-63-2]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23706">
+          <concept>
             <code value="LOARA4"/>
             <display value="high remote access level of assurance"/>
             <definition value=" Indicator of high digital quality or reliability of the information exchange between network-connected devices where the information cannot be reliably protected end-to-end by a single organization&#39;s security controls. [Based on NIST SP 800-63-2]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
-        <concept id="23707">
+        <concept>
           <code value="LOATK"/>
           <display value="token level of assurance value"/>
           <definition value=" Indicator of the digital quality or reliability of single and multi-token authentication. [Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
-          <concept id="23708">
+          <property>
+            <code value="notSelectable"/>
+            <valueBoolean value="true"/>
+          </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="LOATK1"/>
             <display value="low token level of assurance"/>
             <definition value=" Indicator of the low digital quality or reliability of single and multi-token authentication. Permits the use of any of the token methods of Levels 2, 3, or 4. [Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23709">
+          <concept>
             <code value="LOATK2"/>
             <display value="basic token level of assurance"/>
             <definition value=" Indicator of the basic digital quality or reliability of single and multi-token authentication. Requires single factor authentication using memorized secret tokens, pre-registered knowledge tokens, look-up secret tokens, out of band tokens, or single factor one-time password devices. [Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23710">
+          <concept>
             <code value="LOATK3"/>
             <display value="medium token level of assurance"/>
             <definition value=" Indicator of the medium digital quality or reliability of single and multi-token authentication. Requires two authentication factors. Provides multi-factor remote network authentication. Permits multi-factor software cryptographic token. [Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23711">
+          <concept>
             <code value="LOATK4"/>
             <display value="high token level of assurance"/>
             <definition value=" Indicator of the high digital quality or reliability of single and multi-token authentication. Requires token that is a hardware cryptographic module validated at validated at Federal Information Processing Standard (FIPS) 140-2 Level 2 or higher overall with at least FIPS 140-2 Level 3 physical security. Level 4 token requirements can be met by using the PIV authentication key of a FIPS 201 compliant Personal Identity Verification (PIV) Card.  [Electronic Authentication Guideline - Recommendations of the National Institute of Standards and Technology, NIST Special Publication 800-63-1, Dec 2011]"/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
       </concept>
-      <concept id="23718">
+      <concept>
         <code value="TRSTMECOBV"/>
         <display value="none supplied 6"/>
         <definition value=" Values for security trust mechanism metadata observation made about a security architecture system component that supports enforcement of security policies."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
   </concept>
-  <concept id="21100">
+  <concept>
     <code value="_SeverityObservation"/>
     <display value="SeverityObservation"/>
     <definition value=" Potential values for observations of severity."/>
-    <concept id="16644">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="H"/>
       <display value="High"/>
       <definition value=" Indicates the condition may be life-threatening or has the potential to cause permanent injury."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="16646">
+    <concept>
       <code value="L"/>
       <display value="Low"/>
       <definition value=" Indicates the condition may result in some adverse consequences but is unlikely to substantially affect the situation of the subject."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="16645">
+    <concept>
       <code value="M"/>
       <display value="Moderate"/>
       <definition value=" Indicates the condition may result in noticable adverse adverse consequences but is unlikely to be life-threatening or cause permanent injury."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="22917">
+  <concept>
     <code value="_SubjectBodyPosition"/>
     <display value="_SubjectBodyPosition"/>
     <definition value=" Contains codes for defining the observed, physical position of a subject, such as during an observation, assessment, collection of a specimen, etc.  ECG waveforms and vital signs, such as blood pressure, are two examples where a general, observed position typically needs to be noted."/>
-    <concept id="22918">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="LLD"/>
       <display value="left lateral decubitus"/>
       <definition value=" Lying on the left side."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22919">
+    <concept>
       <code value="PRN"/>
       <display value="prone"/>
       <definition value=" Lying with the front or ventral surface downward; lying face down."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22920">
+    <concept>
       <code value="RLD"/>
       <display value="right lateral decubitus"/>
       <definition value=" Lying on the right side."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22921">
+    <concept>
       <code value="SFWL"/>
       <display value="Semi-Fowler&#39;s"/>
       <definition value=" A semi-sitting position in bed with the head of the bed elevated approximately 45 degrees."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22922">
+    <concept>
       <code value="SIT"/>
       <display value="sitting"/>
       <definition value=" Resting the body on the buttocks, typically with upper torso erect or semi erect."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22923">
+    <concept>
       <code value="STN"/>
       <display value="standing"/>
       <definition value=" To be stationary, upright, vertical, on one&#39;s legs."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22924">
+    <concept>
       <code value="SUP"/>
       <display value="supine"/>
-      <concept id="22925">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="RTRD"/>
         <display value="reverse trendelenburg"/>
         <definition value=" Lying on the back, on an inclined plane, typically about 30-45 degrees with head raised and feet lowered."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22926">
+      <concept>
         <code value="TRD"/>
         <display value="trendelenburg"/>
         <definition value=" Lying on the back, on an inclined plane, typically about 30-45 degrees, with  head lowered and feet raised."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
   </concept>
-  <concept id="21906">
+  <concept>
     <code value="_VerificationOutcomeValue"/>
     <display value="verification outcome"/>
     <definition value=" Values for observations of verification act results  Examples:&#xD;&#xA;Verified, not verified, verified with warning."/>
-    <concept id="22213">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="ACT"/>
       <display value="active coverage"/>
       <definition value="  Definition:&#xD;&#xA;Coverage is in effect for healthcare service(s) and/or product(s)."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22214">
+    <concept>
       <code value="ACTPEND"/>
       <display value="active - pending investigation"/>
       <definition value="  Definition:&#xD;&#xA;Coverage is in effect for healthcare service(s) and/or product(s) - Pending Investigation"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22211">
+    <concept>
       <code value="ELG"/>
       <display value="eligible"/>
       <definition value="  Definition:&#xD;&#xA;Coverage is in effect for healthcare service(s) and/or product(s)."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22215">
+    <concept>
       <code value="INACT"/>
       <display value="inactive"/>
       <definition value="  Definition:&#xD;&#xA;Coverage is not in effect for healthcare service(s) and/or product(s)."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22217">
+    <concept>
       <code value="INPNDINV"/>
       <display value="inactive - pending investigation"/>
       <definition value="  Definition:&#xD;&#xA;Coverage is not in effect for healthcare service(s) and/or product(s) - Pending Investigation."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22216">
+    <concept>
       <code value="INPNDUPD"/>
       <display value="inactive - pending eligibility update"/>
       <definition value="  Definition:&#xD;&#xA;Coverage is not in effect for healthcare service(s) and/or product(s) - Pending Eligibility Update."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22212">
+    <concept>
       <code value="NELG"/>
       <display value="not eligible"/>
       <definition value="  Definition:&#xD;&#xA;Coverage is not in effect for healthcare service(s) and/or product(s). May optionally include reasons for the ineligibility."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="21095">
+  <concept>
     <code value="_AnnotationValue"/>
     <display value="AnnotationValue"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
-    <concept id="21097">
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <concept>
       <code value="_ECGAnnotationValue"/>
       <display value="ECGAnnotationValue"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
   </concept>
-  <concept id="21945">
+  <concept>
     <code value="_CommonClinicalObservationValue"/>
     <display value="common clinical observation"/>
     <definition value="  Description:&#xD;&#xA;Used in a patient care message to value simple clinical (non-lab) observations."/>
     <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
-    <concept id="22262">
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <concept>
       <code value="_CommonClinicalObservationAssertionValue"/>
       <display value="CommonClinicalObservationAssertionValue"/>
       <definition value="  Definition:&#xD;&#xA;The non-laboratory, non-DI (diagnostic imaging) coded observation if no value is also required to convey the full meaning of the observation. This may be a single concept code or a complex expression."/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
-    <concept id="22263">
+    <concept>
       <code value="_CommonClinicalObservationResultValue"/>
       <display value="CommonClinicalObservationResultValue"/>
       <definition value="  Definition:&#xD;&#xA;The non-laboratory, non-diagnostic imaging coded result of the coded observable or &quot;question&quot; represented by the paired concept from the the NonLabDICodedObservationType domain. ]  Examples:&#xD;&#xA;An APGAR result, a functional assessment, etc. The value must not require a specific unit of measure."/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
   </concept>
-  <concept id="22242">
+  <concept>
     <code value="_CoverageChemicalDependencyValue"/>
     <display value="CoverageChemicalDependencyValue"/>
     <definition value="  Definition:&#xD;&#xA;The category of addiction used for coverage purposes that may refer to a substance, the consumption of which may result in physical or emotional harm."/>
     <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
   </concept>
-  <concept id="21397">
+  <concept>
     <code value="_IndividualCaseSafetyReportValueDomains"/>
     <display value="Individual Case Safety Report Value Domains"/>
     <definition value=" This domain is established as a parent to a variety of value domains being defined to support the communication of Individual Case Safety Reports to regulatory bodies. Arguably, this aggregation is not taxonomically pure, but the grouping will facilitate the management of these domains."/>
     <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
-    <concept id="21398">
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <concept>
       <code value="_CaseSeriousnessCriteria"/>
       <display value="CaseSeriousnessCriteria"/>
       <definition value=" A code that provides information on the overall effect or outcome of the adverse reaction/adverse event reported in the ICSR. Note the criterion applies to the case as a whole and not to an individual reaction. Example concepts are: death, disability, hospitalization, congenital anomaly/ birth defect, and other medically important condition."/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
-    <concept id="21405">
+    <concept>
       <code value="_DeviceManufacturerEvaluationInterpretation"/>
       <display value="DeviceManufacturerEvaluationInterpretation"/>
       <definition value=" A code set that includes codes that are used to characterize the outcome of the device evaluation process. The code defines the manufacturer&#39;s conclusions following the evaluation. Examples include: inadequate alarms, device maintenance contributed to event, device failed just prior to use, user error caused event"/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
-    <concept id="21406">
+    <concept>
       <code value="_DeviceManufacturerEvaluationMethod"/>
       <display value="DeviceManufacturerEvaluationMethod"/>
       <definition value=" Code assigned to indicate a relevant fact within the context of the evaluation of a reported product. There are a number of concept types including the status of the evaluation, the type of evaluation findings, and the type of activity carried out as part of the evaluation process. Examples include: Actual device involved in incident was evaluated, electrical tests performed, visual examination."/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
-    <concept id="21404">
+    <concept>
       <code value="_DeviceManufacturerEvaluationResult"/>
       <display value="DeviceManufacturerEvaluationResult"/>
       <definition value=" Code assigned to indicate an outcome of the manufacturer&#39;s investigation of a product for which a defect has been reported. Examples include:.component/subassembly failure: air cleaner, computer-, imaging system-, microprocessor-controlled device problem: cache memory, design -- not fail safe."/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
-    <concept id="21401">
+    <concept>
       <code value="_PertinentReactionRelatedness"/>
       <display value="Pertinent Reaction Relatedness"/>
       <definition value=" A code to capture the reporter&#39;s assessment of the extent to which the reaction is related to the suspect product reported in the ICSR. Example concepts include: related, not related, possibly related and unlikely related."/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
-    <concept id="21400">
+    <concept>
       <code value="_ProductCharacterization"/>
       <display value="Product Characterization"/>
       <definition value=" A code that characterizes the role that the primary reporter felt that the suspect intervention -- either a substance administration or a device related procedure - played in the incident being reported. This code will capture the primary reporter&#39;s assessment of the role that the suspect product played in the incident reported in the ICSR. Examples include: Suspect, Concomitant, Interacting, Re-challenge."/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
-    <concept id="21407">
+    <concept>
       <code value="_ReactionActionTaken"/>
       <display value="ReactionActionTaken"/>
       <definition value=" Code used to indicate the action taken by practitioner in response to the problem (whether drug or device related) that is reported in the ICSR. Examples include: failing device replaced, medication stopped, medication dose adjusted."/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
-    <concept id="21399">
+    <concept>
       <code value="_SubjectReaction"/>
       <display value="Subject Reaction"/>
       <definition value=" A code to capture the kind of reaction that was suffered by the investigated subject, and that is being reported in the ICSR. At this point, SNOMED or MedDRA have been suggested as code systems to be used for providing this information. Example concepts include hives, swelling, rash, anaphylactic shock."/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
-    <concept id="21403">
+    <concept>
       <code value="_SubjectReactionEmphasis"/>
       <display value="SubjectReactionEmphasis"/>
       <definition value=" Code that captures the emphasis that the reporter placed on this reaction. Examples include: highlighted by the reporter, NOT serious, Not highlighted by the reporter, NOT serious, Highlighted by the reporter, SERIOUS, Not highlighted by the reporter, SERIOUS."/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
-    <concept id="21402">
+    <concept>
       <code value="_SubjectReactionOutcome"/>
       <display value="SubjectReactionOutcome"/>
       <definition value=" Code that captures the type of outcome from an individual outcome of a reaction to the suspect product reported in the ICSR. Examples include: Recovered/resolved. Recovering/resolving, Not recovered/not resolved, Recovered/resolved with sequelae, Fatal."/>
       <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
-    </concept>
-  </concept>
-  <concept id="21098">
-    <code value="_InjuryObservationValue"/>
-    <display value="InjuryObservationValue"/>
-    <definition value=" Values for observations of injuries."/>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
-  </concept>
-  <concept id="21495">
-    <code value="_IntoleranceValue"/>
-    <display value="IntoleranceValue"/>
-    <definition value=" Codes identifying pariticular groupings of allergens and other agents which cause allergies and intolerances.  E.g. the drug, allergen group, food or environmental agent which triggers the intolerance"/>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
-  </concept>
-  <concept id="21528">
-    <code value="_IssueTriggerObservationValue"/>
-    <display value="IssueTriggerObservationValue"/>
-    <definition value=" The combined domain for different types of coded observation issue triggers, such as diagnoses, allergies, etc."/>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
-  </concept>
-  <concept id="21544">
-    <code value="_OtherIndicationValue"/>
-    <display value="OtherIndicationValue"/>
-    <definition value=" Indicates an observed reason for a medical action other than an indication or symptom. E.g. Need for a contrast agent prior to a diagnostic image, need for anesthesia prior to surgery, etc."/>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
-  </concept>
-  <concept id="21542">
-    <code value="_IndicationValue"/>
-    <display value="IndicationValue"/>
-    <definition value=" Indicates the specific observation result which is the reason for the action (prescription, lab test, etc.). E.g. Headache, Ear infection, planned diagnostic image (requiring contrast agent), etc."/>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
-    <concept id="21096">
-      <code value="_DiagnosisValue"/>
-      <display value="DiagnosisValue"/>
-      <definition value=" Diagnosis Value"/>
       <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
-    <concept id="21543">
+  </concept>
+  <concept>
+    <code value="_InjuryObservationValue"/>
+    <display value="InjuryObservationValue"/>
+    <definition value=" Values for observations of injuries."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="_IntoleranceValue"/>
+    <display value="IntoleranceValue"/>
+    <definition value=" Codes identifying pariticular groupings of allergens and other agents which cause allergies and intolerances.  E.g. the drug, allergen group, food or environmental agent which triggers the intolerance"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="_IssueTriggerObservationValue"/>
+    <display value="IssueTriggerObservationValue"/>
+    <definition value=" The combined domain for different types of coded observation issue triggers, such as diagnoses, allergies, etc."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="_OtherIndicationValue"/>
+    <display value="OtherIndicationValue"/>
+    <definition value=" Indicates an observed reason for a medical action other than an indication or symptom. E.g. Need for a contrast agent prior to a diagnostic image, need for anesthesia prior to surgery, etc."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="_IndicationValue"/>
+    <display value="IndicationValue"/>
+    <definition value=" Indicates the specific observation result which is the reason for the action (prescription, lab test, etc.). E.g. Headache, Ear infection, planned diagnostic image (requiring contrast agent), etc."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <concept>
+      <code value="_DiagnosisValue"/>
+      <display value="DiagnosisValue"/>
+      <definition value=" Diagnosis Value"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+    </concept>
+    <concept>
       <code value="_SymptomValue"/>
       <display value="SymptomValue"/>
       <definition value=" Indicates an observed abnormality in the patientaTMs condition, but does not assert causation. E.g. Runny nose, swelling, flaky skin, etc."/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="retired"/>

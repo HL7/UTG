@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-DeviceAlertLevel"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-DeviceAlertLevel"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.31"/>
@@ -26,24 +26,40 @@
   </contact>
   <description value=" Domain values for the Device.Alert_levelCode"/>
   <content value="complete"/>
-  <concept id="14070">
+  <concept>
     <code value="C"/>
     <display value="Critical"/>
     <definition value=" Shut Down, Fix Problem and Re-initialize"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14067">
+  <concept>
     <code value="N"/>
     <display value="Normal"/>
     <definition value=" No Corrective Action Needed"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14069">
+  <concept>
     <code value="S"/>
     <display value="Serious"/>
     <definition value=" Corrective Action Required"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="14068">
+  <concept>
     <code value="W"/>
     <display value="Warning"/>
     <definition value=" Corrective Action Anticipated"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

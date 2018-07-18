@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-Confidentiality"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.25"/>
@@ -34,42 +34,76 @@
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
-  <concept id="23320">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <code value="_Confidentiality"/>
     <display value="Confidentiality"/>
     <definition value=" A specializable code and its leaf codes used in Confidentiality value sets to value the Act.Confidentiality and Role.Confidentiality attribute in accordance with the definition for concept domain &quot;Confidentiality&quot;."/>
-    <concept id="10234">
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="L"/>
       <display value="low"/>
       <definition value="  Definition:&#xD;&#xA;Privacy metadata indicating that the information has been de-identified, and there are mitigating circumstances that prevent re-identification, which minimize risk of harm from unauthorized disclosure.  The information requires protection to maintain low sensitivity.  Examples:&#xD;&#xA;Includes anonymized, pseudonymized, or non-personally identifiable information such as HIPAA limited data sets.  Map:&#xD;&#xA;No clear map to ISO 13606-4 Sensitivity Level (1) Care Management:   RECORD_COMPONENTs that might need to be accessed by a wide range of administrative staff to manage the subject of care&#39;s access to health services.  Usage Note:&#xD;&#xA;This metadata indicates the receiver may have an obligation to comply with a data use agreement."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23322">
+    <concept>
       <code value="M"/>
       <display value="moderate"/>
       <definition value="  Definition:&#xD;&#xA;Privacy metadata indicating moderately sensitive information, which presents moderate risk of harm if disclosed without authorization.  Examples:&#xD;&#xA;Includes allergies of non-sensitive nature used inform food service; health information a patient authorizes to be used for marketing, released to a bank for a health credit card or savings account; or information in personal health record systems that are not governed under health privacy laws.  Map:&#xD;&#xA;Partial Map to ISO 13606-4 Sensitivity Level (2) Clinical Management:  Less sensitive RECORD_COMPONENTs that might need to be accessed by a wider range of personnel not all of whom are actively caring for the patient (e.g. radiology staff).  Usage Note:&#xD;&#xA;This metadata indicates that the receiver may be obligated to comply with the receiver&#39;s terms of use or privacy policies."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10230">
+    <concept>
       <code value="N"/>
       <display value="normal"/>
       <definition value="  Definition:&#xD;&#xA;Privacy metadata indicating that the information is typical, non-stigmatizing health information, which presents typical risk of harm if disclosed without authorization.  Examples:&#xD;&#xA;In the US, this includes what HIPAA identifies as the minimum necessary protected health information (PHI) given a covered purpose of use (treatment, payment, or operations).  Includes typical, non-stigmatizing health information disclosed in an application for health, workers compensation, disability, or life insurance.  Map:&#xD;&#xA;Partial Map to ISO 13606-4 Sensitivity Level (3) Clinical Care:   Default for normal clinical care access (i.e. most clinical staff directly caring for the patient should be able to access nearly all of the EHR).   Maps to normal confidentiality for treatment information but not to ancillary care, payment and operations.  Usage Note:&#xD;&#xA;This metadata indicates that the receiver may be obligated to comply with applicable jurisdictional privacy law or disclosure authorization."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10232">
+    <concept>
       <code value="R"/>
       <display value="restricted"/>
       <definition value=" Privacy metadata indicating highly sensitive, potentially stigmatizing information, which presents a high risk to the information subject if disclosed without authorization. May be pre-empted by jurisdictional law, e.g., for public health reporting or emergency treatment.  Examples:&#xD;&#xA;Includes information that is additionally protected such as sensitive conditions mental health, HIV, substance abuse, domestic violence, child abuse, genetic disease, and reproductive health; or sensitive demographic information such as a patient&#39;s standing as an employee or a celebrity. May be used to indicate proprietary or classified information that is not related to an individual, e.g., secret ingredients in a therapeutic substance; or the name of a manufacturer.  Map:&#xD;&#xA;Partial Map to ISO 13606-4 Sensitivity Level (3) Clinical Care: Default for normal clinical care access (i.e. most clinical staff directly caring for the patient should be able to access nearly all of the EHR). Maps to normal confidentiality for treatment information but not to ancillary care, payment and operations..  Usage Note:&#xD;&#xA;This metadata indicates that the receiver may be obligated to comply with applicable, prevailing (default) jurisdictional privacy law or disclosure authorization.."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23321">
+    <concept>
       <code value="U"/>
       <display value="unrestricted"/>
       <definition value="  Definition:&#xD;&#xA;Privacy metadata indicating that the information is not classified as sensitive.  Examples:&#xD;&#xA;Includes publicly available information, e.g., business name, phone, email or physical address.  Usage Note:&#xD;&#xA;This metadata indicates that the receiver has no obligation to consider additional policies when making access control decisions.   Note that in some jurisdictions, personally identifiable information must be protected as confidential, so it would not be appropriate to assign a confidentiality code of &quot;unrestricted&quot;  to that information even if it is publicly available."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="14799">
+    <concept>
       <code value="V"/>
       <display value="very restricted"/>
       <definition value=" . Privacy metadata indicating that the information is extremely sensitive and likely stigmatizing health information that presents a very high risk if disclosed without authorization.  This information must be kept in the highest confidence.  Examples:&#xD;&#xA;Includes information about a victim of abuse, patient requested information sensitivity, and taboo subjects relating to health status that must be discussed with the patient by an attending provider before sharing with the patient.  May also include information held under &#xE2;&#x20AC;&#x153;legal lock&#xE2;&#x20AC;? or attorney-client privilege  Map:&#xD;&#xA;This metadata indicates that the receiver may not disclose this information except as directed by the information custodian, who may be the information subject.  Usage Note:&#xD;&#xA;This metadata indicates that the receiver may not disclose this information except as directed by the information custodian, who may be the information subject."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="21049">
+  <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
       <valueString value="1126-20111214"/>
     </extension>
@@ -77,10 +111,18 @@
     <display value="ConfidentialityByAccessKind"/>
     <definition value="  Description:&#xD;&#xA;By accessing subject / role and relationship based  rights  (These concepts are mutually exclusive, one and only one is required for a valid confidentiality coding.)  Deprecation Comment:&#xD;&#xA;Deprecated due to updated confidentiality codes under ActCode"/>
     <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
-    <concept id="10235">
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1126-20111214"/>
       </extension>
@@ -91,8 +133,12 @@
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
     </concept>
-    <concept id="10231">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1126-20111214"/>
       </extension>
@@ -103,8 +149,12 @@
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
     </concept>
-    <concept id="10233">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1126-20111214"/>
       </extension>
@@ -115,9 +165,13 @@
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
     </concept>
   </concept>
-  <concept id="21050">
+  <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
       <valueString value="1126-20111214"/>
     </extension>
@@ -125,10 +179,18 @@
     <display value="ConfidentialityByInfoType"/>
     <definition value="  Description:&#xD;&#xA;By information type, only for service catalog entries (multiples allowed). Not to be used with actual patient data!  Deprecation Comment:&#xD;&#xA;Deprecated due to updated confidentiality codes under ActCode"/>
     <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
-    <concept id="10243">
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1126-20111214"/>
       </extension>
@@ -139,8 +201,12 @@
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
     </concept>
-    <concept id="10241">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1126-20111214"/>
       </extension>
@@ -151,8 +217,12 @@
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
     </concept>
-    <concept id="10242">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1126-20111214"/>
       </extension>
@@ -163,8 +233,12 @@
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
     </concept>
-    <concept id="10244">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1126-20111214"/>
       </extension>
@@ -175,9 +249,13 @@
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
     </concept>
   </concept>
-  <concept id="21051">
+  <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
       <valueString value="1126-20111214"/>
     </extension>
@@ -185,10 +263,18 @@
     <display value="ConfidentialityModifiers"/>
     <definition value="  Description:&#xD;&#xA;Modifiers of role based access rights  (multiple allowed)  Deprecation Comment:&#xD;&#xA;Deprecated due to updated confidentiality codes under ActCode"/>
     <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
-    <concept id="10239">
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1126-20111214"/>
       </extension>
@@ -199,8 +285,12 @@
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
     </concept>
-    <concept id="10237">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1126-20111214"/>
       </extension>
@@ -211,14 +301,22 @@
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
     </concept>
-    <concept id="10238">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
         <valueString value="1126-20111214"/>
       </extension>
       <code value="T"/>
       <display value="taboo"/>
       <definition value="  Description:&#xD;&#xA;Information not to be disclosed or discussed with patient except through physician assigned to patient in this case.  This is usually a temporary constraint only, example use is a new fatal diagnosis or finding, such as malignancy or HIV.  Deprecation Note:&#xD;&#xA;Replced by ActCode.TBOO"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="retired"/>

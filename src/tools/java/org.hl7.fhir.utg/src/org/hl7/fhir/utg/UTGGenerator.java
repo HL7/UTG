@@ -133,7 +133,7 @@ public class UTGGenerator extends BaseGenerator {
   private void generateConceptDomains() throws FileNotFoundException, IOException {
     CodeSystem cs = new CodeSystem();
     cs.setId("conceptdomains");
-    cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/"+cs.getId());
+    cs.setUrl("http://terminology.hl7.org/ConceptDomain/");
     cs.setName("ConceptDomains");
     cs.setTitle("Concept Domains");
     cs.setStatus(PublicationStatus.ACTIVE);
@@ -150,7 +150,7 @@ public class UTGGenerator extends BaseGenerator {
     cs.setVersionNeeded(false);
     cs.setContent(CodeSystemContentMode.COMPLETE);
 
-    cs.addProperty().setCode("source").setUri("http://something").setType(PropertyType.CODE);
+    cs.addProperty().setCode("source").setUri("http://terminology.hl7.org/ConceptDomain/").setType(PropertyType.CODE);
     cs.addProperty().setCode("ConceptualSpaceForClassCode").setUri("http://somethingelse").setType(PropertyType.CODE);
     
     Map<String, String> codes = new HashMap<String, String>();

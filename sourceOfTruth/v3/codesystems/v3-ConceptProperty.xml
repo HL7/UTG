@@ -17,7 +17,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="645-20081229"/>
   </extension>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ConceptProperty"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ConceptProperty"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1087"/>
@@ -32,44 +32,86 @@
   </contact>
   <description value="  Deprecation Comment:&#xD;&#xA;Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
   <content value="complete"/>
-  <concept id="22385">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <code value="_ValueSetPropertyId"/>
     <display value="ValueSetPropertyId"/>
     <definition value=" Property identifiers for a value sets"/>
-    <concept id="19964">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="appliesTo"/>
       <display value="applies to"/>
       <definition value=" Entity to which a given value set or concept code applies"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="19965">
+    <concept>
       <code value="howApplies"/>
       <display value="how applies"/>
       <definition value=" Description of how set or code applies"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="19966">
+    <concept>
       <code value="openIssue"/>
       <display value="open issue"/>
       <definition value=" Outstanding issue that still needs resolution"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="22625">
+  <concept>
     <code value="conceptStatusQualifier"/>
     <display value="concept status qualifier"/>
     <definition value="  Description:&#xD;&#xA;Qualifier value for concept status."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="19968">
+  <concept>
     <code value="inverseRelationship"/>
     <display value="inverted relationship name"/>
     <definition value=" Name that should be used when the relationship is used in the reverse (target to source) direction.  Example: The inverse relationship of hasPart is isPartOf"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="19967">
+  <concept>
     <code value="OID"/>
     <display value="ISO Object Identifier"/>
     <definition value=" Object identifier assigned to a concept"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="22662">
+  <concept>
     <code value="specializedByDomain"/>
     <display value="specialized by domain"/>
     <definition value="  Description:&#xD;&#xA;specialized by domain"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

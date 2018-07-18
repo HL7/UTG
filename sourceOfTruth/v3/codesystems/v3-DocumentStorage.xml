@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-DocumentStorage"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-DocumentStorage"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.34"/>
@@ -26,24 +26,40 @@
   </contact>
   <description value=" Identifies the storage status of a document."/>
   <content value="complete"/>
-  <concept id="10584">
+  <concept>
     <code value="AC"/>
     <display value="active"/>
     <definition value=" A storage status in which a document is available on-line."/>
-    <concept id="10585">
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="AA"/>
       <display value="active and archived"/>
       <definition value=" A storage status in which a document is available on-line and is also stored off-line for long-term access."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="10586">
+  <concept>
     <code value="AR"/>
     <display value="archived (not active)"/>
     <definition value=" A storage status in which a document has been stored off-line for long-term access."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10587">
+  <concept>
     <code value="PU"/>
     <display value="purged"/>
     <definition value=" A storage status in which a document is no longer available in this system."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

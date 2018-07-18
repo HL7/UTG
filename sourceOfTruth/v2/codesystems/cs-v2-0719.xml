@@ -5,42 +5,36 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="PA"/>
   </extension>
-  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
-    <valueUri value="http://hl7.org/v2/ch02c.html#Heading511"/>
-  </extension>
-  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
-    <valueString value="2.C.2.495"/>
-  </extension>
   <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
-    <valueCode value="User"/>
+    <valueCode value="HL7-EXT"/>
   </extension>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v2-0719"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0719"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.18.389">
+    <value value="urn:oid:2.16.840.1.113883.5.4">
       <extension url="http://healthintersections.com.au/fhir/StructureDefinition/identifier-display">
-        <valueString value="accessRestrictionReason"/>
+        <valueString value="ActCode"/>
       </extension>
     </value>
   </identifier>
-  <version value="1"/>
+  <version value="139"/>
   <name value="V2Table0719"/>
   <title value="V2 Table: Access Restriction Reason Code"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2016-03-11"/>
+  <date value="2018-07-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="https://github.com/grahamegrieve/vocab-poc"/>
+      <value value="https://github.com/HL7/UTG"/>
     </telecom>
   </contact>
-  <description value="Code system of concepts specifying the reason for the restricted access.  Used in HL7 Version 2.x messaging in the ARV segment."/>
+  <description value="A code specifying the particular kind of Act that the Act-instance represents within its class.&#xD;&#xA;Constraints: The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.&#xD;&#xA;Conceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.&#xD;&#xA;Act.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code &quot;potassium&quot; together with and Act.classCode for &quot;laboratory observation&quot; to somehow mean &quot;potassium laboratory observation&quot; and then use the same Act.code for &quot;potassium&quot; together with Act.classCode for &quot;medication&quot; to mean &quot;substitution of potassium&quot;. This mutually modifying use of Act.code and Act.classCode is not permitted.Code system of concepts specifying the reason for the restricted access.  Used in HL7 Version 2.x messaging in the ARV segment."/>
   <purpose value="Underlying Master Code System for V2 table 0719 (Access Restriction Reason Code)"/>
   <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v2-0719"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0719"/>
   <hierarchyMeaning value="is-a"/>
   <compositional value="false"/>
   <versionNeeded value="false"/>
@@ -78,6 +72,10 @@
       <valueCode value="2.6"/>
     </property>
     <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="Active"/>
     </property>
@@ -89,6 +87,10 @@
     <property>
       <code value="intro"/>
       <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
     </property>
     <property>
       <code value="status"/>
@@ -104,6 +106,10 @@
       <valueCode value="2.6"/>
     </property>
     <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="Active"/>
     </property>
@@ -115,6 +121,10 @@
     <property>
       <code value="intro"/>
       <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
     </property>
     <property>
       <code value="status"/>
@@ -130,6 +140,10 @@
       <valueCode value="2.6"/>
     </property>
     <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="Active"/>
     </property>
@@ -143,6 +157,10 @@
       <valueCode value="2.6"/>
     </property>
     <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="Active"/>
     </property>
@@ -154,6 +172,10 @@
     <property>
       <code value="intro"/>
       <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
     </property>
     <property>
       <code value="status"/>

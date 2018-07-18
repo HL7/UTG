@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ActStatus"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ActStatus"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.14"/>
@@ -26,54 +26,94 @@
   </contact>
   <description value=" Codes representing the defined possible states of an Act, as defined by the Act class state machine."/>
   <content value="complete"/>
-  <concept id="15936">
+  <concept>
     <code value="normal"/>
     <display value="normal"/>
     <definition value=" Encompasses the expected states of an Act, but excludes &quot;nullified&quot; and &quot;obsolete&quot; which represent unusual terminal states for the life-cycle."/>
-    <concept id="15941">
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="aborted"/>
       <display value="aborted"/>
       <definition value=" The Act has been terminated prior to the originally intended completion."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="15942">
+    <concept>
       <code value="active"/>
       <display value="active"/>
       <definition value=" The Act can be performed or is being performed"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="15938">
+    <concept>
       <code value="cancelled"/>
       <display value="cancelled"/>
       <definition value=" The Act has been abandoned before activation."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="15940">
+    <concept>
       <code value="completed"/>
       <display value="completed"/>
       <definition value=" An Act that has terminated normally after all of its constituents have been performed."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="15937">
+    <concept>
       <code value="held"/>
       <display value="held"/>
       <definition value=" An Act that is still in the preparatory stages has been put aside.  No action can occur until the Act is released."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="15943">
+    <concept>
       <code value="new"/>
       <display value="new"/>
       <definition value=" An Act that is in the preparatory stages and may not yet be acted upon"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="15939">
+    <concept>
       <code value="suspended"/>
       <display value="suspended"/>
       <definition value=" An Act that has been activated (actions could or have been performed against it), but has been temporarily disabled.  No further action should be taken against it until it is released"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="15934">
+  <concept>
     <code value="nullified"/>
     <display value="nullified"/>
     <definition value=" This Act instance was created in error and has been &#39;removed&#39; and is treated as though it never existed.  A record is retained for audit purposes only."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="15935">
+  <concept>
     <code value="obsolete"/>
     <display value="obsolete"/>
     <definition value=" This Act instance has been replaced by a new instance."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

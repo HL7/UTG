@@ -34,7 +34,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="620-20081216"/>
   </extension>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-TelecommunicationAddressUse"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-TelecommunicationAddressUse"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1011"/>
@@ -49,24 +49,40 @@
   </contact>
   <description value="  Deprecation Comment:&#xD;&#xA;This code system was deprecated as of the November 2007 harmonization meeting. The content was folded into AddressUse (2.16.840.1.113883.5.1119), which replaces this code system."/>
   <content value="complete"/>
-  <concept id="10633">
+  <concept>
     <code value="AS"/>
     <display value="answering service"/>
     <definition value=" An automated answering machine used for less urgent cases and if the main purpose of contact is to leave a message or access an automated announcement."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10634">
+  <concept>
     <code value="EC"/>
     <display value="emergency contact"/>
     <definition value=" A contact specifically designated to be used for emergencies.  This is the first choice in emergencies, independent of any other use codes."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10636">
+  <concept>
     <code value="MC"/>
     <display value="mobile contact"/>
     <definition value=" A telecommunication device that moves and stays with its owner.  May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10635">
+  <concept>
     <code value="PG"/>
     <display value="pager"/>
     <definition value=" A paging device suitable to solicit a callback or to leave a very short message."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

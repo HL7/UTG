@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-RouteOfAdministration"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.112"/>
@@ -34,7 +34,13 @@
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
-  <concept id="21256">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
       <valueCode value="SOAK"/>
     </extension>
@@ -56,187 +62,375 @@
     <code value="_RouteByMethod"/>
     <display value="RouteByMethod"/>
     <definition value=" Route of substance administration classified by administration method."/>
-    <concept id="21142">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="_Chew"/>
       <display value="Chew"/>
       <definition value=" Chew"/>
-      <concept id="14583">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="CHEW"/>
         <display value="Chew, oral"/>
         <definition value=" Chew, oral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21144">
+    <concept>
       <code value="_Diffusion"/>
       <display value="Diffusion"/>
       <definition value=" Diffusion"/>
-      <concept id="19401">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="EXTCORPDIF"/>
         <display value="Diffusion, extracorporeal"/>
         <definition value=" Diffusion, extracorporeal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14585">
+      <concept>
         <code value="HEMODIFF"/>
         <display value="Diffusion, hemodialysis"/>
         <definition value=" Diffusion, hemodialysis"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14759">
+      <concept>
         <code value="TRNSDERMD"/>
         <display value="Diffusion, transdermal"/>
         <definition value=" Diffusion, transdermal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21145">
+    <concept>
       <code value="_Dissolve"/>
       <display value="Dissolve"/>
       <definition value=" Dissolve"/>
-      <concept id="14587">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="DISSOLVE"/>
         <display value="Dissolve, oral"/>
         <definition value=" Dissolve, oral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14588">
+      <concept>
         <code value="SL"/>
         <display value="Dissolve, sublingual"/>
         <definition value=" Dissolve, sublingual"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21146">
+    <concept>
       <code value="_Douche"/>
       <display value="Douche"/>
       <definition value=" Douche"/>
-      <concept id="14590">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="DOUCHE"/>
         <display value="Douche, vaginal"/>
         <definition value=" Douche, vaginal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21147">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ELECTOSMOS"/>
       </extension>
       <code value="_ElectroOsmosisRoute"/>
       <display value="ElectroOsmosisRoute"/>
       <definition value=" Electro-osmosis"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21149">
+    <concept>
       <code value="_Enema"/>
       <display value="Enema"/>
       <definition value=" Enema"/>
-      <concept id="14592">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ENEMA"/>
         <display value="Enema, rectal"/>
         <definition value=" Enema, rectal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14593">
+      <concept>
         <code value="RETENEMA"/>
         <display value="Enema, rectal retention"/>
         <definition value=" Enema, rectal retention"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21154">
+    <concept>
       <code value="_Flush"/>
       <display value="Flush"/>
       <definition value=" Flush"/>
-      <concept id="14595">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="IVFLUSH"/>
         <display value="Flush, intravenous catheter"/>
         <definition value=" Flush, intravenous catheter"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21159">
+    <concept>
       <code value="_Implantation"/>
       <display value="Implantation"/>
       <definition value=" Implantation"/>
-      <concept id="14599">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="IDIMPLNT"/>
         <display value="Implantation, intradermal"/>
         <definition value=" Implantation, intradermal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14600">
+      <concept>
         <code value="IVITIMPLNT"/>
         <display value="Implantation, intravitreal"/>
         <definition value=" Implantation, intravitreal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14601">
+      <concept>
         <code value="SQIMPLNT"/>
         <display value="Implantation, subcutaneous"/>
         <definition value=" Implantation, subcutaneous"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21161">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="EPI"/>
       </extension>
       <code value="_Infusion"/>
       <display value="Infusion"/>
       <definition value=" Infusion"/>
-      <concept id="14604">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="IA"/>
         <display value="Infusion, intraarterial catheter"/>
         <definition value=" Infusion, intraarterial catheter"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14605">
+      <concept>
         <code value="IC"/>
         <display value="Infusion, intracardiac"/>
         <definition value=" Infusion, intracardiac"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14606">
+      <concept>
         <code value="ICOR"/>
         <display value="Infusion, intracoronary"/>
         <definition value=" Infusion, intracoronary"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14607">
+      <concept>
         <code value="IOSSC"/>
         <display value="Infusion, intraosseous, continuous"/>
         <definition value=" Infusion, intraosseous, continuous"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14608">
+      <concept>
         <code value="IT"/>
         <display value="Infusion, intrathecal"/>
         <definition value=" Infusion, intrathecal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14609">
+      <concept>
         <code value="IV"/>
         <display value="Infusion, intravenous"/>
         <definition value=" Infusion, intravenous"/>
-        <concept id="14610">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="IVC"/>
           <display value="Infusion, intravenous catheter"/>
           <definition value=" Infusion, intravenous catheter"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14611">
+        <concept>
           <code value="IVCC"/>
           <display value="Infusion, intravenous catheter, continuous"/>
           <definition value=" Infusion, intravenous catheter, continuous"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14612">
+        <concept>
           <code value="IVCI"/>
           <display value="Infusion, intravenous catheter, intermittent"/>
           <definition value=" Infusion, intravenous catheter, intermittent"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14613">
+        <concept>
           <code value="PCA"/>
           <display value="Infusion, intravenous catheter, pca pump"/>
           <definition value=" Infusion, intravenous catheter, pca pump"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="16936">
+      <concept>
         <code value="IVASCINFUS"/>
         <display value="Infusion, intravascular"/>
         <definition value=" Infusion, intravascular"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14614">
+      <concept>
         <code value="SQINFUS"/>
         <display value="Infusion, subcutaneous"/>
         <definition value=" Infusion, subcutaneous"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21162">
+    <concept>
       <code value="_Inhalation"/>
       <display value="Inhalation"/>
       <definition value=" Inhalation"/>
-      <concept id="14622">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
           <valueCode value="ORIFINHL"/>
         </extension>
@@ -280,27 +474,55 @@
           </use>
           <value value="RESPINHL"/>
         </designation>
-        <concept id="14623">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="ORIFINHL"/>
           <display value="Inhalation, oral intermittent flow"/>
           <definition value=" Inhalation, oral intermittent flow"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14624">
+        <concept>
           <code value="REBREATH"/>
           <display value="Inhalation, oral rebreather mask"/>
           <definition value=" Inhalation, oral rebreather mask"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="14616">
+      <concept>
         <code value="IPPB"/>
         <display value="Inhalation, intermittent positive pressure breathing (ippb)"/>
         <definition value=" Inhalation, intermittent positive pressure breathing (ippb)"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14617">
+      <concept>
         <code value="NASINHL"/>
         <display value="Inhalation, nasal"/>
         <definition value=" Inhalation, nasal"/>
-        <concept id="14618">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="NASINHLC"/>
           <display value="Inhalation, nasal cannula"/>
           <definition value=" Inhalation, nasal, prongs"/>
@@ -318,40 +540,72 @@
             </use>
             <value value="NP"/>
           </designation>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="14619">
+      <concept>
         <code value="NEB"/>
         <display value="Inhalation, nebulization"/>
         <definition value=" Inhalation, nebulization"/>
-        <concept id="14620">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="NASNEB"/>
           <display value="Inhalation, nebulization, nasal"/>
           <definition value=" Inhalation, nebulization, nasal"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14621">
+        <concept>
           <code value="ORNEB"/>
           <display value="Inhalation, nebulization, oral"/>
           <definition value=" Inhalation, nebulization, oral"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="14625">
+      <concept>
         <code value="TRACH"/>
         <display value="Inhalation, tracheostomy"/>
         <definition value=" Inhalation, tracheostomy"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14626">
+      <concept>
         <code value="VENT"/>
         <display value="Inhalation, ventilator"/>
         <definition value=" Inhalation, ventilator"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14627">
+      <concept>
         <code value="VENTMASK"/>
         <display value="Inhalation, ventimask"/>
         <definition value=" Inhalation, ventimask"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21163">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="AMNINJ"/>
       </extension>
@@ -388,481 +642,869 @@
       <code value="_Injection"/>
       <display value="Injection"/>
       <definition value=" Injection"/>
-      <concept id="14686">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="BLADINJ"/>
         <display value="Injection, urinary bladder"/>
         <definition value=" Injection, urinary bladder"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16939">
+      <concept>
         <code value="ENDOSININJ"/>
         <display value="Injection, endosinusial"/>
         <definition value=" Injection, endosinusial"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14637">
+      <concept>
         <code value="HEMOPORT"/>
         <display value="Injection, hemodialysis port"/>
         <definition value=" Injection, hemodialysis port"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16944">
+      <concept>
         <code value="IABDINJ"/>
         <display value="Injection, intra-abdominal"/>
         <definition value=" Injection, intra-abdominal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14639">
+      <concept>
         <code value="IAINJ"/>
         <display value="Injection, intraarterial"/>
         <definition value=" Injection, intraarterial"/>
-        <concept id="14640">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="IAINJP"/>
           <display value="Injection, intraarterial, push"/>
           <definition value=" Injection, intraarterial, push"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14641">
+        <concept>
           <code value="IAINJSP"/>
           <display value="Injection, intraarterial, slow push"/>
           <definition value=" Injection, intraarterial, slow push"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="14642">
+      <concept>
         <code value="IARTINJ"/>
         <display value="Injection, intraarticular"/>
         <definition value=" Injection, intraarticular"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14643">
+      <concept>
         <code value="IBURSINJ"/>
         <display value="Injection, intrabursal"/>
         <definition value=" Injection, intrabursal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14644">
+      <concept>
         <code value="ICARDINJ"/>
         <display value="Injection, intracardiac"/>
         <definition value=" Injection, intracardiac"/>
-        <concept id="14646">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="ICARDINJRP"/>
           <display value="Injection, intracardiac, rapid push"/>
           <definition value=" Injection, intracardiac, rapid push"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14647">
+        <concept>
           <code value="ICARDINJSP"/>
           <display value="Injection, intracardiac, slow push"/>
           <definition value=" Injection, intracardiac, slow push"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14645">
+        <concept>
           <code value="ICARINJP"/>
           <display value="Injection, intracardiac, push"/>
           <definition value=" Injection, intracardiac, push"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="16945">
+      <concept>
         <code value="ICARTINJ"/>
         <display value="Injection, intracartilaginous"/>
         <definition value=" Injection, intracartilaginous"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16946">
+      <concept>
         <code value="ICAUDINJ"/>
         <display value="Injection, intracaudal"/>
         <definition value=" Injection, intracaudal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14648">
+      <concept>
         <code value="ICAVINJ"/>
         <display value="Injection, intracavernous"/>
         <definition value=" Injection, intracavernous"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16947">
+      <concept>
         <code value="ICAVITINJ"/>
         <display value="Injection, intracavitary"/>
         <definition value=" Injection, intracavitary"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16948">
+      <concept>
         <code value="ICEREBINJ"/>
         <display value="Injection, intracerebral"/>
         <definition value=" Injection, intracerebral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16949">
+      <concept>
         <code value="ICISTERNINJ"/>
         <display value="Injection, intracisternal"/>
         <definition value=" Injection, intracisternal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14650">
+      <concept>
         <code value="ICORONINJ"/>
         <display value="Injection, intracoronary"/>
         <definition value=" Injection, intracoronary"/>
-        <concept id="14651">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="ICORONINJP"/>
           <display value="Injection, intracoronary, push"/>
           <definition value=" Injection, intracoronary, push"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="16950">
+      <concept>
         <code value="ICORPCAVINJ"/>
         <display value="Injection, intracorpus cavernosum"/>
         <definition value=" Injection, intracorpus cavernosum"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14652">
+      <concept>
         <code value="IDINJ"/>
         <display value="Injection, intradermal"/>
         <definition value=" Injection, intradermal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14653">
+      <concept>
         <code value="IDISCINJ"/>
         <display value="Injection, intradiscal"/>
         <definition value=" Injection, intradiscal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16951">
+      <concept>
         <code value="IDUCTINJ"/>
         <display value="Injection, intraductal"/>
         <definition value=" Injection, intraductal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16952">
+      <concept>
         <code value="IDURINJ"/>
         <display value="Injection, intradural"/>
         <definition value=" Injection, intradural"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16953">
+      <concept>
         <code value="IEPIDINJ"/>
         <display value="Injection, intraepidermal"/>
         <definition value=" Injection, intraepidermal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14654">
+      <concept>
         <code value="IEPITHINJ"/>
         <display value="Injection, intraepithelial"/>
         <definition value=" Injection, intraepithelial"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14655">
+      <concept>
         <code value="ILESINJ"/>
         <display value="Injection, intralesional"/>
         <definition value=" Injection, intralesional"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16954">
+      <concept>
         <code value="ILUMINJ"/>
         <display value="Injection, intraluminal"/>
         <definition value=" Injection, intraluminal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14656">
+      <concept>
         <code value="ILYMPJINJ"/>
         <display value="Injection, intralymphatic"/>
         <definition value=" Injection, intralymphatic"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14657">
+      <concept>
         <code value="IM"/>
         <display value="Injection, intramuscular"/>
         <definition value=" Injection, intramuscular"/>
-        <concept id="14658">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="IMD"/>
           <display value="Injection, intramuscular, deep"/>
           <definition value=" Injection, intramuscular, deep"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14659">
+        <concept>
           <code value="IMZ"/>
           <display value="Injection, intramuscular, z track"/>
           <definition value=" Injection, intramuscular, z track"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="16955">
+      <concept>
         <code value="IMEDULINJ"/>
         <display value="Injection, intramedullary"/>
         <definition value=" Injection, intramedullary"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16942">
+      <concept>
         <code value="INTERMENINJ"/>
         <display value="Injection, interameningeal"/>
         <definition value=" Injection, interameningeal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16943">
+      <concept>
         <code value="INTERSTITINJ"/>
         <display value="Injection, interstitial"/>
         <definition value=" Injection, interstitial"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14660">
+      <concept>
         <code value="IOINJ"/>
         <display value="Injection, intraocular"/>
         <definition value=" Injection, intraocular"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14661">
+      <concept>
         <code value="IOSSINJ"/>
         <display value="Injection, intraosseous"/>
         <definition value=" Injection, intraosseous"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16956">
+      <concept>
         <code value="IOVARINJ"/>
         <display value="Injection, intraovarian"/>
         <definition value=" Injection, intraovarian"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16957">
+      <concept>
         <code value="IPCARDINJ"/>
         <display value="Injection, intrapericardial"/>
         <definition value=" Injection, intrapericardial"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14662">
+      <concept>
         <code value="IPERINJ"/>
         <display value="Injection, intraperitoneal"/>
         <definition value=" Injection, intraperitoneal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16959">
+      <concept>
         <code value="IPINJ"/>
         <display value="Injection, intrapulmonary"/>
         <definition value=" Injection, intrapulmonary"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14663">
+      <concept>
         <code value="IPLRINJ"/>
         <display value="Injection, intrapleural"/>
         <definition value=" Injection, intrapleural"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16958">
+      <concept>
         <code value="IPROSTINJ"/>
         <display value="Injection, intraprostatic"/>
         <definition value=" Injection, intraprostatic"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14638">
+      <concept>
         <code value="IPUMPINJ"/>
         <display value="Injection, insulin pump"/>
         <definition value=" Injection, insulin pump"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14664">
+      <concept>
         <code value="ISINJ"/>
         <display value="Injection, intraspinal"/>
         <definition value=" Injection, intraspinal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14665">
+      <concept>
         <code value="ISTERINJ"/>
         <display value="Injection, intrasternal"/>
         <definition value=" Injection, intrasternal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14666">
+      <concept>
         <code value="ISYNINJ"/>
         <display value="Injection, intrasynovial"/>
         <definition value=" Injection, intrasynovial"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16960">
+      <concept>
         <code value="ITENDINJ"/>
         <display value="Injection, intratendinous"/>
         <definition value=" Injection, intratendinous"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16961">
+      <concept>
         <code value="ITESTINJ"/>
         <display value="Injection, intratesticular"/>
         <definition value=" Injection, intratesticular"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16962">
+      <concept>
         <code value="ITHORINJ"/>
         <display value="Injection, intrathoracic"/>
         <definition value=" Injection, intrathoracic"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14667">
+      <concept>
         <code value="ITINJ"/>
         <display value="Injection, intrathecal"/>
         <definition value=" Injection, intrathecal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16963">
+      <concept>
         <code value="ITUBINJ"/>
         <display value="Injection, intratubular"/>
         <definition value=" Injection, intratubular"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16964">
+      <concept>
         <code value="ITUMINJ"/>
         <display value="Injection, intratumor"/>
         <definition value=" Injection, intratumor"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16965">
+      <concept>
         <code value="ITYMPINJ"/>
         <display value="Injection, intratympanic"/>
         <definition value=" Injection, intratympanic"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14669">
+      <concept>
         <code value="IUINJ"/>
         <display value="Injection, intrauterine"/>
         <definition value=" Injection, intracervical (uterus)"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14649">
+      <concept>
         <code value="IUINJC"/>
         <display value="Injection, intracervical (uterus)"/>
         <definition value=" Injection, intracervical (uterus)"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14668">
+      <concept>
         <code value="IURETINJ"/>
         <display value="Injection, intraureteral, retrograde"/>
         <definition value=" Injection, intraureteral, retrograde"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16966">
+      <concept>
         <code value="IVASCINJ"/>
         <display value="Injection, intravascular"/>
         <definition value=" Injection, intravascular"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14675">
+      <concept>
         <code value="IVENTINJ"/>
         <display value="Injection, intraventricular (heart)"/>
         <definition value=" Injection, intraventricular (heart)"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14676">
+      <concept>
         <code value="IVESINJ"/>
         <display value="Injection, intravesicle"/>
         <definition value=" Injection, intravesicle"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14670">
+      <concept>
         <code value="IVINJ"/>
         <display value="Injection, intravenous"/>
         <definition value=" Injection, intravenous"/>
-        <concept id="14671">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="IVINJBOL"/>
           <display value="Injection, intravenous, bolus"/>
           <definition value=" Injection, intravenous, bolus"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14672">
+        <concept>
           <code value="IVPUSH"/>
           <display value="Injection, intravenous, push"/>
           <definition value=" Injection, intravenous, push"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14673">
+        <concept>
           <code value="IVRPUSH"/>
           <display value="Injection, intravenous, rapid push"/>
           <definition value=" Injection, intravenous, rapid push"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14674">
+        <concept>
           <code value="IVSPUSH"/>
           <display value="Injection, intravenous, slow push"/>
           <definition value=" Injection, intravenous, slow push"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="14677">
+      <concept>
         <code value="IVITINJ"/>
         <display value="Injection, intravitreal"/>
         <definition value=" Injection, intravitreal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14679">
+      <concept>
         <code value="PAINJ"/>
         <display value="Injection, periarticular"/>
         <definition value=" Injection, periarticular"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16967">
+      <concept>
         <code value="PARENTINJ"/>
         <display value="Injection, parenteral"/>
         <definition value=" Injection, parenteral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16969">
+      <concept>
         <code value="PDONTINJ"/>
         <display value="Injection, periodontal"/>
         <definition value=" Injection, periodontal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14681">
+      <concept>
         <code value="PDPINJ"/>
         <display value="Injection, peritoneal dialysis port"/>
         <definition value=" Injection, peritoneal dialysis port"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16968">
+      <concept>
         <code value="PDURINJ"/>
         <display value="Injection, peridural"/>
         <definition value=" Injection, peridural"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14680">
+      <concept>
         <code value="PNINJ"/>
         <display value="Injection, perineural"/>
         <definition value=" Injection, perineural"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14678">
+      <concept>
         <code value="PNSINJ"/>
         <display value="Injection, paranasal sinuses"/>
         <definition value=" Injection, paranasal sinuses"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14682">
+      <concept>
         <code value="RBINJ"/>
         <display value="Injection, retrobulbar"/>
         <definition value=" Injection, retrobulbar"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14683">
+      <concept>
         <code value="SCINJ"/>
         <display value="Injection, subconjunctival"/>
         <definition value=" Injection, subconjunctival"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14685">
+      <concept>
         <code value="SLESINJ"/>
         <display value="Injection, sublesional"/>
         <definition value=" Injection, sublesional"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16970">
+      <concept>
         <code value="SOFTISINJ"/>
         <display value="Injection, soft tissue"/>
         <definition value=" Injection, soft tissue"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14684">
+      <concept>
         <code value="SQ"/>
         <display value="Injection, subcutaneous"/>
         <definition value=" Injection, subcutaneous"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16971">
+      <concept>
         <code value="SUBARACHINJ"/>
         <display value="Injection, subarachnoid"/>
         <definition value=" Injection, subarachnoid"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16972">
+      <concept>
         <code value="SUBMUCINJ"/>
         <display value="Injection, submucosal"/>
         <definition value=" Injection, submucosal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16973">
+      <concept>
         <code value="TRPLACINJ"/>
         <display value="Injection, transplacental"/>
         <definition value=" Injection, transplacental"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16974">
+      <concept>
         <code value="TRTRACHINJ"/>
         <display value="Injection, transtracheal"/>
         <definition value=" Injection, transtracheal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16976">
+      <concept>
         <code value="URETHINJ"/>
         <display value="Injection, urethral"/>
         <definition value=" Injection, urethral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16975">
+      <concept>
         <code value="URETINJ"/>
         <display value="Injection, ureteral"/>
         <definition value=" Injection, ureteral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21164">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="CERVINS"/>
       </extension>
       <code value="_Insertion"/>
       <display value="Insertion"/>
       <definition value=" Insertion"/>
-      <concept id="14689">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="IOSURGINS"/>
         <display value="Insertion, intraocular, surgical"/>
         <definition value=" Insertion, intraocular, surgical"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14690">
+      <concept>
         <code value="IU"/>
         <display value="Insertion, intrauterine"/>
         <definition value=" Insertion, intrauterine"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14691">
+      <concept>
         <code value="LPINS"/>
         <display value="Insertion, lacrimal puncta"/>
         <definition value=" Insertion, lacrimal puncta"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14692">
+      <concept>
         <code value="PR"/>
         <display value="Insertion, rectal"/>
         <definition value=" Insertion, rectal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14693">
+      <concept>
         <code value="SQSURGINS"/>
         <display value="Insertion, subcutaneous, surgical"/>
         <definition value=" Insertion, subcutaneous, surgical"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14694">
+      <concept>
         <code value="URETHINS"/>
         <display value="Insertion, urethral"/>
         <definition value=" Insertion, urethral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14695">
+      <concept>
         <code value="VAGINSI"/>
         <display value="Insertion, vaginal"/>
         <definition value=" Insertion, vaginal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21165">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="CECINSTL"/>
       </extension>
@@ -884,166 +1526,302 @@
       <code value="_Instillation"/>
       <display value="Instillation"/>
       <definition value=" Instillation"/>
-      <concept id="14719">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="BLADINSTL"/>
         <display value="Instillation, urinary catheter"/>
         <definition value=" Instillation, urinary catheter"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14699">
+      <concept>
         <code value="CAPDINSTL"/>
         <display value="Instillation, continuous ambulatory peritoneal dialysis port"/>
         <definition value=" Instillation, continuous ambulatory peritoneal dialysis port"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14698">
+      <concept>
         <code value="CTINSTL"/>
         <display value="Instillation, chest tube"/>
         <definition value=" Instillation, chest tube"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14700">
+      <concept>
         <code value="ETINSTL"/>
         <display value="Instillation, endotracheal tube"/>
         <definition value=" Instillation, endotracheal tube"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14703">
+      <concept>
         <code value="GJT"/>
         <display value="Instillation, gastro-jejunostomy tube"/>
         <definition value=" Instillation, gastro-jejunostomy tube"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16977">
+      <concept>
         <code value="IBRONCHINSTIL"/>
         <display value="Instillation, intrabronchial"/>
         <definition value=" Instillation, intrabronchial"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16978">
+      <concept>
         <code value="IDUODINSTIL"/>
         <display value="Instillation, intraduodenal"/>
         <definition value=" Instillation, intraduodenal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16979">
+      <concept>
         <code value="IESOPHINSTIL"/>
         <display value="Instillation, intraesophageal"/>
         <definition value=" Instillation, intraesophageal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16980">
+      <concept>
         <code value="IGASTINSTIL"/>
         <display value="Instillation, intragastric"/>
         <definition value=" Instillation, intragastric"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16981">
+      <concept>
         <code value="IILEALINJ"/>
         <display value="Instillation, intraileal"/>
         <definition value=" Instillation, intraileal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14705">
+      <concept>
         <code value="IOINSTL"/>
         <display value="Instillation, intraocular"/>
         <definition value=" Instillation, intraocular"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16982">
+      <concept>
         <code value="ISININSTIL"/>
         <display value="Instillation, intrasinal"/>
         <definition value=" Instillation, intrasinal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16983">
+      <concept>
         <code value="ITRACHINSTIL"/>
         <display value="Instillation, intratracheal"/>
         <definition value=" Instillation, intratracheal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14706">
+      <concept>
         <code value="IUINSTL"/>
         <display value="Instillation, intrauterine"/>
         <definition value=" Instillation, intrauterine"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14707">
+      <concept>
         <code value="JJTINSTL"/>
         <display value="Instillation, jejunostomy tube"/>
         <definition value=" Instillation, jejunostomy tube"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16984">
+      <concept>
         <code value="LARYNGINSTIL"/>
         <display value="Instillation, laryngeal"/>
         <definition value=" Instillation, laryngeal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16985">
+      <concept>
         <code value="NASALINSTIL"/>
         <display value="Instillation, nasal"/>
         <definition value=" Instillation, nasal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16986">
+      <concept>
         <code value="NASOGASINSTIL"/>
         <display value="Instillation, nasogastric"/>
         <definition value=" Instillation, nasogastric"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14709">
+      <concept>
         <code value="NTT"/>
         <display value="Instillation, nasotracheal tube"/>
         <definition value=" Instillation, nasotracheal tube"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14711">
+      <concept>
         <code value="OJJ"/>
         <display value="Instillation, orojejunum tube"/>
         <definition value=" Instillation, orojejunum tube"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14712">
+      <concept>
         <code value="OT"/>
         <display value="Instillation, otic"/>
         <definition value=" Instillation, otic"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14714">
+      <concept>
         <code value="PDPINSTL"/>
         <display value="Instillation, peritoneal dialysis port"/>
         <definition value=" Instillation, peritoneal dialysis port"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14713">
+      <concept>
         <code value="PNSINSTL"/>
         <display value="Instillation, paranasal sinuses"/>
         <definition value=" Instillation, paranasal sinuses"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14715">
+      <concept>
         <code value="RECINSTL"/>
         <display value="Instillation, rectal"/>
         <definition value=" Instillation, rectal"/>
-        <concept id="14716">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="RECTINSTL"/>
           <display value="Instillation, rectal tube"/>
           <definition value=" Instillation, rectal tube"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="16987">
+      <concept>
         <code value="SININSTIL"/>
         <display value="Instillation, sinus, unspecified"/>
         <definition value=" Instillation, sinus, unspecified"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16988">
+      <concept>
         <code value="SOFTISINSTIL"/>
         <display value="Instillation, soft tissue"/>
         <definition value=" Instillation, soft tissue"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14717">
+      <concept>
         <code value="TRACHINSTL"/>
         <display value="Instillation, tracheostomy"/>
         <definition value=" Instillation, tracheostomy"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16989">
+      <concept>
         <code value="TRTYMPINSTIL"/>
         <display value="Instillation, transtympanic"/>
         <definition value=" Instillation, transtympanic"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14718">
+      <concept>
         <code value="URETHINSTL"/>
         <display value="instillation, urethral"/>
         <definition value=" Instillation, urethral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21226">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IONTO"/>
       </extension>
       <code value="_IontophoresisRoute"/>
       <display value="IontophoresisRoute"/>
       <definition value=" Iontophoresis"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21227">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="GUIRR"/>
       </extension>
@@ -1059,36 +1837,68 @@
       <code value="_Irrigation"/>
       <display value="Irrigation"/>
       <definition value=" Irrigation"/>
-      <concept id="14725">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="BLADIRR"/>
         <display value="Irrigation, urinary bladder"/>
         <definition value=" Irrigation, urinary bladder"/>
-        <concept id="14726">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="BLADIRRC"/>
           <display value="Irrigation, urinary bladder, continuous"/>
           <definition value=" Irrigation, urinary bladder, continuous"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14727">
+        <concept>
           <code value="BLADIRRT"/>
           <display value="Irrigation, urinary bladder, tidal"/>
           <definition value=" Irrigation, urinary bladder, tidal"/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="16994">
+      <concept>
         <code value="RECIRR"/>
         <display value="Irrigation, rectal"/>
         <definition value=" Irrigation, rectal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21231">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IGASTLAV"/>
       </extension>
       <code value="_LavageRoute"/>
       <display value="LavageRoute"/>
       <definition value=" Lavage"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21233">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IDOUDMAB"/>
       </extension>
@@ -1098,23 +1908,47 @@
       <code value="_MucosalAbsorptionRoute"/>
       <display value="MucosalAbsorptionRoute"/>
       <definition value=" Mucosal absorption"/>
-      <concept id="16998">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="SMUCMAB"/>
         <display value="Mucosal absorption, submucosal"/>
         <definition value=" Mucosal absorption, submucosal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21237">
+    <concept>
       <code value="_Nebulization"/>
       <display value="Nebulization"/>
       <definition value=" Nebulization"/>
-      <concept id="14729">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ETNEB"/>
         <display value="Nebulization, endotracheal tube"/>
         <definition value=" Nebulization, endotracheal tube"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21255">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="DENRINSE"/>
       </extension>
@@ -1124,18 +1958,38 @@
       <code value="_Rinse"/>
       <display value="Rinse"/>
       <definition value=" Rinse"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21268">
+    <concept>
       <code value="_SuppositoryRoute"/>
       <display value="SuppositoryRoute"/>
       <definition value=" Suppository"/>
-      <concept id="17004">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="URETHSUP"/>
         <display value="Suppository, urethral"/>
         <definition value=" Suppository, urethral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21269">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="SWISHSPIT"/>
       </extension>
@@ -1145,18 +1999,38 @@
       <code value="_Swish"/>
       <display value="Swish"/>
       <definition value=" Swish"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21270">
+    <concept>
       <code value="_TopicalAbsorptionRoute"/>
       <display value="TopicalAbsorptionRoute"/>
       <definition value=" Topical absorption"/>
-      <concept id="17007">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="TTYMPTABSORP"/>
         <display value="Topical absorption, transtympanic"/>
         <definition value=" Topical absorption, transtympanic"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21271">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="DRESS"/>
       </extension>
@@ -1256,158 +2130,310 @@
       <code value="_TopicalApplication"/>
       <display value="TopicalApplication"/>
       <definition value=" Topical application"/>
-      <concept id="17018">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="TMUCTA"/>
         <display value="Topical application, transmucosal"/>
         <definition value=" Topical application, transmucosal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14758">
+      <concept>
         <code value="VAGINS"/>
         <display value="Topical application, vaginal"/>
         <definition value=" Insertion, vaginal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="14720">
+    <concept>
       <code value="INSUF"/>
       <display value="Insufflation"/>
       <definition value=" Insufflation"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="17356">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="TRNSDERMD"/>
       </extension>
       <code value="TRNSDERM"/>
       <display value="Transdermal"/>
       <definition value=" Transdermal"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21160">
+    <concept>
       <code value="_InfiltrationRoute"/>
       <display value="InfiltrationRoute"/>
       <definition value=" Infiltration"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="retired"/>
       </property>
     </concept>
   </concept>
-  <concept id="21257">
+  <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
       <valueCode value="TRNSDERM"/>
     </extension>
     <code value="_RouteBySite"/>
     <display value="RouteBySite"/>
     <definition value=" Route of substance administration classified by site."/>
-    <concept id="21136">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="_AmnioticFluidSacRoute"/>
       <display value="AmnioticFluidSacRoute"/>
       <definition value=" Amniotic fluid sac"/>
-      <concept id="14629">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="AMNINJ"/>
         <display value="Injection, amniotic fluid"/>
         <definition value=" Injection, amniotic fluid"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21137">
+    <concept>
       <code value="_BiliaryRoute"/>
       <display value="BiliaryRoute"/>
       <definition value=" Biliary tract"/>
-      <concept id="14630">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="BILINJ"/>
         <display value="Injection, biliary tract"/>
         <definition value=" Injection, biliary tract"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14634">
+      <concept>
         <code value="CHOLINJ"/>
         <display value="Injection, for cholangiography"/>
         <definition value=" Injection, for cholangiography"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21138">
+    <concept>
       <code value="_BodySurfaceRoute"/>
       <display value="BodySurfaceRoute"/>
       <definition value=" Body surface"/>
-      <concept id="14756">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="DRESS"/>
         <display value="Topical application, soaked dressing"/>
         <definition value=" Topical application, soaked dressing"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16932">
+      <concept>
         <code value="ELECTOSMOS"/>
         <display value="Electro-osmosis"/>
         <definition value=" Electro-osmosis"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16991">
+      <concept>
         <code value="IONTO"/>
         <display value="Topical application, iontophoresis"/>
         <definition value=" Topical application, iontophoresis"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14597">
+      <concept>
         <code value="SOAK"/>
         <display value="Immersion (soak)"/>
         <definition value=" Immersion (soak)"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14757">
+      <concept>
         <code value="SWAB"/>
         <display value="Topical application, swab"/>
         <definition value=" Topical application, swab"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="17005">
+      <concept>
         <code value="TOPICAL"/>
         <display value="Topical"/>
         <definition value=" Topical"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21139">
+    <concept>
       <code value="_BuccalMucosaRoute"/>
       <display value="BuccalMucosaRoute"/>
       <definition value=" Buccal mucosa"/>
-      <concept id="14740">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="BUC"/>
         <display value="Topical application, buccal"/>
         <definition value=" Topical application, buccal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21140">
+    <concept>
       <code value="_CecostomyRoute"/>
       <display value="CecostomyRoute"/>
       <definition value=" Cecostomy"/>
-      <concept id="14697">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="CECINSTL"/>
         <display value="Instillation, cecostomy"/>
         <definition value=" Instillation, cecostomy"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21141">
+    <concept>
       <code value="_CervicalRoute"/>
       <display value="CervicalRoute"/>
       <definition value=" Cervix of the uterus"/>
-      <concept id="14741">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="CERV"/>
         <display value="Topical application, cervical"/>
         <definition value=" Topical application, cervical"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14631">
+      <concept>
         <code value="CERVINJ"/>
         <display value="Injection, cervical"/>
         <definition value=" Injection, cervical"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14688">
+      <concept>
         <code value="CERVINS"/>
         <display value="Insertion, cervical (uterine)"/>
         <definition value=" Insertion, cervical (uterine)"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14742">
+      <concept>
         <code value="DEN"/>
         <display value="Topical application, dental"/>
         <definition value=" Topical application, dental"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14731">
+      <concept>
         <code value="DENRINSE"/>
         <display value="Rinse, dental"/>
         <definition value=" Rinse, dental"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21148">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="AMNINJ"/>
       </extension>
@@ -1417,160 +2443,324 @@
       <code value="_EndocervicalRoute"/>
       <display value="EndocervicalRoute"/>
       <definition value=" Endocervical"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21150">
+    <concept>
       <code value="_EnteralRoute"/>
       <display value="EnteralRoute"/>
       <definition value=" Enteral"/>
-      <concept id="14702">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="EFT"/>
         <display value="Instillation, enteral feeding tube"/>
         <definition value=" Instillation, enteral feeding tube"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14701">
+      <concept>
         <code value="ENTINSTL"/>
         <display value="Instillation, enteral"/>
         <definition value=" Instillation, enteral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21151">
+    <concept>
       <code value="_EpiduralRoute"/>
       <display value="EpiduralRoute"/>
       <definition value=" Epidural"/>
-      <concept id="14603">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="EPI"/>
         <display value="Infusion, epidural"/>
         <definition value=" Infusion, epidural"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16940">
+      <concept>
         <code value="EPIDURINJ"/>
         <display value="Injection, epidural"/>
         <definition value=" Injection, epidural"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14632">
+      <concept>
         <code value="EPIINJ"/>
         <display value="Injection, epidural, push"/>
         <definition value=" Injection, epidural, push"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14633">
+      <concept>
         <code value="EPINJSP"/>
         <display value="Injection, epidural, slow push"/>
         <definition value=" Injection, epidural, slow push"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21152">
+    <concept>
       <code value="_ExtraAmnioticRoute"/>
       <display value="ExtraAmnioticRoute"/>
       <definition value=" Extra-amniotic"/>
-      <concept id="16941">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="EXTRAMNINJ"/>
         <display value="Injection, extra-amniotic"/>
         <definition value=" Injection, extra-amniotic"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21153">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="EXTCORPDIF"/>
       </extension>
       <code value="_ExtracorporealCirculationRoute"/>
       <display value="ExtracorporealCirculationRoute"/>
       <definition value=" Extracorporeal circulation"/>
-      <concept id="19400">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="EXTCORPINJ"/>
         <display value="Injection, extracorporeal"/>
         <definition value=" Injection, extracorporeal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21155">
+    <concept>
       <code value="_GastricRoute"/>
       <display value="GastricRoute"/>
       <definition value=" Gastric"/>
-      <concept id="14635">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="GBINJ"/>
         <display value="Injection, gastric button"/>
         <definition value=" Injection, gastric button"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14704">
+      <concept>
         <code value="GT"/>
         <display value="Instillation, gastrostomy tube"/>
         <definition value=" Instillation, gastrostomy tube"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14708">
+      <concept>
         <code value="NGT"/>
         <display value="Instillation, nasogastric tube"/>
         <definition value=" Instillation, nasogastric tube"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14710">
+      <concept>
         <code value="OGT"/>
         <display value="Instillation, orogastric tube"/>
         <definition value=" Instillation, orogastric tube"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21156">
+    <concept>
       <code value="_GenitourinaryRoute"/>
       <display value="GenitourinaryRoute"/>
       <definition value=" Genitourinary"/>
-      <concept id="14722">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="GUIRR"/>
         <display value="Irrigation, genitourinary"/>
         <definition value=" Irrigation, genitourinary"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21157">
+    <concept>
       <code value="_GingivalRoute"/>
       <display value="GingivalRoute"/>
       <definition value=" Gingival"/>
-      <concept id="14743">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="GIN"/>
         <display value="Topical application, gingival"/>
         <definition value=" Topical application, gingival"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14636">
+      <concept>
         <code value="GINGINJ"/>
         <display value="Injection, gingival"/>
         <definition value=" Injection, gingival"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21158">
+    <concept>
       <code value="_HairRoute"/>
       <display value="HairRoute"/>
       <definition value=" Hair"/>
-      <concept id="14744">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="HAIR"/>
         <display value="Topical application, hair"/>
         <definition value=" Topical application, hair"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14733">
+      <concept>
         <code value="SHAMPOO"/>
         <display value="Shampoo"/>
         <definition value=" Shampoo"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21166">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="INTERMENINJ"/>
       </extension>
       <code value="_InterameningealRoute"/>
       <display value="InterameningealRoute"/>
       <definition value=" Interameningeal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21167">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="INTERSTITINJ"/>
       </extension>
       <code value="_InterstitialRoute"/>
       <display value="InterstitialRoute"/>
       <definition value=" Interstitial"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21168">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IABDINJ"/>
       </extension>
       <code value="_IntraabdominalRoute"/>
       <display value="IntraabdominalRoute"/>
       <definition value=" Intra-abdominal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21169">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IA"/>
       </extension>
@@ -1580,32 +2770,64 @@
       <code value="_IntraarterialRoute"/>
       <display value="IntraarterialRoute"/>
       <definition value=" Intra-arterial"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21170">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IARTINJ"/>
       </extension>
       <code value="_IntraarticularRoute"/>
       <display value="IntraarticularRoute"/>
       <definition value=" Intraarticular"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21171">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IBRONCHINSTIL"/>
       </extension>
       <code value="_IntrabronchialRoute"/>
       <display value="IntrabronchialRoute"/>
       <definition value=" Intrabronchial"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21172">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IBURSINJ"/>
       </extension>
       <code value="_IntrabursalRoute"/>
       <display value="IntrabursalRoute"/>
       <definition value=" Intrabursal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21173">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IC"/>
       </extension>
@@ -1615,84 +2837,172 @@
       <code value="_IntracardiacRoute"/>
       <display value="IntracardiacRoute"/>
       <definition value=" Intracardiac"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21174">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ICARTINJ"/>
       </extension>
       <code value="_IntracartilaginousRoute"/>
       <display value="IntracartilaginousRoute"/>
       <definition value=" Intracartilaginous"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21175">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ICAUDINJ"/>
       </extension>
       <code value="_IntracaudalRoute"/>
       <display value="IntracaudalRoute"/>
       <definition value=" Intracaudal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21176">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ICAVINJ"/>
       </extension>
       <code value="_IntracavernosalRoute"/>
       <display value="IntracavernosalRoute"/>
       <definition value=" Intracavernosal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21177">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ICAVITINJ"/>
       </extension>
       <code value="_IntracavitaryRoute"/>
       <display value="IntracavitaryRoute"/>
       <definition value=" Intracavitary"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21178">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ICEREBINJ"/>
       </extension>
       <code value="_IntracerebralRoute"/>
       <display value="IntracerebralRoute"/>
       <definition value=" Intracerebral"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21179">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IUINJC"/>
       </extension>
       <code value="_IntracervicalRoute"/>
       <display value="IntracervicalRoute"/>
       <definition value=" Intracervical"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21180">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ICISTERNINJ"/>
       </extension>
       <code value="_IntracisternalRoute"/>
       <display value="IntracisternalRoute"/>
       <definition value=" Intracisternal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21181">
+    <concept>
       <code value="_IntracornealRoute"/>
       <display value="IntracornealRoute"/>
       <definition value=" Intracorneal"/>
-      <concept id="17008">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ICORNTA"/>
         <display value="Topical application, intracorneal"/>
         <definition value=" Topical application, intracorneal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21182">
+    <concept>
       <code value="_IntracoronalRoute"/>
       <display value="IntracoronalRoute"/>
       <definition value=" Intracoronal (dental)"/>
-      <concept id="17009">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ICORONTA"/>
         <display value="Topical application, intracoronal (dental)"/>
         <definition value=" Topical application, intracoronal (dental)"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21183">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ICOR"/>
       </extension>
@@ -1702,16 +3012,32 @@
       <code value="_IntracoronaryRoute"/>
       <display value="IntracoronaryRoute"/>
       <definition value=" Intracoronary"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21184">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ICORPCAVINJ"/>
       </extension>
       <code value="_IntracorpusCavernosumRoute"/>
       <display value="IntracorpusCavernosumRoute"/>
       <definition value=" Intracorpus cavernosum"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21185">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IDIMPLNT"/>
       </extension>
@@ -1721,160 +3047,312 @@
       <code value="_IntradermalRoute"/>
       <display value="IntradermalRoute"/>
       <definition value=" Intradermal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21186">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IDISCINJ"/>
       </extension>
       <code value="_IntradiscalRoute"/>
       <display value="IntradiscalRoute"/>
       <definition value=" Intradiscal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21187">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IDUCTINJ"/>
       </extension>
       <code value="_IntraductalRoute"/>
       <display value="IntraductalRoute"/>
       <definition value=" Intraductal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21188">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IDUODINSTIL"/>
       </extension>
       <code value="_IntraduodenalRoute"/>
       <display value="IntraduodenalRoute"/>
       <definition value=" Intraduodenal"/>
-      <concept id="16999">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="IDOUDMAB"/>
         <display value="Mucosal absorption, intraduodenal"/>
         <definition value=" Mucosal absorption, intraduodenal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21189">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IDURINJ"/>
       </extension>
       <code value="_IntraduralRoute"/>
       <display value="IntraduralRoute"/>
       <definition value=" Intradural"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21190">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IEPIDINJ"/>
       </extension>
       <code value="_IntraepidermalRoute"/>
       <display value="IntraepidermalRoute"/>
       <definition value=" Intraepidermal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21191">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IEPITHINJ"/>
       </extension>
       <code value="_IntraepithelialRoute"/>
       <display value="IntraepithelialRoute"/>
       <definition value=" Intraepithelial"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21192">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IESOPHINSTIL"/>
       </extension>
       <code value="_IntraesophagealRoute"/>
       <display value="IntraesophagealRoute"/>
       <definition value=" Intraesophageal"/>
-      <concept id="17010">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="IESOPHTA"/>
         <display value="Topical application, intraesophageal"/>
         <definition value=" Topical application, intraesophageal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21193">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IGASTINSTIL"/>
       </extension>
       <code value="_IntragastricRoute"/>
       <display value="IntragastricRoute"/>
       <definition value=" Intragastric"/>
-      <concept id="16993">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="IGASTIRR"/>
         <display value="Irrigation, intragastric"/>
         <definition value=" Irrigation, intragastric"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="16996">
+      <concept>
         <code value="IGASTLAV"/>
         <display value="Lavage, intragastric"/>
         <definition value=" Lavage, intragastric"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21194">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IILEALINJ"/>
       </extension>
       <code value="_IntrailealRoute"/>
       <display value="IntrailealRoute"/>
       <definition value=" Intraileal"/>
-      <concept id="17011">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="IILEALTA"/>
         <display value="Topical application, intraileal"/>
         <definition value=" Topical application, intraileal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21195">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ILESINJ"/>
       </extension>
       <code value="_IntralesionalRoute"/>
       <display value="IntralesionalRoute"/>
       <definition value=" Intralesional"/>
-      <concept id="14723">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ILESIRR"/>
         <display value="Irrigation, intralesional"/>
         <definition value=" Irrigation, intralesional"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14745">
+      <concept>
         <code value="ILTOP"/>
         <display value="Topical application, intralesional"/>
         <definition value=" Topical application, intralesional"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21196">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ILUMINJ"/>
       </extension>
       <code value="_IntraluminalRoute"/>
       <display value="IntraluminalRoute"/>
       <definition value=" Intraluminal"/>
-      <concept id="17012">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ILUMTA"/>
         <display value="Topical application, intraluminal"/>
         <definition value=" Topical application, intraluminal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21197">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ILYMPJINJ"/>
       </extension>
       <code value="_IntralymphaticRoute"/>
       <display value="IntralymphaticRoute"/>
       <definition value=" Intralymphatic"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21198">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IMEDULINJ"/>
       </extension>
       <code value="_IntramedullaryRoute"/>
       <display value="IntramedullaryRoute"/>
       <definition value=" Intramedullary"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21199">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IM"/>
       </extension>
       <code value="_IntramuscularRoute"/>
       <display value="IntramuscularRoute"/>
       <definition value=" Intramuscular"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21200">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IOINJ"/>
       </extension>
@@ -1887,18 +3365,34 @@
       <code value="_IntraocularRoute"/>
       <display value="IntraocularRoute"/>
       <definition value=" Intraocular"/>
-      <concept id="14724">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="IOIRR"/>
         <display value="Irrigation, intraocular"/>
         <definition value=" Irrigation, intraocular"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14746">
+      <concept>
         <code value="IOTOP"/>
         <display value="Topical application, intraocular"/>
         <definition value=" Topical application, intraocular"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21201">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IOSSC"/>
       </extension>
@@ -1908,24 +3402,48 @@
       <code value="_IntraosseousRoute"/>
       <display value="IntraosseousRoute"/>
       <definition value=" Intraosseous"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21202">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IOVARINJ"/>
       </extension>
       <code value="_IntraovarianRoute"/>
       <display value="IntraovarianRoute"/>
       <definition value=" Intraovarian"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21203">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IPCARDINJ"/>
       </extension>
       <code value="_IntrapericardialRoute"/>
       <display value="IntrapericardialRoute"/>
       <definition value=" Intrapericardial"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21204">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IPERINJ"/>
       </extension>
@@ -1941,8 +3459,16 @@
       <code value="_IntraperitonealRoute"/>
       <display value="IntraperitonealRoute"/>
       <definition value=" Intraperitoneal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21205">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IPLRINJ"/>
       </extension>
@@ -1952,16 +3478,32 @@
       <code value="_IntrapleuralRoute"/>
       <display value="IntrapleuralRoute"/>
       <definition value=" Intrapleural"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21206">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IPROSTINJ"/>
       </extension>
       <code value="_IntraprostaticRoute"/>
       <display value="IntraprostaticRoute"/>
       <definition value=" Intraprostatic"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21207">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="EXTCORPINJ"/>
       </extension>
@@ -1971,56 +3513,112 @@
       <code value="_IntrapulmonaryRoute"/>
       <display value="IntrapulmonaryRoute"/>
       <definition value=" Intrapulmonary"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21208">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ISININSTIL"/>
       </extension>
       <code value="_IntrasinalRoute"/>
       <display value="IntrasinalRoute"/>
       <definition value=" Intrasinal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21209">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ISINJ"/>
       </extension>
       <code value="_IntraspinalRoute"/>
       <display value="IntraspinalRoute"/>
       <definition value=" Intraspinal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21210">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ISTERINJ"/>
       </extension>
       <code value="_IntrasternalRoute"/>
       <display value="IntrasternalRoute"/>
       <definition value=" Intrasternal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21211">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ISYNINJ"/>
       </extension>
       <code value="_IntrasynovialRoute"/>
       <display value="IntrasynovialRoute"/>
       <definition value=" Intrasynovial"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21212">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ITENDINJ"/>
       </extension>
       <code value="_IntratendinousRoute"/>
       <display value="IntratendinousRoute"/>
       <definition value=" Intratendinous"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21213">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ITESTINJ"/>
       </extension>
       <code value="_IntratesticularRoute"/>
       <display value="IntratesticularRoute"/>
       <definition value=" Intratesticular"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21214">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IT"/>
       </extension>
@@ -2030,53 +3628,105 @@
       <code value="_IntrathecalRoute"/>
       <display value="IntrathecalRoute"/>
       <definition value=" Intrathecal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21215">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ITHORINJ"/>
       </extension>
       <code value="_IntrathoracicRoute"/>
       <display value="IntrathoracicRoute"/>
       <definition value=" Intrathoracic"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21216">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ITRACHINSTIL"/>
       </extension>
       <code value="_IntratrachealRoute"/>
       <display value="IntratrachealRoute"/>
       <definition value=" Intratracheal"/>
-      <concept id="17000">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ITRACHMAB"/>
         <display value="Mucosal absorption, intratracheal"/>
         <definition value=" Mucosal absorption, intratracheal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21217">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ITUBINJ"/>
       </extension>
       <code value="_IntratubularRoute"/>
       <display value="IntratubularRoute"/>
       <definition value=" Intratubular"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21218">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ITUMINJ"/>
       </extension>
       <code value="_IntratumorRoute"/>
       <display value="IntratumorRoute"/>
       <definition value=" Intratumor"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21219">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ITYMPINJ"/>
       </extension>
       <code value="_IntratympanicRoute"/>
       <display value="IntratympanicRoute"/>
       <definition value=" Intratympanic"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21220">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IUINJ"/>
       </extension>
@@ -2092,8 +3742,16 @@
       <code value="_IntrauterineRoute"/>
       <display value="IntrauterineRoute"/>
       <definition value=" Intrauterine"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21221">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="HEMODIFF"/>
       </extension>
@@ -2109,8 +3767,16 @@
       <code value="_IntravascularRoute"/>
       <display value="IntravascularRoute"/>
       <definition value=" Intravascular"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21222">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IVFLUSH"/>
       </extension>
@@ -2120,32 +3786,64 @@
       <code value="_IntravenousRoute"/>
       <display value="IntravenousRoute"/>
       <definition value=" Intravenous"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21223">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IVENTINJ"/>
       </extension>
       <code value="_IntraventricularRoute"/>
       <display value="IntraventricularRoute"/>
       <definition value=" Intraventricular"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21224">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IVESINJ"/>
       </extension>
       <code value="_IntravesicleRoute"/>
       <display value="IntravesicleRoute"/>
       <definition value=" Intravesicle"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21225">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IVITINJ"/>
       </extension>
       <code value="_IntravitrealRoute"/>
       <display value="IntravitrealRoute"/>
       <definition value=" Intravitreal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21228">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="GJT"/>
       </extension>
@@ -2158,59 +3856,123 @@
       <code value="_JejunumRoute"/>
       <display value="JejunumRoute"/>
       <definition value=" Jejunum"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21229">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="LPINS"/>
       </extension>
       <code value="_LacrimalPunctaRoute"/>
       <display value="LacrimalPunctaRoute"/>
       <definition value=" Lacrimal puncta"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21230">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="LARYNGINSTIL"/>
       </extension>
       <code value="_LaryngealRoute"/>
       <display value="LaryngealRoute"/>
       <definition value=" Laryngeal"/>
-      <concept id="17013">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="LARYNGTA"/>
         <display value="Topical application, laryngeal"/>
         <definition value=" Topical application, laryngeal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21232">
+    <concept>
       <code value="_LingualRoute"/>
       <display value="LingualRoute"/>
       <definition value=" Lingual"/>
-      <concept id="14760">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="TRNSLING"/>
         <display value="Translingual"/>
         <definition value=" Translingual"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21234">
+    <concept>
       <code value="_MucousMembraneRoute"/>
       <display value="MucousMembraneRoute"/>
       <definition value=" Mucous membrane"/>
-      <concept id="14747">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="MUC"/>
         <display value="Topical application, mucous membrane"/>
         <definition value=" Topical application, mucous membrane"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21235">
+    <concept>
       <code value="_NailRoute"/>
       <display value="NailRoute"/>
       <definition value=" Nail"/>
-      <concept id="14748">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="NAIL"/>
         <display value="Topical application, nail"/>
         <definition value=" Topical application, nail"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21236">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="NASINHL"/>
       </extension>
@@ -2223,23 +3985,47 @@
       <code value="_NasalRoute"/>
       <display value="NasalRoute"/>
       <definition value=" Nasal"/>
-      <concept id="14749">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="NASAL"/>
         <display value="Topical application, nasal"/>
         <definition value=" Topical application, nasal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21238">
+    <concept>
       <code value="_OphthalmicRoute"/>
       <display value="OphthalmicRoute"/>
       <definition value=" Ophthalmic"/>
-      <concept id="17014">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="OPTHALTA"/>
         <display value="Topical application, ophthalmic"/>
         <definition value=" Topical application, ophthalmic"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21239">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="CHEW"/>
       </extension>
@@ -2252,71 +4038,139 @@
       <code value="_OralRoute"/>
       <display value="OralRoute"/>
       <definition value=" Oral"/>
-      <concept id="17015">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="ORALTA"/>
         <display value="Topical application, oral"/>
         <definition value=" Topical application, oral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14732">
+      <concept>
         <code value="ORRINSE"/>
         <display value="Rinse, oral"/>
         <definition value=" Rinse, oral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14735">
+      <concept>
         <code value="PO"/>
         <display value="Swallow, oral"/>
         <definition value=" Swallow, oral"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21240">
+    <concept>
       <code value="_OromucosalRoute"/>
       <display value="OromucosalRoute"/>
       <definition value=" Oromucosal"/>
-      <concept id="14596">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="GARGLE"/>
         <display value="Gargle"/>
         <definition value=" Gargle"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14750">
+      <concept>
         <code value="ORMUC"/>
         <display value="Topical application, oromucosal"/>
         <definition value=" Topical application, oromucosal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14734">
+      <concept>
         <code value="SUCK"/>
         <display value="Suck, oromucosal"/>
         <definition value=" Suck, oromucosal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14737">
+      <concept>
         <code value="SWISHSPIT"/>
         <display value="Swish and spit out, oromucosal"/>
         <definition value=" Swish and spit out, oromucosal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14738">
+      <concept>
         <code value="SWISHSWAL"/>
         <display value="Swish and swallow, oromucosal"/>
         <definition value=" Swish and swallow, oromucosal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21241">
+    <concept>
       <code value="_OropharyngealRoute"/>
       <display value="OropharyngealRoute"/>
       <definition value=" Oropharyngeal"/>
-      <concept id="17016">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="OROPHARTA"/>
         <display value="Topical application, oropharyngeal"/>
         <definition value=" Topical application, oropharyngeal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21242">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="OT"/>
       </extension>
       <code value="_OticRoute"/>
       <display value="OticRoute"/>
       <definition value=" Otic"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21243">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="PNSINJ"/>
       </extension>
@@ -2326,73 +4180,149 @@
       <code value="_ParanasalSinusesRoute"/>
       <display value="ParanasalSinusesRoute"/>
       <definition value=" Paranasal sinuses"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21244">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="PARENTINJ"/>
       </extension>
       <code value="_ParenteralRoute"/>
       <display value="ParenteralRoute"/>
       <definition value=" Parenteral"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21245">
+    <concept>
       <code value="_PerianalRoute"/>
       <display value="PerianalRoute"/>
       <definition value=" Perianal"/>
-      <concept id="14751">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="PERIANAL"/>
         <display value="Topical application, perianal"/>
         <definition value=" Topical application, perianal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21246">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="PAINJ"/>
       </extension>
       <code value="_PeriarticularRoute"/>
       <display value="PeriarticularRoute"/>
       <definition value=" Periarticular"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21247">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="PDURINJ"/>
       </extension>
       <code value="_PeriduralRoute"/>
       <display value="PeriduralRoute"/>
       <definition value=" Peridural"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21248">
+    <concept>
       <code value="_PerinealRoute"/>
       <display value="PerinealRoute"/>
       <definition value=" Perineal"/>
-      <concept id="14752">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="PERINEAL"/>
         <display value="Topical application, perineal"/>
         <definition value=" Topical application, perineal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21249">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="PNINJ"/>
       </extension>
       <code value="_PerineuralRoute"/>
       <display value="PerineuralRoute"/>
       <definition value=" Perineural"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21250">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="PDONTINJ"/>
       </extension>
       <code value="_PeriodontalRoute"/>
       <display value="PeriodontalRoute"/>
       <definition value=" Periodontal"/>
-      <concept id="17017">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="PDONTTA"/>
         <display value="Topical application, periodontal"/>
         <definition value=" Topical application, periodontal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21251">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IPPB"/>
       </extension>
@@ -2414,8 +4344,16 @@
       <code value="_PulmonaryRoute"/>
       <display value="PulmonaryRoute"/>
       <definition value=" Pulmonary"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21252">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ENEMA"/>
       </extension>
@@ -2434,39 +4372,79 @@
       <code value="_RectalRoute"/>
       <display value="RectalRoute"/>
       <definition value=" Rectal"/>
-      <concept id="14753">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="RECTAL"/>
         <display value="Topical application, rectal"/>
         <definition value=" Topical application, rectal"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21253">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IPINHL"/>
       </extension>
       <code value="_RespiratoryTractRoute"/>
       <display value="RespiratoryTractRoute"/>
       <definition value=" Respiratory tract"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21254">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="RBINJ"/>
       </extension>
       <code value="_RetrobulbarRoute"/>
       <display value="RetrobulbarRoute"/>
       <definition value=" Retrobulbar"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21258">
+    <concept>
       <code value="_ScalpRoute"/>
       <display value="ScalpRoute"/>
       <definition value=" Scalp"/>
-      <concept id="14754">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="SCALP"/>
         <display value="Topical application, scalp"/>
         <definition value=" Topical application, scalp"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21259">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="ENDOSININJ"/>
       </extension>
@@ -2476,23 +4454,47 @@
       <code value="_SinusUnspecifiedRoute"/>
       <display value="SinusUnspecifiedRoute"/>
       <definition value=" Sinus, unspecified"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21260">
+    <concept>
       <code value="_SkinRoute"/>
       <display value="SkinRoute"/>
       <definition value=" Skin"/>
-      <concept id="17001">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="OCDRESTA"/>
         <display value="Occlusive dressing technique"/>
         <definition value=" Occlusive dressing technique"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14755">
+      <concept>
         <code value="SKIN"/>
         <display value="Topical application, skin"/>
         <definition value=" Topical application, skin"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21261">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="SOFTISINJ"/>
       </extension>
@@ -2502,29 +4504,57 @@
       <code value="_SoftTissueRoute"/>
       <display value="SoftTissueRoute"/>
       <definition value=" Soft tissue"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21262">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="SUBARACHINJ"/>
       </extension>
       <code value="_SubarachnoidRoute"/>
       <display value="SubarachnoidRoute"/>
       <definition value=" Subarachnoid"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21263">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="SCINJ"/>
       </extension>
       <code value="_SubconjunctivalRoute"/>
       <display value="SubconjunctivalRoute"/>
       <definition value=" Subconjunctival"/>
-      <concept id="17002">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="SUBCONJTA"/>
         <display value="Subconjunctival"/>
         <definition value=" Subconjunctival"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="21264">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="SQIMPLNT"/>
       </extension>
@@ -2543,24 +4573,48 @@
       <code value="_SubcutaneousRoute"/>
       <display value="SubcutaneousRoute"/>
       <definition value=" Subcutaneous"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21265">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="SLESINJ"/>
       </extension>
       <code value="_SublesionalRoute"/>
       <display value="SublesionalRoute"/>
       <definition value=" Sublesional"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21266">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="SL"/>
       </extension>
       <code value="_SublingualRoute"/>
       <display value="SublingualRoute"/>
       <definition value=" Sublingual"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21267">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="SUBMUCINJ"/>
       </extension>
@@ -2570,8 +4624,16 @@
       <code value="_SubmucosalRoute"/>
       <display value="SubmucosalRoute"/>
       <definition value=" Submucosal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21272">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="TRACH"/>
       </extension>
@@ -2581,32 +4643,64 @@
       <code value="_TracheostomyRoute"/>
       <display value="TracheostomyRoute"/>
       <definition value=" Tracheostomy"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21273">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="TMUCTA"/>
       </extension>
       <code value="_TransmucosalRoute"/>
       <display value="TransmucosalRoute"/>
       <definition value=" Transmucosal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21274">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="TRPLACINJ"/>
       </extension>
       <code value="_TransplacentalRoute"/>
       <display value="TransplacentalRoute"/>
       <definition value=" Transplacental"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21275">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="TRTRACHINJ"/>
       </extension>
       <code value="_TranstrachealRoute"/>
       <display value="TranstrachealRoute"/>
       <definition value=" Transtracheal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21276">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="TRTYMPINSTIL"/>
       </extension>
@@ -2616,16 +4710,32 @@
       <code value="_TranstympanicRoute"/>
       <display value="TranstympanicRoute"/>
       <definition value=" Transtympanic"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21277">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="URETINJ"/>
       </extension>
       <code value="_UreteralRoute"/>
       <display value="UreteralRoute"/>
       <definition value=" Ureteral"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21278">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="URETHINJ"/>
       </extension>
@@ -2641,8 +4751,16 @@
       <code value="_UrethralRoute"/>
       <display value="UrethralRoute"/>
       <definition value=" Urethral"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21279">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="BLADINJ"/>
       </extension>
@@ -2652,16 +4770,32 @@
       <code value="_UrinaryBladderRoute"/>
       <display value="UrinaryBladderRoute"/>
       <definition value=" Urinary bladder"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21280">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="BLADINSTL"/>
       </extension>
       <code value="_UrinaryTractRoute"/>
       <display value="UrinaryTractRoute"/>
       <definition value=" Urinary tract"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21281">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="DOUCHE"/>
       </extension>
@@ -2674,19 +4808,43 @@
       <code value="_VaginalRoute"/>
       <display value="VaginalRoute"/>
       <definition value=" Vaginal"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21282">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="IVITIMPLNT"/>
       </extension>
       <code value="_VitreousHumourRoute"/>
       <display value="VitreousHumourRoute"/>
       <definition value=" Vitreous humour"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21143">
+    <concept>
       <code value="_DentalRoute"/>
       <display value="DentalRoute"/>
       <definition value=" Dental"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="retired"/>

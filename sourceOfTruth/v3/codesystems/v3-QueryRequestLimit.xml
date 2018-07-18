@@ -14,7 +14,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-QueryRequestLimit"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-QueryRequestLimit"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1112"/>
@@ -29,14 +29,32 @@
   </contact>
   <description value="  Definition:&#xD;&#xA;Defines the units associated with the magnitude of the maximum size limit of a query response that can be accepted by the requesting application."/>
   <content value="complete"/>
-  <concept id="22258">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <code value="_QueryRequestLimit"/>
     <display value="QueryRequestLimit"/>
     <definition value="  Definition:&#xD;&#xA;The number of matching instances (number of focal classes). The document header class is the focal class of a document, a record would therefore be equal to a document."/>
-    <concept id="22257">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="RD"/>
       <display value="record"/>
       <definition value="  Definition:&#xD;&#xA;The number of matching instances (number of focal classes). The document header class is the focal class of a document, a record would therefore be equal to a document."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
 </CodeSystem>

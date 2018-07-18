@@ -19,7 +19,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="643-20081229"/>
   </extension>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ConceptGenerality"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ConceptGenerality"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.24"/>
@@ -34,19 +34,31 @@
   </contact>
   <description value=" Indicates whether the concept that is the target should be interpreted as itself, or whether it should be expanded to include its child concepts, or both when it is included in the source domain/valueset.  Deprecation Comment:&#xD;&#xA;Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
   <content value="complete"/>
-  <concept id="11034">
+  <concept>
     <code value="A"/>
     <display value="Abstract"/>
     <definition value=" Include only the descendents of this concept in the domain or value set, not the concept itself."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="11036">
+  <concept>
     <code value="L"/>
     <display value="Leaf"/>
     <definition value=" Include only the concept itself in the domain or value set.  Do not include descendents of the concept."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="11035">
+  <concept>
     <code value="S"/>
     <display value="Specializable"/>
     <definition value=" Include both the concept and its descendents as possible values in the domain or value set."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

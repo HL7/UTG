@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-QueryParameterValue"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-QueryParameterValue"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1096"/>
@@ -26,84 +26,170 @@
   </contact>
   <description value=" The domain of coded values used as parameters within QueryByParameter queries."/>
   <content value="complete"/>
-  <concept id="23299">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <code value="_DispenseQueryFilterCode"/>
     <display value="dispense query filter code"/>
     <definition value="  Description:&#xD;&#xA;Filter codes used to manage volume of dispenses returned by  a parameter-based queries."/>
-    <concept id="23300">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="ALLDISP"/>
       <display value="all dispenses"/>
       <definition value="  Description:&#xD;&#xA;Returns all dispenses to date for a prescription."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23301">
+    <concept>
       <code value="LASTDISP"/>
       <display value="last dispense"/>
       <definition value="  Description:&#xD;&#xA;Returns the most recent dispense for a prescription."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23302">
+    <concept>
       <code value="NODISP"/>
       <display value="no dispense"/>
       <definition value="  Description:&#xD;&#xA;Returns no dispense for a prescription."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="23616">
+  <concept>
     <code value="_OrderFilterCode"/>
     <display value="_OrderFilterCode"/>
     <definition value=" Filter codes used to manage types of orders being returned by a parameter-based query."/>
-    <concept id="23617">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="AO"/>
       <display value="all orders"/>
       <definition value=" Return all orders."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23619">
+    <concept>
       <code value="ONR"/>
       <display value="orders without results"/>
       <definition value=" Return only those orders that do not have results."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23618">
+    <concept>
       <code value="OWR"/>
       <display value="orders with results"/>
       <definition value=" Return only those orders that have results."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="21537">
+  <concept>
     <code value="_PrescriptionDispenseFilterCode"/>
     <display value="Prescription Dispense Filter Code"/>
     <definition value=" A &quot;helper&quot; vocabulary used to construct complex query filters based on how and whether a prescription has been dispensed."/>
-    <concept id="21540">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="C"/>
       <display value="Completely dispensed"/>
       <definition value=" Filter to only include SubstanceAdministration orders which have no remaining quantity authorized to be dispensed."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21538">
+    <concept>
       <code value="N"/>
       <display value="Never Dispensed"/>
       <definition value=" Filter to only include SubstanceAdministration orders which have no fulfilling supply events performed."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21539">
+    <concept>
       <code value="R"/>
       <display value="Dispensed with remaining fills"/>
       <definition value=" Filter to only include SubstanceAdministration orders which have had at least one fulfilling supply event, but which still have outstanding quantity remaining to be authorized."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="21986">
+  <concept>
     <code value="_QueryParameterValue"/>
     <display value="QueryParameterValue"/>
     <definition value="  Description:&#xD;&#xA;Indicates how result sets should be filtered based on whether they have associated issues."/>
-    <concept id="21987">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="ISSFA"/>
       <display value="all"/>
       <definition value="  Description:&#xD;&#xA;Result set should not be filtered based on the presence of issues."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21988">
+    <concept>
       <code value="ISSFI"/>
       <display value="with issues"/>
       <definition value="  Description:&#xD;&#xA;Result set should be filtered to only include records with associated issues."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21989">
+    <concept>
       <code value="ISSFU"/>
       <display value="with unmanaged issues"/>
       <definition value="  Description:&#xD;&#xA;Result set should be filtered to only include records with associated unmanaged issues."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
 </CodeSystem>

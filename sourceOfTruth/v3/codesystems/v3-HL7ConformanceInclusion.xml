@@ -19,7 +19,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="661-20081229"/>
   </extension>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-HL7ConformanceInclusion"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-HL7ConformanceInclusion"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.55"/>
@@ -34,37 +34,71 @@
   </contact>
   <description value=" These concepts represent theconformance requirments defined for including or valuing an element of an HL7 message.  The concepts apply equally to conformance profiles  defined for Version 2.x messgaes as defined by the Conformance SIG, and to the conformance columns for Version 3 messages as specified in the HMD.  Deprecation Comment:&#xD;&#xA;Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
   <content value="complete"/>
-  <concept id="21081">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <code value="_InclusionNotMandatory"/>
     <display value="InclusionNotMandatory"/>
     <definition value=" The message element is not mandatory, but its appearance may be constrained by one of the non-mandatory concepts."/>
-    <concept id="10014">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="NP"/>
       <display value="Not permitted"/>
       <definition value=" This message element may not appear when the message is communicated."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10015">
+    <concept>
       <code value="NR"/>
       <display value="Not required"/>
       <definition value=" The message element may be populated or used by one system sponsor (or profile), but not by another.  Each system sponsor or profile is required to state the ability to accept or send the message element as part of a conformance claim."/>
-      <concept id="10016">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="RE"/>
         <display value="Required may be empty"/>
         <definition value=" Pursuant to a profile or vendor conformance claim, the message element must appear every time the message is communicated, but the value may be communicated as null."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="10017">
+      <concept>
         <code value="X"/>
         <display value="Excluded"/>
         <definition value=" Pursuant to a profile or vendor conformance claim, this message element may not appear when the message is communicated."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="10013">
+    <concept>
       <code value="RQ"/>
       <display value="Required"/>
       <definition value=" The message element must appear every time the message is communicated, but the value may be communicated as null."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="10011">
+  <concept>
     <code value="M"/>
     <display value="Mandatory"/>
     <definition value=" The message element must appear every time the message is communicated and its value must not be null.  This condition is subject to the rules of multiplicity and conditionality. If a non-null default value is defined for the element, a null value may be communicated."/>
@@ -82,5 +116,13 @@
       </use>
       <value value="R"/>
     </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

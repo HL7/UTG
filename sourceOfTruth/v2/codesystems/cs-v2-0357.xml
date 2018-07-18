@@ -5,16 +5,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="InM"/>
   </extension>
-  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
-    <valueUri value="http://hl7.org/v2/ch02c.html#Heading298"/>
-  </extension>
-  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
-    <valueString value="2.C.2.282"/>
-  </extension>
   <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
     <valueCode value="HL7"/>
   </extension>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v2-0357"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0357"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.217">
@@ -28,19 +22,19 @@
   <title value="V2 Table: Message Error Condition Codes"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2016-03-11"/>
+  <date value="2018-07-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="https://github.com/grahamegrieve/vocab-poc"/>
+      <value value="https://github.com/HL7/UTG"/>
     </telecom>
   </contact>
   <description value="HL7-defined code system of concepts specifying the HL7 (communications) error code.  Used in the ERR segment in HL7 Version 2.x messaging."/>
   <purpose value="Underlying Master Code System for V2 table 0357 (Message Error Condition Codes)"/>
   <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v2-0357"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0357"/>
   <hierarchyMeaning value="is-a"/>
   <compositional value="false"/>
   <versionNeeded value="false"/>
@@ -166,6 +160,24 @@
     </property>
   </concept>
   <concept id="7">
+    <code value="198"/>
+    <display value="Non-Conformant Cardinality"/>
+    <definition value="Non-Conformant Cardinality"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.9"/>
+    </property>
+  </concept>
+  <concept id="8">
+    <code value="199"/>
+    <display value="Other HL7 Error"/>
+    <definition value="Other HL7 Error"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.9"/>
+    </property>
+  </concept>
+  <concept id="9">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Rejection: The Message Type is not supported."/>
     </extension>
@@ -181,7 +193,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="8">
+  <concept id="10">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Rejection: The Event Code is not supported."/>
     </extension>
@@ -197,7 +209,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="9">
+  <concept id="11">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Rejection: The Processing ID is not supported."/>
     </extension>
@@ -213,7 +225,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="10">
+  <concept id="12">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Rejection:  The Version ID is not supported."/>
     </extension>
@@ -229,7 +241,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="11">
+  <concept id="13">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Rejection: The ID of the patient, order, etc., was not found. Used for transactions other than additions, e.g., transfer of a non-existent patient."/>
     </extension>
@@ -244,8 +256,12 @@
       <code value="status"/>
       <valueCode value="Active"/>
     </property>
+    <property>
+      <code value="backwardsCompatible"/>
+      <valueBoolean value="true"/>
+    </property>
   </concept>
-  <concept id="12">
+  <concept id="14">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Rejection: The ID of the patient, order, etc., already exists. Used in response to addition transactions (Admit, New Order, etc.)."/>
     </extension>
@@ -260,8 +276,12 @@
       <code value="status"/>
       <valueCode value="Active"/>
     </property>
+    <property>
+      <code value="backwardsCompatible"/>
+      <valueBoolean value="true"/>
+    </property>
   </concept>
-  <concept id="13">
+  <concept id="15">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Rejection: The transaction could not be performed at the application storage level, e.g., database locked."/>
     </extension>
@@ -276,14 +296,18 @@
       <code value="status"/>
       <valueCode value="Active"/>
     </property>
+    <property>
+      <code value="backwardsCompatible"/>
+      <valueBoolean value="true"/>
+    </property>
   </concept>
-  <concept id="14">
+  <concept id="16">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Rejection: A catchall for internal errors not explicitly covered by other codes."/>
     </extension>
     <code value="207"/>
-    <display value="Application internal error"/>
-    <definition value="Application internal error"/>
+    <display value="Application error"/>
+    <definition value="Application error"/>
     <property>
       <code value="intro"/>
       <valueCode value="2.3.1"/>

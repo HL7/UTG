@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ActRelationshipType"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1002"/>
@@ -114,7 +114,13 @@
     <description value="The name of the assciation from ActRelationship to the source Act"/>
     <type value="string"/>
   </property>
-  <concept id="23252">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <code value="ART"/>
     <display value="act relationship type"/>
     <definition value="  Description:&#xD;&#xA;A directed association between a source Act and a target Act.  Usage Note:&#xD;&#xA;This code should never be transmitted in an instance as the value of ActRelationship.typeCode (attribute)"/>
@@ -126,7 +132,11 @@
       <code value="Name:ActRelationship:target:Act"/>
       <valueString value="&amp;"/>
     </property>
-    <concept id="21307">
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="_ActRelationshipTemporallyPertainsEnd"/>
       </extension>
@@ -142,6 +152,10 @@
         </use>
         <value value="TemporallyPertains"/>
       </designation>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
       <property>
         <code value="isDocumentCharacteristic"/>
         <valueBoolean value="true"/>
@@ -162,10 +176,22 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DN_______"/>
       </property>
-      <concept id="23077">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <concept>
         <code value="_ActRelationshipTemporallyPertainsEnd"/>
         <display value="ActRelationshipTemporallyPertainsEnd"/>
         <definition value="A relationship that defines the relative time of the end source act based on the time of the target act."/>
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
         <property>
           <code value="Name:Act:inboundRelationship:ActRelationship"/>
           <valueCode value="endTemporallyRelatedTo"/>
@@ -174,11 +200,19 @@
           <code value="Name:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="temporallyRelatedEndInformation"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="23075">
+      <concept>
         <code value="_ActRelationshipTemporallyPertainsStart"/>
         <display value="ActRelationshipTemporallyPertainsStart"/>
         <definition value="A relationship that defines the relative time of the start source act based on the time of the target act."/>
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
         <property>
           <code value="Name:Act:inboundRelationship:ActRelationship"/>
           <valueCode value="startTemporallyRelatedTo"/>
@@ -195,9 +229,13 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="DNA______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="20946">
+    <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
         <valueCode value="_ActRelationshipCostTracking"/>
       </extension>
@@ -214,6 +252,10 @@
         </use>
         <value value="_ActRelationshipPosts"/>
       </designation>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
       <property>
         <code value="isDocumentCharacteristic"/>
         <valueBoolean value="true"/>
@@ -234,10 +276,22 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DO_______"/>
       </property>
-      <concept id="21360">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+      <concept>
         <code value="_ActRelationshipCostTracking"/>
         <display value="ActRelationshipCostTracking"/>
         <definition value=" Expresses values for describing the relationship relationship between an InvoiceElement or InvoiceElementGroup and a billable act."/>
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
         <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
@@ -258,7 +312,11 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="DOB______"/>
         </property>
-        <concept id="14904">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="CHRG"/>
           <display value="has charge"/>
           <definition value=" A relationship that provides an ability to associate a financial transaction (target) as a charge to a clinical act (source).  A clinical act may have a charge associated with the execution or delivery of the service. The financial transaction will define the charge (bill) for delivery or performance of the service. Charges and costs are distinct terms.  A charge defines what is charged or billed to another organization or entity within an organization.  The cost defines what it costs an organization to perform or deliver a service or product."/>
@@ -282,8 +340,12 @@
             <code value="Sort:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="DOBA_____"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14903">
+        <concept>
           <code value="COST"/>
           <display value="has cost"/>
           <definition value=" A relationship that provides an ability to associate a financial transaction (target) as a cost to a clinical act (source).  A clinical act may have an inherit cost associated with the execution or delivery of the service. The financial transaction will define the cost of delivery or performance of the service. Charges and costs are distinct terms.  A charge defines what is charged or billed to another organization or entity within an organization.  The cost defines what it costs an organization to perform or deliver a service or product."/>
@@ -307,12 +369,20 @@
             <code value="Sort:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="DOBB_____"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="21359">
+      <concept>
         <code value="_ActRelationshipPosting"/>
         <display value="ActRelationshipPosting"/>
         <definition value=" Expresses values for describing the relationship between a FinancialTransaction and an Account."/>
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
         <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
@@ -333,7 +403,11 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="DOA______"/>
         </property>
-        <concept id="14902">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="CREDIT"/>
           <display value="has credit"/>
           <definition value=" A credit relationship ties a financial transaction (target) to an account (source). A credit, once applied (posted), may have either a positive or negative effect on the account balance, depending on the type of account. An asset account credit will decrease the account balance. A non-asset account credit will decrease the account balance."/>
@@ -357,8 +431,12 @@
             <code value="Sort:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="DOAA_____"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="14901">
+        <concept>
           <code value="DEBIT"/>
           <display value="has debit"/>
           <definition value=" A debit relationship ties a financial transaction (target) to an account (source).  A debit, once applied (posted), may have either a positive or negative effect on the account balance, depending on the type of account.  An asset account debit will increase the account balance.  A non-asset account debit will decrease the account balance."/>
@@ -382,13 +460,21 @@
             <code value="Sort:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="DOAB_____"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
     </concept>
-    <concept id="20945">
+    <concept>
       <code value="_ActRelationshipConditional"/>
       <display value="ActRelationshipConditional"/>
       <definition value=" Specifies under what circumstances (target Act) the source-Act may, must, must not or has occurred"/>
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
       <property>
         <code value="conductible"/>
         <valueBoolean value="true"/>
@@ -413,7 +499,11 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="C________"/>
       </property>
-      <concept id="10323">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="CIND"/>
         <display value="has contra-indication"/>
         <definition value=" A contraindication is just a negation of a reason, i.e. it gives a condition under which the action is not to be done. Both, source and target can be any kind of service; target service is in criterion mood. How the strength of a contraindication is expressed (e.g., relative, absolute) is left as an open issue. The priorityNumber attribute could be used."/>
@@ -445,8 +535,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="CC_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="10319">
+      <concept>
         <code value="PRCN"/>
         <display value="has pre-condition"/>
         <definition value=" A requirement to be true before a service is performed. The target can be any service in criterion mood.  For multiple pre-conditions a conjunction attribute (AND, OR, XOR) is applicable."/>
@@ -478,8 +572,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="CD_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="10321">
+      <concept>
         <code value="RSON"/>
         <display value="has reason"/>
         <definition value="  Description:&#xD;&#xA;The reason or rationale for a service. A reason link is weaker than a trigger, it only suggests that some service may be or might have been a reason for some action, but not that this reason requires/required the action to be taken. Also, as opposed to the trigger, there is no strong timely relation between the reason and the action.  As well as providing various types of information about the rationale for a service, the RSON act relationship is routinely used between a SBADM act and an OBS act to describe the indication for use of a medication.  Child concepts may be used to describe types of indication.  Discussion:&#xD;&#xA;In prior releases, the code &quot;SUGG&quot; (suggests) was expressed as &quot;an inversion of the reason link.&quot; That code has been retired in favor of the inversion indicator that is an attribute of ActRelationship."/>
@@ -511,7 +609,11 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="CA_______"/>
         </property>
-        <concept id="22188">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="BLOCK"/>
           <display value="blocks"/>
           <definition value="  Definition:&#xD;&#xA;The source act is performed to block the effects of the target act.  This act relationship should be used when describing near miss type incidents where potential harm could have occurred, but the action described in the source act blocked the potential harmful effects of the incident actually occurring."/>
@@ -527,8 +629,12 @@
             <code value="Name:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="blocks"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="21644">
+        <concept>
           <code value="DIAG"/>
           <display value="diagnoses"/>
           <definition value="  Description:&#xD;&#xA;The source act is intended to help establish the presence of a (an adverse) situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
@@ -540,8 +646,12 @@
             <code value="Name:Act:inboundRelationship:ActRelationship"/>
             <valueCode value="diagnosedBy"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23304">
+        <concept>
           <code value="IMM"/>
           <display value="immunization against"/>
           <definition value="  Description:&#xD;&#xA;The source act is intented to provide immunity against the effects of the target act (the target act describes an infectious disease)"/>
@@ -549,7 +659,11 @@
             <code value="Name:Act:inboundRelationship:ActRelationship"/>
             <valueCode value="immunizedAgainst"/>
           </property>
-          <concept id="23305">
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="ACTIMM"/>
             <display value="active immunization against"/>
             <definition value="  Description:&#xD;&#xA;The source act is intended to provide active immunity against the effects of the target act (the target act describes an infectious disease)"/>
@@ -557,8 +671,12 @@
               <code value="Name:Act:inboundRelationship:ActRelationship"/>
               <valueCode value="activelyImmunizedAgainst"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23306">
+          <concept>
             <code value="PASSIMM"/>
             <display value="passive immunization against"/>
             <definition value="  Description:&#xD;&#xA;The source act is intended to provide passive immunity against the effects of the target act (the target act describes an infectious disease)."/>
@@ -566,9 +684,13 @@
               <code value="Name:Act:inboundRelationship:ActRelationship"/>
               <valueCode value="passivelyImmunizedAgainst"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
-        <concept id="19986">
+        <concept>
           <code value="MITGT"/>
           <display value="mitigates"/>
           <definition value=" The source act removes or lessens the occurrence or effect of the target act."/>
@@ -592,7 +714,11 @@
             <code value="Sort:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="CAA______"/>
           </property>
-          <concept id="22189">
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="RCVY"/>
             <display value="recovers"/>
             <definition value="  Definition:&#xD;&#xA;The source act is performed to recover from the effects of the target act."/>
@@ -608,9 +734,13 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="recovers"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
-        <concept id="23303">
+        <concept>
           <code value="PRYLX"/>
           <display value="prophylaxis of"/>
           <definition value="  Description:&#xD;&#xA;The source act is intended to reduce the risk of of an adverse situation to emerge as described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
@@ -618,8 +748,12 @@
             <code value="Name:Act:inboundRelationship:ActRelationship"/>
             <valueCode value="prophylaxisOf"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23307">
+        <concept>
           <code value="TREAT"/>
           <display value="treats"/>
           <definition value="  Description:&#xD;&#xA;The source act is intended to improve a pre-existing adverse situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
@@ -627,7 +761,11 @@
             <code value="Name:Act:inboundRelationship:ActRelationship"/>
             <valueCode value="treatmentFor"/>
           </property>
-          <concept id="23310">
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="ADJUNCT"/>
             <display value="adjunctive treatment"/>
             <definition value="  Description:&#xD;&#xA;The source act is intended to offer an additional treatment for the management or cure of a pre-existing adverse situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature.  It is not a requirement that the non-adjunctive treatment is explicitly specified."/>
@@ -635,8 +773,12 @@
               <code value="Name:Act:inboundRelationship:ActRelationship"/>
               <valueCode value="adjunctiveTreatmentFor"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23308">
+          <concept>
             <code value="MTREAT"/>
             <display value="maintenance treatment"/>
             <definition value="  Description:&#xD;&#xA;The source act is intended to provide long term maintenance improvement or management of a pre-existing adverse situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
@@ -644,8 +786,12 @@
               <code value="Name:Act:inboundRelationship:ActRelationship"/>
               <valueCode value="maintenanceTreatmentFor"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23309">
+          <concept>
             <code value="PALLTREAT"/>
             <display value="palliates"/>
             <definition value="  Description:&#xD;&#xA;The source act is intended to provide palliation for the effects of the target act."/>
@@ -653,8 +799,12 @@
               <code value="Name:Act:inboundRelationship:ActRelationship"/>
               <valueCode value="palliativeTreatmentFor"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="21645">
+          <concept>
             <code value="SYMP"/>
             <display value="symptomatic relief"/>
             <definition value="  Description:&#xD;&#xA;The source act is intented to provide symptomatic relief for the effects of the target act."/>
@@ -666,10 +816,14 @@
               <code value="Name:Act:inboundRelationship:ActRelationship"/>
               <valueCode value="symptomaticTreatmentFor"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
       </concept>
-      <concept id="10320">
+      <concept>
         <code value="TRIG"/>
         <display value="has trigger"/>
         <definition value=" A pre-condition that if true should result in the source Act being executed.  The target is in typically in criterion mood.  When reported after the fact (i.e. the criterion has been met) it may be in Event mood.  A delay between the trigger and the triggered action can be specified.  Discussion:&#xD;&#xA;This includes the concept of a  required act for a service or financial instrument such as an insurance plan or policy. In such cases, the trigger is the occurrence of a specific condition such as coverage limits being exceeded."/>
@@ -701,17 +855,37 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="CB_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="23581">
+    <concept>
       <code value="_ActRelationshipTemporallyPertains"/>
       <display value="ActRelationshipTemporallyPertains"/>
       <definition value=" Abstract collector for ActRelationhsip types that relate two acts by their timing."/>
-      <concept id="23637">
+      <property>
+        <code value="notSelectable"/>
+        <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="_ActRelationshipTemporallyPertainsApproximates"/>
         <display value="ActRelationshipTemporallyPertainsApproximates"/>
         <definition value=" Abstract collector for ActRelationship types that relate two acts by their approximate timing."/>
-        <concept id="23640">
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
             <valueCode value="ECW"/>
           </extension>
@@ -726,8 +900,12 @@
             <code value="Name:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="endsNearEnd"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23641">
+        <concept>
           <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
             <valueCode value="ECWS"/>
           </extension>
@@ -742,8 +920,12 @@
             <code value="Name:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="endsNearStart"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23638">
+        <concept>
           <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
             <valueCode value="SCWE"/>
           </extension>
@@ -758,8 +940,12 @@
             <code value="Name:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="startsNearEnd"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="23639">
+        <concept>
           <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
             <valueCode value="SCW"/>
           </extension>
@@ -774,9 +960,13 @@
             <code value="Name:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="startsNearStart"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="23079">
+      <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
           <valueCode value="EAE"/>
         </extension>
@@ -791,7 +981,11 @@
           <code value="Name:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="endsAfterStartOf"/>
         </property>
-        <concept id="21308">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
             <valueCode value="SASEAE"/>
           </extension>
@@ -813,7 +1007,11 @@
             <code value="Name:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="startsAfterStartOf"/>
           </property>
-          <concept id="23034">
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="DURING"/>
             <display value="occurs during"/>
             <definition value=" A relationship in which the source act&#39;s effective time is wholly within the target act&#39;s effective time (including end points, as defined in the act&#39;s effective times)  UsageNote:&#xD;&#xA;Inverse code isSBSEAE&#xD;&#xA;"/>
@@ -825,8 +1023,12 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="occursDuring"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23584">
+          <concept>
             <code value="SASECWE"/>
             <display value="starts after start of, ends with"/>
             <definition value=" The source Act starts after start of the target Act, and ends with the target Act.  UsageNote:&#xD;&#xA;Inverse code isSBSECWE&#xD;&#xA;"/>
@@ -838,10 +1040,14 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="startsAfterStartOfEndsWith"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
       </concept>
-      <concept id="23645">
+      <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
           <valueCode value="EAS"/>
         </extension>
@@ -856,7 +1062,11 @@
           <code value="Name:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="endsAfterOrConcurrentWithStartOf"/>
         </property>
-        <concept id="23646">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="EAEORECW"/>
           <display value="ends after or concurrent with end of"/>
           <definition value=" A relationship in which the source act&#39;s effective time ends after or concurrent with the end of the target act&#39;s effective time.  Usage Note:&#xD;&#xA;Inverse code is EBEORECW"/>
@@ -868,7 +1078,11 @@
             <code value="Name:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="endsAfterOrConcurrentWithEndOf"/>
           </property>
-          <concept id="23081">
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="EAE"/>
             <display value="ends after end of"/>
             <definition value=" A relationship in which the source act ends after the target act ends.  UsageNote:&#xD;&#xA;Inverse code isEBE&#xD;&#xA;"/>
@@ -880,7 +1094,11 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="endsAfterEndOf"/>
             </property>
-            <concept id="23583">
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
+            <concept>
               <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
                 <valueCode value="SBEEAE"/>
               </extension>
@@ -895,7 +1113,11 @@
                 <code value="Name:Act:outboundRelationship:ActRelationship"/>
                 <valueCode value="startsAfterStartOfEndsAfterAndOf"/>
               </property>
-              <concept id="23585">
+              <property>
+                <code value="status"/>
+                <valueCode value="active"/>
+              </property>
+              <concept>
                 <code value="SASSBEEAS"/>
                 <display value="start after start of, contains end of"/>
                 <definition value=" The source Act start after the start of the target Act, and contains the end of the target Act.  UsageNote:&#xD;&#xA;Inverse code isSBSEASEBE&#xD;&#xA;"/>
@@ -907,10 +1129,14 @@
                   <code value="Name:Act:outboundRelationship:ActRelationship"/>
                   <valueCode value="startAfterStartOfContainsEndOf"/>
                 </property>
+                <property>
+                  <code value="status"/>
+                  <valueCode value="active"/>
+                </property>
               </concept>
             </concept>
           </concept>
-          <concept id="23033">
+          <concept>
             <code value="ECW"/>
             <display value="ends concurrent with"/>
             <definition value=" A relationship in which the source act&#39;s effective time ends with the end of the target act&#39;s effective time.  UsageNote:&#xD;&#xA;This code is reflexive.  Therefore its inverse code is itself."/>
@@ -922,7 +1148,11 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="endsConcurrentlyWith"/>
             </property>
-            <concept id="23032">
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
+            <concept>
               <code value="CONCURRENT"/>
               <display value="concurrent with"/>
               <definition value=" A relationship in which the source act&#39;s effective time is the same as the target act&#39;s effective time.  UsageNote:&#xD;&#xA;This code is reflexive.  Therefore its inverse code is itself."/>
@@ -934,8 +1164,12 @@
                 <code value="Name:Act:outboundRelationship:ActRelationship"/>
                 <valueCode value="isConcurrentWith"/>
               </property>
+              <property>
+                <code value="status"/>
+                <valueCode value="active"/>
+              </property>
             </concept>
-            <concept id="23591">
+            <concept>
               <code value="SBSECWE"/>
               <display value="starts before start of, ends with"/>
               <definition value=" The source Act starts before the start of the target Act, and ends with the target Act.  UsageNote:&#xD;&#xA;Inverse code isSASECWE&#xD;&#xA;"/>
@@ -947,10 +1181,14 @@
                 <code value="Name:Act:outboundRelationship:ActRelationship"/>
                 <valueCode value="startsBeforeStartOfEndsWith"/>
               </property>
+              <property>
+                <code value="status"/>
+                <valueCode value="active"/>
+              </property>
             </concept>
           </concept>
         </concept>
-        <concept id="23463">
+        <concept>
           <code value="ECWS"/>
           <display value="ends concurrent with start of"/>
           <definition value=" The source Act ends when the target act starts (i.e. if we say &quot;ActOne ECWS ActTwo&quot;, it means that ActOne ends when ActTwo starts, therefore ActOne is the source and ActTwo is the target).  UsageNote:&#xD;&#xA;Inverse code isSCWE&#xD;&#xA;"/>
@@ -962,9 +1200,13 @@
             <code value="Name:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="endsConcurrentWithStartOf"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="23582">
+      <concept>
         <code value="INDEPENDENT"/>
         <display value="independent of time of"/>
         <definition value=" The source Act is independent of the time of the target Act.  UsageNote:&#xD;&#xA;This code is reflexive.  Therefore its inverse code is itself."/>
@@ -976,8 +1218,12 @@
           <code value="Name:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="independentOfTimeOf"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="23644">
+      <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
           <valueCode value="SCWE"/>
         </extension>
@@ -992,7 +1238,11 @@
           <code value="Name:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="startsAfterOrConcurrentWithEndOf"/>
         </property>
-        <concept id="22043">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="SAE"/>
           <display value="starts after end of"/>
           <definition value=" A relationship in which the source act starts after the target act ends.  UsageNote:&#xD;&#xA;Inverse code isEBS&#xD;&#xA;"/>
@@ -1008,9 +1258,13 @@
             <code value="Name:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="startsAfterEndOf"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="23642">
+      <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
           <valueCode value="SAS"/>
         </extension>
@@ -1028,8 +1282,12 @@
           <code value="Name:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="startsAfterOrConcurrentWithStartOf"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="23643">
+      <concept>
         <code value="SBEORSCWE"/>
         <display value="starts before or concurrent with end of"/>
         <definition value=" A relationship in which the source act&#39;s effective time starts before or concurrent with the end of the target act&#39;s effective time.  Usage Note:&#xD;&#xA;Inverse code is SAEORSCWE"/>
@@ -1041,7 +1299,11 @@
           <code value="Name:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="startsBeforeOrConcurrentWithEndOf"/>
         </property>
-        <concept id="23035">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
             <valueCode value="ECW"/>
           </extension>
@@ -1056,7 +1318,11 @@
             <code value="Name:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="overlapsWith"/>
           </property>
-          <concept id="23080">
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="EDU"/>
             <display value="ends during"/>
             <definition value=" A relationship in which the source act ends within the target act&#39;s effective time (including end points, as defined in the act&#39;s effective times)  UsageNote:&#xD;&#xA;Inverse code isSBEEAE&#xD;&#xA;"/>
@@ -1068,7 +1334,11 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="endsDuring"/>
             </property>
-            <concept id="23589">
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
+            <concept>
               <code value="SBSEASEBE"/>
               <display value="contains start of, ends before end of"/>
               <definition value=" The source Act contains the start of the target Act,  and ends before the end of the target Act.  UsageNote:&#xD;&#xA;Inverse code isSASSBEEAS&#xD;&#xA;"/>
@@ -1080,8 +1350,12 @@
                 <code value="Name:Act:outboundRelationship:ActRelationship"/>
                 <valueCode value="containsStartOfEndsBeforeEndOf"/>
               </property>
+              <property>
+                <code value="status"/>
+                <valueCode value="active"/>
+              </property>
             </concept>
-            <concept id="23593">
+            <concept>
               <code value="SCWSEBE"/>
               <display value="starts with. ends before end of"/>
               <definition value=" The source Act starts with.the target Act and ends before the end of the target Act.  UsageNote:&#xD;&#xA;Inverse code isSCWSEAE&#xD;&#xA;"/>
@@ -1093,9 +1367,13 @@
                 <code value="Name:Act:outboundRelationship:ActRelationship"/>
                 <valueCode value="startsWithEndsBeforeEndOf"/>
               </property>
+              <property>
+                <code value="status"/>
+                <valueCode value="active"/>
+              </property>
             </concept>
           </concept>
-          <concept id="23587">
+          <concept>
             <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
               <valueCode value="SASSBEEAS"/>
             </extension>
@@ -1110,7 +1388,11 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="containsEndOf"/>
             </property>
-            <concept id="23588">
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
+            <concept>
               <code value="SBSEAE"/>
               <display value="contains time of"/>
               <definition value=" The source Act contains the time of the target Act.  UsageNote:&#xD;&#xA;Inverse code isDURING&#xD;&#xA;"/>
@@ -1122,8 +1404,12 @@
                 <code value="Name:Act:outboundRelationship:ActRelationship"/>
                 <valueCode value="containsTimeOf"/>
               </property>
+              <property>
+                <code value="status"/>
+                <valueCode value="active"/>
+              </property>
             </concept>
-            <concept id="23592">
+            <concept>
               <code value="SCWSEAE"/>
               <display value="starts with, ends after end of"/>
               <definition value="The source Act starts with the target Act, and ends after the end of the target Act."/>
@@ -1135,9 +1421,13 @@
                 <code value="Name:Act:outboundRelationship:ActRelationship"/>
                 <valueCode value="startsWithEndsAfterEndOf"/>
               </property>
+              <property>
+                <code value="status"/>
+                <valueCode value="active"/>
+              </property>
             </concept>
           </concept>
-          <concept id="23586">
+          <concept>
             <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
               <valueCode value="SBSECWE"/>
             </extension>
@@ -1158,8 +1448,12 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="containsStartOf"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23036">
+          <concept>
             <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
               <valueCode value="CONCURRENT"/>
             </extension>
@@ -1180,8 +1474,12 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="startsConcurrentlyWith"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23462">
+          <concept>
             <code value="SCWE"/>
             <display value="starts concurrent with end of"/>
             <definition value=" The source Act starts when the target act ends (i.e. if we say &quot;ActOne SCWE ActTwo&quot;, it means that ActOne starts when ActTwo ends, therefore ActOne is the source and ActTwo is the target).  UsageNote:&#xD;&#xA;Inverse code isSBSECWS&#xD;&#xA;"/>
@@ -1193,8 +1491,12 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="startsConcurrentWithEndOf"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="23082">
+          <concept>
             <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
               <valueCode value="SASSBEEAS"/>
             </extension>
@@ -1209,9 +1511,13 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="startsDuring"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
-        <concept id="23460">
+        <concept>
           <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
             <valueCode value="EBE"/>
           </extension>
@@ -1232,7 +1538,11 @@
             <code value="Name:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="startsBeforeEndOf"/>
           </property>
-          <concept id="23648">
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
               <valueCode value="ECW"/>
             </extension>
@@ -1247,7 +1557,11 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="endsBeforeOrConcurrentWithEndOf"/>
             </property>
-            <concept id="23461">
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
+            <concept>
               <code value="EBE"/>
               <display value="ends before end of"/>
               <definition value="The source Act ends before the end of the target Act (i.e. if we say &quot;ActOne EBE ActTwo&quot;, it means that ActOne ends before the end of ActTwo, therefore ActOne is the source and ActTwo is the target).  UsageNote:&#xD;&#xA;Inverse code isEAE&#xD;&#xA;"/>
@@ -1259,7 +1573,11 @@
                 <code value="Name:Act:outboundRelationship:ActRelationship"/>
                 <valueCode value="endsBeforeEndOf"/>
               </property>
-              <concept id="23590">
+              <property>
+                <code value="status"/>
+                <valueCode value="active"/>
+              </property>
+              <concept>
                 <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
                   <valueCode value="SBSEASEBE"/>
                 </extension>
@@ -1274,7 +1592,11 @@
                   <code value="Name:Act:outboundRelationship:ActRelationship"/>
                   <valueCode value="startsBeforeStartOfEndsBeforeEndOf"/>
                 </property>
-                <concept id="23649">
+                <property>
+                  <code value="status"/>
+                  <valueCode value="active"/>
+                </property>
+                <concept>
                   <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
                     <valueCode value="ECWS"/>
                   </extension>
@@ -1289,7 +1611,11 @@
                     <code value="Name:Act:outboundRelationship:ActRelationship"/>
                     <valueCode value="endsBeforeOrConcurrentWithStartOf"/>
                   </property>
-                  <concept id="23078">
+                  <property>
+                    <code value="status"/>
+                    <valueCode value="active"/>
+                  </property>
+                  <concept>
                     <code value="EBS"/>
                     <display value="ends before start of"/>
                     <definition value=" A relationship in which the source act ends before the target act starts.  UsageNote:&#xD;&#xA;Inverse code isSAE&#xD;&#xA;"/>
@@ -1301,12 +1627,16 @@
                       <code value="Name:Act:outboundRelationship:ActRelationship"/>
                       <valueCode value="endsBeforeStartOf"/>
                     </property>
+                    <property>
+                      <code value="status"/>
+                      <valueCode value="active"/>
+                    </property>
                   </concept>
                 </concept>
               </concept>
             </concept>
           </concept>
-          <concept id="23647">
+          <concept>
             <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
               <valueCode value="SCW"/>
             </extension>
@@ -1321,7 +1651,11 @@
               <code value="Name:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="startsBeforeOrConcurrentWithStartOf"/>
             </property>
-            <concept id="23076">
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
+            <concept>
               <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-subsumes">
                 <valueCode value="SBSEBE"/>
               </extension>
@@ -1339,12 +1673,16 @@
                 <code value="Name:Act:outboundRelationship:ActRelationship"/>
                 <valueCode value="startsBeforeStartOf"/>
               </property>
+              <property>
+                <code value="status"/>
+                <valueCode value="active"/>
+              </property>
             </concept>
           </concept>
         </concept>
       </concept>
     </concept>
-    <concept id="14019">
+    <concept>
       <code value="AUTH"/>
       <display value="authorized by"/>
       <definition value=" A relationship in which the target act authorizes or certifies the source act."/>
@@ -1368,8 +1706,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DH_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10332">
+    <concept>
       <code value="CAUS"/>
       <display value="is etiology for"/>
       <definition value="  Description:&#xD;&#xA;An assertion that an act was the cause of another act.This is stronger and more specific than the support link. The source (cause) is typically an observation, but may be any act, while the target may be any act.  Examples:&#xD;&#xA;  a growth of Staphylococcus aureus may be considered the cause of an abscess contamination of the infusion bag was deemed to be the cause of the infection that the patient experienced lack of staff on the shift was deemed to be a supporting factor (proximal factor) causing the patient safety incident where the patient fell out of bed because the  bed-sides had not been put up which caused the night patient to fall out of bed"/>
@@ -1401,8 +1743,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DD_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10318">
+    <concept>
       <code value="COMP"/>
       <display value="has component"/>
       <definition value=" The target act is a component of the source act, with no semantics regarding composition or aggregation implied."/>
@@ -1430,7 +1776,11 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="E________"/>
       </property>
-      <concept id="17902">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="CTRLV"/>
         <display value="has control variable"/>
         <definition value=" A relationship from an Act to a Control Variable.  For example, if a Device makes an Observation, this relates the Observation to its Control Variables documenting  the device&#39;s settings that influenced the observation."/>
@@ -1454,8 +1804,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="EA_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="23594">
+      <concept>
         <code value="MBR"/>
         <display value="has member"/>
         <definition value=" The target Acts are aggregated by the source Act.  Target Acts may have independent existence, participate in multiple ActRelationships, and do not contribute to the meaning of the source.  UsageNotes:&#xD;&#xA;This explicitly represents the conventional notion of aggregation.  The target Act is part of a collection of Acts (no implication is made of cardinality, a source of Acts may contain zero, one, or more member target Acts). It is expected that this will be primarily used with _ActClassRecordOrganizer, BATTERY, and LIST"/>
@@ -1479,7 +1833,11 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="EA_______"/>
         </property>
-        <concept id="23595">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="STEP"/>
           <display value="has step"/>
           <definition value=" A collection of sub-services as steps or subtasks performed for the source service. Services may be performed sequentially or concurrently.  UsageNotes:&#xD;&#xA;Sequence of steps may be indicated by use of _ActRelationshipTemporallyPertains, as well as via  ActRelationship.sequenceNumber, ActRelationship.pauseQuantity, Target.priorityCode.  OpenIssue:&#xD;&#xA;Need Additional guidelines on when each approach should be used."/>
@@ -1503,7 +1861,11 @@
             <code value="Sort:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="EAA______"/>
           </property>
-          <concept id="17911">
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <concept>
             <code value="ARR"/>
             <display value="arrival"/>
             <definition value=" The relationship that links to a Transportation Act (target) from another Act (source) indicating that the subject of the source Act entered into the source Act by means of the target Transportation act."/>
@@ -1527,8 +1889,12 @@
               <code value="Sort:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="EAAB_____"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
-          <concept id="17912">
+          <concept>
             <code value="DEP"/>
             <display value="departure"/>
             <definition value=" The relationship that links to a Transportation Act (target) from another Act (source) indicating that the subject of the source Act departed from the source Act by means of the target Transportation act."/>
@@ -1552,10 +1918,14 @@
               <code value="Sort:Act:outboundRelationship:ActRelationship"/>
               <valueCode value="EAAC_____"/>
             </property>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
           </concept>
         </concept>
       </concept>
-      <concept id="23596">
+      <concept>
         <code value="PART"/>
         <display value="has part"/>
         <definition value=" The source Act is a composite of the target Acts. The target Acts do not have an existence independent of the source Act.  UsageNote:&#xD;&#xA;In UML 1.1, this is a &quot;composition&quot; defined as:&#xD;&#xA; &quot;A form of aggregation with strong ownership and coincident lifetime as part of the whole. Parts with non-fixed multiplicity may be created after the composite itself, but once created they live and die with it (i.e., they share lifetimes). Such parts can also be explicitly removed before the death of the composite. Composition may be recursive.&quot;&#xD;&#xA;"/>
@@ -1579,9 +1949,13 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="EB_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="14894">
+    <concept>
       <code value="COVBY"/>
       <display value="covered by"/>
       <definition value=" A relationship in which the source act is covered by or is under the authority of a target act.  A financial instrument such as an Invoice Element is covered by one or more specific instances of an Insurance Policy."/>
@@ -1605,8 +1979,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DP_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10334">
+    <concept>
       <code value="DRIV"/>
       <display value="is derived from"/>
       <definition value=" Associates a derived Act with its input parameters. E.G., an anion-gap observation can be associated as being derived from given sodium-, (potassium-,), chloride-, and bicarbonate-observations. The narrative content (Act.text) of a source act is wholly machine-derived from the collection of target acts."/>
@@ -1638,8 +2016,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DF_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="18865">
+    <concept>
       <code value="ELNK"/>
       <display value="episodeLink"/>
       <definition value=" Expresses an association that links two instances of the same act over time, indicating that the instance are part of the same episode, e.g. linking two condition nodes for episode of illness; linking two encounters for episode of encounter."/>
@@ -1663,8 +2045,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="BG_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="21572">
+    <concept>
       <code value="EVID"/>
       <display value="provides evidence for"/>
       <definition value=" Indicates that the target Act provides evidence in support of the action represented by the source Act. The target is not a &#39;reason&#39; for the source act, but rather gives supporting information on why the source act is an appropriate course of action. Possible targets might be clinical trial results, journal articles, similar successful therapies, etc.  Rationale:&#xD;&#xA;Provides a mechanism for conveying clinical justification for non-approved or otherwise non-traditional therapies."/>
@@ -1672,13 +2058,21 @@
         <code value="isDocumentCharacteristic"/>
         <valueBoolean value="true"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22827">
+    <concept>
       <code value="EXACBY"/>
       <display value="exacerbated by"/>
       <definition value="  Description:&#xD;&#xA;The source act is aggravated by the target act. (Example &quot;chest pain&quot; EXACBY &quot;exercise&quot;)"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10331">
+    <concept>
       <code value="EXPL"/>
       <display value="has explanation"/>
       <definition value=" This is the inversion of support.  Used to indicate that a given observation is explained by another observation or condition."/>
@@ -1706,8 +2100,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DI_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23597">
+    <concept>
       <code value="INTF"/>
       <display value="interfered by"/>
       <definition value=" the target act documents a set of circumstances (events, risks) which prevent successful completion, or degradation of quality of, the source Act.  UsageNote:&#xD;&#xA;This provides the semantics to document barriers to care"/>
@@ -1731,8 +2129,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="G________"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="20841">
+    <concept>
       <code value="ITEMSLOC"/>
       <display value="items located"/>
       <definition value=" Items located"/>
@@ -1756,8 +2158,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DR_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="14896">
+    <concept>
       <code value="LIMIT"/>
       <display value="limited by"/>
       <definition value=" A relationship that limits or restricts the source act by the elements of the target act.  For example, an authorization may be limited by a financial amount (up to $500). Target Act must be in EVN.CRIT mood."/>
@@ -1781,8 +2187,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DQ_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23111">
+    <concept>
       <code value="META"/>
       <display value="has metadata"/>
       <definition value="  Definition:&#xD;&#xA;Indicates that the attributes and associations of the target act provide metadata (for example, identifiers, authorship, etc.) for the source act.  Constraint:&#xD;&#xA;Source act must have either a mood code that is not &quot;EVN&quot; (event) or its &quot;isCriterion&quot; attribute must set to &quot;true&quot;.  Target act must be an Act with a mood code of EVN and with isCriterionInd attribute set to &quot;true&quot;."/>
@@ -1810,8 +2220,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="AA_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10333">
+    <concept>
       <code value="MFST"/>
       <display value="is manifestation of"/>
       <definition value=" An assertion that a new observation may be the manifestation of another existing observation or action.  This assumption is attributed to the same actor who asserts the manifestation.  This is stronger and more specific than an inverted support link.  For example, an agitated appearance can be asserted to be the manifestation (effect) of a known hyperthyroxia.  This expresses that one might not have realized a symptom if it would not be a common manifestation of a known condition.  The target (cause) may be any service, while the source (manifestation) must be an observation."/>
@@ -1843,8 +2257,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DE_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10336">
+    <concept>
       <code value="NAME"/>
       <display value="assigns name"/>
       <definition value=" Used to assign a &quot;name&quot; to a condition thread. Source is a condition node, target can be any service."/>
@@ -1876,8 +2294,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DJ_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10324">
+    <concept>
       <code value="OUTC"/>
       <display value="has outcome"/>
       <definition value=" An observation that should follow or does actually follow as a result or consequence of a condition or action (sometimes called &quot;post-conditional&quot;.) Target must be an observation as a goal, risk or any criterion. For complex outcomes a conjunction attribute (AND, OR, XOR) can be used.  An outcome link is often inverted to describe an outcome assessment."/>
@@ -1913,10 +2335,18 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="A________"/>
       </property>
-      <concept id="21384">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="_ActRelationsipObjective"/>
         <display value="Act Relationsip Objective"/>
         <definition value=" The target act is a desired outcome of the source act. Source is any act (typically an intervention). Target must be an observation in criterion mood."/>
+        <property>
+          <code value="notSelectable"/>
+          <valueBoolean value="true"/>
+        </property>
         <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
@@ -1937,7 +2367,11 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="AC_______"/>
         </property>
-        <concept id="10327">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="OBJC"/>
           <display value="has continuing objective"/>
           <definition value=" A desired state that a service action aims to maintain.  E.g., keep systolic blood pressure between 90 and 110 mm Hg.  Source is an intervention service.  Target must be an observation in criterion mood."/>
@@ -1969,8 +2403,12 @@
             <code value="Sort:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="ACA______"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="10326">
+        <concept>
           <code value="OBJF"/>
           <display value="has final objective"/>
           <definition value=" A desired outcome that a service action aims to meet finally.  Source is any service (typically an intervention).  Target must be an observation in criterion mood."/>
@@ -2002,9 +2440,13 @@
             <code value="Sort:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="ACB______"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="10325">
+      <concept>
         <code value="GOAL"/>
         <display value="has goal"/>
         <definition value=" A goal that one defines given a patient&#39;s health condition.  Subsequently planned actions aim to meet that goal.  Source is an observation or condition node, target must be an observation in goal mood."/>
@@ -2036,8 +2478,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="AB_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="10328">
+      <concept>
         <code value="RISK"/>
         <display value="has risk"/>
         <definition value=" A noteworthy undesired outcome of a patient&#39;s condition that is either likely enough to become an issue or is less likely but dangerous enough to be addressed."/>
@@ -2069,9 +2515,13 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="AA_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="10329">
+    <concept>
       <code value="PERT"/>
       <display value="has pertinent information"/>
       <definition value=" This is a very unspecific relationship from one item of clinical information to another.  It does not judge about the role the pertinent information plays."/>
@@ -2107,8 +2557,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="D________"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="14018">
+    <concept>
       <code value="PREV"/>
       <display value="has previous instance"/>
       <definition value=" A relationship in which the target act is a predecessor instance to the source act.  Generally each of these instances is similar, but no identical.  In healthcare coverage it is used to link a claim item to a previous claim item that might have claimed for the same set of services."/>
@@ -2139,8 +2593,12 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DC_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="14020">
+    <concept>
       <code value="REFR"/>
       <display value="refers to"/>
       <definition value=" A relationship in which the target act is referred to by the source act.  This permits a simple reference relationship that distinguishes between the referent and the referee."/>
@@ -2164,7 +2622,11 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DK_______"/>
       </property>
-      <concept id="23102">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="USE"/>
         <display value="uses"/>
         <definition value=" Indicates that the source act makes use of (or will make use of) the information content of the target act.  UsageNotes:&#xD;&#xA;A usage relationship only makes sense if the target act is authored and occurs independently of the source act.  Otherwise a simpler relationship such as COMP would be appropriate.  Rationale:&#xD;&#xA;There is a need when defining a clinical trial protocol to indicate that the protocol makes use of other protocol or treatment specifications.  This is stronger than the assertion of &quot;references&quot;.  References may exist without usage, and in a clinical trial protocol is common to assert both: what other specifications does this trial use and what other specifications does it merely reference."/>
@@ -2184,9 +2646,13 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="DKA______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="10335">
+    <concept>
       <code value="REFV"/>
       <display value="has reference values"/>
       <definition value=" Reference ranges are essentially descriptors of a class of result values assumed to be &quot;normal&quot;, &quot;abnormal&quot;, or &quot;critical.&quot;  Those can vary by sex, age, or any other criterion. Source and target are observations, the target is in criterion mood.  This link type can act as a trigger in case of alarms being triggered by critical results."/>
@@ -2214,13 +2680,21 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DL_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="22828">
+    <concept>
       <code value="RELVBY"/>
       <display value="relieved by"/>
       <definition value="  Description:&#xD;&#xA;The source act is wholly or partially alleviated by the target act. (Example &quot;chest pain&quot; RELVBY &quot;sublingual nitroglycerin administration&quot;)"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="10337">
+    <concept>
       <code value="SEQL"/>
       <display value="is sequel"/>
       <definition value=" An act relationship indicating that the source act follows the target act. The source act should in principle represent the same kind of act as the target. Source and target need not have the same mood code (mood will often differ). The target of a sequel is called antecedent. Examples for sequel relationships are: revision, transformation, derivation from a prototype (as a specialization is a derivation of a generalization), followup, realization, instantiation."/>
@@ -2248,7 +2722,11 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="B________"/>
       </property>
-      <concept id="10339">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="APND"/>
         <display value="is appendage"/>
         <definition value=" An addendum (source) to an existing service object (target), containing supplemental information.  The addendum is itself an original service object linked to the supplemented service object.  The supplemented service object remains in place and its content and status are unaltered."/>
@@ -2272,8 +2750,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BJ_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="23101">
+      <concept>
         <code value="BSLN"/>
         <display value="has baseline"/>
         <definition value=" Indicates that the target observation(s) provide an initial reference for the source observation or observation group.  UsageConstraints:&#xD;&#xA;Both source and target must be Observations or specializations thereof."/>
@@ -2293,8 +2775,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BG_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22626">
+      <concept>
         <code value="COMPLY"/>
         <display value="complies with"/>
         <definition value="  Description:&#xD;&#xA;The source act complies with, adheres to, conforms to, or is permissible under (in whole or in part) the policy, contract, agreement, law, conformance criteria, certification guidelines or requirement conveyed by the target act. Examples for compliance relationships are: audits of adherence with a security policy, certificate of conformance to system certification requirements, or consent directive in compliance with or permissible under a privacy policy."/>
@@ -2318,8 +2804,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BO_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="11609">
+      <concept>
         <code value="DOC"/>
         <display value="documents"/>
         <definition value=" The source act documents the target act."/>
@@ -2343,8 +2833,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BH_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="10342">
+      <concept>
         <code value="FLFS"/>
         <display value="fulfills"/>
         <definition value=" The source act fulfills (in whole or in part) the target act. Source act must be in a mood equal or more actual than the target act."/>
@@ -2368,7 +2862,11 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BA_______"/>
         </property>
-        <concept id="11614">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="OCCR"/>
           <display value="occurrence"/>
           <definition value=" The source act is a single occurrence of a repeatable target act. The source and target act can be in any mood on the &quot;completion track&quot; but the source act must be as far as or further along the track than the target act (i.e., the occurrence of an intent can be an event but not vice versa)."/>
@@ -2399,8 +2897,12 @@
             <code value="Sort:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="BAA______"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="11628">
+        <concept>
           <code value="OREF"/>
           <display value="references order"/>
           <definition value=" Relates either an appointment request or an appointment to the order for the service being scheduled."/>
@@ -2428,8 +2930,12 @@
             <code value="Sort:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="BAB______"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
-        <concept id="11627">
+        <concept>
           <code value="SCH"/>
           <display value="schedules request"/>
           <definition value=" Associates a specific time (and associated resources) with a scheduling request or other intent."/>
@@ -2460,9 +2966,13 @@
             <code value="Sort:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="BAC______"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="10348">
+      <concept>
         <code value="GEN"/>
         <display value="has generalization"/>
         <definition value=" The generalization relationship can be used to express categorical knowledge about services (e.g., amilorid, triamterene, and spironolactone have the common generalization potassium sparing diuretic)."/>
@@ -2494,8 +3004,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BC_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="10346">
+      <concept>
         <code value="GEVL"/>
         <display value="evaluates (goal)"/>
         <definition value=" A goal-evaluation links an observation (intent or actual) to a goal to indicate that the observation evaluates the goal. Given the goal and the observation, a &quot;goal distance&quot; (e.g., goal to observation) can be &quot;calculated&quot; and need not be sent explicitly."/>
@@ -2527,8 +3041,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BD_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="10341">
+      <concept>
         <code value="INST"/>
         <display value="instantiates (master)"/>
         <definition value=" Used to capture the link between a potential service (&quot;master&quot; or plan) and an actual service, where the actual service instantiates the potential service. The instantiation may override the master&#39;s defaults."/>
@@ -2560,8 +3078,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BB_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="21638">
+      <concept>
         <code value="MOD"/>
         <display value="modifies"/>
         <definition value=" Definition: Used to link a newer version or &#39;snapshot&#39; of a business object (source) to an older version or &#39;snapshot&#39; of the same business object (target).  Usage:&#xD;&#xA;The identifier of the Act should be the same for both source and target. If the identifiers are distinct, RPLC should be used instead. Name from source to target = &quot;modifiesPrior&quot; Name from target to source = &quot;modifiesByNew&quot;"/>
@@ -2569,8 +3091,12 @@
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="10345">
+      <concept>
         <code value="MTCH"/>
         <display value="matches (trigger)"/>
         <definition value=" A trigger-match links an actual service (e.g., an observation or procedure that took place) with a service in criterion mood.  For example if the trigger is &quot;observation of pain&quot; and pain is actually observed, and if that pain-observation caused the trigger to fire, that pain-observation can be linked with the trigger."/>
@@ -2602,8 +3128,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BF_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="10347">
+      <concept>
         <code value="OPTN"/>
         <display value="has option"/>
         <definition value=" A relationship between a source Act that provides more detailed properties to the target Act. The source act thus is a specialization of the target act, but instead of mentioning all the inherited properties it only mentions new property bindings or refinements. The typical use case is to specify certain alternative variants of one kind of Act. The priorityNumber attribute is used to weigh refinements as preferred over other alternative refinements. Example: several routing options for a drug are specified as one SubstanceAdministration for the general treatment with attached refinements for the various routing options."/>
@@ -2627,8 +3157,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BN_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="22044">
+      <concept>
         <code value="RCHAL"/>
         <display value="re-challenge"/>
         <definition value="  Description:&#xD;&#xA;A relationship in which the target act is carried out to determine whether an effect attributed to the source act can be recreated."/>
@@ -2636,8 +3170,12 @@
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="14898">
+      <concept>
         <code value="REV"/>
         <display value="reverses"/>
         <definition value=" A relationship between a source Act that seeks to reverse or undo the action of the prior target Act. Example: A posted financial transaction (e.g., a debit transaction) was applied in error and must be reversed (e.g., by a credit transaction) the credit transaction is identified as an undo (or reversal) of the prior target transaction. Constraints: the &quot;completion track&quot; mood of the target Act must be equally or more &quot;actual&quot; than the source act. I.e., when the target act is EVN the source act can be EVN, or any INT. If the target act is INT, the source act can be INT."/>
@@ -2661,8 +3199,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BK_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="10338">
+      <concept>
         <code value="RPLC"/>
         <display value="replaces"/>
         <definition value=" A replacement source act replaces an existing target act. The state of the target act being replaced becomes obselete, but the act is typically still retained in the system for historical reference.  The source and target must be of the same type."/>
@@ -2686,8 +3228,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BI_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="11616">
+      <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
           <valueString value="This is not a proper child of REPLC, but rather is a partial RPLC. This will be reviewed."/>
         </extension>
@@ -2714,8 +3260,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BIA______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="10340">
+      <concept>
         <code value="UPDT"/>
         <display value="updates (condition)"/>
         <definition value=" A condition thread relationship specifically links condition nodes together to form a condition thread. The source is the new condition node and the target links to the most recent node of the existing condition thread."/>
@@ -2747,8 +3297,12 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BE_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
-      <concept id="18660">
+      <concept>
         <code value="XCRPT"/>
         <display value="Excerpts"/>
         <definition value=" The source is an excerpt from the target."/>
@@ -2772,7 +3326,11 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BM_______"/>
         </property>
-        <concept id="18661">
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <concept>
           <code value="VRXCRPT"/>
           <display value="Excerpt verbatim"/>
           <definition value=" The source is a direct quote from the target."/>
@@ -2796,9 +3354,13 @@
             <code value="Sort:Act:outboundRelationship:ActRelationship"/>
             <valueCode value="BMA______"/>
           </property>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
         </concept>
       </concept>
-      <concept id="11624">
+      <concept>
         <code value="XFRM"/>
         <display value="transformation"/>
         <definition value=" Used when the target Act is a transformation of the source Act. (For instance, used to show that a CDA document is a transformation of a DICOM SR document.)"/>
@@ -2822,9 +3384,13 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="BL_______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="10330">
+    <concept>
       <code value="SPRT"/>
       <display value="has support"/>
       <definition value=" Used to indicate that an existing service is suggesting evidence for a new observation. The assumption of support is attributed to the same actor who asserts the observation. Source must be an observation, target may be any service  (e.g., to indicate a status post)."/>
@@ -2852,7 +3418,11 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DA_______"/>
       </property>
-      <concept id="17899">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="SPRTBND"/>
         <display value="has bounded support"/>
         <definition value=" A specialization of &quot;has support&quot; (SPRT), used to relate a secondary observation to a Region of Interest on a multidimensional observation, if the ROI specifies the true boundaries of the secondary observation as opposed to only marking the approximate area.  For example, if the start and end of an ST elevation episode is visible in an EKG, this relation would indicate the ROI bounds the  &quot;ST elevation&quot; observation -- the ROI defines the true beginning and ending of the episode.  Conversely, if a ROI simply contains ST elevation, but it does not define the bounds (start and end) of the episode, the more general &quot;has support&quot; relation is used.  Likewise, if a ROI on an image defines the true bounds of a &quot;1st degree burn&quot;, the relation &quot;has bounded support&quot; is used; but if the ROI only points to the approximate area of the burn, the general &quot;has support&quot; relation is used."/>
@@ -2876,9 +3446,13 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="DAA______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="13971">
+    <concept>
       <code value="SUBJ"/>
       <display value="has subject"/>
       <definition value=" Relates an Act to its subject Act that the first Act is primarily concerned with. Examples   The first Act may be a ControlAct manipulating the subject Act  The first act is a region of interest (ROI) that defines a region within the subject Act.  The first act is a reporting or notification Act, that echos the subject Act for a specific new purpose. Constraints An Act may have multiple subject acts. Rationale The ActRelationshipType &quot;has subject&quot; is similar to the ParticipationType &quot;subject&quot;, Acts that primarily operate on physical subjects use the Participation, those Acts that primarily operate on other Acts (other information) use the ActRelationship."/>
@@ -2902,7 +3476,11 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DB_______"/>
       </property>
-      <concept id="23598">
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
         <code value="QUALF"/>
         <display value="has qualifier"/>
         <definition value=" The target observation qualifies (refines) the semantics of the source observation.  UsageNote:&#xD;&#xA;This is not intended to replace concept refinement and qualification via vocabulary.  It is used when there are multiple components which together provide the complete understanding of the source Act."/>
@@ -2926,9 +3504,13 @@
           <code value="Sort:Act:outboundRelationship:ActRelationship"/>
           <valueCode value="DBA______"/>
         </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
       </concept>
     </concept>
-    <concept id="15988">
+    <concept>
       <code value="SUMM"/>
       <display value="summarized by"/>
       <definition value=" An act that contains summary values for a list or set of subordinate acts.  For example, a summary of transactions for a particular accounting period."/>
@@ -2952,14 +3534,22 @@
         <code value="Sort:Act:outboundRelationship:ActRelationship"/>
         <valueCode value="DM_______"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="23319">
+    <concept>
       <code value="VALUE"/>
       <display value="has value"/>
       <definition value="  Description:&#xD;&#xA;Indicates that the target Act represents the result of the source observation Act.  FormalConstraint:&#xD;&#xA;Source Act must be an Observation or specialization there-of. Source Act must not have the value attribute specified  UsageNote:&#xD;&#xA;This relationship allows the result of an observation to be fully expressed as RIM acts as opposed to being embedded in the value attribute.  For example, sending a Document act as the result of an imaging observation, sending a list of Procedures and/or other acts as the result of a medical history observation. The valueNegationInd attribute on the source Act has the same semantics of &quot;negated finding&quot; when it applies to the target of a VALUE ActRelationship as it does to the value attribute.  On the other hand, if the ActRelationship.negationInd is true for a VALUE ActRelationship, that means the specified observation does not have the indicated value but does not imply a negated finding.  Because the semantics are extremely close, it is recommended that Observation.valueNegationInd be used, not ActRelationship.negationInd.  OpenIssue:&#xD;&#xA;The implications of negationInd on ActRelationship and the valueNegationind on Observation."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="21642">
+  <concept>
     <code value="CURE"/>
     <display value="curative indication"/>
     <property>
@@ -2970,8 +3560,12 @@
       <code value="isDocumentCharacteristic"/>
       <valueBoolean value="true"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
   </concept>
-  <concept id="21643">
+  <concept>
     <code value="CURE.ADJ"/>
     <display value="adjunct curative indication"/>
     <property>
@@ -2982,8 +3576,12 @@
       <code value="isDocumentCharacteristic"/>
       <valueBoolean value="true"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
   </concept>
-  <concept id="21641">
+  <concept>
     <code value="MTGT.ADJ"/>
     <display value="adjunct mitigation"/>
     <property>
@@ -2994,16 +3592,28 @@
       <code value="isDocumentCharacteristic"/>
       <valueBoolean value="true"/>
     </property>
-  </concept>
-  <concept id="14892">
-    <code value="RACT"/>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
   </concept>
-  <concept id="10322">
+  <concept>
+    <code value="RACT"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept>
     <code value="SUGG"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>

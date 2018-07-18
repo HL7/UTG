@@ -14,7 +14,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ActUncertainty"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ActUncertainty"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1053"/>
@@ -29,14 +29,22 @@
   </contact>
   <description value="  OpenIssue:&#xD;&#xA;Missing Description"/>
   <content value="complete"/>
-  <concept id="16900">
+  <concept>
     <code value="N"/>
     <display value="stated with no assertion of uncertainty"/>
     <definition value=" Specifies that the act statement is made without explicit tagging of uncertainty. This is the normal statement, meaning that it is not free of errors and uncertainty may still exist."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="16901">
+  <concept>
     <code value="U"/>
     <display value="stated with uncertainty"/>
     <definition value=" Specifies that the originator of the Act statement does not have full confidence in the applicability (i.e., in event mood: factual truth) of the statement."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

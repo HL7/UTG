@@ -191,7 +191,7 @@ public class V3SourceGenerator extends BaseGenerator {
   private CodeSystem generateV3CodeSystem(Element item) throws Exception {
     CodeSystem cs = new CodeSystem();
     cs.setId("v3-"+makeSafeId(item.getAttribute("name")));
-    cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/"+cs.getId());
+    cs.setUrl("http://terminology.hl7.org/CodeSystem/"+cs.getId());
     knownCS.add(cs.getUrl());
     cs.setName(item.getAttribute("name"));
     cs.setTitle(item.getAttribute("title"));
@@ -836,7 +836,7 @@ public class V3SourceGenerator extends BaseGenerator {
   private ValueSet generateV3ValueSet(Element item) throws Exception {
     ValueSet vs = new ValueSet();
     vs.setId("v3-"+makeSafeId(item.getAttribute("name")));
-    vs.setUrl("http://hl7.org/fhir/ig/vocab-poc/ValueSet/"+vs.getId());
+    vs.setUrl("http://terminology.hl7.org/ValueSet/"+vs.getId());
     vs.setName(item.getAttribute("name"));
     vs.setTitle(item.getAttribute("title"));
     vs.addIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+item.getAttribute("id"));

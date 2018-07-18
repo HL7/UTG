@@ -21,7 +21,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-AcknowledgementDetailType"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-AcknowledgementDetailType"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1082"/>
@@ -44,37 +44,61 @@
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
-  <concept id="19786">
+  <concept>
     <code value="E"/>
     <display value="Error"/>
     <definition value="  Definition:&#xD;&#xA;An issue which has prevented, or will prevent (unless a management is provided for the issue by the sender), the successful processing of an interaction.  Response interactions which include an issue which is an Error are a &#39;rejection&#39;, indicating that the request was not successfully processed.  Example:&#xD;&#xA;Unable to find specified patient."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="19788">
+  <concept>
     <code value="I"/>
     <display value="Information"/>
     <definition value="  Definition:&#xD;&#xA;The message relates to an issue which has no bearing on the successful processing of the request.  Information issues cannot be overridden by specifying a management.  Example:&#xD;&#xA;A Patient&#39;s coverage will expire in 5 days."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="19787">
+  <concept>
     <code value="W"/>
     <display value="Warning"/>
     <definition value="  Definition:&#xD;&#xA;The message relates to an issue which cannot prevent the successful processing of a request, but which could result in the processing not having the ideal or intended effect.  Managing a warning issue is not required for successful processing, but will suppress the warning from being raised.  Example:&#xD;&#xA; Unexpected additional repetitions of phone number have been ignored."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="20071">
+  <concept>
     <code value="ERR"/>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
-  </concept>
-  <concept id="20073">
-    <code value="INFO"/>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
   </concept>
-  <concept id="20072">
+  <concept>
+    <code value="INFO"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept>
     <code value="WARN"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>

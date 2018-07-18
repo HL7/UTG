@@ -203,22 +203,25 @@ public class PropertyExport {
     
     private static CodeSystem initCodeSystem() throws Exception {
         CodeSystem cs = new CodeSystem();
-        cs.setId("v3-Properties");
+        cs.setId("HL7 Terminology Properties");
         cs.setLanguage("en");
-        cs.setUrl("http://terminology.hl7.org//codesystem//v3-Properties");
-        cs.setName("v3-Properties Code System");
-        cs.setTitle("v3-Properties  Code System");
-        cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+ "2.16.840.1.113883.5.X");
+        cs.setUrl("http://terminology.hl7.org/codesystem/hl7TerminologyProperties");
+        cs.setName("HL7 Terminology Properties");
+        cs.setTitle("HL7 Terminology Properties");
+        cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+ "2.16.840.1.113883.5.1141");
         cs.setStatus(PublicationStatus.ACTIVE);
         
-        String buildDate = "2018-07-31";
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date();
-        date = df.parse(buildDate);
+        Date today = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        today = sdf.parse(sdf.format(today));
+        cs.setDate(today);
         
-        cs.setDate(date);
         cs.setPublisher("HL7");
-        cs.setDescription("Maintenance code system Uset to represent all properties used by HL7 Vocbaulary artifacts.");
+        cs.setDescription("\r\n" + 
+        		"	* Internal code system of the terminology objects (code systems, value sets, codes, concepts, concept domains, etc.) that are maintained in the Unified Terminology Governance (UTG) process and tooling.  Used for maintenance operations wholly within HL7 and the UTG tool suite, although many of the properties are surfaced as part of HL7 published code systems and value sets.hl7TermProperties.\r\n" + 
+        		"Open Issue: As of July 2018 only the V3 terminology properties have been implemented.  Still remaining is to integrate the V2 and FHIR properties.\r\n" + 
+        		"\r\n" + 
+        		"");
         
         return cs;
     }

@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-ProcessingMode"/>
   <language value="en"/>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ProcessingMode"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ProcessingMode"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.101"/>
@@ -17,24 +17,40 @@
     <name value="Health Level Seven"/>
   </contact>
   <content value="complete"/>
-  <concept id="10121">
+  <concept>
     <code value="A"/>
     <display value="Archive"/>
     <definition value=" Identifies archive mode of processing."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10123">
+  <concept>
     <code value="I"/>
     <display value="Initial load"/>
     <definition value=" Identifies initial load mode of processing."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10122">
+  <concept>
     <code value="R"/>
     <display value="Restore from archive"/>
     <definition value=" Identifies restore mode of processing."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="10124">
+  <concept>
     <code value="T"/>
     <display value="Current processing"/>
     <definition value=" Identifies on-line mode of processing."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

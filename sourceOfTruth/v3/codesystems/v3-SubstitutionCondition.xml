@@ -11,7 +11,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-SubstitutionCondition"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-SubstitutionCondition"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1071"/>
@@ -26,29 +26,59 @@
   </contact>
   <description value=" Identifies what sort of change is permitted or has occurred between the item that was ordered/requested and the one that was/will be provided."/>
   <content value="complete"/>
-  <concept id="21285">
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
     <code value="_Conditional"/>
     <display value="Conditional"/>
     <definition value=" Some conditions may be attached to an allowable substitution.  An allowable substitution is based on a match to any other attributes that may be specified."/>
-    <concept id="17721">
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
       <code value="CONFIRM"/>
       <display value="Confirm first"/>
       <definition value=" Confirmation with Contact Person prior to making any substitutions has or will occur."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
-    <concept id="17722">
+    <concept>
       <code value="NOTIFY"/>
       <display value="Notify first"/>
       <definition value=" Notification to the Contact Person, prior to substitution and through normal institutional procedures, has or will be made."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
     </concept>
   </concept>
-  <concept id="21383">
+  <concept>
     <code value="NOSUB"/>
     <display value="No substitution"/>
     <definition value=" Substitution is not permitted."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="17723">
+  <concept>
     <code value="UNCOND"/>
     <display value="Unconditional"/>
     <definition value=" No conditions are required."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

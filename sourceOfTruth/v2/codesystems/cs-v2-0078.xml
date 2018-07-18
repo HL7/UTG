@@ -5,16 +5,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="OO"/>
   </extension>
-  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
-    <valueUri value="http://hl7.org/v2/ch02c.html#Heading62"/>
-  </extension>
-  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
-    <valueString value="2.C.2.46"/>
-  </extension>
   <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
     <valueCode value="HL7"/>
   </extension>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v2-0078"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.31">
@@ -28,19 +22,19 @@
   <title value="V2 Table: Interpretation Codes"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2016-03-11"/>
+  <date value="2018-07-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="https://github.com/grahamegrieve/vocab-poc"/>
+      <value value="https://github.com/HL7/UTG"/>
     </telecom>
   </contact>
   <description value="HL7-defined code system of concepts which specify a categorical assessment of an observation value.  Used in HL7 Version 2.x messaging in the OBX segment."/>
   <purpose value="Underlying Master Code System for V2 table 0078 (Interpretation Codes)"/>
   <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ig/vocab-poc/ValueSet/v2-0078"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0078"/>
   <hierarchyMeaning value="is-a"/>
   <compositional value="false"/>
   <versionNeeded value="false"/>
@@ -225,6 +219,15 @@
     </property>
   </concept>
   <concept id="12">
+    <code value="GTECV"/>
+    <display value="Greater than Epidemiological Cut-off value"/>
+    <definition value="Greater than Epidemiological Cut-off value"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.9"/>
+    </property>
+  </concept>
+  <concept id="13">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="The result for a quantitative observation is above the upper limit of the reference range (as defined for the respective test procedure).&lt;p&gt;Synonym: Above high normal"/>
     </extension>
@@ -240,7 +243,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="13">
+  <concept id="14">
     <code value="H&gt;"/>
     <display value="Significantly high"/>
     <definition value="Significantly high"/>
@@ -249,7 +252,7 @@
       <valueCode value="2.9"/>
     </property>
   </concept>
-  <concept id="14">
+  <concept id="15">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="The result for a quantitative observation is above a reference level at which immediate action should be considered for patient safety (as defined for the respective test procedure).&lt;p&gt;Synonym: Above upper panic limits"/>
     </extension>
@@ -265,7 +268,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="15">
+  <concept id="16">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Deprecated"/>
     </extension>
@@ -281,7 +284,7 @@
       <valueCode value="Deprecated"/>
     </property>
   </concept>
-  <concept id="16">
+  <concept id="17">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Significantly high: A test result that is significantly higher than the reference (normal) or therapeutic interval, but has not reached the critically high value and might need special attention, as defined by the laboratory or the clinician.&#xD;&#xA;&#xD;&#xA;Note: This level is situated between &#x2018;H&#x2019; and &#x2018;HH&#x2019;."/>
     </extension>
@@ -297,7 +300,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="17">
+  <concept id="18">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Bacterial strain inhibited in vitro by a&#xD;&#xA;concentration of an antimicrobial agent that is associated with&#xD;&#xA;uncertain therapeutic effect.&#xD;&#xA;Reference: CLSI (http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm)&#xD;&#xA;Projects: ISO 20776-1, ISO 20776-2&#xD;&#xA;&#xD;&#xA;Note 1: Bacterial strains are categorized as intermediate by applying the appropriate breakpoints in a defined phenotypic test system.&#xD;&#xA;&#xD;&#xA;Note 2: This class of susceptibility implies that an infection due to the&#xD;&#xA;isolate can be appropriately treated in body sites where the drugs are physiologically concentrated or when a high dosage of drug can be used.&#xD;&#xA;&#xD;&#xA;Note 3: This class also indicates a &#x201C;buffer zone,&#x201D; to prevent small, uncontrolled, technical factors from causing major discrepancies in interpretations.&#xD;&#xA;&#xD;&#xA;Note 4: These breakpoints can be altered due to changes in circumstances (e.g., changes in commonly used drug dosages, emergence of new resistance mechanisms)."/>
     </extension>
@@ -313,7 +316,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="18">
+  <concept id="19">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="There is insufficient evidence that the species in question is a good target for therapy with the drug.  A categorical interpretation is not possible.&#xD;&#xA;Reference: EUCAST&#xD;&#xA;&#xD;&#xA;Note: A MIC with &#x201C;IE&#x201D; and/or a comment may be reported (without an accompanying S, I or R-categorization)."/>
     </extension>
@@ -329,7 +332,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="19">
+  <concept id="20">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="The specified component / analyte, organism or clinical sign could neither be declared positive / negative or detected / not detected by the performed test or procedure."/>
     </extension>
@@ -345,7 +348,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="20">
+  <concept id="21">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="The result for a quantitative observation is below the lower limit of the reference range (as defined for the respective test procedure).&lt;p&gt;Synonym: Below low normal"/>
     </extension>
@@ -361,7 +364,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="21">
+  <concept id="22">
     <code value="L&lt;"/>
     <display value="Significantly low"/>
     <definition value="Significantly low"/>
@@ -370,7 +373,16 @@
       <valueCode value="2.9"/>
     </property>
   </concept>
-  <concept id="22">
+  <concept id="23">
+    <code value="LEECV"/>
+    <display value="Less than or Equal to the Epidemiological Cut-off value"/>
+    <definition value="Less than or Equal to the Epidemiological Cut-off value"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.9"/>
+    </property>
+  </concept>
+  <concept id="24">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="The result for a quantitative observation is below a reference level at which immediate action should be considered for patient safety (as defined for the respective test procedure).&lt;p&gt;Synonym: Below lower panic limits"/>
     </extension>
@@ -386,7 +398,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="23">
+  <concept id="25">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Significantly low: A test result that is significantly lower than the reference (normal) or therapeutic interval, but has not reached the critically low value and might need special attention, as defined by the laboratory or the clinician.&#xD;&#xA;&#xD;&#xA;Note: This level is situated between &#x2018;L&#x2019; and &#x2018;LL&#x2019;."/>
     </extension>
@@ -402,7 +414,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="24">
+  <concept id="26">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Deprecated - CLSI now only supports S, I &amp; R. This information can be found in CLSI document M100-S22;  Vol. 32 No.3;  CLSI Performance&lt;p&gt;Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement.  Jan 2012."/>
     </extension>
@@ -418,7 +430,7 @@
       <valueCode value="Deprecated"/>
     </property>
   </concept>
-  <concept id="25">
+  <concept id="27">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="The result or observation value is within the reference range or expected norm (as defined for the respective test procedure).&lt;p&gt;Note: Applies to numeric or non-numeric results."/>
     </extension>
@@ -434,7 +446,16 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="26">
+  <concept id="28">
+    <code value="NCL"/>
+    <display value="No CLSI defined breakpoint"/>
+    <definition value="No CLSI defined breakpoint"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.9"/>
+    </property>
+  </concept>
+  <concept id="29">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="The presence of the specified component / analyte, organism or clinical sign could not be determined  within the limit of detection of the performed test or procedure."/>
     </extension>
@@ -450,7 +471,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="27">
+  <concept id="30">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="An absence finding of the specified component / analyte, organism or clinical sign based on the established threshold of the performed test or procedure.&lt;p&gt;Note: Negative does not necessarily imply the complete absence of the specified item."/>
     </extension>
@@ -466,7 +487,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="28">
+  <concept id="31">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="An absence finding used to indicate that the specified component / analyte did not react measurably with the reagent."/>
     </extension>
@@ -482,7 +503,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="29">
+  <concept id="32">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="A category used for isolates for which only a susceptible interpretive criterion has been designated because of the absence or rare occurrence of resistant strains. Isolates that have MICs above or zone diameters below the value indicated for the susceptible breakpoint should be reported as non-susceptible.&#xD;&#xA;&#xD;&#xA;Synonym: decreased susceptibility&#xD;&#xA;&#xD;&#xA;Note 1: An isolate that is interpreted as non-susceptible does not necessarily mean that the isolate has a resistance mechanism. It is possible that isolates with MICs above the susceptible breakpoint that lack resistance mechanisms may be encountered within the wild-type distribution subsequent to the time the susceptible-only breakpoint is set.&#xD;&#xA;&#xD;&#xA;Note 2: For strains yielding results in the &#x201C;nonsusceptible&#x201D; category, organism identification and antimicrobial susceptibility test results should be confirmed."/>
     </extension>
@@ -498,7 +519,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="30">
+  <concept id="33">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Deprecated"/>
     </extension>
@@ -514,7 +535,7 @@
       <valueCode value="Deprecated"/>
     </property>
   </concept>
-  <concept id="31">
+  <concept id="34">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Deprecated"/>
     </extension>
@@ -530,7 +551,7 @@
       <valueCode value="Deprecated"/>
     </property>
   </concept>
-  <concept id="32">
+  <concept id="35">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="A presence finding of the specified component / analyte, organism or clinical sign based on the established threshold of the performed test or procedure."/>
     </extension>
@@ -546,7 +567,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="33">
+  <concept id="36">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Deprecated"/>
     </extension>
@@ -562,7 +583,7 @@
       <valueCode value="Deprecated"/>
     </property>
   </concept>
-  <concept id="34">
+  <concept id="37">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Bacterial strain inhibited in vitro by a concentration of an antimicrobial agent that is associated with a high likelihood of therapeutic failure.&#xD;&#xA;Reference: CLSI (http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm)&#xD;&#xA;Projects: ISO 20776-1, ISO 20776-2&#xD;&#xA;&#xD;&#xA;Note 1: Bacterial strains are categorized as resistant by applying the appropriate breakpoints in a defined phenotypic test system.&#xD;&#xA;&#xD;&#xA;Note 2: This breakpoint can be altered due to changes in circumstances (e.g., changes in commonly used drug dosages, emergence of new resistance mechanisms)."/>
     </extension>
@@ -578,7 +599,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="35">
+  <concept id="38">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="A presence finding used to indicate that the specified component / analyte reacted with the reagent above the reliably measurable limit of the performed test."/>
     </extension>
@@ -594,7 +615,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="36">
+  <concept id="39">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Bacterial strain inhibited by in vitro concentration of an antimicrobial agent that is associated with a high likelihood of therapeutic success.&#xD;&#xA;Reference: CLSI (http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm) &#xD;&#xA;Projects: ISO 20776-1, ISO 20776-2&#xD;&#xA;&#xD;&#xA;Synonym (earlier term): Sensitive&#xD;&#xA;&#xD;&#xA;Note 1: Bacterial strains are categorized as susceptible by applying the appropriate breakpoints in a defined phenotypic system.&#xD;&#xA;&#xD;&#xA;Note 2: This breakpoint can be altered due to changes in circumstances (e.g., changes in commonly used drug dosages, emergence of new resistance mechanisms)."/>
     </extension>
@@ -610,7 +631,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="37">
+  <concept id="40">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="A category that includes isolates with antimicrobial agent minimum inhibitory concentrations (MICs) that approach usually attainable blood and tissue levels and for which response rates may be lower than for susceptible isolates.&#xD;&#xA;Reference: CLSI document M44-A2 2009 &#x201C;Method for antifungal disk diffusion susceptibility testing of yeasts; approved guideline &#x2013; second edition&#x201D; &#x2013; page 2."/>
     </extension>
@@ -626,7 +647,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="38">
+  <concept id="41">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="A category for isolates where the bacteria (e.g. enterococci) are not susceptible in vitro to a combination therapy (e.g., high-level aminoglycoside and cell wall active agent). This is predictive that this combination therapy will not be effective. &#xD;&#xA;&#xD;&#xA;Usage Note: Since the use of penicillin or ampicillin alone often results in treatment failure of serious enterococcal or other bacterial infections, combination therapy is usually indicated to enhance bactericidal activity. The synergy between a cell wall active agent (such as penicillin, ampicillin, or vancomycin) and an aminoglycoside (such as gentamicin, kanamycin or streptomycin) is best predicted by screening for high-level bacterial resistance to the aminoglycoside.&#xD;&#xA;&#xD;&#xA;Open Issue: The print name of the code is very general and the description is very specific to a pair of classes of agents, which may lead to confusion of these concepts in the future should other synergies be found."/>
     </extension>
@@ -642,7 +663,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="39">
+  <concept id="42">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="A category for isolates where the bacteria (e.g. enterococci) are susceptible in vitro to a combination therapy (e.g., high-level aminoglycoside and cell wall active agent). This is predictive that this combination therapy will be effective. &#xD;&#xA;&#xD;&#xA;Usage Note: Since the use of penicillin or ampicillin alone often results in treatment failure of serious enterococcal or other bacterial infections, combination therapy is usually indicated to enhance bactericidal activity. The synergy between a cell wall active agent (such as penicillin, ampicillin, or vancomycin) and an aminoglycoside (such as gentamicin, kanamycin or streptomycin) is best predicted by screening for high-level bacterial resistance to the aminoglycoside.&#xD;&#xA;&#xD;&#xA;Open Issue: The print name of the code is very general and the description is very specific to a pair of classes of agents, which may lead to confusion of these concepts in the future should other synergies be found."/>
     </extension>
@@ -658,7 +679,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="40">
+  <concept id="43">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Deprecated"/>
     </extension>
@@ -674,7 +695,7 @@
       <valueCode value="Deprecated"/>
     </property>
   </concept>
-  <concept id="41">
+  <concept id="44">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="The current result has increased from the previous result for a quantitative observation (the change is significant as defined in the respective test procedure)."/>
     </extension>
@@ -690,7 +711,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="42">
+  <concept id="45">
     <code value="UNE"/>
     <display value="Unexpected"/>
     <definition value="Unexpected"/>
@@ -699,7 +720,7 @@
       <valueCode value="2.9"/>
     </property>
   </concept>
-  <concept id="43">
+  <concept id="46">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="Deprecated - CLSI now only supports S, I &amp; R. This information can be found in CLSI document M100-S22;  Vol. 32 No.3;  CLSI Performance&lt;p&gt;Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement.  Jan 2012."/>
     </extension>
@@ -715,7 +736,7 @@
       <valueCode value="Deprecated"/>
     </property>
   </concept>
-  <concept id="44">
+  <concept id="47">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="The current result or observation value has degraded compared to the previous result or observation value (the change is significant as defined in the respective test procedure).&lt;p&gt;Note: This can be applied to quantitative or qualitative observations."/>
     </extension>
@@ -731,7 +752,7 @@
       <valueCode value="Active"/>
     </property>
   </concept>
-  <concept id="45">
+  <concept id="48">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
       <valueString value="A weighted presence finding used to indicate that the specified component / analyte reacted with the reagent, but below the reliably measurable limit of the performed test."/>
     </extension>

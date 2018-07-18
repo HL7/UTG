@@ -17,7 +17,7 @@ public class CodeSystemRetoucher {
     for (File f : new File("C:\\work\\org.hl7.fhir.intl\\vocab-poc\\fhir\\codeSystems").listFiles()) {
       System.out.println("fix : "+f.getAbsolutePath());
       CodeSystem cs = (CodeSystem) new XmlParser().parse(new FileInputStream(f));
-      cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/"+cs.getId());
+      cs.setUrl("http://terminology.hl7.org/CodeSystem/"+cs.getId());
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(f), cs);
     }
 

@@ -17,7 +17,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="639-20081229"/>
   </extension>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ConceptCodeRelationship"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ConceptCodeRelationship"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1088"/>
@@ -40,7 +40,7 @@
     <description value="Property applies to the ConceptCodeRelationship code system. For each concept, it identifies the name of the inverse relationship."/>
     <type value="code"/>
   </property>
-  <concept id="19971">
+  <concept>
     <code value="hasPart"/>
     <display value="has part"/>
     <definition value=" The target concept is a part or portion of the source concept."/>
@@ -48,8 +48,12 @@
       <code value="inverseRelationship"/>
       <valueCode value="partOf"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="19970">
+  <concept>
     <code value="hasSubtype"/>
     <display value="has subtype"/>
     <definition value=" Target concept is a subtype / subclass or the source (or the target concept implies the source"/>
@@ -57,14 +61,22 @@
       <code value="inverseRelationship"/>
       <valueCode value="isA"/>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="19972">
+  <concept>
     <code value="smallerThan"/>
     <display value="is smaller than"/>
     <definition value=" The source concept code is &quot;less than&quot; the target concept in a strictly ordinal sense."/>
     <property>
       <code value="inverseRelationship"/>
       <valueCode value="greaterThan"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
     </property>
   </concept>
 </CodeSystem>

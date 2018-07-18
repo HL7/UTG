@@ -16,7 +16,7 @@
                
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-MessageWaitingPriority"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-MessageWaitingPriority"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1083"/>
@@ -39,26 +39,38 @@
     <description value="The source concept code is &quot;less than&quot; the target concept in a strictly ordinal sense."/>
     <type value="Coding"/>
   </property>
-  <concept id="19790">
+  <concept>
     <code value="H"/>
     <display value="High"/>
     <definition value=" High priority messages are available"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="19792">
+  <concept>
     <code value="L"/>
     <display value="Low"/>
     <definition value=" Low priority messages are available"/>
     <property>
       <code value="SmallerThan"/>
       <valueCoding>
-        <system value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-MessageWaitingPriority"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-MessageWaitingPriority"/>
         <code value="M"/>
       </valueCoding>
     </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="19791">
+  <concept>
     <code value="M"/>
     <display value="Medium"/>
     <definition value=" Medium priority messages are available"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>

@@ -17,7 +17,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="649-20081229"/>
   </extension>
-  <url value="http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-ConceptStatus"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ConceptStatus"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1086"/>
@@ -32,24 +32,40 @@
   </contact>
   <description value="  Deprecation Comment:&#xD;&#xA;Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
   <content value="complete"/>
-  <concept id="19960">
+  <concept>
     <code value="A"/>
     <display value="Active"/>
     <definition value=" Concept code is active and in use"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="19962">
+  <concept>
     <code value="D"/>
     <display value="Deleted"/>
     <definition value=" Concept code is not longer in use anywhere."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="19959">
+  <concept>
     <code value="P"/>
     <display value="Proposed"/>
     <definition value=" Proposed but not yet in general use"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
-  <concept id="19961">
+  <concept>
     <code value="R"/>
     <display value="Retired"/>
     <definition value=" Concept code has been used previously, but is no longer value for new use."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
   </concept>
 </CodeSystem>
