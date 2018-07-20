@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0208-2.5"/>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
+    <valueUri value="http://hl7.org/v2/ch05.html#Heading65"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
+    <valueString value="5.5.2.2"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
+    <valueCode value="HL7"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0208-2.5"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.113"/>
+  </identifier>
+  <version value="2"/>
+  <name value="V2Table0208v2.5"/>
+  <title value="V2 Table: Query Response Status"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2018-07-01"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/HL7/UTG"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts defining precise response status concepts in support of HL7 Version 2 query messaging.  It is commonly used to indicate no data is found that matches the query parameters, but no error.   Used in HL7 Version 2.x messaging in the QAK segment."/>
+  <purpose value="Underlying Code System for V2 table 0208 (Query Response Status, version 2.5)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0208-2.5"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://healthintersections.com.au/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://healthintersections.com.au/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://healthintersections.com.au/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://healthintersections.com.au/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <code value="OK"/>
+    <display value="Data found, no errors (this is the default)"/>
+    <definition value="Data found, no errors (this is the default)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <code value="NF"/>
+    <display value="No data found, no errors"/>
+    <definition value="No data found, no errors"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <code value="AE"/>
+    <display value="Application error"/>
+    <definition value="Application error"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <code value="AR"/>
+    <display value="Application reject"/>
+    <definition value="Application reject"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>

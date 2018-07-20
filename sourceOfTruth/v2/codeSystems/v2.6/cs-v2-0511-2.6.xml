@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0511-2.6"/>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
+    <valueUri value="http://hl7.org/v2/ch04.html#Heading510"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
+    <valueString value="4.21.2.3"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
+    <valueCode value="HL7"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0511-2.6"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.334"/>
+  </identifier>
+  <version value="1"/>
+  <name value="V2Table0511v2.6"/>
+  <title value="V2 Table: BP Observation Status Codes Interpretation"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2018-07-01"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/HL7/UTG"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts used to specify the interpretation for the blood product observation status codes.  A status is considered preliminary until a blood product has reached a final disposition for the patient. For example, when the product is first cross-matched and a status message is sent, it would be considered preliminary. When the product is dispensed to the patient, that status would also be considered preliminary.  However, once the product is transfused, the status would be considered final.  Used in the Blood Product Dispense Status (BPX) and Blood Product Transfusion/Disposition (BTX) segments in HL7 Version 2.x messaging."/>
+  <purpose value="Underlying Code System for V2 table 0511 (BP Observation Status Codes Interpretation, version 2.6)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0511-2.6"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://healthintersections.com.au/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://healthintersections.com.au/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://healthintersections.com.au/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://healthintersections.com.au/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <code value="C"/>
+    <display value="Record coming over is a correction and thus replaces a final status"/>
+    <definition value="Record coming over is a correction and thus replaces a final status"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <code value="D"/>
+    <display value="Deletes the BPX record"/>
+    <definition value="Deletes the BPX record"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <code value="F"/>
+    <display value="Final status; Can only be changed with a corrected status"/>
+    <definition value="Final status; Can only be changed with a corrected status"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <code value="O"/>
+    <display value="Order detail description only (no status)"/>
+    <definition value="Order detail description only (no status)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="5">
+    <code value="P"/>
+    <display value="Preliminary status"/>
+    <definition value="Preliminary status"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="6">
+    <code value="W"/>
+    <display value="Post original as wrong, e.g., transmitted for wrong patient"/>
+    <definition value="Post original as wrong, e.g., transmitted for wrong patient"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>

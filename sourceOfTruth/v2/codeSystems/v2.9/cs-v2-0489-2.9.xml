@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0489-2.9"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="OO"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref">
+    <valueUri value="http://hl7.org/v2/ch02c.html#Heading418"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection">
+    <valueString value="2.C.2.402"/>
+  </extension>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
+    <valueCode value="User"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0489-2.9"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.313"/>
+  </identifier>
+  <version value="1"/>
+  <name value="V2Table0489v2.9"/>
+  <title value="V2 Table: Risk Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2018-07-01"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/HL7/UTG"/>
+    </telecom>
+  </contact>
+  <description value="Code system of concepts specifying any known or suspected specimen hazards, e.g., exceptionally infectious agent or blood from a hepatitis patient.  Used in HL7 Version 2.x messaging in the SPM and PAC segments."/>
+  <purpose value="Underlying Code System for V2 table 0489 (Risk Codes, version 2.9)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0489-2.9"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://healthintersections.com.au/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://healthintersections.com.au/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://healthintersections.com.au/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://healthintersections.com.au/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="The dangers associated with normal biological materials. I.e. potential risk of unknown infections.  Routine biological materials from living subjects."/>
+    </extension>
+    <code value="BIO"/>
+    <display value="Biological"/>
+    <definition value="Biological"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Material is corrosive and may cause severe injury to skin, mucous membranes and eyes. Avoid any unprotected contact."/>
+    </extension>
+    <code value="COR"/>
+    <display value="Corrosive"/>
+    <definition value="Corrosive"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="The entity is at risk for escaping from containment or control."/>
+    </extension>
+    <code value="ESC"/>
+    <display value="Escape Risk"/>
+    <definition value="Escape Risk"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="A danger that can be associated with certain living subjects, including humans."/>
+    </extension>
+    <code value="AGG"/>
+    <display value="Aggressive"/>
+    <definition value="Aggressive"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="5">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Material is highly inflammable and in certain mixtures (with air) may lead to explosions.  Keep away from fire, sparks and excessive heat."/>
+    </extension>
+    <code value="IFL"/>
+    <display value="MaterialDangerInflammable"/>
+    <definition value="MaterialDangerInflammable"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="6">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Material is an explosive mixture.  Keep away from fire, sparks, and heat."/>
+    </extension>
+    <code value="EXP"/>
+    <display value="Explosive"/>
+    <definition value="Explosive"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="7">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Material known to be infectious with human pathogenic microorganisms.  Those who handle this material must take precautions for their protection."/>
+    </extension>
+    <code value="INF"/>
+    <display value="MaterialDangerInfectious"/>
+    <definition value="MaterialDangerInfectious"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="8">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Material contains microorganisms that are an environmental hazard.  Must be handled with special care."/>
+    </extension>
+    <code value="BHZ"/>
+    <display value="Biohazard"/>
+    <definition value="Biohazard"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="9">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Material is solid and sharp (e.g., cannulas.)  Dispose in hard container."/>
+    </extension>
+    <code value="INJ"/>
+    <display value="Injury Hazard"/>
+    <definition value="Injury Hazard"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="10">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Material is poisonous to humans and/or animals.  Special care must be taken to avoid incorporation, even of small amounts."/>
+    </extension>
+    <code value="POI"/>
+    <display value="Poison"/>
+    <definition value="Poison"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="11">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Material is a source for ionizing radiation and must be handled with special care to avoid injury of those who handle it and to avoid environmental hazards."/>
+    </extension>
+    <code value="RAD"/>
+    <display value="Radioactive"/>
+    <definition value="Radioactive"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>

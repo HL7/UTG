@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0359"/>
+  <extension url="http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type">
+    <valueCode value="User"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0359"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.218">
+      <extension url="http://healthintersections.com.au/fhir/StructureDefinition/identifier-display">
+        <valueString value="diagnosisPriority"/>
+      </extension>
+    </value>
+  </identifier>
+  <version value="1"/>
+  <name value="V2Table0359"/>
+  <title value="V2 Table: Diagnosis Priority"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2018-07-01"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/HL7/UTG"/>
+    </telecom>
+  </contact>
+  <description value="Code system of concepts that identify the significance or priority of the diagnosis code.  Note that the codes are numeric, and the number of the code represents the ordinal priority of the associated diagnosis.  Used in the DG1 segment in HL7 Version 2.x messaging. The predefined codes are the most common, and just a starter set, as the codes are an unbounded list; additional ranked procedures may be signified by incrementing the code value as needed."/>
+  <purpose value="Underlying Master Code System for V2 table 0359 (Diagnosis Priority)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0359"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://healthintersections.com.au/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://healthintersections.com.au/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://healthintersections.com.au/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://healthintersections.com.au/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <code value="0"/>
+    <display value="Not included in diagnosis ranking"/>
+    <definition value="Not included in diagnosis ranking"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.3.1"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <code value="1"/>
+    <display value="The primary diagnosis"/>
+    <definition value="The primary diagnosis"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.3.1"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <code value="2 and higher"/>
+    <display value="for ranked secondary diagnoses"/>
+    <definition value="for ranked secondary diagnoses"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.3.1"/>
+    </property>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <code value="2 ..."/>
+    <display value="For ranked secondary diagnoses"/>
+    <definition value="For ranked secondary diagnoses"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.4"/>
+    </property>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <code value="2"/>
+    <display value="For  secondary diagnosis"/>
+    <definition value="For  secondary diagnosis"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <code value="..."/>
+    <display value="No suggested values defined"/>
+    <definition value="No suggested values defined"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Deprecated"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <code value="3"/>
+    <display value="For tertiary diagnosis"/>
+    <definition value="For tertiary diagnosis"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.9"/>
+    </property>
+  </concept>
+  <concept id="5">
+    <code value="4"/>
+    <display value="For quaternary diagnosis"/>
+    <definition value="For quaternary diagnosis"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.9"/>
+    </property>
+  </concept>
+</CodeSystem>
