@@ -178,8 +178,17 @@ public class V3SourceGenerator extends BaseGenerator {
     
     postProcess();
     saveCodeSystemManifest(manifest);
-    for (CodeSystem cs : csmap.values())
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v3", "codeSystems", cs.getId())+".xml"), cs);
+    
+    Extension ext = null;
+    for (CodeSystem cs : csmap.values()) {
+    	
+    	ext = cs.getExtensionByUrl("http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator");
+    	if (ext.getValueAsPrimitive().getValueAsString().equals("true")) {
+    		new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v3", "codeSystems", cs.getId())+".xml"), cs);	
+    	} else {
+        	new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "external", cs.getId())+".xml"), cs);    		
+    	}
+    }
     System.out.println("Save v3 code systems ("+Integer.toString(csmap.size())+" found)");
   }
  
@@ -247,7 +256,6 @@ public class V3SourceGenerator extends BaseGenerator {
     }
   }
 
-
   private ConceptDefinitionComponent find(CodeSystem cs, String code, String src, String srcU) {
     for (ConceptDefinitionComponent cd : cs.getConcept()) {
       if (cd.getCode().equals(code))
@@ -275,7 +283,8 @@ public class V3SourceGenerator extends BaseGenerator {
       child = XMLUtil.getNextSibling(child);
     }    
   }
-
+  
+  
   private void processLegalese(Element item, CodeSystem cs) throws Exception {
     Element child = XMLUtil.getFirstChild(item);
     while (child != null) {
@@ -322,6 +331,10 @@ public class V3SourceGenerator extends BaseGenerator {
   private void processReleasedVersion(Element item, CodeSystem cs) throws Exception {
     // ignore: hl7MaintainedIndicator, hl7ApprovedIndicator
     cs.setDateElement(new DateTimeType(item.getAttribute("releaseDate")));
+    cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator", new StringType(item.getAttribute("hl7MaintainedIndicator")));
+    cs.addExtension("http://hl7.org/fhir/StructureDefinition/complete-codes-indicator", new StringType(item.getAttribute("completeCodesIndicator")));
+    cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator", new StringType(item.getAttribute("hl7ApprovedIndicator")));
+    
     if ("false".equals(item.getAttribute("completeCodesIndicator"))) 
       cs.setContent(CodeSystemContentMode.FRAGMENT); // actually a fragment this time 
     else
