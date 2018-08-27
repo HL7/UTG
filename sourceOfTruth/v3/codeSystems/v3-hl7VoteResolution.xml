@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-hl7VoteResolution"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>
+                     
+        <b>Description: </b>Based on concepts for resolutions from HL7 ballot spreadsheet according to HL7&#39;s Governance &amp; Operations Manual (GOM).
+      </p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Modeling and Methodology Workgroup">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-hl7VoteResolution"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1131"/>
+  </identifier>
+  <name value="hl7VoteResolution"/>
+  <title value="HL7VoteResolution"/>
+  <status value="active"/>
+  <date value="2018-08-12"/>
+  <publisher value="HL7 International"/>
+  <contact>
+    <name value="Modeling and Methodology Workgroup"/>
+  </contact>
+  <description value="Description:Based on concepts for resolutions from HL7 ballot spreadsheet according to HL7&#39;s Governance &amp; Operations Manual (GOM)."/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
+    <code value="affirmativeResolution"/>
+    <display value="affirmative resolution"/>
+    <definition value="  &#xD;&#xA;Description:An abstract concept grouping resolutions that can be applied to affirmative ballot comments."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23133"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="affdef"/>
+      <display value="affirmative-deferred"/>
+      <definition value="  &#xD;&#xA;Description:The recommended change has been deferred to consideration for a future release."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23136"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="affi"/>
+      <display value="affirmative-incorporated"/>
+      <definition value="  &#xD;&#xA;Description:The recommended change has been incorporated or identified issue has been answered."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23134"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="affr"/>
+      <display value="affirmative-rejected"/>
+      <definition value="  &#xD;&#xA;Description:The recommended change has been refused and is not expected to be incorporated."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23135"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="negativeResolution"/>
+    <display value="negative resolution"/>
+    <definition value="  &#xD;&#xA;Description:An abstract concept grouping resolutions that can be applied to negative ballot comments."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23137"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="nonsubp"/>
+      <display value="non-substantive proposed"/>
+      <definition value="  &#xD;&#xA;Description:Responsible group has recommended that the negative vote be considered non-substantive.  (Issue raised does not provide sufficiently convincing reason to make changes to the item under ballot, or otherwise impede its adoption.)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23139"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="nonsubv"/>
+      <display value="non-substantive voted"/>
+      <definition value="  &#xD;&#xA;Description:Ballot group has voted and declared the negative vote non-substantive."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23140"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="notrelp"/>
+      <display value="not related proposed"/>
+      <definition value="  &#xD;&#xA;Description:Responsible group has recommended that the negative vote be considered not-related.  (Issue raised is not related to the current scope of the item under ballot, or does not prevent the item under ballot for being used for its defined intent.  Recommended changes may be considered as part of future versions.)  (Perhaps after further reading or explanation)."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23141"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="notrelv"/>
+      <display value="not related voted"/>
+      <definition value="  &#xD;&#xA;Description:Ballot group has voted and declared the negative vote non-related."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23142"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="prevcons"/>
+      <display value="previously considered"/>
+      <definition value="  &#xD;&#xA;Description:Committee identifies that the same issue has been raised as part of a previous ballot on the same element version and was found by the ballot group to be non-substantive or not related.)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23143"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="retract"/>
+      <display value="retracted"/>
+      <definition value="  &#xD;&#xA;Description:Voter has formally withdrawn their vote or comment as having been in error.  (Perhaps after further reading or explanation)."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23144"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="unresolved"/>
+      <display value="unresolved"/>
+      <definition value="  &#xD;&#xA;Description:Vote has not yet gone through resolution."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23138"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="withdraw"/>
+      <display value="withdrawn"/>
+      <definition value="  &#xD;&#xA;Description:Voter has formally withdrawn their vote or comment on the basis of agreed changes or proposed future changes."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23145"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+</CodeSystem>

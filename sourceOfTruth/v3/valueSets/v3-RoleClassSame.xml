@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-RoleClassSame"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>The &quot;same&quot; roleclass asserts an identity between playing and scoping entities: that they are in fact instances of the same entity and, in the case of discrepancies (e.g different DOB, gender), that one or both are in error.</p>
+                  
+      <p>
+                     
+        <i>Usage:</i>
+                  
+      </p>
+                  
+      <p>playing and scoping entities must have same classcode, but need not have identical attributes or values.</p>
+                  
+      <p>
+                     
+        <i>Example: </i>
+                  
+      </p>
+                  
+      <p>a provider registry maintains sets of conflicting demographic data for what is reported to be the same individual.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="version annotation">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/v3-RoleClassSame"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20168"/>
+  </identifier>
+  <version value="2014T1_2014-03-26_001283"/>
+  <name value="RoleClassSame"/>
+  <title value="RoleClassSame"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value=" The &quot;same&quot; roleclass asserts an identity between playing and scoping entities: that they are in fact instances of the same entity and, in the case of discrepancies (e.g different DOB, gender), that one or both are in error.  &#xD;&#xA;Usage: playing and scoping entities must have same classcode, but need not have identical attributes or values.  &#xD;&#xA;Example: a provider registry maintains sets of conflicting demographic data for what is reported to be the same individual."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="SAME"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

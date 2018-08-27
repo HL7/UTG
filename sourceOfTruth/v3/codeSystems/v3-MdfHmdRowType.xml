@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-MdfHmdRowType"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>The row type codes for the tabular representation of a Hierarchical Message Description.</p>
+                  
+      <p>
+                     
+        <b>Deprecation Comment:</b> Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used.
+      </p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
+    <valueString value="679-20081229"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-MdfHmdRowType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.76"/>
+  </identifier>
+  <name value="MdfHmdRowType"/>
+  <title value="MdfHmdRowType"/>
+  <status value="retired"/>
+  <date value="2018-08-12"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value="The row type codes for the tabular representation of a Hierarchical Message Description.  &#xD;&#xA;Deprecation Comment:Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <concept>
+    <code value="assoc"/>
+    <display value="Association Row"/>
+    <definition value=" Identifies an association leading from the &quot;class&quot; (or association) that is most directly above this row"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10072"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="attr"/>
+    <display value="Attribute Row"/>
+    <definition value=" Identifies an attribute of the &quot;class&quot; (or association) that is most directly above this row."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10073"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="class"/>
+    <display value="HMD root class"/>
+    <definition value=" Identifies &quot;class&quot; in the HMD. There is only one class entry in a Hierarchical Message Definition. This is the root class for the message."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10071"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="hmd"/>
+    <display value="HMD identifier"/>
+    <definition value=" Always the first row of the table, identifies the particular Hierarchical Message Definition in the nomenclature of the HL7 Repository."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10070"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="item"/>
+    <display value="Collection Item Row"/>
+    <definition value=" Identifies a message element that represents one of whatever is repeated in a collection"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10074"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="stc"/>
+    <display value="Subtype constraint"/>
+    <definition value=" This row corresponds to a subcomponent of the row above; it would not normally be included in an HMD, but it is included in order to be able to state a constraint on the subtype. This is explained in 10.2.2.4."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10075"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

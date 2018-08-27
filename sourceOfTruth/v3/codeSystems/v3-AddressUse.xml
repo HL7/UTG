@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-AddressUse"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Codes that provide guidance around the circumstances in which a given address should be used.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven, Inc.">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-AddressUse"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1119"/>
+  </identifier>
+  <name value="AddressUse"/>
+  <title value="AddressUse"/>
+  <status value="active"/>
+  <date value="2018-08-12"/>
+  <publisher value="HL7"/>
+  <contact>
+    <name value="Health Level Seven, Inc."/>
+  </contact>
+  <description value="Codes that provide guidance around the circumstances in which a given address should be used."/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
+    <code value="_GeneralAddressUse"/>
+    <display value="_GeneralAddressUse"/>
+    <definition value="  &#xD;&#xA;Description:Address uses that can apply to both postal and telecommunication addresses."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22729"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="BAD"/>
+      <display value="bad address"/>
+      <definition value="  &#xD;&#xA;Description:A flag indicating that the address is bad, in fact, useless."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22730"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="CONF"/>
+      <display value="confidential address"/>
+      <definition value="  &#xD;&#xA;Description:Indicates that the address is considered sensitive and should only be shared or published in accordance with organizational controls governing patient demographic information with increased sensitivity. Uses of Addresses.   Lloyd to supply more complete description."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22731"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="H"/>
+      <display value="home address"/>
+      <definition value="  &#xD;&#xA;Description:A communication address at a home, attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22732"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
+        <code value="HP"/>
+        <display value="primary home"/>
+        <definition value="  &#xD;&#xA;Description:The primary home, to reach a person after business hours."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="22733"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="HV"/>
+        <display value="vacation home"/>
+        <definition value="  &#xD;&#xA;Description:A vacation home, to reach a person while on vacation."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="22734"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+      </concept>
+    </concept>
+    <concept>
+      <code value="OLD"/>
+      <display value="no longer in use"/>
+      <definition value=" This address is no longer in use.  &#xD;&#xA;Usage Note:Address may also carry valid time ranges. This code is used to cover the situations where it is known that the address is no longer valid, but no particular time range for its use is known."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23468"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TMP"/>
+      <display value="temporary address"/>
+      <definition value="  &#xD;&#xA;Description:A temporary address, may be good for visit or mailing. Note that an address history can provide more detailed information."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22735"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="WP"/>
+      <display value="work place"/>
+      <definition value="  &#xD;&#xA;Description:An office address. First choice for business related contacts during business hours."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22736"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
+        <code value="DIR"/>
+        <display value="direct"/>
+        <definition value="  &#xD;&#xA;Description:Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a &#39;private line&#39;."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="22737"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="PUB"/>
+        <display value="public"/>
+        <definition value="  &#xD;&#xA;Description:Indicates a work place address or telecommunication address that is a &#39;standard&#39; address which may reach a reception service, mail-room, or other intermediary prior to the target entity."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="22738"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+      </concept>
+    </concept>
+  </concept>
+  <concept>
+    <code value="_PostalAddressUse"/>
+    <display value="_PostalAddressUse"/>
+    <definition value="  &#xD;&#xA;Description:Address uses that only apply to postal addresses, not telecommunication addresses."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22739"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="PHYS"/>
+      <display value="physical visit address"/>
+      <definition value="  &#xD;&#xA;Description:Used primarily to visit an address."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22740"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="PST"/>
+      <display value="postal address"/>
+      <definition value="  &#xD;&#xA;Description:Used to send mail."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22741"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="_TelecommunicationAddressUse"/>
+    <display value="_TelecommunicationAddressUse"/>
+    <definition value="  &#xD;&#xA;Description:Address uses that only apply to telecommunication addresses, not postal addresses."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22742"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="AS"/>
+      <display value="answering service"/>
+      <definition value="  &#xD;&#xA;Description:An automated answering machine used for less urgent cases and if the main purpose of contact is to leave a message or access an automated announcement."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22743"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="EC"/>
+      <display value="emergency contact"/>
+      <definition value="  &#xD;&#xA;Description:A contact specifically designated to be used for emergencies. This is the first choice in emergencies, independent of any other use codes."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22744"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="MC"/>
+      <display value="mobile contact)"/>
+      <definition value="  &#xD;&#xA;Description:A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22745"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="PG"/>
+      <display value="pager"/>
+      <definition value="  &#xD;&#xA;Description:A paging device suitable to solicit a callback or to leave a very short message."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22746"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+</CodeSystem>

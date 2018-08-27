@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-QueryParameterValue"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>The domain of coded values used as parameters within QueryByParameter queries.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="HL7 Modeling and Methodology Workgroup">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-QueryParameterValue"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1096"/>
+  </identifier>
+  <name value="QueryParameterValue"/>
+  <title value="QueryParameterValue"/>
+  <status value="active"/>
+  <date value="2018-08-12"/>
+  <publisher value="HL7"/>
+  <contact>
+    <name value="HL7 Modeling and Methodology Workgroup"/>
+  </contact>
+  <description value="The domain of coded values used as parameters within QueryByParameter queries."/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
+    <code value="_DispenseQueryFilterCode"/>
+    <display value="dispense query filter code"/>
+    <definition value="  &#xD;&#xA;Description:Filter codes used to manage volume of dispenses returned by  a parameter-based queries."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23299"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="ALLDISP"/>
+      <display value="all dispenses"/>
+      <definition value="  &#xD;&#xA;Description:Returns all dispenses to date for a prescription."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23300"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="LASTDISP"/>
+      <display value="last dispense"/>
+      <definition value="  &#xD;&#xA;Description:Returns the most recent dispense for a prescription."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23301"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="NODISP"/>
+      <display value="no dispense"/>
+      <definition value="  &#xD;&#xA;Description:Returns no dispense for a prescription."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23302"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="_OrderFilterCode"/>
+    <display value="_OrderFilterCode"/>
+    <definition value=" Filter codes used to manage types of orders being returned by a parameter-based query."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23616"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="AO"/>
+      <display value="all orders"/>
+      <definition value=" Return all orders."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23617"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="ONR"/>
+      <display value="orders without results"/>
+      <definition value=" Return only those orders that do not have results."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23619"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="OWR"/>
+      <display value="orders with results"/>
+      <definition value=" Return only those orders that have results."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23618"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="_PrescriptionDispenseFilterCode"/>
+    <display value="Prescription Dispense Filter Code"/>
+    <definition value=" A &quot;helper&quot; vocabulary used to construct complex query filters based on how and whether a prescription has been dispensed."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21537"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="C"/>
+      <display value="Completely dispensed"/>
+      <definition value=" Filter to only include SubstanceAdministration orders which have no remaining quantity authorized to be dispensed."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21540"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="N"/>
+      <display value="Never Dispensed"/>
+      <definition value=" Filter to only include SubstanceAdministration orders which have no fulfilling supply events performed."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21538"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="R"/>
+      <display value="Dispensed with remaining fills"/>
+      <definition value=" Filter to only include SubstanceAdministration orders which have had at least one fulfilling supply event, but which still have outstanding quantity remaining to be authorized."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21539"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="_QueryParameterValue"/>
+    <display value="QueryParameterValue"/>
+    <definition value="  &#xD;&#xA;Description:Indicates how result sets should be filtered based on whether they have associated issues."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21986"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="ISSFA"/>
+      <display value="all"/>
+      <definition value="  &#xD;&#xA;Description:Result set should not be filtered based on the presence of issues."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21987"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="ISSFI"/>
+      <display value="with issues"/>
+      <definition value="  &#xD;&#xA;Description:Result set should be filtered to only include records with associated issues."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21988"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="ISSFU"/>
+      <display value="with unmanaged issues"/>
+      <definition value="  &#xD;&#xA;Description:Result set should be filtered to only include records with associated unmanaged issues."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21989"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+</CodeSystem>

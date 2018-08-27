@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActClassTransmissionExposure"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>
+                     
+        <b>Description: </b>
+                  
+      </p>
+                  
+      <p>A transmission exposure act describes the proximity (time and location) over which the participating source entity was capable of transmitting a physical (including energy), chemical or biological substance agent to another entity.  The transmission exposure act is used in conjunction with acquisition exposure acts as part of an analysis technique for contact tracing.  Although an exposure can be decomposed into transmission and acquisition exposures, there is no requirement that all exposures be treated in this fashion.</p>
+                  
+      <p>
+                     
+        <b>Constraints:</b>  The Transmission Exposure inherits the participation constraints that apply to Exposure with the following exception.  The EXPTRGT (exposure target) participation must never be associated with the Transmission Exposure either directly or via context conduction.
+      </p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="version annotation">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActClassTransmissionExposure"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20257"/>
+  </identifier>
+  <version value="2014T1_2014-03-26_001283"/>
+  <name value="ActClassTransmissionExposure"/>
+  <title value="ActClassTransmissionExposure"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="  &#xD;&#xA;Description: A transmission exposure act describes the proximity (time and location) over which the participating source entity was capable of transmitting a physical (including energy), chemical or biological substance agent to another entity.  The transmission exposure act is used in conjunction with acquisition exposure acts as part of an analysis technique for contact tracing.  Although an exposure can be decomposed into transmission and acquisition exposures, there is no requirement that all exposures be treated in this fashion.  &#xD;&#xA;Constraints:The Transmission Exposure inherits the participation constraints that apply to Exposure with the following exception.  The EXPTRGT (exposure target) participation must never be associated with the Transmission Exposure either directly or via context conduction."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="TEXPOS"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

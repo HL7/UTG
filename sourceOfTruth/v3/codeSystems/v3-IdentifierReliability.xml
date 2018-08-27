@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-IdentifierReliability"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="HL7 Infrastructure and Messaging (INM),HL7 Infrastructure and Messaging (INM)">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-IdentifierReliability"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1117"/>
+  </identifier>
+  <name value="IdentifierReliability"/>
+  <title value="IdentifierReliability"/>
+  <status value="active"/>
+  <date value="2018-08-12"/>
+  <publisher value="HL7 International"/>
+  <contact>
+    <name value="HL7 Infrastructure and Messaging (INM),HL7 Infrastructure and Messaging (INM)"/>
+  </contact>
+  <description value="Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms."/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <concept>
+    <code value="ISS"/>
+    <display value="Issued by System"/>
+    <definition value="  &#xD;&#xA;Description:The identifier was issued by the system responsible for constructing the instance."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22614"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="UNV"/>
+    <display value="Unverified by system"/>
+    <definition value="  &#xD;&#xA;Description:The identifier was provided to the system that constructed the instance, but has not been verified. e.g. a Drivers  license entered manually into a system by a user."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22653"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="VRF"/>
+    <display value="Verified by system"/>
+    <definition value="  &#xD;&#xA;Description:The identifier was not issued by the system responsible for constructing the instance, but the system that captured the id has verified the identifier with the issuing authority, or with another system that has verified the identifier."/>
+    <designation>
+      <use>
+        <system value="http://something...?"/>
+        <code value="synonym"/>
+      </use>
+      <value value="VER"/>
+    </designation>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22652"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+</CodeSystem>

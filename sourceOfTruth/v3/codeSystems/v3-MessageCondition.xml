@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-MessageCondition"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>
+                     
+        <b>Deprecation Comment:</b> Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used.This isn&#39;t referenced in the RIM and is a copy of old v2 codes.  It&#39;s superseded by AcknowledgementDetailCode 
+      </p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
+    <valueString value="727-20081229"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-MessageCondition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.80"/>
+  </identifier>
+  <name value="MessageCondition"/>
+  <title value="MessageCondition"/>
+  <status value="retired"/>
+  <date value="2018-08-12"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value="Deprecation Comment:Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used.This isn&#39;t referenced in the RIM and is a copy of old v2 codes.  It&#39;s superseded by AcknowledgementDetailCode"/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <concept>
+    <code value="0"/>
+    <display value="Message accepted"/>
+    <definition value=" Success. Optional, as in version 2.x the AA conveys success.  Used for systems that must always return a status code."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10131"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="100"/>
+    <display value="Sequence error"/>
+    <definition value=" The message elements were not in the proper order, or required elements are missing."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10132"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="101"/>
+    <display value="Missing required element."/>
+    <definition value=" A required message element is missing."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10133"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="102"/>
+    <display value="Data type error"/>
+    <definition value=" An element is represented by a data type that is not compatible with that which is allowable."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10134"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="103"/>
+    <display value="Table value not found"/>
+    <definition value=" The value received for a common HL7 or user defined table was not found to match allowable table values."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10135"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="200"/>
+    <display value="Unsupported message type"/>
+    <definition value=" The message type is not supported."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10136"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="201"/>
+    <display value="Unsupported interaction"/>
+    <definition value=" The identified interaction is not supported."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10137"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="202"/>
+    <display value="Unsupported ProcessingID"/>
+    <definition value=" The ProcessingID is not supported."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10138"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="203"/>
+    <display value="Unsupported VersionID"/>
+    <definition value=" The VersionID is not supported."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10139"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="204"/>
+    <display value="Unknown key identifier"/>
+    <definition value=" The identifier for a patient, order, etc. was not found.  Occurs for transactions other than additions."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10140"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="205"/>
+    <display value="Duplicate key identifier"/>
+    <definition value=" The identifier for a patient, order, etc. already exists.  Occurs in response to addition transactions (e.g. new Admit, new Order, etc.)."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10141"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="206"/>
+    <display value="Application record locked"/>
+    <definition value=" The transaction could not be performed at the application storage level, e.g. database locked."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10142"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="207"/>
+    <display value="Application internal error"/>
+    <definition value=" A catchall for internal errors not explicitly covered by other error codes."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10143"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-SubstitutionCondition"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Identifies what sort of change is permitted or has occurred between the item that was ordered/requested and the one that was/will be provided.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-SubstitutionCondition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1071"/>
+  </identifier>
+  <name value="SubstitutionCondition"/>
+  <title value="SubstitutionCondition"/>
+  <status value="active"/>
+  <date value="2018-08-12"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value="Identifies what sort of change is permitted or has occurred between the item that was ordered/requested and the one that was/will be provided."/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
+    <code value="_Conditional"/>
+    <display value="Conditional"/>
+    <definition value=" Some conditions may be attached to an allowable substitution.  An allowable substitution is based on a match to any other attributes that may be specified."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21285"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="CONFIRM"/>
+      <display value="Confirm first"/>
+      <definition value=" Confirmation with Contact Person prior to making any substitutions has or will occur."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="17721"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="NOTIFY"/>
+      <display value="Notify first"/>
+      <definition value=" Notification to the Contact Person, prior to substitution and through normal institutional procedures, has or will be made."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="17722"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="NOSUB"/>
+    <display value="No substitution"/>
+    <definition value=" Substitution is not permitted."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21383"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="UNCOND"/>
+    <display value="Unconditional"/>
+    <definition value=" No conditions are required."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="17723"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActClassCareProvision"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>An 
+        <b>Act</b> that of taking on whole or partial responsibility for, or attention to, safety and well-being of a subject of care. 
+      </p>
+                  
+      <p>
+                     
+        <i>Discussion:</i> A 
+        <b>care provision</b> event may exist without any other care actions taking place. For example, when a patient is assigned to the care of a particular health professional.
+      </p>
+                  
+      <p>In 
+        <b>request</b> (RQO) mood 
+        <b>care provision</b> communicates a referral, which is a request:
+      </p>
+                  
+      <ul>
+                     
+        <li>
+                        
+          <p>from one party (linked as a 
+            <b>participant</b> of type 
+            <b>author</b> (AUT)),
+          </p>
+                     
+        </li>
+                     
+        <li>
+                        
+          <p>to another party (linked as a 
+            <b>participant</b> of type 
+            <b>performer</b> (PRF),
+          </p>
+                     
+        </li>
+                     
+        <li>
+                        
+          <p>to take responsibility for a scope specified by the code attribute, </p>
+                     
+        </li>
+                     
+        <li>
+                        
+          <p>for an entity (linked as a 
+            <b>participant</b> of type 
+            <b>subject</b> (SBJ)).
+          </p>
+                     
+        </li>
+                  
+      </ul>
+                  
+      <p>The scope of the care for which responsibility is taken is identified by 
+        <i>code</i> attribute.
+      </p>
+                  
+      <p>In 
+        <b>event</b> (EVN) mood 
+        <b>care provision</b> indicates the effective time interval of a specified scope of responsibility by a 
+        <b>performer</b> (PRF) or set of 
+        <b>performers</b> (PRF) for a 
+        <b>subject</b> (SBJ).
+      </p>
+                  
+      <p>
+                     
+        <i>Examples:</i>
+                  
+      </p>
+                  
+      <ol>
+                     
+        <li>
+                        
+          <p>Referral from GP to a specialist.</p>
+                     
+        </li>
+                     
+        <li>
+                        
+          <p>Assignment of a patient or group of patients to the case list of a health professional.</p>
+                     
+        </li>
+                     
+        <li>
+                        
+          <p>Assignment of inpatients to the care of particular nurses for a working shift.</p>
+                     
+        </li>
+                  
+      </ol>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="version annotation">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActClassCareProvision"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20233"/>
+  </identifier>
+  <version value="2014T1_2014-03-26_001283"/>
+  <name value="ActClassCareProvision"/>
+  <title value="ActClassCareProvision"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value=" An&#xD;&#xA;Actthat of taking on whole or partial responsibility for, or attention to, safety and well-being of a subject of care.  &#xD;&#xA;Discussion:A&#xD;&#xA;care provisionevent may exist without any other care actions taking place. For example, when a patient is assigned to the care of a particular health professional. In&#xD;&#xA;request(RQO) mood&#xD;&#xA;care provisioncommunicates a referral, which is a request:   from one party (linked as a&#xD;&#xA;participantof type&#xD;&#xA;author(AUT)),  to another party (linked as a&#xD;&#xA;participantof type&#xD;&#xA;performer(PRF),  to take responsibility for a scope specified by the code attribute,  for an entity (linked as a&#xD;&#xA;participantof type&#xD;&#xA;subject(SBJ)). The scope of the care for which responsibility is taken is identified by&#xD;&#xA;codeattribute. In&#xD;&#xA;event(EVN) mood&#xD;&#xA;care provisionindicates the effective time interval of a specified scope of responsibility by a&#xD;&#xA;performer(PRF) or set of&#xD;&#xA;performers(PRF) for a&#xD;&#xA;subject(SBJ).  &#xD;&#xA;Examples:   Referral from GP to a specialist.  Assignment of a patient or group of patients to the case list of a health professional.  Assignment of inpatients to the care of particular nurses for a working shift."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="PCPR"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
