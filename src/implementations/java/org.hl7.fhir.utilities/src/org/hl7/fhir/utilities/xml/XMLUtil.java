@@ -366,8 +366,9 @@ public class XMLUtil {
         ws = false;
         if (r.getNodeName().equals("br") || r.getNodeName().equals("p"))
           s.append("\r\n");
+        if( s.length() > 0 && s.charAt(s.length() -1) != ' ' ) 
+        	s.append(" ");
         s.append(htmlToXmlEscapedPlainText((Element) n));
-
       }
       
       n = n.getNextSibling();      
