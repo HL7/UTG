@@ -14,6 +14,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="HL7 Modeling and Methodology Workgroup">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -31,13 +39,21 @@
   <name value="QueryRequestLimit"/>
   <title value="QueryRequestLimit"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="HL7"/>
   <contact>
     <name value="HL7 Modeling and Methodology Workgroup"/>
   </contact>
-  <description value="  Definition:&#xD;&#xA;Defines the units associated with the magnitude of the maximum size limit of a query response that can be accepted by the requesting application."/>
+  <description value="Definition:Defines the units associated with the magnitude of the maximum size limit of a query response that can be accepted by the requesting application."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
@@ -47,10 +63,14 @@
   <concept>
     <code value="_QueryRequestLimit"/>
     <display value="QueryRequestLimit"/>
-    <definition value="  Definition:&#xD;&#xA;The number of matching instances (number of focal classes). The document header class is the focal class of a document, a record would therefore be equal to a document."/>
+    <definition value="  &#xD;&#xA;Definition:The number of matching instances (number of focal classes). The document header class is the focal class of a document, a record would therefore be equal to a document."/>
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22258"/>
     </property>
     <property>
       <code value="status"/>
@@ -59,7 +79,11 @@
     <concept>
       <code value="RD"/>
       <display value="record"/>
-      <definition value="  Definition:&#xD;&#xA;The number of matching instances (number of focal classes). The document header class is the focal class of a document, a record would therefore be equal to a document."/>
+      <definition value="  &#xD;&#xA;Definition:The number of matching instances (number of focal classes). The document header class is the focal class of a document, a record would therefore be equal to a document."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22257"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>

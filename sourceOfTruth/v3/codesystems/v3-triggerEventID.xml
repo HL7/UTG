@@ -14,6 +14,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="HL7 Modeling and Methodology Workgroup">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -31,17 +39,29 @@
   <name value="triggerEventID"/>
   <title value="Trigger Event ID"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="HL7"/>
   <contact>
     <name value="HL7 Modeling and Methodology Workgroup"/>
   </contact>
-  <description value="  Description:&#xD;&#xA;This code system contains all HL7 artifacts of type TE (Trigger Event) that are created by HL7 or its affiliates or their designates using the realm namespacing rules approved by HL7.  Local implementations who create trigger events outside of these namespacing rules, (e.g. using the ZZ realm code) must register their own code system.  The specific list of legal codes can be found by consulting the HL7 publications (editions, ballots, implementation guides, etc.) published by HL7 Inc. and by the various HL7 affiliates and their designates.  Codes shall be expressed in upper case, with separator as shown in HL7 publications with no version id.  E.g. PORX_TE123456UV."/>
+  <description value="Description:This code system contains all HL7 artifacts of type TE (Trigger Event) that are created by HL7 or its affiliates or their designates using the realm namespacing rules approved by HL7.  Local implementations who create trigger events outside of these namespacing rules, (e.g. using the ZZ realm code) must register their own code system.  The specific list of legal codes can be found by consulting the HL7 publications (editions, ballots, implementation guides, etc.) published by HL7 Inc. and by the various HL7 affiliates and their designates.  Codes shall be expressed in upper case, with separator as shown in HL7 publications with no version id.  E.g. PORX_TE123456UV."/>
   <content value="fragment"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="POLB_TE004000UV"/>
     <display value="Result Status"/>
-    <definition value="  Description:&#xD;&#xA;"/>
+    <definition value="  &#xD;&#xA;Description:"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22674"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -50,7 +70,11 @@
   <concept>
     <code value="POLB_TE004001UV"/>
     <display value="Result Confirm"/>
-    <definition value="  Description:&#xD;&#xA;"/>
+    <definition value="  &#xD;&#xA;Description:"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22668"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -59,7 +83,11 @@
   <concept>
     <code value="POLB_TE004002UV"/>
     <display value="Result Reject"/>
-    <definition value="  Description:&#xD;&#xA;"/>
+    <definition value="  &#xD;&#xA;Description:"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22672"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -68,7 +96,11 @@
   <concept>
     <code value="POLB_TE004007UV"/>
     <display value="Result Tracking"/>
-    <definition value="  Description:&#xD;&#xA;"/>
+    <definition value="  &#xD;&#xA;Description:"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22673"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -77,7 +109,11 @@
   <concept>
     <code value="POLB_TE004100UV"/>
     <display value="Result in Progress"/>
-    <definition value="  Description:&#xD;&#xA;"/>
+    <definition value="  &#xD;&#xA;Description:"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22670"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -86,7 +122,11 @@
   <concept>
     <code value="POLB_TE004102UV"/>
     <display value="Result Activate"/>
-    <definition value="  Description:&#xD;&#xA;"/>
+    <definition value="  &#xD;&#xA;Description:"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22665"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -95,7 +135,11 @@
   <concept>
     <code value="POLB_TE004200UV"/>
     <display value="Result Complete with Fulfillment"/>
-    <definition value="  Description:&#xD;&#xA;"/>
+    <definition value="  &#xD;&#xA;Description:"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22667"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -104,7 +148,11 @@
   <concept>
     <code value="POLB_TE004201UV"/>
     <display value="Result Corrected"/>
-    <definition value="  Description:&#xD;&#xA;"/>
+    <definition value="  &#xD;&#xA;Description:"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22669"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -113,7 +161,11 @@
   <concept>
     <code value="POLB_TE004202UV"/>
     <display value="Result Complete"/>
-    <definition value="  Description:&#xD;&#xA;"/>
+    <definition value="  &#xD;&#xA;Description:"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22666"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -122,7 +174,11 @@
   <concept>
     <code value="POLB_TE004301UV"/>
     <display value="Result Abort"/>
-    <definition value="  Description:&#xD;&#xA;"/>
+    <definition value="  &#xD;&#xA;Description:"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22664"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -131,7 +187,11 @@
   <concept>
     <code value="POLB_TE004500UV"/>
     <display value="Result Nullify"/>
-    <definition value="  Description:&#xD;&#xA;"/>
+    <definition value="  &#xD;&#xA;Description:"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22671"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

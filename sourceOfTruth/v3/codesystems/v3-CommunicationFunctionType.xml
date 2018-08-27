@@ -11,6 +11,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -28,17 +36,29 @@
   <name value="CommunicationFunctionType"/>
   <title value="CommunicationFunctionType"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value=" Describes the type of communication function that the associated entity plays in the associated transmission."/>
+  <description value="Describes the type of communication function that the associated entity plays in the associated transmission."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="RCV"/>
     <display value="receiver"/>
     <definition value=" The entity is the receiver of the transmission."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="16033"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -49,6 +69,10 @@
     <display value="respond to"/>
     <definition value=" The entity is the one to which the response or reply to the transmission should be sent."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="16034"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -57,6 +81,10 @@
     <code value="SND"/>
     <display value="sender"/>
     <definition value=" The entity is the sender of the transmission."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="16032"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

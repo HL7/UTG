@@ -3,6 +3,14 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-ParticipationType"/>
   <language value="en"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -20,12 +28,20 @@
   <name value="ParticipationType"/>
   <title value="ParticipationType"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <property>
     <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
       <valueBoolean value="false"/>
@@ -93,6 +109,10 @@
     <display value="Participation"/>
     <definition value=" Indicates that the target of the participation is involved in some manner in the act, but does not qualify how."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="21573"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -103,6 +123,10 @@
       <property>
         <code value="notSelectable"/>
         <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21110"/>
       </property>
       <property>
         <code value="conductible"/>
@@ -133,6 +157,10 @@
         <display value="admitter"/>
         <definition value=" The practitioner who is responsible for admitting a patient to a patient encounter."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="16845"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="admitter"/>
         </property>
@@ -158,6 +186,10 @@
         <display value="attender"/>
         <definition value=" The practitioner that has responsibility for overseeing a patient&#39;s care during a patient encounter."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="16843"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="attender"/>
         </property>
@@ -182,6 +214,10 @@
         <code value="CALLBCK"/>
         <display value="callback contact"/>
         <definition value=" A person or organization who should be contacted for follow-up questions about the act in place of the author."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="21385"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="callBackContact"/>
@@ -211,6 +247,10 @@
         <display value="consultant"/>
         <definition value=" An advisor participating in the service by performing evaluations and making recommendations."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10256"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="consultant"/>
         </property>
@@ -235,6 +275,10 @@
         <code value="DIS"/>
         <display value="discharger"/>
         <definition value=" The practitioner who is responsible for the discharge of a patient from a patient encounter."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="16844"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="discharger"/>
@@ -264,6 +308,10 @@
         <display value="escort"/>
         <definition value=" Only with Transportation services.  A person who escorts the patient."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10250"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="escort"/>
         </property>
@@ -288,6 +336,10 @@
         <code value="REF"/>
         <display value="referrer"/>
         <definition value=" A person having referred the subject of the service to the performer (referring physician).  Typically, a referring physician will receive a report."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10264"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="referrer"/>
@@ -317,6 +369,10 @@
       <property>
         <code value="notSelectable"/>
         <valueBoolean value="true"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21111"/>
       </property>
       <property>
         <code value="conductible"/>
@@ -349,7 +405,11 @@
       <concept>
         <code value="AUT"/>
         <display value="author (originator)"/>
-        <definition value="  Definition:&#xD;&#xA;A party that originates the Act and therefore has responsibility for the information given in the Act and ownership of this Act.  Example:&#xD;&#xA;the report writer, the person writing the act definition, the guideline author, the placer of an order, the EKG cart (device) creating a report etc. Every Act should have an author. Authorship is regardless of mood always actual authorship. Examples of such policies might include:   The author and anyone they explicitly delegate may update the report;  All administrators within the same clinic may cancel and reschedule appointments created by other administrators within that clinic; A party that is neither an author nor a party who is extended authorship maintenance rights by policy, may only amend, reverse, override, replace, or follow up in other ways on this Act, whereby the Act remains intact and is linked to another Act authored by that other party."/>
+        <definition value="  &#xD;&#xA;Definition:A party that originates the Act and therefore has responsibility for the information given in the Act and ownership of this Act.  &#xD;&#xA;Example:the report writer, the person writing the act definition, the guideline author, the placer of an order, the EKG cart (device) creating a report etc. Every Act should have an author. Authorship is regardless of mood always actual authorship. Examples of such policies might include:   The author and anyone they explicitly delegate may update the report;  All administrators within the same clinic may cancel and reschedule appointments created by other administrators within that clinic; A party that is neither an author nor a party who is extended authorship maintenance rights by policy, may only amend, reverse, override, replace, or follow up in other ways on this Act, whereby the Act remains intact and is linked to another Act authored by that other party."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10252"/>
+        </property>
         <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
@@ -380,6 +440,10 @@
         <display value="informant"/>
         <definition value=" A source of reported information (e.g., a next of kin who answers questions about the patient&#39;s history).  For history questions, the patient is logically an informant, yet the informant of history questions is implicitly the subject."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10254"/>
+        </property>
+        <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
         </property>
@@ -409,6 +473,10 @@
         <display value="Transcriber"/>
         <definition value=" An entity entering the data into the originating system. The data entry entity is collected optionally for internal quality control purposes. This includes the transcriptionist for dictated text transcribed into electronic form."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="21463"/>
+        </property>
+        <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
         </property>
@@ -436,6 +504,10 @@
           <code value="ENT"/>
           <display value="data entry person"/>
           <definition value=" A person entering the data into the originating system.  The data entry person is collected optionally for internal quality control purposes.  This includes the transcriptionist for dictated text."/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="10253"/>
+          </property>
           <property>
             <code value="isDocumentCharacteristic"/>
             <valueBoolean value="true"/>
@@ -467,6 +539,10 @@
         <display value="witness"/>
         <definition value=" Only with service events.  A person witnessing the action happening without doing anything.  A witness is not necessarily aware, much less approves of anything stated in the service event.  Example for a witness is students watching an operation or an advanced directive witness."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10260"/>
+        </property>
+        <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
         </property>
@@ -496,6 +572,10 @@
       <code value="CST"/>
       <display value="custodian"/>
       <definition value=" An entity (person, organization or device) that is in charge of maintaining the information of this act (e.g., who maintains the report or the master service catalog item, etc.)."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10266"/>
+      </property>
       <property>
         <code value="conductible"/>
         <valueBoolean value="true"/>
@@ -530,6 +610,10 @@
       <display value="direct target"/>
       <definition value=" Target participant  that is substantially present in the act  and which is directly involved in the action (includes consumed material, devices, etc.)."/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="10286"/>
+      </property>
+      <property>
         <code value="conductible"/>
         <valueBoolean value="true"/>
       </property>
@@ -556,7 +640,11 @@
       <concept>
         <code value="ALY"/>
         <display value="analyte"/>
-        <definition value=" The target of an Observation action. Links an observation to a Role whose player is the substance or most specific component entity (material, micro-organism, etc.) being measured within the subject.  Examples:&#xD;&#xA;A &quot;plasma porcelain substance concentration&quot; has analyte a Role with player substance Entity &quot;porcelain&quot;.  UsageNotes:&#xD;&#xA;The Role that this participation connects to may be any Role whose player is that substance measured. Very often, the scoper may indicate the system in which the component is being measured. E.g., for &quot;plasma porcelain&quot; the scoper could be &quot;Plasma&quot;."/>
+        <definition value=" The target of an Observation action. Links an observation to a Role whose player is the substance or most specific component entity (material, micro-organism, etc.) being measured within the subject.  &#xD;&#xA;Examples:A &quot;plasma porcelain substance concentration&quot; has analyte a Role with player substance Entity &quot;porcelain&quot;.  &#xD;&#xA;UsageNotes:The Role that this participation connects to may be any Role whose player is that substance measured. Very often, the scoper may indicate the system in which the component is being measured. E.g., for &quot;plasma porcelain&quot; the scoper could be &quot;Plasma&quot;."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="23093"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="analyte"/>
@@ -583,6 +671,10 @@
         <display value="baby"/>
         <definition value=" In an obstetric service, the baby."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10293"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="baby"/>
         </property>
@@ -607,6 +699,10 @@
         <code value="CAT"/>
         <display value="catalyst"/>
         <definition value=" The catalyst of a chemical reaction, such as an enzyme or a platinum surface. In biochemical reactions, connects the enzyme with the molecular interaction"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="23094"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="catalyst"/>
@@ -633,6 +729,10 @@
         <display value="consumable"/>
         <definition value=" Participant material that is taken up, diminished, altered, or disappears in the act."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10296"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="consumable"/>
         </property>
@@ -657,6 +757,10 @@
           <display value="therapeutic agent"/>
           <definition value=" Something incorporated in the subject of a therapy service to achieve a physiologic effect (e.g., heal, relieve, provoke a condition, etc.) on the subject.  In an administration service the therapeutic agent is a consumable, in a preparation or dispense service, it is a product.  Thus, consumable or product must be specified in accordance with the kind of service."/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="10297"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="retired"/>
           </property>
@@ -669,7 +773,11 @@
       <concept>
         <code value="DEV"/>
         <display value="device"/>
-        <definition value=" Participant used in performing the act without being substantially affected by the act (i.e. durable or inert with respect to that particular service).  Examples:&#xD;&#xA;monitoring equipment, tools, but also access/drainage lines, prostheses, pace maker, etc."/>
+        <definition value=" Participant used in performing the act without being substantially affected by the act (i.e. durable or inert with respect to that particular service).  &#xD;&#xA;Examples:monitoring equipment, tools, but also access/drainage lines, prostheses, pace maker, etc."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10298"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="device"/>
@@ -695,6 +803,10 @@
           <display value="non-reuseable device"/>
           <definition value=" A device that changes ownership due to the service, e.g., a pacemaker, a prosthesis, an insulin injection equipment (pen), etc.  Such material may need to be restocked after he service."/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="10299"/>
+          </property>
+          <property>
             <code value="Name:Act:participation:Participation"/>
             <valueCode value="nonReusableDevice"/>
           </property>
@@ -719,6 +831,10 @@
           <code value="RDV"/>
           <display value="reusable device"/>
           <definition value=" A device that does not change ownership due to the service, i.e., a surgical instrument or tool or an endoscope.  The distinction between reuseable and non-reuseable must be made in order to know whether material must be re-stocked."/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="10300"/>
+          </property>
           <property>
             <code value="Name:Act:participation:Participation"/>
             <valueCode value="reusableDevice"/>
@@ -746,6 +862,10 @@
         <display value="donor"/>
         <definition value=" In some organ transplantation services and rarely in transfusion services a donor will be a target participant in the service.  However, in most cases transplantation is decomposed in three services: explantation, transport, and implantation.  The identity of the donor (recipient) is often irrelevant for the explantation (implantation) service."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10291"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="organDonor"/>
         </property>
@@ -769,7 +889,11 @@
       <concept>
         <code value="EXPAGNT"/>
         <display value="ExposureAgent"/>
-        <definition value="  Description:&#xD;&#xA;The entity playing the associated role is the physical (including energy), chemical or biological substance that is participating in the exposure.  For example in communicable diseases, the associated playing entity is the disease causing pathogen."/>
+        <definition value="  &#xD;&#xA;Description:The entity playing the associated role is the physical (including energy), chemical or biological substance that is participating in the exposure.  For example in communicable diseases, the associated playing entity is the disease causing pathogen."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="22347"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -778,7 +902,11 @@
       <concept>
         <code value="EXPART"/>
         <display value="ExposureParticipation"/>
-        <definition value="  Description:&#xD;&#xA;Direct participation in an exposure act where it is unknown that the participant is the source or subject of the exposure.  If the participant is known to be the contact of an exposure then the SBJ participation type should be used.  If the participant is known to be the source then the EXSRC participation type should be used."/>
+        <definition value="  &#xD;&#xA;Description:Direct participation in an exposure act where it is unknown that the participant is the source or subject of the exposure.  If the participant is known to be the contact of an exposure then the SBJ participation type should be used.  If the participant is known to be the source then the EXSRC participation type should be used."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="21978"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -786,7 +914,11 @@
         <concept>
           <code value="EXPTRGT"/>
           <display value="ExposureTarget"/>
-          <definition value="  Description:&#xD;&#xA;The entity playing the associated role is the target (contact) of exposure."/>
+          <definition value="  &#xD;&#xA;Description:The entity playing the associated role is the target (contact) of exposure."/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="22346"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -795,7 +927,11 @@
         <concept>
           <code value="EXSRC"/>
           <display value="ExposureSource"/>
-          <definition value="  Description:&#xD;&#xA;The entity playing the associated role is the source of exposure."/>
+          <definition value="  &#xD;&#xA;Description:The entity playing the associated role is the source of exposure."/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="21979"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -806,6 +942,10 @@
         <code value="PRD"/>
         <display value="product"/>
         <definition value=" Participant material that is brought forth (produced) in the act (e.g., specimen in a specimen collection, access or drainage in a placement service, medication package in a dispense service). It does not matter whether the material produced had existence prior to the service, or whether it is created in the service (e.g., in supply services the product is taken from a stock)."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10295"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="product"/>
@@ -830,7 +970,11 @@
       <concept>
         <code value="SBJ"/>
         <display value="subject"/>
-        <definition value=" The principle target on which the action happens.  Examples:&#xD;&#xA;The patient in physical examination, a specimen in a lab observation. May also be a patient&#39;s family member (teaching) or a device or room (cleaning, disinfecting, housekeeping).  UsageNotes:&#xD;&#xA;Not all direct targets are subjects. Consumables and devices used as tools for an act are not subjects. However, a device may be a subject of a maintenance action."/>
+        <definition value=" The principle target on which the action happens.  &#xD;&#xA;Examples:The patient in physical examination, a specimen in a lab observation. May also be a patient&#39;s family member (teaching) or a device or room (cleaning, disinfecting, housekeeping).  &#xD;&#xA;UsageNotes:Not all direct targets are subjects. Consumables and devices used as tools for an act are not subjects. However, a device may be a subject of a maintenance action."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10287"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="subject"/>
@@ -855,6 +999,10 @@
           <code value="SPC"/>
           <display value="specimen"/>
           <definition value=" The subject of non-clinical (e.g. laboratory) observation services is a specimen."/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="10294"/>
+          </property>
           <property>
             <code value="Name:Act:participation:Participation"/>
             <valueCode value="specimen"/>
@@ -882,6 +1030,10 @@
       <code value="IND"/>
       <display value="indirect target"/>
       <definition value=" Target that is not substantially present in the act and which is not directly affected by the act, but which will be a focus of the record or documentation of the act."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19032"/>
+      </property>
       <property>
         <code value="conductible"/>
         <valueBoolean value="true"/>
@@ -911,6 +1063,10 @@
         <display value="beneficiary"/>
         <definition value=" Target on behalf of whom the service happens, but that is not necessarily present in the service.  Can occur together with direct target to indicate that a target is both, as in the case where the patient is the indirect beneficiary of a service rendered to a family member, e.g. counseling or given home care instructions.  This concept includes a participant, such as a covered party, who derives benefits from a service act covered by a coverage act. Note that the semantic role of the intended recipient who benefits from the happening denoted by the verb in the clause.  Thus, a patient who has no coverage under a policy or program may be a beneficiary of a health service while not being the beneficiary of coverage for that service."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10288"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="beneficiary"/>
         </property>
@@ -936,6 +1092,10 @@
         <display value="causative agent"/>
         <definition value=" Definition: A factor, such as a microorganism, chemical substance, or form of radiation, whose presence, excessive presence, or (in deficiency diseases) relative absence is essential, in whole or in part, for the occurrence of a condition. Constraint:  The use of this participation is limited to observations."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="21639"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -944,6 +1104,10 @@
         <code value="COV"/>
         <display value="coverage target"/>
         <definition value=" The target participation for an individual in a health care coverage act in which the target role is either the policy holder of the coverage, or a covered party under the coverage."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="14017"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="coveredParty"/>
@@ -968,7 +1132,11 @@
       <concept>
         <code value="GUAR"/>
         <display value="guarantor party"/>
-        <definition value=" The target person or organization contractually recognized by the issuer as a participant who has assumed fiscal responsibility for another personaTMs financial obligations by guaranteeing to pay for amounts owed to a particular account  Example:&#xD;&#xA;The subscriber of the patientaTMs health insurance policy signs a contract with the provider to be fiscally responsible for the patient billing account balance amount owed."/>
+        <definition value=" The target person or organization contractually recognized by the issuer as a participant who has assumed fiscal responsibility for another personaTMs financial obligations by guaranteeing to pay for amounts owed to a particular account  &#xD;&#xA;Example:The subscriber of the patientaTMs health insurance policy signs a contract with the provider to be fiscally responsible for the patient billing account balance amount owed."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="21570"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -978,6 +1146,10 @@
         <code value="HLD"/>
         <display value="holder"/>
         <definition value=" Participant who posses an instrument such as a financial contract (insurance policy) usually based on some agreement with the author."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="16751"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="holder"/>
@@ -1004,6 +1176,10 @@
         <display value="record target"/>
         <definition value=" The record target indicates whose medical record holds the documentation of this act.  This is especially important when the subject of a service is not the patient himself."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10289"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="recordTarget"/>
         </property>
@@ -1028,6 +1204,10 @@
         <code value="RCV"/>
         <display value="receiver"/>
         <definition value=" The person (or organization) who receives the product of an Act."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="13974"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="receiver"/>
@@ -1054,6 +1234,10 @@
       <code value="IRCP"/>
       <display value="information recipient"/>
       <definition value=" A party, who may or should receive or who has recieved the Act or subsequent or derivative information of that Act. Information recipient is inert, i.e., independent of mood.&quot; Rationale: this is a generalization of a too diverse family that the definition can&#39;t be any more specific, and the concept is abstract so one of the specializations should be used."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10263"/>
+      </property>
       <property>
         <code value="conductible"/>
         <valueBoolean value="true"/>
@@ -1087,6 +1271,10 @@
         <display value="ugent notification contact"/>
         <definition value=" An information recipient to notify for urgent matters about this Act. (e.g., in a laboratory order, critical results are being called by phone right away, this is the contact to call; or for an inpatient encounter, a next of kin to notify when the patient becomes critically ill)."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="19057"/>
+        </property>
+        <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
         </property>
@@ -1115,6 +1303,10 @@
         <code value="PRCP"/>
         <display value="primary information recipient"/>
         <definition value=" Information recipient to whom an act statement is primarily directed. E.g., a primary care provider receiving a discharge letter from a hospitalist, a health department receiving information on a suspected case of infectious disease. Multiple of these participations may exist on the same act without requiring that recipients be ranked as primary vs. secondary."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="19055"/>
+        </property>
         <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
@@ -1145,6 +1337,10 @@
         <display value="Referred By"/>
         <definition value=" A participant (e.g. provider) who has referred the subject of an act (e.g. patient). Typically, a referred by participant will provide a report (e.g. referral)."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="20842"/>
+        </property>
+        <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
         </property>
@@ -1174,6 +1370,10 @@
         <display value="Referred to"/>
         <definition value=" The person who receives the patient"/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="18116"/>
+        </property>
+        <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
         </property>
@@ -1202,6 +1402,10 @@
         <code value="TRC"/>
         <display value="tracker"/>
         <definition value=" A secondary information recipient, who receives copies (e.g., a primary care provider receiving copies of results as ordered by specialist)."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10265"/>
+        </property>
         <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
@@ -1233,6 +1437,10 @@
       <display value="location"/>
       <definition value=" The facility where the service is done.  May be a static building (or room therein) or a moving location (e.g., ambulance, helicopter, aircraft, train, truck, ship, etc.)"/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="10302"/>
+      </property>
+      <property>
         <code value="conductible"/>
         <valueBoolean value="true"/>
       </property>
@@ -1261,6 +1469,10 @@
         <display value="destination"/>
         <definition value=" The destination for services.  May be a static building (or room therein) or a movable facility (e.g., ship)."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10304"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="destination"/>
         </property>
@@ -1285,6 +1497,10 @@
         <code value="ELOC"/>
         <display value="entry location"/>
         <definition value=" A location where data about an Act was entered."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="13973"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="dataEntryLocation"/>
@@ -1311,6 +1527,10 @@
         <display value="origin"/>
         <definition value=" The location of origin for services.  May be a static building (or room therein) or a movable facility (e.g., ship)."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10303"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="origin"/>
         </property>
@@ -1335,6 +1555,10 @@
         <code value="RML"/>
         <display value="remote"/>
         <definition value=" Some services take place at multiple concurrent locations (e.g., telemedicine, telephone consultation).  The location where the principal performing actor is located is taken as the primary location (LOC) while the other location(s) are considered &quot;remote.&quot;"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10306"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="remoteLocation"/>
@@ -1361,6 +1585,10 @@
         <display value="via"/>
         <definition value=" For services, an intermediate location that specifies a path between origin an destination."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10305"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="via"/>
         </property>
@@ -1385,7 +1613,11 @@
     <concept>
       <code value="PRF"/>
       <display value="performer"/>
-      <definition value="  Definition:&#xD;&#xA;A person, non-person living subject, organization or device that who actually and principally carries out the action. Device should only be assigned as a performer in circumstances where the device is performing independent of human intervention.  Need not be the principal responsible actor.  Exampe:&#xD;&#xA;A surgery resident operating under supervision of attending surgeon, a search and rescue dog locating survivors, an electronic laboratory analyzer or the laboratory discipline requested to perform a laboratory test. The performer may also be the patient in self-care, e.g. fingerstick blood sugar. The traditional order filler is a performer. This information should accompany every service event.  Note:&#xD;&#xA;that existing HL7 designs assign an organization as the playing entity of the Role that is the performer.  These designs should be revised in subsequent releases to make this the scooping entity for the role involved."/>
+      <definition value="  &#xD;&#xA;Definition:A person, non-person living subject, organization or device that who actually and principally carries out the action. Device should only be assigned as a performer in circumstances where the device is performing independent of human intervention.  Need not be the principal responsible actor.  &#xD;&#xA;Exampe:A surgery resident operating under supervision of attending surgeon, a search and rescue dog locating survivors, an electronic laboratory analyzer or the laboratory discipline requested to perform a laboratory test. The performer may also be the patient in self-care, e.g. fingerstick blood sugar. The traditional order filler is a performer. This information should accompany every service event.  &#xD;&#xA;Note:that existing HL7 designs assign an organization as the playing entity of the Role that is the performer.  These designs should be revised in subsequent releases to make this the scooping entity for the role involved."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10248"/>
+      </property>
       <property>
         <code value="conductible"/>
         <valueBoolean value="true"/>
@@ -1415,6 +1647,10 @@
         <display value="distributor"/>
         <definition value=" Distributes material used in or generated during the act."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="19063"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="distributer"/>
         </property>
@@ -1439,6 +1675,10 @@
         <code value="PPRF"/>
         <display value="primary performer"/>
         <definition value=" The principal or primary performer of the act."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="19064"/>
+        </property>
         <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="primaryPerformer"/>
@@ -1465,6 +1705,10 @@
         <display value="secondary performer"/>
         <definition value=" A person assisting in an act through his substantial presence and involvement   This includes: assistants, technicians, associates, or whatever the job titles may be."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="19065"/>
+        </property>
+        <property>
           <code value="Name:Act:participation:Participation"/>
           <valueCode value="secondaryPerformer"/>
         </property>
@@ -1489,7 +1733,11 @@
     <concept>
       <code value="RESP"/>
       <display value="responsible party"/>
-      <definition value=" The person or organization that has primary responsibility for the act.  The responsible party is not necessarily present in an action, but is accountable for the action through the power to delegate, and the duty to review actions with the performing actor after the fact.  This responsibility may be ethical, legal, contractual, fiscal, or fiduciary in nature.  Example:&#xD;&#xA;A person who is the head of a biochemical laboratory; a sponsor for a policy or government program."/>
+      <definition value=" The person or organization that has primary responsibility for the act.  The responsible party is not necessarily present in an action, but is accountable for the action through the power to delegate, and the duty to review actions with the performing actor after the fact.  This responsibility may be ethical, legal, contractual, fiscal, or fiduciary in nature.  &#xD;&#xA;Example:A person who is the head of a biochemical laboratory; a sponsor for a policy or government program."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="17931"/>
+      </property>
       <property>
         <code value="conductible"/>
         <valueBoolean value="true"/>
@@ -1524,6 +1772,10 @@
       <display value="verifier"/>
       <definition value=" A person who verifies the correctness and appropriateness of the service (plan, order, event, etc.) and hence takes on accountability."/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="10259"/>
+      </property>
+      <property>
         <code value="conductible"/>
         <valueBoolean value="true"/>
       </property>
@@ -1556,6 +1808,10 @@
         <display value="authenticator"/>
         <definition value=" A verifier who attests to the accuracy of an act, but who does not have privileges to legally authenticate the act. An example would be a resident physician who sees a patient and dictates a note, then later signs it. Their signature constitutes an authentication."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="19072"/>
+        </property>
+        <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>
         </property>
@@ -1584,6 +1840,10 @@
         <code value="LA"/>
         <display value="legal authenticator"/>
         <definition value=" A verifier who legally authenticates the accuracy of an act. An example would be a staff physician who sees a patient and dictates a note, then later signs it. Their signature constitutes a legal authentication."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="19073"/>
+        </property>
         <property>
           <code value="isDocumentCharacteristic"/>
           <valueBoolean value="true"/>

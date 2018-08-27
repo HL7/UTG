@@ -288,8 +288,9 @@ public class V3SourceGenerator extends BaseGenerator {
   private void processLegalese(Element item, CodeSystem cs) throws Exception {
     Element child = XMLUtil.getFirstChild(item);
     while (child != null) {
-      if (child.getNodeName().equals("notation"))
+      if (child.getNodeName().equals("notation")) {
         notations.add(child.getTextContent());
+      }
       else if (child.getNodeName().equals("licenseTerms"))
         cs.setCopyright(child.getTextContent());
       else if (child.getNodeName().equals("versioningPolicy"))
@@ -317,6 +318,14 @@ public class V3SourceGenerator extends BaseGenerator {
         throw new Exception("Unprocessed element "+child.getNodeName());
       child = XMLUtil.getNextSibling(child);
     }    
+    
+    StringType contr = new StringType(name);
+    contr.addExtension(csext("contributor-role"), new StringType(role));
+    contr.addExtension(csext("contributor-notes"), new StringType(notes));
+    
+    cs.addExtension(csext("contributor"), contr);
+
+    
     if (!Utilities.existsInList(role, "Publisher", "Sponsor")) 
       throw new Exception("Unprocessed role "+role);
     if (name.equals("(see notes)"))
@@ -414,7 +423,7 @@ public class V3SourceGenerator extends BaseGenerator {
     Element child = XMLUtil.getFirstChild(item);
     while (child != null) {
       if (child.getNodeName().equals("text")) {
-        cs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(child));
+        cs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(child).trim());
         XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
         html.setName("div");
         cs.getText().setDiv(html);
@@ -477,8 +486,7 @@ public class V3SourceGenerator extends BaseGenerator {
   }
   
   private void processSupportedConceptProperty(Element item, CodeSystem cs) throws Exception {
-    if (item.getAttribute("propertyName").equals("internalId"))
-      return; // ignored and handled implicitly
+    //item.getAttribute("propertyName").equals("internalId"));    	
     PropertyComponent pd = cs.addProperty();
     pd.setCode(item.getAttribute("propertyName"));
     String type = item.getAttribute("type");
@@ -646,14 +654,13 @@ public class V3SourceGenerator extends BaseGenerator {
 
   private void processConceptProperty(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
     String id = item.getAttribute("name");
-    if (id.equals("internalId")) {
-      //cd.setId(item.getAttribute("value"));
-    	// Skip internal ID
-    	return;
-    } else {
+
       PropertyComponent pd = cs.getProperty(id);
-      if (pd == null)
-        throw new Exception("Unknown Property "+id+" on "+item.getTagName()+" for code system "+cs.getId());
+      if (pd == null) {
+          //throw new Exception("Unknown Property "+id+" on "+item.getTagName()+" for code system "+cs.getId());
+    	  System.out.println( "Unknown Property "+id+" on "+item.getTagName()+" for code system "+cs.getId() );
+    	  return;
+      }
       ConceptPropertyComponent p = cd.addProperty();
       p.setCode(id);
       if (pd.getType() == PropertyType.CODE)
@@ -668,7 +675,6 @@ public class V3SourceGenerator extends BaseGenerator {
       if (child != null) {
         throw new Exception("Unprocessed element "+child.getNodeName());
       }    
-    }
   }
 
   private void processPrintName(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
@@ -851,7 +857,7 @@ public class V3SourceGenerator extends BaseGenerator {
     vs.setId("v3-"+makeSafeId(item.getAttribute("name")));
     vs.setUrl("http://terminology.hl7.org/ValueSet/"+vs.getId());
     vs.setName(item.getAttribute("name"));
-    vs.setTitle(item.getAttribute("title"));
+    vs.setTitle(item.getAttribute("name"));
     vs.addIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+item.getAttribute("id"));
     vs.setUserData("oid", item.getAttribute("id"));
     vs.setStatus(PublicationStatus.ACTIVE);
@@ -929,6 +935,7 @@ public class V3SourceGenerator extends BaseGenerator {
         notes = child.getTextContent();
       else
         throw new Exception("Unprocessed element "+child.getNodeName());
+      
       child = XMLUtil.getNextSibling(child);
     }    
     if (!Utilities.existsInList(role, "Publisher", "Sponsor")) 
@@ -1036,8 +1043,8 @@ public class V3SourceGenerator extends BaseGenerator {
   private void processHistoryItem(Element item, ValueSet vs) throws Exception {
     Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/codesystem-history");    
     vs.getExtension().add(ext);
-    ext.addExtension("date", new DateTimeType(item.getAttribute("dateTime")));
-    ext.addExtension("id", new StringType(item.getAttribute("id")));
+    //ext.addExtension("id", new StringType(item.getAttribute("id")));
+    vs.setVersion( item.getAttribute("id") );
     if (item.hasAttribute("responsiblePersonName"))
       ext.addExtension("author", new StringType(item.getAttribute("responsiblePersonName")));
     if (item.hasAttribute("isSubstantiveChange"))
@@ -1048,7 +1055,7 @@ public class V3SourceGenerator extends BaseGenerator {
     Element child = XMLUtil.getFirstChild(item);
     while (child != null) {
       if (child.getNodeName().equals("description"))
-        ext.addExtension("notes", new StringType(child.getTextContent()));
+        ext.addExtension("version annotation", new StringType(child.getTextContent()));
       else
         throw new Exception("Unprocessed element "+child.getNodeName());
       child = XMLUtil.getNextSibling(child);
@@ -1082,25 +1089,37 @@ public class V3SourceGenerator extends BaseGenerator {
   
   private void processGeneralContent(Element item, ValueSet vs, String url, boolean include, int level) throws Exception {
     Element child = XMLUtil.getFirstChild(item);
+    //ConceptSetComponent cset = include ? vs.getCompose().addInclude() : vs.getCompose().addExclude();
+    ConceptSetComponent cset = new ConceptSetComponent();
+    
     while (child != null) {
       if (child.getNodeName().equals("codeBasedContent")) {
-        ConceptSetComponent cset = include ? vs.getCompose().addInclude() : vs.getCompose().addExclude() ;
-        cset.setSystem(url);
+    	  if( cset.getSystem() == null && url != null && !url.isEmpty() ) {
+    		  cset.setSystem(url);
+    	  }
         processCodeBasedContent(child, vs, cset);
       } else if (child.getNodeName().equals("combinedContent")) {
         if (level > 0)
           throw new Exception("recursion not supported on "+vs.getUrl());
         processCombinedContent(child, vs, url);
       } else if (child.getNodeName().equals("valueSetRef")) {
-        ConceptSetComponent vset = include ? vs.getCompose().addInclude() : vs.getCompose().addExclude() ;
+        //ConceptSetComponent vset = include ? vs.getCompose().addInclude() : vs.getCompose().addExclude() ;
+    	  
         CanonicalType vsref = new CanonicalType();
-        vset.getValueSet().add(vsref);
+        cset.getValueSet().add(vsref);
         vsref.setUserData("vsref", child.getAttribute("id"));
         vsref.setUserData("vsname", child.getAttribute("name"));
       } else
         throw new Exception("Unprocessed element "+child.getNodeName());
       child = XMLUtil.getNextSibling(child);
-    }    
+    }  
+    if (cset.getConcept().size() > 0 || cset.getValueSet().size() > 0 || cset.getFilter().size() > 0 ) {
+  	  if (include) {
+  		  vs.getCompose().addInclude(cset);
+  	  } else {
+  		  vs.getCompose().addExclude(cset);	  
+  	  }
+    }
   }
 
   private void processCodeBasedContent(Element item, ValueSet vs, ConceptSetComponent cset) throws Exception {

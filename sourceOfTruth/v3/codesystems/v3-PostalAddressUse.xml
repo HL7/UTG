@@ -31,6 +31,14 @@
       <valueString value="retiredAsOfRelease: 1130-20120315 Indicates that the Code System was retired from any further use as of the release indicated."/>
     </extension>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="620-20081216"/>
   </extension>
@@ -51,13 +59,21 @@
   <name value="PostalAddressUse"/>
   <title value="PostalAddressUse"/>
   <status value="retired"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value="  Deprecation Comment:&#xD;&#xA;This code system was deprecated as of the November 2007 harmonization meeting. The content was folded into AddressUse (2.16.840.1.113883.5.1119), which replaces this code system."/>
+  <description value="Deprecation Comment:This code system was deprecated as of the November 2007 harmonization meeting. The content was folded into AddressUse (2.16.840.1.113883.5.1119), which replaces this code system."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <property>
     <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
       <valueBoolean value="false"/>
@@ -80,6 +96,10 @@
       <valueBoolean value="true"/>
     </property>
     <property>
+      <code value="internalId"/>
+      <valueCode value="21112"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -87,6 +107,10 @@
       <code value="BAD"/>
       <display value="bad address"/>
       <definition value=" A flag indicating that the address is bad, in fact, useless."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10641"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -97,6 +121,10 @@
       <display value="home address"/>
       <definition value=" A communication address at a home, attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call.  Typically used with urgent cases, or if no other contacts are available."/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="10628"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -104,6 +132,10 @@
         <code value="HP"/>
         <display value="primary home"/>
         <definition value=" The primary home, to reach a person after business hours."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10629"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -113,6 +145,10 @@
         <code value="HV"/>
         <display value="vacation home"/>
         <definition value=" A vacation home, to reach a person while on vacation."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10630"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -124,6 +160,10 @@
       <display value="temporary address"/>
       <definition value=" A temporary address, may be good for visit or mailing.  Note that an address history can provide more detailed information."/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="10640"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -133,6 +173,10 @@
       <display value="work place"/>
       <definition value=" An office address.  First choice for business related contacts during business hours."/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="10631"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -140,6 +184,10 @@
         <code value="DIR"/>
         <display value="Direct"/>
         <definition value=" Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a &#39;private line&#39;."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="21426"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -150,6 +198,10 @@
         <display value="Public"/>
         <definition value=" Indicates a work place address or telecommunication address that is a &#39;standard&#39; address which may reach a reception service, mail-room, or other intermediary prior to the target entity."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="21427"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -158,6 +210,10 @@
     <concept>
       <code value="BIR"/>
       <display value="birthplace"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="12211"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="retired"/>
@@ -173,6 +229,10 @@
     <display value="physical visit address"/>
     <definition value=" Used primarily to visit an address."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10638"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -181,6 +241,10 @@
     <code value="PST"/>
     <display value="postal address"/>
     <definition value=" Used to send mail."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10639"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

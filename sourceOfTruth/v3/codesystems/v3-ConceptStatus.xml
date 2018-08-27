@@ -14,6 +14,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="649-20081229"/>
   </extension>
@@ -34,17 +42,29 @@
   <name value="ConceptStatus"/>
   <title value="HL7 Coded Concept Status"/>
   <status value="retired"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="HL7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value="  Deprecation Comment:&#xD;&#xA;Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
+  <description value="Deprecation Comment:Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="A"/>
     <display value="Active"/>
     <definition value=" Concept code is active and in use"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19960"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -55,6 +75,10 @@
     <display value="Deleted"/>
     <definition value=" Concept code is not longer in use anywhere."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="19962"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -64,6 +88,10 @@
     <display value="Proposed"/>
     <definition value=" Proposed but not yet in general use"/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="19959"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -72,6 +100,10 @@
     <code value="R"/>
     <display value="Retired"/>
     <definition value=" Concept code has been used previously, but is no longer value for new use."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19961"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

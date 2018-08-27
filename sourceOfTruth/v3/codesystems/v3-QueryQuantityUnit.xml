@@ -33,6 +33,14 @@
       <valueString value="retiredAsOfRelease: 1130-20120315 Indicates that the Code System was retired from any further use as of the release indicated."/>
     </extension>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="729-20081229"/>
   </extension>
@@ -53,17 +61,29 @@
   <name value="QueryQuantityUnit"/>
   <title value="QueryQuantityUnit"/>
   <status value="retired"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value=" Values in this domain specify the units of a query quantity limited request.  Deprecation Comment:&#xD;&#xA;Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used.  This is a holdover.  It is not referenced.  It is superseded by QueryRequestLimit."/>
+  <description value="Values in this domain specify the units of a query quantity limited request.  &#xD;&#xA;Deprecation Comment:Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used.  This is a holdover.  It is not referenced.  It is superseded by QueryRequestLimit."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="CH"/>
     <display value="Characters"/>
     <definition value=" Used where size of input buffer has limitations."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="16016"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -74,6 +94,10 @@
     <display value="Lines"/>
     <definition value=" Used where lines of respone has limitations."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="16017"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -83,6 +107,10 @@
     <display value="Pages"/>
     <definition value=" Used where pages of response has limitations."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="16018"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -91,6 +119,10 @@
     <code value="RD"/>
     <display value="Records"/>
     <definition value=" Used where number of records or instances of items in the query response result set has limitations."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="16019"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -3,6 +3,14 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-EntityHandling"/>
   <language value="en"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -20,16 +28,28 @@
   <name value="EntityHandling"/>
   <title value="EntityHandling"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="AMB"/>
     <display value="Ambient Temperature"/>
     <definition value=" Keep at ambient temperature, 22 +/- 2C"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10394"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -40,6 +60,10 @@
     <display value="Body Temperature"/>
     <definition value=" Critical to keep at body temperature 36-38C"/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10395"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -48,6 +72,10 @@
     <code value="CAMB"/>
     <display value="Critical Ambient temperature"/>
     <definition value=" Critical ambient - must not be refrigerated or frozen."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="14405"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -58,6 +86,10 @@
     <display value="Protect from Air"/>
     <definition value=" Critical. Do not expose to atmosphere.  Do not uncap."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="14409"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -66,6 +98,10 @@
     <code value="CFRZ"/>
     <display value="Critical frozen"/>
     <definition value=" Critical frozen. Specimen must not be allowed to thaw until immediately prior to testing."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="14407"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -76,6 +112,10 @@
     <display value="Critical refrigerated temperature"/>
     <definition value=" Critical refrigerated - must not be allowed to freeze or warm until imediately prior to testing."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="14406"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -84,6 +124,10 @@
     <code value="DFRZ"/>
     <display value="Deep Frozen"/>
     <definition value=" Deep Frozen -16 to -20C."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10398"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -94,6 +138,10 @@
     <display value="dry"/>
     <definition value=" Keep in a dry environment"/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10400"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -102,6 +150,10 @@
     <code value="FRZ"/>
     <display value="frozen"/>
     <definition value=" Keep frozen below 0 ?C"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10397"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -112,6 +164,10 @@
     <display value="Metal Free"/>
     <definition value=" Container is free of heavy metals, including lead."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="14410"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -120,6 +176,10 @@
     <code value="NTR"/>
     <display value="nitrogen"/>
     <definition value=" Keep in liquid nitrogen"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10399"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -130,6 +190,10 @@
     <display value="Protect from Light"/>
     <definition value=" Protect from light (eg. Wrap in aluminum foil)."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10401"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -138,6 +202,10 @@
     <code value="PSA"/>
     <display value="do not shake"/>
     <definition value=" Do not shake"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10404"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -148,6 +216,10 @@
     <display value="no shock"/>
     <definition value=" Protect against shock"/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10402"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -156,6 +228,10 @@
     <code value="REF"/>
     <display value="Refrigerated temperature"/>
     <definition value=" Keep at refrigerated temperature:4-8C Accidental warming or freezing is of little consequence."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10396"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -166,6 +242,10 @@
     <display value="Shake before use"/>
     <definition value=" Shake thoroughly before using"/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="14393"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -175,6 +255,10 @@
     <display value="Ultra frozen"/>
     <definition value=" Ultra cold frozen -75 to -85C.  Ultra cold freezer is typically at temperature of dry ice."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="14408"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -183,6 +267,10 @@
     <code value="UPR"/>
     <display value="upright"/>
     <definition value=" Keep upright, do not turn upside down"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10403"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

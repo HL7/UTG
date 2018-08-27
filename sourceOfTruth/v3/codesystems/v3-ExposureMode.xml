@@ -11,6 +11,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="PHER">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -28,13 +36,21 @@
   <name value="ExposureMode"/>
   <title value="ExposureMode"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="HL7"/>
   <contact>
     <name value="PHER"/>
   </contact>
-  <description value=" Code for the mechanism by which the exposure agent was exchanged or potentially exchanged by the participants involved in the exposure."/>
+  <description value="Code for the mechanism by which the exposure agent was exchanged or potentially exchanged by the participants involved in the exposure."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
@@ -50,13 +66,21 @@
       <valueBoolean value="true"/>
     </property>
     <property>
+      <code value="internalId"/>
+      <valueCode value="22377"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
     <concept>
       <code value="AIRBORNE"/>
       <display value="airborne"/>
-      <definition value="  Description:&#xD;&#xA;Communication of an agent from a living subject or environmental source to a living subject through indirect contact via oral or nasal inhalation."/>
+      <definition value="  &#xD;&#xA;Description:Communication of an agent from a living subject or environmental source to a living subject through indirect contact via oral or nasal inhalation."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22379"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -65,7 +89,11 @@
     <concept>
       <code value="CONTACT"/>
       <display value="contact"/>
-      <definition value="  Description:&#xD;&#xA;Communication of an agent from a living subject or environmental source to a living subject through direct physical contact."/>
+      <definition value="  &#xD;&#xA;Description:Communication of an agent from a living subject or environmental source to a living subject through direct physical contact."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22381"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -74,7 +102,11 @@
     <concept>
       <code value="FOODBORNE"/>
       <display value="foodborne"/>
-      <definition value="  Description:&#xD;&#xA;Communication of an agent from a food source to a living subject via oral consumption."/>
+      <definition value="  &#xD;&#xA;Description:Communication of an agent from a food source to a living subject via oral consumption."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22380"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -83,7 +115,11 @@
     <concept>
       <code value="WATERBORNE"/>
       <display value="waterborne"/>
-      <definition value="  Description:&#xD;&#xA;Communication of an agent to a living subject by contact and/or consumption via an aqueous medium"/>
+      <definition value="  &#xD;&#xA;Description:Communication of an agent to a living subject by contact and/or consumption via an aqueous medium"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22378"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>

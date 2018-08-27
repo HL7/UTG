@@ -11,6 +11,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -28,17 +36,29 @@
   <name value="DocumentCompletion"/>
   <title value="DocumentCompletion"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value=" Identifies the current completion state of a clinical document."/>
+  <description value="Identifies the current completion state of a clinical document."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="AU"/>
     <display value="authenticated"/>
     <definition value=" A completion status in which a document has been signed manually or electronically by one or more individuals who attest to its accuracy.  No explicit determination is made that the assigned individual has performed the authentication.  While the standard allows multiple instances of authentication, it would be typical to have a single instance of authentication, usually by the assigned individual."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10581"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -49,6 +69,10 @@
     <display value="dictated"/>
     <definition value=" A completion status in which information has been orally recorded but not yet transcribed."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10576"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -57,6 +81,10 @@
     <code value="DO"/>
     <display value="documented"/>
     <definition value=" A completion status in which document content, other than dictation, has been received but has not been translated into the final electronic format.  Examples include paper documents, whether hand-written or typewritten, and intermediate electronic forms, such as voice to text."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10577"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -67,6 +95,10 @@
     <display value="incomplete"/>
     <definition value=" A completion status in which information is known to be missing from a transcribed document."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10579"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -75,6 +107,10 @@
     <code value="IP"/>
     <display value="in progress"/>
     <definition value=" A workflow status where the material has been assigned to personnel to perform the task of transcription. The document remains in this state until the document is transcribed."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10578"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -85,6 +121,10 @@
     <display value="legally authenticated"/>
     <definition value=" A completion status in which a document has been signed manually or electronically by the individual who is legally responsible for that document. This is the most mature state in the workflow progression."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10582"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -93,6 +133,10 @@
     <code value="NU"/>
     <display value="nullified document"/>
     <definition value=" A completion status in which a document was created in error or was placed in the wrong chart. The document is no longer available."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23537"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -103,6 +147,10 @@
     <display value="pre-authenticated"/>
     <definition value=" A completion status in which a document is transcribed but not authenticated."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10580"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -111,6 +159,10 @@
     <code value="UC"/>
     <display value="unsigned completed document"/>
     <definition value=" A completion status where the document is complete and there is no expectation that the document will be signed."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23538"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

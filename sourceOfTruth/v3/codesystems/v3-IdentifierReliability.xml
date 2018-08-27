@@ -11,6 +11,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="HL7 Infrastructure and Messaging (INM),HL7 Infrastructure and Messaging (INM)">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -28,17 +36,29 @@
   <name value="IdentifierReliability"/>
   <title value="IdentifierReliability"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="HL7 International"/>
   <contact>
     <name value="HL7 Infrastructure and Messaging (INM),HL7 Infrastructure and Messaging (INM)"/>
   </contact>
-  <description value=" Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms."/>
+  <description value="Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="ISS"/>
     <display value="Issued by System"/>
-    <definition value="  Description:&#xD;&#xA;The identifier was issued by the system responsible for constructing the instance."/>
+    <definition value="  &#xD;&#xA;Description:The identifier was issued by the system responsible for constructing the instance."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22614"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -47,7 +67,11 @@
   <concept>
     <code value="UNV"/>
     <display value="Unverified by system"/>
-    <definition value="  Description:&#xD;&#xA;The identifier was provided to the system that constructed the instance, but has not been verified. e.g. a Drivers  license entered manually into a system by a user."/>
+    <definition value="  &#xD;&#xA;Description:The identifier was provided to the system that constructed the instance, but has not been verified. e.g. a Drivers  license entered manually into a system by a user."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22653"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -56,7 +80,7 @@
   <concept>
     <code value="VRF"/>
     <display value="Verified by system"/>
-    <definition value="  Description:&#xD;&#xA;The identifier was not issued by the system responsible for constructing the instance, but the system that captured the id has verified the identifier with the issuing authority, or with another system that has verified the identifier."/>
+    <definition value="  &#xD;&#xA;Description:The identifier was not issued by the system responsible for constructing the instance, but the system that captured the id has verified the identifier with the issuing authority, or with another system that has verified the identifier."/>
     <designation>
       <use>
         <system value="http://something...?"/>
@@ -64,6 +88,10 @@
       </use>
       <value value="VER"/>
     </designation>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22652"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

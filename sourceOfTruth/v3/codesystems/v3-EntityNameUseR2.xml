@@ -14,6 +14,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="HL7 Modeling and Methodology Workgroup">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -31,13 +39,21 @@
   <name value="EntityNameUseR2"/>
   <title value="EntityNameUseR2"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="HL7 International"/>
   <contact>
     <name value="HL7 Modeling and Methodology Workgroup"/>
   </contact>
-  <description value="  Description:&#xD;&#xA;A set of codes advising a system or user which name in a set of names to select for a given purpose."/>
+  <description value="Description:A set of codes advising a system or user which name in a set of names to select for a given purpose."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
@@ -47,10 +63,14 @@
   <concept>
     <code value="Assumed"/>
     <display value="Assumed"/>
-    <definition value="  Description:&#xD;&#xA;A name that a person has assumed or has been assumed to them."/>
+    <definition value="  &#xD;&#xA;Description:A name that a person has assumed or has been assumed to them."/>
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22772"/>
     </property>
     <property>
       <code value="status"/>
@@ -59,7 +79,11 @@
     <concept>
       <code value="A"/>
       <display value="business name"/>
-      <definition value="  Description:&#xD;&#xA;A name used in a Professional or Business context .  Examples: Continuing to use a maiden name in a professional context, or using a stage performing name (some of these names are also pseudonyms)"/>
+      <definition value="  &#xD;&#xA;Description:A name used in a Professional or Business context .  Examples: Continuing to use a maiden name in a professional context, or using a stage performing name (some of these names are also pseudonyms)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22776"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -68,7 +92,11 @@
     <concept>
       <code value="ANON"/>
       <display value="Anonymous"/>
-      <definition value="  Description:&#xD;&#xA;Anonymous assigned name (used to protect a persons identity for privacy reasons)"/>
+      <definition value="  &#xD;&#xA;Description:Anonymous assigned name (used to protect a persons identity for privacy reasons)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22775"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -77,7 +105,11 @@
     <concept>
       <code value="I"/>
       <display value="Indigenous/Tribal"/>
-      <definition value="  Description:&#xD;&#xA;e.g .  Chief Red Cloud"/>
+      <definition value="  &#xD;&#xA;Description:e.g .  Chief Red Cloud"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22773"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -86,7 +118,11 @@
     <concept>
       <code value="P"/>
       <display value="Other/Pseudonym/Alias"/>
-      <definition value="  Description:&#xD;&#xA;A non-official name by which the person is sometimes known.  (This may also be used to record informal names such as a nickname)"/>
+      <definition value="  &#xD;&#xA;Description:A non-official name by which the person is sometimes known.  (This may also be used to record informal names such as a nickname)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22774"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -95,7 +131,11 @@
     <concept>
       <code value="R"/>
       <display value="religious"/>
-      <definition value="  Description:&#xD;&#xA;A name assumed as part of a religious vocation .  e.g .  Sister Mary Francis, Brother John"/>
+      <definition value="  &#xD;&#xA;Description:A name assumed as part of a religious vocation .  e.g .  Sister Mary Francis, Brother John"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22777"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -105,7 +145,7 @@
   <concept>
     <code value="C"/>
     <display value="customary"/>
-    <definition value="  Description:&#xD;&#xA;Known as/conventional/the one you normally use"/>
+    <definition value="  &#xD;&#xA;Description:Known as/conventional/the one you normally use"/>
     <designation>
       <use>
         <system value="http://something...?"/>
@@ -113,6 +153,10 @@
       </use>
       <value value="N"/>
     </designation>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22769"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -125,7 +169,11 @@
   <concept>
     <code value="M"/>
     <display value="maiden name"/>
-    <definition value="  Description:&#xD;&#xA;A name used prior to marriage.Note that marriage naming customs vary greatly around the world.  This name use is for use by applications that collect and store maiden names.  Though the concept of maiden name is often gender specific, the use of this term is not gender specific.  The use of this term does not imply any particular history for a person&#39;s name, nor should the maiden name be determined algorithmically"/>
+    <definition value="  &#xD;&#xA;Description:A name used prior to marriage.Note that marriage naming customs vary greatly around the world.  This name use is for use by applications that collect and store maiden names.  Though the concept of maiden name is often gender specific, the use of this term is not gender specific.  The use of this term does not imply any particular history for a person&#39;s name, nor should the maiden name be determined algorithmically"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22780"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -134,10 +182,14 @@
   <concept>
     <code value="NameRepresentationUse"/>
     <display value="NameRepresentationUse"/>
-    <definition value="  Description:&#xD;&#xA;Identifies the different representations of a name .  The representation may affect how the name is used .  (E.g .  use of Ideographic for formal communications.)"/>
+    <definition value="  &#xD;&#xA;Description:Identifies the different representations of a name .  The representation may affect how the name is used .  (E.g .  use of Ideographic for formal communications.)"/>
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22765"/>
     </property>
     <property>
       <code value="status"/>
@@ -146,7 +198,11 @@
     <concept>
       <code value="ABC"/>
       <display value="alphabetic"/>
-      <definition value="  Description:&#xD;&#xA;Alphabetic transcription of name in latin alphabet (Japanese: romaji)"/>
+      <definition value="  &#xD;&#xA;Description:Alphabetic transcription of name in latin alphabet (Japanese: romaji)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22766"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -155,7 +211,11 @@
     <concept>
       <code value="IDE"/>
       <display value="ideographic"/>
-      <definition value="  Description:&#xD;&#xA;Ideographic representation of name (e.g., Japanese kanji, Chinese characters)"/>
+      <definition value="  &#xD;&#xA;Description:Ideographic representation of name (e.g., Japanese kanji, Chinese characters)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22767"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -164,7 +224,11 @@
     <concept>
       <code value="SYL"/>
       <display value="syllabic"/>
-      <definition value="  Description:&#xD;&#xA;Syllabic transcription of name (e.g., Japanese kana, Korean hangul)"/>
+      <definition value="  &#xD;&#xA;Description:Syllabic transcription of name (e.g., Japanese kana, Korean hangul)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22768"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -174,7 +238,11 @@
   <concept>
     <code value="OLD"/>
     <display value="no longer in use"/>
-    <definition value="  Description:&#xD;&#xA;This name is no longer in use (note: Names may also carry valid time ranges .  This code is used to cover the situations where it is known that the name is no longer valid, but no particular time range for its use is known)"/>
+    <definition value="  &#xD;&#xA;Description:This name is no longer in use (note: Names may also carry valid time ranges .  This code is used to cover the situations where it is known that the name is no longer valid, but no particular time range for its use is known)"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22778"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -182,7 +250,11 @@
     <concept>
       <code value="DN"/>
       <display value="do not use"/>
-      <definition value="  Description:&#xD;&#xA;This name should no longer be used when interacting with the person (i.e .  in addition to no longer being used, the name should not be even mentioned when interacting with the person)Note: applications are not required to compare names labeled &quot;Do Not Use&quot; and other names in order to eliminate name parts that are common between the other name and a name labeled &quot;Do Not Use&quot;."/>
+      <definition value="  &#xD;&#xA;Description:This name should no longer be used when interacting with the person (i.e .  in addition to no longer being used, the name should not be even mentioned when interacting with the person)Note: applications are not required to compare names labeled &quot;Do Not Use&quot; and other names in order to eliminate name parts that are common between the other name and a name labeled &quot;Do Not Use&quot;."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22779"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -192,7 +264,11 @@
   <concept>
     <code value="OR"/>
     <display value="official registry name"/>
-    <definition value="  Description:&#xD;&#xA;The formal name as registered in an official (government) registry, but which name might not be commonly used .  May correspond to the concept of legal name"/>
+    <definition value="  &#xD;&#xA;Description:The formal name as registered in an official (government) registry, but which name might not be commonly used .  May correspond to the concept of legal name"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22770"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -201,7 +277,11 @@
   <concept>
     <code value="PHON"/>
     <display value="phonetic"/>
-    <definition value="  Description:&#xD;&#xA;The name as understood by the data enterer, i.e. a close approximation of a phonetic spelling of the name, not based on a phonetic algorithm."/>
+    <definition value="  &#xD;&#xA;Description:The name as understood by the data enterer, i.e. a close approximation of a phonetic spelling of the name, not based on a phonetic algorithm."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22782"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -210,7 +290,11 @@
   <concept>
     <code value="SRCH"/>
     <display value="search"/>
-    <definition value="  Description:&#xD;&#xA;A name intended for use in searching or matching.  This is used when the name is incomplete and contains enough details for search matching, but not enough for other uses."/>
+    <definition value="  &#xD;&#xA;Description:A name intended for use in searching or matching.  This is used when the name is incomplete and contains enough details for search matching, but not enough for other uses."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22781"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -219,7 +303,11 @@
   <concept>
     <code value="T"/>
     <display value="temporary"/>
-    <definition value="  Description:&#xD;&#xA;A temporary name.  Note that a name valid time can provide more detailed information.  This may also be used for temporary names assigned at birth or in emergency situations."/>
+    <definition value="  &#xD;&#xA;Description:A temporary name.  Note that a name valid time can provide more detailed information.  This may also be used for temporary names assigned at birth or in emergency situations."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22771"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

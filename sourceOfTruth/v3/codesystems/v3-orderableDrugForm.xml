@@ -14,6 +14,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -31,13 +39,21 @@
   <name value="orderableDrugForm"/>
   <title value="Orderable Drug Form"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value="  OpenIssue:&#xD;&#xA;Missing description."/>
+  <description value="OpenIssue:Missing description."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <property>
     <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
       <valueBoolean value="false"/>
@@ -60,12 +76,20 @@
       <valueBoolean value="true"/>
     </property>
     <property>
+      <code value="internalId"/>
+      <valueCode value="21101"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
     <concept>
       <code value="APPFUL"/>
       <display value="Applicatorful"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14572"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -75,12 +99,20 @@
       <code value="DROP"/>
       <display value="Drops"/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="14420"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
       <concept>
         <code value="NDROP"/>
         <display value="Nasal Drops"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="14422"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -90,6 +122,10 @@
         <code value="OPDROP"/>
         <display value="Ophthalmic Drops"/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14421"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -98,6 +134,10 @@
         <code value="ORDROP"/>
         <display value="Oral Drops"/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14423"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -105,6 +145,10 @@
       <concept>
         <code value="OTDROP"/>
         <display value="Otic Drops"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="14424"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -115,6 +159,10 @@
       <code value="PUFF"/>
       <display value="Puff"/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="14571"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -123,6 +171,10 @@
       <code value="SCOOP"/>
       <display value="Scoops"/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="14574"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -130,6 +182,10 @@
     <concept>
       <code value="SPRY"/>
       <display value="Sprays"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14573"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -144,6 +200,10 @@
       <valueBoolean value="true"/>
     </property>
     <property>
+      <code value="internalId"/>
+      <valueCode value="21102"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -156,12 +216,20 @@
         <valueBoolean value="true"/>
       </property>
       <property>
+        <code value="internalId"/>
+        <valueCode value="21103"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
       <concept>
         <code value="GASINHL"/>
         <display value="Gas for Inhalation"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="14569"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -176,6 +244,10 @@
         <valueBoolean value="true"/>
       </property>
       <property>
+        <code value="internalId"/>
+        <valueCode value="21104"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -183,12 +255,20 @@
         <code value="AER"/>
         <display value="Aerosol"/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14551"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="BAINHL"/>
           <display value="Breath Activated Inhaler"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14553"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -198,6 +278,10 @@
           <code value="INHLSOL"/>
           <display value="Inhalant Solution"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14555"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -206,6 +290,10 @@
           <code value="MDINHL"/>
           <display value="Metered Dose Inhaler"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14552"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -213,6 +301,10 @@
         <concept>
           <code value="NASSPRY"/>
           <display value="Nasal Spray"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14554"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -223,6 +315,10 @@
         <code value="DERMSPRY"/>
         <display value="Dermal Spray"/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14556"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -231,12 +327,20 @@
         <code value="FOAM"/>
         <display value="Foam"/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14546"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="FOAMAPL"/>
           <display value="Foam with Applicator"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14547"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -246,6 +350,10 @@
           <code value="RECFORM"/>
           <display value="Rectal foam"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14548"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -254,12 +362,20 @@
           <code value="VAGFOAM"/>
           <display value="Vaginal foam"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14549"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
           <concept>
             <code value="VAGFOAMAPL"/>
             <display value="Vaginal foam with applicator"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14550"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -271,6 +387,10 @@
         <code value="RECSPRY"/>
         <display value="Rectal Spray"/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14557"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -278,6 +398,10 @@
       <concept>
         <code value="VAGSPRY"/>
         <display value="Vaginal Spray"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="14558"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -292,6 +416,10 @@
         <valueBoolean value="true"/>
       </property>
       <property>
+        <code value="internalId"/>
+        <valueCode value="21105"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -299,12 +427,20 @@
         <code value="INHL"/>
         <display value="Inhalant"/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14560"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="BAINHLPWD"/>
           <display value="Breath Activated Powder Inhaler"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14562"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -314,6 +450,10 @@
           <code value="INHLPWD"/>
           <display value="Inhalant Powder"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14561"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -321,6 +461,10 @@
         <concept>
           <code value="MDINHLPWD"/>
           <display value="Metered Dose Powder Inhaler"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14563"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -330,6 +474,10 @@
           <code value="NASINHL"/>
           <display value="Nasal Inhalant"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14564"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -337,6 +485,10 @@
         <concept>
           <code value="ORINHL"/>
           <display value="Oral Inhalant"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14565"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -347,6 +499,10 @@
         <code value="PWDSPRY"/>
         <display value="Powder Spray"/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14567"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -354,6 +510,10 @@
       <concept>
         <code value="SPRYADAPT"/>
         <display value="Spray with Adaptor"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="14566"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -369,6 +529,10 @@
         <valueBoolean value="true"/>
       </property>
       <property>
+        <code value="internalId"/>
+        <valueCode value="21106"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -376,12 +540,20 @@
         <code value="LIQCLN"/>
         <display value="Liquid Cleanser"/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14414"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="LIQSOAP"/>
           <display value="Medicated Liquid Soap"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14415"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -391,6 +563,10 @@
           <code value="SHMP"/>
           <display value="Shampoo"/>
           <definition value=" A liquid soap or detergent used to clean the hair and scalp and is often used as a vehicle for dermatologic agents."/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14416"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -402,12 +578,20 @@
         <display value="Oil"/>
         <definition value=" An unctuous, combustible substance which is liquid, or easily liquefiable, on warming, and is soluble in ether but insoluble in water. Such substances, depending on their origin, are classified as animal, mineral, or vegetable oils."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14417"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="TOPOIL"/>
           <display value="Topical Oil"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14418"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -422,12 +606,20 @@
         <display value="Solution"/>
         <definition value=" A liquid preparation that contains one or more chemical substances dissolved, i.e., molecularly dispersed, in a suitable solvent or mixture of mutually miscible solvents."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14419"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="IPSOL"/>
           <display value="Intraperitoneal Solution"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14425"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -438,6 +630,10 @@
           <display value="Irrigation Solution"/>
           <definition value=" A sterile solution intended to bathe or flush open wounds or body cavities; they&#39;re used topically, never parenterally."/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14427"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -445,6 +641,10 @@
             <code value="DOUCHE"/>
             <display value="Douche"/>
             <definition value=" A liquid preparation, intended for the irrigative cleansing of the vagina, that is prepared from powders, liquid solutions, or liquid concentrates and contains one or more chemical substances dissolved in a suitable solvent or mutually miscible solvents."/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14428"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -455,6 +655,10 @@
             <display value="Enema"/>
             <definition value=" A rectal preparation for therapeutic, diagnostic, or nutritive purposes."/>
             <property>
+              <code value="internalId"/>
+              <valueCode value="14429"/>
+            </property>
+            <property>
               <code value="status"/>
               <valueCode value="active"/>
             </property>
@@ -462,6 +666,10 @@
           <concept>
             <code value="OPIRSOL"/>
             <display value="Ophthalmic Irrigation Solution"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14430"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -471,6 +679,10 @@
         <concept>
           <code value="IVSOL"/>
           <display value="Intravenous Solution"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14426"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -483,6 +695,10 @@
           <code value="ORALSOL"/>
           <display value="Oral Solution"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14431"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -490,6 +706,10 @@
             <code value="ELIXIR"/>
             <display value="Elixir"/>
             <definition value=" A clear, pleasantly flavored, sweetened hydroalcoholic liquid containing dissolved medicinal agents; it is intended for oral use."/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14432"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -500,6 +720,10 @@
             <display value="Mouthwash/Rinse"/>
             <definition value=" An aqueous solution which is most often used for its deodorant, refreshing, or antiseptic effect."/>
             <property>
+              <code value="internalId"/>
+              <valueCode value="14434"/>
+            </property>
+            <property>
               <code value="status"/>
               <valueCode value="active"/>
             </property>
@@ -508,6 +732,10 @@
             <code value="SYRUP"/>
             <display value="Syrup"/>
             <definition value=" An oral solution containing high concentrations of sucrose or other sugars; the term has also been used to include any other liquid dosage form prepared in a sweet and viscid vehicle, including oral suspensions."/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14433"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -518,6 +746,10 @@
           <code value="RECSOL"/>
           <display value="Rectal Solution"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14436"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -525,6 +757,10 @@
         <concept>
           <code value="TOPSOL"/>
           <display value="Topical Solution"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14437"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -534,6 +770,10 @@
             <display value="Liniment"/>
             <definition value=" A solution or mixture of various substances in oil, alcoholic solutions of soap, or emulsions intended for external application."/>
             <property>
+              <code value="internalId"/>
+              <valueCode value="14438"/>
+            </property>
+            <property>
               <code value="status"/>
               <valueCode value="active"/>
             </property>
@@ -542,6 +782,10 @@
             <code value="MUCTOPSOL"/>
             <display value="Mucous Membrane Topical Solution"/>
             <property>
+              <code value="internalId"/>
+              <valueCode value="14440"/>
+            </property>
+            <property>
               <code value="status"/>
               <valueCode value="active"/>
             </property>
@@ -549,6 +793,10 @@
           <concept>
             <code value="TINC"/>
             <display value="Tincture"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14439"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -566,6 +814,10 @@
         <valueBoolean value="true"/>
       </property>
       <property>
+        <code value="internalId"/>
+        <valueCode value="21107"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -574,12 +826,20 @@
         <display value="Cream"/>
         <definition value=" A semisolid dosage form containing one or more drug substances dissolved or dispersed in a suitable base; more recently, the term has been restricted to products consisting of oil-in-water emulsions or aqueous microcrystalline dispersions of long chain fatty acids or alcohols that are water washable and more cosmetically and aesthetically acceptable."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14466"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="NASCRM"/>
           <display value="Nasal Cream"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14467"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -589,6 +849,10 @@
           <code value="OPCRM"/>
           <display value="Ophthalmic Cream"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14468"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -596,6 +860,10 @@
         <concept>
           <code value="ORCRM"/>
           <display value="Oral Cream"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14469"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -605,6 +873,10 @@
           <code value="OTCRM"/>
           <display value="Otic Cream"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14470"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -612,6 +884,10 @@
         <concept>
           <code value="RECCRM"/>
           <display value="Rectal Cream"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14471"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -621,6 +897,10 @@
           <code value="TOPCRM"/>
           <display value="Topical Cream"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14472"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -629,12 +909,20 @@
           <code value="VAGCRM"/>
           <display value="Vaginal Cream"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14473"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
           <concept>
             <code value="VAGCRMAPL"/>
             <display value="Vaginal Cream with Applicator"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14474"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -647,12 +935,20 @@
         <display value="Lotion"/>
         <definition value=" The term &quot;lotion&quot; has been used to categorize many topical suspensions, solutions and emulsions intended for application to the skin."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14464"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="TOPLTN"/>
           <display value="Topical Lotion"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14465"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -664,12 +960,20 @@
         <display value="Ointment"/>
         <definition value=" A semisolid preparation intended for external application to the skin or mucous membranes."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14475"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="NASOINT"/>
           <display value="Nasal Ointment"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14479"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -679,6 +983,10 @@
           <code value="OINTAPL"/>
           <display value="Ointment with Applicator"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14476"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -686,6 +994,10 @@
         <concept>
           <code value="OPOINT"/>
           <display value="Ophthalmic Ointment"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14477"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -695,6 +1007,10 @@
           <code value="OTOINT"/>
           <display value="Otic Ointment"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14478"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -702,6 +1018,10 @@
         <concept>
           <code value="RECOINT"/>
           <display value="Rectal Ointment"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14480"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -711,6 +1031,10 @@
           <code value="TOPOINT"/>
           <display value="Topical Ointment"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14481"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -719,12 +1043,20 @@
           <code value="VAGOINT"/>
           <display value="Vaginal Ointment"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14482"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
           <concept>
             <code value="VAGOINTAPL"/>
             <display value="Vaginal Ointment with Applicator"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14483"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -742,6 +1074,10 @@
         <valueBoolean value="true"/>
       </property>
       <property>
+        <code value="internalId"/>
+        <valueCode value="21108"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -750,12 +1086,20 @@
         <display value="Gel"/>
         <definition value=" A semisolid system consisting of either suspensions made up of small inorganic particles or large organic molecules interpenetrated by a liquid."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14442"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="GELAPL"/>
           <display value="Gel with Applicator"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14443"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -765,6 +1109,10 @@
           <code value="NASGEL"/>
           <display value="Nasal Gel"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14444"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -772,6 +1120,10 @@
         <concept>
           <code value="OPGEL"/>
           <display value="Ophthalmic Gel"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14445"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -781,6 +1133,10 @@
           <code value="OTGEL"/>
           <display value="Otic Gel"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14446"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -788,6 +1144,10 @@
         <concept>
           <code value="TOPGEL"/>
           <display value="Topical Gel"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14447"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -797,6 +1157,10 @@
           <code value="URETHGEL"/>
           <display value="Urethral Gel"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14448"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -805,12 +1169,20 @@
           <code value="VAGGEL"/>
           <display value="Vaginal Gel"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14449"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
           <concept>
             <code value="VGELAPL"/>
             <display value="Vaginal Gel with Applicator"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14450"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -823,12 +1195,20 @@
         <display value="Paste"/>
         <definition value=" A semisolid dosage form that contains one or more drug substances intended for topical application."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14451"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="PUD"/>
           <display value="Pudding"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14453"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -839,6 +1219,10 @@
           <display value="Toothpaste"/>
           <definition value=" A paste formulation intended to clean and/or polish the teeth, and which may contain certain additional agents."/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14452"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -848,12 +1232,20 @@
         <code value="SUSP"/>
         <display value="Suspension"/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14454"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="ITSUSP"/>
           <display value="Intrathecal Suspension"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14455"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -863,6 +1255,10 @@
           <code value="OPSUSP"/>
           <display value="Ophthalmic Suspension"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14456"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -871,12 +1267,20 @@
           <code value="ORSUSP"/>
           <display value="Oral Suspension"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14457"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
           <concept>
             <code value="ERSUSP"/>
             <display value="Extended-Release Suspension"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14458"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -885,6 +1289,10 @@
               <code value="ERSUSP12"/>
               <display value="12 Hour Extended-Release Suspension"/>
               <property>
+                <code value="internalId"/>
+                <valueCode value="14459"/>
+              </property>
+              <property>
                 <code value="status"/>
                 <valueCode value="active"/>
               </property>
@@ -892,6 +1300,10 @@
             <concept>
               <code value="ERSUSP24"/>
               <display value="24 Hour Extended Release Suspension"/>
+              <property>
+                <code value="internalId"/>
+                <valueCode value="14460"/>
+              </property>
               <property>
                 <code value="status"/>
                 <valueCode value="active"/>
@@ -903,6 +1315,10 @@
           <code value="OTSUSP"/>
           <display value="Otic Suspension"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14461"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -910,6 +1326,10 @@
         <concept>
           <code value="RECSUSP"/>
           <display value="Rectal Suspension"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14462"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -925,12 +1345,20 @@
         <valueBoolean value="true"/>
       </property>
       <property>
+        <code value="internalId"/>
+        <valueCode value="21109"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
       <concept>
         <code value="BAR"/>
         <display value="Bar"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="14485"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -939,12 +1367,20 @@
           <code value="BARSOAP"/>
           <display value="Bar Soap"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14486"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
           <concept>
             <code value="MEDBAR"/>
             <display value="Medicated Bar Soap"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14487"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -956,6 +1392,10 @@
           <display value="Chewable Bar"/>
           <definition value=" A solid dosage form usually in the form of a rectangle that is meant to be chewed."/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14488"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -966,6 +1406,10 @@
         <display value="Beads"/>
         <definition value=" A solid dosage form in the shape of a small ball."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14489"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -973,6 +1417,10 @@
       <concept>
         <code value="CAKE"/>
         <display value="Cake"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="14490"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -983,6 +1431,10 @@
         <display value="Cement"/>
         <definition value=" A substance that serves to produce solid union between two surfaces."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14491"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -991,6 +1443,10 @@
         <code value="CRYS"/>
         <display value="Crystals"/>
         <definition value=" A naturally produced angular solid of definite form in which the ultimate units from which it is built up are systematically arranged; they are usually evenly spaced on a regular space lattice."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="14492"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -1001,6 +1457,10 @@
         <display value="Disk"/>
         <definition value=" A circular plate-like organ or structure."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14493"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -1008,6 +1468,10 @@
       <concept>
         <code value="FLAKE"/>
         <display value="Flakes"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="14494"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -1018,6 +1482,10 @@
         <display value="Granules"/>
         <definition value=" A small particle or grain."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14495"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -1027,6 +1495,10 @@
         <display value="ChewingGum"/>
         <definition value=" A sweetened and flavored insoluble plastic material of various shapes which when chewed, releases a drug substance into the oral cavity."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14496"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -1035,12 +1507,20 @@
         <code value="PAD"/>
         <display value="Pad"/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14497"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="MEDPAD"/>
           <display value="Medicated Pad"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14498"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -1052,6 +1532,10 @@
         <display value="Patch"/>
         <definition value=" A drug delivery system that contains an adhesived backing and that permits its ingredients to diffuse from some portion of it (e.g., the backing itself, a reservoir, the adhesive, or some other component) into the body from the external site where it is applied."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14499"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -1059,12 +1543,20 @@
           <code value="TPATCH"/>
           <display value="Transdermal Patch"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14500"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
           <concept>
             <code value="TPATH16"/>
             <display value="16 Hour Transdermal Patch"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14501"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -1074,6 +1566,10 @@
             <code value="TPATH24"/>
             <display value="24 Hour Transdermal Patch"/>
             <property>
+              <code value="internalId"/>
+              <valueCode value="14502"/>
+            </property>
+            <property>
               <code value="status"/>
               <valueCode value="active"/>
             </property>
@@ -1081,6 +1577,10 @@
           <concept>
             <code value="TPATH2WK"/>
             <display value="Biweekly Transdermal Patch"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14505"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -1090,6 +1590,10 @@
             <code value="TPATH72"/>
             <display value="72 Hour Transdermal Patch"/>
             <property>
+              <code value="internalId"/>
+              <valueCode value="14503"/>
+            </property>
+            <property>
               <code value="status"/>
               <valueCode value="active"/>
             </property>
@@ -1097,6 +1601,10 @@
           <concept>
             <code value="TPATHWK"/>
             <display value="Weekly Transdermal Patch"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14504"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -1109,6 +1617,10 @@
         <display value="Pellet"/>
         <definition value=" A small sterile solid mass consisting of a highly purified drug (with or without excipients) made by the formation of granules, or by compression and molding."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14533"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -1118,6 +1630,10 @@
         <display value="Pill"/>
         <definition value=" A small, round solid dosage form containing a medicinal agent intended for oral administration."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14506"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -1126,12 +1642,20 @@
           <display value="Capsule"/>
           <definition value=" A solid dosage form in which the drug is enclosed within either a hard or soft soluble container or &quot;shell&quot; made from a suitable form of gelatin."/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14507"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
           <concept>
             <code value="ORCAP"/>
             <display value="Oral Capsule"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14508"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -1140,12 +1664,20 @@
               <code value="ENTCAP"/>
               <display value="Enteric Coated Capsule"/>
               <property>
+                <code value="internalId"/>
+                <valueCode value="14509"/>
+              </property>
+              <property>
                 <code value="status"/>
                 <valueCode value="active"/>
               </property>
               <concept>
                 <code value="ERENTCAP"/>
                 <display value="Extended Release Enteric Coated Capsule"/>
+                <property>
+                  <code value="internalId"/>
+                  <valueCode value="14510"/>
+                </property>
                 <property>
                   <code value="status"/>
                   <valueCode value="active"/>
@@ -1160,12 +1692,20 @@
               <display value="Extended Release Capsule"/>
               <definition value=" A solid dosage form in which the drug is enclosed within either a hard or soft soluble container made from a suitable form of gelatin, and which releases a drug (or drugs) in such a manner to allow a reduction in dosing frequency as compared to that drug (or drugs) presented as a conventional dosage form."/>
               <property>
+                <code value="internalId"/>
+                <valueCode value="14511"/>
+              </property>
+              <property>
                 <code value="status"/>
                 <valueCode value="active"/>
               </property>
               <concept>
                 <code value="ERCAP12"/>
                 <display value="12 Hour Extended Release Capsule"/>
+                <property>
+                  <code value="internalId"/>
+                  <valueCode value="14513"/>
+                </property>
                 <property>
                   <code value="status"/>
                   <valueCode value="active"/>
@@ -1175,6 +1715,10 @@
                 <code value="ERCAP24"/>
                 <display value="24 Hour Extended Release Capsule"/>
                 <property>
+                  <code value="internalId"/>
+                  <valueCode value="14514"/>
+                </property>
+                <property>
                   <code value="status"/>
                   <valueCode value="active"/>
                 </property>
@@ -1183,6 +1727,10 @@
                 <code value="ERECCAP"/>
                 <display value="Extended Release Enteric Coated Capsule"/>
                 <definition value="  Rationale:Duplicate of code ERENTCAP. Use code ERENTCAP instead."/>
+                <property>
+                  <code value="internalId"/>
+                  <valueCode value="14512"/>
+                </property>
                 <property>
                   <code value="status"/>
                   <valueCode value="retired"/>
@@ -1200,12 +1748,20 @@
           <display value="Tablet"/>
           <definition value=" A solid dosage form containing medicinal substances with or without suitable diluents."/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14515"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
           <concept>
             <code value="ORTAB"/>
             <display value="Oral Tablet"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14516"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -1214,12 +1770,20 @@
               <code value="BUCTAB"/>
               <display value="Buccal Tablet"/>
               <property>
+                <code value="internalId"/>
+                <valueCode value="14518"/>
+              </property>
+              <property>
                 <code value="status"/>
                 <valueCode value="active"/>
               </property>
               <concept>
                 <code value="SRBUCTAB"/>
                 <display value="Sustained Release Buccal Tablet"/>
+                <property>
+                  <code value="internalId"/>
+                  <valueCode value="14519"/>
+                </property>
                 <property>
                   <code value="status"/>
                   <valueCode value="active"/>
@@ -1230,6 +1794,10 @@
               <code value="CAPLET"/>
               <display value="Caplet"/>
               <property>
+                <code value="internalId"/>
+                <valueCode value="14517"/>
+              </property>
+              <property>
                 <code value="status"/>
                 <valueCode value="active"/>
               </property>
@@ -1239,6 +1807,10 @@
               <display value="Chewable Tablet"/>
               <definition value=" A solid dosage form containing medicinal substances with or without suitable diluents that is intended to be chewed, producing a pleasant tasting residue in the oral cavity that is easily swallowed and does not leave a bitter or unpleasant after-taste."/>
               <property>
+                <code value="internalId"/>
+                <valueCode value="14520"/>
+              </property>
+              <property>
                 <code value="status"/>
                 <valueCode value="active"/>
               </property>
@@ -1246,6 +1818,10 @@
             <concept>
               <code value="CPTAB"/>
               <display value="Coated Particles Tablet"/>
+              <property>
+                <code value="internalId"/>
+                <valueCode value="14521"/>
+              </property>
               <property>
                 <code value="status"/>
                 <valueCode value="active"/>
@@ -1256,6 +1832,10 @@
               <display value="Disintegrating Tablet"/>
               <definition value=" A solid dosage form containing medicinal substances which disintegrates rapidly, usually within a matter of seconds, when placed upon the tongue."/>
               <property>
+                <code value="internalId"/>
+                <valueCode value="14523"/>
+              </property>
+              <property>
                 <code value="status"/>
                 <valueCode value="active"/>
               </property>
@@ -1263,6 +1843,10 @@
             <concept>
               <code value="DRTAB"/>
               <display value="Delayed Release Tablet"/>
+              <property>
+                <code value="internalId"/>
+                <valueCode value="14522"/>
+              </property>
               <property>
                 <code value="status"/>
                 <valueCode value="active"/>
@@ -1272,12 +1856,20 @@
               <code value="ECTAB"/>
               <display value="Enteric Coated Tablet"/>
               <property>
+                <code value="internalId"/>
+                <valueCode value="14524"/>
+              </property>
+              <property>
                 <code value="status"/>
                 <valueCode value="active"/>
               </property>
               <concept>
                 <code value="ERECTAB"/>
                 <display value="Extended Release Enteric Coated Tablet"/>
+                <property>
+                  <code value="internalId"/>
+                  <valueCode value="14525"/>
+                </property>
                 <property>
                   <code value="status"/>
                   <valueCode value="active"/>
@@ -1292,12 +1884,20 @@
               <display value="Extended Release Tablet"/>
               <definition value=" A solid dosage form containing a drug which allows at least a reduction in dosing frequency as compared to that drug presented in conventional dosage form."/>
               <property>
+                <code value="internalId"/>
+                <valueCode value="14526"/>
+              </property>
+              <property>
                 <code value="status"/>
                 <valueCode value="active"/>
               </property>
               <concept>
                 <code value="ERTAB12"/>
                 <display value="12 Hour Extended Release Tablet"/>
+                <property>
+                  <code value="internalId"/>
+                  <valueCode value="14528"/>
+                </property>
                 <property>
                   <code value="status"/>
                   <valueCode value="active"/>
@@ -1306,6 +1906,10 @@
               <concept>
                 <code value="ERTAB24"/>
                 <display value="24 Hour Extended Release Tablet"/>
+                <property>
+                  <code value="internalId"/>
+                  <valueCode value="14527"/>
+                </property>
                 <property>
                   <code value="status"/>
                   <valueCode value="active"/>
@@ -1317,6 +1921,10 @@
               <display value="Lozenge/Oral Troche"/>
               <definition value=" A solid preparation containing one or more medicaments, usually in a flavored, sweetened base which is intended to dissolve or disintegrate slowly in the mouth."/>
               <property>
+                <code value="internalId"/>
+                <valueCode value="14530"/>
+              </property>
+              <property>
                 <code value="status"/>
                 <valueCode value="active"/>
               </property>
@@ -1324,6 +1932,10 @@
             <concept>
               <code value="SLTAB"/>
               <display value="Sublingual Tablet"/>
+              <property>
+                <code value="internalId"/>
+                <valueCode value="14531"/>
+              </property>
               <property>
                 <code value="status"/>
                 <valueCode value="active"/>
@@ -1333,6 +1945,10 @@
           <concept>
             <code value="VAGTAB"/>
             <display value="Vaginal Tablet"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14532"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -1345,12 +1961,20 @@
         <display value="Powder"/>
         <definition value=" An intimate mixture of dry, finely divided drugs and/or chemicals that may be intended for internal or external use."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14534"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="TOPPWD"/>
           <display value="Topical Powder"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14535"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -1359,6 +1983,10 @@
             <code value="RECPWD"/>
             <display value="Rectal Powder"/>
             <property>
+              <code value="internalId"/>
+              <valueCode value="14536"/>
+            </property>
+            <property>
               <code value="status"/>
               <valueCode value="active"/>
             </property>
@@ -1366,6 +1994,10 @@
           <concept>
             <code value="VAGPWD"/>
             <display value="Vaginal Powder"/>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14537"/>
+            </property>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
@@ -1378,12 +2010,20 @@
         <display value="Suppository"/>
         <definition value=" A solid body of various weights and shapes, adapted for introduction into the rectal, vaginal, or urethral orifice of the human body; they usually melt, soften, or dissolve at body temperature."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14538"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="RECSUPP"/>
           <display value="Rectal Suppository"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14539"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -1393,6 +2033,10 @@
           <code value="URETHSUPP"/>
           <display value="Urethral suppository"/>
           <property>
+            <code value="internalId"/>
+            <valueCode value="14541"/>
+          </property>
+          <property>
             <code value="status"/>
             <valueCode value="active"/>
           </property>
@@ -1400,6 +2044,10 @@
         <concept>
           <code value="VAGSUPP"/>
           <display value="Vaginal Suppository"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14540"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -1411,12 +2059,20 @@
         <display value="Swab"/>
         <definition value=" A wad of absorbent material usually wound around one end of a small stick and used for applying medication or for removing material from an area."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="14542"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
         <concept>
           <code value="MEDSWAB"/>
           <display value="Medicated swab"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14543"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -1427,6 +2083,10 @@
         <code value="WAFER"/>
         <display value="Wafer"/>
         <definition value=" A thin slice of material containing a medicinal agent."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="14544"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>

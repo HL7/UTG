@@ -14,6 +14,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -31,17 +39,29 @@
   <name value="RoleLinkStatus"/>
   <title value="RoleLinkStatus"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="HL7 International"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value="  Description:&#xD;&#xA;Codes representing possible states of a RoleLink, as defined by the RoleLink class state machine."/>
+  <description value="Description:Codes representing possible states of a RoleLink, as defined by the RoleLink class state machine."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="NORMAL"/>
     <display value="normal"/>
-    <definition value="  Description:&#xD;&#xA;The &#39;typical&#39; state. Excludes &quot;nullified&quot; which represents the termination state of a RoleLink instance that was created in error."/>
+    <definition value="  &#xD;&#xA;Description:The &#39;typical&#39; state. Excludes &quot;nullified&quot; which represents the termination state of a RoleLink instance that was created in error."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23254"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -49,7 +69,11 @@
     <concept>
       <code value="ACTIVE"/>
       <display value="active"/>
-      <definition value="  Description:&#xD;&#xA;The state indicates the RoleLink is in progress."/>
+      <definition value="  &#xD;&#xA;Description:The state indicates the RoleLink is in progress."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23255"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -58,7 +82,11 @@
     <concept>
       <code value="CANCELLED"/>
       <display value="cancelled"/>
-      <definition value="  Description:&#xD;&#xA;The terminal state resulting from abandoning the RoleLink prior to or after activation."/>
+      <definition value="  &#xD;&#xA;Description:The terminal state resulting from abandoning the RoleLink prior to or after activation."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23256"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -67,7 +95,11 @@
     <concept>
       <code value="COMPLETED"/>
       <display value="completed"/>
-      <definition value="  Description:&#xD;&#xA;The terminal state representing the successful completion of the RoleLink."/>
+      <definition value="  &#xD;&#xA;Description:The terminal state representing the successful completion of the RoleLink."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23257"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -76,7 +108,11 @@
     <concept>
       <code value="PENDING"/>
       <display value="pending"/>
-      <definition value="  Description:&#xD;&#xA;The state indicates the RoleLink has not yet become active."/>
+      <definition value="  &#xD;&#xA;Description:The state indicates the RoleLink has not yet become active."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23258"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -86,7 +122,11 @@
   <concept>
     <code value="NULLIFIED"/>
     <display value="nullified"/>
-    <definition value="  Description:&#xD;&#xA;The state representing the termination of a RoleLink instance that was created in error."/>
+    <definition value="  &#xD;&#xA;Description:The state representing the termination of a RoleLink instance that was created in error."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23259"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

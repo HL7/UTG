@@ -11,6 +11,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="HL7">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -28,14 +36,26 @@
   <name value="ResponseMode"/>
   <title value="ResponseMode"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="HL7"/>
-  <description value=" Specifies the mode, immediate versus deferred or queued, by which a receiver should communicate its receiver responsibilities."/>
+  <description value="Specifies the mode, immediate versus deferred or queued, by which a receiver should communicate its receiver responsibilities."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="D"/>
     <display value="deferred"/>
     <definition value=" The receiver may respond in a non-immediate manner. Note: this will be the default value."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21433"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -46,6 +66,10 @@
     <display value="immediate"/>
     <definition value=" The receiver is required to assume that the sender is blocking and behave appropriately by sending an immediate response."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="21432"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -54,6 +78,10 @@
     <code value="Q"/>
     <display value="queue"/>
     <definition value=" The receiver shall keep any application responses in a queue until such time as the queue is polled."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21434"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

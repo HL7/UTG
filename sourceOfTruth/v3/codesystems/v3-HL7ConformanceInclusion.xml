@@ -16,6 +16,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="661-20081229"/>
   </extension>
@@ -36,13 +44,21 @@
   <name value="HL7ConformanceInclusion"/>
   <title value="HL7ConformanceInclusion"/>
   <status value="retired"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value=" These concepts represent theconformance requirments defined for including or valuing an element of an HL7 message.  The concepts apply equally to conformance profiles  defined for Version 2.x messgaes as defined by the Conformance SIG, and to the conformance columns for Version 3 messages as specified in the HMD.  Deprecation Comment:&#xD;&#xA;Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
+  <description value="These concepts represent theconformance requirments defined for including or valuing an element of an HL7 message.  The concepts apply equally to conformance profiles  defined for Version 2.x messgaes as defined by the Conformance SIG, and to the conformance columns for Version 3 messages as specified in the HMD.  &#xD;&#xA;Deprecation Comment:Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
@@ -58,6 +74,10 @@
       <valueBoolean value="true"/>
     </property>
     <property>
+      <code value="internalId"/>
+      <valueCode value="21081"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -65,6 +85,10 @@
       <code value="NP"/>
       <display value="Not permitted"/>
       <definition value=" This message element may not appear when the message is communicated."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10014"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -75,6 +99,10 @@
       <display value="Not required"/>
       <definition value=" The message element may be populated or used by one system sponsor (or profile), but not by another.  Each system sponsor or profile is required to state the ability to accept or send the message element as part of a conformance claim."/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="10015"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -82,6 +110,10 @@
         <code value="RE"/>
         <display value="Required may be empty"/>
         <definition value=" Pursuant to a profile or vendor conformance claim, the message element must appear every time the message is communicated, but the value may be communicated as null."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10016"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -92,6 +124,10 @@
         <display value="Excluded"/>
         <definition value=" Pursuant to a profile or vendor conformance claim, this message element may not appear when the message is communicated."/>
         <property>
+          <code value="internalId"/>
+          <valueCode value="10017"/>
+        </property>
+        <property>
           <code value="status"/>
           <valueCode value="active"/>
         </property>
@@ -101,6 +137,10 @@
       <code value="RQ"/>
       <display value="Required"/>
       <definition value=" The message element must appear every time the message is communicated, but the value may be communicated as null."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10013"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -125,6 +165,10 @@
       </use>
       <value value="R"/>
     </designation>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10011"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

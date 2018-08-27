@@ -26,6 +26,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -43,17 +51,29 @@
   <name value="ParticipationMode"/>
   <title value="ParticipationMode"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value=" A set of codes specifying the modality by which the Entity playing the Role is participating in the Act.  Examples:&#xD;&#xA;Physically present, over the telephone, written communication.  Rationale:&#xD;&#xA;Particularly for author (originator) participants this is used to specify whether the information represented by the act was initially provided verbally, (hand-)written, or electronically.  Open Issue:&#xD;&#xA;There needs to be a reexamination of the hierarchies as there seems to be some muddling between ELECTRONIC and other concepts that involve electronic communication that are in other hierarchies."/>
+  <description value="A set of codes specifying the modality by which the Entity playing the Role is participating in the Act.  &#xD;&#xA;Examples:Physically present, over the telephone, written communication.  &#xD;&#xA;Rationale:Particularly for author (originator) participants this is used to specify whether the information represented by the act was initially provided verbally, (hand-)written, or electronically.  &#xD;&#xA;Open Issue:There needs to be a reexamination of the hierarchies as there seems to be some muddling between ELECTRONIC and other concepts that involve electronic communication that are in other hierarchies."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="ELECTRONIC"/>
     <display value="electronic data"/>
     <definition value=" Participation by non-human-languaged based electronic signal"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="16554"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -64,6 +84,10 @@
     <display value="physical presence"/>
     <definition value=" Participation by direct action where subject and actor are in the same location. (The participation involves more than communication.)"/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="16556"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -72,6 +96,10 @@
     <code value="REMOTE"/>
     <display value="remote presence"/>
     <definition value=" Participation by direct action where subject and actor are in separate locations, and the actions of the actor are transmitted by electronic or mechanical means. (The participation involves more than communication.)"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="16557"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -82,6 +110,10 @@
     <display value="verbal"/>
     <definition value=" Participation by voice communication"/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="16544"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -89,6 +121,10 @@
       <code value="DICTATE"/>
       <display value="dictated"/>
       <definition value=" Participation by pre-recorded voice.  Communication is limited to one direction (from the recorder to recipient)."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="16547"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -99,6 +135,10 @@
       <display value="face-to-face"/>
       <definition value=" Participation by voice communication where parties speak to each other directly."/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="16545"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -108,6 +148,10 @@
       <display value="telephone"/>
       <definition value=" Participation by voice communication where the voices of the communicating parties are transported over an electronic medium"/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="16546"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -116,6 +160,10 @@
       <code value="VIDEOCONF"/>
       <display value="videoconferencing"/>
       <definition value=" Participation by voice and visual communication where the voices and images of the communicating parties are transported over an electronic medium"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="16548"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -127,6 +175,10 @@
     <display value="written"/>
     <definition value=" Participation by human language recorded on a physical material"/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="16549"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -134,6 +186,10 @@
       <code value="FAXWRIT"/>
       <display value="telefax"/>
       <definition value=" Participation by text or diagrams printed on paper that have been transmitted over a fax device"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="16552"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -144,6 +200,10 @@
       <display value="handwritten"/>
       <definition value=" Participation by text or diagrams printed on paper or other recording medium"/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="16550"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -152,6 +212,10 @@
       <code value="MAILWRIT"/>
       <display value="mail"/>
       <definition value=" Participation by text or diagrams printed on paper transmitted physically (e.g. by courier service, postal service)."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23720"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -162,6 +226,10 @@
       <display value="online written"/>
       <definition value=" Participation by text or diagrams submitted by computer network, e.g. online survey."/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="23719"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -169,6 +237,10 @@
         <code value="EMAILWRIT"/>
         <display value="email"/>
         <definition value=" Participation by text or diagrams transmitted over an electronic mail system."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="16553"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -179,6 +251,10 @@
       <code value="TYPEWRIT"/>
       <display value="typewritten"/>
       <definition value=" Participation by text or diagrams printed on paper or other recording medium where the recording was performed using a typewriter, typesetter, computer or similar mechanism."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="16551"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>

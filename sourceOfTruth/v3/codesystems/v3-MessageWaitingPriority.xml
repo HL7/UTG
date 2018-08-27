@@ -16,6 +16,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="HL7 Modeling &amp; Methodology Work Group">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -33,12 +41,12 @@
   <name value="MessageWaitingPriority"/>
   <title value="MessageWaitingPriority"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="HL7"/>
   <contact>
     <name value="HL7 Modeling &amp; Methodology Work Group"/>
   </contact>
-  <description value=" Indicates that the receiver has messages for the sender  OpenIssue:&#xD;&#xA;Description does not make sense relative to name of coding system.  Must be reviewed and improved."/>
+  <description value="Indicates that the receiver has messages for the sender  &#xD;&#xA;OpenIssue:Description does not make sense relative to name of coding system.  Must be reviewed and improved."/>
   <content value="complete"/>
   <property>
     <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-relationshipKind">
@@ -48,10 +56,22 @@
     <description value="The source concept code is &quot;less than&quot; the target concept in a strictly ordinal sense."/>
     <type value="Coding"/>
   </property>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="H"/>
     <display value="High"/>
     <definition value=" High priority messages are available"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19790"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,6 +89,10 @@
       </valueCoding>
     </property>
     <property>
+      <code value="internalId"/>
+      <valueCode value="19792"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -77,6 +101,10 @@
     <code value="M"/>
     <display value="Medium"/>
     <definition value=" Medium priority messages are available"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19791"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

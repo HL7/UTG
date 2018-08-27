@@ -11,6 +11,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -28,17 +36,29 @@
   <name value="AdministrativeGender"/>
   <title value="AdministrativeGender"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value=" The gender of a person used for adminstrative purposes (as opposed to clinical gender)"/>
+  <description value="The gender of a person used for adminstrative purposes (as opposed to clinical gender)"/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="F"/>
     <display value="Female"/>
     <definition value=" Female"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10174"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -49,6 +69,10 @@
     <display value="Male"/>
     <definition value=" Male"/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10173"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -57,6 +81,10 @@
     <code value="UN"/>
     <display value="Undifferentiated"/>
     <definition value=" The gender of a person could not be uniquely defined as male or female, such as hermaphrodite."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="17718"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

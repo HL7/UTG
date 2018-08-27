@@ -11,6 +11,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -28,13 +36,21 @@
   <name value="SubstitutionCondition"/>
   <title value="SubstitutionCondition"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value=" Identifies what sort of change is permitted or has occurred between the item that was ordered/requested and the one that was/will be provided."/>
+  <description value="Identifies what sort of change is permitted or has occurred between the item that was ordered/requested and the one that was/will be provided."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
@@ -50,6 +66,10 @@
       <valueBoolean value="true"/>
     </property>
     <property>
+      <code value="internalId"/>
+      <valueCode value="21285"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -57,6 +77,10 @@
       <code value="CONFIRM"/>
       <display value="Confirm first"/>
       <definition value=" Confirmation with Contact Person prior to making any substitutions has or will occur."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="17721"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -66,6 +90,10 @@
       <code value="NOTIFY"/>
       <display value="Notify first"/>
       <definition value=" Notification to the Contact Person, prior to substitution and through normal institutional procedures, has or will be made."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="17722"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -77,6 +105,10 @@
     <display value="No substitution"/>
     <definition value=" Substitution is not permitted."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="21383"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -85,6 +117,10 @@
     <code value="UNCOND"/>
     <display value="Unconditional"/>
     <definition value=" No conditions are required."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="17723"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

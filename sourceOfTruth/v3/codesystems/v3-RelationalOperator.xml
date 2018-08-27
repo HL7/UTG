@@ -3,6 +3,14 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-RelationalOperator"/>
   <language value="en"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -20,16 +28,28 @@
   <name value="RelationalOperator"/>
   <title value="RelationalOperator"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="CT"/>
     <display value="Contains"/>
     <definition value=" Specified set of things includes value being evaluated."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10170"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -40,6 +60,10 @@
     <display value="Equal"/>
     <definition value=" Equal condition applied to comparisons."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10164"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -48,6 +72,10 @@
     <code value="GE"/>
     <display value="Greater than or equal"/>
     <definition value=" Greater than or equal condition applied to comparisons."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10169"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -58,6 +86,10 @@
     <display value="Generic"/>
     <definition value=" A generic comparison selects a record for inclusion in the response if the beginning of the designated element value matches the select string."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10171"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -66,6 +98,10 @@
     <code value="GT"/>
     <display value="Greater than"/>
     <definition value=" Greater than condition applied to comparisons."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10167"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -76,6 +112,10 @@
     <display value="Less than or equal"/>
     <definition value=" Less than or equal condition applied to comparisons."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10168"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -85,6 +125,10 @@
     <display value="Less than"/>
     <definition value=" Less than condition applied to comparisons."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10166"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -93,6 +137,10 @@
     <code value="NE"/>
     <display value="Not Equal"/>
     <definition value=" Not equal condition applied to comparisons."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10165"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

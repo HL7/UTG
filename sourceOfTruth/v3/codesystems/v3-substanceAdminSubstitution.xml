@@ -11,6 +11,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -28,13 +36,21 @@
   <name value="substanceAdminSubstitution"/>
   <title value="Substance Admin Substitution"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value=" Identifies what sort of change is permitted or has occurred between the therapy that was ordered and the therapy that was/will be provided."/>
+  <description value="Identifies what sort of change is permitted or has occurred between the therapy that was ordered and the therapy that was/will be provided."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
@@ -44,10 +60,14 @@
   <concept>
     <code value="_ActSubstanceAdminSubstitutionCode"/>
     <display value="ActSubstanceAdminSubstitutionCode"/>
-    <definition value="  Description:&#xD;&#xA;Substitution occurred or is permitted with another product that may potentially have different ingredients, but having the same biological and therapeutic effects."/>
+    <definition value="  &#xD;&#xA;Description:Substitution occurred or is permitted with another product that may potentially have different ingredients, but having the same biological and therapeutic effects."/>
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21284"/>
     </property>
     <property>
       <code value="status"/>
@@ -56,7 +76,11 @@
     <concept>
       <code value="E"/>
       <display value="equivalent"/>
-      <definition value="  Description:&#xD;&#xA;Substitution occurred or is permitted with another bioequivalent and therapeutically equivalent product."/>
+      <definition value="  &#xD;&#xA;Description:Substitution occurred or is permitted with another bioequivalent and therapeutically equivalent product."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="23107"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -64,7 +88,11 @@
       <concept>
         <code value="EC"/>
         <display value="equivalent composition"/>
-        <definition value="  Description:&#xD;&#xA; Substitution occurred or is permitted with another product that is a:  pharmaceutical alternative containing the same active ingredient but is formulated with different salt, ester pharmaceutical equivalent that has the same active ingredient, strength, dosage form and route of administration  Examples:&#xD;&#xA;   Pharmaceutical alternative:Erythromycin Ethylsuccinate for Erythromycin Stearate  Pharmaceutical equivalent:Lisonpril for Zestril"/>
+        <definition value="  &#xD;&#xA;Description: Substitution occurred or is permitted with another product that is a:  pharmaceutical alternative containing the same active ingredient but is formulated with different salt, ester pharmaceutical equivalent that has the same active ingredient, strength, dosage form and route of administration  &#xD;&#xA;Examples:   Pharmaceutical alternative:Erythromycin Ethylsuccinate for Erythromycin Stearate  Pharmaceutical equivalent:Lisonpril for Zestril"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="23108"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -72,7 +100,11 @@
         <concept>
           <code value="BC"/>
           <display value="brand composition"/>
-          <definition value="  Description:&#xD;&#xA; Substitution occurred or is permitted between equivalent Brands but not Generics  Examples:&#xD;&#xA;  Zestril  for Prinivil Coumadin for Jantoven"/>
+          <definition value="  &#xD;&#xA;Description: Substitution occurred or is permitted between equivalent Brands but not Generics  &#xD;&#xA;Examples:  Zestril  for Prinivil Coumadin for Jantoven"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="23109"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -81,7 +113,11 @@
         <concept>
           <code value="G"/>
           <display value="generic composition"/>
-          <definition value="  Description:&#xD;&#xA;Substitution occurred or is permitted between equivalent Generics but not Brands  Examples:&#xD;&#xA;  Lisnopril (Lupin Corp) for Lisnopril (Wockhardt Corp)"/>
+          <definition value="  &#xD;&#xA;Description:Substitution occurred or is permitted between equivalent Generics but not Brands  &#xD;&#xA;Examples:  Lisnopril (Lupin Corp) for Lisnopril (Wockhardt Corp)"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="16623"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -91,7 +127,11 @@
       <concept>
         <code value="TE"/>
         <display value="therapeutic alternative"/>
-        <definition value="  Description:&#xD;&#xA;Substitution occurred or is permitted with another product having the same therapeutic objective and safety profile.  Examples:&#xD;&#xA;  ranitidine for Tagamet"/>
+        <definition value="  &#xD;&#xA;Description:Substitution occurred or is permitted with another product having the same therapeutic objective and safety profile.  &#xD;&#xA;Examples:  ranitidine for Tagamet"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="16624"/>
+        </property>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -99,7 +139,11 @@
         <concept>
           <code value="TB"/>
           <display value="therapeutic brand"/>
-          <definition value="  Description:&#xD;&#xA;Substitution occurred or is permitted between therapeutically equivalent Brands but not Generics&gt; Examples:&#xD;&#xA;  Zantac for Tagamet"/>
+          <definition value="  &#xD;&#xA;Description:Substitution occurred or is permitted between therapeutically equivalent Brands but not Generics&gt; &#xD;&#xA;Examples:  Zantac for Tagamet"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="23105"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -108,7 +152,11 @@
         <concept>
           <code value="TG"/>
           <display value="therapeutic generic"/>
-          <definition value="  Description:&#xD;&#xA;Substitution occurred or is permitted between therapeutically equivalent Generics but not Brands&gt; Examples:&#xD;&#xA;  Ranitidine  for cimetidine"/>
+          <definition value="  &#xD;&#xA;Description:Substitution occurred or is permitted between therapeutically equivalent Generics but not Brands&gt; &#xD;&#xA;Examples:  Ranitidine  for cimetidine"/>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="23106"/>
+          </property>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -119,7 +167,11 @@
     <concept>
       <code value="F"/>
       <display value="formulary"/>
-      <definition value="  Description:&#xD;&#xA;This substitution was performed or is permitted based on formulary guidelines."/>
+      <definition value="  &#xD;&#xA;Description:This substitution was performed or is permitted based on formulary guidelines."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="16625"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -129,6 +181,10 @@
       <code value="N"/>
       <display value="none"/>
       <definition value=" No substitution occurred or is permitted."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="16622"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>

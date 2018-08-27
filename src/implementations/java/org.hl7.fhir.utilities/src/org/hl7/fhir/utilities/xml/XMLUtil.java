@@ -364,10 +364,12 @@ public class XMLUtil {
         if (ws)
           s.append(" ");
         ws = false;
-        s.append(htmlToXmlEscapedPlainText((Element) n));
         if (r.getNodeName().equals("br") || r.getNodeName().equals("p"))
           s.append("\r\n");
+        s.append(htmlToXmlEscapedPlainText((Element) n));
+
       }
+      
       n = n.getNextSibling();      
     }
     return s.toString();

@@ -11,6 +11,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -28,17 +36,29 @@
   <name value="LivingArrangement"/>
   <title value="LivingArrangement"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value=" A code depicting the living arrangements of a person"/>
+  <description value="A code depicting the living arrangements of a person"/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="HL"/>
     <display value="homeless"/>
-    <definition value="  Definition:&#xD;&#xA;Living arrangements lacking a permanent residence."/>
+    <definition value="  &#xD;&#xA;Definition:Living arrangements lacking a permanent residence."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22193"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -48,6 +68,10 @@
       <display value="Nomadic"/>
       <definition value=" Nomadic"/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="10195"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -56,6 +80,10 @@
       <code value="T"/>
       <display value="Transient"/>
       <definition value=" Transient"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10194"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -67,13 +95,21 @@
     <display value="Institution"/>
     <definition value=" Institution"/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10189"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
     <concept>
       <code value="CS"/>
       <display value="community shelter"/>
-      <definition value="  Definition:&#xD;&#xA;A group living arrangement specifically for the care of those in need of temporary and crisis housing assistance.  Examples include domestic violence shelters, shelters for displaced or homeless individuals, Salvation Army, Jesus House, etc.  Community based services may be provided."/>
+      <definition value="  &#xD;&#xA;Definition:A group living arrangement specifically for the care of those in need of temporary and crisis housing assistance.  Examples include domestic violence shelters, shelters for displaced or homeless individuals, Salvation Army, Jesus House, etc.  Community based services may be provided."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22192"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -84,6 +120,10 @@
       <display value="Group Home"/>
       <definition value=" Group Home"/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="10193"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -92,6 +132,10 @@
       <code value="N"/>
       <display value="Nursing Home"/>
       <definition value=" Nursing Home"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10190"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -102,6 +146,10 @@
       <display value="Extended care facility"/>
       <definition value=" Extended care facility"/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="10191"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -110,7 +158,11 @@
   <concept>
     <code value="PR"/>
     <display value="private residence"/>
-    <definition value="  Definition:&#xD;&#xA;A living arrangement within a private residence for single family."/>
+    <definition value="  &#xD;&#xA;Definition:A living arrangement within a private residence for single family."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22190"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -119,6 +171,10 @@
       <code value="H"/>
       <display value="Independent Household"/>
       <definition value=" Independent Household"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10188"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -129,6 +185,10 @@
       <display value="Retirement Community"/>
       <definition value=" Retirement Community"/>
       <property>
+        <code value="internalId"/>
+        <valueCode value="10192"/>
+      </property>
+      <property>
         <code value="status"/>
         <valueCode value="active"/>
       </property>
@@ -136,7 +196,11 @@
     <concept>
       <code value="SL"/>
       <display value="supported living"/>
-      <definition value="  Definition:&#xD;&#xA;Assisted living in a single family residence for persons with physical, behavioral, or functional health, or socio-economic challenges.  There may or may not be on-site supervision but the housing is designed to assist the client with developing independent living skills. Community based services may be provided."/>
+      <definition value="  &#xD;&#xA;Definition:Assisted living in a single family residence for persons with physical, behavioral, or functional health, or socio-economic challenges.  There may or may not be on-site supervision but the housing is designed to assist the client with developing independent living skills. Community based services may be provided."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22191"/>
+      </property>
       <property>
         <code value="status"/>
         <valueCode value="active"/>

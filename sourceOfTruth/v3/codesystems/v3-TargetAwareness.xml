@@ -3,6 +3,14 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-TargetAwareness"/>
   <language value="en"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -20,16 +28,28 @@
   <name value="TargetAwareness"/>
   <title value="TargetAwareness"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="D"/>
     <display value="denying"/>
     <definition value=" Target person has been informed about the issue but currently denies it."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10313"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -40,6 +60,10 @@
     <display value="full awareness"/>
     <definition value=" Target person is fully aware of the issue."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10311"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -48,6 +72,10 @@
     <code value="I"/>
     <display value="incapable"/>
     <definition value=" Target person is not capable of comprehending the issue."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10316"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -58,6 +86,10 @@
     <display value="marginal"/>
     <definition value=" Target person is marginally aware of the issue."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10315"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -67,6 +99,10 @@
     <display value="partial"/>
     <definition value=" Target person is partially aware of the issue."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10314"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -75,6 +111,10 @@
     <code value="U"/>
     <display value="uninformed"/>
     <definition value=" Target person has not yet been informed of the issue."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10312"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

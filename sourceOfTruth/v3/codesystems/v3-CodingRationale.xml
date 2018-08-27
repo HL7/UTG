@@ -15,6 +15,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven, Inc.">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
     <valueString value="true"/>
   </extension>
@@ -32,13 +40,21 @@
   <name value="CodingRationale"/>
   <title value="CodingRationale"/>
   <status value="active"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="HL7 International"/>
   <contact>
     <name value="Health Level Seven, Inc."/>
   </contact>
-  <description value=" Identifies how to interpret the instance of the code, codeSystem value in a set of translations.  Since HL7 (or a government body) may mandate that codes from certain code systems be sent in conformant messages, other synonyms that are sent in the translation set need to be distinguished among the originally captured source, the HL7 specified code, or some future role.  When this code is NULL, it indicates that the translation is an undefined type.  When valued, this property must contain one of the following values: SRC - Source (or original) code HL7 - HL7 Specified or Mandated SH - both HL7 mandated and the original code (precoordination) There may be additional values added to this value set as we work through the use of codes in messages and determine other Use Cases requiring special interpretation of the translations."/>
+  <description value="Identifies how to interpret the instance of the code, codeSystem value in a set of translations.  Since HL7 (or a government body) may mandate that codes from certain code systems be sent in conformant messages, other synonyms that are sent in the translation set need to be distinguished among the originally captured source, the HL7 specified code, or some future role.  When this code is NULL, it indicates that the translation is an undefined type.  When valued, this property must contain one of the following values: SRC - Source (or original) code HL7 - HL7 Specified or Mandated SH - both HL7 mandated and the original code (precoordination) There may be additional values added to this value set as we work through the use of codes in messages and determine other Use Cases requiring special interpretation of the translations."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <property>
     <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
       <valueBoolean value="false"/>
@@ -50,7 +66,11 @@
   <concept>
     <code value="O"/>
     <display value="originally produced code"/>
-    <definition value="  Description:&#xD;&#xA;Originally produced code."/>
+    <definition value="  &#xD;&#xA;Description:Originally produced code."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22615"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -61,6 +81,10 @@
     <display value="original and required"/>
     <definition value=" Originally produced code, required by the specification describing the use of the coded concept."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="23533"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -68,7 +92,11 @@
   <concept>
     <code value="P"/>
     <display value="post-coded"/>
-    <definition value="  Description:&#xD;&#xA;Post-coded from free text source&lt;/description&gt;"/>
+    <definition value="  &#xD;&#xA;Description:Post-coded from free text source&lt;/description&gt;"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22617"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -79,6 +107,10 @@
     <display value="post-coded and required"/>
     <definition value=" Post-coded from free text source, required by the specification describing the use of the coded concept."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="23534"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -86,7 +118,11 @@
   <concept>
     <code value="R"/>
     <display value="required"/>
-    <definition value="  Description:&#xD;&#xA;Required standard code for HL7."/>
+    <definition value="  &#xD;&#xA;Description:Required standard code for HL7."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22616"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -96,6 +132,10 @@
     <code value="HL7"/>
     <display value="HL7 Specified or Mandated"/>
     <definition value=" HL7 Specified or Mandated"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19252"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>
@@ -110,6 +150,10 @@
     <display value="Both HL7 mandated and the original code"/>
     <definition value=" Both HL7 mandated and the original code (precoordination)"/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="19253"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
@@ -122,6 +166,10 @@
     <code value="SRC"/>
     <display value="Source (or original) code"/>
     <definition value=" Source (or original) code"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19251"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>

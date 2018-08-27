@@ -12,6 +12,14 @@
       <i>Open Issue: </i> There exist no codes in the repository for this coding system; should it be removed?
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="1130-20120315"/>
   </extension>
@@ -32,11 +40,19 @@
   <name value="MaterialForm"/>
   <title value="MaterialForm"/>
   <status value="retired"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="HL7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value=" A value representing the state (solid, liquid, gas) and nature of the material. Open Issue:There exist no codes in the repository for this coding system; should it be removed?"/>
+  <description value="A value representing the state (solid, liquid, gas) and nature of the material. Open Issue:There exist no codes in the repository for this coding system; should it be removed?"/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
 </CodeSystem>

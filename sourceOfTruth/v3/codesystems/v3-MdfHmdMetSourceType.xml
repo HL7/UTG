@@ -16,6 +16,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="675-20081229"/>
   </extension>
@@ -36,17 +44,29 @@
   <name value="MdfHmdMetSourceType"/>
   <title value="MdfHmdMetSourceType"/>
   <status value="retired"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value=" Code to identify the source of a Message Element Type represented in the &#39;of MET&#39; column of an HMD.  Deprecation Comment:&#xD;&#xA;Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
+  <description value="Code to identify the source of a Message Element Type represented in the &#39;of MET&#39; column of an HMD.  &#xD;&#xA;Deprecation Comment:Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="C"/>
     <display value="Common MET"/>
     <definition value=" This message element type is an HL7 common message element type."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10079"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -57,6 +77,10 @@
     <display value="Data type"/>
     <definition value=" This message element type is an HL7 data type."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10078"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -65,6 +89,10 @@
     <code value="I"/>
     <display value="Reference"/>
     <definition value=" This row represents a reference to a previously defined type.  Such a reference means that, in a given message, the message element instance for the current row is identical to the message element instance that instantiates the referred row."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10082"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -75,6 +103,10 @@
     <display value="New type"/>
     <definition value=" New type. This row starts the definition of a new message element type. The subordinate rows beneath it compose the definition of the type. Each of these subordinate rows has the name of the message element type being defined in the In Message Element Type column. That name will be the same one that is in the Of Message Element Type of this row."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10077"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -84,6 +116,10 @@
     <display value="Recursive"/>
     <definition value=" This row represents the recursive reuse of the message element type within which is appears. See 10.3.3.3."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="10081"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -92,6 +128,10 @@
     <code value="U"/>
     <display value="Re-used MET"/>
     <definition value=" This message element type was previously defined in this HMD and is being reused"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10080"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

@@ -16,6 +16,14 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
     <valueString value="643-20081229"/>
   </extension>
@@ -36,17 +44,29 @@
   <name value="ConceptGenerality"/>
   <title value="ConceptGenerality"/>
   <status value="retired"/>
-  <date value="2017-07-31"/>
+  <date value="2018-08-12"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value=" Indicates whether the concept that is the target should be interpreted as itself, or whether it should be expanded to include its child concepts, or both when it is included in the source domain/valueset.  Deprecation Comment:&#xD;&#xA;Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
+  <description value="Indicates whether the concept that is the target should be interpreted as itself, or whether it should be expanded to include its child concepts, or both when it is included in the source domain/valueset.  &#xD;&#xA;Deprecation Comment:Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
   <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="A"/>
     <display value="Abstract"/>
     <definition value=" Include only the descendents of this concept in the domain or value set, not the concept itself."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="11034"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -57,6 +77,10 @@
     <display value="Leaf"/>
     <definition value=" Include only the concept itself in the domain or value set.  Do not include descendents of the concept."/>
     <property>
+      <code value="internalId"/>
+      <valueCode value="11036"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
@@ -65,6 +89,10 @@
     <code value="S"/>
     <display value="Specializable"/>
     <definition value=" Include both the concept and its descendents as possible values in the domain or value set."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="11035"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
