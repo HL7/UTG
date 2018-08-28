@@ -929,6 +929,7 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.addProperty().setCode("v2type").setUri("http://healthintersections.com.au/csprop/v2type").setType(PropertyType.CODE).setDescription("Type of table");
     cs.addProperty().setCode("generate").setUri("http://healthintersections.com.au/csprop/generate").setType(PropertyType.BOOLEAN).setDescription("whether to generate table");
     cs.addProperty().setCode("version").setUri("http://healthintersections.com.au/csprop/version").setType(PropertyType.BOOLEAN).setDescription("Business version of table metadata");
+    cs.addProperty().setCode("structuredefinition-wg").setUri("http://healthintersections.com.au/csprop/structuredefinition-wg").setType(PropertyType.STRING).setDescription("Steward for the table.");
     
     int count = 0;
     for (String n : sorted(tables.keySet())) {
@@ -951,6 +952,8 @@ public class V2SourceGenerator extends BaseGenerator {
           if (tv.isGenerate())
             c.addProperty().setCode("generate").setValue(new BooleanType(true));
           c.addProperty().setCode("version").setValue(new IntegerType(1));
+          if (!Utilities.noString(tv.steward))
+              c.addProperty().setCode("structuredefinition-wg").setValue(new StringType(tv.steward));
         }
       }
     }        
