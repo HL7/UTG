@@ -141,6 +141,7 @@ public class V2SourceGenerator extends BaseGenerator {
     private String objectDescription;
     private String whereUsed;
     private String v2CodeTableComment;
+    private String binding;
     
     private List<TableEntry> entries = new ArrayList<TableEntry>();
     public TableVersion(String version, String name) {
@@ -247,6 +248,12 @@ public class V2SourceGenerator extends BaseGenerator {
 	}
 	public void setV2CodeTableComment(String v2CodeTableComment) {
 		this.v2CodeTableComment = v2CodeTableComment;
+	}
+	public String getBinding() {
+		return binding;
+	}
+	public void setBinding(String binding) {
+		this.binding = binding;
 	}
 
   }
@@ -360,6 +367,7 @@ public class V2SourceGenerator extends BaseGenerator {
           master.objectDescription = tv.objectDescription;
           master.whereUsed = tv.whereUsed;
           master.v2CodeTableComment = tv.v2CodeTableComment;
+          master.binding = tv.binding;
           for (TableEntry te : tv.entries) {
             TableEntry tem = master.find(te.code);
             if (tem == null) {
@@ -495,8 +503,10 @@ public class V2SourceGenerator extends BaseGenerator {
     }
 
     Map<String, String> nameCache = new HashMap<String, String>();
-    query = stmt.executeQuery("SELECT t.table_id, t.version_id, t.display_name, t.oid_table, t.cs_oid, t.cs_version, t.vs_oid, t.vs_expansion, t.vocab_domain, t.interpretation, t.description_as_pub, t.table_type, t.generate, t.section, t.anchor, t.case_insensitive, t.steward, t.where_used, t.v2codetablecomment, o.object_description \r\n" + 
-    		"FROM HL7Tables t INNER JOIN HL7Objects o ON t.oid_table = o.oid \r\n" + 
+    query = stmt.executeQuery("SELECT t.table_id, t.version_id, t.display_name, t.oid_table, t.cs_oid, t.cs_version, t.vs_oid, t.vs_expansion, t.vocab_domain, t.interpretation, "
+    		+ "t.description_as_pub, t.table_type, t.generate, t.section, t.anchor, t.case_insensitive, t.steward, t.where_used, t.v2codetablecomment, t.binding, o.object_description "
+    		+ "FROM HL7Tables t INNER JOIN HL7Objects o "
+    		+ "ON t.oid_table = o.oid " + 
     		"WHERE t.version_id < 100 order by t.version_id");
         
     while (query.next()) {
@@ -533,6 +543,7 @@ public class V2SourceGenerator extends BaseGenerator {
       tv.setObjectDescription(query.getString("object_description"));
       tv.setWhereUsed(query.getString("where_used"));
       tv.setV2CodeTableComment(query.getString("v2codetablecomment"));
+      tv.setBinding(query.getString("binding"));
     }
     int i = 0;
     query = stmt.executeQuery("SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub, active, modification  from HL7TableValues where version_id < 100");
@@ -950,6 +961,7 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.addProperty().setCode("structuredefinition-wg").setUri("http://healthintersections.com.au/csprop/structuredefinition-wg").setType(PropertyType.STRING).setDescription("Steward for the table.");
     cs.addProperty().setCode("where-used").setUri("http://healthintersections.com.au/csprop/where-used").setType(PropertyType.STRING).setDescription("Where this table is used.");
     cs.addProperty().setCode("v2-codes-table-comment").setUri("http://healthintersections.com.au/csprop/v2-codes-table-comment").setType(PropertyType.STRING).setDescription("V2 Codes Table Comment.");
+    cs.addProperty().setCode("binding").setUri("http://healthintersections.com.au/csprop/binding").setType(PropertyType.STRING).setDescription("Binding.");
 
 
     
@@ -980,6 +992,8 @@ public class V2SourceGenerator extends BaseGenerator {
               c.addProperty().setCode("where-used").setValue(new StringType(tv.whereUsed));
           if (!Utilities.noString(tv.v2CodeTableComment))
               c.addProperty().setCode("v2-codes-table-comment").setValue(new StringType(tv.v2CodeTableComment));
+          if (!Utilities.noString(tv.binding))
+              c.addProperty().setCode("binding").setValue(new StringType(tv.binding));
         }
       }
     }        
