@@ -142,6 +142,7 @@ public class V2SourceGenerator extends BaseGenerator {
     private String whereUsed;
     private String v2CodeTableComment;
     private String binding;
+    private String versionIntroduced;
     
     private List<TableEntry> entries = new ArrayList<TableEntry>();
     public TableVersion(String version, String name) {
@@ -254,6 +255,12 @@ public class V2SourceGenerator extends BaseGenerator {
 	}
 	public void setBinding(String binding) {
 		this.binding = binding;
+	}
+	public String getVersionInroduced() {
+		return versionIntroduced;
+	}
+	public void setVersionInroduced(String versionInroduced) {
+		this.versionIntroduced = versionInroduced;
 	}
 
   }
@@ -368,6 +375,7 @@ public class V2SourceGenerator extends BaseGenerator {
           master.whereUsed = tv.whereUsed;
           master.v2CodeTableComment = tv.v2CodeTableComment;
           master.binding = tv.binding;
+          master.versionIntroduced = tv.versionIntroduced;
           for (TableEntry te : tv.entries) {
             TableEntry tem = master.find(te.code);
             if (tem == null) {
@@ -503,10 +511,11 @@ public class V2SourceGenerator extends BaseGenerator {
     }
 
     Map<String, String> nameCache = new HashMap<String, String>();
-    query = stmt.executeQuery("SELECT t.table_id, t.version_id, t.display_name, t.oid_table, t.cs_oid, t.cs_version, t.vs_oid, t.vs_expansion, t.vocab_domain, t.interpretation, "
-    		+ "t.description_as_pub, t.table_type, t.generate, t.section, t.anchor, t.case_insensitive, t.steward, t.where_used, t.v2codetablecomment, t.binding, o.object_description "
-    		+ "FROM HL7Tables t INNER JOIN HL7Objects o "
-    		+ "ON t.oid_table = o.oid " + 
+    query = stmt.executeQuery("SELECT t.table_id, t.version_id, t.display_name, t.oid_table, t.cs_oid, t.cs_version, t.vs_oid, t.vs_expansion, t.vocab_domain, t.interpretation, \r\n" + 
+    		"t.description_as_pub, t.table_type, t.generate, t.section, t.anchor, t.case_insensitive, t.steward, t.where_used, t.v2codetablecomment, t.binding, o.object_description, v.hl7_version \r\n" + 
+    		"FROM ((HL7Tables t \r\n" + 
+    		"INNER JOIN HL7Objects o ON t.oid_table = o.oid) \r\n" + 
+    		"INNER JOIN HL7Versions v ON t.version_introduced = v.version_id) \r\n" + 
     		"WHERE t.version_id < 100 order by t.version_id");
         
     while (query.next()) {
@@ -544,6 +553,7 @@ public class V2SourceGenerator extends BaseGenerator {
       tv.setWhereUsed(query.getString("where_used"));
       tv.setV2CodeTableComment(query.getString("v2codetablecomment"));
       tv.setBinding(query.getString("binding"));
+      tv.setVersionInroduced(query.getString("hl7_version"));
     }
     int i = 0;
     query = stmt.executeQuery("SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub, active, modification  from HL7TableValues where version_id < 100");
@@ -962,6 +972,8 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.addProperty().setCode("where-used").setUri("http://healthintersections.com.au/csprop/where-used").setType(PropertyType.STRING).setDescription("Where this table is used.");
     cs.addProperty().setCode("v2-codes-table-comment").setUri("http://healthintersections.com.au/csprop/v2-codes-table-comment").setType(PropertyType.STRING).setDescription("V2 Codes Table Comment.");
     cs.addProperty().setCode("binding").setUri("http://healthintersections.com.au/csprop/binding").setType(PropertyType.STRING).setDescription("Binding.");
+    cs.addProperty().setCode("version-introduced").setUri("http://healthintersections.com.au/csprop/version-introduced").setType(PropertyType.STRING).setDescription("Version Introduced.");
+
 
 
     
@@ -994,6 +1006,8 @@ public class V2SourceGenerator extends BaseGenerator {
               c.addProperty().setCode("v2-codes-table-comment").setValue(new StringType(tv.v2CodeTableComment));
           if (!Utilities.noString(tv.binding))
               c.addProperty().setCode("binding").setValue(new StringType(tv.binding));
+          if (!Utilities.noString(tv.versionIntroduced))
+              c.addProperty().setCode("version-introduced").setValue(new StringType(tv.versionIntroduced));
         }
       }
     }        
