@@ -143,7 +143,7 @@ public class V2SourceGenerator extends BaseGenerator {
     private String v2CodeTableComment;
     private String binding;
     private String versionIntroduced;
-    private String cld; 
+    private String cld;
     
     private List<TableEntry> entries = new ArrayList<TableEntry>();
     public TableVersion(String version, String name) {
@@ -269,7 +269,6 @@ public class V2SourceGenerator extends BaseGenerator {
 	public void setCld(String cld) {
 		this.cld = cld;
 	}
-
   }
 
 
