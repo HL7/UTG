@@ -138,6 +138,11 @@ public class V2SourceGenerator extends BaseGenerator {
     private boolean caseInsensitive;
     private String steward;
     private String conceptDomainRef;
+    private String objectDescription;
+    private String whereUsed;
+    private String v2CodeTableComment;
+    private String binding;
+    private String versionIntroduced;
     
     private List<TableEntry> entries = new ArrayList<TableEntry>();
     public TableVersion(String version, String name) {
@@ -227,6 +232,36 @@ public class V2SourceGenerator extends BaseGenerator {
     public void setConceptDomainRef(String conceptDomainRef) {
       this.conceptDomainRef = conceptDomainRef;
     }
+	public String getObjectDescription() {
+		return objectDescription;
+	}
+	public void setObjectDescription(String objectDescription) {
+		this.objectDescription = objectDescription;
+	}
+	public String getWhereUsed() {
+		return whereUsed;
+	}
+	public void setWhereUsed(String whereUsed) {
+		this.whereUsed = whereUsed;
+	}
+	public String getV2CodeTableComment() {
+		return v2CodeTableComment;
+	}
+	public void setV2CodeTableComment(String v2CodeTableComment) {
+		this.v2CodeTableComment = v2CodeTableComment;
+	}
+	public String getBinding() {
+		return binding;
+	}
+	public void setBinding(String binding) {
+		this.binding = binding;
+	}
+	public String getVersionInroduced() {
+		return versionIntroduced;
+	}
+	public void setVersionInroduced(String versionInroduced) {
+		this.versionIntroduced = versionInroduced;
+	}
 
   }
 
@@ -336,6 +371,11 @@ public class V2SourceGenerator extends BaseGenerator {
           master.anchor = tv.anchor;
           master.generate = tv.generate;
           master.type = tv.type;
+          master.objectDescription = tv.objectDescription;
+          master.whereUsed = tv.whereUsed;
+          master.v2CodeTableComment = tv.v2CodeTableComment;
+          master.binding = tv.binding;
+          master.versionIntroduced = tv.versionIntroduced;
           for (TableEntry te : tv.entries) {
             TableEntry tem = master.find(te.code);
             if (tem == null) {
@@ -471,7 +511,12 @@ public class V2SourceGenerator extends BaseGenerator {
     }
 
     Map<String, String> nameCache = new HashMap<String, String>();
-    query = stmt.executeQuery("SELECT table_id, version_id, display_name, oid_table, cs_oid, cs_version, vs_oid, vs_expansion, vocab_domain, interpretation, description_as_pub, table_type, generate, section, anchor, case_insensitive, steward  from HL7Tables where version_id < 100 order by version_id");
+    query = stmt.executeQuery("SELECT t.table_id, t.version_id, t.display_name, t.oid_table, t.cs_oid, t.cs_version, t.vs_oid, t.vs_expansion, t.vocab_domain, t.interpretation, \r\n" + 
+    		"t.description_as_pub, t.table_type, t.generate, t.section, t.anchor, t.case_insensitive, t.steward, t.where_used, t.v2codetablecomment, t.binding, o.object_description, v.hl7_version \r\n" + 
+    		"FROM ((HL7Tables t \r\n" + 
+    		"INNER JOIN HL7Objects o ON t.oid_table = o.oid) \r\n" + 
+    		"INNER JOIN HL7Versions v ON t.version_introduced = v.version_id) \r\n" + 
+    		"WHERE t.version_id < 100 order by t.version_id");
         
     while (query.next()) {
       String tid = Utilities.padLeft(Integer.toString(query.getInt("table_id")), '0', 4);
@@ -504,6 +549,11 @@ public class V2SourceGenerator extends BaseGenerator {
       tv.setAnchor(query.getString("anchor"));
       tv.setCaseInsensitive(query.getBoolean("case_insensitive"));
       tv.setSteward(query.getString("steward"));
+      tv.setObjectDescription(query.getString("object_description"));
+      tv.setWhereUsed(query.getString("where_used"));
+      tv.setV2CodeTableComment(query.getString("v2codetablecomment"));
+      tv.setBinding(query.getString("binding"));
+      tv.setVersionInroduced(query.getString("hl7_version"));
     }
     int i = 0;
     query = stmt.executeQuery("SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub, active, modification  from HL7TableValues where version_id < 100");
@@ -918,6 +968,14 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.addProperty().setCode("v2type").setUri("http://healthintersections.com.au/csprop/v2type").setType(PropertyType.CODE).setDescription("Type of table");
     cs.addProperty().setCode("generate").setUri("http://healthintersections.com.au/csprop/generate").setType(PropertyType.BOOLEAN).setDescription("whether to generate table");
     cs.addProperty().setCode("version").setUri("http://healthintersections.com.au/csprop/version").setType(PropertyType.BOOLEAN).setDescription("Business version of table metadata");
+    cs.addProperty().setCode("structuredefinition-wg").setUri("http://healthintersections.com.au/csprop/structuredefinition-wg").setType(PropertyType.STRING).setDescription("Steward for the table.");
+    cs.addProperty().setCode("where-used").setUri("http://healthintersections.com.au/csprop/where-used").setType(PropertyType.STRING).setDescription("Where this table is used.");
+    cs.addProperty().setCode("v2-codes-table-comment").setUri("http://healthintersections.com.au/csprop/v2-codes-table-comment").setType(PropertyType.STRING).setDescription("V2 Codes Table Comment.");
+    cs.addProperty().setCode("binding").setUri("http://healthintersections.com.au/csprop/binding").setType(PropertyType.STRING).setDescription("Binding.");
+    cs.addProperty().setCode("version-introduced").setUri("http://healthintersections.com.au/csprop/version-introduced").setType(PropertyType.STRING).setDescription("Version Introduced.");
+
+
+
     
     int count = 0;
     for (String n : sorted(tables.keySet())) {
@@ -929,7 +987,7 @@ public class V2SourceGenerator extends BaseGenerator {
           c.setCode(t.id);
           count++;
           c.setDisplay(t.name);
-          c.setDefinition(tv.description);
+          c.setDefinition(tv.objectDescription);
           c.addProperty().setCode("oid").setValue(new StringType(t.oid));
           if (!Utilities.noString(tv.csoid))
             c.addProperty().setCode("csoid").setValue(new StringType(tv.csoid));
@@ -940,6 +998,16 @@ public class V2SourceGenerator extends BaseGenerator {
           if (tv.isGenerate())
             c.addProperty().setCode("generate").setValue(new BooleanType(true));
           c.addProperty().setCode("version").setValue(new IntegerType(1));
+          if (!Utilities.noString(tv.steward))
+              c.addProperty().setCode("structuredefinition-wg").setValue(new StringType(tv.steward));
+          if (!Utilities.noString(tv.whereUsed))
+              c.addProperty().setCode("where-used").setValue(new StringType(tv.whereUsed));
+          if (!Utilities.noString(tv.v2CodeTableComment))
+              c.addProperty().setCode("v2-codes-table-comment").setValue(new StringType(tv.v2CodeTableComment));
+          if (!Utilities.noString(tv.binding))
+              c.addProperty().setCode("binding").setValue(new StringType(tv.binding));
+          if (!Utilities.noString(tv.versionIntroduced))
+              c.addProperty().setCode("version-introduced").setValue(new StringType(tv.versionIntroduced));
         }
       }
     }        
