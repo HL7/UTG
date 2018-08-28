@@ -139,6 +139,7 @@ public class V2SourceGenerator extends BaseGenerator {
     private String steward;
     private String conceptDomainRef;
     private String objectDescription;
+    private String whereUsed;
     
     private List<TableEntry> entries = new ArrayList<TableEntry>();
     public TableVersion(String version, String name) {
@@ -233,6 +234,12 @@ public class V2SourceGenerator extends BaseGenerator {
 	}
 	public void setObjectDescription(String objectDescription) {
 		this.objectDescription = objectDescription;
+	}
+	public String getWhereUsed() {
+		return whereUsed;
+	}
+	public void setWhereUsed(String whereUsed) {
+		this.whereUsed = whereUsed;
 	}
 
   }
@@ -344,6 +351,7 @@ public class V2SourceGenerator extends BaseGenerator {
           master.generate = tv.generate;
           master.type = tv.type;
           master.objectDescription = tv.objectDescription;
+          master.whereUsed = tv.whereUsed;
           for (TableEntry te : tv.entries) {
             TableEntry tem = master.find(te.code);
             if (tem == null) {
@@ -479,9 +487,9 @@ public class V2SourceGenerator extends BaseGenerator {
     }
 
     Map<String, String> nameCache = new HashMap<String, String>();
-    query = stmt.executeQuery("SELECT table_id, version_id, display_name, oid_table, cs_oid, cs_version, vs_oid, vs_expansion, vocab_domain, interpretation, description_as_pub, table_type, generate, section, anchor, case_insensitive, steward, object_description \r\n" + 
-    		"FROM HL7Tables INNER JOIN HL7Objects ON HL7Tables.oid_table = HL7Objects.oid \r\n" + 
-    		"WHERE version_id < 100 order by version_id");
+    query = stmt.executeQuery("SELECT t.table_id, t.version_id, t.display_name, t.oid_table, t.cs_oid, t.cs_version, t.vs_oid, t.vs_expansion, t.vocab_domain, t.interpretation, t.description_as_pub, t.table_type, t.generate, t.section, t.anchor, t.case_insensitive, t.steward, t.where_used, o.object_description \r\n" + 
+    		"FROM HL7Tables t INNER JOIN HL7Objects o ON t.oid_table = o.oid \r\n" + 
+    		"WHERE t.version_id < 100 order by t.version_id");
         
     while (query.next()) {
       String tid = Utilities.padLeft(Integer.toString(query.getInt("table_id")), '0', 4);
@@ -515,6 +523,7 @@ public class V2SourceGenerator extends BaseGenerator {
       tv.setCaseInsensitive(query.getBoolean("case_insensitive"));
       tv.setSteward(query.getString("steward"));
       tv.setObjectDescription(query.getString("object_description"));
+      tv.setWhereUsed(query.getString("where_used"));
     }
     int i = 0;
     query = stmt.executeQuery("SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub, active, modification  from HL7TableValues where version_id < 100");
@@ -930,6 +939,8 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.addProperty().setCode("generate").setUri("http://healthintersections.com.au/csprop/generate").setType(PropertyType.BOOLEAN).setDescription("whether to generate table");
     cs.addProperty().setCode("version").setUri("http://healthintersections.com.au/csprop/version").setType(PropertyType.BOOLEAN).setDescription("Business version of table metadata");
     cs.addProperty().setCode("structuredefinition-wg").setUri("http://healthintersections.com.au/csprop/structuredefinition-wg").setType(PropertyType.STRING).setDescription("Steward for the table.");
+    cs.addProperty().setCode("where-used").setUri("http://healthintersections.com.au/csprop/where-used").setType(PropertyType.STRING).setDescription("Where this table is used.");
+
     
     int count = 0;
     for (String n : sorted(tables.keySet())) {
@@ -954,6 +965,8 @@ public class V2SourceGenerator extends BaseGenerator {
           c.addProperty().setCode("version").setValue(new IntegerType(1));
           if (!Utilities.noString(tv.steward))
               c.addProperty().setCode("structuredefinition-wg").setValue(new StringType(tv.steward));
+          if (!Utilities.noString(tv.whereUsed))
+              c.addProperty().setCode("where-used").setValue(new StringType(tv.whereUsed));
         }
       }
     }        
