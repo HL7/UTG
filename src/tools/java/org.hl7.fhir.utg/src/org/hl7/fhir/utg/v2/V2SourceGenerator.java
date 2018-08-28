@@ -805,8 +805,6 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.setContent(CodeSystemContentMode.COMPLETE);
     if (!Utilities.noString(tv.getSteward()))
         cs.getExtension().add(new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg").setValue(new CodeType(tv.getSteward())));
-    if (tv.getType() > 0)
-      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type").setValue(new CodeType(codeForType(tv.getType()))));
     if (tv.isGenerate())
       cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate").setValue(new BooleanType(true)));
 
@@ -996,8 +994,6 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.addProperty().setCode("vocab-domain").setUri("http://terminology.hl7.org/csprop/vocab-domain").setType(PropertyType.STRING).setDescription("Vocabulary Domain for this table");
 
     
-
-    
     int count = 0;
     for (String n : sorted(tables.keySet())) {
       if (!n.equals("0000")) {
@@ -1009,7 +1005,7 @@ public class V2SourceGenerator extends BaseGenerator {
           count++;
           c.setDisplay(t.name);
           c.setDefinition(tv.objectDescription);
-          c.addProperty().setCode("oid").setValue(new StringType(t.oid));
+          c.addProperty().setCode("table-oid").setValue(new StringType(t.oid));
           if (!Utilities.noString(tv.csoid))
             c.addProperty().setCode("csoid").setValue(new StringType(tv.csoid));
           if (!Utilities.noString(tv.vsoid))
