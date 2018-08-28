@@ -11,6 +11,9 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+    <valueString value="Is in UMLS."/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
     <valueString value="Health Level Seven">
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
@@ -62,7 +65,7 @@
   <concept>
     <code value="NI"/>
     <display value="NoInformation"/>
-    <definition value="  &#xD;&#xA;Description:The value is exceptional (missing, omitted, incomplete, improper). No information as to the reason for being an exceptional value is provided. This is the most general exceptional value. It is also the default exceptional value."/>
+    <definition value="  &#xD;&#xA; Description:The value is exceptional (missing, omitted, incomplete, improper). No information as to the reason for being an exceptional value is provided. This is the most general exceptional value. It is also the default exceptional value."/>
     <property>
       <code value="internalId"/>
       <valueCode value="10610"/>
@@ -74,7 +77,7 @@
     <concept>
       <code value="INV"/>
       <display value="invalid"/>
-      <definition value="  &#xD;&#xA;Description:The value as represented in the instance is not a member of the set of permitted data values in the constrained value domain of a variable."/>
+      <definition value="  &#xD;&#xA; Description:The value as represented in the instance is not a member of the set of permitted data values in the constrained value domain of a variable."/>
       <property>
         <code value="internalId"/>
         <valueCode value="22656"/>
@@ -86,7 +89,7 @@
       <concept>
         <code value="DER"/>
         <display value="derived"/>
-        <definition value="  &#xD;&#xA;Description:An actual value may exist, but it must be derived from the provided information (usually an EXPR generic data type extension will be used to convey the derivation expressionexpression ."/>
+        <definition value="  &#xD;&#xA; Description:An actual value may exist, but it must be derived from the provided information (usually an EXPR generic data type extension will be used to convey the derivation expressionexpression ."/>
         <property>
           <code value="internalId"/>
           <valueCode value="22657"/>
@@ -99,7 +102,7 @@
       <concept>
         <code value="OTH"/>
         <display value="other"/>
-        <definition value="  &#xD;&#xA;Description:The actual value is not a member of the set of permitted data values in the constrained value domain of a variable. (e.g., concept not provided by required code system).  &#xD;&#xA;Usage Notes: This flavor and its specializations are most commonly used with the CD datatype and its flavors.  However, it may apply to *any* datatype where the constraints of the type are tighter than can be conveyed.  For example, a PQ that is for a true measured amount whose units are not supported in UCUM, a need to convey a REAL when the type has been constrained to INT, etc. With coded datatypes, this null flavor may only be used if the vocabulary binding has a coding strength of CNE.  By definition, all local codes and original text are part of the value set if the coding strength is CWE."/>
+        <definition value="  &#xD;&#xA; Description:The actual value is not a member of the set of permitted data values in the constrained value domain of a variable. (e.g., concept not provided by required code system).  &#xD;&#xA; Usage Notes: This flavor and its specializations are most commonly used with the CD datatype and its flavors.  However, it may apply to *any* datatype where the constraints of the type are tighter than can be conveyed.  For example, a PQ that is for a true measured amount whose units are not supported in UCUM, a need to convey a REAL when the type has been constrained to INT, etc. With coded datatypes, this null flavor may only be used if the vocabulary binding has a coding strength of CNE.  By definition, all local codes and original text are part of the value set if the coding strength is CWE."/>
         <property>
           <code value="internalId"/>
           <valueCode value="10616"/>
@@ -138,7 +141,7 @@
       <concept>
         <code value="UNC"/>
         <display value="un-encoded"/>
-        <definition value="  &#xD;&#xA;Description:The actual value has not yet been encoded within the approved value domain.  &#xD;&#xA;Example: Original text or a local code has been specified but translation or encoding to the approved value set has not yet occurred due to limitations of the sending system.  Original text has been captured for a PQ, but not attempt has been made to split the value and unit or to encode the unit in UCUM.  &#xD;&#xA;Usage Notes: If it is known that it is not possible to encode the concept, OTH should be used instead.  However, use of UNC does not necessarily guarantee the concept will be encodable, only that encoding has not been attempted. Data type properties such as original text and translations may be present when this null flavor is included."/>
+        <definition value="  &#xD;&#xA; Description:The actual value has not yet been encoded within the approved value domain.  &#xD;&#xA; Example: Original text or a local code has been specified but translation or encoding to the approved value set has not yet occurred due to limitations of the sending system.  Original text has been captured for a PQ, but not attempt has been made to split the value and unit or to encode the unit in UCUM.  &#xD;&#xA; Usage Notes: If it is known that it is not possible to encode the concept, OTH should be used instead.  However, use of UNC does not necessarily guarantee the concept will be encodable, only that encoding has not been attempted. Data type properties such as original text and translations may be present when this null flavor is included."/>
         <property>
           <code value="internalId"/>
           <valueCode value="22185"/>
@@ -178,7 +181,7 @@
     <concept>
       <code value="UNK"/>
       <display value="unknown"/>
-      <definition value="  &#xD;&#xA;Description:A proper value is applicable, but not known.  &#xD;&#xA;Usage Notes: This means the actual value is not known.  If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used.  No properties should be included for a datatype with this property unless:  Those properties themselves directly translate to a semantic of &quot;unknown&quot;.  (E.g. a local code sent as a translation that conveys &#39;unknown&#39;) Those properties further qualify the nature of what is unknown.  (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)"/>
+      <definition value="  &#xD;&#xA; Description:A proper value is applicable, but not known.  &#xD;&#xA; Usage Notes: This means the actual value is not known.  If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used.  No properties should be included for a datatype with this property unless:  Those properties themselves directly translate to a semantic of &quot;unknown&quot;.  (E.g. a local code sent as a translation that conveys &#39;unknown&#39;) Those properties further qualify the nature of what is unknown.  (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)"/>
       <property>
         <code value="internalId"/>
         <valueCode value="10612"/>
@@ -245,7 +248,7 @@
       <concept>
         <code value="QS"/>
         <display value="Sufficient Quantity"/>
-        <definition value="  &#xD;&#xA;Description:The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material. e.g. &#39;Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.&#39; The null flavor would be used to express the quantity of water."/>
+        <definition value="  &#xD;&#xA; Description:The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material. e.g. &#39;Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.&#39; The null flavor would be used to express the quantity of water."/>
         <property>
           <code value="internalId"/>
           <valueCode value="21436"/>

@@ -96,6 +96,9 @@
                
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+    <valueString value="Is in UMLS."/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
     <valueString value="Health Level Seven">
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
@@ -126,7 +129,7 @@
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value="Codes for the Role class hierarchy.  The values in this hierarchy, represent a Role which is an association or relationship between two entities - the entity that plays the role and the entity that scopes the role.  Roles names are derived from the name of the playing entity in that role. The role hierarchy stems from three core concepts, or abstract domains:    &#xD;&#xA;RoleClassOntologicalis an abstract domain that collects roles in which the playing entity is defined or specified by the scoping entity.   &#xD;&#xA;RoleClassPartitivecollects roles in which the playing entity is in some sense a &quot;part&quot; of the scoping entity.   &#xD;&#xA;RoleClassAssociativecollects all of the remaining forms of association between the playing entity and the scoping entity. This set of roles is further partitioned between:    &#xD;&#xA;RoleClassPassivewhich are roles in which the playing entity is used, known, treated, handled, built, or destroyed, etc. under the auspices of the scoping entity. The playing entity is passive in these roles in that the role exists without an agreement from the playing entity.   &#xD;&#xA;RoleClassMutualRelationshipwhich are relationships based on mutual behavior of the two entities. The basis of these relationship may be formal agreements or they may be&#xD;&#xA;de factobehavior.  Thus, this sub-domain is further divided into:    &#xD;&#xA;RoleClassRelationshipFormalin which the relationship is formally defined, frequently by a contract or agreement.   &#xD;&#xA;Personal relationshipwhich inks two people in a personal relationship. The hierarchy discussed above is represented In the current vocabulary tables as a set of abstract domains, with the exception of the  &quot;Personal relationship&quot; which is a leaf concept.  &#xD;&#xA;OpenIssue:Description copied from Concept Domain of same name.  Must be verified."/>
+  <description value="Codes for the Role class hierarchy.  The values in this hierarchy, represent a Role which is an association or relationship between two entities - the entity that plays the role and the entity that scopes the role.  Roles names are derived from the name of the playing entity in that role. The role hierarchy stems from three core concepts, or abstract domains:    &#xD;&#xA; RoleClassOntologicalis an abstract domain that collects roles in which the playing entity is defined or specified by the scoping entity.   &#xD;&#xA; RoleClassPartitivecollects roles in which the playing entity is in some sense a &quot;part&quot; of the scoping entity.   &#xD;&#xA; RoleClassAssociativecollects all of the remaining forms of association between the playing entity and the scoping entity. This set of roles is further partitioned between:    &#xD;&#xA; RoleClassPassivewhich are roles in which the playing entity is used, known, treated, handled, built, or destroyed, etc. under the auspices of the scoping entity. The playing entity is passive in these roles in that the role exists without an agreement from the playing entity.   &#xD;&#xA; RoleClassMutualRelationshipwhich are relationships based on mutual behavior of the two entities. The basis of these relationship may be formal agreements or they may be&#xD;&#xA; de factobehavior.  Thus, this sub-domain is further divided into:    &#xD;&#xA; RoleClassRelationshipFormalin which the relationship is formally defined, frequently by a contract or agreement.   &#xD;&#xA; Personal relationshipwhich inks two people in a personal relationship. The hierarchy discussed above is represented In the current vocabulary tables as a set of abstract domains, with the exception of the  &quot;Personal relationship&quot; which is a leaf concept.  &#xD;&#xA; OpenIssue:Description copied from Concept Domain of same name.  Must be verified."/>
   <content value="complete"/>
   <property>
     <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
@@ -297,7 +300,7 @@
       <concept>
         <code value="_RoleClassMutualRelationship"/>
         <display value="RoleClassMutualRelationship"/>
-        <definition value=" A relationship that is based on mutual behavior of the two Entities as being related. The basis of such relationship may be agreements (e.g., spouses, contract parties) or they may be&#xD;&#xA;de factobehavior (e.g. friends) or may be an incidental involvement with each other (e.g. parties over a dispute, siblings, children)."/>
+        <definition value=" A relationship that is based on mutual behavior of the two Entities as being related. The basis of such relationship may be agreements (e.g., spouses, contract parties) or they may be&#xD;&#xA; de factobehavior (e.g. friends) or may be an incidental involvement with each other (e.g. parties over a dispute, siblings, children)."/>
         <property>
           <code value="notSelectable"/>
           <valueBoolean value="true"/>
@@ -369,7 +372,7 @@
           <concept>
             <code value="AFFL"/>
             <display value="affiliate"/>
-            <definition value=" Player of the Affiliate role has a business/professional relationship with scoper.  Player and scoper may be persons or organization.  The Affiliate relationship does not imply membership in a group, nor does it exist for resource scheduling purposes.  &#xD;&#xA;Example:A healthcare provider is affiliated with another provider as a business associate."/>
+            <definition value=" Player of the Affiliate role has a business/professional relationship with scoper.  Player and scoper may be persons or organization.  The Affiliate relationship does not imply membership in a group, nor does it exist for resource scheduling purposes.  &#xD;&#xA; Example:A healthcare provider is affiliated with another provider as a business associate."/>
             <property>
               <code value="internalId"/>
               <valueCode value="21438"/>
@@ -699,7 +702,7 @@
           <concept>
             <code value="COVPTY"/>
             <display value="covered party"/>
-            <definition value=" A role class played by a person who receives benefit coverage under the terms of a particular insurance policy.  The underwriter of that policy is the scoping entity.  The covered party receives coverage because of some contractual or other relationship with the holder of that policy.  &#xD;&#xA;Discussion:This reason for coverage is captured in &#39;Role.code&#39; and a relationship link with type code of indirect authority should be included using the policy holder role as the source, and the covered party role as the target. Note that a particular policy may cover several individuals one of whom may be, but need not be, the policy holder.  Thus the notion of covered party is a role that is distinct from that of the policy holder."/>
+            <definition value=" A role class played by a person who receives benefit coverage under the terms of a particular insurance policy.  The underwriter of that policy is the scoping entity.  The covered party receives coverage because of some contractual or other relationship with the holder of that policy.  &#xD;&#xA; Discussion:This reason for coverage is captured in &#39;Role.code&#39; and a relationship link with type code of indirect authority should be included using the policy holder role as the source, and the covered party role as the target. Note that a particular policy may cover several individuals one of whom may be, but need not be, the policy holder.  Thus the notion of covered party is a role that is distinct from that of the policy holder."/>
             <property>
               <code value="internalId"/>
               <valueCode value="14011"/>
@@ -731,7 +734,7 @@
             <concept>
               <code value="CLAIM"/>
               <display value="claimant"/>
-              <definition value="  &#xD;&#xA;Description:A role played by a party making a claim for coverage under a policy or program.  A claimant must be either a person or organization, or a group of persons or organizations.  A claimant is not a named insured or a program eligible.  &#xD;&#xA;Discussion:With respect to liability insurance such as property and casualty insurance, a claimant must file a claim requesting indemnification for a loss that the claimant considers covered under the policy of a named insured.  The claims adjuster for the policy underwriter will review the claim to determine whether the loss meets the benefit coverage criteria under a policy, and base any indemnification or coverage payment on that review.  If a third party is liable in whole or part for the loss, the underwriter may pursue third party liability recovery.  A claimant may be involved in civil or criminal legal proceedings involving claims against a defendant party that is indemnified by an insurance policy or to protest the finding of a claims adjustor. With respect to life insurance, a beneficiary designated by a named insured becomes a claimant of the proceeds of coverage, as in the case of a life insurance policy.  However, a claimant for coverage under life insurance is not necessarily a designated beneficiary.  &#xD;&#xA;Note:A claimant is not a named insured.  However, a named insured may make a claim under a policy, e.g., an insured driver may make a claim for an injury under his or her comprehensive automobile insurance policy.  Similarly, a program eligible may make a claim under program, e.g., an unemployed worker may claim benefits under an unemployment insurance program, but parties playing these covered party role classes are not, for purposes of this vocabulary and in an effort to clearly distinguish role classes, considered claimants. In the case of a named insured making a claim, a role type code INSCLM (insured claimant) subtypes the class to indicate that either a named insured or an individual insured has filed a claim for a loss.  In the case of a program eligible, a role type code INJWKR (injured worker) subtypes the class to indicate that the covered party in a workers compensation program is an injured worker, and as such, has filed a &quot;claim&quot; under the program for benefits.  Likewise, a covered role type code UNEMP (unemployed worker) subtypes the program eligible class to indicate that the covered party in an unemployment insurance program has filed a claim for unemployment benefits.  &#xD;&#xA;Example:A claimant under automobile policy that is not the named insured."/>
+              <definition value="  &#xD;&#xA; Description:A role played by a party making a claim for coverage under a policy or program.  A claimant must be either a person or organization, or a group of persons or organizations.  A claimant is not a named insured or a program eligible.  &#xD;&#xA; Discussion:With respect to liability insurance such as property and casualty insurance, a claimant must file a claim requesting indemnification for a loss that the claimant considers covered under the policy of a named insured.  The claims adjuster for the policy underwriter will review the claim to determine whether the loss meets the benefit coverage criteria under a policy, and base any indemnification or coverage payment on that review.  If a third party is liable in whole or part for the loss, the underwriter may pursue third party liability recovery.  A claimant may be involved in civil or criminal legal proceedings involving claims against a defendant party that is indemnified by an insurance policy or to protest the finding of a claims adjustor. With respect to life insurance, a beneficiary designated by a named insured becomes a claimant of the proceeds of coverage, as in the case of a life insurance policy.  However, a claimant for coverage under life insurance is not necessarily a designated beneficiary.  &#xD;&#xA; Note:A claimant is not a named insured.  However, a named insured may make a claim under a policy, e.g., an insured driver may make a claim for an injury under his or her comprehensive automobile insurance policy.  Similarly, a program eligible may make a claim under program, e.g., an unemployed worker may claim benefits under an unemployment insurance program, but parties playing these covered party role classes are not, for purposes of this vocabulary and in an effort to clearly distinguish role classes, considered claimants. In the case of a named insured making a claim, a role type code INSCLM (insured claimant) subtypes the class to indicate that either a named insured or an individual insured has filed a claim for a loss.  In the case of a program eligible, a role type code INJWKR (injured worker) subtypes the class to indicate that the covered party in a workers compensation program is an injured worker, and as such, has filed a &quot;claim&quot; under the program for benefits.  Likewise, a covered role type code UNEMP (unemployed worker) subtypes the program eligible class to indicate that the covered party in an unemployment insurance program has filed a claim for unemployment benefits.  &#xD;&#xA; Example:A claimant under automobile policy that is not the named insured."/>
               <property>
                 <code value="internalId"/>
                 <valueCode value="21955"/>
@@ -748,7 +751,7 @@
             <concept>
               <code value="NAMED"/>
               <display value="named insured"/>
-              <definition value="  &#xD;&#xA;Description:A role played by a party to an insurance policy to which the insurer agrees to indemnify for losses, provides benefits for, or renders services.  A named insured may be either a person, non-person living subject, or an organization, or a group of persons, non-person living subjects, or organizations.  &#xD;&#xA;Discussion:The coded concept NAMED should not be used where a more specific child concept in this Specializable value set applies.  In some cases, the named insured may not be the policy holder, e.g., where a policy holder purchases life insurance policy in which another party is the named insured and the policy holder is the beneficiary of the policy.  &#xD;&#xA;Note:The party playing the role of a named insured is not a claimant in the sense conveyed by the RoleClassCoveredParty CLAIM (claimant).  However, a named insured may make a claim under a policy, e.g., e.g., a party that is the named insured and policy holder under a comprehensive automobile insurance policy may become the claimant for coverage under that policy e.g., if injured in an automobile accident and there is no liable third party.  In the case of a named insured making a claim, a role type code INSCLM (insured claimant) subtypes the class to indicate that a named insured has filed a claim for a loss.  &#xD;&#xA;Example:The named insured under a comprehensive automobile, disability, or property and casualty policy that is the named insured and may or may not be the policy holder."/>
+              <definition value="  &#xD;&#xA; Description:A role played by a party to an insurance policy to which the insurer agrees to indemnify for losses, provides benefits for, or renders services.  A named insured may be either a person, non-person living subject, or an organization, or a group of persons, non-person living subjects, or organizations.  &#xD;&#xA; Discussion:The coded concept NAMED should not be used where a more specific child concept in this Specializable value set applies.  In some cases, the named insured may not be the policy holder, e.g., where a policy holder purchases life insurance policy in which another party is the named insured and the policy holder is the beneficiary of the policy.  &#xD;&#xA; Note:The party playing the role of a named insured is not a claimant in the sense conveyed by the RoleClassCoveredParty CLAIM (claimant).  However, a named insured may make a claim under a policy, e.g., e.g., a party that is the named insured and policy holder under a comprehensive automobile insurance policy may become the claimant for coverage under that policy e.g., if injured in an automobile accident and there is no liable third party.  In the case of a named insured making a claim, a role type code INSCLM (insured claimant) subtypes the class to indicate that a named insured has filed a claim for a loss.  &#xD;&#xA; Example:The named insured under a comprehensive automobile, disability, or property and casualty policy that is the named insured and may or may not be the policy holder."/>
               <property>
                 <code value="internalId"/>
                 <valueCode value="21957"/>
@@ -764,7 +767,7 @@
               <concept>
                 <code value="DEPEN"/>
                 <display value="dependent"/>
-                <definition value="  &#xD;&#xA;Description:A role played by a person covered under a policy or program based on an association with a subscriber, which is recognized by the policy holder.  &#xD;&#xA;Note:The party playing the role of a dependent is not a claimant in the sense conveyed by the RoleClassCoveredParty CLAIM (claimant).  However, a dependent may make a claim under a policy, e.g., a dependent under a health insurance policy may become the claimant for coverage under that policy for wellness examines or if injured and there is no liable third party.  In the case of a dependent making a claim, a role type code INSCLM (insured claimant) subtypes the class to indicate that the dependent has filed a claim for services covered under the health insurance policy.  &#xD;&#xA;Example:The dependent has an association with the subscriber such as a financial dependency or personal relationship such as that of a spouse, or a natural or adopted child.  The policy holder may be required by law to recognize certain associations or may have discretion about the associations.  For example, a policy holder may dictate the criteria for the dependent status of adult children who are students, such as requiring full time enrollment, or may recognize domestic partners as dependents.  Under certain circumstances, the dependent may be under the indirect authority of a responsible party acting as a surrogate for the subscriber, for example, if the subscriber is differently abled or deceased, a guardian ad Lidem or estate executor may be appointed to assume the subscriberaTMs legal standing in the relationship with the dependent."/>
+                <definition value="  &#xD;&#xA; Description:A role played by a person covered under a policy or program based on an association with a subscriber, which is recognized by the policy holder.  &#xD;&#xA; Note:The party playing the role of a dependent is not a claimant in the sense conveyed by the RoleClassCoveredParty CLAIM (claimant).  However, a dependent may make a claim under a policy, e.g., a dependent under a health insurance policy may become the claimant for coverage under that policy for wellness examines or if injured and there is no liable third party.  In the case of a dependent making a claim, a role type code INSCLM (insured claimant) subtypes the class to indicate that the dependent has filed a claim for services covered under the health insurance policy.  &#xD;&#xA; Example:The dependent has an association with the subscriber such as a financial dependency or personal relationship such as that of a spouse, or a natural or adopted child.  The policy holder may be required by law to recognize certain associations or may have discretion about the associations.  For example, a policy holder may dictate the criteria for the dependent status of adult children who are students, such as requiring full time enrollment, or may recognize domestic partners as dependents.  Under certain circumstances, the dependent may be under the indirect authority of a responsible party acting as a surrogate for the subscriber, for example, if the subscriber is differently abled or deceased, a guardian ad Lidem or estate executor may be appointed to assume the subscriberaTMs legal standing in the relationship with the dependent."/>
                 <property>
                   <code value="internalId"/>
                   <valueCode value="21960"/>
@@ -781,7 +784,7 @@
               <concept>
                 <code value="INDIV"/>
                 <display value="individual"/>
-                <definition value="  &#xD;&#xA;Description:A role played by a party covered under a policy as the policy holder.  An individual may be either a person or an organization.  &#xD;&#xA;Note:The party playing the role of an individual insured is not a claimant in the sense conveyed by the RoleClassCoveredParty CLAIM (claimant).  However, a named insured may make a claim under a policy, e.g., a party that is the named insured and policy holder under a comprehensive automobile insurance policy may become the claimant for coverage under that policy if injured in an automobile accident and there is no liable third party.  In the case of an individual insured making a claim, a role type code INSCLM (insured claimant) subtypes the class to indicate that an individual insured has filed a claim for a loss.  &#xD;&#xA;Example:The individual insured under a comprehensive automobile, disability, or property and casualty policy that is the policy holder."/>
+                <definition value="  &#xD;&#xA; Description:A role played by a party covered under a policy as the policy holder.  An individual may be either a person or an organization.  &#xD;&#xA; Note:The party playing the role of an individual insured is not a claimant in the sense conveyed by the RoleClassCoveredParty CLAIM (claimant).  However, a named insured may make a claim under a policy, e.g., a party that is the named insured and policy holder under a comprehensive automobile insurance policy may become the claimant for coverage under that policy if injured in an automobile accident and there is no liable third party.  In the case of an individual insured making a claim, a role type code INSCLM (insured claimant) subtypes the class to indicate that an individual insured has filed a claim for a loss.  &#xD;&#xA; Example:The individual insured under a comprehensive automobile, disability, or property and casualty policy that is the policy holder."/>
                 <property>
                   <code value="internalId"/>
                   <valueCode value="21958"/>
@@ -798,7 +801,7 @@
               <concept>
                 <code value="SUBSCR"/>
                 <display value="subscriber"/>
-                <definition value="  &#xD;&#xA;Description:A role played by a person covered under a policy based on association with a sponsor who is the policy holder, and whose association may provide for the eligibility of dependents for coverage.  &#xD;&#xA;Discussion:The policy holder holds the contract with the policy or program underwriter.  The subscriber holds a certificate of coverage under the contract.  In legal proceedings concerning the policy or program, the terms of the contract takes precedence over the terms of the certificate of coverage if there are any inconsistencies.  &#xD;&#xA;Note:The party playing the role of a subscriber is not a claimant in the sense conveyed by the RoleClassCoveredParty CLAIM (claimant).  However, a subscriber may make a claim under a policy, e.g., a subscriber under a health insurance policy may become the claimant for coverage under that policy for wellness examines or if injured and there is no liable third party.  In the case of a subscriber making a claim, a role type code INSCLM (insured claimant) subtypes the class to indicate that the subscriber has filed a claim for services covered under the health insurance policy.  &#xD;&#xA;Example:An employee or a member of an association."/>
+                <definition value="  &#xD;&#xA; Description:A role played by a person covered under a policy based on association with a sponsor who is the policy holder, and whose association may provide for the eligibility of dependents for coverage.  &#xD;&#xA; Discussion:The policy holder holds the contract with the policy or program underwriter.  The subscriber holds a certificate of coverage under the contract.  In legal proceedings concerning the policy or program, the terms of the contract takes precedence over the terms of the certificate of coverage if there are any inconsistencies.  &#xD;&#xA; Note:The party playing the role of a subscriber is not a claimant in the sense conveyed by the RoleClassCoveredParty CLAIM (claimant).  However, a subscriber may make a claim under a policy, e.g., a subscriber under a health insurance policy may become the claimant for coverage under that policy for wellness examines or if injured and there is no liable third party.  In the case of a subscriber making a claim, a role type code INSCLM (insured claimant) subtypes the class to indicate that the subscriber has filed a claim for services covered under the health insurance policy.  &#xD;&#xA; Example:An employee or a member of an association."/>
                 <property>
                   <code value="internalId"/>
                   <valueCode value="21959"/>
@@ -816,7 +819,7 @@
             <concept>
               <code value="PROG"/>
               <display value="program eligible"/>
-              <definition value="  &#xD;&#xA;Description:A role played by a party that meets the eligibility criteria for coverage under a program.  A program eligible may be either a person, non-person living subject, or an organization, or a group of persons, non-person living subjects, or organizations.  &#xD;&#xA;Discussion:A program as typically government administered coverage for parties determined eligible under the terms of the program.  &#xD;&#xA;Note:The party playing a program eligible is not a claimant in the sense conveyed by the RoleClassCoveredParty CLAIM (claimant).  However a program eligible may make a claim under program, e.g., an unemployed worker may claim benefits under an unemployment insurance program, but parties playing these covered party role classes are not, for purposes of this vocabulary and in an effort to clearly distinguish role classes, considered claimants. In the case of a program eligible, a role type code INJWKR (injured worker) subtypes the class to indicate that the covered party in a workers compensation program is an injured worker, and as such, has filed a &quot;claim&quot; under the program for benefits.  Likewise, a covered role type code UNEMP (unemployed worker) subtypes the program eligible class to indicate that the covered party in an unemployment insurance program has filed a claim for unemployment benefits.  &#xD;&#xA;Example:A party meeting eligibility criteria related to health or financial status, e.g., in the U.S., persons meeting health, demographic, or financial criteria established by state and federal law are eligible for Medicaid."/>
+              <definition value="  &#xD;&#xA; Description:A role played by a party that meets the eligibility criteria for coverage under a program.  A program eligible may be either a person, non-person living subject, or an organization, or a group of persons, non-person living subjects, or organizations.  &#xD;&#xA; Discussion:A program as typically government administered coverage for parties determined eligible under the terms of the program.  &#xD;&#xA; Note:The party playing a program eligible is not a claimant in the sense conveyed by the RoleClassCoveredParty CLAIM (claimant).  However a program eligible may make a claim under program, e.g., an unemployed worker may claim benefits under an unemployment insurance program, but parties playing these covered party role classes are not, for purposes of this vocabulary and in an effort to clearly distinguish role classes, considered claimants. In the case of a program eligible, a role type code INJWKR (injured worker) subtypes the class to indicate that the covered party in a workers compensation program is an injured worker, and as such, has filed a &quot;claim&quot; under the program for benefits.  Likewise, a covered role type code UNEMP (unemployed worker) subtypes the program eligible class to indicate that the covered party in an unemployment insurance program has filed a claim for unemployment benefits.  &#xD;&#xA; Example:A party meeting eligibility criteria related to health or financial status, e.g., in the U.S., persons meeting health, demographic, or financial criteria established by state and federal law are eligible for Medicaid."/>
               <property>
                 <code value="internalId"/>
                 <valueCode value="21956"/>
@@ -1071,7 +1074,7 @@
             <concept>
               <code value="RESBJ"/>
               <display value="research subject"/>
-              <definition value="  &#xD;&#xA;Definition:Specifies the administrative functionality within a formal experimental design for which the ResearchSubject role was established.  &#xD;&#xA;Examples:Screening - role is used for pre-enrollment evaluation portion of the design; enrolled - role is used for subjects admitted to the experimental portion of the design."/>
+              <definition value="  &#xD;&#xA; Definition:Specifies the administrative functionality within a formal experimental design for which the ResearchSubject role was established.  &#xD;&#xA; Examples:Screening - role is used for pre-enrollment evaluation portion of the design; enrolled - role is used for subjects admitted to the experimental portion of the design."/>
               <property>
                 <code value="internalId"/>
                 <valueCode value="19166"/>
@@ -1203,7 +1206,7 @@
           <concept>
             <code value="PAT"/>
             <display value="patient"/>
-            <definition value=" A Role of a LivingSubject (player) as an actual or potential recipient of health care services from a healthcare provider organization (scoper).  &#xD;&#xA;Usage Note:Communication about relationships between patients and specific healthcare practitioners (people) is not done via scoper.  Instead this is generally done using the CareProvision act.  This allows linkage between patient and a particular healthcare practitioner role and also allows description of the type of care involved in the relationship."/>
+            <definition value=" A Role of a LivingSubject (player) as an actual or potential recipient of health care services from a healthcare provider organization (scoper).  &#xD;&#xA; Usage Note:Communication about relationships between patients and specific healthcare practitioners (people) is not done via scoper.  Instead this is generally done using the CareProvision act.  This allows linkage between patient and a particular healthcare practitioner role and also allows description of the type of care involved in the relationship."/>
             <property>
               <code value="internalId"/>
               <valueCode value="11577"/>
@@ -1302,7 +1305,7 @@
           <concept>
             <code value="POLHOLD"/>
             <display value="policy holder"/>
-            <definition value=" A role played by a person or organization that holds an insurance policy.  The underwriter of that policy is the scoping entity.  &#xD;&#xA;Discussion:The identifier of the policy is captured in &#39;Role.id&#39; when the Role is a policy holder. A particular policy may cover several individuals one of whom may be, but need not be, the policy holder.  Thus the notion of covered party is a role that is distinct from that of the policy holder."/>
+            <definition value=" A role played by a person or organization that holds an insurance policy.  The underwriter of that policy is the scoping entity.  &#xD;&#xA; Discussion:The identifier of the policy is captured in &#39;Role.id&#39; when the Role is a policy holder. A particular policy may cover several individuals one of whom may be, but need not be, the policy holder.  Thus the notion of covered party is a role that is distinct from that of the policy holder."/>
             <property>
               <code value="internalId"/>
               <valueCode value="14010"/>
@@ -1368,7 +1371,7 @@
           <concept>
             <code value="SPNSR"/>
             <display value="coverage sponsor"/>
-            <definition value=" A role played by an entity, usually an organization that is the sponsor of an insurance plan or a health program. A sponsor is the party that is ultimately accountable for the coverage by employment contract or by law.  A sponsor can be an employer, union, government agency, or association.  Fully insured sponsors establish the terms of the plan and contract with health insurance plans to assume the risk and to administer the plan.  Self-insured sponsors delegate coverage administration, but not risk, to third-party administrators.  Program sponsors designate services to be covered in accordance with statute.   Program sponsors may administer the coverage themselves, delegate coverage administration, but not risk to third-party administrators, or contract with health insurance plans to assume the risk and administrator a program. Sponsors qualify individuals who may become   a policy holder of the plan;  where the sponsor is the policy holder, who may become a subscriber or a dependent to a policy under the plan; or  where the sponsor is a government agency, who may become program eligibles under a program. The sponsor role may be further qualified by the SponsorRole.code.  Entities playing the sponsor role may also play the role of a Coverage Administrator.  &#xD;&#xA;Example:An employer, union, government agency, or association."/>
+            <definition value=" A role played by an entity, usually an organization that is the sponsor of an insurance plan or a health program. A sponsor is the party that is ultimately accountable for the coverage by employment contract or by law.  A sponsor can be an employer, union, government agency, or association.  Fully insured sponsors establish the terms of the plan and contract with health insurance plans to assume the risk and to administer the plan.  Self-insured sponsors delegate coverage administration, but not risk, to third-party administrators.  Program sponsors designate services to be covered in accordance with statute.   Program sponsors may administer the coverage themselves, delegate coverage administration, but not risk to third-party administrators, or contract with health insurance plans to assume the risk and administrator a program. Sponsors qualify individuals who may become   a policy holder of the plan;  where the sponsor is the policy holder, who may become a subscriber or a dependent to a policy under the plan; or  where the sponsor is a government agency, who may become program eligibles under a program. The sponsor role may be further qualified by the SponsorRole.code.  Entities playing the sponsor role may also play the role of a Coverage Administrator.  &#xD;&#xA; Example:An employer, union, government agency, or association."/>
             <property>
               <code value="internalId"/>
               <valueCode value="14012"/>
@@ -1434,7 +1437,7 @@
           <concept>
             <code value="UNDWRT"/>
             <display value="underwriter"/>
-            <definition value=" A role played by a person or an organization.  It is the party that   accepts fiscal responsibility for insurance plans and the policies created under those plans;  administers and accepts fiscal responsibility for a program that provides coverage for services to eligible individuals; and/or  has the responsibility to assess the merits of each risk and decide a suitable premium for accepting all or part of the risk.  If played by an organization, this role may be further specified by an appropriate RoleCode.  &#xD;&#xA;Example:   A health insurer;  Medicaid Program;  Lloyd&#39;s of London"/>
+            <definition value=" A role played by a person or an organization.  It is the party that   accepts fiscal responsibility for insurance plans and the policies created under those plans;  administers and accepts fiscal responsibility for a program that provides coverage for services to eligible individuals; and/or  has the responsibility to assess the merits of each risk and decide a suitable premium for accepting all or part of the risk.  If played by an organization, this role may be further specified by an appropriate RoleCode.  &#xD;&#xA; Example:   A health insurer;  Medicaid Program;  Lloyd&#39;s of London"/>
             <property>
               <code value="internalId"/>
               <valueCode value="14009"/>
@@ -1534,7 +1537,7 @@
         <concept>
           <code value="SELF"/>
           <display value="self"/>
-          <definition value=" The &quot;same&quot; roleclass asserts an identity between playing and scoping entities: that they are in fact instances of the same entity and, in the case of discrepancies (e.g different DOB, gender), that one or both are in error.  &#xD;&#xA;Usage: playing and scoping entities must have same classcode, but need not have identical attributes or values.  &#xD;&#xA;Example: a provider registry maintains sets of conflicting demographic data for what is reported to be the same individual."/>
+          <definition value=" The &quot;same&quot; roleclass asserts an identity between playing and scoping entities: that they are in fact instances of the same entity and, in the case of discrepancies (e.g different DOB, gender), that one or both are in error.  &#xD;&#xA; Usage: playing and scoping entities must have same classcode, but need not have identical attributes or values.  &#xD;&#xA; Example: a provider registry maintains sets of conflicting demographic data for what is reported to be the same individual."/>
           <property>
             <code value="internalId"/>
             <valueCode value="21437"/>
@@ -1621,7 +1624,7 @@
         <concept>
           <code value="ADJY"/>
           <display value="adjacency"/>
-          <definition value=" A physical association whereby two Entities are in some (even lose) spatial relationship with each other such that they touch each other in some way.  &#xD;&#xA;Examples:the colon is connected (and therefore adjacent) to the jejunum; the colon is adjacent to the liver (even if not actually connected.)  &#xD;&#xA;UsageConstraints:Adjacency is in principle a symmetrical connection, but scoper and player of the role should, where applicable, be assigned to have scoper be the larger, more central Entity and player the smaller, more distant, appendage."/>
+          <definition value=" A physical association whereby two Entities are in some (even lose) spatial relationship with each other such that they touch each other in some way.  &#xD;&#xA; Examples:the colon is connected (and therefore adjacent) to the jejunum; the colon is adjacent to the liver (even if not actually connected.)  &#xD;&#xA; UsageConstraints:Adjacency is in principle a symmetrical connection, but scoper and player of the role should, where applicable, be assigned to have scoper be the larger, more central Entity and player the smaller, more distant, appendage."/>
           <property>
             <code value="internalId"/>
             <valueCode value="23095"/>
@@ -1653,7 +1656,7 @@
           <concept>
             <code value="CONC"/>
             <display value="connection"/>
-            <definition value=" An adjacency of two Entities held together by a bond which attaches to each of the two entities.  &#xD;&#xA;Examples:biceps brachii muscle connected to the radius bone, port 3 on a network switch connected to port 5 on a patch panel.  &#xD;&#xA;UsageConstraints:See Adjacency for the assignment of scoper (larger, more central) and player (smaller, more distant)."/>
+            <definition value=" An adjacency of two Entities held together by a bond which attaches to each of the two entities.  &#xD;&#xA; Examples:biceps brachii muscle connected to the radius bone, port 3 on a network switch connected to port 5 on a patch panel.  &#xD;&#xA; UsageConstraints:See Adjacency for the assignment of scoper (larger, more central) and player (smaller, more distant)."/>
             <property>
               <code value="internalId"/>
               <valueCode value="23096"/>
@@ -1685,7 +1688,7 @@
             <concept>
               <code value="BOND"/>
               <display value="molecular bond"/>
-              <definition value=" A connection between two atoms of a molecule.  &#xD;&#xA;Examples:double bond between first and second C in ethane, peptide bond between two amino-acid, disulfide bridge between two proteins, chelate and ion associations, even the much weaker van-der-Waals bonds can be considered molecular bonds.  &#xD;&#xA;UsageConstraints:See connection and adjacency for the assignment of player and scoper."/>
+              <definition value=" A connection between two atoms of a molecule.  &#xD;&#xA; Examples:double bond between first and second C in ethane, peptide bond between two amino-acid, disulfide bridge between two proteins, chelate and ion associations, even the much weaker van-der-Waals bonds can be considered molecular bonds.  &#xD;&#xA; UsageConstraints:See connection and adjacency for the assignment of player and scoper."/>
               <property>
                 <code value="internalId"/>
                 <valueCode value="23098"/>
@@ -1718,7 +1721,7 @@
             <concept>
               <code value="CONY"/>
               <display value="continuity"/>
-              <definition value=" A connection between two regional parts.  &#xD;&#xA;Examples:the connection between ascending aorta and the aortic arc, connection between descending colon and sigmoid.  &#xD;&#xA;UsageConstraints:See connection and adjacency for the assignment of player and scoper."/>
+              <definition value=" A connection between two regional parts.  &#xD;&#xA; Examples:the connection between ascending aorta and the aortic arc, connection between descending colon and sigmoid.  &#xD;&#xA; UsageConstraints:See connection and adjacency for the assignment of player and scoper."/>
               <property>
                 <code value="internalId"/>
                 <valueCode value="23097"/>
@@ -2371,7 +2374,7 @@
         <concept>
           <code value="USED"/>
           <display value="used entity"/>
-          <definition value="  &#xD;&#xA;Description:An entity (player) that is used by another entity (scoper)"/>
+          <definition value="  &#xD;&#xA; Description:An entity (player) that is used by another entity (scoper)"/>
           <property>
             <code value="internalId"/>
             <valueCode value="22755"/>
@@ -2459,7 +2462,7 @@
       <concept>
         <code value="EQUIV"/>
         <display value="equivalent entity"/>
-        <definition value="  &#xD;&#xA;Description:Specifies the player Entity (the equivalent Entity) as an Entity that is considered to be equivalent to a reference Entity (scoper).  The equivalence is in principle a symmetric relationship, however, it is expected that the scoper is a reference entity which serves as reference entity for multiple different equivalent entities.  &#xD;&#xA;Examples:An innovator&#39;s medicine formulation is the reference for &quot;generics&quot;, i.e., formulations manufactured differently but having been proven to be biologically equivalent to the reference medicine. Another example is a reference ingredient that serves as basis for quantity specifications (basis of strength, e.g., metoprolol succinate specified in terms of metoprolol tartrate.)"/>
+        <definition value="  &#xD;&#xA; Description:Specifies the player Entity (the equivalent Entity) as an Entity that is considered to be equivalent to a reference Entity (scoper).  The equivalence is in principle a symmetric relationship, however, it is expected that the scoper is a reference entity which serves as reference entity for multiple different equivalent entities.  &#xD;&#xA; Examples:An innovator&#39;s medicine formulation is the reference for &quot;generics&quot;, i.e., formulations manufactured differently but having been proven to be biologically equivalent to the reference medicine. Another example is a reference ingredient that serves as basis for quantity specifications (basis of strength, e.g., metoprolol succinate specified in terms of metoprolol tartrate.)"/>
         <property>
           <code value="internalId"/>
           <valueCode value="22399"/>
@@ -2475,7 +2478,7 @@
         <concept>
           <code value="SAME"/>
           <display value="same"/>
-          <definition value=" The &quot;same&quot; role asserts an identity between playing and scoping entities, i.e., that they are in fact two records of the same entity instance, and, in the case of discrepancies (e.g different DOB, gender), that one or both are in error.  &#xD;&#xA;Usage: playing and scoping entities must have same classCode, but need not have identical attributes or values.  &#xD;&#xA;Example: a provider registry maintains sets of conflicting demographic data for what is reported to be the same individual."/>
+          <definition value=" The &quot;same&quot; role asserts an identity between playing and scoping entities, i.e., that they are in fact two records of the same entity instance, and, in the case of discrepancies (e.g different DOB, gender), that one or both are in error.  &#xD;&#xA; Usage: playing and scoping entities must have same classCode, but need not have identical attributes or values.  &#xD;&#xA; Example: a provider registry maintains sets of conflicting demographic data for what is reported to be the same individual."/>
           <property>
             <code value="internalId"/>
             <valueCode value="21488"/>
@@ -2508,7 +2511,7 @@
         <concept>
           <code value="SUBY"/>
           <display value="subsumed by"/>
-          <definition value=" Relates a prevailing record of an Entity (scoper) with another record (player) that it subsumes.  &#xD;&#xA;Examples:Show a correct new Person object (scoper) that subsumes one or more duplicate Person objects that had accidentally been created for the same physical person.  &#xD;&#xA;Constraints:Both the player and scoper must have the same classCode."/>
+          <definition value=" Relates a prevailing record of an Entity (scoper) with another record (player) that it subsumes.  &#xD;&#xA; Examples:Show a correct new Person object (scoper) that subsumes one or more duplicate Person objects that had accidentally been created for the same physical person.  &#xD;&#xA; Constraints:Both the player and scoper must have the same classCode."/>
           <property>
             <code value="internalId"/>
             <valueCode value="20070"/>
@@ -2644,7 +2647,7 @@
         </extension>
         <code value="SUBS"/>
         <display value="subsumer"/>
-        <definition value=" An entity that subsumes the identity of another.  Used in the context of merging documented entity instances. Both the player and scoper must have the same classCode. The use of this code is&#xD;&#xA;deprecatedin favor of the term SUBY which is its inverse and is more ontologically correct."/>
+        <definition value=" An entity that subsumes the identity of another.  Used in the context of merging documented entity instances. Both the player and scoper must have the same classCode. The use of this code is&#xD;&#xA; deprecatedin favor of the term SUBY which is its inverse and is more ontologically correct."/>
         <property>
           <code value="internalId"/>
           <valueCode value="16241"/>
@@ -2747,7 +2750,7 @@
         <concept>
           <code value="EXPVECTOR"/>
           <display value="exposure vector"/>
-          <definition value="  &#xD;&#xA;Description:A vector is a living subject that carries an exposure agent.  The vector does not cause the disease itself, but exposes targets to the exposure agent.  A mosquito carrying malaria is an example of a vector.  The scoper of the role must be the exposure agent (e.g., pathogen)."/>
+          <definition value="  &#xD;&#xA; Description:A vector is a living subject that carries an exposure agent.  The vector does not cause the disease itself, but exposes targets to the exposure agent.  A mosquito carrying malaria is an example of a vector.  The scoper of the role must be the exposure agent (e.g., pathogen)."/>
           <property>
             <code value="internalId"/>
             <valueCode value="22351"/>
@@ -2764,7 +2767,7 @@
         <concept>
           <code value="FOMITE"/>
           <display value="fomite"/>
-          <definition value="  &#xD;&#xA;Description:A fomite is a non-living entity that is capable of conveying exposure agent from one entity to another.  A doorknob contaminated with a Norovirus is an example of a fomite.  Anyone touching the doorknob would be exposed to the virus.  The scoper of the role must be the exposure agent (e.g., pathogen)."/>
+          <definition value="  &#xD;&#xA; Description:A fomite is a non-living entity that is capable of conveying exposure agent from one entity to another.  A doorknob contaminated with a Norovirus is an example of a fomite.  Anyone touching the doorknob would be exposed to the virus.  The scoper of the role must be the exposure agent (e.g., pathogen)."/>
           <property>
             <code value="internalId"/>
             <valueCode value="22352"/>
@@ -2814,7 +2817,7 @@
         <concept>
           <code value="ACTI"/>
           <display value="active ingredient"/>
-          <definition value="  &#xD;&#xA;Definition:a therapeutically active ingredient (player) in a mixture (scoper), where the mixture is typically a manufactured pharmaceutical.  It is unknown if the quantity of such an ingredient is expressed precisely in terms of the playing ingredient substance, or, if it is specified in terms of a closely related substance (active moiety or reference substance)."/>
+          <definition value="  &#xD;&#xA; Definition:a therapeutically active ingredient (player) in a mixture (scoper), where the mixture is typically a manufactured pharmaceutical.  It is unknown if the quantity of such an ingredient is expressed precisely in terms of the playing ingredient substance, or, if it is specified in terms of a closely related substance (active moiety or reference substance)."/>
           <property>
             <code value="internalId"/>
             <valueCode value="10433"/>
@@ -2846,7 +2849,7 @@
           <concept>
             <code value="ACTIB"/>
             <display value="active ingredient - basis of strength"/>
-            <definition value="  &#xD;&#xA;Description:Active ingredient, where the ingredient substance (player) is itself the &quot;basis of strength&quot;, i.e., where the Role.quantity specifies exactly the quantity of the player substance in the medicine formulation.  &#xD;&#xA;Examples:Lopressor 50 mg actually contains 50 mg of metoprolol succinate, even though the active moiety is metoprolol,  but also: Tenormin 50 mg contain 50 mg of atenolol, as free base, i.e., where the active ingredient atenolol is also the active moiety."/>
+            <definition value="  &#xD;&#xA; Description:Active ingredient, where the ingredient substance (player) is itself the &quot;basis of strength&quot;, i.e., where the Role.quantity specifies exactly the quantity of the player substance in the medicine formulation.  &#xD;&#xA; Examples:Lopressor 50 mg actually contains 50 mg of metoprolol succinate, even though the active moiety is metoprolol,  but also: Tenormin 50 mg contain 50 mg of atenolol, as free base, i.e., where the active ingredient atenolol is also the active moiety."/>
             <property>
               <code value="internalId"/>
               <valueCode value="22396"/>
@@ -2863,7 +2866,7 @@
           <concept>
             <code value="ACTIM"/>
             <display value="active ingredient - moiety is basis of strength"/>
-            <definition value="  &#xD;&#xA;Description:Active ingredient, where not the ingredient substance (player), but itaTMs active moiety is the &quot;basis of strength&quot;, i.e., where the Role.quantity specifies the quantity of the player substance&#39;s active moiety in the medicine formulation.  &#xD;&#xA;Examples:1 mL of Betopic 5mg/mL eye drops contains 5.6 mg betaxolol hydrochloride equivalent to betaxolol base 5 mg."/>
+            <definition value="  &#xD;&#xA; Description:Active ingredient, where not the ingredient substance (player), but itaTMs active moiety is the &quot;basis of strength&quot;, i.e., where the Role.quantity specifies the quantity of the player substance&#39;s active moiety in the medicine formulation.  &#xD;&#xA; Examples:1 mL of Betopic 5mg/mL eye drops contains 5.6 mg betaxolol hydrochloride equivalent to betaxolol base 5 mg."/>
             <property>
               <code value="internalId"/>
               <valueCode value="22397"/>
@@ -2880,7 +2883,7 @@
           <concept>
             <code value="ACTIR"/>
             <display value="active ingredient - reference substance is basis of strength"/>
-            <definition value="  &#xD;&#xA;Description:Active ingredient, where not the ingredient substance (player) but another reference substance with the same active moiety, is the &quot;basis of strength&quot;, i.e., where the Role.quantity specifies the quantity of a reference substance, similar but different from the player substance&#39;s in the medicine formulation.  &#xD;&#xA;Examples:Toprol-XL 50 mg contains 47.5 mg of metoprolol succinate equivalent to 50 mg of metoprolol tartrate."/>
+            <definition value="  &#xD;&#xA; Description:Active ingredient, where not the ingredient substance (player) but another reference substance with the same active moiety, is the &quot;basis of strength&quot;, i.e., where the Role.quantity specifies the quantity of a reference substance, similar but different from the player substance&#39;s in the medicine formulation.  &#xD;&#xA; Examples:Toprol-XL 50 mg contains 47.5 mg of metoprolol succinate equivalent to 50 mg of metoprolol tartrate."/>
             <property>
               <code value="internalId"/>
               <valueCode value="22398"/>
@@ -3310,7 +3313,7 @@
       <concept>
         <code value="PART"/>
         <display value="part"/>
-        <definition value="  &#xD;&#xA;Definition:an association between two Entities where the playing Entity (the part) is a component of the whole (scoper) in the sense of an integral structural component, that is distinct from other parts in the same whole, has a distinct function in the whole, and, as an effect, the full integrity of the whole depends (to some degree) on the presence of this part, even though the part may often be separable from the whole.  &#xD;&#xA;Discussion:Part is defined in opposition to (a) ingredient (not separable), (b) content (not a functional component), and (c) member (not functionally distinct from other members)."/>
+        <definition value="  &#xD;&#xA; Definition:an association between two Entities where the playing Entity (the part) is a component of the whole (scoper) in the sense of an integral structural component, that is distinct from other parts in the same whole, has a distinct function in the whole, and, as an effect, the full integrity of the whole depends (to some degree) on the presence of this part, even though the part may often be separable from the whole.  &#xD;&#xA; Discussion:Part is defined in opposition to (a) ingredient (not separable), (b) content (not a functional component), and (c) member (not functionally distinct from other members)."/>
         <property>
           <code value="internalId"/>
           <valueCode value="19102"/>

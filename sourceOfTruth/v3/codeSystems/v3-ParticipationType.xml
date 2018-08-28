@@ -3,6 +3,9 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-ParticipationType"/>
   <language value="en"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+    <valueString value="Is in UMLS."/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
     <valueString value="Health Level Seven">
       <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
@@ -405,7 +408,7 @@
       <concept>
         <code value="AUT"/>
         <display value="author (originator)"/>
-        <definition value="  &#xD;&#xA;Definition:A party that originates the Act and therefore has responsibility for the information given in the Act and ownership of this Act.  &#xD;&#xA;Example:the report writer, the person writing the act definition, the guideline author, the placer of an order, the EKG cart (device) creating a report etc. Every Act should have an author. Authorship is regardless of mood always actual authorship. Examples of such policies might include:   The author and anyone they explicitly delegate may update the report;  All administrators within the same clinic may cancel and reschedule appointments created by other administrators within that clinic; A party that is neither an author nor a party who is extended authorship maintenance rights by policy, may only amend, reverse, override, replace, or follow up in other ways on this Act, whereby the Act remains intact and is linked to another Act authored by that other party."/>
+        <definition value="  &#xD;&#xA; Definition:A party that originates the Act and therefore has responsibility for the information given in the Act and ownership of this Act.  &#xD;&#xA; Example:the report writer, the person writing the act definition, the guideline author, the placer of an order, the EKG cart (device) creating a report etc. Every Act should have an author. Authorship is regardless of mood always actual authorship. Examples of such policies might include:   The author and anyone they explicitly delegate may update the report;  All administrators within the same clinic may cancel and reschedule appointments created by other administrators within that clinic; A party that is neither an author nor a party who is extended authorship maintenance rights by policy, may only amend, reverse, override, replace, or follow up in other ways on this Act, whereby the Act remains intact and is linked to another Act authored by that other party."/>
         <property>
           <code value="internalId"/>
           <valueCode value="10252"/>
@@ -640,7 +643,7 @@
       <concept>
         <code value="ALY"/>
         <display value="analyte"/>
-        <definition value=" The target of an Observation action. Links an observation to a Role whose player is the substance or most specific component entity (material, micro-organism, etc.) being measured within the subject.  &#xD;&#xA;Examples:A &quot;plasma porcelain substance concentration&quot; has analyte a Role with player substance Entity &quot;porcelain&quot;.  &#xD;&#xA;UsageNotes:The Role that this participation connects to may be any Role whose player is that substance measured. Very often, the scoper may indicate the system in which the component is being measured. E.g., for &quot;plasma porcelain&quot; the scoper could be &quot;Plasma&quot;."/>
+        <definition value=" The target of an Observation action. Links an observation to a Role whose player is the substance or most specific component entity (material, micro-organism, etc.) being measured within the subject.  &#xD;&#xA; Examples:A &quot;plasma porcelain substance concentration&quot; has analyte a Role with player substance Entity &quot;porcelain&quot;.  &#xD;&#xA; UsageNotes:The Role that this participation connects to may be any Role whose player is that substance measured. Very often, the scoper may indicate the system in which the component is being measured. E.g., for &quot;plasma porcelain&quot; the scoper could be &quot;Plasma&quot;."/>
         <property>
           <code value="internalId"/>
           <valueCode value="23093"/>
@@ -773,7 +776,7 @@
       <concept>
         <code value="DEV"/>
         <display value="device"/>
-        <definition value=" Participant used in performing the act without being substantially affected by the act (i.e. durable or inert with respect to that particular service).  &#xD;&#xA;Examples:monitoring equipment, tools, but also access/drainage lines, prostheses, pace maker, etc."/>
+        <definition value=" Participant used in performing the act without being substantially affected by the act (i.e. durable or inert with respect to that particular service).  &#xD;&#xA; Examples:monitoring equipment, tools, but also access/drainage lines, prostheses, pace maker, etc."/>
         <property>
           <code value="internalId"/>
           <valueCode value="10298"/>
@@ -889,7 +892,7 @@
       <concept>
         <code value="EXPAGNT"/>
         <display value="ExposureAgent"/>
-        <definition value="  &#xD;&#xA;Description:The entity playing the associated role is the physical (including energy), chemical or biological substance that is participating in the exposure.  For example in communicable diseases, the associated playing entity is the disease causing pathogen."/>
+        <definition value="  &#xD;&#xA; Description:The entity playing the associated role is the physical (including energy), chemical or biological substance that is participating in the exposure.  For example in communicable diseases, the associated playing entity is the disease causing pathogen."/>
         <property>
           <code value="internalId"/>
           <valueCode value="22347"/>
@@ -902,7 +905,7 @@
       <concept>
         <code value="EXPART"/>
         <display value="ExposureParticipation"/>
-        <definition value="  &#xD;&#xA;Description:Direct participation in an exposure act where it is unknown that the participant is the source or subject of the exposure.  If the participant is known to be the contact of an exposure then the SBJ participation type should be used.  If the participant is known to be the source then the EXSRC participation type should be used."/>
+        <definition value="  &#xD;&#xA; Description:Direct participation in an exposure act where it is unknown that the participant is the source or subject of the exposure.  If the participant is known to be the contact of an exposure then the SBJ participation type should be used.  If the participant is known to be the source then the EXSRC participation type should be used."/>
         <property>
           <code value="internalId"/>
           <valueCode value="21978"/>
@@ -914,7 +917,7 @@
         <concept>
           <code value="EXPTRGT"/>
           <display value="ExposureTarget"/>
-          <definition value="  &#xD;&#xA;Description:The entity playing the associated role is the target (contact) of exposure."/>
+          <definition value="  &#xD;&#xA; Description:The entity playing the associated role is the target (contact) of exposure."/>
           <property>
             <code value="internalId"/>
             <valueCode value="22346"/>
@@ -927,7 +930,7 @@
         <concept>
           <code value="EXSRC"/>
           <display value="ExposureSource"/>
-          <definition value="  &#xD;&#xA;Description:The entity playing the associated role is the source of exposure."/>
+          <definition value="  &#xD;&#xA; Description:The entity playing the associated role is the source of exposure."/>
           <property>
             <code value="internalId"/>
             <valueCode value="21979"/>
@@ -970,7 +973,7 @@
       <concept>
         <code value="SBJ"/>
         <display value="subject"/>
-        <definition value=" The principle target on which the action happens.  &#xD;&#xA;Examples:The patient in physical examination, a specimen in a lab observation. May also be a patient&#39;s family member (teaching) or a device or room (cleaning, disinfecting, housekeeping).  &#xD;&#xA;UsageNotes:Not all direct targets are subjects. Consumables and devices used as tools for an act are not subjects. However, a device may be a subject of a maintenance action."/>
+        <definition value=" The principle target on which the action happens.  &#xD;&#xA; Examples:The patient in physical examination, a specimen in a lab observation. May also be a patient&#39;s family member (teaching) or a device or room (cleaning, disinfecting, housekeeping).  &#xD;&#xA; UsageNotes:Not all direct targets are subjects. Consumables and devices used as tools for an act are not subjects. However, a device may be a subject of a maintenance action."/>
         <property>
           <code value="internalId"/>
           <valueCode value="10287"/>
@@ -1132,7 +1135,7 @@
       <concept>
         <code value="GUAR"/>
         <display value="guarantor party"/>
-        <definition value=" The target person or organization contractually recognized by the issuer as a participant who has assumed fiscal responsibility for another personaTMs financial obligations by guaranteeing to pay for amounts owed to a particular account  &#xD;&#xA;Example:The subscriber of the patientaTMs health insurance policy signs a contract with the provider to be fiscally responsible for the patient billing account balance amount owed."/>
+        <definition value=" The target person or organization contractually recognized by the issuer as a participant who has assumed fiscal responsibility for another personaTMs financial obligations by guaranteeing to pay for amounts owed to a particular account  &#xD;&#xA; Example:The subscriber of the patientaTMs health insurance policy signs a contract with the provider to be fiscally responsible for the patient billing account balance amount owed."/>
         <property>
           <code value="internalId"/>
           <valueCode value="21570"/>
@@ -1613,7 +1616,7 @@
     <concept>
       <code value="PRF"/>
       <display value="performer"/>
-      <definition value="  &#xD;&#xA;Definition:A person, non-person living subject, organization or device that who actually and principally carries out the action. Device should only be assigned as a performer in circumstances where the device is performing independent of human intervention.  Need not be the principal responsible actor.  &#xD;&#xA;Exampe:A surgery resident operating under supervision of attending surgeon, a search and rescue dog locating survivors, an electronic laboratory analyzer or the laboratory discipline requested to perform a laboratory test. The performer may also be the patient in self-care, e.g. fingerstick blood sugar. The traditional order filler is a performer. This information should accompany every service event.  &#xD;&#xA;Note:that existing HL7 designs assign an organization as the playing entity of the Role that is the performer.  These designs should be revised in subsequent releases to make this the scooping entity for the role involved."/>
+      <definition value="  &#xD;&#xA; Definition:A person, non-person living subject, organization or device that who actually and principally carries out the action. Device should only be assigned as a performer in circumstances where the device is performing independent of human intervention.  Need not be the principal responsible actor.  &#xD;&#xA; Exampe:A surgery resident operating under supervision of attending surgeon, a search and rescue dog locating survivors, an electronic laboratory analyzer or the laboratory discipline requested to perform a laboratory test. The performer may also be the patient in self-care, e.g. fingerstick blood sugar. The traditional order filler is a performer. This information should accompany every service event.  &#xD;&#xA; Note:that existing HL7 designs assign an organization as the playing entity of the Role that is the performer.  These designs should be revised in subsequent releases to make this the scooping entity for the role involved."/>
       <property>
         <code value="internalId"/>
         <valueCode value="10248"/>
@@ -1733,7 +1736,7 @@
     <concept>
       <code value="RESP"/>
       <display value="responsible party"/>
-      <definition value=" The person or organization that has primary responsibility for the act.  The responsible party is not necessarily present in an action, but is accountable for the action through the power to delegate, and the duty to review actions with the performing actor after the fact.  This responsibility may be ethical, legal, contractual, fiscal, or fiduciary in nature.  &#xD;&#xA;Example:A person who is the head of a biochemical laboratory; a sponsor for a policy or government program."/>
+      <definition value=" The person or organization that has primary responsibility for the act.  The responsible party is not necessarily present in an action, but is accountable for the action through the power to delegate, and the duty to review actions with the performing actor after the fact.  This responsibility may be ethical, legal, contractual, fiscal, or fiduciary in nature.  &#xD;&#xA; Example:A person who is the head of a biochemical laboratory; a sponsor for a policy or government program."/>
       <property>
         <code value="internalId"/>
         <valueCode value="17931"/>
