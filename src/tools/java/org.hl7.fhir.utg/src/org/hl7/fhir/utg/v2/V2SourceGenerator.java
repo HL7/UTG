@@ -774,15 +774,17 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.setValueSet("http://terminology.hl7.org/ValueSet/"+cs.getId());
       
     cs.setVersion(tv.csversion);
-    cs.setName("V2Table"+t.id);
+    if (objects.containsKey(tv.csoid)) {
+    	cs.setName(objects.get(tv.csoid).display);
+    } else {
+    	cs.setName("V2Table"+t.id);	
+    }
     cs.setTitle("V2 Table Code System: "+t.name);
     cs.setStatus(PublicationStatus.ACTIVE);
     cs.setExperimental(false);
     if (tv.csoid != null) {
       cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.csoid);
-      if (objects.containsKey(tv.csoid))
-        cs.getIdentifier().getValueElement().addExtension("http://healthintersections.com.au/fhir/StructureDefinition/identifier-display", new StringType(objects.get(tv.csoid).display));
-    }
+    } 
     cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
     cs.setPublisher("HL7, Inc");
     cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
