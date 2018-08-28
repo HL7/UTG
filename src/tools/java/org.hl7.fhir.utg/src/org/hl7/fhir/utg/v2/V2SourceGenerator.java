@@ -697,15 +697,15 @@ public class V2SourceGenerator extends BaseGenerator {
   private void saveV2Manifest(Document document) throws Exception {
 	  TransformerFactory factory = TransformerFactory.newInstance();
 	  Transformer transformer = factory.newTransformer();
-	  Result result = new StreamResult(new File("C:\\utg\\content-export\\release\\v2-Manifest.xml"));
+	  Result result = new StreamResult(new File(Utilities.path(dest, "release", "v2-Manifest.xml")));
 	  Source source = new DOMSource(document);
 	  transformer.transform(source, result);
       System.out.println("V2 Manifest saved");
   }
   
   public void mergeV2Manifests() throws Exception {
-	  File codeSystemManifestFile = new File("C:\\utg\\content-export\\release\\v2-CodeSystem-Manifest.xml");
-	  File valueSetSystemManifestFile = new File("C:\\utg\\content-export\\release\\v2-ValueSet-Manifest.xml");
+	  File codeSystemManifestFile = new File(Utilities.path(dest,  "release", "v2-CodeSystem-Manifest.xml"));
+	  File valueSetSystemManifestFile = new File(Utilities.path(dest, "release", "v2-ValueSet-Manifest.xml"));
 	  Document doc = merge(codeSystemManifestFile, valueSetSystemManifestFile);
 	  removeXMLNSAttribute(doc);
 	  saveV2Manifest(doc);
