@@ -775,7 +775,7 @@ public class V2SourceGenerator extends BaseGenerator {
       
     cs.setVersion(tv.csversion);
     cs.setName("V2Table"+t.id);
-    cs.setTitle("V2 Table: "+t.name);
+    cs.setTitle("V2 Table Code System: "+t.name);
     cs.setStatus(PublicationStatus.ACTIVE);
     cs.setExperimental(false);
     if (tv.csoid != null) {
