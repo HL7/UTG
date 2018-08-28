@@ -138,6 +138,7 @@ public class V2SourceGenerator extends BaseGenerator {
     private boolean caseInsensitive;
     private String steward;
     private String conceptDomainRef;
+    private String objectDescription;
     
     private List<TableEntry> entries = new ArrayList<TableEntry>();
     public TableVersion(String version, String name) {
@@ -227,6 +228,12 @@ public class V2SourceGenerator extends BaseGenerator {
     public void setConceptDomainRef(String conceptDomainRef) {
       this.conceptDomainRef = conceptDomainRef;
     }
+	public String getObjectDescription() {
+		return objectDescription;
+	}
+	public void setObjectDescription(String objectDescription) {
+		this.objectDescription = objectDescription;
+	}
 
   }
 
@@ -336,6 +343,7 @@ public class V2SourceGenerator extends BaseGenerator {
           master.anchor = tv.anchor;
           master.generate = tv.generate;
           master.type = tv.type;
+          master.objectDescription = tv.objectDescription;
           for (TableEntry te : tv.entries) {
             TableEntry tem = master.find(te.code);
             if (tem == null) {
@@ -471,7 +479,9 @@ public class V2SourceGenerator extends BaseGenerator {
     }
 
     Map<String, String> nameCache = new HashMap<String, String>();
-    query = stmt.executeQuery("SELECT table_id, version_id, display_name, oid_table, cs_oid, cs_version, vs_oid, vs_expansion, vocab_domain, interpretation, description_as_pub, table_type, generate, section, anchor, case_insensitive, steward  from HL7Tables where version_id < 100 order by version_id");
+    query = stmt.executeQuery("SELECT table_id, version_id, display_name, oid_table, cs_oid, cs_version, vs_oid, vs_expansion, vocab_domain, interpretation, description_as_pub, table_type, generate, section, anchor, case_insensitive, steward, object_description \r\n" + 
+    		"FROM HL7Tables INNER JOIN HL7Objects ON HL7Tables.oid_table = HL7Objects.oid \r\n" + 
+    		"WHERE version_id < 100 order by version_id");
         
     while (query.next()) {
       String tid = Utilities.padLeft(Integer.toString(query.getInt("table_id")), '0', 4);
@@ -504,6 +514,7 @@ public class V2SourceGenerator extends BaseGenerator {
       tv.setAnchor(query.getString("anchor"));
       tv.setCaseInsensitive(query.getBoolean("case_insensitive"));
       tv.setSteward(query.getString("steward"));
+      tv.setObjectDescription(query.getString("object_description"));
     }
     int i = 0;
     query = stmt.executeQuery("SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub, active, modification  from HL7TableValues where version_id < 100");
@@ -929,7 +940,7 @@ public class V2SourceGenerator extends BaseGenerator {
           c.setCode(t.id);
           count++;
           c.setDisplay(t.name);
-          c.setDefinition(tv.description);
+          c.setDefinition(tv.objectDescription);
           c.addProperty().setCode("oid").setValue(new StringType(t.oid));
           if (!Utilities.noString(tv.csoid))
             c.addProperty().setCode("csoid").setValue(new StringType(tv.csoid));
