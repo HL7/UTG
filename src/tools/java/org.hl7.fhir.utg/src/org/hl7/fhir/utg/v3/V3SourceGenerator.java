@@ -776,15 +776,15 @@ public class V3SourceGenerator extends BaseGenerator {
   private void saveV3Manifest(Document document) throws Exception {
 	  TransformerFactory factory = TransformerFactory.newInstance();
 	  Transformer transformer = factory.newTransformer();
-	  Result result = new StreamResult(new File("C:\\utg\\content-export\\release\\v3-Manifest.xml"));
+	  Result result = new StreamResult(new File(Utilities.path(dest, "release", "v3-Manifest.xml")));
 	  Source source = new DOMSource(document);
 	  transformer.transform(source, result);
 	  System.out.println("V3 Manifest saved");
   }
   
   public void mergeV3Manifests() throws Exception {
-	  File codeSystemManifestFile = new File("C:\\utg\\content-export\\release\\v3-CodeSystem-Manifest.xml");
-	  File valueSetSystemManifestFile = new File("C:\\utg\\content-export\\release\\v3-ValueSet-Manifest.xml");
+	  File codeSystemManifestFile = new File(Utilities.path(dest, "release", "v3-CodeSystem-Manifest.xml"));
+	  File valueSetSystemManifestFile = new File(Utilities.path(dest, "release", "v3-ValueSet-Manifest.xml"));
 	  Document doc = merge(codeSystemManifestFile, valueSetSystemManifestFile);
 	  removeXMLNSAttribute(doc);
 	  saveV3Manifest(doc);
