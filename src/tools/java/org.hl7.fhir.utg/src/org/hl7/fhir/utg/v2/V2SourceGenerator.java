@@ -971,7 +971,7 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.setVersionNeeded(false);
     cs.setContent(CodeSystemContentMode.COMPLETE);
 
-    cs.addProperty().setCode("oid").setUri("http://healthintersections.com.au/csprop/oid").setType(PropertyType.STRING).setDescription("OID For Table");
+    cs.addProperty().setCode("table-oid").setUri("http://healthintersections.com.au/csprop/oid").setType(PropertyType.STRING).setDescription("OID For Table");
     cs.addProperty().setCode("csoid").setUri("http://healthintersections.com.au/csprop/csoid").setType(PropertyType.STRING).setDescription("OID For Code System");
     cs.addProperty().setCode("vsoid").setUri("http://healthintersections.com.au/csprop/vsoid").setType(PropertyType.STRING).setDescription("OID For Value Set");
     cs.addProperty().setCode("v2type").setUri("http://healthintersections.com.au/csprop/v2type").setType(PropertyType.CODE).setDescription("Type of table");
@@ -998,7 +998,7 @@ public class V2SourceGenerator extends BaseGenerator {
           count++;
           c.setDisplay(t.name);
           c.setDefinition(tv.objectDescription);
-          c.addProperty().setCode("oid").setValue(new StringType(t.oid));
+          c.addProperty().setCode("table-oid").setValue(new StringType(t.oid));
           if (!Utilities.noString(tv.csoid))
             c.addProperty().setCode("csoid").setValue(new StringType(tv.csoid));
           if (!Utilities.noString(tv.vsoid))
