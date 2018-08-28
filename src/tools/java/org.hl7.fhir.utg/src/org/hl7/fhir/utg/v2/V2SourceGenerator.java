@@ -144,6 +144,7 @@ public class V2SourceGenerator extends BaseGenerator {
     private String binding;
     private String versionIntroduced;
     private String cld; 
+    private String vocabDomain;
     
     private List<TableEntry> entries = new ArrayList<TableEntry>();
     public TableVersion(String version, String name) {
@@ -269,6 +270,12 @@ public class V2SourceGenerator extends BaseGenerator {
 	public void setCld(String cld) {
 		this.cld = cld;
 	}
+	public String getVocabDomain() {
+		return vocabDomain;
+	}
+	public void setVocabDomain(String vocabDomain) {
+		this.vocabDomain = vocabDomain;
+	}
 
   }
 
@@ -384,6 +391,7 @@ public class V2SourceGenerator extends BaseGenerator {
           master.binding = tv.binding;
           master.versionIntroduced = tv.versionIntroduced;
           master.cld = tv.cld;
+          master.vocabDomain = tv.vocabDomain;
           for (TableEntry te : tv.entries) {
             TableEntry tem = master.find(te.code);
             if (tem == null) {
@@ -519,11 +527,12 @@ public class V2SourceGenerator extends BaseGenerator {
     }
 
     Map<String, String> nameCache = new HashMap<String, String>();
-    query = stmt.executeQuery("SELECT t.table_id, t.version_id, t.display_name, t.oid_table, t.cs_oid, t.cs_version, t.vs_oid, t.vs_expansion, t.vocab_domain, t.interpretation, \r\n" + 
-    		"t.description_as_pub, t.table_type, t.generate, t.section, t.anchor, t.case_insensitive, t.steward, t.where_used, t.v2codetablecomment, t.binding, t.vs_expansion, o.object_description, v.hl7_version \r\n" + 
-    		"FROM ((HL7Tables t \r\n" + 
-    		"INNER JOIN HL7Objects o ON t.oid_table = o.oid) \r\n" + 
-    		"INNER JOIN HL7Versions v ON t.version_introduced = v.version_id) \r\n" + 
+    query = stmt.executeQuery("SELECT t.table_id, t.version_id, t.display_name, t.oid_table, t.cs_oid, t.cs_version, t.vs_oid, t.vs_expansion, t.vocab_domain, t.interpretation, " + 
+    		"t.description_as_pub, t.table_type, t.generate, t.section, t.anchor, t.case_insensitive, t.steward, t.where_used, t.v2codetablecomment, t.binding, t.vs_expansion, " +
+    		"t.vocab_domain, o.object_description, v.hl7_version " + 
+    		"FROM ((HL7Tables t " + 
+    		"INNER JOIN HL7Objects o ON t.oid_table = o.oid) " + 
+    		"INNER JOIN HL7Versions v ON t.version_introduced = v.version_id) " + 
     		"WHERE t.version_id < 100 order by t.version_id");
         
     while (query.next()) {
@@ -563,6 +572,7 @@ public class V2SourceGenerator extends BaseGenerator {
       tv.setBinding(query.getString("binding"));
       tv.setVersionInroduced(query.getString("hl7_version"));
       tv.setCld(query.getString("vs_expansion"));
+      tv.setVocabDomain(query.getString("vocab_domain"));
     }
     int i = 0;
     query = stmt.executeQuery("SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub, active, modification  from HL7TableValues where version_id < 100");
@@ -971,18 +981,19 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.setVersionNeeded(false);
     cs.setContent(CodeSystemContentMode.COMPLETE);
 
-    cs.addProperty().setCode("oid").setUri("http://healthintersections.com.au/csprop/oid").setType(PropertyType.STRING).setDescription("OID For Table");
-    cs.addProperty().setCode("csoid").setUri("http://healthintersections.com.au/csprop/csoid").setType(PropertyType.STRING).setDescription("OID For Code System");
-    cs.addProperty().setCode("vsoid").setUri("http://healthintersections.com.au/csprop/vsoid").setType(PropertyType.STRING).setDescription("OID For Value Set");
-    cs.addProperty().setCode("v2type").setUri("http://healthintersections.com.au/csprop/v2type").setType(PropertyType.CODE).setDescription("Type of table");
-    cs.addProperty().setCode("generate").setUri("http://healthintersections.com.au/csprop/generate").setType(PropertyType.BOOLEAN).setDescription("whether to generate table");
-    cs.addProperty().setCode("version").setUri("http://healthintersections.com.au/csprop/version").setType(PropertyType.BOOLEAN).setDescription("Business version of table metadata");
-    cs.addProperty().setCode("structuredefinition-wg").setUri("http://healthintersections.com.au/csprop/structuredefinition-wg").setType(PropertyType.STRING).setDescription("Steward for the table.");
-    cs.addProperty().setCode("where-used").setUri("http://healthintersections.com.au/csprop/where-used").setType(PropertyType.STRING).setDescription("Where this table is used.");
-    cs.addProperty().setCode("v2-codes-table-comment").setUri("http://healthintersections.com.au/csprop/v2-codes-table-comment").setType(PropertyType.STRING).setDescription("V2 Codes Table Comment.");
-    cs.addProperty().setCode("binding").setUri("http://healthintersections.com.au/csprop/binding").setType(PropertyType.STRING).setDescription("Binding.");
-    cs.addProperty().setCode("version-introduced").setUri("http://healthintersections.com.au/csprop/version-introduced").setType(PropertyType.STRING).setDescription("Version Introduced.");
-    cs.addProperty().setCode("cld").setUri("http://healthintersections.com.au/csprop/cld").setType(PropertyType.STRING).setDescription("Content Logical Definition.");
+    cs.addProperty().setCode("oid").setUri("http://terminology.hl7.org/csprop/oid").setType(PropertyType.STRING).setDescription("OID For Table");
+    cs.addProperty().setCode("csoid").setUri("http://terminology.hl7.org/csprop/csoid").setType(PropertyType.STRING).setDescription("OID For Code System");
+    cs.addProperty().setCode("vsoid").setUri("http://terminology.hl7.org/csprop/vsoid").setType(PropertyType.STRING).setDescription("OID For Value Set");
+    cs.addProperty().setCode("v2type").setUri("http://terminology.hl7.org/csprop/v2type").setType(PropertyType.CODE).setDescription("Type of table");
+    cs.addProperty().setCode("generate").setUri("http://terminology.hl7.org/csprop/generate").setType(PropertyType.BOOLEAN).setDescription("whether to generate table");
+    cs.addProperty().setCode("version").setUri("http://terminology.hl7.org/csprop/version").setType(PropertyType.BOOLEAN).setDescription("Business version of table metadata");
+    cs.addProperty().setCode("structuredefinition-wg").setUri("http://terminology.hl7.org/csprop/structuredefinition-wg").setType(PropertyType.STRING).setDescription("Steward for the table.");
+    cs.addProperty().setCode("where-used").setUri("http://terminology.hl7.org/csprop/where-used").setType(PropertyType.STRING).setDescription("Where this table is used.");
+    cs.addProperty().setCode("v2-codes-table-comment").setUri("http://terminology.hl7.org/csprop/v2-codes-table-comment").setType(PropertyType.STRING).setDescription("V2 Codes Table Comment.");
+    cs.addProperty().setCode("binding").setUri("http://terminology.hl7.org/csprop/binding").setType(PropertyType.STRING).setDescription("Binding.");
+    cs.addProperty().setCode("version-introduced").setUri("http://terminology.hl7.org/csprop/version-introduced").setType(PropertyType.STRING).setDescription("Version Introduced.");
+    cs.addProperty().setCode("cld").setUri("http://terminology.hl7.org/csprop/cld").setType(PropertyType.STRING).setDescription("Content Logical Definition.");
+    cs.addProperty().setCode("vocab-domain").setUri("http://terminology.hl7.org/csprop/vocab-domain").setType(PropertyType.STRING).setDescription("Vocabulary Domain for this table");
 
     
 
@@ -1020,6 +1031,8 @@ public class V2SourceGenerator extends BaseGenerator {
               c.addProperty().setCode("version-introduced").setValue(new StringType(tv.versionIntroduced));
           if (!Utilities.noString(tv.versionIntroduced))
               c.addProperty().setCode("cld").setValue(new StringType(tv.cld));
+          if (!Utilities.noString(tv.vocabDomain))
+              c.addProperty().setCode("vocab-domain").setValue(new StringType(tv.vocabDomain));          
         }
       }
     }        
