@@ -767,7 +767,8 @@ public class V2SourceGenerator extends BaseGenerator {
     if (tv == t.master) {
       cs.setId("v2-"+t.id);
     } else {
-      cs.setId("v2-"+t.id+"-"+tv.version);
+      //cs.setId("v2-"+t.id+"-"+tv.version);
+    	return;
     }
     cs.setUrl("http://terminology.hl7.org/CodeSystem/"+cs.getId());
     knownCS.add(cs.getUrl());
@@ -875,10 +876,10 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.setContent(CodeSystemContentMode.COMPLETE);
     if (!Utilities.noString(tv.getSteward()))
       cs.getExtension().add(new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg").setValue(new CodeType(tv.getSteward())));
-    if (!Utilities.noString(tv.getAnchor()))
-      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref").setValue(new UriType("http://hl7.org/v2/"+tv.getAnchor())));
-    if (!Utilities.noString(tv.getSection()))
-      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection").setValue(new StringType(tv.getSection())));
+//    if (!Utilities.noString(tv.getAnchor()))
+//      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref").setValue(new UriType("http://hl7.org/v2/"+tv.getAnchor())));
+//    if (!Utilities.noString(tv.getSection()))
+//      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection").setValue(new StringType(tv.getSection())));
     if (tv.getType() > 0)
       cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type").setValue(new CodeType(codeForType(tv.getType()))));
     if (tv.isGenerate())
