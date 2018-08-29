@@ -671,7 +671,7 @@ public class V2SourceGenerator extends BaseGenerator {
           generateCodeSystem(t, tv, csManifest, vsManifest);
           c++;
         }
-        for (String v : sorted(t.versions.keySet())) {
+/*        for (String v : sorted(t.versions.keySet())) {
           if (!v.contains(" ")) {
             TableVersion tv = t.versions.get(v);
             if (!(new File(Utilities.path(dest, "v2", "codeSystems", "v"+v)).exists()))
@@ -682,7 +682,7 @@ public class V2SourceGenerator extends BaseGenerator {
             h++;
             //          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+n, "vs-"+cs.getId())+".xml"), produceValueSet(n, cs.getId()+"-"+n, cs, t, tv));
           }
-        }
+        }*/
       }
     }
     System.out.println("Saved v2 code systems ("+Integer.toString(c)+" found, with "+Integer.toString(h)+" past versions)");
@@ -945,8 +945,14 @@ public class V2SourceGenerator extends BaseGenerator {
     vs.setId(cs.getId());
     vs.setUrl("http://terminology.hl7.org/ValueSet/"+vs.getId());
     vs.setVersion(cs.getVersion());
-    vs.setName("V2Table"+t.id+"Version"+vid);
-    vs.setTitle("V2 Table "+t.id+" Version "+vid);
+    if (tv.vsoid != null) {
+    	vs.setName(objects.get(tv.vsoid).display);
+    	vs.setTitle(objects.get(tv.vsoid).display);
+    }
+    else {
+    	vs.setName("V2Table"+t.id+"Version"+vid);
+    	vs.setTitle("V2 Table "+t.id+" Version "+vid);
+    }
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
     if (tv.vsoid != null)
