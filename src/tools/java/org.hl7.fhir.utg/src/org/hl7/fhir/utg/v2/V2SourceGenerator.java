@@ -665,12 +665,13 @@ public class V2SourceGenerator extends BaseGenerator {
     for (String n : sorted(tables.keySet())) {
       if (!n.equals("0000")) {
         Table t = tables.get(n);
-        Set<String> oids = t.getOids();
-        for (String oid : oids) {
-          TableVersion tv = t.lastVersionForOid(oid);
-          generateCodeSystem(t, tv, csManifest, vsManifest);
-          c++;
-        }
+        generateCodeSystem(t, csManifest, vsManifest);
+//        Set<String> oids = t.getOids();
+//        for (String oid : oids) {
+//          TableVersion tv = t.lastVersionForOid(oid);
+//          generateCodeSystem(t, tv, csManifest, vsManifest);
+//          c++;
+//        }
         for (String v : sorted(t.versions.keySet())) {
           if (!v.contains(" ")) {
             TableVersion tv = t.versions.get(v);
@@ -762,14 +763,11 @@ public class V2SourceGenerator extends BaseGenerator {
 	}
   
   
-  private void generateCodeSystem(Table t, TableVersion tv, ListResource csManifest, ListResource vsManifest) throws FileNotFoundException, IOException {
+  private void generateCodeSystem(Table t, ListResource csManifest, ListResource vsManifest) throws FileNotFoundException, IOException {
     CodeSystem cs = new CodeSystem();
-    if (tv == t.master) {
-      cs.setId("v2-"+t.id);
-    } else {
-      //cs.setId("v2-"+t.id+"-"+tv.version);
-    	return;
-    }
+    TableVersion tv = t.master;
+    cs.setId("v2-"+t.id);
+
     cs.setUrl("http://terminology.hl7.org/CodeSystem/"+cs.getId());
     knownCS.add(cs.getUrl());
     cs.setValueSet("http://terminology.hl7.org/ValueSet/"+cs.getId());
@@ -835,8 +833,17 @@ public class V2SourceGenerator extends BaseGenerator {
     }    
 
     ValueSet vs = produceValueSet("Master", cs, t, tv);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "cs-"+cs.getId())+".xml"), cs);
+    
+    if (tv.type == 8) {
+    	// external 
+        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "external", "cs-"+cs.getId())+".xml"), cs);
+    }
+    else {
+    	new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "cs-"+cs.getId())+".xml"), cs);
+    }
+    
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "valueSets", "vs-"+cs.getId())+".xml"), vs);
+    
     
     csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, (String)null));
     vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, (String)null));
