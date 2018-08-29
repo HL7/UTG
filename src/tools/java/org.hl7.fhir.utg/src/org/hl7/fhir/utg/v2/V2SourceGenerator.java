@@ -809,10 +809,10 @@ public class V2SourceGenerator extends BaseGenerator {
     if (tv.isGenerate())
       cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate").setValue(new BooleanType(true)));
 
-    cs.addProperty().setCode("status").setUri("http://healthintersections.com.au/csprop/status").setType(PropertyType.CODE).setDescription("Status of the concept");
-    cs.addProperty().setCode("intro").setUri("http://healthintersections.com.au/csprop/intro").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was first defined");
-    cs.addProperty().setCode("deprecated").setUri("http://healthintersections.com.au/csprop/deprecated").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was deprecated");
-    cs.addProperty().setCode("backwardsCompatible").setUri("http://healthintersections.com.au/csprop/backwardsCompatible").setType(PropertyType.BOOLEAN).setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
+    cs.addProperty().setCode("status").setUri("http://terminology.hl7.org/csprop/status").setType(PropertyType.CODE).setDescription("Status of the concept");
+    cs.addProperty().setCode("intro").setUri("http://terminology.hl7.org/csprop/intro").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was first defined");
+    cs.addProperty().setCode("deprecated").setUri("http://terminology.hl7.org/csprop/deprecated").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was deprecated");
+    cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible").setType(PropertyType.BOOLEAN).setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
 
     for (TableEntry te : tv.entries) {
       ConceptDefinitionComponent c = cs.addConcept();
@@ -884,10 +884,10 @@ public class V2SourceGenerator extends BaseGenerator {
     if (tv.isGenerate())
       cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate").setValue(new BooleanType(true)));
 
-    cs.addProperty().setCode("status").setUri("http://healthintersections.com.au/csprop/status").setType(PropertyType.CODE).setDescription("Status of the concept");
-    cs.addProperty().setCode("intro").setUri("http://healthintersections.com.au/csprop/intro").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was first defined");
-    cs.addProperty().setCode("deprecated").setUri("http://healthintersections.com.au/csprop/deprecated").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was deprecated");
-    cs.addProperty().setCode("backwardsCompatible").setUri("http://healthintersections.com.au/csprop/backwardsCompatible").setType(PropertyType.BOOLEAN).setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
+    cs.addProperty().setCode("status").setUri("http://terminology.hl7.org/csprop/status").setType(PropertyType.CODE).setDescription("Status of the concept");
+    cs.addProperty().setCode("intro").setUri("http://terminology.hl7.org/csprop/intro").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was first defined");
+    cs.addProperty().setCode("deprecated").setUri("http://terminology.hl7.org/csprop/deprecated").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was deprecated");
+    cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible").setType(PropertyType.BOOLEAN).setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
 
     for (TableEntry te : tv.entries) {
       ConceptDefinitionComponent c = cs.addConcept();
@@ -980,18 +980,18 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.setVersionNeeded(false);
     cs.setContent(CodeSystemContentMode.COMPLETE);
 
-    cs.addProperty().setCode("table-oid").setUri("http://healthintersections.com.au/csprop/oid").setType(PropertyType.STRING).setDescription("OID For Table");
-    cs.addProperty().setCode("csoid").setUri("http://healthintersections.com.au/csprop/csoid").setType(PropertyType.STRING).setDescription("OID For Code System");
-    cs.addProperty().setCode("vsoid").setUri("http://healthintersections.com.au/csprop/vsoid").setType(PropertyType.STRING).setDescription("OID For Value Set");
-    cs.addProperty().setCode("v2type").setUri("http://healthintersections.com.au/csprop/v2type").setType(PropertyType.CODE).setDescription("Type of table");
-    cs.addProperty().setCode("generate").setUri("http://healthintersections.com.au/csprop/generate").setType(PropertyType.BOOLEAN).setDescription("whether to generate table");
-    cs.addProperty().setCode("version").setUri("http://healthintersections.com.au/csprop/version").setType(PropertyType.BOOLEAN).setDescription("Business version of table metadata");
-    cs.addProperty().setCode("structuredefinition-wg").setUri("http://healthintersections.com.au/csprop/structuredefinition-wg").setType(PropertyType.STRING).setDescription("Steward for the table.");
-    cs.addProperty().setCode("where-used").setUri("http://healthintersections.com.au/csprop/where-used").setType(PropertyType.STRING).setDescription("Where this table is used.");
-    cs.addProperty().setCode("v2-codes-table-comment").setUri("http://healthintersections.com.au/csprop/v2-codes-table-comment").setType(PropertyType.STRING).setDescription("V2 Codes Table Comment.");
-    cs.addProperty().setCode("binding").setUri("http://healthintersections.com.au/csprop/binding").setType(PropertyType.STRING).setDescription("Binding.");
-    cs.addProperty().setCode("version-introduced").setUri("http://healthintersections.com.au/csprop/version-introduced").setType(PropertyType.STRING).setDescription("Version Introduced.");
-    cs.addProperty().setCode("cld").setUri("http://healthintersections.com.au/csprop/cld").setType(PropertyType.STRING).setDescription("Content Logical Definition.");
+    cs.addProperty().setCode("table-oid").setUri("http://terminology.hl7.org/csprop/oid").setType(PropertyType.STRING).setDescription("OID For Table");
+    cs.addProperty().setCode("csoid").setUri("http://terminology.hl7.org/csprop/csoid").setType(PropertyType.STRING).setDescription("OID For Code System");
+    cs.addProperty().setCode("vsoid").setUri("http://terminology.hl7.org/csprop/vsoid").setType(PropertyType.STRING).setDescription("OID For Value Set");
+    cs.addProperty().setCode("v2type").setUri("http://terminology.hl7.org/csprop/v2type").setType(PropertyType.CODE).setDescription("Type of table");
+    cs.addProperty().setCode("generate").setUri("http://terminology.hl7.org/csprop/generate").setType(PropertyType.BOOLEAN).setDescription("whether to generate table");
+    cs.addProperty().setCode("version").setUri("http://terminology.hl7.org/csprop/version").setType(PropertyType.BOOLEAN).setDescription("Business version of table metadata");
+    cs.addProperty().setCode("structuredefinition-wg").setUri("http://terminology.hl7.org/csprop/structuredefinition-wg").setType(PropertyType.STRING).setDescription("Steward for the table.");
+    cs.addProperty().setCode("where-used").setUri("http://terminology.hl7.org/csprop/where-used").setType(PropertyType.STRING).setDescription("Where this table is used.");
+    cs.addProperty().setCode("v2-codes-table-comment").setUri("http://terminology.hl7.org/csprop/v2-codes-table-comment").setType(PropertyType.STRING).setDescription("V2 Codes Table Comment.");
+    cs.addProperty().setCode("binding").setUri("http://terminology.hl7.org/csprop/binding").setType(PropertyType.STRING).setDescription("Binding.");
+    cs.addProperty().setCode("version-introduced").setUri("http://terminology.hl7.org/csprop/version-introduced").setType(PropertyType.STRING).setDescription("Version Introduced.");
+    cs.addProperty().setCode("cld").setUri("http://terminology.hl7.org/csprop/cld").setType(PropertyType.STRING).setDescription("Content Logical Definition.");
     cs.addProperty().setCode("vocab-domain").setUri("http://terminology.hl7.org/csprop/vocab-domain").setType(PropertyType.STRING).setDescription("Vocabulary Domain for this table");
 
     
