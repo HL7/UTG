@@ -772,7 +772,7 @@ public class V2SourceGenerator extends BaseGenerator {
     knownCS.add(cs.getUrl());
     cs.setValueSet("http://terminology.hl7.org/ValueSet/"+cs.getId());
       
-    cs.setVersion(tv.csversion);
+    cs.setVersion(tv.versionIntroduced);
     if (objects.containsKey(tv.csoid)) {
     	cs.setName(objects.get(tv.csoid).display);
     } else {
