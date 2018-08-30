@@ -181,13 +181,7 @@ public class V3SourceGenerator extends BaseGenerator {
     
     Extension ext = null;
     for (CodeSystem cs : csmap.values()) {
-    	
-    	ext = cs.getExtensionByUrl("http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator");
-    	if (ext.getValueAsPrimitive().getValueAsString().equals("true")) {
-    		new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v3", "codeSystems", cs.getId())+".xml"), cs);	
-    	} else {
-        	new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "external", cs.getId())+".xml"), cs);    		
-    	}
+        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v3", "codeSystems", cs.getId())+".xml"), cs);
     }
     System.out.println("Save v3 code systems ("+Integer.toString(csmap.size())+" found)");
   }

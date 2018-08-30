@@ -859,18 +859,10 @@ public class V2SourceGenerator extends BaseGenerator {
     }    
 
     ValueSet vs = produceValueSet("Master", cs, t, tv);
-    
-    if (tv.type == 8) {
-    	// external 
-        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "external", "cs-"+cs.getId())+".xml"), cs);
-    }
-    else {
-    	new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "cs-"+cs.getId())+".xml"), cs);
-    }
-    
+
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "cs-"+cs.getId())+".xml"), cs);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "valueSets", "vs-"+cs.getId())+".xml"), vs);
-    
-    
+
     csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, (String)null));
     vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, (String)null));
   }
