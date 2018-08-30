@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0553"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="FM"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0553"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.357"/>
+  </identifier>
+  <version value="2.6"/>
+  <name value="invoiceControl"/>
+  <title value="V2 Table Code System: Invoice Control Code"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2018-09-20"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/HL7/UTG"/>
+    </telecom>
+  </contact>
+  <description value="Code system of concepts used to specify what action is being performed by this message.  Used in the Invoice (IVC) segment in HL7 Version 2.x messaging."/>
+  <purpose value="Underlying Master Code System for V2 table 0553 (Invoice Control Code)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0553"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://terminology.hl7.org/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://terminology.hl7.org/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://terminology.hl7.org/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://terminology.hl7.org/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <code value="OR"/>
+    <display value="Original Invoice"/>
+    <definition value="Original Invoice"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Can be used to reverse or cancel an invoice in progress or reverse a paid invoice.  Receiver may only mark Invoice as cancelled, not purge records"/>
+    </extension>
+    <code value="CN"/>
+    <display value="Cancel Invoice"/>
+    <definition value="Cancel Invoice"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Cancel a specific Product/Service Group in an Invoice"/>
+    </extension>
+    <code value="CG"/>
+    <display value="Cancel Invoice Product/Service Group"/>
+    <definition value="Cancel Invoice Product/Service Group"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Cancel a specific Product/Service Line Item in an Invoice"/>
+    </extension>
+    <code value="CL"/>
+    <display value="Cancel Invoice Product/Service Line Item"/>
+    <definition value="Cancel Invoice Product/Service Line Item"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="5">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Can be used to submit an invoice through a Payer&#39;s edit and adjudication engine to determine if the invoice will be paid - does not result in payment by Payer"/>
+    </extension>
+    <code value="PD"/>
+    <display value="Pre-Determination Invoice"/>
+    <definition value="Pre-Determination Invoice"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="6">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+      <valueString value="Used on EHC^E04 only"/>
+    </extension>
+    <code value="RA"/>
+    <display value="Re-Assessment"/>
+    <definition value="Re-Assessment"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="7">
+    <code value="OA"/>
+    <display value="Original Authorization"/>
+    <definition value="Original Authorization"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="8">
+    <code value="SA"/>
+    <display value="Special Authorization"/>
+    <definition value="Special Authorization"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="9">
+    <code value="AI"/>
+    <display value="Combined Authorization and Adjudication request"/>
+    <definition value="Combined Authorization and Adjudication request"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="10">
+    <code value="PA"/>
+    <display value="Pre-Authorization"/>
+    <definition value="Pre-Authorization"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="11">
+    <code value="AA"/>
+    <display value="Authorization request for inpatient admission"/>
+    <definition value="Authorization request for inpatient admission"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="12">
+    <code value="EA"/>
+    <display value="Authorization request for inpatient stay extension"/>
+    <definition value="Authorization request for inpatient stay extension"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="13">
+    <code value="RC"/>
+    <display value="Referral Pre-Authorization"/>
+    <definition value="Referral Pre-Authorization"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="14">
+    <code value="CA"/>
+    <display value="Cancel Authorization request"/>
+    <definition value="Cancel Authorization request"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="15">
+    <code value="CP"/>
+    <display value="Copy of Invoice"/>
+    <definition value="Copy of Invoice"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="16">
+    <code value="CQ"/>
+    <display value="Coverage Register Query"/>
+    <definition value="Coverage Register Query"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="17">
+    <code value="RU"/>
+    <display value="Referral authorization"/>
+    <definition value="Referral authorization"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.6"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>
