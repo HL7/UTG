@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActClassOrganizationalPolicy"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>
+                     
+        <b>Description:</b>A mandate, obligation, requirement, rule, or expectation unilaterally imposed by an organization on:
+      </p>
+                  
+      <ul>
+                     
+        <li>
+                        
+          <p>The activity of another party</p>
+                     
+        </li>
+                     
+        <li>
+                        
+          <p>The behavior of another party</p>
+                     
+        </li>
+                     
+        <li>
+                        
+          <p>The manner in which an act is executed</p>
+                     
+        </li>
+                  
+      </ul>
+                  
+      <p>
+                     
+        <b>Examples:</b>A clinical or research protocols imposed by a payer, a malpractice insurer, or an institution to which a provider must adhere.  A mandate imposed by a denominational institution for a provider to provide or withhold certain information from the patient about treatment options.
+      </p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="author">
+      <valueString value="Vocabulary (Woody Beeler)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="version annotation">
+      <valueString value="Lock all vaue sets untouched since 2014-03-26 to trackingId 2014T1_2014_03_26"/>
+    </extension>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActClassOrganizationalPolicy"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20231"/>
+  </identifier>
+  <version value="2014T1_2014-03-26_001283"/>
+  <name value="ActClassOrganizationalPolicy"/>
+  <title value="ActClassOrganizationalPolicy"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="  &#xD;&#xA; Description:A mandate, obligation, requirement, rule, or expectation unilaterally imposed by an organization on:   The activity of another party  The behavior of another party  The manner in which an act is executed  &#xD;&#xA; Examples:A clinical or research protocols imposed by a payer, a malpractice insurer, or an institution to which a provider must adhere.  A mandate imposed by a denominational institution for a provider to provide or withhold certain information from the patient about treatment options."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="ORGPOL"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

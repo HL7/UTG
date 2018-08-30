@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActRelationshipDocumentProvenance"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Used to convey the relationship between two or more Documents for purpose of tracking provenance relationships such as a predecessor Document and a successor Document.</p>
+                  
+      <p>For example, a predecessor Clinical Summary Document from which a successor Clinical Summary Document is derived.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="author">
+      <valueString value="FHIR (Kathleen Connor)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="version annotation">
+      <valueString value="Fix misspellings and bad &#39;smartquotes&#39; in ProvenanceEventCurrentState value set names and descriptioni text."/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-history">
+    <extension url="author">
+      <valueString value="FHIR (Kathleen Connor)"/>
+    </extension>
+    <extension url="substantiative">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="version annotation">
+      <valueString value="Create v: ActRelationshipDocumentProvenance that includes five ActRelationshipType codes [APND, COMP, RPLC,,XCRPT, and  XFRM]."/>
+    </extension>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActRelationshipDocumentProvenance"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20528"/>
+  </identifier>
+  <version value="2014T2_2014-08-07_001301"/>
+  <name value="ActRelationshipDocumentProvenance"/>
+  <title value="ActRelationshipDocumentProvenance"/>
+  <status value="active"/>
+  <date value="2014-08-07"/>
+  <description value=" Used to convey the relationship between two or more Documents for purpose of tracking provenance relationships such as a predecessor Document and a successor Document. For example, a predecessor Clinical Summary Document from which a successor Clinical Summary Document is derived."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType"/>
+      <concept>
+        <code value="APND"/>
+      </concept>
+      <concept>
+        <code value="COMP"/>
+      </concept>
+      <concept>
+        <code value="RPLC"/>
+      </concept>
+      <concept>
+        <code value="XCRPT"/>
+      </concept>
+      <concept>
+        <code value="XFRM"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

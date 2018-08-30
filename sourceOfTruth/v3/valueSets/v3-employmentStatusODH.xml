@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-employmentStatusODH"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Concepts representing whether a person does or does not currently have a job or is not currently in the labor pool seeking employment.</p>
+               
+    </div>
+  </text>
+  <url value="http://terminology.hl7.org/ValueSet/v3-employmentStatusODH"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20562"/>
+  </identifier>
+  <name value="employmentStatusODH"/>
+  <title value="employmentStatusODH"/>
+  <status value="active"/>
+  <date value="2018-08-12"/>
+  <description value=" Concepts representing whether a person does or does not currently have a job or is not currently in the labor pool seeking employment."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_EmploymentStatus"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
