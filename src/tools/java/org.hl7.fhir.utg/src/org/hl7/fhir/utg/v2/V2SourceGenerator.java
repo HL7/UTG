@@ -40,7 +40,6 @@ import org.hl7.fhir.r4.model.IntegerType;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
-import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
@@ -74,7 +73,6 @@ public class V2SourceGenerator extends BaseGenerator {
   private Date currentVersionDate;
   private Map<String, Table> tables = new HashMap<String, Table>();
   private Map<String, VersionInfo> versions = new HashMap<String, VersionInfo>();
-
 
   public class TableEntryComparator implements Comparator<TableEntry> {
 
@@ -145,6 +143,8 @@ public class V2SourceGenerator extends BaseGenerator {
     private String versionIntroduced;
     private String cld; 
     private String vocabDomain;
+    private String comment;
+    private boolean noCodeSystem;
     
     private List<TableEntry> entries = new ArrayList<TableEntry>();
     public TableVersion(String version, String name) {
@@ -276,6 +276,18 @@ public class V2SourceGenerator extends BaseGenerator {
 	public void setVocabDomain(String vocabDomain) {
 		this.vocabDomain = vocabDomain;
 	}
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	public boolean isNoCodeSystem() {
+		return noCodeSystem;
+	}
+	public void setNoCodeSystem(boolean noCodeSystem) {
+		this.noCodeSystem = noCodeSystem;
+	}
   }
 
 
@@ -391,6 +403,8 @@ public class V2SourceGenerator extends BaseGenerator {
           master.versionIntroduced = tv.versionIntroduced;
           master.cld = tv.cld;
           master.vocabDomain = tv.vocabDomain;
+          master.comment = tv.comment;
+          master.noCodeSystem = tv.noCodeSystem;
           for (TableEntry te : tv.entries) {
             TableEntry tem = master.find(te.code);
             if (tem == null) {
@@ -418,6 +432,14 @@ public class V2SourceGenerator extends BaseGenerator {
         } 
       }
       master.sort();
+
+      // Save cs_oid and cs_uri pair
+      if (!master.noCodeSystem && !Utilities.noString(master.csoid)) {
+    	  ObjectInfo oi = objects.get(master.csoid);
+    	  if (oi != null ) {
+    		  oi.setUri("http://terminology.hl7.org/CodeSystem/v2-"+ this.id);
+    	  }
+      }
     }
 
     private String translateAffiliateCode(String code) {
@@ -460,6 +482,7 @@ public class V2SourceGenerator extends BaseGenerator {
     private String display;
     private String description;
     private int type;
+    private String uri;
     public ObjectInfo(String oid, String display, String description, int type) {
       super();
       this.oid = oid;
@@ -478,7 +501,13 @@ public class V2SourceGenerator extends BaseGenerator {
     }
     public int getType() {
       return type;
-    }  
+    }
+	public String getUri() {
+		return uri;
+	}
+	public void setUri(String uri) {
+		this.uri = uri;
+	}  
   }
 
   public class VersionInfo {
@@ -528,7 +557,7 @@ public class V2SourceGenerator extends BaseGenerator {
     Map<String, String> nameCache = new HashMap<String, String>();
     query = stmt.executeQuery("SELECT t.table_id, t.version_id, t.display_name, t.oid_table, t.cs_oid, t.cs_version, t.vs_oid, t.vs_expansion, t.vocab_domain, t.interpretation, " + 
     		"t.description_as_pub, t.table_type, t.generate, t.section, t.anchor, t.case_insensitive, t.steward, t.where_used, t.v2codetablecomment, t.binding, t.vs_expansion, " +
-    		"t.vocab_domain, o.object_description, v.hl7_version " + 
+    		"t.vocab_domain, t.comment, o.object_description, v.hl7_version " + 
     		"FROM ((HL7Tables t " + 
     		"INNER JOIN HL7Objects o ON t.oid_table = o.oid) " + 
     		"INNER JOIN HL7Versions v ON t.version_introduced = v.version_id) " + 
@@ -572,7 +601,13 @@ public class V2SourceGenerator extends BaseGenerator {
       tv.setVersionInroduced(query.getString("hl7_version"));
       tv.setCld(query.getString("vs_expansion"));
       tv.setVocabDomain(query.getString("vocab_domain"));
+      tv.setComment(query.getString("comment"));
+
+      if (!Utilities.noString(tv.comment) && tv.comment.contains("no-cs")) {
+    	  tv.noCodeSystem = true;
+      }
     }
+    
     int i = 0;
     query = stmt.executeQuery("SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub, active, modification  from HL7TableValues where version_id < 100");
     while (query.next()) {
@@ -746,20 +781,29 @@ public class V2SourceGenerator extends BaseGenerator {
   
   
   private void generateCodeSystem(Table t, ListResource csManifest, ListResource vsManifest) throws FileNotFoundException, IOException {
-    CodeSystem cs = new CodeSystem();
     TableVersion tv = t.master;
-    cs.setId("v2-"+t.id);
+    
+    if (tv.noCodeSystem)
+    	return;
 
-    cs.setUrl("http://terminology.hl7.org/CodeSystem/"+cs.getId());
-    knownCS.add(cs.getUrl());
-    cs.setValueSet("http://terminology.hl7.org/ValueSet/"+cs.getId());
-      
+    CodeSystem cs = new CodeSystem();
+
+    cs.setId("v2-"+t.id);
     cs.setVersion(tv.versionIntroduced);
-    if (objects.containsKey(tv.csoid)) {
-    	cs.setName(objects.get(tv.csoid).display);
+    
+    ObjectInfo oi = objects.get(tv.csoid);
+    if (oi != null) {
+    	cs.setUrl(oi.uri);
+    	cs.setName(oi.display);
     } else {
+        cs.setUrl("http://terminology.hl7.org/CodeSystem/"+cs.getId());
     	cs.setName("V2Table"+t.id);	
     }
+    
+    // knownCS is a HashSet
+   	knownCS.add(cs.getUrl());
+    
+    cs.setValueSet("http://terminology.hl7.org/ValueSet/"+cs.getId());
     cs.setTitle("V2 Table Code System: "+t.name);
     cs.setStatus(PublicationStatus.ACTIVE);
     cs.setExperimental(false);
@@ -831,80 +875,80 @@ public class V2SourceGenerator extends BaseGenerator {
     vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, (String)null));
   }
 
-  private void generateVersionCodeSystem(Table t, TableVersion tv, ListResource csManifest, ListResource vsManifest) throws FileNotFoundException, IOException {
-    CodeSystem cs = new CodeSystem();
-    cs.setId("v2-"+t.id+"-"+tv.version);
-    cs.setUrl("http://terminology.hl7.org/CodeSystem/"+cs.getId());
-    knownCS.add(cs.getUrl());
-    cs.setValueSet("http://terminology.hl7.org/ValueSet/"+cs.getId());
-      
-    cs.setVersion(tv.csversion);
-    cs.setName("V2Table"+t.id+"v"+tv.version);
-    cs.setTitle("V2 Table: "+t.name);
-    cs.setStatus(PublicationStatus.ACTIVE);
-    cs.setExperimental(false);
-    cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.csoid);
-    cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
-    cs.setPublisher("HL7, Inc");
-    cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
-    if (tv.csoid != null && objects.containsKey(tv.csoid))
-      cs.setDescription(objects.get(tv.csoid).description);
-    else if (!Utilities.noString(tv.description))
-      cs.setDescription(tv.description);
-    else 
-      cs.setDescription("Underlying Code System for V2 table "+t.id+" ("+t.name+" "+tv.version+")");
-    cs.setPurpose("Underlying Code System for V2 table "+t.id+" ("+t.name+", version "+tv.version+")");
-    cs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
-    if (tv.isCaseInsensitive())
-      cs.setCaseSensitive(false);
-    else
-      cs.setCaseSensitive(true); // not that it matters, since they are all numeric
-    cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA); // todo - is this correct
-    cs.setCompositional(false);
-    cs.setVersionNeeded(false);
-    cs.setContent(CodeSystemContentMode.COMPLETE);
-    if (!Utilities.noString(tv.getSteward()))
-      cs.getExtension().add(new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg").setValue(new CodeType(tv.getSteward())));
-//    if (!Utilities.noString(tv.getAnchor()))
-//      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref").setValue(new UriType("http://hl7.org/v2/"+tv.getAnchor())));
-//    if (!Utilities.noString(tv.getSection()))
-//      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection").setValue(new StringType(tv.getSection())));
-    if (tv.getType() > 0)
-      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type").setValue(new CodeType(codeForType(tv.getType()))));
-    if (tv.isGenerate())
-      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate").setValue(new BooleanType(true)));
-
-    cs.addProperty().setCode("status").setUri("http://terminology.hl7.org/csprop/status").setType(PropertyType.CODE).setDescription("Status of the concept");
-    cs.addProperty().setCode("intro").setUri("http://terminology.hl7.org/csprop/intro").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was first defined");
-    cs.addProperty().setCode("deprecated").setUri("http://terminology.hl7.org/csprop/deprecated").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was deprecated");
-    cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible").setType(PropertyType.BOOLEAN).setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
-
-    for (TableEntry te : tv.entries) {
-      ConceptDefinitionComponent c = cs.addConcept();
-      c.setCode(te.code);
-      String name = te.display;
-      c.setDisplay(name);
-      c.setDefinition(name);
-      c.setId(Integer.toString(te.sortNo));
-      if (!Utilities.noString(te.comments))
-        ToolingExtensions.addCSComment(c, te.comments);
-      if (te.getFirst() != null)
-        c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
-      if (!Utilities.noString(te.getLast()))
-        c.addProperty().setCode("deprecated").setValue(new CodeType(te.getLast()));
-      if (!Utilities.noString(te.status))
-        c.addProperty().setCode("status").setValue(new CodeType(te.status));
-      if (te.backwardsCompatible)
-        c.addProperty().setCode("backwardsCompatible").setValue(new BooleanType(te.backwardsCompatible));
-    }    
-
-    ValueSet vs = produceValueSet("Master", cs, t, tv);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "v"+tv.version, "cs-"+cs.getId())+".xml"), cs);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "valueSets", "v"+tv.version, "vs-"+cs.getId())+".xml"), vs);
-    
-    csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, (String)null));
-    vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, (String)null));
-  }
+//  private void generateVersionCodeSystem(Table t, TableVersion tv, ListResource csManifest, ListResource vsManifest) throws FileNotFoundException, IOException {
+//    CodeSystem cs = new CodeSystem();
+//    cs.setId("v2-"+t.id+"-"+tv.version);
+//    cs.setUrl("http://terminology.hl7.org/CodeSystem/"+cs.getId());
+//    knownCS.add(cs.getUrl());
+//    cs.setValueSet("http://terminology.hl7.org/ValueSet/"+cs.getId());
+//      
+//    cs.setVersion(tv.csversion);
+//    cs.setName("V2Table"+t.id+"v"+tv.version);
+//    cs.setTitle("V2 Table: "+t.name);
+//    cs.setStatus(PublicationStatus.ACTIVE);
+//    cs.setExperimental(false);
+//    cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.csoid);
+//    cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
+//    cs.setPublisher("HL7, Inc");
+//    cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
+//    if (tv.csoid != null && objects.containsKey(tv.csoid))
+//      cs.setDescription(objects.get(tv.csoid).description);
+//    else if (!Utilities.noString(tv.description))
+//      cs.setDescription(tv.description);
+//    else 
+//      cs.setDescription("Underlying Code System for V2 table "+t.id+" ("+t.name+" "+tv.version+")");
+//    cs.setPurpose("Underlying Code System for V2 table "+t.id+" ("+t.name+", version "+tv.version+")");
+//    cs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
+//    if (tv.isCaseInsensitive())
+//      cs.setCaseSensitive(false);
+//    else
+//      cs.setCaseSensitive(true); // not that it matters, since they are all numeric
+//    cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA); // todo - is this correct
+//    cs.setCompositional(false);
+//    cs.setVersionNeeded(false);
+//    cs.setContent(CodeSystemContentMode.COMPLETE);
+//    if (!Utilities.noString(tv.getSteward()))
+//      cs.getExtension().add(new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg").setValue(new CodeType(tv.getSteward())));
+////    if (!Utilities.noString(tv.getAnchor()))
+////      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref").setValue(new UriType("http://hl7.org/v2/"+tv.getAnchor())));
+////    if (!Utilities.noString(tv.getSection()))
+////      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection").setValue(new StringType(tv.getSection())));
+//    if (tv.getType() > 0)
+//      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type").setValue(new CodeType(codeForType(tv.getType()))));
+//    if (tv.isGenerate())
+//      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate").setValue(new BooleanType(true)));
+//
+//    cs.addProperty().setCode("status").setUri("http://terminology.hl7.org/csprop/status").setType(PropertyType.CODE).setDescription("Status of the concept");
+//    cs.addProperty().setCode("intro").setUri("http://terminology.hl7.org/csprop/intro").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was first defined");
+//    cs.addProperty().setCode("deprecated").setUri("http://terminology.hl7.org/csprop/deprecated").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was deprecated");
+//    cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible").setType(PropertyType.BOOLEAN).setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
+//
+//    for (TableEntry te : tv.entries) {
+//      ConceptDefinitionComponent c = cs.addConcept();
+//      c.setCode(te.code);
+//      String name = te.display;
+//      c.setDisplay(name);
+//      c.setDefinition(name);
+//      c.setId(Integer.toString(te.sortNo));
+//      if (!Utilities.noString(te.comments))
+//        ToolingExtensions.addCSComment(c, te.comments);
+//      if (te.getFirst() != null)
+//        c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
+//      if (!Utilities.noString(te.getLast()))
+//        c.addProperty().setCode("deprecated").setValue(new CodeType(te.getLast()));
+//      if (!Utilities.noString(te.status))
+//        c.addProperty().setCode("status").setValue(new CodeType(te.status));
+//      if (te.backwardsCompatible)
+//        c.addProperty().setCode("backwardsCompatible").setValue(new BooleanType(te.backwardsCompatible));
+//    }    
+//
+//    ValueSet vs = produceValueSet("Master", cs, t, tv);
+//    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "v"+tv.version, "cs-"+cs.getId())+".xml"), cs);
+//    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "valueSets", "v"+tv.version, "vs-"+cs.getId())+".xml"), vs);
+//    
+//    csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, (String)null));
+//    vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, (String)null));
+//  }
   
   private String codeForType(int type) {
     if (type == 0)
@@ -978,6 +1022,7 @@ public class V2SourceGenerator extends BaseGenerator {
 
     cs.addProperty().setCode("table-oid").setUri("http://terminology.hl7.org/csprop/oid").setType(PropertyType.STRING).setDescription("OID For Table");
     cs.addProperty().setCode("csoid").setUri("http://terminology.hl7.org/csprop/csoid").setType(PropertyType.STRING).setDescription("OID For Code System");
+    cs.addProperty().setCode("csoid").setUri("http://terminology.hl7.org/csprop/csuri").setType(PropertyType.STRING).setDescription("URI For Code System");
     cs.addProperty().setCode("vsoid").setUri("http://terminology.hl7.org/csprop/vsoid").setType(PropertyType.STRING).setDescription("OID For Value Set");
     cs.addProperty().setCode("v2type").setUri("http://terminology.hl7.org/csprop/v2type").setType(PropertyType.CODE).setDescription("Type of table");
     cs.addProperty().setCode("generate").setUri("http://terminology.hl7.org/csprop/generate").setType(PropertyType.BOOLEAN).setDescription("whether to generate table");
@@ -1003,8 +1048,14 @@ public class V2SourceGenerator extends BaseGenerator {
           c.setDisplay(t.name);
           c.setDefinition(tv.objectDescription);
           c.addProperty().setCode("table-oid").setValue(new StringType(t.oid));
-          if (!Utilities.noString(tv.csoid))
+          if (!Utilities.noString(tv.csoid)) {
             c.addProperty().setCode("csoid").setValue(new StringType(tv.csoid));
+            ObjectInfo oi = objects.get(tv.csoid);
+            
+            if (oi != null) {
+            	c.addProperty().setCode("csuri").setValue(new StringType(oi.uri));
+            }
+          }
           if (!Utilities.noString(tv.vsoid))
             c.addProperty().setCode("vsoid").setValue(new StringType(tv.vsoid));
           if (tv.getType() > 0)
