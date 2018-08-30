@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-mediaType"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Internet Assigned Numbers Authority (IANA) Mime Media Types.  Identifies the type of the encapsulated data and identifies a method to interpret or render the data.   The IANA defined domain of media types is established by the Internet standard RFC 2045 [http://www.ietf.org/rfc/rfc2045.txt] and 2046 [http://www.ietf.org/rfc/rfc2046.txt]. RFC 2046 defines the media type to consist of two parts:</p>
+                  
+      <ol>
+                     
+        <li>top level media type, and</li>
+                     
+        <li>media subtype</li>
+                  
+      </ol>
+                  
+      <p>However, this HL7 datatypes specification treats the entire media type as one atomic code symbol in the form defined by IANA, i.e., top level type followed by a slash &quot;/&quot; followed by media subtype. Currently defined media types are registered in a database [http://www.iana.org/assignments/media-types/index.html] maintained by IANA. Currently several hundred different MIME media types are defined, with the list growing rapidly. In general, all those types defined by the IANA MAY be used. </p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+    <valueString value="Is in UMLS."/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="false"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-mediaType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.79"/>
+  </identifier>
+  <name value="mediaType"/>
+  <title value="Media Type"/>
+  <status value="active"/>
+  <date value="2018-08-12"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value="Internet Assigned Numbers Authority (IANA) Mime Media Types.  Identifies the type of the encapsulated data and identifies a method to interpret or render the data.   The IANA defined domain of media types is established by the Internet standard RFC 2045 [http://www.ietf.org/rfc/rfc2045.txt] and 2046 [http://www.ietf.org/rfc/rfc2046.txt]. RFC 2046 defines the media type to consist of two parts:  top level media type, and media subtype However, this HL7 datatypes specification treats the entire media type as one atomic code symbol in the form defined by IANA, i.e., top level type followed by a slash &quot;/&quot; followed by media subtype. Currently defined media types are registered in a database [http://www.iana.org/assignments/media-types/index.html] maintained by IANA. Currently several hundred different MIME media types are defined, with the list growing rapidly. In general, all those types defined by the IANA MAY be used."/>
+  <content value="fragment"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <concept>
+    <code value="application"/>
+    <display value="ApplicationMediaType"/>
+    <definition value=" Application specific media type."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21083"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="application/dicom"/>
+      <display value="DICOM"/>
+      <definition value=" Digital Imaging and Communications in Medicine (DICOM) MIME type defined in RFC3240 [http://ietf.org/rfc/rfc3240.txt]."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21460"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="application/msword"/>
+      <display value="MSWORD"/>
+      <definition value=" This format is very prone to compatibility problems.  If sharing of edit-able text is required, text/plain, text/html or text/rtf should be used instead."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14834"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="application/pdf"/>
+      <display value="PDF"/>
+      <definition value=" The Portable Document Format is recommended for written text that is completely laid out and read-only.  PDF is a platform independent, widely deployed, and open specification with freely available creation and rendering tools."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14833"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="audio"/>
+    <display value="AudioMediaType"/>
+    <definition value=" Audio media type."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21084"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="audio/basic"/>
+      <display value="Basic Audio"/>
+      <definition value=" This is a format for single channel audio, encoded using 8bit ISDN mu-law [PCM] at a sample rate of 8000 Hz.  This format is standardized by: CCITT, Fascicle III.4 -Recommendation G.711.  Pulse Code Modulation (PCM) of Voice Frequencies.  Geneva, 1972."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14836"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="audio/k32adpcm"/>
+      <display value="K32ADPCM Audio"/>
+      <definition value=" ADPCM allows compressing audio data.  It is defined in the Internet specification RFC 2421 [ftp://ftp.isi.edu/in-notes/rfc2421.txt].  Its implementation base is unclear."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14838"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="audio/mpeg"/>
+      <display value="MPEG audio layer 3"/>
+      <definition value=" MPEG-1 Audio layer-3 is an audio compression algorithm and file format                       defined in ISO 11172-3 and ISO 13818-3. MP3 has an adjustable sampling frequency for highly compressed telephone to CD quality audio."/>
+      <designation>
+        <use>
+          <system value="http://something...?"/>
+          <code value="deprecated alias"/>
+        </use>
+        <value value="MP3 Audio"/>
+      </designation>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14837"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="image"/>
+    <display value="ImageMediaType"/>
+    <definition value=" Image media type."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21085"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="image/g3fax"/>
+      <display value="G3Fax Image"/>
+      <definition value=" This is recommended only for fax applications."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14843"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="image/gif"/>
+      <display value="GIF Image"/>
+      <definition value=" GIF is a popular format that is universally well supported. However GIF is patent encumbered and should therefore be used with caution."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14841"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="image/jpeg"/>
+      <display value="JPEG Image"/>
+      <definition value=" This format is required for high compression of high color photographs.  It is a &quot;lossy&quot; compression, but the difference to lossless compression is almost unnoticeable to the human vision."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14842"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="image/png"/>
+      <display value="PNG Image"/>
+      <definition value=" Portable Network Graphics (PNG) [http://www.cdrom.com/pub/png] is a widely supported lossless image compression standard with open source code available."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14840"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="image/tiff"/>
+      <display value="TIFF Image"/>
+      <definition value=" Although TIFF (Tag Image File Format) is an international standard it has many interoperability problems in practice.  Too many different versions that are not handled by all software alike."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14844"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="model"/>
+    <display value="ModelMediaType"/>
+    <definition value=" Model media type."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21086"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="model/vrml"/>
+      <display value="VRML Model"/>
+      <definition value=" This is an openly standardized format for 3D models that can be useful for virtual reality applications such as anatomy or biochemical research (visualization of the steric structure of macromolecules)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14849"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="multipart"/>
+    <display value="MultipartMediaType"/>
+    <definition value=" Multipart Media Type"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21087"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="multipart/x-hl7-cda-level-one"/>
+      <display value="CDA Level 1 Multipart"/>
+      <definition value=" The HL7 clinical document Architecture, Level 1 MIME package."/>
+      <designation>
+        <use>
+          <system value="http://something...?"/>
+          <code value="synonym"/>
+        </use>
+        <value value="multipart/x-hl7-cda-level1"/>
+      </designation>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14851"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="text"/>
+    <display value="TextMediaType"/>
+    <definition value=" For any text"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21088"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="text/html"/>
+      <display value="HTML Text"/>
+      <definition value=" For marked-up text according to the Hypertext Mark-up Language.  HTML markup is sufficient for typographically marking-up most written-text documents.  HTML is platform independent and widely deployed."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14828"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="text/plain"/>
+      <display value="Plain Text"/>
+      <definition value="  &#xD;&#xA; Description:For any plain text. This is the default and is used for a character string (ST) data type."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14826"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="text/rtf"/>
+      <display value="RTF Text"/>
+      <definition value=" The Rich Text Format is widely used to share word-processor documents.  However, RTF does have compatibility problems, as it is quite dependent on the word processor.  May be useful if word processor edit-able text should be shared."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14831"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="text/sgml"/>
+      <display value="SGML Text"/>
+      <definition value=" For structured character based data.  There is a risk that general SGML/XML is too powerful to allow a sharing of general SGML/XML documents between different applications."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14829"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="text/x-hl7-ft"/>
+      <display value="HL7 Text"/>
+      <definition value=" For compatibility, this represents the HL7 v2.x FT data type.  Its use is recommended only for backward compatibility with HL7 v2.x systems."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14827"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="text/x-hl7-text+xml"/>
+      <display value="HL7 Structured Narrative"/>
+      <definition value="  &#xD;&#xA; Description:The content described by the CDA Narrative Block (not just used by CDA)."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22607"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="text/xml"/>
+      <display value="XML Text"/>
+      <definition value=" For structured character based data.  There is a risk that general SGML/XML is too powerful to allow a sharing of general SGML/XML documents between different applications."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14830"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="video"/>
+    <display value="VideoMediaType"/>
+    <definition value=" Video media type."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21089"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="video/mpeg"/>
+      <display value="MPEG Video"/>
+      <definition value=" MPEG is an international standard, widely deployed, highly efficient for high color video; open source code exists; highly interoperable."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14846"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="video/x-avi"/>
+      <display value="X-AVI Video"/>
+      <definition value=" The AVI file format is just a wrapper for many different codecs; it is a source of many interoperability problems."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="14847"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+</CodeSystem>

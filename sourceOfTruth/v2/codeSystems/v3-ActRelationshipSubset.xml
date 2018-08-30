@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-ActRelationshipSubset"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>&lt;ns1:p&gt;Used to indicate that the target of the relationship will be a filtered subset of the total related set of targets.&lt;/ns1:p&gt;&lt;ns1:p&gt;Used when there is a need to limit the number of components to the first, the last, the next, the total, the average or some other filtered or calculated subset.&lt;/ns1:p&gt;</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+    <valueString value="Is NOT in UMLS."/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipSubset"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1099"/>
+  </identifier>
+  <name value="ActRelationshipSubset"/>
+  <title value="ActRelationshipSubset"/>
+  <status value="active"/>
+  <date value="2018-08-12"/>
+  <publisher value="HL7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value="&lt;ns1:p&gt;Used to indicate that the target of the relationship will be a filtered subset of the total related set of targets.&lt;/ns1:p&gt;&lt;ns1:p&gt;Used when there is a need to limit the number of components to the first, the last, the next, the total, the average or some other filtered or calculated subset.&lt;/ns1:p&gt;"/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
+    <code value="_ParticipationSubset"/>
+    <display value="ParticipationSubset"/>
+    <definition value=" Used to indicate that the participation is a filtered subset of the total participations of the same type owned by the Act. Used when there is a need to limit the participations to the first, the last, the next or some other filtered subset."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21567"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="FUTURE"/>
+      <display value="expected future"/>
+      <definition value=" An occurrence that is scheduled to occur in the future. An Act whose effective time is greater than &#39;now&#39;, where &#39;now&#39; is the time the instance is authored."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21368"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
+        <code value="FUTSUM"/>
+        <display value="future summary"/>
+        <definition value=" Represents a &#39;summary&#39; of all acts that are scheduled to occur in the future (whose effective time is greater than &#39;now&#39; where is the time the instance is authored.). The effectiveTime represents the outer boundary of all occurrences, repeatNumber represents the total number of repetitions, etc."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="21379"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="LAST"/>
+        <display value="expected last"/>
+        <definition value=" Restricted to the latest known occurrence that is scheduled to occur. The Act with the highest known effective time."/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="21378"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="NEXT"/>
+        <display value="expected next"/>
+        <definition value=" Restricted to the nearest recent known occurrence scheduled to occur in the future. The Act with the lowest effective time, still greater than &#39;now&#39;. (&#39;now&#39; is the time the instance is authored.)"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="21377"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+      </concept>
+    </concept>
+    <concept>
+      <code value="PAST"/>
+      <display value="previous"/>
+      <definition value=" An occurrence that occurred or was scheduled to occur in the past. An Act whose effective time is less than &#39;now&#39;. (&#39;now&#39; is the time the instance is authored.)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21367"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <concept>
+        <code value="FIRST"/>
+        <display value="first known"/>
+        <definition value=" Restricted to the earliest known occurrence that occurred or was scheduled to occur in the past. The Act with the lowest effective time. (&#39;now&#39; is the time the instance is authored.)"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="21373"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="PREVSUM"/>
+        <display value="previous summary"/>
+        <definition value=" Represents a &#39;summary&#39; of all acts that previously occurred or were scheduled to occur. The effectiveTime represents the outer boundary of all occurrences, repeatNumber represents the total number of repetitions, etc. (&#39;now&#39; is the time the instance is authored.)"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="21375"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="RECENT"/>
+        <display value="most recent"/>
+        <definition value=" Restricted to the most recent known occurrence that occurred or was scheduled to occur in the past. The Act with the most recent effective time, still less than &#39;now&#39;. (&#39;now&#39; is the time the instance is authored.)"/>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="21374"/>
+        </property>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+      </concept>
+    </concept>
+    <concept>
+      <code value="SUM"/>
+      <display value="summary"/>
+      <definition value=" Represents a &#39;summary&#39; of all acts that have occurred or were scheduled to occur and which are scheduled to occur in the future. The effectiveTime represents the outer boundary of all occurrences, repeatNumber represents the total number of repetitions, etc."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21371"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="ActRelationshipExpectedSubset"/>
+    <display value="ActRelationshipExpectedSubset"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21376"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="ActRelationshipPastSubset"/>
+    <display value="ActRelationshipPastSubset"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21372"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="MAX"/>
+    <display value="maximum"/>
+    <definition value=" The occurrence whose value attribute is greater than all other occurrences at the time the instance is created."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21370"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="MIN"/>
+    <display value="minimum"/>
+    <definition value=" The occurrence whose value attribute is less than all other occurrences at the time the instance is created."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21369"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

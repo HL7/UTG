@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-EntityNameUse"/>
+  <language value="en"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+    <valueString value="Is in UMLS."/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-EntityNameUse"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.45"/>
+  </identifier>
+  <name value="EntityNameUse"/>
+  <title value="EntityNameUse"/>
+  <status value="active"/>
+  <date value="2018-08-12"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
+    <code value="_NameRepresentationUse"/>
+    <display value="NameRepresentationUse"/>
+    <definition value=" Identifies the different representations of a name.  The representation may affect how the name is used.  (E.g. use of Ideographic for formal communications.)"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21077"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="ABC"/>
+      <display value="Alphabetic"/>
+      <definition value=" Alphabetic transcription of name (Japanese: romaji)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="15917"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="IDE"/>
+      <display value="Ideographic"/>
+      <definition value=" Ideographic representation of name (e.g., Japanese kanji, Chinese characters)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="15919"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="SYL"/>
+      <display value="Syllabic"/>
+      <definition value=" Syllabic transcription of name (e.g., Japanese kana, Korean hangul)"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="15918"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="ASGN"/>
+    <display value="assigned"/>
+    <definition value=" A name assigned to a person. Reasons some organizations assign alternate names may include not knowing the person&#39;s name, or to maintain anonymity. Some, but not necessarily all, of the name types that people call &quot;alias&quot; may fit into this category."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21358"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="C"/>
+    <display value="License"/>
+    <definition value=" As recorded on a license, record, certificate, etc. (only if different from legal name)"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10177"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="I"/>
+    <display value="Indigenous/Tribal"/>
+    <definition value=" e.g. Chief Red Cloud"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10179"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="L"/>
+    <display value="Legal"/>
+    <definition value=" Known as/conventional/the one you use"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10176"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="OR"/>
+      <display value="official registry"/>
+      <definition value="  &#xD;&#xA; Definition:The formal name as registered in an official (government) registry, but which name might not be commonly used. Particularly used in countries with a law system based on Napoleonic law."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21637"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="P"/>
+    <display value="pseudonym"/>
+    <definition value=" A self asserted name that the person is using or has used."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21321"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="A"/>
+      <display value="Artist/Stage"/>
+      <definition value=" Includes writer&#39;s pseudonym, stage name, etc"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10178"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="R"/>
+    <display value="Religious"/>
+    <definition value=" e.g. Sister Mary Francis, Brother John"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10180"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="SRCH"/>
+    <display value="search"/>
+    <definition value=" A name intended for use in searching or matching."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21363"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="PHON"/>
+      <display value="phonetic"/>
+      <definition value=" A name spelled phonetically. There are a variety of phonetic spelling algorithms. This code value does not distinguish between these.&#xD;&#xA; Discussion:"/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21364"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="SNDX"/>
+      <display value="Soundex"/>
+      <definition value=" A name spelled according to the SoundEx algorithm."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="21365"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="_EntityNameSearchUse"/>
+    <display value="EntityNameSearchUse"/>
+    <definition value="  &#xD;&#xA; Description:A name intended for use in searching or matching."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22618"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="_OrganizationNameUse"/>
+    <display value="OrganizationNameUse"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21078"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="_PersonNameUse"/>
+    <display value="PersonNameUse"/>
+    <definition value=" A code indicating the type of name (e.g. nickname, alias, maiden name, legal, adopted)"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21079"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+</CodeSystem>

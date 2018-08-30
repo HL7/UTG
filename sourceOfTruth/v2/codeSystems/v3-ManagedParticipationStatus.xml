@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-ManagedParticipationStatus"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Codes representing the defined possible states of a Managed Participation, as defined by the Managed Participation class state machine.</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+    <valueString value="Is in UMLS."/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ManagedParticipationStatus"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1062"/>
+  </identifier>
+  <name value="ManagedParticipationStatus"/>
+  <title value="ManagedParticipationStatus"/>
+  <status value="active"/>
+  <date value="2018-08-12"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value="Codes representing the defined possible states of a Managed Participation, as defined by the Managed Participation class state machine."/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <concept>
+    <code value="normal"/>
+    <display value="normal"/>
+    <definition value=" The &#39;typical&#39; state. Excludes &quot;nullified&quot; which represents the termination state of a participation instance that was created in error."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="15993"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <concept>
+      <code value="active"/>
+      <display value="active"/>
+      <definition value=" The state representing the fact that the Participation is in progress."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="15996"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="cancelled"/>
+      <display value="cancelled"/>
+      <definition value=" The terminal state resulting from cancellation of the Participation prior to activation."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="15995"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="completed"/>
+      <display value="completed"/>
+      <definition value=" The terminal state representing the successful completion of the Participation."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="15997"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="pending"/>
+      <display value="pending"/>
+      <definition value=" The state representing that fact that the Participation has not yet become active."/>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="15994"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="nullified"/>
+    <display value="nullified"/>
+    <definition value=" The state representing the termination of a Participation instance that was created in error."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="15998"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>
