@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-ResponseLevel"/>
+  <language value="en"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+                  
+      <p>Specifies whether a response is expected from the addressee of this interaction and what level of detail that response should include</p>
+               
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+    <valueString value="Is in UMLS."/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ResponseLevel"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.108"/>
+  </identifier>
+  <name value="ResponseLevel"/>
+  <title value="ResponseLevel"/>
+  <status value="active"/>
+  <date value="2018-08-12"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value="Specifies whether a response is expected from the addressee of this interaction and what level of detail that response should include"/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <concept>
+    <code value="C"/>
+    <display value="completion"/>
+    <definition value=" Respond with exceptions and a notification of completion"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="14763"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="D"/>
+    <display value="detail"/>
+    <definition value=" Respond with exceptions, completion, modifications and include more detail information (if applicable)"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="14765"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="E"/>
+    <display value="exception"/>
+    <definition value=" Respond with exceptions only"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="14762"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="F"/>
+    <display value="confirmation"/>
+    <definition value=" Respond with exceptions, completion, and modification with detail (as above), and send positive confirmations even if no modifications are being made."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="14766"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="N"/>
+    <display value="message-control"/>
+    <definition value=" Respond only with message level acknowledgements, i.e., only notify acceptance or rejection of the message, do not include any application-level detail"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="14767"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="R"/>
+    <display value="modification"/>
+    <definition value=" Respond with exceptions, completions and modifications or revisions done before completion"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="14764"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="X"/>
+    <display value="none"/>
+    <definition value=" Do not send any kind of response"/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="14768"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>

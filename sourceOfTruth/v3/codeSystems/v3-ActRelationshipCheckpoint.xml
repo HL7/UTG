@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-ActRelationshipCheckpoint"/>
+  <language value="en"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+    <valueString value="Is in UMLS."/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
+    <valueString value="Health Level Seven">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
+        <valueString value="Sponsor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
+    </valueString>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
+    <valueString value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
+    <valueString value="true"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipCheckpoint"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.10"/>
+  </identifier>
+  <name value="ActRelationshipCheckpoint"/>
+  <title value="ActRelationshipCheckpoint"/>
+  <status value="active"/>
+  <date value="2018-08-12"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <content value="complete"/>
+  <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
+      <valueBoolean value="false"/>
+    </extension>
+    <code value="internalId"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <concept>
+    <code value="B"/>
+    <display value="beginning"/>
+    <definition value=" Condition is tested every time before execution of the service (WHILE condition DO service)."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10351"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="E"/>
+    <display value="end"/>
+    <definition value=" Condition is tested at the end of a repeated service execution.  The service is repeated only if the condition is true (DO service WHILE condition)."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10352"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="S"/>
+    <display value="entry"/>
+    <definition value=" Condition is tested once before the service is executed (IF condition THEN service)."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10350"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="T"/>
+    <display value="through"/>
+    <definition value=" Condition must be true throughout the execution and the service is interrupted (asynchronously) as soon as the condition turns false (asynchronous WHILE loop).  The service must be interruptible."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10353"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="X"/>
+    <display value="exit"/>
+    <definition value=" Condition is a loop checkpoint, i.e. it is a step of an activity plan and, if negative causes the containing loop to exit."/>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10354"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+  </concept>
+</CodeSystem>
