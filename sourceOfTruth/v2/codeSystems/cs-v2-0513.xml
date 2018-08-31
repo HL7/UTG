@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0513"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="OO"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0513"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.335"/>
+  </identifier>
+  <version value="2.5"/>
+  <name value="bloodProductTransfusion-dispositionStatus"/>
+  <title value="V2 Table Code System: Blood Product Transfusion/Disposition Status"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2018-09-20"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://github.com/HL7/UTG"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts used to specify the current status of the specified blood product as indicated by the placer.  For example, the placer may return the blood product to the transfusion service unused because an IV could not be started. The blood component may have been entered, but the line was clogged and could not be used, in which case the component must be wasted. A final status would indicate that the product has actually been &quot;transfused.&quot;  Used in the Blood Product Transfusion/Disposition (BTX) segment in HL7 Version 2.x messaging."/>
+  <purpose value="Underlying Master Code System for V2 table 0513 (Blood Product Transfusion/Disposition Status)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0513"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://terminology.hl7.org/csprop/status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="intro"/>
+    <uri value="http://terminology.hl7.org/csprop/intro"/>
+    <description value="Version of HL7 in which the code was first defined"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://terminology.hl7.org/csprop/deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="backwardsCompatible"/>
+    <uri value="http://terminology.hl7.org/csprop/backwardsCompatible"/>
+    <description value="Whether code is considered &#39;backwards compatible&#39; (whatever that means)"/>
+    <type value="boolean"/>
+  </property>
+  <concept id="1">
+    <code value="RA"/>
+    <display value="Returned unused/no longer needed"/>
+    <definition value="Returned unused/no longer needed"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="2">
+    <code value="RL"/>
+    <display value="Returned unused/keep linked to patient for possible use later"/>
+    <definition value="Returned unused/keep linked to patient for possible use later"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="3">
+    <code value="WA"/>
+    <display value="Wasted (product no longer viable)"/>
+    <definition value="Wasted (product no longer viable)"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="4">
+    <code value="TX"/>
+    <display value="Transfused"/>
+    <definition value="Transfused"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+  <concept id="5">
+    <code value="TR"/>
+    <display value="Transfused with adverse reaction"/>
+    <definition value="Transfused with adverse reaction"/>
+    <property>
+      <code value="intro"/>
+      <valueCode value="2.5"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="Active"/>
+    </property>
+  </concept>
+</CodeSystem>
