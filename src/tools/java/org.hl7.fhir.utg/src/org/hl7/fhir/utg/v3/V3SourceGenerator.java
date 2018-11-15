@@ -330,9 +330,9 @@ public class V3SourceGenerator extends BaseGenerator {
   private void processReleasedVersion(Element item, CodeSystem cs) throws Exception {
     // ignore: hl7MaintainedIndicator, hl7ApprovedIndicator
     cs.setDateElement(new DateTimeType(item.getAttribute("releaseDate")));
-    cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator", new StringType(item.getAttribute("hl7MaintainedIndicator")));
-    cs.addExtension("http://hl7.org/fhir/StructureDefinition/complete-codes-indicator", new StringType(item.getAttribute("completeCodesIndicator")));
-    cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator", new StringType(item.getAttribute("hl7ApprovedIndicator")));
+    cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator", new BooleanType(item.getAttribute("hl7MaintainedIndicator")));
+    cs.addExtension("http://hl7.org/fhir/StructureDefinition/complete-codes-indicator", new BooleanType(item.getAttribute("completeCodesIndicator")));
+    cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator", new BooleanType(item.getAttribute("hl7ApprovedIndicator")));
     
     if ("false".equals(item.getAttribute("completeCodesIndicator"))) 
       cs.setContent(CodeSystemContentMode.FRAGMENT); // actually a fragment this time 
