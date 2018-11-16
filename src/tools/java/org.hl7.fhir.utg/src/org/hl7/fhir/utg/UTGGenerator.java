@@ -32,18 +32,43 @@ import org.xml.sax.SAXException;
 public class UTGGenerator extends BaseGenerator {
 
 	public static void main(String[] args) throws Exception {
-		String dest = args[0]; // the vocabulary repository to populate
-		String v2source = args[1]; // access database name
-		String v3source = args[2]; // MIF file name
-		new UTGGenerator(dest, v2source, v3source).execute();
+
+		String problems = "";
+		if (args.length > 3) {
+			System.out.println("Warning: Only three arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename. Additional arguments will be ignored.");
+		}
+		
+		if (args.length < 3) {
+			problems += "\t- Three arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename.\n";
+		} else {
+			if (!Files.isDirectory(Paths.get(args[0]))) {
+				problems += "\t- Specified output folder does not exist or is not a directory.\n";
+			}
+			if (Files.notExists(Paths.get(args[1]))) {
+				problems += "\t- Specified V2 Access DB file does not exist.\n";
+			}
+			if (Files.notExists(Paths.get(args[2]))) {
+				problems += "\t- Specified V3 Coremif file does not exist.\n";
+			}
+		}
+
+		if (problems.isEmpty()) {
+			String dest = args[0]; // the vocabulary repository to populate
+			String v2source = args[1]; // access database name
+			String v3source = args[2]; // MIF file name
+			new UTGGenerator(dest, v2source, v3source).execute();
+		} else {
+			System.out.println("One or more problems exist with the specified parameters:\n" + problems);
+		}
+
 	}
 
 	private Date currentVersionDate;
 	private V3SourceGenerator v3;
 	private V2SourceGenerator v2;
 
-	public UTGGenerator(String dest, String v2source, String v3source) throws IOException, ClassNotFoundException, SQLException, FHIRException, SAXException,
-			ParserConfigurationException {
+	public UTGGenerator(String dest, String v2source, String v3source) throws IOException, ClassNotFoundException,
+			SQLException, FHIRException, SAXException, ParserConfigurationException {
 		super(dest, new HashMap<String, CodeSystem>(), new HashSet<String>());
 		createMissingOutputFolders(dest);
 		v2 = new V2SourceGenerator(dest, csmap, knownCS);
@@ -109,6 +134,6 @@ public class UTGGenerator extends BaseGenerator {
 		Files.createDirectories(Paths.get(Utilities.path(dest, "v2", "valueSets")));
 		Files.createDirectories(Paths.get(Utilities.path(dest, "v3", "codeSystems")));
 		Files.createDirectories(Paths.get(Utilities.path(dest, "v3", "valueSets")));
-		
+
 	}
 }
