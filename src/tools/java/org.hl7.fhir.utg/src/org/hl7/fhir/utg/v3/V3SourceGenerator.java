@@ -331,9 +331,8 @@ public class V3SourceGenerator extends BaseGenerator {
     // ignore: hl7MaintainedIndicator, hl7ApprovedIndicator
     cs.setDateElement(new DateTimeType(item.getAttribute("releaseDate")));
     cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator", new BooleanType(item.getAttribute("hl7MaintainedIndicator")));
-    cs.addExtension("http://hl7.org/fhir/StructureDefinition/complete-codes-indicator", new BooleanType(item.getAttribute("completeCodesIndicator")));
     cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator", new BooleanType(item.getAttribute("hl7ApprovedIndicator")));
-    
+
     if ("false".equals(item.getAttribute("completeCodesIndicator"))) 
       cs.setContent(CodeSystemContentMode.FRAGMENT); // actually a fragment this time 
     else
@@ -1045,8 +1044,8 @@ public class V3SourceGenerator extends BaseGenerator {
     Element child = XMLUtil.getFirstChild(item);
     while (child != null) {
       if (child.getNodeName().equals("description"))
-    	// Changed 'version annotation' to just 'annotation'
-        ext.addExtension("annotation", new StringType(child.getTextContent()));
+    	// Changed url from 'version annotation' to 'notes'
+        ext.addExtension("notes", new StringType(child.getTextContent()));
       else
         throw new Exception("Unprocessed element "+child.getNodeName());
       child = XMLUtil.getNextSibling(child);
