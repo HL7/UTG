@@ -330,15 +330,13 @@ public class V3SourceGenerator extends BaseGenerator {
   private void processReleasedVersion(Element item, CodeSystem cs) throws Exception {
     // ignore: hl7MaintainedIndicator, hl7ApprovedIndicator
     cs.setDateElement(new DateTimeType(item.getAttribute("releaseDate")));
-    cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator", new BooleanType(item.getAttribute("hl7MaintainedIndicator")));
+
+    // TODO remove hl7-maintained-indicator extension and deal with externals
+    //cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator", new BooleanType(item.getAttribute("hl7MaintainedIndicator")));
     cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator", new BooleanType(item.getAttribute("hl7ApprovedIndicator")));
 
-    if ("false".equals(item.getAttribute("completeCodesIndicator"))) 
-      cs.setContent(CodeSystemContentMode.FRAGMENT); // actually a fragment this time 
-    else
-      cs.setContent(CodeSystemContentMode.COMPLETE);
-    
     Element child = XMLUtil.getFirstChild(item);
+    boolean hasConcepts = false;
     while (child != null) {
       if (child.getNodeName().equals("supportedLanguage"))
         processSupportedLanguage(child, cs);
@@ -346,12 +344,21 @@ public class V3SourceGenerator extends BaseGenerator {
         processSupportedConceptRelationship(child, cs);
       else if (child.getNodeName().equals("supportedConceptProperty"))
         processSupportedConceptProperty(child, cs);
-      else if (child.getNodeName().equals("concept"))
+      else if (child.getNodeName().equals("concept")) {
         processConcept(child, cs);
+        hasConcepts = true;
+      }
       else
         throw new Exception("Unprocessed element "+child.getNodeName());
       child = XMLUtil.getNextSibling(child);
-    }    
+    }
+
+    if ("false".equals(item.getAttribute("completeCodesIndicator")))
+      cs.setContent((hasConcepts)? CodeSystemContentMode.FRAGMENT : CodeSystemContentMode.NOTPRESENT);  
+    else
+      cs.setContent(CodeSystemContentMode.COMPLETE);
+    
+
   }
 
   private void processHistoryItem(Element item, CodeSystem cs) throws Exception {
