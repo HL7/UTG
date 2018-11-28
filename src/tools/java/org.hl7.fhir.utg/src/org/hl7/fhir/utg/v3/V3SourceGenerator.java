@@ -331,8 +331,6 @@ public class V3SourceGenerator extends BaseGenerator {
     // ignore: hl7MaintainedIndicator, hl7ApprovedIndicator
     cs.setDateElement(new DateTimeType(item.getAttribute("releaseDate")));
 
-    // TODO remove hl7-maintained-indicator extension and deal with externals
-    //cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator", new BooleanType(item.getAttribute("hl7MaintainedIndicator")));
     cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator", new BooleanType(item.getAttribute("hl7ApprovedIndicator")));
 
     Element child = XMLUtil.getFirstChild(item);
@@ -357,8 +355,6 @@ public class V3SourceGenerator extends BaseGenerator {
       cs.setContent((hasConcepts)? CodeSystemContentMode.FRAGMENT : CodeSystemContentMode.NOTPRESENT);  
     else
       cs.setContent(CodeSystemContentMode.COMPLETE);
-    
-
   }
 
   private void processHistoryItem(Element item, CodeSystem cs) throws Exception {
@@ -494,7 +490,9 @@ public class V3SourceGenerator extends BaseGenerator {
       pd.setType(PropertyType.BOOLEAN);
     else
       throw new Exception("unknown type "+type);
-    pd.addExtension(csext("mandatory"), new BooleanType(item.getAttribute("isMandatoryIndicator")));
+
+    // This line adds codeSystem-mandatory extension, which should be removed
+    //pd.addExtension(csext("mandatory"), new BooleanType(item.getAttribute("isMandatoryIndicator")));
     
     String defV = item.getAttribute("defaultValue");
     if (!Utilities.noString(defV)) {
