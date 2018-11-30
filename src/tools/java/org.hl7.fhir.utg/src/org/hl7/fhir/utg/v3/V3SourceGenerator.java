@@ -309,9 +309,12 @@ public class V3SourceGenerator extends BaseGenerator {
       child = XMLUtil.getNextSibling(child);
     }    
     
-    StringType contr = new StringType(name);
+    StringType contr = new StringType();
+    contr.addExtension(csext("contributor-name"), new StringType(name));
     contr.addExtension(csext("contributor-role"), new StringType(role));
-    contr.addExtension(csext("contributor-notes"), new StringType(notes));
+    if (notes != null) {
+      contr.addExtension(csext("contributor-notes"), new StringType(notes));
+    }
     
     cs.addExtension(csext("contributor"), contr);
 

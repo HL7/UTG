@@ -248,12 +248,16 @@
       </xsl:for-each>
       <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/codeSystem-contributor']/valueString">
         <contributor>
+          <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-name']/valueString/@value">
+            <role>
+              <xsl:value-of select="."/>
+            </role>
+          </xsl:for-each>
           <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role']/valueString/@value">
             <role>
               <xsl:value-of select="."/>
             </role>
           </xsl:for-each>
-          <name name="{@value}"/>
           <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes']/valueString/@value">
             <notes>
               <xsl:value-of select="."/>
