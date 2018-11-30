@@ -315,18 +315,18 @@ public class V3SourceGenerator extends BaseGenerator {
 			child = XMLUtil.getNextSibling(child);
 		}
 
-		StringType contr = new StringType();
-		contr.addExtension(csext("contributor-name"), new StringType(name));
-		contr.addExtension(csext("contributor-role"), new StringType(role));
+		
+		Extension ext = new Extension().setUrl(csext("contributor"));
+		cs.getExtension().add(ext);
+		ext.addExtension(csext("contributor-name"), new StringType(name));
+		ext.addExtension(csext("contributor-role"), new StringType(role));
 		if (notes != null) {
-			contr.addExtension(csext("contributor-notes"), new StringType(notes));
+			ext.addExtension(csext("contributor-notes"), new StringType(notes));
 		}
-
-		cs.addExtension(csext("contributor"), contr);
 
 		if (!Utilities.existsInList(role, "Publisher", "Sponsor"))
 			throw new Exception("Unprocessed role " + role);
-		if (name.equals("(see notes)"))
+		if (name.equalsIgnoreCase("(see notes)"))
 			name = notes;
 		if (!cs.hasPublisher())
 			cs.setPublisher(name);
@@ -945,7 +945,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 		if (!Utilities.existsInList(role, "Publisher", "Sponsor"))
 			throw new Exception("Unprocessed role " + role);
-		if (name.equals("(see notes)"))
+		if (name.equalsIgnoreCase("(see notes)"))
 			name = notes;
 		if (!vs.hasPublisher())
 			vs.setPublisher(name);
