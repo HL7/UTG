@@ -37,11 +37,11 @@ public class BaseGenerator {
   }
   
   protected String csext(String name) {
-    return "http://hl7.org/fhir/StructureDefinition/codeSystem-"+name;
+    return "http://hl7.org/fhir/StructureDefinition/codesystem-"+name;
   }
 
   protected String vsext(String name) {
-    return "http://hl7.org/fhir/StructureDefinition/valueSet-"+name;
+    return "http://hl7.org/fhir/StructureDefinition/valueset-"+name;
   }
 
   protected String makeSafeId(String s) {
