@@ -318,10 +318,10 @@ public class V3SourceGenerator extends BaseGenerator {
 		
 		Extension ext = new Extension().setUrl(csext("contributor"));
 		cs.getExtension().add(ext);
-		ext.addExtension(csext("contributor-name"), new StringType(name));
-		ext.addExtension(csext("contributor-role"), new StringType(role));
+		ext.addExtension("name", new StringType(name));
+		ext.addExtension("role", new StringType(role));
 		if (notes != null) {
-			ext.addExtension(csext("contributor-notes"), new StringType(notes));
+			ext.addExtension("notes", new StringType(notes));
 		}
 
 		if (!Utilities.existsInList(role, "Publisher", "Sponsor"))
@@ -1048,6 +1048,7 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	private void processHistoryItem(Element item, ValueSet vs) throws Exception {
+		// TODO should be valueset-history?
 		Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/codesystem-history");
 		vs.getExtension().add(ext);
 		// ext.addExtension("id", new StringType(item.getAttribute("id")));
