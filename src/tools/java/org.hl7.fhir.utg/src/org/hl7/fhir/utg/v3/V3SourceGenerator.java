@@ -291,7 +291,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			} else if (child.getNodeName().equals("licenseTerms"))
 				cs.setCopyright(child.getTextContent());
 			else if (child.getNodeName().equals("versioningPolicy"))
-				cs.addExtension(csext("versioning"), new StringType(child.getTextContent()));
+				cs.addExtension(resext("versioningPolicy"), new StringType(child.getTextContent()));
 			else
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			child = XMLUtil.getNextSibling(child);
@@ -365,7 +365,7 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	private void processHistoryItem(Element item, CodeSystem cs) throws Exception {
-		Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/codesystem-history");
+		Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/resource-history");
 		cs.getExtension().add(ext);
 		ext.addExtension("date", new DateTimeType(item.getAttribute("dateTime")));
 		ext.addExtension("id", new StringType(item.getAttribute("id")));
@@ -448,7 +448,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		String v = item.getAttribute("deprecationEffectiveVersion");
 		if (Utilities.noString(v))
 			throw new Exception("Element not understood: " + item.getNodeName());
-		cs.addExtension(csext("versionDeprecated"), Factory.newString_(v));
+		cs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
 		cs.setStatus(PublicationStatus.RETIRED);
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -644,7 +644,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		String v = item.getAttribute("deprecationEffectiveVersion");
 		if (Utilities.noString(v))
 			throw new Exception("Element not understood: " + item.getNodeName());
-		cd.addExtension(csext("versionDeprecated"), Factory.newString_(v));
+		cd.addExtension(resext("versionDeprecated"), Factory.newString_(v));
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
@@ -919,7 +919,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			else if (child.getNodeName().equals("licenseTerms"))
 				vs.setCopyright(child.getTextContent());
 			else if (child.getNodeName().equals("versioningPolicy"))
-				vs.addExtension(csext("versioning"), new StringType(child.getTextContent()));
+				vs.addExtension(resext("versioningPolicy"), new StringType(child.getTextContent()));
 			else
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			child = XMLUtil.getNextSibling(child);
@@ -996,7 +996,7 @@ public class V3SourceGenerator extends BaseGenerator {
 						if (greatGrandChild != null && greatGrandChild.getNodeName().equals("i")
 								&& greatGrandChild.getTextContent() != null
 								&& greatGrandChild.getTextContent().startsWith("Steward:")) {
-							vs.addExtension(vsext("steward"), new StringType(grandChild.getTextContent().trim()));
+							vs.addExtension(resext("steward"), new StringType(grandChild.getTextContent().trim()));
 						}
 					}
 					grandChild = XMLUtil.getNextSibling(grandChild);
@@ -1034,7 +1034,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		String v = item.getAttribute("deprecationEffectiveVersion");
 		if (Utilities.noString(v))
 			throw new Exception("Element not understood: " + item.getNodeName());
-		vs.addExtension(csext("versionDeprecated"), Factory.newString_(v));
+		vs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
 		vs.setStatus(PublicationStatus.RETIRED);
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -1049,7 +1049,7 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void processHistoryItem(Element item, ValueSet vs) throws Exception {
 		// TODO should be valueset-history?
-		Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/codesystem-history");
+		Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/resource-history");
 		vs.getExtension().add(ext);
 		// ext.addExtension("id", new StringType(item.getAttribute("id")));
 		vs.setVersion(item.getAttribute("id"));

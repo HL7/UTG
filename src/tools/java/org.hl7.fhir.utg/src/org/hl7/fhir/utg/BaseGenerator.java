@@ -41,8 +41,12 @@ public class BaseGenerator {
   }
 
   protected String vsext(String name) {
-    return "http://hl7.org/fhir/StructureDefinition/valueset-"+name;
-  }
+	    return "http://hl7.org/fhir/StructureDefinition/valueset-"+name;
+	  }
+
+  protected String resext(String name) {
+	    return "http://hl7.org/fhir/StructureDefinition/resource-"+name;
+	  }
 
   protected String makeSafeId(String s) {
     if (s.contains("(")) {
