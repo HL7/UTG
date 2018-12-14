@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
@@ -24,6 +25,7 @@ import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
+import org.hl7.fhir.utg.external.ExternalProvider;
 import org.hl7.fhir.utg.v2.V2SourceGenerator;
 import org.hl7.fhir.utg.v3.V3SourceGenerator;
 import org.hl7.fhir.utilities.Utilities;
@@ -34,12 +36,12 @@ public class UTGGenerator extends BaseGenerator {
 	public static void main(String[] args) throws Exception {
 
 		String problems = "";
-		if (args.length > 3) {
-			System.out.println("Warning: Only three arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename. Additional arguments will be ignored.");
+		if (args.length > 4) {
+			System.out.println("Warning: Only four arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, External Provider Manifest filename. Additional arguments will be ignored.");
 		}
 		
 		if (args.length < 3) {
-			problems += "\t- Three arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename.\n";
+			problems += "\t- Four arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, External Provider Manifest filename.\n";
 		} else {
 			if (!Files.isDirectory(Paths.get(args[0]))) {
 				problems += "\t- Specified output folder does not exist or is not a directory.\n";
@@ -50,13 +52,17 @@ public class UTGGenerator extends BaseGenerator {
 			if (Files.notExists(Paths.get(args[2]))) {
 				problems += "\t- Specified V3 Coremif file does not exist.\n";
 			}
+			if (Files.notExists(Paths.get(args[3]))) {
+				problems += "\t- Specified External Provider Manifest file does not exist.\n";
+			}
 		}
 
 		if (problems.isEmpty()) {
 			String dest = args[0]; // the vocabulary repository to populate
 			String v2source = args[1]; // access database name
 			String v3source = args[2]; // MIF file name
-			new UTGGenerator(dest, v2source, v3source).execute();
+			String externalProviderManifest = args[3]; // External Provider Manifest
+			new UTGGenerator(dest, v2source, v3source, externalProviderManifest).execute();
 		} else {
 			System.out.println("One or more problems exist with the specified parameters:\n" + problems);
 		}
@@ -66,14 +72,17 @@ public class UTGGenerator extends BaseGenerator {
 	private Date currentVersionDate;
 	private V3SourceGenerator v3;
 	private V2SourceGenerator v2;
-
-	public UTGGenerator(String dest, String v2source, String v3source) throws IOException, ClassNotFoundException,
+	private Map<String, ExternalProvider> externalProviders;
+	
+	public UTGGenerator(String dest, String v2source, String v3source, String externalProviderManifest) throws IOException, ClassNotFoundException,
 			SQLException, FHIRException, SAXException, ParserConfigurationException {
 		super(dest, new HashMap<String, CodeSystem>(), new HashSet<String>());
-		createMissingOutputFolders(dest);
-		v2 = new V2SourceGenerator(dest, csmap, knownCS);
-		v3 = new V3SourceGenerator(dest, csmap, knownCS);
+		createMissingOutputFolders();
 
+		externalProviders = ExternalProvider.getExternalProviders(externalProviderManifest);
+		v2 = new V2SourceGenerator(dest, csmap, knownCS);
+		v3 = new V3SourceGenerator(dest, csmap, knownCS, externalProviders);
+		
 		v2.load(v2source);
 		v3.load(v3source);
 	}
@@ -89,6 +98,9 @@ public class UTGGenerator extends BaseGenerator {
 		v3.generateCodeSystems();
 		v3.generateValueSets();
 		v3.mergeV3Manifests();
+		
+		writeExternalManifestFiles();
+		
 		System.out.println("finished");
 	}
 
@@ -127,13 +139,21 @@ public class UTGGenerator extends BaseGenerator {
 		System.out.println("Save conceptdomains (" + Integer.toString(count) + " found)");
 	}
 
-	private void createMissingOutputFolders(String dest) throws IOException {
+	private void createMissingOutputFolders() throws IOException {
 		Files.createDirectories(Paths.get(Utilities.path(dest, "unified")));
 		Files.createDirectories(Paths.get(Utilities.path(dest, "release")));
+		Files.createDirectories(Paths.get(Utilities.path(dest, "external")));
 		Files.createDirectories(Paths.get(Utilities.path(dest, "v2", "codeSystems")));
 		Files.createDirectories(Paths.get(Utilities.path(dest, "v2", "valueSets")));
 		Files.createDirectories(Paths.get(Utilities.path(dest, "v3", "codeSystems")));
 		Files.createDirectories(Paths.get(Utilities.path(dest, "v3", "valueSets")));
 
+	}
+	
+	private void writeExternalManifestFiles() throws ParserConfigurationException, TransformerException, IOException {
+		System.out.println("Writing " + externalProviders.size() + " External Provider Manifests");
+		for (ExternalProvider provider : externalProviders.values()) {
+			provider.writeXMLManifest(Utilities.path(dest, "external"));
+		}
 	}
 }

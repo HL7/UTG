@@ -51,6 +51,7 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.r4.model.ValueSet.FilterOperator;
 import org.hl7.fhir.utg.BaseGenerator;
+import org.hl7.fhir.utg.external.ExternalProvider;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -66,14 +67,16 @@ import org.xml.sax.SAXException;
 
 public class V3SourceGenerator extends BaseGenerator {
 
-	public V3SourceGenerator(String dest, Map<String, CodeSystem> csmap, Set<String> knownCS) {
+	public V3SourceGenerator(String dest, Map<String, CodeSystem> csmap, Set<String> knownCS, Map<String, ExternalProvider> externalProviders) {
 		super(dest, csmap, knownCS);
+		this.externalProviders = externalProviders;
 	}
 
 	private Element mif;
 	private List<ConceptDomain> v3ConceptDomains = new ArrayList<ConceptDomain>();
 	private Set<String> notations = new HashSet<String>();
 	private Set<String> systems = new HashSet<String>();
+	private Map<String, ExternalProvider> externalProviders;
 
 	public class ConceptDomain {
 		private String name;
@@ -171,7 +174,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		for (Element l : list) {
 			CodeSystem cs = generateV3CodeSystem(l);
 			csmap.put(cs.getUserString("oid"), cs);
-
+			
 			manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, true));
 		}
 
@@ -336,6 +339,15 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void processReleasedVersion(Element item, CodeSystem cs) throws Exception {
 		// ignore: hl7MaintainedIndicator, hl7ApprovedIndicator
+		if (!Boolean.parseBoolean(item.getAttribute("hl7MaintainedIndicator"))) {
+			// Is External
+			ExternalProvider provider = externalProviders.get(cs.getPublisher());
+			if (provider == null) {
+				provider = externalProviders.get("EverythingElse");
+			}
+			provider.addCodeSystem(cs);
+		}
+		
 		cs.setDateElement(new DateTimeType(item.getAttribute("releaseDate")));
 
 		cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator",
