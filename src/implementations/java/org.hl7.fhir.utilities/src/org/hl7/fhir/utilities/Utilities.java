@@ -221,10 +221,13 @@ public class Utilities {
 
 		FileChannel source = null;
 		FileChannel destination = null;
-
+		FileInputStream sourceInputStream = null;
+		FileOutputStream destinationOutputStream = null;
 		try {
-			source = new FileInputStream(sourceFile).getChannel();
-			destination = new FileOutputStream(destFile).getChannel();
+			sourceInputStream = new FileInputStream(sourceFile); 
+			source = sourceInputStream.getChannel();
+			destinationOutputStream = new FileOutputStream(destFile); 
+			destination = destinationOutputStream.getChannel();
 			destination.transferFrom(source, 0, source.size());
 		}
 		finally {
@@ -233,6 +236,12 @@ public class Utilities {
 			}
 			if(destination != null) {
 				destination.close();
+			}
+			if (sourceInputStream != null) {
+				sourceInputStream.close();
+			}
+			if (destinationOutputStream != null) {
+				destinationOutputStream.close();
 			}
 		}
 	}
