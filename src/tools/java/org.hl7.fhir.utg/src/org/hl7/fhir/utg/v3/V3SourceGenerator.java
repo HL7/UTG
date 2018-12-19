@@ -341,11 +341,11 @@ public class V3SourceGenerator extends BaseGenerator {
 		// ignore: hl7MaintainedIndicator, hl7ApprovedIndicator
 		if (!Boolean.parseBoolean(item.getAttribute("hl7MaintainedIndicator"))) {
 			// Is External
-			ExternalProvider provider = externalProviders.get(cs.getPublisher());
-			if (provider == null) {
-				provider = externalProviders.get("EverythingElse");
+			if (externalProviders.containsKey(cs.getPublisher())) {
+				externalProviders.get(cs.getPublisher()).addCodeSystem(cs);
+			} else {
+				ExternalProvider.handleUnclassifiedCodeSystem(cs);
 			}
-			provider.addCodeSystem(cs);
 		}
 		
 		cs.setDateElement(new DateTimeType(item.getAttribute("releaseDate")));

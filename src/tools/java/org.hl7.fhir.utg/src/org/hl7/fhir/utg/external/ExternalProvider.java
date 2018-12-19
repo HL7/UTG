@@ -14,14 +14,12 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.utilities.Utilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -30,7 +28,8 @@ import org.xml.sax.SAXException;
 
 public class ExternalProvider {
 	private static final String XMLNS = "http://hl7.org/fhir";
-
+	private static final ExternalProvider CATCH_ALL = ExternalProvider.getCatchAll();
+	
 	private String _name;
 	private String _title;
 	private String _note;
@@ -50,10 +49,35 @@ public class ExternalProvider {
 	public void addCodeSystem(CodeSystem cs) { _codeSystems.add(cs); }
 	
 	public ExternalProvider(Element e) {
-		_name = e.getAttribute("name");
-		_title = e.getAttribute("title");
-		_note = e.getAttribute("note");
+		this (e.getAttribute("name"), e.getAttribute("title"), e.getAttribute("note"));
+	}
+	
+	public ExternalProvider(String name, String title, String note) {
+		_name = name;
+		_title = title;
+		_note = note;
 		_codeSystems = new LinkedList<CodeSystem>();
+	}
+	
+	private static ExternalProvider getCatchAll() {
+		ExternalProvider catchAllProvider  = new ExternalProvider(
+				"Unclassified",
+				"Unclassified External Vocabulary Provider",
+				"Manifest of all external vocabularies that are not handled in a specified way"
+		);
+		return catchAllProvider;
+	}
+	
+	public static void handleUnclassifiedCodeSystem(CodeSystem cs) {
+		CATCH_ALL.addCodeSystem(cs);
+	}
+	
+	public static void writeUnclassifiedXMLManifest(String outputPath) throws ParserConfigurationException, TransformerException, IOException {
+		CATCH_ALL.writeXMLManifest(outputPath);
+	}
+	
+	public static boolean hasUnclassifiedCodeSystems() {
+		return (CATCH_ALL.getCodeSystems().size() > 0);
 	}
 	
 	public void writeXMLManifest(String outputPath) throws ParserConfigurationException, TransformerException, IOException {

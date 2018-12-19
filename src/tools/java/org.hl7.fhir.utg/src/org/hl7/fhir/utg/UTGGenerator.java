@@ -140,6 +140,9 @@ public class UTGGenerator extends BaseGenerator {
 	}
 
 	private void createMissingOutputFolders() throws IOException {
+		Files.createDirectories(Paths.get(Utilities.path(dest)));
+		// Clear the output folder in case it already existed and contained prior data
+		Utilities.clearDirectory(Utilities.path(dest));
 		Files.createDirectories(Paths.get(Utilities.path(dest, "unified")));
 		Files.createDirectories(Paths.get(Utilities.path(dest, "release")));
 		Files.createDirectories(Paths.get(Utilities.path(dest, "external")));
@@ -151,9 +154,15 @@ public class UTGGenerator extends BaseGenerator {
 	}
 	
 	private void writeExternalManifestFiles() throws ParserConfigurationException, TransformerException, IOException {
+		String outputPath = Utilities.path(dest, "external");
 		System.out.println("Writing " + externalProviders.size() + " External Provider Manifests");
 		for (ExternalProvider provider : externalProviders.values()) {
-			provider.writeXMLManifest(Utilities.path(dest, "external"));
+			provider.writeXMLManifest(outputPath);
 		}
+		if (ExternalProvider.hasUnclassifiedCodeSystems()) {
+			System.out.println("Writing Manifest for Unclassified External CodeSystems");
+			ExternalProvider.writeUnclassifiedXMLManifest(outputPath);
+		}
+		
 	}
 }
