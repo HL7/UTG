@@ -596,16 +596,21 @@ public class V3SourceGenerator extends BaseGenerator {
 	private void processConceptDocumentation(Element item, ConceptDefinitionComponent cd) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
-			if (child.getNodeName().equals("description"))
-				processConceptDescription(child, cd);
-			else if (child.getNodeName().equals("definition"))
+			if (child.getNodeName().equals("definition"))
 				processConceptDefinition(child, cd);
+
+			// There does not seem to be a 'description' element at this level. 
+			// Commented out this option, and we'll see if an exception eventually gets thrown.
+			//else if (child.getNodeName().equals("description"))
+			//	processConceptDescription(child, cd);
+			
 			else
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			child = XMLUtil.getNextSibling(child);
 		}
 	}
 
+	/*
 	private void processConceptDescription(Element item, ConceptDefinitionComponent cd) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -616,6 +621,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			child = XMLUtil.getNextSibling(child);
 		}
 	}
+	*/
 
 	private void processConceptDefinition(Element item, ConceptDefinitionComponent cd) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
