@@ -240,17 +240,24 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 		// now, fix the heirarchies
 		for (CodeSystem cs : csmap.values()) {
+			boolean isOntylog = codeSystemIsOntylog(cs);
+			
 			List<ConceptDefinitionComponent> moved = new ArrayList<ConceptDefinitionComponent>();
 			for (ConceptDefinitionComponent cd : cs.getConcept()) {
 				@SuppressWarnings("unchecked")
 				List<String> parents = (List<String>) cd.getUserData("parents");
 				if (parents != null && parents.size() > 0) {
-					moved.add(cd);
-					find(cs, parents.get(0), cd.getCode(), cs.getUrl()).getConcept().add(cd);
-					for (int i = 1; i < parents.size(); i++) {
-						find(cs, parents.get(i), cd.getCode(), cs.getUrl()).addExtension(
-								"http://hl7.org/fhir/StructureDefinition/codesystem-subsumes",
-								new CodeType(cd.getCode()));
+					if (isOntylog) {
+						for (int i = 0; i < parents.size(); i++) {
+							ConceptDefinitionComponent parentConcept = find(cs, parents.get(i), cd.getCode(), cs.getUrl());
+							ConceptPropertyComponent parentProperty = cd.addProperty();
+							parentProperty.setCode("subsumedBy");
+							parentProperty.setValue(new CodeType(parentConcept.getCode()));
+						}
+					} else {
+						moved.add(cd);
+						ConceptDefinitionComponent parentConcept = find(cs, parents.get(0), cd.getCode(), cs.getUrl());
+						parentConcept.getConcept().add(cd);
 					}
 				}
 			}
@@ -1187,4 +1194,17 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 	}
 
+	private boolean codeSystemIsOntylog(CodeSystem cs) {
+		boolean isOntylog = false;
+		List<ConceptDefinitionComponent> conceptList = cs.getConcept();
+		for (ConceptDefinitionComponent concept : conceptList) {
+			@SuppressWarnings("unchecked")
+			List<String> parents = (List<String>) concept.getUserData("parents");
+			if (parents != null && parents.size() > 1) {
+				isOntylog = true;
+				break;
+			}
+		}
+		return isOntylog;
+	}
 }
