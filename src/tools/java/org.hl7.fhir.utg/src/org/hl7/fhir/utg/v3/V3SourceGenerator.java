@@ -350,8 +350,8 @@ public class V3SourceGenerator extends BaseGenerator {
 		
 		cs.setDateElement(new DateTimeType(item.getAttribute("releaseDate")));
 
-		cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator",
-				new BooleanType(item.getAttribute("hl7ApprovedIndicator")));
+		//cs.addExtension("http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator",
+		//		new BooleanType(item.getAttribute("hl7ApprovedIndicator")));
 
 		Element child = XMLUtil.getFirstChild(item);
 		boolean hasConcepts = false;
