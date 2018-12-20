@@ -108,6 +108,10 @@
     <display value="act relationship type"/>
     <definition value="  &#xD;&#xA; Description:A directed association between a source Act and a target Act.  &#xD;&#xA; Usage Note:This code should never be transmitted in an instance as the value of ActRelationship.typeCode (attribute)"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23252"/>
     </property>
@@ -119,14 +123,14 @@
       <code value="Name:ActRelationship:target:Act"/>
       <valueString value="&amp;"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
   </concept>
   <concept>
     <code value="CURE"/>
     <display value="curative indication"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="21642"/>
@@ -139,14 +143,14 @@
       <code value="isDocumentCharacteristic"/>
       <valueBoolean value="true"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="CURE.ADJ"/>
     <display value="adjunct curative indication"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="21643"/>
@@ -159,14 +163,14 @@
       <code value="isDocumentCharacteristic"/>
       <valueBoolean value="true"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="MTGT.ADJ"/>
     <display value="adjunct mitigation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="21641"/>
@@ -179,20 +183,16 @@
       <code value="isDocumentCharacteristic"/>
       <valueBoolean value="true"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="RACT"/>
     <property>
-      <code value="internalId"/>
-      <valueCode value="14892"/>
-    </property>
-    <property>
       <code value="status"/>
       <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="14892"/>
     </property>
     <property>
       <code value="status"/>
@@ -202,12 +202,12 @@
   <concept>
     <code value="SUGG"/>
     <property>
-      <code value="internalId"/>
-      <valueCode value="10322"/>
-    </property>
-    <property>
       <code value="status"/>
       <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10322"/>
     </property>
     <property>
       <code value="status"/>
@@ -223,6 +223,10 @@
       <valueBoolean value="true"/>
     </property>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23077"/>
     </property>
@@ -235,16 +239,12 @@
       <valueCode value="temporallyRelatedEndInformation"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActClassTemporallyPertains"/>
     </property>
     <property>
       <code value="subsumedBy"/>
-      <valueCode value="_ActClassTemporallyPertains"/>
+      <valueCode value="TemporallyPertains"/>
     </property>
   </concept>
   <concept>
@@ -254,6 +254,10 @@
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
     </property>
     <property>
       <code value="internalId"/>
@@ -276,16 +280,12 @@
       <valueCode value="DNA______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActClassTemporallyPertains"/>
     </property>
     <property>
       <code value="subsumedBy"/>
-      <valueCode value="_ActClassTemporallyPertains"/>
+      <valueCode value="TemporallyPertains"/>
     </property>
   </concept>
   <concept>
@@ -295,6 +295,10 @@
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
     </property>
     <property>
       <code value="internalId"/>
@@ -321,16 +325,12 @@
       <valueCode value="DOB______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipAccounting"/>
     </property>
     <property>
       <code value="subsumedBy"/>
-      <valueCode value="_ActRelationshipAccounting"/>
+      <valueCode value="_ActRelationshipPosts"/>
     </property>
   </concept>
   <concept>
@@ -340,6 +340,10 @@
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
     </property>
     <property>
       <code value="internalId"/>
@@ -366,22 +370,22 @@
       <valueCode value="DOA______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipAccounting"/>
     </property>
     <property>
       <code value="subsumedBy"/>
-      <valueCode value="_ActRelationshipAccounting"/>
+      <valueCode value="_ActRelationshipPosts"/>
     </property>
   </concept>
   <concept>
     <code value="CIND"/>
     <display value="has contra-indication"/>
     <definition value=" A contraindication is just a negation of a reason, i.e. it gives a condition under which the action is not to be done. Both, source and target can be any kind of service; target service is in criterion mood. How the strength of a contraindication is expressed (e.g., relative, absolute) is left as an open issue. The priorityNumber attribute could be used."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10323"/>
@@ -415,10 +419,6 @@
       <valueCode value="CC_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipConditional"/>
     </property>
@@ -427,6 +427,10 @@
     <code value="PRCN"/>
     <display value="has pre-condition"/>
     <definition value=" A requirement to be true before a service is performed. The target can be any service in criterion mood.  For multiple pre-conditions a conjunction attribute (AND, OR, XOR) is applicable."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10319"/>
@@ -460,10 +464,6 @@
       <valueCode value="CD_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipConditional"/>
     </property>
@@ -472,6 +472,10 @@
     <code value="RSON"/>
     <display value="has reason"/>
     <definition value="  &#xD;&#xA; Description:The reason or rationale for a service. A reason link is weaker than a trigger, it only suggests that some service may be or might have been a reason for some action, but not that this reason requires/required the action to be taken. Also, as opposed to the trigger, there is no strong timely relation between the reason and the action.  As well as providing various types of information about the rationale for a service, the RSON act relationship is routinely used between a SBADM act and an OBS act to describe the indication for use of a medication.  Child concepts may be used to describe types of indication.  &#xD;&#xA; Discussion:In prior releases, the code &quot;SUGG&quot; (suggests) was expressed as &quot;an inversion of the reason link.&quot; That code has been retired in favor of the inversion indicator that is an attribute of ActRelationship."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10321"/>
@@ -505,10 +509,6 @@
       <valueCode value="CA_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipConditional"/>
     </property>
@@ -517,6 +517,10 @@
     <code value="TRIG"/>
     <display value="has trigger"/>
     <definition value=" A pre-condition that if true should result in the source Act being executed.  The target is in typically in criterion mood.  When reported after the fact (i.e. the criterion has been met) it may be in Event mood.  A delay between the trigger and the triggered action can be specified.  &#xD;&#xA; Discussion:This includes the concept of a  required act for a service or financial instrument such as an insurance plan or policy. In such cases, the trigger is the occurrence of a specific condition such as coverage limits being exceeded."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10320"/>
@@ -550,10 +554,6 @@
       <valueCode value="CB_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipConditional"/>
     </property>
@@ -562,6 +562,10 @@
     <code value="CHRG"/>
     <display value="has charge"/>
     <definition value=" A relationship that provides an ability to associate a financial transaction (target) as a charge to a clinical act (source).  A clinical act may have a charge associated with the execution or delivery of the service. The financial transaction will define the charge (bill) for delivery or performance of the service. Charges and costs are distinct terms.  A charge defines what is charged or billed to another organization or entity within an organization.  The cost defines what it costs an organization to perform or deliver a service or product."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="14904"/>
@@ -587,10 +591,6 @@
       <valueCode value="DOBA_____"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipCostTracking"/>
     </property>
@@ -599,6 +599,10 @@
     <code value="COST"/>
     <display value="has cost"/>
     <definition value=" A relationship that provides an ability to associate a financial transaction (target) as a cost to a clinical act (source).  A clinical act may have an inherit cost associated with the execution or delivery of the service. The financial transaction will define the cost of delivery or performance of the service. Charges and costs are distinct terms.  A charge defines what is charged or billed to another organization or entity within an organization.  The cost defines what it costs an organization to perform or deliver a service or product."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="14903"/>
@@ -624,10 +628,6 @@
       <valueCode value="DOBB_____"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipCostTracking"/>
     </property>
@@ -636,6 +636,10 @@
     <code value="CREDIT"/>
     <display value="has credit"/>
     <definition value=" A credit relationship ties a financial transaction (target) to an account (source). A credit, once applied (posted), may have either a positive or negative effect on the account balance, depending on the type of account. An asset account credit will decrease the account balance. A non-asset account credit will decrease the account balance."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="14902"/>
@@ -661,10 +665,6 @@
       <valueCode value="DOAA_____"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipPosting"/>
     </property>
@@ -673,6 +673,10 @@
     <code value="DEBIT"/>
     <display value="has debit"/>
     <definition value=" A debit relationship ties a financial transaction (target) to an account (source).  A debit, once applied (posted), may have either a positive or negative effect on the account balance, depending on the type of account.  An asset account debit will increase the account balance.  A non-asset account debit will decrease the account balance."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="14901"/>
@@ -698,10 +702,6 @@
       <valueCode value="DOAB_____"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipPosting"/>
     </property>
@@ -715,12 +715,12 @@
       <valueBoolean value="true"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="23637"/>
-    </property>
-    <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23637"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -732,6 +732,10 @@
     <display value="ends after start of"/>
     <definition value=" A relationship in which the source act ends after the target act starts.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SBE"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23079"/>
     </property>
@@ -742,10 +746,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="endsAfterStartOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -761,6 +761,10 @@
     <display value="ends after or concurrent with start of"/>
     <definition value=" A relationship in which the source act&#39;s effective time ends after or concurrent with the start of the target act&#39;s effective time.  &#xD;&#xA; Usage Note:Inverse code is EBSORECWS"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23645"/>
     </property>
@@ -773,10 +777,6 @@
       <valueCode value="endsAfterOrConcurrentWithStartOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipTemporallyPertains"/>
     </property>
@@ -785,6 +785,10 @@
     <code value="INDEPENDENT"/>
     <display value="independent of time of"/>
     <definition value=" The source Act is independent of the time of the target Act.  &#xD;&#xA; UsageNote:This code is reflexive.  Therefore its inverse code is itself."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23582"/>
@@ -798,10 +802,6 @@
       <valueCode value="independentOfTimeOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipTemporallyPertains"/>
     </property>
@@ -810,6 +810,10 @@
     <code value="SAEORSCWE"/>
     <display value="starts after or concurrent with end of"/>
     <definition value=" A relationship in which the source act&#39;s effective time starts after or concurrent with the end of the target act&#39;s effective time.  &#xD;&#xA; Usage Note:Inverse code is SBEORSCWE"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23644"/>
@@ -823,10 +827,6 @@
       <valueCode value="startsAfterOrConcurrentWithEndOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipTemporallyPertains"/>
     </property>
@@ -835,6 +835,10 @@
     <code value="SASORSCW"/>
     <display value="starts after or concurrent with start of"/>
     <definition value=" A relationship in which the source act&#39;s effective time starts after or concurrent with the start of the target act&#39;s effective time.  &#xD;&#xA; Usage Note:Inverse code is SBSORSCW"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23642"/>
@@ -848,10 +852,6 @@
       <valueCode value="startsAfterOrConcurrentWithStartOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipTemporallyPertains"/>
     </property>
@@ -860,6 +860,10 @@
     <code value="SBEORSCWE"/>
     <display value="starts before or concurrent with end of"/>
     <definition value=" A relationship in which the source act&#39;s effective time starts before or concurrent with the end of the target act&#39;s effective time.  &#xD;&#xA; Usage Note:Inverse code is SAEORSCWE"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23643"/>
@@ -873,10 +877,6 @@
       <valueCode value="startsBeforeOrConcurrentWithEndOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipTemporallyPertains"/>
     </property>
@@ -885,6 +885,10 @@
     <code value="ENE"/>
     <display value="ends near end"/>
     <definition value=" A relationship in which the source act&#39;s effective time ends near the end of the target act&#39;s effective time. Near is defined separately as a time interval.  &#xD;&#xA; Usage Note:Inverse code is ENS"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23640"/>
@@ -898,10 +902,6 @@
       <valueCode value="endsNearEnd"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipTemporallyPertainsApproximates"/>
     </property>
@@ -910,6 +910,10 @@
     <code value="ENS"/>
     <display value="ends near start"/>
     <definition value=" A relationship in which the source act&#39;s effective time ends near the start of the target act&#39;s effective time. Near is defined separately as a time interval.  &#xD;&#xA; Usage Note:Inverse code is ENE"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23641"/>
@@ -923,10 +927,6 @@
       <valueCode value="endsNearStart"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipTemporallyPertainsApproximates"/>
     </property>
@@ -935,6 +935,10 @@
     <code value="SNE"/>
     <display value="starts near end"/>
     <definition value=" A relationship in which the source act&#39;s effective time starts near the end of the target act&#39;s effective time. Near is defined separately as a time interval.  &#xD;&#xA; Usage Note:Inverse code is SNS"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23638"/>
@@ -948,10 +952,6 @@
       <valueCode value="startsNearEnd"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipTemporallyPertainsApproximates"/>
     </property>
@@ -960,6 +960,10 @@
     <code value="SNS"/>
     <display value="starts near start"/>
     <definition value=" A relationship in which the source act&#39;s effective time starts near the start of the target act&#39;s effective time. Near is defined separately as a time interval.  &#xD;&#xA; Usage Note:Inverse code is SNE"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23639"/>
@@ -973,10 +977,6 @@
       <valueCode value="startsNearStart"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationshipTemporallyPertainsApproximates"/>
     </property>
@@ -985,6 +985,10 @@
     <code value="OBJC"/>
     <display value="has continuing objective"/>
     <definition value=" A desired state that a service action aims to maintain.  E.g., keep systolic blood pressure between 90 and 110 mm Hg.  Source is an intervention service.  Target must be an observation in criterion mood."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10327"/>
@@ -1018,10 +1022,6 @@
       <valueCode value="ACA______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationsipObjective"/>
     </property>
@@ -1030,6 +1030,10 @@
     <code value="OBJF"/>
     <display value="has final objective"/>
     <definition value=" A desired outcome that a service action aims to meet finally.  Source is any service (typically an intervention).  Target must be an observation in criterion mood."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10326"/>
@@ -1063,10 +1067,6 @@
       <valueCode value="ACB______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActRelationsipObjective"/>
     </property>
@@ -1074,16 +1074,17 @@
   <concept>
     <code value="_ActClassTemporallyPertains"/>
     <display value="ActClassTemporallyPertains"/>
-    <designation>
-      <use>
-        <system value="http://something...?"/>
-        <code value="synonym"/>
-      </use>
-      <value value="TemporallyPertains"/>
-    </designation>
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="synonymCode"/>
+      <valueCode value="TemporallyPertains"/>
     </property>
     <property>
       <code value="internalId"/>
@@ -1110,12 +1111,48 @@
       <valueCode value="DN_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
+      <code value="subsumedBy"/>
+      <valueCode value="ART"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="TemporallyPertains"/>
+    <display value="ActClassTemporallyPertains"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
     </property>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="synonymCode"/>
+      <valueCode value="_ActClassTemporallyPertains"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21307"/>
+    </property>
+    <property>
+      <code value="isDocumentCharacteristic"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="Name:Act:inboundRelationship:ActRelationship"/>
+      <valueCode value="temporallyRelatesTo"/>
+    </property>
+    <property>
+      <code value="Name:Act:outboundRelationship:ActRelationship"/>
+      <valueCode value="temporallyRelatedInformation"/>
+    </property>
+    <property>
+      <code value="Sort:Act:inboundRelationship:ActRelationship"/>
+      <valueCode value="DN_______"/>
+    </property>
+    <property>
+      <code value="Sort:Act:outboundRelationship:ActRelationship"/>
+      <valueCode value="DN_______"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -1126,16 +1163,17 @@
     <code value="_ActRelationshipAccounting"/>
     <display value="ActRelationshipAccounting"/>
     <definition value=" Codes that describe the relationship between an Act and a financial instrument such as a financial transaction, account or invoice element."/>
-    <designation>
-      <use>
-        <system value="http://something...?"/>
-        <code value="synonym"/>
-      </use>
-      <value value="_ActRelationshipPosts"/>
-    </designation>
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="synonymCode"/>
+      <valueCode value="_ActRelationshipPosts"/>
     </property>
     <property>
       <code value="internalId"/>
@@ -1162,12 +1200,49 @@
       <valueCode value="DO_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
+      <code value="subsumedBy"/>
+      <valueCode value="ART"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="_ActRelationshipPosts"/>
+    <display value="ActRelationshipAccounting"/>
+    <definition value=" Codes that describe the relationship between an Act and a financial instrument such as a financial transaction, account or invoice element."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
     </property>
     <property>
       <code value="status"/>
       <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="synonymCode"/>
+      <valueCode value="_ActRelationshipAccounting"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="20946"/>
+    </property>
+    <property>
+      <code value="isDocumentCharacteristic"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="Name:Act:inboundRelationship:ActRelationship"/>
+      <valueCode value="accountingFor"/>
+    </property>
+    <property>
+      <code value="Name:Act:outboundRelationship:ActRelationship"/>
+      <valueCode value="accounting"/>
+    </property>
+    <property>
+      <code value="Sort:Act:inboundRelationship:ActRelationship"/>
+      <valueCode value="DO_______"/>
+    </property>
+    <property>
+      <code value="Sort:Act:outboundRelationship:ActRelationship"/>
+      <valueCode value="DO_______"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -1181,6 +1256,10 @@
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
     </property>
     <property>
       <code value="internalId"/>
@@ -1211,10 +1290,6 @@
       <valueCode value="C________"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1228,12 +1303,12 @@
       <valueBoolean value="true"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="23581"/>
-    </property>
-    <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23581"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -1244,6 +1319,10 @@
     <code value="AUTH"/>
     <display value="authorized by"/>
     <definition value=" A relationship in which the target act authorizes or certifies the source act."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="14019"/>
@@ -1269,10 +1348,6 @@
       <valueCode value="DH_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1281,6 +1356,10 @@
     <code value="CAUS"/>
     <display value="is etiology for"/>
     <definition value="  &#xD;&#xA; Description:An assertion that an act was the cause of another act.This is stronger and more specific than the support link. The source (cause) is typically an observation, but may be any act, while the target may be any act.  &#xD;&#xA; Examples:  a growth of Staphylococcus aureus may be considered the cause of an abscess contamination of the infusion bag was deemed to be the cause of the infection that the patient experienced lack of staff on the shift was deemed to be a supporting factor (proximal factor) causing the patient safety incident where the patient fell out of bed because the  bed-sides had not been put up which caused the night patient to fall out of bed"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10332"/>
@@ -1314,10 +1393,6 @@
       <valueCode value="DD_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1326,6 +1401,10 @@
     <code value="COMP"/>
     <display value="has component"/>
     <definition value=" The target act is a component of the source act, with no semantics regarding composition or aggregation implied."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10318"/>
@@ -1355,10 +1434,6 @@
       <valueCode value="E________"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1367,6 +1442,10 @@
     <code value="COVBY"/>
     <display value="covered by"/>
     <definition value=" A relationship in which the source act is covered by or is under the authority of a target act.  A financial instrument such as an Invoice Element is covered by one or more specific instances of an Insurance Policy."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="14894"/>
@@ -1392,10 +1471,6 @@
       <valueCode value="DP_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1404,6 +1479,10 @@
     <code value="DRIV"/>
     <display value="is derived from"/>
     <definition value=" Associates a derived Act with its input parameters. E.G., an anion-gap observation can be associated as being derived from given sodium-, (potassium-,), chloride-, and bicarbonate-observations. The narrative content (Act.text) of a source act is wholly machine-derived from the collection of target acts."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10334"/>
@@ -1437,10 +1516,6 @@
       <valueCode value="DF_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1449,6 +1524,10 @@
     <code value="ELNK"/>
     <display value="episodeLink"/>
     <definition value=" Expresses an association that links two instances of the same act over time, indicating that the instance are part of the same episode, e.g. linking two condition nodes for episode of illness; linking two encounters for episode of encounter."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="18865"/>
@@ -1474,10 +1553,6 @@
       <valueCode value="BG_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1487,16 +1562,16 @@
     <display value="provides evidence for"/>
     <definition value=" Indicates that the target Act provides evidence in support of the action represented by the source Act. The target is not a &#39;reason&#39; for the source act, but rather gives supporting information on why the source act is an appropriate course of action. Possible targets might be clinical trial results, journal articles, similar successful therapies, etc.  &#xD;&#xA; Rationale:Provides a mechanism for conveying clinical justification for non-approved or otherwise non-traditional therapies."/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="21572"/>
     </property>
     <property>
       <code value="isDocumentCharacteristic"/>
       <valueBoolean value="true"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -1508,12 +1583,12 @@
     <display value="exacerbated by"/>
     <definition value="  &#xD;&#xA; Description:The source act is aggravated by the target act. (Example &quot;chest pain&quot; EXACBY &quot;exercise&quot;)"/>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22827"/>
-    </property>
-    <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22827"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -1524,6 +1599,10 @@
     <code value="EXPL"/>
     <display value="has explanation"/>
     <definition value=" This is the inversion of support.  Used to indicate that a given observation is explained by another observation or condition."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10331"/>
@@ -1553,10 +1632,6 @@
       <valueCode value="DI_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1565,6 +1640,10 @@
     <code value="INTF"/>
     <display value="interfered by"/>
     <definition value=" the target act documents a set of circumstances (events, risks) which prevent successful completion, or degradation of quality of, the source Act.  &#xD;&#xA; UsageNote:This provides the semantics to document barriers to care"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23597"/>
@@ -1590,10 +1669,6 @@
       <valueCode value="G________"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1602,6 +1677,10 @@
     <code value="ITEMSLOC"/>
     <display value="items located"/>
     <definition value=" Items located"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="20841"/>
@@ -1627,10 +1706,6 @@
       <valueCode value="DR_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1639,6 +1714,10 @@
     <code value="LIMIT"/>
     <display value="limited by"/>
     <definition value=" A relationship that limits or restricts the source act by the elements of the target act.  For example, an authorization may be limited by a financial amount (up to $500). Target Act must be in EVN.CRIT mood."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="14896"/>
@@ -1664,10 +1743,6 @@
       <valueCode value="DQ_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1676,6 +1751,10 @@
     <code value="META"/>
     <display value="has metadata"/>
     <definition value="  &#xD;&#xA; Definition:Indicates that the attributes and associations of the target act provide metadata (for example, identifiers, authorship, etc.) for the source act.  &#xD;&#xA; Constraint:Source act must have either a mood code that is not &quot;EVN&quot; (event) or its &quot;isCriterion&quot; attribute must set to &quot;true&quot;.  Target act must be an Act with a mood code of EVN and with isCriterionInd attribute set to &quot;true&quot;."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23111"/>
@@ -1705,10 +1784,6 @@
       <valueCode value="AA_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1717,6 +1792,10 @@
     <code value="MFST"/>
     <display value="is manifestation of"/>
     <definition value=" An assertion that a new observation may be the manifestation of another existing observation or action.  This assumption is attributed to the same actor who asserts the manifestation.  This is stronger and more specific than an inverted support link.  For example, an agitated appearance can be asserted to be the manifestation (effect) of a known hyperthyroxia.  This expresses that one might not have realized a symptom if it would not be a common manifestation of a known condition.  The target (cause) may be any service, while the source (manifestation) must be an observation."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10333"/>
@@ -1750,10 +1829,6 @@
       <valueCode value="DE_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1762,6 +1837,10 @@
     <code value="NAME"/>
     <display value="assigns name"/>
     <definition value=" Used to assign a &quot;name&quot; to a condition thread. Source is a condition node, target can be any service."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10336"/>
@@ -1795,10 +1874,6 @@
       <valueCode value="DJ_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1807,6 +1882,10 @@
     <code value="OUTC"/>
     <display value="has outcome"/>
     <definition value=" An observation that should follow or does actually follow as a result or consequence of a condition or action (sometimes called &quot;post-conditional&quot;.) Target must be an observation as a goal, risk or any criterion. For complex outcomes a conjunction attribute (AND, OR, XOR) can be used.  An outcome link is often inverted to describe an outcome assessment."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10324"/>
@@ -1844,10 +1923,6 @@
       <valueCode value="A________"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1856,6 +1931,10 @@
     <code value="PERT"/>
     <display value="has pertinent information"/>
     <definition value=" This is a very unspecific relationship from one item of clinical information to another.  It does not judge about the role the pertinent information plays."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10329"/>
@@ -1893,10 +1972,6 @@
       <valueCode value="D________"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1912,6 +1987,10 @@
       </use>
       <value value="Previous instance"/>
     </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="14018"/>
@@ -1937,10 +2016,6 @@
       <valueCode value="DC_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1949,6 +2024,10 @@
     <code value="REFR"/>
     <display value="refers to"/>
     <definition value=" A relationship in which the target act is referred to by the source act.  This permits a simple reference relationship that distinguishes between the referent and the referee."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="14020"/>
@@ -1974,10 +2053,6 @@
       <valueCode value="DK_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -1986,6 +2061,10 @@
     <code value="REFV"/>
     <display value="has reference values"/>
     <definition value=" Reference ranges are essentially descriptors of a class of result values assumed to be &quot;normal&quot;, &quot;abnormal&quot;, or &quot;critical.&quot;  Those can vary by sex, age, or any other criterion. Source and target are observations, the target is in criterion mood.  This link type can act as a trigger in case of alarms being triggered by critical results."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10335"/>
@@ -2015,10 +2094,6 @@
       <valueCode value="DL_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -2028,12 +2103,12 @@
     <display value="relieved by"/>
     <definition value="  &#xD;&#xA; Description:The source act is wholly or partially alleviated by the target act. (Example &quot;chest pain&quot; RELVBY &quot;sublingual nitroglycerin administration&quot;)"/>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22828"/>
-    </property>
-    <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22828"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2044,6 +2119,10 @@
     <code value="SEQL"/>
     <display value="is sequel"/>
     <definition value=" An act relationship indicating that the source act follows the target act. The source act should in principle represent the same kind of act as the target. Source and target need not have the same mood code (mood will often differ). The target of a sequel is called antecedent. Examples for sequel relationships are: revision, transformation, derivation from a prototype (as a specialization is a derivation of a generalization), followup, realization, instantiation."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10337"/>
@@ -2073,10 +2152,6 @@
       <valueCode value="B________"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -2085,6 +2160,10 @@
     <code value="SPRT"/>
     <display value="has support"/>
     <definition value=" Used to indicate that an existing service is suggesting evidence for a new observation. The assumption of support is attributed to the same actor who asserts the observation. Source must be an observation, target may be any service  (e.g., to indicate a status post)."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10330"/>
@@ -2114,10 +2193,6 @@
       <valueCode value="DA_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -2126,6 +2201,10 @@
     <code value="SUBJ"/>
     <display value="has subject"/>
     <definition value=" Relates an Act to its subject Act that the first Act is primarily concerned with. Examples   The first Act may be a ControlAct manipulating the subject Act  The first act is a region of interest (ROI) that defines a region within the subject Act.  The first act is a reporting or notification Act, that echos the subject Act for a specific new purpose. Constraints An Act may have multiple subject acts. Rationale The ActRelationshipType &quot;has subject&quot; is similar to the ParticipationType &quot;subject&quot;, Acts that primarily operate on physical subjects use the Participation, those Acts that primarily operate on other Acts (other information) use the ActRelationship."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="13971"/>
@@ -2151,10 +2230,6 @@
       <valueCode value="DB_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -2163,6 +2238,10 @@
     <code value="SUMM"/>
     <display value="summarized by"/>
     <definition value=" An act that contains summary values for a list or set of subordinate acts.  For example, a summary of transactions for a particular accounting period."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="15988"/>
@@ -2188,10 +2267,6 @@
       <valueCode value="DM_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="ART"/>
     </property>
@@ -2201,12 +2276,12 @@
     <display value="has value"/>
     <definition value="  &#xD;&#xA; Description:Indicates that the target Act represents the result of the source observation Act.  &#xD;&#xA; FormalConstraint:Source Act must be an Observation or specialization there-of. Source Act must not have the value attribute specified  &#xD;&#xA; UsageNote:This relationship allows the result of an observation to be fully expressed as RIM acts as opposed to being embedded in the value attribute.  For example, sending a Document act as the result of an imaging observation, sending a list of Procedures and/or other acts as the result of a medical history observation. The valueNegationInd attribute on the source Act has the same semantics of &quot;negated finding&quot; when it applies to the target of a VALUE ActRelationship as it does to the value attribute.  On the other hand, if the ActRelationship.negationInd is true for a VALUE ActRelationship, that means the specified observation does not have the indicated value but does not imply a negated finding.  Because the semantics are extremely close, it is recommended that Observation.valueNegationInd be used, not ActRelationship.negationInd.  &#xD;&#xA; OpenIssue:The implications of negationInd on ActRelationship and the valueNegationind on Observation."/>
     <property>
-      <code value="internalId"/>
-      <valueCode value="23319"/>
-    </property>
-    <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23319"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2217,6 +2292,10 @@
     <code value="CTRLV"/>
     <display value="has control variable"/>
     <definition value=" A relationship from an Act to a Control Variable.  For example, if a Device makes an Observation, this relates the Observation to its Control Variables documenting  the device&#39;s settings that influenced the observation."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="17902"/>
@@ -2242,10 +2321,6 @@
       <valueCode value="EA_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="COMP"/>
     </property>
@@ -2254,6 +2329,10 @@
     <code value="MBR"/>
     <display value="has member"/>
     <definition value=" The target Acts are aggregated by the source Act.  Target Acts may have independent existence, participate in multiple ActRelationships, and do not contribute to the meaning of the source.  &#xD;&#xA; UsageNotes:This explicitly represents the conventional notion of aggregation.  The target Act is part of a collection of Acts (no implication is made of cardinality, a source of Acts may contain zero, one, or more member target Acts). It is expected that this will be primarily used with _ActClassRecordOrganizer, BATTERY, and LIST"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23594"/>
@@ -2279,10 +2358,6 @@
       <valueCode value="EA_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="COMP"/>
     </property>
@@ -2291,6 +2366,10 @@
     <code value="PART"/>
     <display value="has part"/>
     <definition value=" The source Act is a composite of the target Acts. The target Acts do not have an existence independent of the source Act.  &#xD;&#xA; UsageNote:In UML 1.1, this is a &quot;composition&quot; defined as:&#xD;&#xA;  &#xD;&#xA; &quot;A form of aggregation with strong ownership and coincident lifetime as part of the whole. Parts with non-fixed multiplicity may be created after the composite itself, but once created they live and die with it (i.e., they share lifetimes). Such parts can also be explicitly removed before the death of the composite. Composition may be recursive.&quot;"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23596"/>
@@ -2316,10 +2395,6 @@
       <valueCode value="EB_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="COMP"/>
     </property>
@@ -2328,6 +2403,10 @@
     <code value="SASEAE"/>
     <display value="starts after start of, ends after end of"/>
     <definition value=" The source Act starts after start of the target Act and ends after end of the target Act.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SBSEBE"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23583"/>
@@ -2339,10 +2418,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="startsAfterStartOfEndsAfterAndOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2358,6 +2433,10 @@
     <display value="ends after end of"/>
     <definition value=" A relationship in which the source act ends after the target act ends.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; EBE"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23081"/>
     </property>
@@ -2368,10 +2447,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="endsAfterEndOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2387,6 +2462,10 @@
     <display value="ends concurrent with"/>
     <definition value=" A relationship in which the source act&#39;s effective time ends with the end of the target act&#39;s effective time.  &#xD;&#xA; UsageNote:This code is reflexive.  Therefore its inverse code is itself."/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23033"/>
     </property>
@@ -2397,10 +2476,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="endsConcurrentlyWith"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2424,6 +2499,10 @@
     <display value="starts after start of"/>
     <definition value=" The source Act starts after the start of the target Act (i.e. if we say &quot;ActOne SAS ActTwo&quot;, it means that ActOne starts after the start of ActTwo, therefore ActOne is the source and ActTwo is the target).  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SBS"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="21308"/>
     </property>
@@ -2440,10 +2519,6 @@
       <valueCode value="startsAfterStartOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="EAS"/>
     </property>
@@ -2457,6 +2532,10 @@
     <display value="ends after or concurrent with end of"/>
     <definition value=" A relationship in which the source act&#39;s effective time ends after or concurrent with the end of the target act&#39;s effective time.  &#xD;&#xA; Usage Note:Inverse code is EBEORECW"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23646"/>
     </property>
@@ -2469,10 +2548,6 @@
       <valueCode value="endsAfterOrConcurrentWithEndOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="EASORECWS"/>
     </property>
@@ -2481,6 +2556,10 @@
     <code value="ECWS"/>
     <display value="ends concurrent with start of"/>
     <definition value=" The source Act ends when the target act starts (i.e. if we say &quot;ActOne ECWS ActTwo&quot;, it means that ActOne ends when ActTwo starts, therefore ActOne is the source and ActTwo is the target).  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SCWE"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23463"/>
@@ -2492,10 +2571,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="endsConcurrentWithStartOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2515,6 +2590,10 @@
     <display value="starts before start of, ends before end of"/>
     <definition value=" The source Act starts before the start of the target Act, and ends before the end of the target Act.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SASEAE"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23590"/>
     </property>
@@ -2525,10 +2604,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="startsBeforeStartOfEndsBeforeEndOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2544,6 +2619,10 @@
     <display value="ends before end of"/>
     <definition value="The source Act ends before the end of the target Act (i.e. if we say &quot;ActOne EBE ActTwo&quot;, it means that ActOne ends before the end of ActTwo, therefore ActOne is the source and ActTwo is the target).  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; EAE"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23461"/>
     </property>
@@ -2554,10 +2633,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="endsBeforeEndOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2573,6 +2648,10 @@
     <display value="ends before start of"/>
     <definition value=" A relationship in which the source act ends before the target act starts.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SAE"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23078"/>
     </property>
@@ -2585,10 +2664,6 @@
       <valueCode value="endsBeforeStartOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="EBSORECWS"/>
     </property>
@@ -2597,6 +2672,10 @@
     <code value="CONCURRENT"/>
     <display value="concurrent with"/>
     <definition value=" A relationship in which the source act&#39;s effective time is the same as the target act&#39;s effective time.  &#xD;&#xA; UsageNote:This code is reflexive.  Therefore its inverse code is itself."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23032"/>
@@ -2608,10 +2687,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="isConcurrentWith"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2627,6 +2702,10 @@
     <display value="starts before start of, ends with"/>
     <definition value=" The source Act starts before the start of the target Act, and ends with the target Act.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SASECWE"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23591"/>
     </property>
@@ -2637,10 +2716,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="startsBeforeStartOfEndsWith"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2656,6 +2731,10 @@
     <display value="contains start of, ends before end of"/>
     <definition value=" The source Act contains the start of the target Act,  and ends before the end of the target Act.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SASSBEEAS"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23589"/>
     </property>
@@ -2666,10 +2745,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="containsStartOfEndsBeforeEndOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2693,6 +2768,10 @@
     <display value="starts with. ends before end of"/>
     <definition value=" The source Act starts with.the target Act and ends before the end of the target Act.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SCWSEAE"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23593"/>
     </property>
@@ -2703,10 +2782,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="startsWithEndsBeforeEndOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2733,6 +2808,10 @@
       <value value="is occurrence of"/>
     </designation>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="11614"/>
     </property>
@@ -2757,10 +2836,6 @@
       <valueCode value="BAA______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="FLFS"/>
     </property>
@@ -2769,6 +2844,10 @@
     <code value="OREF"/>
     <display value="references order"/>
     <definition value=" Relates either an appointment request or an appointment to the order for the service being scheduled."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="11628"/>
@@ -2798,10 +2877,6 @@
       <valueCode value="BAB______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="FLFS"/>
     </property>
@@ -2817,6 +2892,10 @@
       </use>
       <value value="schedules"/>
     </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="11627"/>
@@ -2842,10 +2921,6 @@
       <valueCode value="BAC______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="FLFS"/>
     </property>
@@ -2855,16 +2930,16 @@
     <display value="active immunization against"/>
     <definition value="  &#xD;&#xA; Description:The source act is intended to provide active immunity against the effects of the target act (the target act describes an infectious disease)"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23305"/>
     </property>
     <property>
       <code value="Name:Act:inboundRelationship:ActRelationship"/>
       <valueCode value="activelyImmunizedAgainst"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2876,16 +2951,16 @@
     <display value="passive immunization against"/>
     <definition value="  &#xD;&#xA; Description:The source act is intended to provide passive immunity against the effects of the target act (the target act describes an infectious disease)."/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23306"/>
     </property>
     <property>
       <code value="Name:Act:inboundRelationship:ActRelationship"/>
       <valueCode value="passivelyImmunizedAgainst"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -2896,6 +2971,10 @@
     <code value="STEP"/>
     <display value="has step"/>
     <definition value=" A collection of sub-services as steps or subtasks performed for the source service. Services may be performed sequentially or concurrently.  &#xD;&#xA; UsageNotes:Sequence of steps may be indicated by use of _ActRelationshipTemporallyPertains, as well as via  ActRelationship.sequenceNumber, ActRelationship.pauseQuantity, Target.priorityCode.  &#xD;&#xA; OpenIssue:Need Additional guidelines on when each approach should be used."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23595"/>
@@ -2921,10 +3000,6 @@
       <valueCode value="EAA______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="MBR"/>
     </property>
@@ -2933,6 +3008,10 @@
     <code value="RCVY"/>
     <display value="recovers"/>
     <definition value="  &#xD;&#xA; Definition:The source act is performed to recover from the effects of the target act."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="22189"/>
@@ -2950,10 +3029,6 @@
       <valueCode value="recovers"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="MITGT"/>
     </property>
@@ -2965,6 +3040,10 @@
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
     </property>
     <property>
       <code value="internalId"/>
@@ -2991,10 +3070,6 @@
       <valueCode value="AC_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="OUTC"/>
     </property>
@@ -3003,6 +3078,10 @@
     <code value="GOAL"/>
     <display value="has goal"/>
     <definition value=" A goal that one defines given a patient&#39;s health condition.  Subsequently planned actions aim to meet that goal.  Source is an observation or condition node, target must be an observation in goal mood."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10325"/>
@@ -3036,10 +3115,6 @@
       <valueCode value="AB_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="OUTC"/>
     </property>
@@ -3048,6 +3123,10 @@
     <code value="RISK"/>
     <display value="has risk"/>
     <definition value=" A noteworthy undesired outcome of a patient&#39;s condition that is either likely enough to become an issue or is less likely but dangerous enough to be addressed."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10328"/>
@@ -3081,10 +3160,6 @@
       <valueCode value="AA_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="OUTC"/>
     </property>
@@ -3093,6 +3168,10 @@
     <code value="EDU"/>
     <display value="ends during"/>
     <definition value=" A relationship in which the source act ends within the target act&#39;s effective time (including end points, as defined in the act&#39;s effective times)  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SBEEAE"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23080"/>
@@ -3106,10 +3185,6 @@
       <valueCode value="endsDuring"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="OVERLAP"/>
     </property>
@@ -3118,6 +3193,10 @@
     <code value="SBEEAE"/>
     <display value="contains end of"/>
     <definition value=" The source Act contains the end of the target Act.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; EDU"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23587"/>
@@ -3129,10 +3208,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="containsEndOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -3148,6 +3223,10 @@
     <display value="contains start of"/>
     <definition value=" The source Act contains the start of the target Act.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SDU"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23586"/>
     </property>
@@ -3158,10 +3237,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="containsStartOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -3177,6 +3252,10 @@
     <display value="starts concurrent with"/>
     <definition value=" A relationship in which the source act&#39;s effective time starts with the start of the target act&#39;s effective time.  &#xD;&#xA; UsageNote:This code is reflexive.  Therefore its inverse code is itself."/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23036"/>
     </property>
@@ -3187,10 +3266,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="startsConcurrentlyWith"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -3214,6 +3289,10 @@
     <display value="starts concurrent with end of"/>
     <definition value=" The source Act starts when the target act ends (i.e. if we say &quot;ActOne SCWE ActTwo&quot;, it means that ActOne starts when ActTwo ends, therefore ActOne is the source and ActTwo is the target).  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SBSECWS"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23462"/>
     </property>
@@ -3224,10 +3303,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="startsConcurrentWithEndOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -3247,6 +3322,10 @@
     <display value="starts during"/>
     <definition value=" A relationship in which the source act starts within the target act&#39;s effective time (including end points, as defined in the act&#39;s effective times)  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SBSEAS"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23082"/>
     </property>
@@ -3259,10 +3338,6 @@
       <valueCode value="startsDuring"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="OVERLAP"/>
     </property>
@@ -3271,6 +3346,10 @@
     <code value="USE"/>
     <display value="uses"/>
     <definition value=" Indicates that the source act makes use of (or will make use of) the information content of the target act.  &#xD;&#xA; UsageNotes:A usage relationship only makes sense if the target act is authored and occurs independently of the source act.  Otherwise a simpler relationship such as COMP would be appropriate.  &#xD;&#xA; Rationale:There is a need when defining a clinical trial protocol to indicate that the protocol makes use of other protocol or treatment specifications.  This is stronger than the assertion of &quot;references&quot;.  References may exist without usage, and in a clinical trial protocol is common to assert both: what other specifications does this trial use and what other specifications does it merely reference."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23102"/>
@@ -3292,10 +3371,6 @@
       <valueCode value="DKA______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="REFR"/>
     </property>
@@ -3304,6 +3379,10 @@
     <code value="BLOCK"/>
     <display value="blocks"/>
     <definition value="  &#xD;&#xA; Definition:The source act is performed to block the effects of the target act.  This act relationship should be used when describing near miss type incidents where potential harm could have occurred, but the action described in the source act blocked the potential harmful effects of the incident actually occurring."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="22188"/>
@@ -3321,10 +3400,6 @@
       <valueCode value="blocks"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="RSON"/>
     </property>
@@ -3333,6 +3408,10 @@
     <code value="DIAG"/>
     <display value="diagnoses"/>
     <definition value="  &#xD;&#xA; Description:The source act is intended to help establish the presence of a (an adverse) situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="21644"/>
@@ -3346,10 +3425,6 @@
       <valueCode value="diagnosedBy"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="RSON"/>
     </property>
@@ -3359,16 +3434,16 @@
     <display value="immunization against"/>
     <definition value="  &#xD;&#xA; Description:The source act is intented to provide immunity against the effects of the target act (the target act describes an infectious disease)"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23304"/>
     </property>
     <property>
       <code value="Name:Act:inboundRelationship:ActRelationship"/>
       <valueCode value="immunizedAgainst"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -3379,6 +3454,10 @@
     <code value="MITGT"/>
     <display value="mitigates"/>
     <definition value=" The source act removes or lessens the occurrence or effect of the target act."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="19986"/>
@@ -3404,10 +3483,6 @@
       <valueCode value="CAA______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="RSON"/>
     </property>
@@ -3417,16 +3492,16 @@
     <display value="prophylaxis of"/>
     <definition value="  &#xD;&#xA; Description:The source act is intended to reduce the risk of of an adverse situation to emerge as described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23303"/>
     </property>
     <property>
       <code value="Name:Act:inboundRelationship:ActRelationship"/>
       <valueCode value="prophylaxisOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -3438,16 +3513,16 @@
     <display value="treats"/>
     <definition value="  &#xD;&#xA; Description:The source act is intended to improve a pre-existing adverse situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23307"/>
     </property>
     <property>
       <code value="Name:Act:inboundRelationship:ActRelationship"/>
       <valueCode value="treatmentFor"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -3458,6 +3533,10 @@
     <code value="SAE"/>
     <display value="starts after end of"/>
     <definition value=" A relationship in which the source act starts after the target act ends.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; EBS"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="22043"/>
@@ -3475,10 +3554,6 @@
       <valueCode value="startsAfterEndOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SAEORSCWE"/>
     </property>
@@ -3492,6 +3567,10 @@
     <display value="occurs during"/>
     <definition value=" A relationship in which the source act&#39;s effective time is wholly within the target act&#39;s effective time (including end points, as defined in the act&#39;s effective times)  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SBSEAE"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23034"/>
     </property>
@@ -3504,10 +3583,6 @@
       <valueCode value="occursDuring"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SAS"/>
     </property>
@@ -3516,6 +3591,10 @@
     <code value="SASECWE"/>
     <display value="starts after start of, ends with"/>
     <definition value=" The source Act starts after start of the target Act, and ends with the target Act.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SBSECWE"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23584"/>
@@ -3529,10 +3608,6 @@
       <valueCode value="startsAfterStartOfEndsWith"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SAS"/>
     </property>
@@ -3541,6 +3616,10 @@
     <code value="SASSBEEAS"/>
     <display value="start after start of, contains end of"/>
     <definition value=" The source Act start after the start of the target Act, and contains the end of the target Act.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SBSEASEBE"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23585"/>
@@ -3552,10 +3631,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="startAfterStartOfContainsEndOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -3575,6 +3650,10 @@
     <display value="ends before or concurrent with end of"/>
     <definition value=" A relationship in which the source act&#39;s effective time ends before or concurrent with the end of the target act&#39;s effective time.  &#xD;&#xA; Usage Note:Inverse code is EAEORECW"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23648"/>
     </property>
@@ -3587,10 +3666,6 @@
       <valueCode value="endsBeforeOrConcurrentWithEndOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SBE"/>
     </property>
@@ -3599,6 +3674,10 @@
     <code value="SBSORSCW"/>
     <display value="starts before or concurrent with start of"/>
     <definition value=" A relationship in which the source act&#39;s effective time starts before or concurrent with the start of the target act&#39;s effective time.  &#xD;&#xA; Usage Note:Inverse code is SASORSCW"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23647"/>
@@ -3612,10 +3691,6 @@
       <valueCode value="startsBeforeOrConcurrentWithStartOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SBE"/>
     </property>
@@ -3624,6 +3699,10 @@
     <code value="SBSEAE"/>
     <display value="contains time of"/>
     <definition value=" The source Act contains the time of the target Act.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; DURING"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23588"/>
@@ -3635,10 +3714,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="containsTimeOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -3654,6 +3729,10 @@
     <display value="starts with, ends after end of"/>
     <definition value="The source Act starts with the target Act, and ends after the end of the target Act."/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23592"/>
     </property>
@@ -3664,10 +3743,6 @@
     <property>
       <code value="Name:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="startsWithEndsAfterEndOf"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -3683,6 +3758,10 @@
     <display value="overlaps with"/>
     <definition value=" A relationship in which the source act&#39;s effective time overlaps the target act&#39;s effective time in any way.  &#xD;&#xA; UsageNote:This code is reflexive.  Therefore its inverse code is itself."/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23035"/>
     </property>
@@ -3695,10 +3774,6 @@
       <valueCode value="overlapsWith"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SBEORSCWE"/>
     </property>
@@ -3707,6 +3782,10 @@
     <code value="SBE"/>
     <display value="starts before end of"/>
     <definition value="The source Act starts before the end of the target Act (i.e. if we say &quot;ActOne SBE ActTwo&quot;, it means that ActOne starts before the end of ActTwo, therefore ActOne is the source and ActTwo is the target).  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; EAS"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23460"/>
@@ -3720,10 +3799,6 @@
       <valueCode value="startsBeforeEndOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SBEORSCWE"/>
     </property>
@@ -3732,6 +3807,10 @@
     <code value="EBSORECWS"/>
     <display value="ends before or concurrent with start of"/>
     <definition value=" A relationship in which the source act&#39;s effective time ends before or concurrent with the start of the target act&#39;s effective time.  &#xD;&#xA; Usage Note:Inverse code is EASORECWS"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23649"/>
@@ -3745,10 +3824,6 @@
       <valueCode value="endsBeforeOrConcurrentWithStartOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SBSEBE"/>
     </property>
@@ -3757,6 +3832,10 @@
     <code value="SBS"/>
     <display value="starts before start of"/>
     <definition value=" A relationship in which the source act begins before the target act begins.  &#xD;&#xA; UsageNote:Inverse code is&#xD;&#xA; SAS"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23076"/>
@@ -3770,10 +3849,6 @@
       <valueCode value="startsBeforeStartOf"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SBSORSCW"/>
     </property>
@@ -3782,6 +3857,10 @@
     <code value="APND"/>
     <display value="is appendage"/>
     <definition value=" An addendum (source) to an existing service object (target), containing supplemental information.  The addendum is itself an original service object linked to the supplemented service object.  The supplemented service object remains in place and its content and status are unaltered."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10339"/>
@@ -3807,10 +3886,6 @@
       <valueCode value="BJ_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -3819,6 +3894,10 @@
     <code value="BSLN"/>
     <display value="has baseline"/>
     <definition value=" Indicates that the target observation(s) provide an initial reference for the source observation or observation group.  &#xD;&#xA; UsageConstraints:Both source and target must be Observations or specializations thereof."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23101"/>
@@ -3840,10 +3919,6 @@
       <valueCode value="BG_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -3852,6 +3927,10 @@
     <code value="COMPLY"/>
     <display value="complies with"/>
     <definition value="  &#xD;&#xA; Description:The source act complies with, adheres to, conforms to, or is permissible under (in whole or in part) the policy, contract, agreement, law, conformance criteria, certification guidelines or requirement conveyed by the target act. Examples for compliance relationships are: audits of adherence with a security policy, certificate of conformance to system certification requirements, or consent directive in compliance with or permissible under a privacy policy."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="22626"/>
@@ -3877,10 +3956,6 @@
       <valueCode value="BO_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -3889,6 +3964,10 @@
     <code value="DOC"/>
     <display value="documents"/>
     <definition value=" The source act documents the target act."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="11609"/>
@@ -3914,10 +3993,6 @@
       <valueCode value="BH_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -3926,6 +4001,10 @@
     <code value="FLFS"/>
     <display value="fulfills"/>
     <definition value=" The source act fulfills (in whole or in part) the target act. Source act must be in a mood equal or more actual than the target act."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10342"/>
@@ -3951,10 +4030,6 @@
       <valueCode value="BA_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -3963,6 +4038,10 @@
     <code value="GEN"/>
     <display value="has generalization"/>
     <definition value=" The generalization relationship can be used to express categorical knowledge about services (e.g., amilorid, triamterene, and spironolactone have the common generalization potassium sparing diuretic)."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10348"/>
@@ -3996,10 +4075,6 @@
       <valueCode value="BC_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -4008,6 +4083,10 @@
     <code value="GEVL"/>
     <display value="evaluates (goal)"/>
     <definition value=" A goal-evaluation links an observation (intent or actual) to a goal to indicate that the observation evaluates the goal. Given the goal and the observation, a &quot;goal distance&quot; (e.g., goal to observation) can be &quot;calculated&quot; and need not be sent explicitly."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10346"/>
@@ -4041,10 +4120,6 @@
       <valueCode value="BD_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -4053,6 +4128,10 @@
     <code value="INST"/>
     <display value="instantiates (master)"/>
     <definition value=" Used to capture the link between a potential service (&quot;master&quot; or plan) and an actual service, where the actual service instantiates the potential service. The instantiation may override the master&#39;s defaults."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10341"/>
@@ -4086,10 +4165,6 @@
       <valueCode value="BB_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -4099,16 +4174,16 @@
     <display value="modifies"/>
     <definition value=" Definition: Used to link a newer version or &#39;snapshot&#39; of a business object (source) to an older version or &#39;snapshot&#39; of the same business object (target).  &#xD;&#xA; Usage:The identifier of the Act should be the same for both source and target. If the identifiers are distinct, RPLC should be used instead. Name from source to target = &quot;modifiesPrior&quot; Name from target to source = &quot;modifiesByNew&quot;"/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="21638"/>
     </property>
     <property>
       <code value="isDocumentCharacteristic"/>
       <valueBoolean value="true"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -4119,6 +4194,10 @@
     <code value="MTCH"/>
     <display value="matches (trigger)"/>
     <definition value=" A trigger-match links an actual service (e.g., an observation or procedure that took place) with a service in criterion mood.  For example if the trigger is &quot;observation of pain&quot; and pain is actually observed, and if that pain-observation caused the trigger to fire, that pain-observation can be linked with the trigger."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10345"/>
@@ -4152,10 +4231,6 @@
       <valueCode value="BF_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -4164,6 +4239,10 @@
     <code value="OPTN"/>
     <display value="has option"/>
     <definition value=" A relationship between a source Act that provides more detailed properties to the target Act. The source act thus is a specialization of the target act, but instead of mentioning all the inherited properties it only mentions new property bindings or refinements. The typical use case is to specify certain alternative variants of one kind of Act. The priorityNumber attribute is used to weigh refinements as preferred over other alternative refinements. Example: several routing options for a drug are specified as one SubstanceAdministration for the general treatment with attached refinements for the various routing options."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10347"/>
@@ -4189,10 +4268,6 @@
       <valueCode value="BN_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -4202,16 +4277,16 @@
     <display value="re-challenge"/>
     <definition value="  &#xD;&#xA; Description:A relationship in which the target act is carried out to determine whether an effect attributed to the source act can be recreated."/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="22044"/>
     </property>
     <property>
       <code value="isDocumentCharacteristic"/>
       <valueBoolean value="true"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -4222,6 +4297,10 @@
     <code value="REV"/>
     <display value="reverses"/>
     <definition value=" A relationship between a source Act that seeks to reverse or undo the action of the prior target Act. Example: A posted financial transaction (e.g., a debit transaction) was applied in error and must be reversed (e.g., by a credit transaction) the credit transaction is identified as an undo (or reversal) of the prior target transaction. Constraints: the &quot;completion track&quot; mood of the target Act must be equally or more &quot;actual&quot; than the source act. I.e., when the target act is EVN the source act can be EVN, or any INT. If the target act is INT, the source act can be INT."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="14898"/>
@@ -4247,10 +4326,6 @@
       <valueCode value="BK_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -4259,6 +4334,10 @@
     <code value="RPLC"/>
     <display value="replaces"/>
     <definition value=" A replacement source act replaces an existing target act. The state of the target act being replaced becomes obselete, but the act is typically still retained in the system for historical reference.  The source and target must be of the same type."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10338"/>
@@ -4284,10 +4363,6 @@
       <valueCode value="BI_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -4299,6 +4374,10 @@
     <code value="SUCC"/>
     <display value="succeeds"/>
     <definition value="  &#xD;&#xA; Definition:A new act that carries forward the intention of the original act, but does not completely replace it.  The status of the predecessor act must be &#39;completed&#39;.  The original act is the target act and the successor is the source act."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="11616"/>
@@ -4324,10 +4403,6 @@
       <valueCode value="BIA______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -4336,6 +4411,10 @@
     <code value="UPDT"/>
     <display value="updates (condition)"/>
     <definition value=" A condition thread relationship specifically links condition nodes together to form a condition thread. The source is the new condition node and the target links to the most recent node of the existing condition thread."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10340"/>
@@ -4369,10 +4448,6 @@
       <valueCode value="BE_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -4381,6 +4456,10 @@
     <code value="XCRPT"/>
     <display value="Excerpts"/>
     <definition value=" The source is an excerpt from the target."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="18660"/>
@@ -4406,10 +4485,6 @@
       <valueCode value="BM_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -4418,6 +4493,10 @@
     <code value="XFRM"/>
     <display value="transformation"/>
     <definition value=" Used when the target Act is a transformation of the source Act. (For instance, used to show that a CDA document is a transformation of a DICOM SR document.)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="11624"/>
@@ -4443,10 +4522,6 @@
       <valueCode value="BL_______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SEQL"/>
     </property>
@@ -4455,6 +4530,10 @@
     <code value="SPRTBND"/>
     <display value="has bounded support"/>
     <definition value=" A specialization of &quot;has support&quot; (SPRT), used to relate a secondary observation to a Region of Interest on a multidimensional observation, if the ROI specifies the true boundaries of the secondary observation as opposed to only marking the approximate area.  For example, if the start and end of an ST elevation episode is visible in an EKG, this relation would indicate the ROI bounds the  &quot;ST elevation&quot; observation -- the ROI defines the true beginning and ending of the episode.  Conversely, if a ROI simply contains ST elevation, but it does not define the bounds (start and end) of the episode, the more general &quot;has support&quot; relation is used.  Likewise, if a ROI on an image defines the true bounds of a &quot;1st degree burn&quot;, the relation &quot;has bounded support&quot; is used; but if the ROI only points to the approximate area of the burn, the general &quot;has support&quot; relation is used."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="17899"/>
@@ -4480,10 +4559,6 @@
       <valueCode value="DAA______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SPRT"/>
     </property>
@@ -4492,6 +4567,10 @@
     <code value="ARR"/>
     <display value="arrival"/>
     <definition value=" The relationship that links to a Transportation Act (target) from another Act (source) indicating that the subject of the source Act entered into the source Act by means of the target Transportation act."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="17911"/>
@@ -4517,10 +4596,6 @@
       <valueCode value="EAAB_____"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="STEP"/>
     </property>
@@ -4529,6 +4604,10 @@
     <code value="DEP"/>
     <display value="departure"/>
     <definition value=" The relationship that links to a Transportation Act (target) from another Act (source) indicating that the subject of the source Act departed from the source Act by means of the target Transportation act."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="17912"/>
@@ -4554,10 +4633,6 @@
       <valueCode value="EAAC_____"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="STEP"/>
     </property>
@@ -4566,6 +4641,10 @@
     <code value="QUALF"/>
     <display value="has qualifier"/>
     <definition value=" The target observation qualifies (refines) the semantics of the source observation.  &#xD;&#xA; UsageNote:This is not intended to replace concept refinement and qualification via vocabulary.  It is used when there are multiple components which together provide the complete understanding of the source Act."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="23598"/>
@@ -4591,10 +4670,6 @@
       <valueCode value="DBA______"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="SUBJ"/>
     </property>
@@ -4604,16 +4679,16 @@
     <display value="adjunctive treatment"/>
     <definition value="  &#xD;&#xA; Description:The source act is intended to offer an additional treatment for the management or cure of a pre-existing adverse situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature.  It is not a requirement that the non-adjunctive treatment is explicitly specified."/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23310"/>
     </property>
     <property>
       <code value="Name:Act:inboundRelationship:ActRelationship"/>
       <valueCode value="adjunctiveTreatmentFor"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -4625,16 +4700,16 @@
     <display value="maintenance treatment"/>
     <definition value="  &#xD;&#xA; Description:The source act is intended to provide long term maintenance improvement or management of a pre-existing adverse situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23308"/>
     </property>
     <property>
       <code value="Name:Act:inboundRelationship:ActRelationship"/>
       <valueCode value="maintenanceTreatmentFor"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -4646,16 +4721,16 @@
     <display value="palliates"/>
     <definition value="  &#xD;&#xA; Description:The source act is intended to provide palliation for the effects of the target act."/>
     <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23309"/>
     </property>
     <property>
       <code value="Name:Act:inboundRelationship:ActRelationship"/>
       <valueCode value="palliativeTreatmentFor"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -4666,6 +4741,10 @@
     <code value="SYMP"/>
     <display value="symptomatic relief"/>
     <definition value="  &#xD;&#xA; Description:The source act is intented to provide symptomatic relief for the effects of the target act."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="21645"/>
@@ -4679,10 +4758,6 @@
       <valueCode value="symptomaticTreatmentFor"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="TREAT"/>
     </property>
@@ -4691,6 +4766,10 @@
     <code value="VRXCRPT"/>
     <display value="Excerpt verbatim"/>
     <definition value=" The source is a direct quote from the target."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="18661"/>
@@ -4714,10 +4793,6 @@
     <property>
       <code value="Sort:Act:outboundRelationship:ActRelationship"/>
       <valueCode value="BMA______"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>

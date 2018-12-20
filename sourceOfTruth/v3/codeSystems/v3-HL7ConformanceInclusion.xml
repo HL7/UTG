@@ -65,24 +65,24 @@
       <valueBoolean value="true"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="21081"/>
-    </property>
-    <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21081"/>
     </property>
     <concept>
       <code value="NP"/>
       <display value="Not permitted"/>
       <definition value=" This message element may not appear when the message is communicated."/>
       <property>
-        <code value="internalId"/>
-        <valueCode value="10014"/>
-      </property>
-      <property>
         <code value="status"/>
         <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10014"/>
       </property>
     </concept>
     <concept>
@@ -90,24 +90,24 @@
       <display value="Not required"/>
       <definition value=" The message element may be populated or used by one system sponsor (or profile), but not by another.  Each system sponsor or profile is required to state the ability to accept or send the message element as part of a conformance claim."/>
       <property>
-        <code value="internalId"/>
-        <valueCode value="10015"/>
-      </property>
-      <property>
         <code value="status"/>
         <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10015"/>
       </property>
       <concept>
         <code value="RE"/>
         <display value="Required may be empty"/>
         <definition value=" Pursuant to a profile or vendor conformance claim, the message element must appear every time the message is communicated, but the value may be communicated as null."/>
         <property>
-          <code value="internalId"/>
-          <valueCode value="10016"/>
-        </property>
-        <property>
           <code value="status"/>
           <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10016"/>
         </property>
       </concept>
       <concept>
@@ -115,12 +115,12 @@
         <display value="Excluded"/>
         <definition value=" Pursuant to a profile or vendor conformance claim, this message element may not appear when the message is communicated."/>
         <property>
-          <code value="internalId"/>
-          <valueCode value="10017"/>
-        </property>
-        <property>
           <code value="status"/>
           <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10017"/>
         </property>
       </concept>
     </concept>
@@ -129,12 +129,12 @@
       <display value="Required"/>
       <definition value=" The message element must appear every time the message is communicated, but the value may be communicated as null."/>
       <property>
-        <code value="internalId"/>
-        <valueCode value="10013"/>
-      </property>
-      <property>
         <code value="status"/>
         <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10013"/>
       </property>
     </concept>
   </concept>
@@ -149,24 +149,41 @@
       </use>
       <value value="Required - V2.x"/>
     </designation>
-    <designation>
-      <use>
-        <system value="http://something...?"/>
-        <code value="synonym"/>
-      </use>
-      <value value="R"/>
-    </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="synonymCode"/>
+      <valueCode value="R"/>
+    </property>
     <property>
       <code value="internalId"/>
       <valueCode value="10011"/>
     </property>
+  </concept>
+  <concept>
+    <code value="R"/>
+    <display value="Mandatory"/>
+    <definition value=" The message element must appear every time the message is communicated and its value must not be null.  This condition is subject to the rules of multiplicity and conditionality. If a non-null default value is defined for the element, a null value may be communicated."/>
+    <designation>
+      <use>
+        <system value="http://something...?"/>
+        <code value="deprecated alias"/>
+      </use>
+      <value value="Required - V2.x"/>
+    </designation>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="active"/>
+      <code value="synonymCode"/>
+      <valueCode value="M"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10011"/>
     </property>
   </concept>
 </CodeSystem>

@@ -47,12 +47,12 @@
     <display value="Issued by System"/>
     <definition value="  &#xD;&#xA; Description:The identifier was issued by the system responsible for constructing the instance."/>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22614"/>
-    </property>
-    <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22614"/>
     </property>
   </concept>
   <concept>
@@ -60,36 +60,46 @@
     <display value="Unverified by system"/>
     <definition value="  &#xD;&#xA; Description:The identifier was provided to the system that constructed the instance, but has not been verified. e.g. a Drivers  license entered manually into a system by a user."/>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22653"/>
-    </property>
-    <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22653"/>
     </property>
   </concept>
   <concept>
     <code value="VRF"/>
     <display value="Verified by system"/>
     <definition value="  &#xD;&#xA; Description:The identifier was not issued by the system responsible for constructing the instance, but the system that captured the id has verified the identifier with the issuing authority, or with another system that has verified the identifier."/>
-    <designation>
-      <use>
-        <system value="http://something...?"/>
-        <code value="synonym"/>
-      </use>
-      <value value="VER"/>
-    </designation>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22652"/>
-    </property>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
     </property>
     <property>
+      <code value="synonymCode"/>
+      <valueCode value="VER"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22652"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="VER"/>
+    <display value="Verified by system"/>
+    <definition value="  &#xD;&#xA; Description:The identifier was not issued by the system responsible for constructing the instance, but the system that captured the id has verified the identifier with the issuing authority, or with another system that has verified the identifier."/>
+    <property>
       <code value="status"/>
       <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="synonymCode"/>
+      <valueCode value="VRF"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22652"/>
     </property>
   </concept>
 </CodeSystem>
