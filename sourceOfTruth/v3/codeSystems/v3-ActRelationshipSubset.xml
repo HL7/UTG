@@ -11,25 +11,16 @@
                
     </div>
   </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is NOT in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
-    <valueString value="Health Level Seven">
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
-        <valueString value="Sponsor"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
-    </valueString>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
-    <valueString value="true"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
+    <extension url="name">
+      <valueString value="Health Level Seven"/>
+    </extension>
+    <extension url="role">
+      <valueString value="Sponsor"/>
+    </extension>
   </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipSubset"/>
   <identifier>
@@ -47,9 +38,6 @@
   <description value="&lt;ns1:p&gt;Used to indicate that the target of the relationship will be a filtered subset of the total related set of targets.&lt;/ns1:p&gt;&lt;ns1:p&gt;Used when there is a need to limit the number of components to the first, the last, the next, the total, the average or some other filtered or calculated subset.&lt;/ns1:p&gt;"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>

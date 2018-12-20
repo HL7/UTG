@@ -16,25 +16,16 @@
                
     </div>
   </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
-    <valueString value="Health Level Seven">
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
-        <valueString value="Sponsor"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
-    </valueString>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
-    <valueString value="true"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
+    <extension url="name">
+      <valueString value="Health Level Seven"/>
+    </extension>
+    <extension url="role">
+      <valueString value="Sponsor"/>
+    </extension>
   </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-AddressPartType"/>
   <identifier>
@@ -52,7 +43,7 @@
   <description value="Description:Code that specifies whether an address part names the street, city, country, postal code, post box, etc. Discussion: The hierarchical nature of these concepts shows composition.  E.g. &quot;Street Name&quot; is part of &quot;Street Address Line&quot;"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-relationshipKind">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-relationshipKind">
       <valueCode value="ComponentOf"/>
     </extension>
     <code value="ComponentOf"/>
@@ -60,9 +51,6 @@
     <type value="Coding"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>

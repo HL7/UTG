@@ -26,25 +26,16 @@
                
     </div>
   </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
-    <valueString value="Health Level Seven">
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
-        <valueString value="Sponsor"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
-    </valueString>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
-    <valueString value="true"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
+    <extension url="name">
+      <valueString value="Health Level Seven"/>
+    </extension>
+    <extension url="role">
+      <valueString value="Sponsor"/>
+    </extension>
   </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"/>
   <identifier>
@@ -62,9 +53,6 @@
   <description value="A set of codes specifying the modality by which the Entity playing the Role is participating in the Act.  &#xD;&#xA; Examples:Physically present, over the telephone, written communication.  &#xD;&#xA; Rationale:Particularly for author (originator) participants this is used to specify whether the information represented by the act was initially provided verbally, (hand-)written, or electronically.  &#xD;&#xA; Open Issue:There needs to be a reexamination of the hierarchies as there seems to be some muddling between ELECTRONIC and other concepts that involve electronic communication that are in other hierarchies."/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>

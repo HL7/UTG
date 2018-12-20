@@ -3,25 +3,16 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-ParticipationType"/>
   <language value="en"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
-    <valueString value="Health Level Seven">
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
-        <valueString value="Sponsor"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
-    </valueString>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
-    <valueString value="true"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
+    <extension url="name">
+      <valueString value="Health Level Seven"/>
+    </extension>
+    <extension url="role">
+      <valueString value="Sponsor"/>
+    </extension>
   </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
   <identifier>
@@ -38,65 +29,41 @@
   </contact>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="conductible"/>
     <description value="If true, indicates that ActRelationships or Participations of the specified type (and any specializations thereof) will normally conduct. For more usage information, refer to the Core Principles specification."/>
     <type value="boolean"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Name:Act:participation:Participation"/>
     <description value="Name of relationship from Act to Participation"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Name:Role:participation:Participation"/>
     <description value="Name of relationship from Role to Participation"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Sort:Act:participation:Participation"/>
     <description value="Sort key for relationship from Act to Participation"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Sort:Role:participation:Participation"/>
     <description value="Sort key for relationship from Role to Participation"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="isDocumentCharacteristic"/>
     <description value="If true, indicates that the Act attribute or association (as represented by a typeCode for eaither ActRelationship or Pareticipation is a descriptor of the document (record) represented by the act object. If false, indicates the property is a descriptor of the action itself, actual, intended, or potential.  Applies to interpretation of attributes and associations with respect to changes in the value of Act.actionNegationInd and Act.moodCode. (See descriptions of these attributes for further discussion.) For example, in an order, the id attribute [isDocumentCharacteristic = true] is an identifier of the record of the order, not an identifier of the intended event.  On the other hand, the code attribute [isDocumentCharacteristic = false] describes a characteristic of the intended event."/>
     <type value="boolean"/>
@@ -243,7 +210,7 @@
         </property>
       </concept>
       <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-openIssue">
           <valueString value="ID values are NOT correct on this one and must be fixed as a technical correction."/>
         </extension>
         <code value="CON"/>
@@ -304,7 +271,7 @@
         </property>
       </concept>
       <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-openIssue">
           <valueString value="ID values are NOT correct on this one and must be fixed as a technical correction."/>
         </extension>
         <code value="ESC"/>

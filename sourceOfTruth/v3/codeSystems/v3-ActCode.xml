@@ -20,25 +20,16 @@
                
     </div>
   </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
-    <valueString value="Health Level Seven">
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
-        <valueString value="Sponsor"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
-    </valueString>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
-    <valueString value="true"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
+    <extension url="name">
+      <valueString value="Health Level Seven"/>
+    </extension>
+    <extension url="role">
+      <valueString value="Sponsor"/>
+    </extension>
   </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
   <identifier>
@@ -56,7 +47,7 @@
   <description value="A code specifying the particular kind of Act that the Act-instance represents within its class.  &#xD;&#xA; Constraints:The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems.  The coding system will depend on the class of Act, such as LOINC for observations, etc. Conceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure. Act.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code &quot;potassium&quot; together with and Act.classCode for &quot;laboratory observation&quot; to somehow mean &quot;potassium laboratory observation&quot; and then use the same Act.code for &quot;potassium&quot; together with Act.classCode for &quot;medication&quot; to mean &quot;substitution of potassium&quot;. This mutually modifying use of Act.code and Act.classCode is not permitted."/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-relationshipKind">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-relationshipKind">
       <valueCode value="Specializes"/>
     </extension>
     <code value="ClassifiesClassCode"/>
@@ -64,17 +55,11 @@
     <type value="Coding"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
@@ -11068,7 +11053,7 @@
         <valueCode value="active"/>
       </property>
       <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-openIssue">
           <valueString value="These codes are dissimilar from their parent and do not belong in this hierarchy. PHER and Pharmace to resolve."/>
         </extension>
         <code value="BOOSTER"/>
@@ -11088,7 +11073,7 @@
         </property>
       </concept>
       <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-openIssue">
           <valueString value="These codes are dissimilar from their parent and do not belong in this hierarchy. PHER and Pharmace to resolve."/>
         </extension>
         <code value="INITIMMUNIZ"/>
@@ -17285,7 +17270,7 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
       <valueString value="637-20081220"/>
     </extension>
     <code value="STORE"/>

@@ -96,25 +96,16 @@
                
     </div>
   </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
-    <valueString value="Health Level Seven">
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
-        <valueString value="Sponsor"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
-    </valueString>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
-    <valueString value="true"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
+    <extension url="name">
+      <valueString value="Health Level Seven"/>
+    </extension>
+    <extension url="role">
+      <valueString value="Sponsor"/>
+    </extension>
   </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
   <identifier>
@@ -132,81 +123,51 @@
   <description value="Codes for the Role class hierarchy.  The values in this hierarchy, represent a Role which is an association or relationship between two entities - the entity that plays the role and the entity that scopes the role.  Roles names are derived from the name of the playing entity in that role. The role hierarchy stems from three core concepts, or abstract domains:    &#xD;&#xA; RoleClassOntologicalis an abstract domain that collects roles in which the playing entity is defined or specified by the scoping entity.   &#xD;&#xA; RoleClassPartitivecollects roles in which the playing entity is in some sense a &quot;part&quot; of the scoping entity.   &#xD;&#xA; RoleClassAssociativecollects all of the remaining forms of association between the playing entity and the scoping entity. This set of roles is further partitioned between:    &#xD;&#xA; RoleClassPassivewhich are roles in which the playing entity is used, known, treated, handled, built, or destroyed, etc. under the auspices of the scoping entity. The playing entity is passive in these roles in that the role exists without an agreement from the playing entity.   &#xD;&#xA; RoleClassMutualRelationshipwhich are relationships based on mutual behavior of the two entities. The basis of these relationship may be formal agreements or they may be&#xD;&#xA; de factobehavior.  Thus, this sub-domain is further divided into:    &#xD;&#xA; RoleClassRelationshipFormalin which the relationship is formally defined, frequently by a contract or agreement.   &#xD;&#xA; Personal relationshipwhich inks two people in a personal relationship. The hierarchy discussed above is represented In the current vocabulary tables as a set of abstract domains, with the exception of the  &quot;Personal relationship&quot; which is a leaf concept.  &#xD;&#xA; OpenIssue:Description copied from Concept Domain of same name.  Must be verified."/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Name:Class"/>
     <description value="The formal name for the class clone under this code"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Name:Role:player:Entity"/>
     <description value="The name of the relationship from Role to the payer Entity"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Name:Role:scoper:Entity"/>
     <description value="The name of the relationship from Role to the scoper Entity"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Sort:Entity:playedRole:Role"/>
     <description value="Sort key for the relationship from the Entity to the playedRole"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Sort:Entity:scopedRole:Role"/>
     <description value="The sort key for the relationship from the Entity to the scopedRole"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Name:Entity:playedRole:Role"/>
     <description value="The name of the relationship from the Entity to the playedRole"/>
     <type value="string"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Name:Entity:scopedRole:Role"/>
     <description value="The name of the relationship from the Entity to the scopedRole"/>
     <type value="string"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Name:Participation:role:Role"/>
     <description value="The name of the relationship from Participation to Role"/>
     <type value="string"/>
@@ -2642,7 +2603,7 @@
         </property>
       </concept>
       <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-versionDeprecated">
+        <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
           <valueString value="1100-20111201"/>
         </extension>
         <code value="SUBS"/>

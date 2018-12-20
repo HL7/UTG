@@ -1,2 +1,0 @@
-# UTG
-Unified Terminology Governance

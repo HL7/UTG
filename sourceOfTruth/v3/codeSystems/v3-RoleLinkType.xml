@@ -3,25 +3,16 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-RoleLinkType"/>
   <language value="en"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-legalese">
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor">
-    <valueString value="Health Level Seven">
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-role">
-        <valueString value="Sponsor"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-contributor-notes"/>
-    </valueString>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-maintained-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/complete-codes-indicator">
-    <valueString value="true"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hl7-approved-indicator">
-    <valueString value="true"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
+    <extension url="name">
+      <valueString value="Health Level Seven"/>
+    </extension>
+    <extension url="role">
+      <valueString value="Sponsor"/>
+    </extension>
   </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-RoleLinkType"/>
   <identifier>
@@ -38,41 +29,26 @@
   </contact>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Name:Role:inboundLink:RoleLink"/>
     <description value="Name of inboundLink relationship from Role to RoleLink"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Name:Role:outboundLink:RoleLink"/>
     <description value="Name of outboundLink relationship from Role to RoleLink"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Sort:Role:inboundLink:RoleLink"/>
     <description value="Sort key for inboundLink relationship from Role to RoleLink"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-mandatory">
-      <valueBoolean value="false"/>
-    </extension>
     <code value="Sort:Role:outboundLink:RoleLink"/>
     <description value="Sort key for outboundLink relationship from Role to RoleLink"/>
     <type value="code"/>
@@ -106,7 +82,7 @@
       <valueCode value="active"/>
     </property>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/codeSystem-openIssue">
+      <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-openIssue">
         <valueString value="PM TC needs to add an example that includes the notion of &quot;covers for&quot;, &quot;supports,&quot; &quot;delegates.&quot;   Need to consider additional concepts and a more precise definition."/>
       </extension>
       <code value="BACKUP"/>
