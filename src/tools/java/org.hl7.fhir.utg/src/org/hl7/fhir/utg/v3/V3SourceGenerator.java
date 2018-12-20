@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -549,41 +550,60 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	private void processConcept(Element item, CodeSystem cs) throws Exception {
-		ConceptDefinitionComponent cd = cs.addConcept();
 		final String NotSelectableProperty = "notSelectable";
 
-		String isSelectable = item.getAttribute("isSelectable");
+		List<Element> codeElements = extractCodeElements(item);
+		if (codeElements.isEmpty()) {
+			throw new Exception("Found concept without any codes: " + item.getNodeName());
+		}
+		for (Element codeElement : codeElements) {
+			ConceptDefinitionComponent cd = cs.addConcept();
 
-		if (!Utilities.noString(isSelectable)) {
-			// cd.addExtension(csext("isSelectable"), Factory.newString_(isSelectable));
-			Boolean bIsSelectable = !Boolean.parseBoolean(isSelectable);
+			String isSelectable = item.getAttribute("isSelectable");
+			if (!Utilities.noString(isSelectable)) {
+				// cd.addExtension(csext("isSelectable"), Factory.newString_(isSelectable));
+				Boolean bIsSelectable = !Boolean.parseBoolean(isSelectable);
 
-			PropertyComponent pc = cs.getProperty(NotSelectableProperty);
-			if (pc == null) {
-				addConceptProperty(cs, NotSelectableProperty, PropertyType.BOOLEAN,
-						"Indicates that the code is abstract - only intended to be used as a selector for other concepts");
+				PropertyComponent pc = cs.getProperty(NotSelectableProperty);
+				if (pc == null) {
+					addConceptProperty(cs, NotSelectableProperty, PropertyType.BOOLEAN,
+							"Indicates that the code is abstract - only intended to be used as a selector for other concepts");
+				}
+
+				ConceptPropertyComponent cpc = cd.addProperty();
+				cpc.setCode(NotSelectableProperty);
+				cpc.setValue(new BooleanType(bIsSelectable));
+			}
+			
+			processCode(codeElement, cd, cs);
+
+			for (Element otherCodeElement : codeElements) {
+				if (otherCodeElement != codeElement) {
+					ConceptPropertyComponent codeSynonymProperty = cd.addProperty();
+					codeSynonymProperty.setCode("synonymCode");
+					codeSynonymProperty.setValue(new CodeType(otherCodeElement.getAttribute("code")));
+				}
 			}
 
-			ConceptPropertyComponent cpc = cd.addProperty();
-			cpc.setCode(NotSelectableProperty);
-			cpc.setValue(new BooleanType(bIsSelectable));
-		}
+			Element child = XMLUtil.getFirstChild(item);
+			while (child != null) {
+				if (child.getNodeName().equals("annotations"))
+					processConceptAnnotations(child, cd);
+				else if (child.getNodeName().equals("code")) {
+					// no op
+				}
+				else if (child.getNodeName().equals("conceptProperty"))
+					processConceptProperty(child, cd, cs);
+				else if (child.getNodeName().equals("printName"))
+					processPrintName(child, cd, cs);
+				else if (child.getNodeName().equals("conceptRelationship"))
+					processConceptRelationship(child, cd, cs);
+				else
+					throw new Exception("Unprocessed element " + child.getNodeName());
 
-		Element child = XMLUtil.getFirstChild(item);
-		while (child != null) {
-			if (child.getNodeName().equals("annotations"))
-				processConceptAnnotations(child, cd);
-			else if (child.getNodeName().equals("conceptProperty"))
-				processConceptProperty(child, cd, cs);
-			else if (child.getNodeName().equals("printName"))
-				processPrintName(child, cd, cs);
-			else if (child.getNodeName().equals("code"))
-				processCode(child, cd, cs);
-			else if (child.getNodeName().equals("conceptRelationship"))
-				processConceptRelationship(child, cd, cs);
-			else
-				throw new Exception("Unprocessed element " + child.getNodeName());
-			child = XMLUtil.getNextSibling(child);
+				child = XMLUtil.getNextSibling(child);
+				
+			}
 		}
 	}
 
@@ -1206,5 +1226,16 @@ public class V3SourceGenerator extends BaseGenerator {
 			}
 		}
 		return isOntylog;
+	}
+	
+	private List<Element> extractCodeElements(Element item) {
+		List<Element> codeElements = new LinkedList<Element>();
+		Element child = XMLUtil.getFirstChild(item);
+		while (child != null) {
+			if (child.getNodeName().equals("code"))
+				codeElements.add(child);
+			child = XMLUtil.getNextSibling(child);
+		}
+		return codeElements;
 	}
 }
