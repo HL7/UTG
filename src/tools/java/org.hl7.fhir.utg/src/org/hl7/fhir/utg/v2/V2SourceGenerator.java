@@ -300,12 +300,12 @@ public class V2SourceGenerator extends BaseGenerator {
 			this.binding = binding;
 		}
 
-		public String getVersionInroduced() {
+		public String getVersionIntroduced() {
 			return versionIntroduced;
 		}
 
-		public void setVersionInroduced(String versionInroduced) {
-			this.versionIntroduced = versionInroduced;
+		public void setVersionIntroduced(String versionIntroduced) {
+			this.versionIntroduced = versionIntroduced;
 		}
 
 		public String getCld() {
@@ -673,7 +673,7 @@ public class V2SourceGenerator extends BaseGenerator {
 			tv.setWhereUsed(query.getString("where_used"));
 			tv.setV2CodeTableComment(query.getString("v2codetablecomment"));
 			tv.setBinding(query.getString("binding"));
-			tv.setVersionInroduced(query.getString("hl7_version"));
+			tv.setVersionIntroduced(query.getString("hl7_version"));
 			tv.setCld(query.getString("vs_expansion"));
 			tv.setVocabDomain(query.getString("vocab_domain"));
 			tv.setComment(query.getString("comment"));
