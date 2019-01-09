@@ -30,6 +30,8 @@ public class ExternalProvider {
 	private static final String XMLNS = "http://hl7.org/fhir";
 	private static final ExternalProvider CATCH_ALL = ExternalProvider.getCatchAll();
 	
+	private static final Map<String, ExternalProvider> forcedInclusionCodeSystemMap = new HashMap<String, ExternalProvider>();
+	
 	private String _name;
 	private String _title;
 	private String _note;
@@ -66,6 +68,10 @@ public class ExternalProvider {
 				"Manifest of all external vocabularies that are not handled in a specified way"
 		);
 		return catchAllProvider;
+	}
+	
+	public static ExternalProvider getForcedInclusionProvider(String codeSystemId) {
+		return forcedInclusionCodeSystemMap.get(codeSystemId);
 	}
 	
 	public static void handleUnclassifiedCodeSystem(CodeSystem cs) {
@@ -151,6 +157,13 @@ public class ExternalProvider {
 				Element e = (Element) providerNodeList.item(i);
 				ExternalProvider provider = new ExternalProvider(e);
 				providers.put(provider.getName(), provider);
+				NodeList forcedInclusionCodeSystemList = e.getElementsByTagName("forcedInclusionCodeSystem");
+				for (int j = 0; j < forcedInclusionCodeSystemList.getLength(); j++) {
+					if (forcedInclusionCodeSystemList.item(j).getNodeType() == Node.ELEMENT_NODE) {
+						Element forcedInclusionCodeSystem = (Element) forcedInclusionCodeSystemList.item(j);
+						forcedInclusionCodeSystemMap.put(forcedInclusionCodeSystem.getAttribute("id"), provider);
+					}
+				}
 			}
 		}
 		
