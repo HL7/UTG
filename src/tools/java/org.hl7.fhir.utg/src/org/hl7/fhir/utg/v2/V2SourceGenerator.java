@@ -866,7 +866,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		CodeSystem cs = new CodeSystem();
 
 		cs.setId("v2-" + t.id);
-		cs.setVersion(tv.versionIntroduced);
+		cs.setVersion(tv.csversion);
 
 		ObjectInfo oi = objects.get(tv.csoid);
 		if (oi != null) {
@@ -1086,7 +1086,8 @@ public class V2SourceGenerator extends BaseGenerator {
 		ValueSet vs = new ValueSet();
 		vs.setId(cs.getId());
 		vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
-		vs.setVersion(cs.getVersion());
+		// Set all value set versions to 1, per Ted
+		vs.setVersion("1");
 		if (tv.vsoid != null) {
 			vs.setName(objects.get(tv.vsoid).display);
 			vs.setTitle(objects.get(tv.vsoid).display);
