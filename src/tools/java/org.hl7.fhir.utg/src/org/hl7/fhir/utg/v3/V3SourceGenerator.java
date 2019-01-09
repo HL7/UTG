@@ -349,10 +349,16 @@ public class V3SourceGenerator extends BaseGenerator {
 		// ignore: hl7MaintainedIndicator, hl7ApprovedIndicator
 		if (!Boolean.parseBoolean(item.getAttribute("hl7MaintainedIndicator"))) {
 			// Is External
-			if (externalProviders.containsKey(cs.getPublisher())) {
-				externalProviders.get(cs.getPublisher()).addCodeSystem(cs);
+			String codeSystemId = cs.getUserData("oid").toString();
+			ExternalProvider forcedInclusionProvider = ExternalProvider.getForcedInclusionProvider(codeSystemId);
+			if (forcedInclusionProvider != null) {
+				forcedInclusionProvider.addCodeSystem(cs);
 			} else {
-				ExternalProvider.handleUnclassifiedCodeSystem(cs);
+				if (externalProviders.containsKey(cs.getPublisher())) {
+					externalProviders.get(cs.getPublisher()).addCodeSystem(cs);
+				} else {
+					ExternalProvider.handleUnclassifiedCodeSystem(cs);
+				}
 			}
 		}
 		
