@@ -1185,7 +1185,7 @@ public class V2SourceGenerator extends BaseGenerator {
 						c.addProperty().setCode("v2type").setValue(new CodeType(codeForType(tv.getType())));
 					if (tv.isGenerate())
 						c.addProperty().setCode("generate").setValue(new BooleanType(true));
-					c.addProperty().setCode("version").setValue(new IntegerType(1));
+					c.addProperty().setCode("version").setValue(new IntegerType(10));
 					if (!Utilities.noString(tv.steward))
 						c.addProperty().setCode("structuredefinition-wg").setValue(new StringType(tv.steward));
 					if (!Utilities.noString(tv.whereUsed))
