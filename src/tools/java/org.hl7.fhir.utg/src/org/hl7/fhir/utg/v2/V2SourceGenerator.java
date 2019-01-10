@@ -48,6 +48,9 @@ import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.utg.BaseGenerator;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
@@ -78,6 +81,17 @@ public class V2SourceGenerator extends BaseGenerator {
 	private Map<String, Table> tables = new HashMap<String, Table>();
 	private Map<String, VersionInfo> versions = new HashMap<String, VersionInfo>();
 
+	private static class V2ConceptIdSequence {
+		private static int nextConceptId = 100;
+		public static int getNextConceptId() {
+			return nextConceptId++;
+		}
+		public static String getNextConceptIdString() {
+			return Integer.toString(getNextConceptId());
+		}
+		
+	}
+	
 	public class TableEntryComparator implements Comparator<TableEntry> {
 
 		@Override
@@ -86,6 +100,48 @@ public class V2SourceGenerator extends BaseGenerator {
 		}
 	}
 
+	public enum V2ConceptStatus {
+		
+		ACTIVE		("A", "Active", 						"0"),
+		DEPRECATED	("D", "Deprecated", 					"1"),
+		RETIRED		("R", "Retired",						"2"),
+		NEW			("N", "New in this Release", 			"3"),
+		BACKWARD	("B", "Backwards Compatible Use Only", 	"4");
+		
+		private String code;
+		private String name;
+		private String sourceCode;
+		
+		private V2ConceptStatus(String code, String name, String sourceCode) {
+			this.code = code;
+			this.name = name;
+			this.sourceCode = sourceCode;
+		}
+		
+		public String toString() 		{ return this.getCode(); }
+		public String getCode() 		{ return code; }
+		public String getName()			{ return name; }
+		public String getSourceCode()	{ return sourceCode; }
+
+		public static V2ConceptStatus getStatusForSourceCode(String sourceCode) {
+			V2ConceptStatus rval = null;
+			if (sourceCode == null || sourceCode.isEmpty()) {
+				rval = ACTIVE;
+			} else {
+				for (V2ConceptStatus cs : V2ConceptStatus.values()) {
+					if (sourceCode.equalsIgnoreCase(cs.getSourceCode())) {
+						rval = cs;
+						break;
+					}
+				}
+			}
+			if (rval == null) {
+				throw new Error("Unknown concept active code '" + sourceCode + "'");
+			}
+			return rval; 
+		}
+	}
+	
 	public class TableEntry {
 		private String code;
 		private String display;
@@ -130,6 +186,10 @@ public class V2SourceGenerator extends BaseGenerator {
 	}
 
 	public class TableVersion {
+		
+		public static final String VS_EXPANSION_ALL = "1"; 
+		public static final String VS_EXPANSION_ENUMERATED = "2"; 
+		
 		private String version;
 		private String name;
 		private String csoid;
@@ -149,7 +209,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		private String v2CodeTableComment;
 		private String binding;
 		private String versionIntroduced;
-		private String cld;
+		private String vsExpansion;
 		private String vocabDomain;
 		private String comment;
 		private boolean noCodeSystem;
@@ -308,14 +368,18 @@ public class V2SourceGenerator extends BaseGenerator {
 			this.versionIntroduced = versionIntroduced;
 		}
 
-		public String getCld() {
-			return cld;
+		public String getVsExpansion() {
+			return vsExpansion;
 		}
 
-		public void setCld(String cld) {
-			this.cld = cld;
+		public void setVsExpansion(String cld) {
+			this.vsExpansion = cld;
 		}
 
+		public boolean isValueSetEnumerated() {
+			return VS_EXPANSION_ENUMERATED.equalsIgnoreCase(getVsExpansion());
+		}
+		
 		public String getVocabDomain() {
 			return vocabDomain;
 		}
@@ -452,7 +516,7 @@ public class V2SourceGenerator extends BaseGenerator {
 					master.v2CodeTableComment = tv.v2CodeTableComment;
 					master.binding = tv.binding;
 					master.versionIntroduced = tv.versionIntroduced;
-					master.cld = tv.cld;
+					master.vsExpansion = tv.vsExpansion;
 					master.vocabDomain = tv.vocabDomain;
 					master.comment = tv.comment;
 					master.noCodeSystem = tv.noCodeSystem;
@@ -672,7 +736,7 @@ public class V2SourceGenerator extends BaseGenerator {
 			tv.setV2CodeTableComment(query.getString("v2codetablecomment"));
 			tv.setBinding(query.getString("binding"));
 			tv.setVersionIntroduced(query.getString("hl7_version"));
-			tv.setCld(query.getString("vs_expansion"));
+			tv.setVsExpansion(query.getString("vs_expansion"));
 			tv.setVocabDomain(query.getString("vocab_domain"));
 			tv.setComment(query.getString("comment"));
 
@@ -695,11 +759,18 @@ public class V2SourceGenerator extends BaseGenerator {
 			String display = query.getString("display_name");
 			String german = query.getString("interpretation");
 			String comment = query.getString("comment_as_pub");
-			String status = readStatusColumns(query.getString("active"), query.getString("modification"));
+			
+			//String status = readStatusColumns(query.getString("active"), query.getString("modification"));
+			if ("3".equals(query.getString("active"))) {
+				@SuppressWarnings("unused")
+				int stopHere = 0;
+			}
+			V2ConceptStatus conceptStatus = V2ConceptStatus.getStatusForSourceCode(query.getString("active"));
+			
 			boolean backwardsCompatible = "4".equals(query.getString("active"));
 
 			tables.get(tid).item(vid.getVersion(), code, display, german, nameCache.get(tid + "/" + vid), comment,
-					sno == null ? 0 : sno, status, backwardsCompatible);
+					sno == null ? 0 : sno, conceptStatus.toString(), backwardsCompatible);
 			i++;
 		}
 		System.out.println(Integer.toString(i) + " entries loaded");
@@ -710,21 +781,21 @@ public class V2SourceGenerator extends BaseGenerator {
 		}
 	}
 
-	private String readStatusColumns(String active, String modification) {
-		if (Utilities.noString(active))
-			return null;
-		if ("0".equals(active))
-			return "Active";
-		if ("1".equals(active))
-			return "Deprecated";
-		if ("2".equals(active))
-			return "Retired";
-		if ("3".equals(active))
-			return "Active";
-		if ("4".equals(active))
-			return "Active";
-		return null;
-	}
+//	private String readStatusColumns(String active, String modification) {
+//		if (Utilities.noString(active))
+//			return null;
+//		if ("0".equals(active))
+//			return "Active";
+//		if ("1".equals(active))
+//			return "Deprecated";
+//		if ("2".equals(active))
+//			return "Retired";
+//		if ("3".equals(active))
+//			return "Active";
+//		if ("4".equals(active))
+//			return "Active";
+//		return null;
+//	}
 
 	public void process() {
 		for (String n : sorted(tables.keySet())) {
@@ -858,7 +929,7 @@ public class V2SourceGenerator extends BaseGenerator {
 			throws FileNotFoundException, IOException {
 		TableVersion tv = t.master;
 
-		if (t.id.equalsIgnoreCase("0203") || t.id.equalsIgnoreCase("0338")) {
+		if (t.id.equalsIgnoreCase("104")) {
 			@SuppressWarnings("unused")
 			int stopHere = 1;
 		}
@@ -929,13 +1000,19 @@ public class V2SourceGenerator extends BaseGenerator {
 		//		.setType(PropertyType.BOOLEAN)
 		//		.setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
 
+		if (t.id.equals("0104")) {
+			System.out.print("Stop");
+		}
+		
 		for (TableEntry te : tv.entries) {
 			ConceptDefinitionComponent c = cs.addConcept();
 			c.setCode(te.code);
 			String name = te.display;
 			c.setDisplay(name);
 			c.setDefinition(name);
-			c.setId(Integer.toString(te.sortNo));
+			// Use sequence for concept id, not sort_no
+			//c.setId(Integer.toString(te.sortNo));
+			c.setId(V2ConceptIdSequence.getNextConceptIdString());
 			if (!Utilities.noString(te.comments))
 				ToolingExtensions.addCSComment(c, te.comments);
 			//if (te.getFirst() != null)
@@ -1113,7 +1190,17 @@ public class V2SourceGenerator extends BaseGenerator {
 		vs.setDescription("V2 Table " + t.id + " Version " + vid + " (" + t.name + ")");
 		vs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
 
-		vs.getCompose().addInclude().setSystem(cs.getUrl()).setVersion(cs.getVersion());
+		ValueSetComposeComponent vsCompose = vs.getCompose();
+		ConceptSetComponent vsInclude = vsCompose.addInclude();
+		vsInclude.setSystem(cs.getUrl()).setVersion(cs.getVersion());
+
+		if (tv.isValueSetEnumerated()) {
+			for (TableEntry te : tv.entries) {
+				ConceptReferenceComponent c = vsInclude.addConcept();
+				c.setCode(te.code);
+			}
+		}
+		
 		return vs;
 	}
 
@@ -1207,7 +1294,7 @@ public class V2SourceGenerator extends BaseGenerator {
 					if (!Utilities.noString(tv.versionIntroduced))
 						c.addProperty().setCode("version-introduced").setValue(new StringType(tv.versionIntroduced));
 					if (!Utilities.noString(tv.versionIntroduced))
-						c.addProperty().setCode("cld").setValue(new StringType(tv.cld));
+						c.addProperty().setCode("cld").setValue(new StringType(tv.vsExpansion));
 					if (!Utilities.noString(tv.vocabDomain))
 						c.addProperty().setCode("vocab-domain").setValue(new StringType(tv.vocabDomain));
 				}
