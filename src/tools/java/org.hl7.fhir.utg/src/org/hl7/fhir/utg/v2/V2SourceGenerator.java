@@ -921,13 +921,13 @@ public class V2SourceGenerator extends BaseGenerator {
 
 		cs.addProperty().setCode("status").setUri("http://terminology.hl7.org/csprop/status").setType(PropertyType.CODE)
 				.setDescription("Status of the concept");
-		cs.addProperty().setCode("intro").setUri("http://terminology.hl7.org/csprop/intro").setType(PropertyType.CODE)
-				.setDescription("Version of HL7 in which the code was first defined");
+		//cs.addProperty().setCode("intro").setUri("http://terminology.hl7.org/csprop/intro").setType(PropertyType.CODE)
+		//		.setDescription("Version of HL7 in which the code was first defined");
 		cs.addProperty().setCode("deprecated").setUri("http://terminology.hl7.org/csprop/deprecated")
 				.setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was deprecated");
-		cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible")
-				.setType(PropertyType.BOOLEAN)
-				.setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
+		//cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible")
+		//		.setType(PropertyType.BOOLEAN)
+		//		.setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
 
 		for (TableEntry te : tv.entries) {
 			ConceptDefinitionComponent c = cs.addConcept();
@@ -938,14 +938,14 @@ public class V2SourceGenerator extends BaseGenerator {
 			c.setId(Integer.toString(te.sortNo));
 			if (!Utilities.noString(te.comments))
 				ToolingExtensions.addCSComment(c, te.comments);
-			if (te.getFirst() != null)
-				c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
+			//if (te.getFirst() != null)
+			//	c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
 			if (!Utilities.noString(te.getLast()))
 				c.addProperty().setCode("deprecated").setValue(new CodeType(te.getLast()));
 			if (!Utilities.noString(te.status))
 				c.addProperty().setCode("status").setValue(new CodeType(te.status));
-			if (te.backwardsCompatible)
-				c.addProperty().setCode("backwardsCompatible").setValue(new BooleanType(te.backwardsCompatible));
+			//if (te.backwardsCompatible)
+			//	c.addProperty().setCode("backwardsCompatible").setValue(new BooleanType(te.backwardsCompatible));
 		}
 
 		ValueSet vs = produceValueSet("Master", cs, t, tv);
