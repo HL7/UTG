@@ -935,6 +935,7 @@ public class V3SourceGenerator extends BaseGenerator {
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			child = XMLUtil.getNextSibling(child);
 		}
+
 		for (ConceptSetComponent cmp : vs.getCompose().getInclude())
 			checkCompose(vs.getId(), cmp);
 		for (ConceptSetComponent cmp : vs.getCompose().getExclude())
@@ -1153,12 +1154,12 @@ public class V3SourceGenerator extends BaseGenerator {
 		// ConceptSetComponent cset = include ? vs.getCompose().addInclude() :
 		// vs.getCompose().addExclude();
 		ConceptSetComponent cset = new ConceptSetComponent();
+		if (url != null && !url.isEmpty()) {
+			cset.setSystem(url);
+		}
 
 		while (child != null) {
 			if (child.getNodeName().equals("codeBasedContent")) {
-				if (cset.getSystem() == null && url != null && !url.isEmpty()) {
-					cset.setSystem(url);
-				}
 				processCodeBasedContent(child, vs, cset);
 			} else if (child.getNodeName().equals("combinedContent")) {
 				if (level > 0)
@@ -1176,13 +1177,13 @@ public class V3SourceGenerator extends BaseGenerator {
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			child = XMLUtil.getNextSibling(child);
 		}
-		if (cset.getConcept().size() > 0 || cset.getValueSet().size() > 0 || cset.getFilter().size() > 0) {
+		//if (cset.getConcept().size() > 0 || cset.getValueSet().size() > 0 || cset.getFilter().size() > 0) {
 			if (include) {
 				vs.getCompose().addInclude(cset);
 			} else {
 				vs.getCompose().addExclude(cset);
 			}
-		}
+		//}
 	}
 
 	private void processCodeBasedContent(Element item, ValueSet vs, ConceptSetComponent cset) throws Exception {
