@@ -164,6 +164,8 @@ public class V2SourceGenerator extends BaseGenerator {
 			result.langs.putAll(langs);
 			result.comments = comments;
 			result.sortNo = sortNo;
+			result.status = this.status;
+			result.backwardsCompatible = this.backwardsCompatible;
 			return result;
 		}
 
@@ -496,8 +498,13 @@ public class V2SourceGenerator extends BaseGenerator {
 				}
 
 			}
+
 			// second pass, versions
 			for (String n : sorted(versions.keySet())) {
+				//if (this.id.equalsIgnoreCase("0104") && n.equals("2.9")) {
+				//	System.out.println("stop");
+				//}
+				
 				if (!n.contains(" ")) {
 					TableVersion tv = versions.get(n);
 					master.version = tv.version;
@@ -761,10 +768,6 @@ public class V2SourceGenerator extends BaseGenerator {
 			String comment = query.getString("comment_as_pub");
 			
 			//String status = readStatusColumns(query.getString("active"), query.getString("modification"));
-			if ("3".equals(query.getString("active"))) {
-				@SuppressWarnings("unused")
-				int stopHere = 0;
-			}
 			V2ConceptStatus conceptStatus = V2ConceptStatus.getStatusForSourceCode(query.getString("active"));
 			
 			boolean backwardsCompatible = "4".equals(query.getString("active"));
@@ -929,11 +932,6 @@ public class V2SourceGenerator extends BaseGenerator {
 			throws FileNotFoundException, IOException {
 		TableVersion tv = t.master;
 
-		if (t.id.equalsIgnoreCase("104")) {
-			@SuppressWarnings("unused")
-			int stopHere = 1;
-		}
-		
 		if (tv.noCodeSystem)
 			return;
 
@@ -1000,10 +998,6 @@ public class V2SourceGenerator extends BaseGenerator {
 		//		.setType(PropertyType.BOOLEAN)
 		//		.setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
 
-		if (t.id.equals("0104")) {
-			System.out.print("Stop");
-		}
-		
 		for (TableEntry te : tv.entries) {
 			ConceptDefinitionComponent c = cs.addConcept();
 			c.setCode(te.code);
