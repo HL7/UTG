@@ -64,9 +64,9 @@ public class V2SourceGenerator extends BaseGenerator {
 
 	private static final String MASTER_VERSION = "2.9";
 
-	private static final String VALID_CS_OID_PREFIX = "2.16.840.1.113883.18.";
-	private static final List<Integer> VS_ONLY_CS_ID_LIST = Collections
-			.unmodifiableList(Arrays.asList(338, 125, 136, 458, 459, 567, 568, 929, 930));
+	private static final String INTERNAL_CS_OID_PREFIX = "2.16.840.1.113883.18.";
+	private static final List<String> VS_ONLY_CS_ID_LIST = Collections
+			.unmodifiableList(Arrays.asList("0338", "0125", "0136", "0458", "0459", "0567", "0568", "0929", "0930"));
 
 	public V2SourceGenerator(String dest, Map<String, CodeSystem> csmap, Set<String> knownCS) {
 		super(dest, csmap, knownCS);
@@ -484,11 +484,13 @@ public class V2SourceGenerator extends BaseGenerator {
 			}
 			master.sort();
 
-			// Save cs_oid and cs_uri pair
-			if (!master.noCodeSystem && !Utilities.noString(master.csoid)) {
-				ObjectInfo oi = objects.get(master.csoid);
-				if (oi != null) {
-					oi.setUri("http://terminology.hl7.org/CodeSystem/v2-" + this.id);
+			// Save cs_oid and cs_uri pair, but only if this is not a value set only table
+			if (!this.isValueSetOnlyTable()) {
+				if (!master.noCodeSystem && !Utilities.noString(master.csoid)) {
+					ObjectInfo oi = objects.get(master.csoid);
+					if (oi != null) {
+						oi.setUri("http://terminology.hl7.org/CodeSystem/v2-" + this.id);
+					}
 				}
 			}
 		}
@@ -525,6 +527,15 @@ public class V2SourceGenerator extends BaseGenerator {
 			if (oid.equals(master.csoid))
 				res = master;
 			return res;
+		}
+		
+		public boolean isValueSetOnlyTable() {
+			return VS_ONLY_CS_ID_LIST.contains(this.id);
+		}
+		
+		public boolean isInternalCsOid() {
+			String csOid = this.master.getCsoid();
+			return csOid == null || csOid.startsWith(INTERNAL_CS_OID_PREFIX);
 		}
 	}
 
@@ -626,19 +637,6 @@ public class V2SourceGenerator extends BaseGenerator {
 						+ "WHERE t.version_id < 100 order by t.version_id");
 
 		while (query.next()) {
-			String csOid = query.getString("cs_oid");
-			Integer tableId = query.getInt("table_id");
-
-			// Do not load ValueSet-Only code systems, list determined by Ted
-			if (VS_ONLY_CS_ID_LIST.contains(tableId)) {
-				continue;
-			}
-
-			// Only load code systems starting with prefix, per Ted
-			if (csOid != null && !csOid.startsWith(VALID_CS_OID_PREFIX)) {
-				continue;
-			}
-
 			String tid = Utilities.padLeft(Integer.toString(query.getInt("table_id")), '0', 4);
 			String vid = vers.get(Integer.toString(query.getInt("version_id"))).getVersion();
 			String dn = query.getString("display_name");
@@ -860,6 +858,11 @@ public class V2SourceGenerator extends BaseGenerator {
 			throws FileNotFoundException, IOException {
 		TableVersion tv = t.master;
 
+		if (t.id.equalsIgnoreCase("0203") || t.id.equalsIgnoreCase("0338")) {
+			@SuppressWarnings("unused")
+			int stopHere = 1;
+		}
+		
 		if (tv.noCodeSystem)
 			return;
 
@@ -947,8 +950,13 @@ public class V2SourceGenerator extends BaseGenerator {
 
 		ValueSet vs = produceValueSet("Master", cs, t, tv);
 
-		new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
-				new FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "cs-" + cs.getId()) + ".xml"), cs);
+
+		// Only write code systems if not value set only and cs oid starts with prefix, per Ted
+		if (!t.isValueSetOnlyTable() && t.isInternalCsOid()) {
+			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
+					new FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "cs-" + cs.getId()) + ".xml"), cs);
+		}
+
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
 				new FileOutputStream(Utilities.path(dest, "v2", "valueSets", "vs-" + cs.getId()) + ".xml"), vs);
 
