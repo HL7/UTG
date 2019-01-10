@@ -892,7 +892,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		}
 		cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
 		cs.setPublisher("HL7, Inc");
-		cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
+		cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://www.hl7.org/");
 		if (tv.csoid != null && objects.containsKey(tv.csoid))
 			cs.setDescription(objects.get(tv.csoid).description);
 		else if (!Utilities.noString(tv.description))
