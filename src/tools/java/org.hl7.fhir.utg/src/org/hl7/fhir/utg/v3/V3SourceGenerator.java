@@ -1126,6 +1126,7 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void processVersion(Element item, ValueSet vs) throws Exception {
 		// ignore: hl7MaintainedIndicator, hl7ApprovedIndicator
+		
 		vs.setDateElement(new DateTimeType(item.getAttribute("versionDate")));
 
 		Element child = XMLUtil.getFirstChild(item);
@@ -1145,48 +1146,84 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	private void processContent(Element item, ValueSet vs) throws Exception {
-		String url = identifyOID(item.getAttribute("codeSystem"));
+		if (vs.getId().equals("v3-ActPatientAnnotationType")) {
+			// TODO remove
+			System.out.println("stop");
+		}
+		String oid = item.getAttribute("codeSystem");
+		String url = identifyOID(oid);
 		processGeneralContent(item, vs, url, true, 0);
 	}
 
 	private void processGeneralContent(Element item, ValueSet vs, String url, boolean include, int level)
 			throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
-		// ConceptSetComponent cset = include ? vs.getCompose().addInclude() :
-		// vs.getCompose().addExclude();
-		ConceptSetComponent cset = new ConceptSetComponent();
+
+		ConceptSetComponent baseSet = new ConceptSetComponent();
+		ConceptSetComponent enumeratedSet = new ConceptSetComponent();
+		ConceptSetComponent filteredSet = new ConceptSetComponent();
+		ConceptSetComponent valuesetSet = new ConceptSetComponent();
+
+		if (item.hasAttribute("codeSystem")) {
+			url = identifyOID(item.getAttribute("codeSystem"));
+		}
+		
 		if (url != null && !url.isEmpty()) {
-			cset.setSystem(url);
+			baseSet.setSystem(url);
+			enumeratedSet.setSystem(url);
+			filteredSet.setSystem(url);
 		}
 
 		while (child != null) {
-			if (child.getNodeName().equals("codeBasedContent")) {
-				processCodeBasedContent(child, vs, cset);
+			if (child.getNodeName().equals("codeBasedContent") && !child.hasChildNodes()) {
+				processCodeBasedContent(child, vs, enumeratedSet);
+			
+			} else if (child.getNodeName().equals("codeBasedContent")) {
+				processCodeBasedContent(child, vs, filteredSet);
+					
 			} else if (child.getNodeName().equals("combinedContent")) {
-				if (level > 0)
-					throw new Exception("recursion not supported on " + vs.getUrl());
+				if (!include && level > 0)
+					throw new Exception("recursion not supported on exclusion in " + vs.getUrl());
 				processCombinedContent(child, vs, url);
+				
 			} else if (child.getNodeName().equals("valueSetRef")) {
 				// ConceptSetComponent vset = include ? vs.getCompose().addInclude() :
 				// vs.getCompose().addExclude() ;
 
 				CanonicalType vsref = new CanonicalType();
-				cset.getValueSet().add(vsref);
+				valuesetSet.getValueSet().add(vsref);
 				vsref.setUserData("vsref", child.getAttribute("id"));
 				vsref.setUserData("vsname", child.getAttribute("name"));
+				
 			} else
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			child = XMLUtil.getNextSibling(child);
 		}
-		//if (cset.getConcept().size() > 0 || cset.getValueSet().size() > 0 || cset.getFilter().size() > 0) {
-			if (include) {
-				vs.getCompose().addInclude(cset);
-			} else {
-				vs.getCompose().addExclude(cset);
-			}
-		//}
+		
+		addToValuesetCompose(vs, enumeratedSet, include);
+		addToValuesetCompose(vs, filteredSet, include);
+		addToValuesetCompose(vs, valuesetSet, include);
+		
+		if (level == 0 && !vs.getCompose().hasExclude() && !vs.getCompose().hasInclude()) {
+			addToValuesetCompose(vs, baseSet, include, true);
+		}
+
 	}
 
+	private void addToValuesetCompose(ValueSet vs, ConceptSetComponent csc, boolean include) {
+		addToValuesetCompose(vs, csc, include, false);
+	}
+
+	private void addToValuesetCompose(ValueSet vs, ConceptSetComponent csc, boolean include, boolean forceAdd) {
+		if (forceAdd || csc.getConcept().size() > 0 || csc.getValueSet().size() > 0 || csc.getFilter().size() > 0) {
+			if (include) {
+				vs.getCompose().addInclude(csc);
+			} else {
+				vs.getCompose().addExclude(csc);
+			}
+		}
+	}
+	
 	private void processCodeBasedContent(Element item, ValueSet vs, ConceptSetComponent cset) throws Exception {
 		String code = item.getAttribute("code");
 		boolean filtered = false;
@@ -1213,7 +1250,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("unionWithContent")) {
-				processGeneralContent(child, vs, url, true, 0);
+				processGeneralContent(child, vs, url, true, 1);
 			} else if (child.getNodeName().equals("excludeContent")) {
 				processGeneralContent(child, vs, url, false, 1);
 			} else
