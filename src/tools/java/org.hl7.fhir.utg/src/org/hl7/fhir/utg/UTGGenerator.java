@@ -142,8 +142,12 @@ public class UTGGenerator extends BaseGenerator {
 
 	private void createMissingOutputFolders() throws IOException {
 		Files.createDirectories(Paths.get(Utilities.path(dest)));
-		// Clear the output folder in case it already existed and contained prior data
-		Utilities.clearDirectory(Utilities.path(dest));
+		// Clear the output folders in case any already existed and contained prior data
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.UNIFIED));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RELEASE));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V2));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RELEASE)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL)));
