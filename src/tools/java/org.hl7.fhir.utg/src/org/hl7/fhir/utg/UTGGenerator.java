@@ -28,6 +28,7 @@ import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.utg.external.ExternalProvider;
 import org.hl7.fhir.utg.v2.V2SourceGenerator;
 import org.hl7.fhir.utg.v3.V3SourceGenerator;
+import org.hl7.fhir.utilities.FolderNameConstants;
 import org.hl7.fhir.utilities.Utilities;
 import org.xml.sax.SAXException;
 
@@ -135,7 +136,7 @@ public class UTGGenerator extends BaseGenerator {
 		count = count + v2.addConceptDomains(cs, codes);
 
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-				.compose(new FileOutputStream(Utilities.path(dest, "unified", "conceptdomains.xml")), cs);
+				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.UNIFIED, "conceptdomains.xml")), cs);
 		System.out.println("Save conceptdomains (" + Integer.toString(count) + " found)");
 	}
 
@@ -143,18 +144,18 @@ public class UTGGenerator extends BaseGenerator {
 		Files.createDirectories(Paths.get(Utilities.path(dest)));
 		// Clear the output folder in case it already existed and contained prior data
 		Utilities.clearDirectory(Utilities.path(dest));
-		Files.createDirectories(Paths.get(Utilities.path(dest, "unified")));
-		Files.createDirectories(Paths.get(Utilities.path(dest, "release")));
-		Files.createDirectories(Paths.get(Utilities.path(dest, "external")));
-		Files.createDirectories(Paths.get(Utilities.path(dest, "v2", "codeSystems")));
-		Files.createDirectories(Paths.get(Utilities.path(dest, "v2", "valueSets")));
-		Files.createDirectories(Paths.get(Utilities.path(dest, "v3", "codeSystems")));
-		Files.createDirectories(Paths.get(Utilities.path(dest, "v3", "valueSets")));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RELEASE)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.VALUESETS)));
 
 	}
 	
 	private void writeExternalManifestFiles() throws ParserConfigurationException, TransformerException, IOException {
-		String outputPath = Utilities.path(dest, "external");
+		String outputPath = Utilities.path(dest, FolderNameConstants.EXTERNAL);
 		System.out.println("Writing " + externalProviders.size() + " External Provider Manifests");
 		for (ExternalProvider provider : externalProviders.values()) {
 			provider.writeXMLManifest(outputPath);

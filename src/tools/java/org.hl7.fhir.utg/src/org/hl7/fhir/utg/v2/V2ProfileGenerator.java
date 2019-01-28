@@ -36,6 +36,7 @@ import org.hl7.fhir.r4.utils.EOperationOutcome;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.FolderNameConstants;
 import org.hl7.fhir.utilities.Utilities;
 
 import com.healthmarketscience.jackcess.Database;
@@ -182,9 +183,9 @@ public class V2ProfileGenerator {
   private void processVersion(VersionInfo vi, String dest) throws IOException, DefinitionException, FHIRException, EOperationOutcome {
     System.out.println("Version "+vi.version);
     Utilities.createDirectory(dest);
-    Utilities.createDirectory(Utilities.path(dest, "segments"));
-    Utilities.createDirectory(Utilities.path(dest, "tables"));
-    Utilities.createDirectory(Utilities.path(dest, "datatypes"));
+    Utilities.createDirectory(Utilities.path(dest, FolderNameConstants.SEGMENTS));
+    Utilities.createDirectory(Utilities.path(dest, FolderNameConstants.TABLES));
+    Utilities.createDirectory(Utilities.path(dest, FolderNameConstants.DATATYPES));
     for (String s : sorted(vi.tables.keySet()))
       generateTable(vi, vi.tables.get(s), dest);
     for (String s : sorted(vi.segments.keySet())) {
@@ -228,7 +229,7 @@ public class V2ProfileGenerator {
     utils.generateSnapshot(context.fetchResource(StructureDefinition.class, sd.getBaseDefinition()), sd, sd.getUrl(), sd.getName());
     Set<String> tracker = new HashSet<>();
     gen.generate(sd, tracker);
-    FileOutputStream stream = new FileOutputStream(Utilities.path(dest, "datatypes", vi.version+"-"+dt.code+".xml"));
+    FileOutputStream stream = new FileOutputStream(Utilities.path(dest, FolderNameConstants.DATATYPES, vi.version+"-"+dt.code+".xml"));
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(stream, sd);
     stream.close();
   }
@@ -283,7 +284,7 @@ public class V2ProfileGenerator {
     utils.generateSnapshot(context.fetchResource(StructureDefinition.class, sd.getBaseDefinition()), sd, sd.getUrl(), sd.getName());
     Set<String> tracker = new HashSet<>();
     gen.generate(sd, tracker);
-    FileOutputStream stream = new FileOutputStream(Utilities.path(dest, "datatypes", vi.version+"-"+dt.code+".xml"));
+    FileOutputStream stream = new FileOutputStream(Utilities.path(dest, FolderNameConstants.DATATYPES, vi.version+"-"+dt.code+".xml"));
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(stream, sd);
     stream.close();
   }
@@ -306,7 +307,7 @@ public class V2ProfileGenerator {
       cc.setDisplay(ti.desc);
     }
     
-    FileOutputStream stream = new FileOutputStream(Utilities.path(dest, "tables", vi.version+"-"+tbl.id+".xml"));
+    FileOutputStream stream = new FileOutputStream(Utilities.path(dest, FolderNameConstants.TABLES, vi.version+"-"+tbl.id+".xml"));
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(stream, vs);
     stream.close();
   }
@@ -359,7 +360,7 @@ public class V2ProfileGenerator {
     utils.generateSnapshot(context.fetchResource(StructureDefinition.class, sd.getBaseDefinition()), sd, sd.getUrl(), sd.getName());
     Set<String> tracker = new HashSet<>();
         gen.generate(sd, tracker);
-    FileOutputStream stream = new FileOutputStream(Utilities.path(dest, "segments", vi.version+"-"+segment.code+".xml"));
+    FileOutputStream stream = new FileOutputStream(Utilities.path(dest, FolderNameConstants.SEGMENTS, vi.version+"-"+segment.code+".xml"));
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(stream, sd);
     stream.close();
   }

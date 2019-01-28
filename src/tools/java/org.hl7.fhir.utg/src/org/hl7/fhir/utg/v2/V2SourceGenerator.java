@@ -54,6 +54,7 @@ import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.utg.BaseGenerator;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
+import org.hl7.fhir.utilities.FolderNameConstants;
 import org.hl7.fhir.utilities.Utilities;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -862,13 +863,13 @@ public class V2SourceGenerator extends BaseGenerator {
 	private void saveManifest(ListResource csManifest, ListResource vsManifest) throws Exception {
 		if (csManifest != null) {
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
-					new FileOutputStream(Utilities.path(dest, "release", "v2-CodeSystem-Manifest.xml")), csManifest);
+					new FileOutputStream(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-CodeSystem-Manifest.xml")), csManifest);
 			System.out.println("V2 Code System Manifest saved");
 		}
 
 		if (vsManifest != null) {
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
-					new FileOutputStream(Utilities.path(dest, "release", "v2-ValueSet-Manifest.xml")), vsManifest);
+					new FileOutputStream(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-ValueSet-Manifest.xml")), vsManifest);
 			System.out.println("V2 Value Set Manifest saved");
 		}
 	}
@@ -876,15 +877,15 @@ public class V2SourceGenerator extends BaseGenerator {
 	private void saveV2Manifest(Document document) throws Exception {
 		TransformerFactory factory = TransformerFactory.newInstance();
 		Transformer transformer = factory.newTransformer();
-		Result result = new StreamResult(new File(Utilities.path(dest, "release", "v2-Manifest.xml")));
+		Result result = new StreamResult(new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-Manifest.xml")));
 		Source source = new DOMSource(document);
 		transformer.transform(source, result);
 		System.out.println("V2 Manifest saved");
 	}
 
 	public void mergeV2Manifests() throws Exception {
-		File codeSystemManifestFile = new File(Utilities.path(dest, "release", "v2-CodeSystem-Manifest.xml"));
-		File valueSetSystemManifestFile = new File(Utilities.path(dest, "release", "v2-ValueSet-Manifest.xml"));
+		File codeSystemManifestFile = new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-CodeSystem-Manifest.xml"));
+		File valueSetSystemManifestFile = new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-ValueSet-Manifest.xml"));
 		Document doc = merge(codeSystemManifestFile, valueSetSystemManifestFile);
 		removeXMLNSAttribute(doc);
 		saveV2Manifest(doc);
@@ -1025,11 +1026,11 @@ public class V2SourceGenerator extends BaseGenerator {
 		// Only write code systems if not value set only and cs oid starts with prefix, per Ted
 		if (!t.isValueSetOnlyTable() && t.isInternalCsOid()) {
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
-					new FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "cs-" + cs.getId()) + ".xml"), cs);
+					new FileOutputStream(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml"), cs);
 		}
 
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
-				new FileOutputStream(Utilities.path(dest, "v2", "valueSets", "vs-" + cs.getId()) + ".xml"), vs);
+				new FileOutputStream(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS, "vs-" + cs.getId()) + ".xml"), vs);
 
 		csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, (String) null));
 		vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, (String) null));
@@ -1296,7 +1297,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		}
 
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-				.compose(new FileOutputStream(Utilities.path(dest, "v2", "v2-tables.xml")), cs);
+				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.V2, "v2-tables.xml")), cs);
 		System.out.println("Save tables (" + Integer.toString(count) + " found)");
 
 	}

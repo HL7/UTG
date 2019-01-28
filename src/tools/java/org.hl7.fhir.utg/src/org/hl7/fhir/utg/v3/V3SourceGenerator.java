@@ -54,6 +54,7 @@ import org.hl7.fhir.r4.model.ValueSet.FilterOperator;
 import org.hl7.fhir.utg.BaseGenerator;
 import org.hl7.fhir.utg.external.ExternalProvider;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
+import org.hl7.fhir.utilities.FolderNameConstants;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
@@ -185,14 +186,14 @@ public class V3SourceGenerator extends BaseGenerator {
 		// Extension ext = null;
 		for (CodeSystem cs : csmap.values()) {
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-					.compose(new FileOutputStream(Utilities.path(dest, "v3", "codeSystems", cs.getId()) + ".xml"), cs);
+					.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml"), cs);
 		}
 		System.out.println("Save v3 code systems (" + Integer.toString(csmap.size()) + " found)");
 	}
 
 	private void saveCodeSystemManifest(ListResource manifest) throws Exception {
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-				.compose(new FileOutputStream(Utilities.path(dest, "release", "v3-CodeSystem-Manifest.xml")), manifest);
+				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-CodeSystem-Manifest.xml")), manifest);
 		System.out.println("V3 Code System Manifest saved");
 	}
 
@@ -820,7 +821,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		saveValueSetManifest(manifest);
 		for (ValueSet vs : vsmap.values())
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-					.compose(new FileOutputStream(Utilities.path(dest, "v3", "valueSets", vs.getId()) + ".xml"), vs);
+					.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.VALUESETS, vs.getId()) + ".xml"), vs);
 		System.out.println("Save v3 value sets (" + Integer.toString(vsmap.size()) + " found)");
 		System.out.println("Unknown systems");
 		for (String s : sorted(systems))
@@ -830,22 +831,22 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void saveValueSetManifest(ListResource manifest) throws Exception {
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-				.compose(new FileOutputStream(Utilities.path(dest, "release", "v3-ValueSet-Manifest.xml")), manifest);
+				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-ValueSet-Manifest.xml")), manifest);
 		System.out.println("V3 Value Set Manifest saved");
 	}
 
 	private void saveV3Manifest(Document document) throws Exception {
 		TransformerFactory factory = TransformerFactory.newInstance();
 		Transformer transformer = factory.newTransformer();
-		Result result = new StreamResult(new File(Utilities.path(dest, "release", "v3-Manifest.xml")));
+		Result result = new StreamResult(new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-Manifest.xml")));
 		Source source = new DOMSource(document);
 		transformer.transform(source, result);
 		System.out.println("V3 Manifest saved");
 	}
 
 	public void mergeV3Manifests() throws Exception {
-		File codeSystemManifestFile = new File(Utilities.path(dest, "release", "v3-CodeSystem-Manifest.xml"));
-		File valueSetSystemManifestFile = new File(Utilities.path(dest, "release", "v3-ValueSet-Manifest.xml"));
+		File codeSystemManifestFile = new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-CodeSystem-Manifest.xml"));
+		File valueSetSystemManifestFile = new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-ValueSet-Manifest.xml"));
 		Document doc = merge(codeSystemManifestFile, valueSetSystemManifestFile);
 		removeXMLNSAttribute(doc);
 		saveV3Manifest(doc);
