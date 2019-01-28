@@ -1146,10 +1146,6 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	private void processContent(Element item, ValueSet vs) throws Exception {
-		if (vs.getId().equals("v3-ActPatientAnnotationType")) {
-			// TODO remove
-			System.out.println("stop");
-		}
 		String oid = item.getAttribute("codeSystem");
 		String url = identifyOID(oid);
 		processGeneralContent(item, vs, url, true, 0);
