@@ -944,7 +944,8 @@ public class V2SourceGenerator extends BaseGenerator {
 		ObjectInfo oi = objects.get(tv.csoid);
 		if (oi != null) {
 			cs.setUrl(oi.uri);
-			cs.setName(oi.display);
+			cs.setName(Utilities.capitalize(oi.display));
+			// cs.setName(oi.display);
 		} else {
 			cs.setUrl("http://terminology.hl7.org/CodeSystem/" + cs.getId());
 			cs.setName("V2Table" + t.id);
@@ -1169,7 +1170,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		// Set all value set versions to 1, per Ted
 		vs.setVersion("1");
 		if (tv.vsoid != null) {
-			vs.setName(objects.get(tv.vsoid).display);
+			vs.setName(Utilities.capitalize(objects.get(tv.vsoid).display));
 			vs.setTitle(objects.get(tv.vsoid).display);
 		} else {
 			vs.setName("V2Table" + t.id + "Version" + vid);
