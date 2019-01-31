@@ -43,6 +43,10 @@ public class ListResourceExt {
 		return entry;
 	}	
 
+	public static ListEntryComponent createCodeSystemListEntry(CodeSystem resource) {	
+		return createListEntry(resource.getUrl(), null, ResourceType.CODESYSTEM.getDisplay());
+	}
+	
 	public static ListEntryComponent createCodeSystemListEntry(CodeSystem resource, String version) {	
 		return createListEntry(resource.getUrl(), version, ResourceType.CODESYSTEM.getDisplay());
 	}
@@ -65,6 +69,10 @@ public class ListResourceExt {
 		return createListEntry(resource.getUrl(), version, ResourceType.CODESYSTEM.getDisplay());
 	}	
 
+	public static ListEntryComponent createValueSetListEntry(ValueSet resource) {	
+		return createListEntry(resource.getUrl(), null, ResourceType.VALUESET.getDisplay());
+	}
+	
 	public static ListEntryComponent createValueSetListEntry(ValueSet resource, String version) {	
 		return createListEntry(resource.getUrl(), version, ResourceType.VALUESET.getDisplay());
 	}

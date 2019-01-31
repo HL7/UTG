@@ -177,7 +177,8 @@ public class V3SourceGenerator extends BaseGenerator {
 			CodeSystem cs = generateV3CodeSystem(l);
 			csmap.put(cs.getUserString("oid"), cs);
 			
-			manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, true));
+			manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
+			//manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, true));
 		}
 
 		postProcess();
@@ -737,7 +738,7 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void processPrintName(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
 		if (!"true".equals(item.getAttribute("preferredForLanguage")))
-			cd.addDesignation().setUse(new Coding().setSystem("http://something...?").setCode("deprecated alias"))
+			cd.addDesignation().setUse(new Coding().setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("deprecated alias"))
 					.setValue(item.getAttribute("text"));
 		else if (Utilities.noString(item.getAttribute("language"))
 				|| item.getAttribute("language").equals(cs.getLanguage()))
@@ -755,7 +756,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			throw new Exception("Unexpected value for attribute status " + item.getAttribute("status"));
 		if (cd.hasCode())
 			// change this to an extension once the build defines the extension to use
-			cd.addDesignation().setUse(new Coding().setSystem("http://something...?").setCode("synonym"))
+			cd.addDesignation().setUse(new Coding().setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("synonym"))
 					.setValue(item.getAttribute("code"));
 		else
 			cd.setCode(item.getAttribute("code"));
@@ -815,7 +816,8 @@ public class V3SourceGenerator extends BaseGenerator {
 			ValueSet vs = generateV3ValueSet(l);
 			vsmap.put(vs.getUserString("oid"), vs);
 
-			manifest.addEntry(ListResourceExt.createValueSetListEntry(vs, true));
+			manifest.addEntry(ListResourceExt.createValueSetListEntry(vs));
+			//manifest.addEntry(ListResourceExt.createValueSetListEntry(vs, true));
 		}
 		postProcess(vsmap);
 		saveValueSetManifest(manifest);
