@@ -29,6 +29,7 @@ import org.hl7.fhir.utg.external.ExternalProvider;
 import org.hl7.fhir.utg.v2.V2SourceGenerator;
 import org.hl7.fhir.utg.v3.V3SourceGenerator;
 import org.hl7.fhir.utilities.FolderNameConstants;
+import org.hl7.fhir.utilities.PlaceHolderFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.xml.sax.SAXException;
 
@@ -108,7 +109,7 @@ public class UTGGenerator extends BaseGenerator {
 	private void generateConceptDomains() throws FileNotFoundException, IOException {
 		CodeSystem cs = new CodeSystem();
 		cs.setId("conceptdomains");
-		cs.setUrl("http://terminology.hl7.org/ConceptDomain/");
+		cs.setUrl("http://terminology.hl7.org/CodeSystem/ConceptDomain");
 		cs.setName("ConceptDomains");
 		cs.setTitle("Concept Domains");
 		cs.setStatus(PublicationStatus.ACTIVE);
@@ -125,7 +126,7 @@ public class UTGGenerator extends BaseGenerator {
 		cs.setVersionNeeded(false);
 		cs.setContent(CodeSystemContentMode.COMPLETE);
 
-		cs.addProperty().setCode("source").setUri("http://terminology.hl7.org/ConceptDomain/")
+		cs.addProperty().setCode("source").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
 				.setType(PropertyType.CODE);
 		cs.addProperty().setCode("ConceptualSpaceForClassCode").setUri("http://somethingelse")
 				.setType(PropertyType.CODE);
@@ -143,19 +144,27 @@ public class UTGGenerator extends BaseGenerator {
 	private void createMissingOutputFolders() throws IOException {
 		Files.createDirectories(Paths.get(Utilities.path(dest)));
 		// Clear the output folders in case any already existed and contained prior data
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.UNIFIED));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RELEASE));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V2));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RELEASE)));
+		Utilities.clearDirectory(Utilities.path(dest));
+//		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.UNIFIED));
+//		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RELEASE));
+//		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.PUBLISH));
+//		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL));
+//		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V2));
+//		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RELEASE)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.PUBLISH)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.VALUESETS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.VALUESETS)));
 
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.PUBLISH));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.VALUESETS));
+		
 	}
 	
 	private void writeExternalManifestFiles() throws ParserConfigurationException, TransformerException, IOException {
