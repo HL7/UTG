@@ -1,10 +1,12 @@
 package org.hl7.fhir.utg.v3;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -79,7 +81,16 @@ public class V3SourceGenerator extends BaseGenerator {
 	private Set<String> notations = new HashSet<String>();
 	private Set<String> systems = new HashSet<String>();
 	private Map<String, ExternalProvider> externalProviders;
-
+	
+	private static final Map<String, String> DEFINITION_TEXT_PROPERTY_TAGS = new HashMap<String, String>() {
+		private static final long serialVersionUID = 1L;
+		{
+			put("open issue", "openIssue");
+			put("openissue", "openIssue");
+			put("deprecation comment", "deprecationInfo");
+		}
+	};
+	
 	public class ConceptDomain {
 		private String name;
 		// private XhtmlNode definition;
@@ -153,9 +164,12 @@ public class V3SourceGenerator extends BaseGenerator {
 			ConceptDefinitionComponent c = new ConceptDefinitionComponent();
 			concepts.add(c);
 			res++;
+			
 			c.setCode(cd.name);
 			c.setDisplay(cd.name);
 			c.setDefinition(cd.text);
+			extractAndAddPropertiesFromDefinitionText(c);
+			
 			if (codes.containsKey(c.getCode()))
 				System.out.println("Name clash for Domain \"" + c.getCode() + ": used on " + codes.get(c.getCode())
 						+ " and in v3");
@@ -169,6 +183,31 @@ public class V3SourceGenerator extends BaseGenerator {
 		return res;
 	}
 
+	private void extractAndAddPropertiesFromDefinitionText(ConceptDefinitionComponent c) {
+		try {
+			if (c.getDefinition() != null) {
+				BufferedReader reader = new BufferedReader(new StringReader(c.getDefinition()));
+				String line = reader.readLine();
+				while (line != null) {
+					line = line.trim();
+					int colonIdx = line.indexOf(":");
+					if (colonIdx >= 0) {
+						String tag = line.substring(0, colonIdx).toLowerCase();
+						if (DEFINITION_TEXT_PROPERTY_TAGS.containsKey(tag)) {
+							String propertyName = DEFINITION_TEXT_PROPERTY_TAGS.get(tag);
+							String propertyValue = line.substring(colonIdx+1).trim();
+							c.addProperty().setCode(propertyName).setValue(new StringType(propertyValue));
+						}
+					}
+					line = reader.readLine();
+				}
+			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public void generateCodeSystems() throws Exception {
 		List<Element> list = new ArrayList<Element>();
 		ListResource manifest = ListResourceExt.createManifestList("V3 Code System Release Manifest");
@@ -528,16 +567,27 @@ public class V3SourceGenerator extends BaseGenerator {
 		else
 			throw new Exception("unknown type " + type);
 
-		// This line adds codeSystem-mandatory extension, which should be removed
-		// pd.addExtension(csext("mandatory"), new
-		// BooleanType(item.getAttribute("isMandatoryIndicator")));
+		String isMandatory = item.getAttribute("isMandatoryIndicator");
+		String defaultHandlingCode = item.getAttribute("defaultHandlingCode");
+		String defaultValue = item.getAttribute("defaultValue");
 
-		String defV = item.getAttribute("defaultValue");
-		if (!Utilities.noString(defV)) {
-			if (!("active".equals(defV) && pd.getCode().equals("status"))
-					&& !(Utilities.existsInList(defV, "&", "as&") && pd.getCode().startsWith("Name:")))
-				throw new Exception("Unsupported default value " + defV);
+		if (!Utilities.noString(defaultValue)) {
+			if (!("active".equals(defaultValue) && pd.getCode().equals("status"))
+					&& !(Utilities.existsInList(defaultValue, "&", "as&") && pd.getCode().startsWith("Name:")))
+				throw new Exception("Unsupported default value " + defaultValue);
 		}
+		
+		if (!(isMandatory + defaultHandlingCode + defaultValue).isEmpty()) {
+			Extension ext = new Extension().setUrl(csext("mif-extended-properties"));
+			pd.getExtension().add(ext);
+			if (!isMandatory.isEmpty())
+				ext.addExtension("isMandatory", new BooleanType(isMandatory));
+			if (!defaultHandlingCode.isEmpty())
+				ext.addExtension("defaultHandlingCode", new CodeType(defaultHandlingCode));
+			if (!defaultValue.isEmpty())
+				ext.addExtension("defaultValue", new StringType(defaultValue));
+		}
+		
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("description"))
@@ -584,7 +634,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			}
 			
 			processCode(codeElement, cd, cs);
-
+			
 			for (Element otherCodeElement : codeElements) {
 				if (otherCodeElement != codeElement) {
 					ConceptPropertyComponent codeSynonymProperty = cd.addProperty();
@@ -712,6 +762,10 @@ public class V3SourceGenerator extends BaseGenerator {
 	private void processConceptProperty(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
 		String id = item.getAttribute("name");
 
+		if (id.equalsIgnoreCase("status")) {
+			return;
+		}
+		
 		PropertyComponent pd = cs.getProperty(id);
 		if (pd == null) {
 			// throw new Exception("Unknown Property "+id+" on "+item.getTagName()+" for
@@ -1108,6 +1162,8 @@ public class V3SourceGenerator extends BaseGenerator {
 		vs.getExtension().add(ext);
 		// ext.addExtension("id", new StringType(item.getAttribute("id")));
 		vs.setVersion(item.getAttribute("id"));
+		ext.addExtension("id", new StringType(item.getAttribute("id")));
+		ext.addExtension("date", new DateTimeType(item.getAttribute("dateTime")));
 		if (item.hasAttribute("responsiblePersonName"))
 			ext.addExtension("author", new StringType(item.getAttribute("responsiblePersonName")));
 		if (item.hasAttribute("isSubstantiveChange"))

@@ -41,11 +41,24 @@
   <description value="OpenIssue:Needs description"/>
   <content value="complete"/>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+      <extension url="defaultValue">
+        <valueString value="active"/>
+      </extension>
+    </extension>
     <code value="status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
@@ -103,10 +116,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="21076"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
   </concept>
   <concept>
@@ -352,10 +361,6 @@
       <valueCode value="21073"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_PersonNamePartQualifier"/>
     </property>
@@ -376,10 +381,6 @@
       <valueCode value="21074"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="_PersonNamePartQualifier"/>
     </property>
@@ -398,10 +399,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="21075"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
     <property>
       <code value="subsumedBy"/>

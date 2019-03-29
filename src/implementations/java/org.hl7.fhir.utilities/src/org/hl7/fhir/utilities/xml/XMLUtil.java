@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -53,6 +54,7 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSSerializer;
 import org.xml.sax.SAXException;
@@ -502,5 +504,34 @@ public class XMLUtil {
     
   }
 
+	public static List<Element> getElements(Element e, String name) {
+		NodeList nodes = e.getElementsByTagName(name);
+		return getElements(nodes);
+	}
+	
+	public static List<Element> getElements(NodeList nodes) {
+		List<Element> elements = new LinkedList<Element>();
+		for (int i = 0; i < nodes.getLength(); i++) {
+			if (nodes.item(i).getNodeType() == Node.ELEMENT_NODE) {
+				elements.add((Element) nodes.item(i));
+			}
+		}
+		return elements;
+	}
+		
+	public static String getString(Element element) {
+        NodeList nodes = element.getChildNodes();
+
+		for (int i = 0; i < nodes.getLength(); i++) {
+			String value = nodes.item(i).getNodeValue();
+			if (value != null && !value.trim().isEmpty()) {
+				return value.trim();
+			}
+		}
+        return null;
+    }
  	
+	public static String plainTextToXML(String text) {
+		return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><docRoot>" + text + "</docRoot>";
+	}
 }

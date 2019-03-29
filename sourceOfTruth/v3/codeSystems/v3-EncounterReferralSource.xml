@@ -46,11 +46,24 @@
   <description value="This domain is defined in UB92 and applies to US realm only  &#xD;&#xA; Deprecation Comment:Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used.  We&#39;ve deprecated all of the codes."/>
   <content value="complete"/>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+      <extension url="defaultValue">
+        <valueString value="active"/>
+      </extension>
+    </extension>
     <code value="status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
@@ -66,10 +79,6 @@
       <code value="internalId"/>
       <valueCode value="12225"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="ER"/>
@@ -81,10 +90,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="12230"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
   </concept>
   <concept>
@@ -98,10 +103,6 @@
       <code value="internalId"/>
       <valueCode value="12226"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="LENF"/>
@@ -113,10 +114,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="12223"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
   </concept>
   <concept>
@@ -130,10 +127,6 @@
       <code value="internalId"/>
       <valueCode value="12222"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="THSP"/>
@@ -145,10 +138,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="12227"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
   </concept>
   <concept>
@@ -162,10 +151,6 @@
       <code value="internalId"/>
       <valueCode value="12229"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="TSNF"/>
@@ -178,10 +163,6 @@
       <code value="internalId"/>
       <valueCode value="12228"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="WI"/>
@@ -193,10 +174,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="12224"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
   </concept>
 </CodeSystem>

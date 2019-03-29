@@ -38,11 +38,24 @@
   <description value="A Universal Resource Locator (URL) is a type of telecommunications address specified as Internet standard RFC 1738 [http://www.isi.edu/in-notes/rfc1738.txt].  The URL specifies the protocol and the contact point defined by that protocol for the resource."/>
   <content value="complete"/>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+      <extension url="defaultValue">
+        <valueString value="active"/>
+      </extension>
+    </extension>
     <code value="status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
@@ -189,10 +202,6 @@
       <code value="internalId"/>
       <valueCode value="14868"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="modem"/>
@@ -205,10 +214,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="14875"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
   </concept>
   <concept>
@@ -223,10 +228,6 @@
       <code value="internalId"/>
       <valueCode value="22605"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="x-text-tel"/>
@@ -239,10 +240,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="22606"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
   </concept>
 </CodeSystem>

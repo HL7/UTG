@@ -29,11 +29,24 @@
   </contact>
   <content value="complete"/>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+      <extension url="defaultValue">
+        <valueString value="active"/>
+      </extension>
+    </extension>
     <code value="status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
@@ -4011,10 +4024,6 @@
       <code value="internalId"/>
       <valueCode value="21296"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="_Dentition"/>
@@ -4030,10 +4039,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="21297"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
   </concept>
   <concept>
@@ -4051,10 +4056,6 @@
       <code value="internalId"/>
       <valueCode value="21298"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="_PrimaryDentition"/>
@@ -4071,10 +4072,6 @@
       <code value="internalId"/>
       <valueCode value="21299"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="_SupernumeraryTooth"/>
@@ -4090,10 +4087,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="21300"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
   </concept>
 </CodeSystem>

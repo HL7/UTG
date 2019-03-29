@@ -38,11 +38,24 @@
   <description value="The possible modes of updating that occur when an attribute is received by a system that already contains values for that attribute."/>
   <content value="complete"/>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+      <extension url="defaultValue">
+        <valueString value="active"/>
+      </extension>
+    </extension>
     <code value="status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
@@ -173,10 +186,6 @@
       <code value="internalId"/>
       <valueCode value="21082"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
     <concept>
       <code value="ESA"/>
       <display value="Set Add"/>
@@ -188,10 +197,6 @@
       <property>
         <code value="internalId"/>
         <valueCode value="10025"/>
-      </property>
-      <property>
-        <code value="status"/>
-        <valueCode value="retired"/>
       </property>
     </concept>
     <concept>
@@ -206,10 +211,6 @@
         <code value="internalId"/>
         <valueCode value="10028"/>
       </property>
-      <property>
-        <code value="status"/>
-        <valueCode value="retired"/>
-      </property>
     </concept>
     <concept>
       <code value="ESC"/>
@@ -223,10 +224,6 @@
         <code value="internalId"/>
         <valueCode value="10027"/>
       </property>
-      <property>
-        <code value="status"/>
-        <valueCode value="retired"/>
-      </property>
     </concept>
     <concept>
       <code value="ESD"/>
@@ -239,10 +236,6 @@
       <property>
         <code value="internalId"/>
         <valueCode value="10026"/>
-      </property>
-      <property>
-        <code value="status"/>
-        <valueCode value="retired"/>
       </property>
     </concept>
   </concept>
@@ -258,10 +251,6 @@
       <code value="internalId"/>
       <valueCode value="22621"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="I"/>
@@ -275,10 +264,6 @@
       <code value="internalId"/>
       <valueCode value="10021"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="V"/>
@@ -291,10 +276,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="10023"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
   </concept>
 </CodeSystem>

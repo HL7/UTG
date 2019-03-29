@@ -48,11 +48,24 @@
   <description value="A code identifying the specific message to be provided.  &#xD;&#xA; Discussion:A textual value may be specified as the print name, or for non-coded messages, as the original text.  &#xD;&#xA; Examples:&#39;Required attribute xxx is missing&#39;, &#39;System will be unavailable March 19 from 0100 to 0300&#39;"/>
   <content value="complete"/>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+      <extension url="defaultValue">
+        <valueString value="active"/>
+      </extension>
+    </extension>
     <code value="status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
@@ -106,10 +119,6 @@
       <code value="internalId"/>
       <valueCode value="20071"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="INFO"/>
@@ -121,10 +130,6 @@
       <code value="internalId"/>
       <valueCode value="20073"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="WARN"/>
@@ -135,10 +140,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="20072"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
   </concept>
 </CodeSystem>

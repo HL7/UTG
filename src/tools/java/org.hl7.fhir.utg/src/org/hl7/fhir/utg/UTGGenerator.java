@@ -130,6 +130,10 @@ public class UTGGenerator extends BaseGenerator {
 				.setType(PropertyType.CODE);
 		cs.addProperty().setCode("ConceptualSpaceForClassCode").setUri("http://somethingelse")
 				.setType(PropertyType.CODE);
+		cs.addProperty().setCode("openIssue").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
+				.setType(PropertyType.STRING);
+		cs.addProperty().setCode("deprecationInfo").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
+				.setType(PropertyType.STRING);
 
 		Map<String, String> codes = new HashMap<String, String>();
 

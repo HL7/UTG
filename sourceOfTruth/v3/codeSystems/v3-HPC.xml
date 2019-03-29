@@ -41,6 +41,14 @@
   <description value="The Healthcare Common Procedure Coding System (HCPCS) contains alpha-numeric codes used to identify those coding categories not included in the American Medical Association&#39;s CPT-4 codes (such as supplies) For example:  E1093 - Wheelchair wide w/ foot rest Common Name - HCPCS Related Names, Versions, and Synonyms - Health Care Financing Administration Common Procedure Coding System Authoring/Maintenance Authority - US Health Care Financing Administration Coverage - Medical and Surgical Procedures, Supplies and Services License Fee(s) - Please review detailed description. Intended Use - Billing and claims processing for medical and surgical services and supplies Other Uses  - Update Frequency - Generally, once a year."/>
   <content value="fragment"/>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+      <extension url="defaultValue">
+        <valueString value="active"/>
+      </extension>
+    </extension>
     <code value="status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
@@ -63,20 +71,12 @@
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
     <concept>
       <code value="_CanadianVisionProductRoleType"/>
       <display value="CanadianVisionProductRoleType"/>
       <property>
         <code value="notSelectable"/>
         <valueBoolean value="true"/>
-      </property>
-      <property>
-        <code value="status"/>
-        <valueCode value="retired"/>
       </property>
       <property>
         <code value="status"/>
@@ -90,10 +90,6 @@
       <property>
         <code value="notSelectable"/>
         <valueBoolean value="true"/>
-      </property>
-      <property>
-        <code value="status"/>
-        <valueCode value="retired"/>
       </property>
       <property>
         <code value="status"/>

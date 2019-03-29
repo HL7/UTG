@@ -38,61 +38,136 @@
   <description value="The source is an excerpt from the target."/>
   <content value="complete"/>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="internalId"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+      <extension url="defaultValue">
+        <valueString value="active"/>
+      </extension>
+    </extension>
     <code value="status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+      <extension url="defaultHandlingCode">
+        <valueCode value="Hierarchical"/>
+      </extension>
+    </extension>
     <code value="conductible"/>
     <description value="If true, indicates that ActRelationships or Participations of the specified type (and any specializations thereof) will normally conduct. For more usage information, refer to the Core Principles specification."/>
     <type value="boolean"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+      <extension url="defaultHandlingCode">
+        <valueCode value="Hierarchical"/>
+      </extension>
+    </extension>
     <code value="isDocumentCharacteristic"/>
     <description value="If true, indicates that the Act attribute or association (as represented by a typeCode for eaither ActRelationship or Pareticipation is a descriptor of the document (record) represented by the act object. If false, indicates the property is a descriptor of the action itself, actual, intended, or potential.  Applies to interpretation of attributes and associations with respect to changes in the value of Act.actionNegationInd and Act.moodCode. (See descriptions of these attributes for further discussion.) For example, in an order, the id attribute [isDocumentCharacteristic = true] is an identifier of the record of the order, not an identifier of the intended event.  On the other hand, the code attribute [isDocumentCharacteristic = false] describes a characteristic of the intended event."/>
     <type value="boolean"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="Name:Act:inboundRelationship:ActRelationship"/>
     <description value="Name of inboundRelationship from Act to ActReln"/>
     <type value="code"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="Name:Act:outboundRelationship:ActRelationship"/>
     <description value="Formal name of outboundRelationship from Act to ActReln"/>
     <type value="code"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="Sort:Act:inboundRelationship:ActRelationship"/>
     <description value="Sort key for the inboundRelationship from Act to ActReln"/>
     <type value="code"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="Sort:Act:outboundRelationship:ActRelationship"/>
     <description value="Sort key for the outboundRelationship from Act to ActReln"/>
     <type value="code"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="appliesTo"/>
     <description value="Haven&#39;t a clue!"/>
     <type value="string"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+    </extension>
     <code value="howApplies"/>
     <description value="Haven&#39;t a clue!"/>
     <type value="string"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+      <extension url="defaultValue">
+        <valueString value="&amp;"/>
+      </extension>
+    </extension>
     <code value="Name:ActRelationship:source:Act"/>
     <description value="The name of the assciation from ActRelationship to the source Act"/>
     <type value="string"/>
   </property>
   <property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
+      <extension url="isMandatory">
+        <valueBoolean value="false"/>
+      </extension>
+      <extension url="defaultValue">
+        <valueString value="&amp;"/>
+      </extension>
+    </extension>
     <code value="Name:ActRelationship:target:Act"/>
     <description value="The name of the assciation from ActRelationship to the source Act"/>
     <type value="string"/>
@@ -136,10 +211,6 @@
       <valueCode value="21642"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
-    <property>
       <code value="isDocumentCharacteristic"/>
       <valueBoolean value="true"/>
     </property>
@@ -154,10 +225,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="21643"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
     <property>
       <code value="isDocumentCharacteristic"/>
@@ -176,10 +243,6 @@
       <valueCode value="21641"/>
     </property>
     <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
-    <property>
       <code value="isDocumentCharacteristic"/>
       <valueBoolean value="true"/>
     </property>
@@ -194,10 +257,6 @@
       <code value="internalId"/>
       <valueCode value="14892"/>
     </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
-    </property>
   </concept>
   <concept>
     <code value="SUGG"/>
@@ -208,10 +267,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="10322"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="retired"/>
     </property>
   </concept>
   <concept>
