@@ -7,12 +7,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
                   
-      <p>This domain is the root domain to which all HL7-recognized value sets for the Observation.value attribute will be linked when Observation.value has a coded data type.</p>
-                  
-      <p>
-                     
-        <i>OpenIssue: </i>Description copied from Concept Domain of same name.  Must be corrected..
-      </p>
+      <p>This code system covers all concepts of HL7-defined values for the Observation value element, when it has a coded datatype.</p>
                
     </div>
   </text>
@@ -35,12 +30,12 @@
   <name value="ObservationValue"/>
   <title value="ObservationValue"/>
   <status value="active"/>
-  <date value="2018-08-12"/>
+  <date value="2019-03-20"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value="This domain is the root domain to which all HL7-recognized value sets for the Observation.value attribute will be linked when Observation.value has a coded data type.  &#xD;&#xA; OpenIssue:Description copied from Concept Domain of same name.  Must be corrected.."/>
+  <description value="This code system covers all concepts of HL7-defined values for the Observation value element, when it has a coded datatype."/>
   <content value="complete"/>
   <property>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
@@ -1373,6 +1368,49 @@
       <property>
         <code value="internalId"/>
         <valueCode value="22649"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="_MeasurementImprovementNotation"/>
+    <display value="Measurement Improvement Notation"/>
+    <definition value=" Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24042"/>
+    </property>
+    <concept>
+      <code value="DecrIsImp"/>
+      <display value="Decreased score indicates improvement"/>
+      <definition value=" Improvement is indicated as a decrease in the score or measurement (e.g. Lower score indicates better quality)"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="24044"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="IncrIsImp"/>
+      <display value="Increased score indicates improvement"/>
+      <definition value=" Improvement is indicated as an increase in the score or measurement (e.g. Higher score indicates better quality)"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="24043"/>
       </property>
     </concept>
   </concept>

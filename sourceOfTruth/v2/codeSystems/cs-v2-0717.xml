@@ -10,12 +10,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.388"/>
   </identifier>
-  <version value="1"/>
+  <version value="2"/>
   <name value="AccessRestrictionValue"/>
   <title value="V2 Table Code System: Access Restriction Value"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2018-09-20"/>
+  <date value="2019-04-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
@@ -23,7 +23,7 @@
       <value value="http://www.hl7.org/"/>
     </telecom>
   </contact>
-  <description value="Code system of concepts specifying the information to which access is restricted.  Used in HL7 Version 2.x messaging in the ARV segment."/>
+  <description value="Code system of concepts specifying the information to which access is restricted.  Used in HL7 Version 2.x messaging in the ARV segment.  Note that these new codes as of November 2018 have been temporarily loaded into this V2 code system pending availability of the currently unavailable new tooling, at which time this code systrem will be retired and a value set of codes from the HL7 V3 ActCode code system will be used instead for this table."/>
   <purpose value="Underlying Master Code System for V2 table 0717 (Access Restriction Value)"/>
   <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
   <caseSensitive value="true"/>
@@ -44,121 +44,688 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
-  <concept id="6703">
+  <concept id="6736">
+    <code value="PersDEID"/>
+    <display value="personal de-identified information policy"/>
+    <definition value="personal de-identified information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="6737">
     <code value="ALL"/>
     <display value="All"/>
     <definition value="All"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6704">
+  <concept id="6738">
     <code value="DEM"/>
     <display value="All demographic data"/>
     <definition value="All demographic data"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6705">
+  <concept id="6739">
     <code value="LOC"/>
     <display value="Patient Location"/>
     <definition value="Patient Location"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6706">
+  <concept id="6740">
     <code value="PID-7"/>
     <display value="Date of Birth"/>
     <definition value="Date of Birth"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6707">
+  <concept id="6741">
     <code value="PID-17"/>
     <display value="Religion"/>
     <definition value="Religion"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6708">
+  <concept id="6742">
     <code value="HIV"/>
     <display value="HIV status and results"/>
     <definition value="HIV status and results"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6709">
+  <concept id="6743">
     <code value="STD"/>
     <display value="Sexually transmitted diseases"/>
     <definition value="Sexually transmitted diseases"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6710">
+  <concept id="6744">
     <code value="PSY"/>
     <display value="Psychiatric Mental health"/>
     <definition value="Psychiatric Mental health"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6711">
+  <concept id="6745">
     <code value="DRG"/>
     <display value="Drug"/>
     <definition value="Drug"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6712">
+  <concept id="6746">
     <code value="SMD"/>
     <display value="Sensitive medical data"/>
     <definition value="Sensitive medical data"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6713">
+  <concept id="6747">
     <code value="NO"/>
     <display value="None"/>
     <definition value="None"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6714">
+  <concept id="6748">
     <code value="OO"/>
     <display value="Opt out all registries (HIPAA)"/>
     <definition value="Opt out all registries (HIPAA)"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6715">
+  <concept id="6749">
     <code value="OI"/>
     <display value="Opt in all registries (HIPAA)"/>
     <definition value="Opt in all registries (HIPAA)"/>
     <property>
       <code value="status"/>
-      <valueCode value="A"/>
+      <valueCode value="D"/>
+    </property>
+  </concept>
+  <concept id="6750">
+    <code value="JurisIP"/>
+    <display value="jurisdictional information policy"/>
+    <definition value="jurisdictional information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6751">
+    <code value="JurisCUI"/>
+    <display value="jurisdictional controlled unclassified information policy"/>
+    <definition value="jurisdictional controlled unclassified information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6752">
+    <code value="JurisDEID"/>
+    <display value="jurisdictional de-identified information policy"/>
+    <definition value="jurisdictional de-identified information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6753">
+    <code value="JurisLDS"/>
+    <display value="jurisdictional limited data set"/>
+    <definition value="jurisdictional limited data set"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6754">
+    <code value="JurisNSI"/>
+    <display value="jurisdictional non-sensitive information policy"/>
+    <definition value="jurisdictional non-sensitive information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6755">
+    <code value="JurisPI"/>
+    <display value="jurisdictional public information policy"/>
+    <definition value="jurisdictional public information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6756">
+    <code value="JurisSP-CUI"/>
+    <display value="jurisdictional specified controlled unclassified information policy"/>
+    <definition value="jurisdictional specified controlled unclassified information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6757">
+    <code value="JurisUUI"/>
+    <display value="jurisdictional uncontrolled unclassified information policy"/>
+    <definition value="jurisdictional uncontrolled unclassified information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6758">
+    <code value="OrgIP "/>
+    <display value="organizational information policy"/>
+    <definition value="organizational information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6759">
+    <code value="OrgCUI"/>
+    <display value="organizational basic controlled unclassified information policy"/>
+    <definition value="organizational basic controlled unclassified information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6760">
+    <code value="OrgDEID"/>
+    <display value="organizational de-identified information policy"/>
+    <definition value="organizational de-identified information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6761">
+    <code value="OrgLDS"/>
+    <display value="organizational limited data set information policy"/>
+    <definition value="organizational limited data set information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6762">
+    <code value="OrgNSI"/>
+    <display value="organizational non-sensitive information policy"/>
+    <definition value="organizational non-sensitive information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6763">
+    <code value="OrgPI"/>
+    <display value="organizational public information policy"/>
+    <definition value="organizational public information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6764">
+    <code value="OrgSP-CUI"/>
+    <display value="organizational specified controlled unclassified information policy"/>
+    <definition value="organizational specified controlled unclassified information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6765">
+    <code value="OrgUUI"/>
+    <display value="organizational uncontrolled unclassified information policy"/>
+    <definition value="organizational uncontrolled unclassified information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6766">
+    <code value="PersIP"/>
+    <display value="personal information policy"/>
+    <definition value="personal information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6767">
+    <code value="PersNSI"/>
+    <display value="personal non-sensitive information policy"/>
+    <definition value="personal non-sensitive information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6768">
+    <code value="PersLDS"/>
+    <display value="personal limited data set information policy"/>
+    <definition value="personal limited data set information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6769">
+    <code value="PersPI"/>
+    <display value="personal public information policy"/>
+    <definition value="personal public information policy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6770">
+    <code value="GRANTORCHOICE"/>
+    <display value="grantor choice"/>
+    <definition value="grantor choice"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6771">
+    <code value="IMPLIED "/>
+    <display value="implied consent"/>
+    <definition value="implied consent"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6772">
+    <code value="IMPLIEDD"/>
+    <display value="implied consent with opportunity to dissent"/>
+    <definition value="implied consent with opportunity to dissent"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6773">
+    <code value="NOCONSENT"/>
+    <display value="no consent"/>
+    <definition value="no consent"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6774">
+    <code value="OPTIN "/>
+    <display value="opt-in"/>
+    <definition value="opt-in"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6775">
+    <code value="OPTINR"/>
+    <display value="opt-in with restrictions"/>
+    <definition value="opt-in with restrictions"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6776">
+    <code value="OPTOUT"/>
+    <display value="opt-out"/>
+    <definition value="opt-out"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6777">
+    <code value="OPTOUTE"/>
+    <display value="opt-out with exceptions"/>
+    <definition value="opt-out with exceptions"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6778">
+    <code value="EMRGONLY"/>
+    <display value="opt-in emergency only"/>
+    <definition value="opt-in emergency only"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6779">
+    <code value="NOPP"/>
+    <display value="notice of privacy practices"/>
+    <definition value="notice of privacy practices"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6780">
+    <code value="OOC"/>
+    <display value="opt-out of personal information or effect collection in a registry or repository"/>
+    <definition value="opt-out of personal information or effect collection in a registry or repository"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6781">
+    <code value="OOS"/>
+    <display value="opt-out of personal information or effect sharing via a registry or repository"/>
+    <definition value="opt-out of personal information or effect sharing via a registry or repository"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6782">
+    <code value="OIC"/>
+    <display value="opt-in to personal information or effect collection in a registry or repository"/>
+    <definition value="opt-in to personal information or effect collection in a registry or repository"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6783">
+    <code value="OIS"/>
+    <display value="opt-in to personal information or effect sharing via a registry or repository"/>
+    <definition value="opt-in to personal information or effect sharing via a registry or repository"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6784">
+    <code value="42CFRPart2CD"/>
+    <display value="42 CFR Part 2 consent directive"/>
+    <definition value="42 CFR Part 2 consent directive"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6785">
+    <code value="HIPAAAuthCD"/>
+    <display value="HIPAA Authorization Consent Directive"/>
+    <definition value="HIPAA Authorization Consent Directive"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6786">
+    <code value="HIPAAConsentCD"/>
+    <display value="HIPAA Consent Directive"/>
+    <definition value="HIPAA Consent Directive"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6787">
+    <code value="HIPAAROACD"/>
+    <display value="HIPAA Right of Access Consent Directive"/>
+    <definition value="HIPAA Right of Access Consent Directive"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6788">
+    <code value="HIPAAResearchAuthCD "/>
+    <display value="HIPAA Authorization for Disclosure for Research Consent Directive"/>
+    <definition value="HIPAA Authorization for Disclosure for Research Consent Directive"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6789">
+    <code value="CompoundResearchCD"/>
+    <display value="Compound HIPAA Research Authorization and Informed Consent for Research"/>
+    <definition value="Compound HIPAA Research Authorization and Informed Consent for Research"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6790">
+    <code value="MDHHS-5515"/>
+    <display value="Michigan Consent to Share Behavioral Health Information for Care Coordination Purposes"/>
+    <definition value="Michigan Consent to Share Behavioral Health Information for Care Coordination Purposes"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6791">
+    <code value="GDPRCD"/>
+    <display value="GDPR Consent Directive"/>
+    <definition value="GDPR Consent Directive"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6792">
+    <code value="GDPRResearchCD"/>
+    <display value="GDPR Research Consent Directive"/>
+    <definition value="GDPR Research Consent Directive"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6793">
+    <code value="42CFRPart2"/>
+    <display value="42 CFR Part 2)"/>
+    <definition value="42 CFR Part 2)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6794">
+    <code value="COMMONRULE"/>
+    <display value="Common Rule"/>
+    <definition value="Common Rule"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6795">
+    <code value="HIPAANOPP "/>
+    <display value="HIPAA notice of privacy practices"/>
+    <definition value="HIPAA notice of privacy practices"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6796">
+    <code value="HIPAAPsyNotes"/>
+    <display value="HIPAA psychotherapy notes"/>
+    <definition value="HIPAA psychotherapy notes"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6797">
+    <code value="HIPAASelfPay"/>
+    <display value="HIPAA self-pay"/>
+    <definition value="HIPAA self-pay"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6798">
+    <code value="Title38Section7332"/>
+    <display value="Title 38 Section 7332"/>
+    <definition value="Title 38 Section 7332"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6799">
+    <code value="HIPAAConsent"/>
+    <display value="HIPAA Consent"/>
+    <definition value="HIPAA Consent"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6800">
+    <code value="HIPAAAuth"/>
+    <display value="HIPAA Authorization for Disclosure"/>
+    <definition value="HIPAA Authorization for Disclosure"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6801">
+    <code value="HIPAAROA"/>
+    <display value="HIPAA Right of Access"/>
+    <definition value="HIPAA Right of Access"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6802">
+    <code value="GDPRCONSENT"/>
+    <display value="GDPR Consent"/>
+    <definition value="GDPR Consent"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6803">
+    <code value="GDPRCONTRACT"/>
+    <display value="GDPR contract"/>
+    <definition value="GDPR contract"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6804">
+    <code value="GDPRHLTHSOCSY"/>
+    <display value="GDPR health or social system management"/>
+    <definition value="GDPR health or social system management"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6805">
+    <code value="GDPRLEGALCLAIM"/>
+    <display value="GDPR legal claim"/>
+    <definition value="GDPR legal claim"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6806">
+    <code value="GDPRLEGALOBL"/>
+    <display value="GDPR legal obligation"/>
+    <definition value="GDPR legal obligation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6807">
+    <code value="GDPRLEGITINTEREST"/>
+    <display value="GDPR legitimate interest"/>
+    <definition value="GDPR legitimate interest"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6808">
+    <code value="GDPRPUBLICHEALTH"/>
+    <display value="GDPR public health"/>
+    <definition value="GDPR public health"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6809">
+    <code value="GDPRPUBLICINTEREST "/>
+    <display value="GDPR public interest"/>
+    <definition value="GDPR public interest"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6810">
+    <code value="GDPRRESEARCH "/>
+    <display value="GDPR research"/>
+    <definition value="GDPR research"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6811">
+    <code value="GDPRVITALINTEREST"/>
+    <display value="GDPR vital interest"/>
+    <definition value="GDPR vital interest"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
     </property>
   </concept>
 </CodeSystem>
