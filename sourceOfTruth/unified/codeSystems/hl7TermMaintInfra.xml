@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="hl7TermMaintInfra"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+  <name value="hl7TermMaintInfra"/>
+  <title value="HL7 Terminology Maintenance Infrastructure Vocabulary"/>
+  <status value="active"/>
+  <date value="2018-12-15"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value="Codes that may have been strings or other types of data in pre-existing tooling for V3 and V2 terminology maintenance, and moved to codes in this code system for proper handling in the FHIR based UTG maintenance facilities."/>
+  <content value="complete"/>
+  <concept>
+    <code value="synonymCode"/>
+    <display value="synonymCode"/>
+    <definition value="Notes a different identifying concept representation (code) which is the same concept and thus considered a synonym. Used in UTG CodeSystem extension."/>
+   </concept>
+  <concept>
+    <code value="preferredForLanguage"/>
+    <display value="Preferred For Language"/>
+    <definition value="Notes a code designation which is preferred for the identified language among more than one for that language. Used in UTG CodeSystem extension."/>
+   </concept>
+   <concept>
+     <code value="consumer"/>
+     <display value="Consumer-friendly"/>
+     <definition value="Designation for use in display to non-clinicians and those not in healthcare professions as a more friendly term for coommunication."/>
+   </concept
+   <concept>
+      <code value="sponsor"/>
+      <display value="sponsor"/>
+      <definition value="Sponsor of the terminology object, as defined in the MIF using legacy tooling, and held in the codeSystem.header.contributor.role element."/>
+   </concept>
+   <concept>
+      <code value="Publisher"/>
+      <display value="Publisher of the terminology object"/>
+      <definition value="Publisher of the terminology object, as defined in the MIF using legacy tooling, and held in the codeSystem.header.contributor.role element. Typically used only where the developer and steward is different than the organization publishing the code system."/>
+   </concept>
+</CodeSystem>
