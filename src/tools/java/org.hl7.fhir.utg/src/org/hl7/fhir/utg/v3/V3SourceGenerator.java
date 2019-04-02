@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -47,6 +46,7 @@ import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.r4.model.OidType;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
@@ -54,6 +54,7 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.r4.model.ValueSet.FilterOperator;
 import org.hl7.fhir.utg.BaseGenerator;
+import org.hl7.fhir.utg.UTGGenerator;
 import org.hl7.fhir.utg.external.ExternalProvider;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utilities.FolderNameConstants;
@@ -77,7 +78,7 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	private Element mif;
-	private List<ConceptDomain> v3ConceptDomains = new ArrayList<ConceptDomain>();
+	private List<ConceptDomain> v3ConceptDomains = new LinkedList<ConceptDomain>();
 	private Set<String> notations = new HashSet<String>();
 	private Set<String> systems = new HashSet<String>();
 	private Map<String, ExternalProvider> externalProviders;
@@ -95,9 +96,17 @@ public class V3SourceGenerator extends BaseGenerator {
 		private String name;
 		// private XhtmlNode definition;
 		private String text;
-		private List<ConceptDomain> children = new ArrayList<ConceptDomain>();
+		private List<ConceptDomain> children = new LinkedList<ConceptDomain>();
 		public String parent;
 		public String conceptualClass;
+		public List<ContextBinding> contextBindings = new LinkedList<ContextBinding>();
+	}
+	
+	public class ContextBinding {
+		public String valueSetOID;
+		public String bindingRealmName;
+		public String codingStrength;
+		public String effectiveDate;
 	}
 
 	public void load(String v3source)
@@ -110,7 +119,23 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	public void loadMif() throws FHIRFormatError {
-		List<Element> conceptDomains = new ArrayList<>();
+		List<Element> contextBindingElements = new LinkedList<>();
+		Map<String, List<ContextBinding>> contextBindings = new HashMap<>();
+		XMLUtil.getNamedChildren(mif, "contextBinding", contextBindingElements);
+		for (Element cbElement : contextBindingElements) {
+			String cdName = cbElement.getAttribute("conceptDomain");
+			ContextBinding cb = new ContextBinding();
+			cb.valueSetOID = cbElement.getAttribute("valueSet");
+			cb.bindingRealmName = cbElement.getAttribute("bindingRealmName");
+			cb.codingStrength = cbElement.getAttribute("codingStrength");
+			cb.effectiveDate = cbElement.getAttribute("effectiveDate");
+			if (!contextBindings.containsKey(cdName)) {
+				contextBindings.put(cdName, new LinkedList<ContextBinding>());
+			}
+			contextBindings.get(cdName).add(cb);
+		}
+		
+		List<Element> conceptDomains = new LinkedList<>();
 		XMLUtil.getNamedChildren(mif, "conceptDomain", conceptDomains);
 		for (Element e : conceptDomains) {
 			ConceptDomain cd = new ConceptDomain();
@@ -130,9 +155,11 @@ public class V3SourceGenerator extends BaseGenerator {
 				else
 					throw new Error("Unknown Property");
 			}
+			cd.contextBindings = contextBindings.get(cd.name);
 			v3ConceptDomains.add(cd);
 		}
-		List<ConceptDomain> removed = new ArrayList<ConceptDomain>();
+		
+		List<ConceptDomain> removed = new LinkedList<ConceptDomain>();
 		for (ConceptDomain cd : v3ConceptDomains) {
 			if (cd.parent != null) {
 				ConceptDomain parent = getConceptDomain(cd.parent);
@@ -153,12 +180,12 @@ public class V3SourceGenerator extends BaseGenerator {
 		return null;
 	}
 
-	public int addConceptDomains(List<ConceptDefinitionComponent> concepts, Map<String, String> codes) {
+	public int addConceptDomains(List<ConceptDefinitionComponent> concepts, Map<String, String> codes) throws Exception {
 		return addConceptDomains(v3ConceptDomains, concepts, codes);
 	}
 
 	private int addConceptDomains(List<ConceptDomain> domains, List<ConceptDefinitionComponent> concepts,
-			Map<String, String> codes) {
+			Map<String, String> codes) throws Exception {
 		int res = 0;
 		for (ConceptDomain cd : domains) {
 			ConceptDefinitionComponent c = new ConceptDefinitionComponent();
@@ -178,6 +205,22 @@ public class V3SourceGenerator extends BaseGenerator {
 			c.addProperty().setCode("source").setValue(new CodeType("v3"));
 			if (cd.conceptualClass != null)
 				c.addProperty().setCode("ConceptualSpaceForClassCode").setValue(new CodeType(cd.conceptualClass));
+			
+			if (cd.contextBindings != null) {
+				for (ContextBinding cb : cd.contextBindings) {
+					String realm = cb.bindingRealmName;
+					String propertyCodePrefix = UTGGenerator.CONTEXT_BINDING_PREFIX + realm; 
+
+					if (!UTGGenerator.BINDING_REALMS.contains(realm)) {
+						throw new Exception("Unrecognized context binding realm: '" + realm + "'");
+					}
+					
+					c.addProperty().setCode(propertyCodePrefix + "-valueSet").setValue(new StringType(cb.valueSetOID));
+					//c.addProperty().setCode(propertyCodePrefix + "-codingStrength").setValue(new CodeType(cb.codingStrength));
+					//c.addProperty().setCode(propertyCodePrefix + "-effectiveDate").setValue(new DateTimeType(cb.effectiveDate));
+				}
+			}
+			
 			res = res + addConceptDomains(cd.children, c.getConcept(), codes);
 		}
 		return res;
@@ -209,7 +252,7 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 	
 	public void generateCodeSystems() throws Exception {
-		List<Element> list = new ArrayList<Element>();
+		List<Element> list = new LinkedList<Element>();
 		ListResource manifest = ListResourceExt.createManifestList("V3 Code System Release Manifest");
 		XMLUtil.getNamedChildren(mif, "codeSystem", list);
 		for (Element l : list) {
@@ -284,7 +327,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		for (CodeSystem cs : csmap.values()) {
 			boolean isOntylog = codeSystemIsOntylog(cs);
 			
-			List<ConceptDefinitionComponent> moved = new ArrayList<ConceptDefinitionComponent>();
+			List<ConceptDefinitionComponent> moved = new LinkedList<ConceptDefinitionComponent>();
 			for (ConceptDefinitionComponent cd : cs.getConcept()) {
 				@SuppressWarnings("unchecked")
 				List<String> parents = (List<String>) cd.getUserData("parents");
@@ -830,7 +873,7 @@ public class V3SourceGenerator extends BaseGenerator {
 					@SuppressWarnings("unchecked")
 					List<String> parents = (List<String>) cd.getUserData("parents");
 					if (parents == null) {
-						parents = new ArrayList<String>();
+						parents = new LinkedList<String>();
 						cd.setUserData("parents", parents);
 					}
 					parents.add(child.getAttribute("code"));
@@ -862,7 +905,7 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	public void generateValueSets() throws Exception {
-		List<Element> list = new ArrayList<Element>();
+		List<Element> list = new LinkedList<Element>();
 		ListResource manifest = ListResourceExt.createManifestList("V3 Value Set Release Manifest");
 		XMLUtil.getNamedChildren(mif, "valueSet", list);
 		HashMap<String, ValueSet> vsmap = new HashMap<String, ValueSet>();

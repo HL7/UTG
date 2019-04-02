@@ -6,9 +6,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -35,6 +38,11 @@ import org.xml.sax.SAXException;
 
 public class UTGGenerator extends BaseGenerator {
 
+	public static final String CONTEXT_BINDING_PREFIX = "contextBinding";
+	
+	public static final List<String> BINDING_REALMS = new ArrayList<String>(
+			Arrays.asList("UV","R1","C1","X1","US"));
+	
 	public static void main(String[] args) throws Exception {
 
 		String problems = "";
@@ -106,7 +114,7 @@ public class UTGGenerator extends BaseGenerator {
 		System.out.println("finished");
 	}
 
-	private void generateConceptDomains() throws FileNotFoundException, IOException {
+	private void generateConceptDomains() throws FileNotFoundException, IOException, Exception {
 		CodeSystem cs = new CodeSystem();
 		cs.setId("conceptdomains");
 		cs.setUrl("http://terminology.hl7.org/CodeSystem/ConceptDomain");
@@ -135,13 +143,21 @@ public class UTGGenerator extends BaseGenerator {
 		cs.addProperty().setCode("deprecationInfo").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
 				.setType(PropertyType.STRING);
 
+		
+		for (String realm : BINDING_REALMS) {
+			String propertyCodePrefix = CONTEXT_BINDING_PREFIX + realm;
+			cs.addProperty().setCode(propertyCodePrefix + "-valueSet").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/").setType(PropertyType.STRING);
+			//cs.addProperty().setCode(propertyCodePrefix + "-codingStrength").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/").setType(PropertyType.CODE);
+			//cs.addProperty().setCode(propertyCodePrefix + "-effectiveDate").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/").setType(PropertyType.DATETIME);
+		}
+		
 		Map<String, String> codes = new HashMap<String, String>();
 
 		int count = cs.getConcept().size() + v3.addConceptDomains(cs.getConcept(), codes);
 		count = count + v2.addConceptDomains(cs, codes);
 
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.UNIFIED, "conceptdomains.xml")), cs);
+				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS, "conceptdomains.xml")), cs);
 		System.out.println("Save conceptdomains (" + Integer.toString(count) + " found)");
 	}
 
