@@ -1,6 +1,8 @@
 package org.hl7.fhir.utilities;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class PlaceHolderFile {
 	
@@ -13,8 +15,9 @@ public class PlaceHolderFile {
 	
 	public static void create(String filePath, String fileName, String content) throws IOException {
 		String fullPath = Utilities.path(filePath, fileName); 
-		TextFile.stringToFile(content, fullPath);
-		
+		if (Files.notExists(Paths.get(fullPath))) {
+			TextFile.stringToFile(content, fullPath);
+		}
 	}
 			
 }
