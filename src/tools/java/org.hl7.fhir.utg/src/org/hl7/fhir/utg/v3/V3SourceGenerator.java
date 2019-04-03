@@ -89,6 +89,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			put("open issue", "openIssue");
 			put("openissue", "openIssue");
 			put("deprecation comment", "deprecationInfo");
+			put("deprecationcomment", "deprecationInfo");
 		}
 	};
 	
@@ -195,7 +196,11 @@ public class V3SourceGenerator extends BaseGenerator {
 			c.setCode(cd.name);
 			c.setDisplay(cd.name);
 			c.setDefinition(cd.text);
-			extractAndAddPropertiesFromDefinitionText(c);
+
+			Map<String, String> properties = extractAdditionalPropertiesFromText(c.getDefinition());
+			for (String propertyName : properties.keySet()) {
+				c.addProperty().setCode(propertyName).setValue(new StringType(properties.get(propertyName)));
+			}
 			
 			if (codes.containsKey(c.getCode()))
 				System.out.println("Name clash for Domain \"" + c.getCode() + ": used on " + codes.get(c.getCode())
@@ -230,31 +235,6 @@ public class V3SourceGenerator extends BaseGenerator {
 		return res;
 	}
 
-	private void extractAndAddPropertiesFromDefinitionText(ConceptDefinitionComponent c) {
-		try {
-			if (c.getDefinition() != null) {
-				BufferedReader reader = new BufferedReader(new StringReader(c.getDefinition()));
-				String line = reader.readLine();
-				while (line != null) {
-					line = line.trim();
-					int colonIdx = line.indexOf(":");
-					if (colonIdx >= 0) {
-						String tag = line.substring(0, colonIdx).toLowerCase();
-						if (DEFINITION_TEXT_PROPERTY_TAGS.containsKey(tag)) {
-							String propertyName = DEFINITION_TEXT_PROPERTY_TAGS.get(tag);
-							String propertyValue = line.substring(colonIdx+1).trim();
-							c.addProperty().setCode(propertyName).setValue(new StringType(propertyValue));
-						}
-					}
-					line = reader.readLine();
-				}
-			}
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
-	
 	public void generateCodeSystems() throws Exception {
 		List<Element> list = new LinkedList<Element>();
 		ListResource manifest = ListResourceExt.createManifestList("V3 Code System Release Manifest");
@@ -536,7 +516,12 @@ public class V3SourceGenerator extends BaseGenerator {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
-				cs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(child).trim());
+				String desc = XMLUtil.htmlToXmlEscapedPlainText(child).trim();
+				cs.setDescription(desc);
+				Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(desc);
+				for (String propertyName : additionalProperties.keySet()) {
+					cs.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
+				}
 				XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
 				html.setName("div");
 				cs.getText().setDiv(html);
@@ -758,10 +743,17 @@ public class V3SourceGenerator extends BaseGenerator {
 	private void processConceptDefinition(Element item, ConceptDefinitionComponent cd) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
-			if (child.getNodeName().equals("text"))
-				cd.setDefinition(XMLUtil.htmlToXmlEscapedPlainText(child));
-			else
+			if (child.getNodeName().equals("text")) {
+				String def = XMLUtil.htmlToXmlEscapedPlainText(child).trim();
+				cd.setDefinition(def);
+				Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(def);
+				for (String propertyName : additionalProperties.keySet()) {
+					cd.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
+				}
+			
+			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
 			child = XMLUtil.getNextSibling(child);
 		}
 	}
@@ -1384,4 +1376,33 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 		return codeElements;
 	}
+
+	private static Map<String, String> extractAdditionalPropertiesFromText(String text) {
+		Map<String, String> propertiesFromText = new HashMap<>();
+		try {
+			if (text != null && !text.isEmpty()) {
+				BufferedReader reader = new BufferedReader(new StringReader(text));
+				String line = reader.readLine();
+				while (line != null) {
+					line = line.trim();
+					int colonIdx = line.indexOf(":");
+					if (colonIdx >= 0) {
+						String tag = line.substring(0, colonIdx).toLowerCase();
+						if (DEFINITION_TEXT_PROPERTY_TAGS.containsKey(tag)) {
+							String propertyName = DEFINITION_TEXT_PROPERTY_TAGS.get(tag);
+							String propertyValue = line.substring(colonIdx+1).trim();
+							propertiesFromText.put(propertyName, propertyValue);
+						}
+					}
+					line = reader.readLine();
+				}
+			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return propertiesFromText;
+	}
+	
+
 }
