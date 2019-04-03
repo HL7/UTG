@@ -1233,7 +1233,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			else if (child.getNodeName().equals("supportedCodeSystem"))
 				; // ignore this
 			else if (child.getNodeName().equals("associatedConceptProperty"))
-				; // ignore this - for now? todo!
+				processAssociatedConceptProperty(child, vs);
 			else if (child.getNodeName().equals("content"))
 				processContent(child, vs);
 			else
@@ -1242,6 +1242,21 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 	}
 
+	private void processAssociatedConceptProperty(Element item, ValueSet vs) throws Exception {
+		String propertyName = item.getAttribute("name").trim();
+		String propertyValue = item.getAttribute("value").trim();
+		
+		if (propertyName.isEmpty()) {
+			throw new Exception("No name attribute for Associated Concept Property in Value Set " + vs.getName());
+		}
+
+		Extension ext = vs.addExtension().setUrl(vsext("hl7-assocConceptProp"));
+		ext.addExtension().setUrl("name").setValue(new StringType(propertyName));
+		if (!propertyValue.isEmpty()) {
+			ext.addExtension().setUrl("value").setValue(new StringType(propertyValue));
+		}
+	}
+	
 	private void processContent(Element item, ValueSet vs) throws Exception {
 		String oid = item.getAttribute("codeSystem");
 		String url = identifyOID(oid);
