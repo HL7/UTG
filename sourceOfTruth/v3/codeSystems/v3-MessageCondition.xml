@@ -25,6 +25,9 @@
       <valueString value="Sponsor"/>
     </extension>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
+    <valueString value="Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used.This isn&#39;t referenced in the RIM and is a copy of old v2 codes.  It&#39;s superseded by AcknowledgementDetailCode"/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
     <valueString value="727-20081229"/>
   </extension>
@@ -56,7 +59,7 @@
   <concept>
     <code value="0"/>
     <display value="Message accepted"/>
-    <definition value=" Success. Optional, as in version 2.x the AA conveys success.  Used for systems that must always return a status code."/>
+    <definition value="Success. Optional, as in version 2.x the AA conveys success.  Used for systems that must always return a status code."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -69,7 +72,7 @@
   <concept>
     <code value="100"/>
     <display value="Sequence error"/>
-    <definition value=" The message elements were not in the proper order, or required elements are missing."/>
+    <definition value="The message elements were not in the proper order, or required elements are missing."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -82,7 +85,7 @@
   <concept>
     <code value="101"/>
     <display value="Missing required element."/>
-    <definition value=" A required message element is missing."/>
+    <definition value="A required message element is missing."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -95,7 +98,7 @@
   <concept>
     <code value="102"/>
     <display value="Data type error"/>
-    <definition value=" An element is represented by a data type that is not compatible with that which is allowable."/>
+    <definition value="An element is represented by a data type that is not compatible with that which is allowable."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -108,7 +111,7 @@
   <concept>
     <code value="103"/>
     <display value="Table value not found"/>
-    <definition value=" The value received for a common HL7 or user defined table was not found to match allowable table values."/>
+    <definition value="The value received for a common HL7 or user defined table was not found to match allowable table values."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -121,7 +124,7 @@
   <concept>
     <code value="200"/>
     <display value="Unsupported message type"/>
-    <definition value=" The message type is not supported."/>
+    <definition value="The message type is not supported."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -134,7 +137,7 @@
   <concept>
     <code value="201"/>
     <display value="Unsupported interaction"/>
-    <definition value=" The identified interaction is not supported."/>
+    <definition value="The identified interaction is not supported."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -147,7 +150,7 @@
   <concept>
     <code value="202"/>
     <display value="Unsupported ProcessingID"/>
-    <definition value=" The ProcessingID is not supported."/>
+    <definition value="The ProcessingID is not supported."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -160,7 +163,7 @@
   <concept>
     <code value="203"/>
     <display value="Unsupported VersionID"/>
-    <definition value=" The VersionID is not supported."/>
+    <definition value="The VersionID is not supported."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -173,7 +176,7 @@
   <concept>
     <code value="204"/>
     <display value="Unknown key identifier"/>
-    <definition value=" The identifier for a patient, order, etc. was not found.  Occurs for transactions other than additions."/>
+    <definition value="The identifier for a patient, order, etc. was not found.  Occurs for transactions other than additions."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -186,7 +189,7 @@
   <concept>
     <code value="205"/>
     <display value="Duplicate key identifier"/>
-    <definition value=" The identifier for a patient, order, etc. already exists.  Occurs in response to addition transactions (e.g. new Admit, new Order, etc.)."/>
+    <definition value="The identifier for a patient, order, etc. already exists.  Occurs in response to addition transactions (e.g. new Admit, new Order, etc.)."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -199,7 +202,7 @@
   <concept>
     <code value="206"/>
     <display value="Application record locked"/>
-    <definition value=" The transaction could not be performed at the application storage level, e.g. database locked."/>
+    <definition value="The transaction could not be performed at the application storage level, e.g. database locked."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -212,7 +215,7 @@
   <concept>
     <code value="207"/>
     <display value="Application internal error"/>
-    <definition value=" A catchall for internal errors not explicitly covered by other error codes."/>
+    <definition value="A catchall for internal errors not explicitly covered by other error codes."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

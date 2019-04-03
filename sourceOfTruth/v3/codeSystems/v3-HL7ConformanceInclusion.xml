@@ -27,6 +27,9 @@
       <valueString value="Sponsor"/>
     </extension>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
+    <valueString value="Deprecated as per 11/2008 Harmonization cleanup; internal and obsolete HL7 usage, no longer used."/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
     <valueString value="661-20081229"/>
   </extension>
@@ -64,7 +67,7 @@
   <concept>
     <code value="_InclusionNotMandatory"/>
     <display value="InclusionNotMandatory"/>
-    <definition value=" The message element is not mandatory, but its appearance may be constrained by one of the non-mandatory concepts."/>
+    <definition value="The message element is not mandatory, but its appearance may be constrained by one of the non-mandatory concepts."/>
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
@@ -80,7 +83,7 @@
     <concept>
       <code value="NP"/>
       <display value="Not permitted"/>
-      <definition value=" This message element may not appear when the message is communicated."/>
+      <definition value="This message element may not appear when the message is communicated."/>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -93,7 +96,7 @@
     <concept>
       <code value="NR"/>
       <display value="Not required"/>
-      <definition value=" The message element may be populated or used by one system sponsor (or profile), but not by another.  Each system sponsor or profile is required to state the ability to accept or send the message element as part of a conformance claim."/>
+      <definition value="The message element may be populated or used by one system sponsor (or profile), but not by another.  Each system sponsor or profile is required to state the ability to accept or send the message element as part of a conformance claim."/>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -105,7 +108,7 @@
       <concept>
         <code value="RE"/>
         <display value="Required may be empty"/>
-        <definition value=" Pursuant to a profile or vendor conformance claim, the message element must appear every time the message is communicated, but the value may be communicated as null."/>
+        <definition value="Pursuant to a profile or vendor conformance claim, the message element must appear every time the message is communicated, but the value may be communicated as null."/>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -118,7 +121,7 @@
       <concept>
         <code value="X"/>
         <display value="Excluded"/>
-        <definition value=" Pursuant to a profile or vendor conformance claim, this message element may not appear when the message is communicated."/>
+        <definition value="Pursuant to a profile or vendor conformance claim, this message element may not appear when the message is communicated."/>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -132,7 +135,7 @@
     <concept>
       <code value="RQ"/>
       <display value="Required"/>
-      <definition value=" The message element must appear every time the message is communicated, but the value may be communicated as null."/>
+      <definition value="The message element must appear every time the message is communicated, but the value may be communicated as null."/>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -146,7 +149,7 @@
   <concept>
     <code value="M"/>
     <display value="Mandatory"/>
-    <definition value=" The message element must appear every time the message is communicated and its value must not be null.  This condition is subject to the rules of multiplicity and conditionality. If a non-null default value is defined for the element, a null value may be communicated."/>
+    <definition value="The message element must appear every time the message is communicated and its value must not be null.  This condition is subject to the rules of multiplicity and conditionality. If a non-null default value is defined for the element, a null value may be communicated."/>
     <designation>
       <use>
         <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
@@ -170,7 +173,7 @@
   <concept>
     <code value="R"/>
     <display value="Mandatory"/>
-    <definition value=" The message element must appear every time the message is communicated and its value must not be null.  This condition is subject to the rules of multiplicity and conditionality. If a non-null default value is defined for the element, a null value may be communicated."/>
+    <definition value="The message element must appear every time the message is communicated and its value must not be null.  This condition is subject to the rules of multiplicity and conditionality. If a non-null default value is defined for the element, a null value may be communicated."/>
     <designation>
       <use>
         <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>

@@ -27,6 +27,9 @@
       <valueString value="Sponsor"/>
     </extension>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
+    <valueString value="Description was copied from attribute and needs to be improved to be appropriate for a code system."/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-AcknowledgementType"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -55,7 +58,7 @@
   <concept>
     <code value="AA"/>
     <display value="Application Acknowledgement Accept"/>
-    <definition value=" Receiving application successfully processed message."/>
+    <definition value="Receiving application successfully processed message."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -68,7 +71,7 @@
   <concept>
     <code value="AE"/>
     <display value="Application Acknowledgement Error"/>
-    <definition value=" Receiving application found error in processing message.  Sending error response with additional error detail information."/>
+    <definition value="Receiving application found error in processing message.  Sending error response with additional error detail information."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -81,7 +84,7 @@
   <concept>
     <code value="AR"/>
     <display value="Application Acknowledgement Reject"/>
-    <definition value=" Receiving application failed to process message for reason unrelated to content or format.  Original message sender must decide on whether to automatically send message again."/>
+    <definition value="Receiving application failed to process message for reason unrelated to content or format.  Original message sender must decide on whether to automatically send message again."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -94,7 +97,7 @@
   <concept>
     <code value="CA"/>
     <display value="Accept Acknowledgement Commit Accept"/>
-    <definition value=" Receiving message handling service accepts responsibility for passing message onto receiving application."/>
+    <definition value="Receiving message handling service accepts responsibility for passing message onto receiving application."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -107,7 +110,7 @@
   <concept>
     <code value="CE"/>
     <display value="Accept Acknowledgement Commit Error"/>
-    <definition value=" Receiving message handling service cannot accept message for any other reason (e.g. message sequence number, etc.)."/>
+    <definition value="Receiving message handling service cannot accept message for any other reason (e.g. message sequence number, etc.)."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -120,7 +123,7 @@
   <concept>
     <code value="CR"/>
     <display value="Accept Acknowledgement Commit Reject"/>
-    <definition value=" Receiving message handling service rejects message if interaction identifier, version or processing mode is incompatible with known receiving application role information."/>
+    <definition value="Receiving message handling service rejects message if interaction identifier, version or processing mode is incompatible with known receiving application role information."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
