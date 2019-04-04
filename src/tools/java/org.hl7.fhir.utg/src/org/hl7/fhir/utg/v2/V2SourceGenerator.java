@@ -39,6 +39,7 @@ import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.PropertyType;
 import org.hl7.fhir.r4.model.CodeType;
+import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
@@ -1019,6 +1020,11 @@ public class V2SourceGenerator extends BaseGenerator {
 				c.addProperty().setCode("status").setValue(new CodeType(te.status));
 			//if (te.backwardsCompatible)
 			//	c.addProperty().setCode("backwardsCompatible").setValue(new BooleanType(te.backwardsCompatible));
+			for (String language : te.langs.keySet()) {
+				c.addDesignation().setLanguage(language)
+						.setUse(new Coding().setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("preferredForLanguage"))
+						.setValue(te.langs.get(language));
+			}
 		}
 
 		ValueSet vs = produceValueSet("Master", cs, t, tv);

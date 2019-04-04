@@ -830,6 +830,8 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	private void processPrintName(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
+
+		/*
 		if (!"true".equals(item.getAttribute("preferredForLanguage")))
 			cd.addDesignation().setUse(new Coding().setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("deprecated alias"))
 					.setValue(item.getAttribute("text"));
@@ -838,6 +840,29 @@ public class V3SourceGenerator extends BaseGenerator {
 			cd.setDisplay(item.getAttribute("text"));
 		else
 			cd.addDesignation().setLanguage(item.getAttribute("language")).setValue(item.getAttribute("text"));
+		*/
+		
+		String language = item.getAttribute("language").trim();
+		// Default language to code system language if not specified
+		if (language.isEmpty()) {
+			language = cs.getLanguage();
+		}
+		String printName = item.getAttribute("text").trim();
+		boolean isPreferred = ("true".equalsIgnoreCase(item.getAttribute("preferredForLanguage")));
+		boolean isCodeSystemLanguage = (language.equalsIgnoreCase(cs.getLanguage()));
+		
+		if (isCodeSystemLanguage && isPreferred) {
+			cd.setDisplay(printName);
+		} else {
+			Coding use = (isPreferred)? 
+							new Coding().setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("preferredForLanguage") :
+							new Coding().setSystem("http://snomed.info/sct").setCode("synonym");
+							
+			cd.addDesignation().setLanguage(language)
+					.setUse(use)
+					.setValue(printName);
+		}
+		
 		Element child = XMLUtil.getFirstChild(item);
 		if (child != null) {
 			throw new Exception("Unprocessed element " + child.getNodeName());
