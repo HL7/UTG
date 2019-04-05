@@ -134,9 +134,10 @@ public class UTGGenerator extends BaseGenerator {
 		cs.setVersionNeeded(false);
 		cs.setContent(CodeSystemContentMode.COMPLETE);
 
+		// TODO - Fix these property URIs?
 		cs.addProperty().setCode("source").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
 				.setType(PropertyType.CODE);
-		cs.addProperty().setCode("ConceptualSpaceForClassCode").setUri("http://somethingelse")
+		cs.addProperty().setCode("ConceptualSpaceForClassCode").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
 				.setType(PropertyType.CODE);
 		cs.addProperty().setCode("openIssue").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
 				.setType(PropertyType.STRING);

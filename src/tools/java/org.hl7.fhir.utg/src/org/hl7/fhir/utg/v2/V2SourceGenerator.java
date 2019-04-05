@@ -1019,11 +1019,6 @@ public class V2SourceGenerator extends BaseGenerator {
 						.setValue(new CodeType(steward)));
 			}
 		}
-		if (tv.isGenerate())
-			cs.getExtension()
-					.add(new Extension()
-							.setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate")
-							.setValue(new BooleanType(true)));
 
 		cs.addProperty().setCode("status").setUri("http://terminology.hl7.org/csprop/status").setType(PropertyType.CODE)
 				.setDescription("Status of the concept");
