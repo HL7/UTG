@@ -73,6 +73,18 @@ public class V2SourceGenerator extends BaseGenerator {
 	private static final List<String> VS_ONLY_CS_ID_LIST = Collections
 			.unmodifiableList(Arrays.asList("0338", "0125", "0136", "0458", "0459", "0567", "0568", "0929", "0930"));
 
+	private static final Map<String, String> V2_STEWARD_MAP = new HashMap<String, String>() {
+		private static final long serialVersionUID = 1L;
+		{
+			put("inm/s&l", "inm/pa");
+			put("mm", "mnm");
+			put("pafm", "pa/fm");
+			put("ph", "pher");
+			put("strucdoc", "sd");
+			put("vocabulary", "vocab");
+		}
+	};
+
 	public V2SourceGenerator(String dest, Map<String, CodeSystem> csmap, Set<String> knownCS) {
 		super(dest, csmap, knownCS);
 	}
@@ -85,15 +97,17 @@ public class V2SourceGenerator extends BaseGenerator {
 
 	private static class V2ConceptIdSequence {
 		private static int nextConceptId = 100;
+
 		public static int getNextConceptId() {
 			return nextConceptId++;
 		}
+
 		public static String getNextConceptIdString() {
 			return Integer.toString(getNextConceptId());
 		}
-		
+
 	}
-	
+
 	public class TableEntryComparator implements Comparator<TableEntry> {
 
 		@Override
@@ -103,27 +117,35 @@ public class V2SourceGenerator extends BaseGenerator {
 	}
 
 	public enum V2ConceptStatus {
-		
-		ACTIVE		("A", "Active", 						"0"),
-		DEPRECATED	("D", "Deprecated", 					"1"),
-		RETIRED		("R", "Retired",						"2"),
-		NEW			("N", "New in this Release", 			"3"),
-		BACKWARD	("B", "Backwards Compatible Use Only", 	"4");
-		
+
+		ACTIVE("A", "Active", "0"), DEPRECATED("D", "Deprecated", "1"), RETIRED("R", "Retired", "2"), NEW("N",
+				"New in this Release", "3"), BACKWARD("B", "Backwards Compatible Use Only", "4");
+
 		private String code;
 		private String name;
 		private String sourceCode;
-		
+
 		private V2ConceptStatus(String code, String name, String sourceCode) {
 			this.code = code;
 			this.name = name;
 			this.sourceCode = sourceCode;
 		}
-		
-		public String toString() 		{ return this.getCode(); }
-		public String getCode() 		{ return code; }
-		public String getName()			{ return name; }
-		public String getSourceCode()	{ return sourceCode; }
+
+		public String toString() {
+			return this.getCode();
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public String getSourceCode() {
+			return sourceCode;
+		}
 
 		public static V2ConceptStatus getStatusForSourceCode(String sourceCode) {
 			V2ConceptStatus rval = null;
@@ -140,10 +162,10 @@ public class V2SourceGenerator extends BaseGenerator {
 			if (rval == null) {
 				throw new Error("Unknown concept active code '" + sourceCode + "'");
 			}
-			return rval; 
+			return rval;
 		}
 	}
-	
+
 	public class TableEntry {
 		private String code;
 		private String display;
@@ -190,10 +212,10 @@ public class V2SourceGenerator extends BaseGenerator {
 	}
 
 	public class TableVersion {
-		
-		public static final String VS_EXPANSION_ALL = "1"; 
-		public static final String VS_EXPANSION_ENUMERATED = "2"; 
-		
+
+		public static final String VS_EXPANSION_ALL = "1";
+		public static final String VS_EXPANSION_ENUMERATED = "2";
+
 		private String version;
 		private String name;
 		private String csoid;
@@ -383,7 +405,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		public boolean isValueSetEnumerated() {
 			return VS_EXPANSION_ENUMERATED.equalsIgnoreCase(getVsExpansion());
 		}
-		
+
 		public String getVocabDomain() {
 			return vocabDomain;
 		}
@@ -503,10 +525,10 @@ public class V2SourceGenerator extends BaseGenerator {
 
 			// second pass, versions
 			for (String n : sorted(versions.keySet())) {
-				//if (this.id.equalsIgnoreCase("0104") && n.equals("2.9")) {
-				//	System.out.println("stop");
-				//}
-				
+				// if (this.id.equalsIgnoreCase("0104") && n.equals("2.9")) {
+				// System.out.println("stop");
+				// }
+
 				if (!n.contains(" ")) {
 					TableVersion tv = versions.get(n);
 					master.version = tv.version;
@@ -601,11 +623,11 @@ public class V2SourceGenerator extends BaseGenerator {
 				res = master;
 			return res;
 		}
-		
+
 		public boolean isValueSetOnlyTable() {
 			return VS_ONLY_CS_ID_LIST.contains(this.id);
 		}
-		
+
 		public boolean isInternalCsOid() {
 			String csOid = this.master.getCsoid();
 			return csOid == null || csOid.startsWith(INTERNAL_CS_OID_PREFIX);
@@ -768,10 +790,11 @@ public class V2SourceGenerator extends BaseGenerator {
 			String display = query.getString("display_name");
 			String german = query.getString("interpretation");
 			String comment = query.getString("comment_as_pub");
-			
-			//String status = readStatusColumns(query.getString("active"), query.getString("modification"));
+
+			// String status = readStatusColumns(query.getString("active"),
+			// query.getString("modification"));
 			V2ConceptStatus conceptStatus = V2ConceptStatus.getStatusForSourceCode(query.getString("active"));
-			
+
 			boolean backwardsCompatible = "4".equals(query.getString("active"));
 
 			tables.get(tid).item(vid.getVersion(), code, display, german, nameCache.get(tid + "/" + vid), comment,
@@ -786,21 +809,21 @@ public class V2SourceGenerator extends BaseGenerator {
 		}
 	}
 
-//	private String readStatusColumns(String active, String modification) {
-//		if (Utilities.noString(active))
-//			return null;
-//		if ("0".equals(active))
-//			return "Active";
-//		if ("1".equals(active))
-//			return "Deprecated";
-//		if ("2".equals(active))
-//			return "Retired";
-//		if ("3".equals(active))
-//			return "Active";
-//		if ("4".equals(active))
-//			return "Active";
-//		return null;
-//	}
+	// private String readStatusColumns(String active, String modification) {
+	// if (Utilities.noString(active))
+	// return null;
+	// if ("0".equals(active))
+	// return "Active";
+	// if ("1".equals(active))
+	// return "Deprecated";
+	// if ("2".equals(active))
+	// return "Retired";
+	// if ("3".equals(active))
+	// return "Active";
+	// if ("4".equals(active))
+	// return "Active";
+	// return null;
+	// }
 
 	public void process() {
 		for (String n : sorted(tables.keySet())) {
@@ -864,13 +887,16 @@ public class V2SourceGenerator extends BaseGenerator {
 	private void saveManifest(ListResource csManifest, ListResource vsManifest) throws Exception {
 		if (csManifest != null) {
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
-					new FileOutputStream(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-CodeSystem-Manifest.xml")), csManifest);
+					new FileOutputStream(
+							Utilities.path(dest, FolderNameConstants.RELEASE, "v2-CodeSystem-Manifest.xml")),
+					csManifest);
 			System.out.println("V2 Code System Manifest saved");
 		}
 
 		if (vsManifest != null) {
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
-					new FileOutputStream(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-ValueSet-Manifest.xml")), vsManifest);
+					new FileOutputStream(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-ValueSet-Manifest.xml")),
+					vsManifest);
 			System.out.println("V2 Value Set Manifest saved");
 		}
 	}
@@ -878,15 +904,18 @@ public class V2SourceGenerator extends BaseGenerator {
 	private void saveV2Manifest(Document document) throws Exception {
 		TransformerFactory factory = TransformerFactory.newInstance();
 		Transformer transformer = factory.newTransformer();
-		Result result = new StreamResult(new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-Manifest.xml")));
+		Result result = new StreamResult(
+				new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-Manifest.xml")));
 		Source source = new DOMSource(document);
 		transformer.transform(source, result);
 		System.out.println("V2 Manifest saved");
 	}
 
 	public void mergeV2Manifests() throws Exception {
-		File codeSystemManifestFile = new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-CodeSystem-Manifest.xml"));
-		File valueSetSystemManifestFile = new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-ValueSet-Manifest.xml"));
+		File codeSystemManifestFile = new File(
+				Utilities.path(dest, FolderNameConstants.RELEASE, "v2-CodeSystem-Manifest.xml"));
+		File valueSetSystemManifestFile = new File(
+				Utilities.path(dest, FolderNameConstants.RELEASE, "v2-ValueSet-Manifest.xml"));
 		Document doc = merge(codeSystemManifestFile, valueSetSystemManifestFile);
 		removeXMLNSAttribute(doc);
 		saveV2Manifest(doc);
@@ -981,10 +1010,15 @@ public class V2SourceGenerator extends BaseGenerator {
 		cs.setCompositional(false);
 		cs.setVersionNeeded(false);
 		cs.setContent(CodeSystemContentMode.COMPLETE);
-		if (!Utilities.noString(tv.getSteward()))
-			cs.getExtension()
-					.add(new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg")
-							.setValue(new CodeType(tv.getSteward())));
+
+		if (!Utilities.noString(tv.getSteward())) {
+			List<String> stewards = normalizeStewardValue(tv.getSteward());
+			for (String steward : stewards) {
+				cs.getExtension().add(new Extension()
+						.setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg")
+						.setValue(new CodeType(steward)));
+			}
+		}
 		if (tv.isGenerate())
 			cs.getExtension()
 					.add(new Extension()
@@ -993,13 +1027,14 @@ public class V2SourceGenerator extends BaseGenerator {
 
 		cs.addProperty().setCode("status").setUri("http://terminology.hl7.org/csprop/status").setType(PropertyType.CODE)
 				.setDescription("Status of the concept");
-		//cs.addProperty().setCode("intro").setUri("http://terminology.hl7.org/csprop/intro").setType(PropertyType.CODE)
-		//		.setDescription("Version of HL7 in which the code was first defined");
+		// cs.addProperty().setCode("intro").setUri("http://terminology.hl7.org/csprop/intro").setType(PropertyType.CODE)
+		// .setDescription("Version of HL7 in which the code was first defined");
 		cs.addProperty().setCode("deprecated").setUri("http://terminology.hl7.org/csprop/deprecated")
 				.setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was deprecated");
-		//cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible")
-		//		.setType(PropertyType.BOOLEAN)
-		//		.setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
+		// cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible")
+		// .setType(PropertyType.BOOLEAN)
+		// .setDescription("Whether code is considered 'backwards compatible' (whatever
+		// that means)");
 
 		for (TableEntry te : tv.entries) {
 			ConceptDefinitionComponent c = cs.addConcept();
@@ -1008,36 +1043,42 @@ public class V2SourceGenerator extends BaseGenerator {
 			c.setDisplay(name);
 			c.setDefinition(name);
 			// Use sequence for concept id, not sort_no
-			//c.setId(Integer.toString(te.sortNo));
+			// c.setId(Integer.toString(te.sortNo));
 			c.setId(V2ConceptIdSequence.getNextConceptIdString());
 			if (!Utilities.noString(te.comments))
 				ToolingExtensions.addCSComment(c, te.comments);
-			//if (te.getFirst() != null)
-			//	c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
+			// if (te.getFirst() != null)
+			// c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
 			if (!Utilities.noString(te.getLast()))
 				c.addProperty().setCode("deprecated").setValue(new CodeType(te.getLast()));
 			if (!Utilities.noString(te.status))
 				c.addProperty().setCode("status").setValue(new CodeType(te.status));
-			//if (te.backwardsCompatible)
-			//	c.addProperty().setCode("backwardsCompatible").setValue(new BooleanType(te.backwardsCompatible));
+			// if (te.backwardsCompatible)
+			// c.addProperty().setCode("backwardsCompatible").setValue(new
+			// BooleanType(te.backwardsCompatible));
 			for (String language : te.langs.keySet()) {
-				c.addDesignation().setLanguage(language)
-						.setUse(new Coding().setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("preferredForLanguage"))
+				c.addDesignation().setLanguage(language).setUse(new Coding()
+						.setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("preferredForLanguage"))
 						.setValue(te.langs.get(language));
 			}
 		}
 
 		ValueSet vs = produceValueSet("Master", cs, t, tv);
 
-
-		// Only write code systems if not value set only and cs oid starts with prefix, per Ted
+		// Only write code systems if not value set only and cs oid starts with prefix,
+		// per Ted
 		if (!t.isValueSetOnlyTable() && t.isInternalCsOid()) {
-			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
-					new FileOutputStream(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml"), cs);
+			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(
+					Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId())
+							+ ".xml"),
+					cs);
 		}
 
-		new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
-				new FileOutputStream(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS, "vs-" + cs.getId()) + ".xml"), vs);
+		new XmlParser().setOutputStyle(OutputStyle.PRETTY)
+				.compose(new FileOutputStream(
+						Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS, "vs-" + cs.getId())
+								+ ".xml"),
+						vs);
 
 		csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, (String) null));
 		vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, (String) null));
@@ -1202,7 +1243,7 @@ public class V2SourceGenerator extends BaseGenerator {
 				c.setCode(te.code);
 			}
 		}
-		
+
 		return vs;
 	}
 
@@ -1241,7 +1282,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		cs.addProperty().setCode("version").setUri("http://terminology.hl7.org/csprop/version")
 				.setType(PropertyType.INTEGER).setDescription("Business version of table metadata");
 		cs.addProperty().setCode("structuredefinition-wg")
-				.setUri("http://terminology.hl7.org/csprop/structuredefinition-wg").setType(PropertyType.STRING)
+				.setUri("http://terminology.hl7.org/csprop/structuredefinition-wg").setType(PropertyType.CODE)
 				.setDescription("Steward for the table.");
 		cs.addProperty().setCode("where-used").setUri("http://terminology.hl7.org/csprop/where-used")
 				.setType(PropertyType.STRING).setDescription("Where this table is used.");
@@ -1285,7 +1326,9 @@ public class V2SourceGenerator extends BaseGenerator {
 						c.addProperty().setCode("generate").setValue(new BooleanType(true));
 					c.addProperty().setCode("version").setValue(new IntegerType(10));
 					if (!Utilities.noString(tv.steward))
-						c.addProperty().setCode("structuredefinition-wg").setValue(new StringType(tv.steward));
+						for (String steward : normalizeStewardValue(tv.steward)) {
+							c.addProperty().setCode("structuredefinition-wg").setValue(new CodeType(steward));	
+						}
 					if (!Utilities.noString(tv.whereUsed))
 						c.addProperty().setCode("where-used").setValue(new StringType(tv.whereUsed));
 					if (!Utilities.noString(tv.v2CodeTableComment))
@@ -1309,4 +1352,11 @@ public class V2SourceGenerator extends BaseGenerator {
 
 	}
 
+	private List<String> normalizeStewardValue(String steward) {
+		steward = steward.toLowerCase();
+		if (V2_STEWARD_MAP.containsKey(steward)) {
+			steward = V2_STEWARD_MAP.get(steward);
+		}
+		return Arrays.asList(steward.split("/"));
+	}
 }

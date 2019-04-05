@@ -46,7 +46,6 @@ import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.Narrative.NarrativeStatus;
-import org.hl7.fhir.r4.model.OidType;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
@@ -93,6 +92,16 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 	};
 	
+	private static final Map<String, String> V3_STEWARD_MAP = new HashMap<String, String>() {
+		private static final long serialVersionUID = 1L;
+		{
+			put("attachments wg", "att");
+			put("cqi wg", "cqi");
+			put("oo wg", "oo");
+			put("security wg", "sec");
+		}
+	};
+
 	public class ConceptDomain {
 		private String name;
 		// private XhtmlNode definition;
@@ -1169,7 +1178,8 @@ public class V3SourceGenerator extends BaseGenerator {
 						if (greatGrandChild != null && greatGrandChild.getNodeName().equals("i")
 								&& greatGrandChild.getTextContent() != null
 								&& greatGrandChild.getTextContent().startsWith("Steward:")) {
-							vs.addExtension(resext("steward"), new StringType(grandChild.getTextContent().trim()));
+							String steward = normalizeStewardValue(grandChild.getTextContent().trim());
+							vs.addExtension("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg", new CodeType(steward));
 						}
 					}
 					grandChild = XMLUtil.getNextSibling(grandChild);
@@ -1221,7 +1231,6 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	private void processHistoryItem(Element item, ValueSet vs) throws Exception {
-		// TODO should be valueset-history?
 		Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/resource-history");
 		vs.getExtension().add(ext);
 		// ext.addExtension("id", new StringType(item.getAttribute("id")));
@@ -1444,5 +1453,13 @@ public class V3SourceGenerator extends BaseGenerator {
 		return propertiesFromText;
 	}
 	
+	private String normalizeStewardValue(String steward) throws Exception {
+		steward = steward.substring(steward.indexOf(":")+1).trim().toLowerCase();
+		
+		if (!steward.isEmpty() && !V3_STEWARD_MAP.containsKey(steward)) {
+			throw new Exception("Unrecognized Steward value: " + steward);
+		}
+		return V3_STEWARD_MAP.get(steward);
+	}
 
 }

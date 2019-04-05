@@ -2,10 +2,8 @@ package org.hl7.fhir.utilities;
 
 import java.io.File;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,7 +15,7 @@ import org.w3c.dom.NodeList;
 
 public class ConceptDomainDefinitionTagExtractor {
 
-	private static final String COREMIF_FILENAME = "C:/Users/dtriglianos/Documents/UTG/DEFN=UV=VO=1422-20180812.coremif";
+	private static final String COREMIF_FILENAME = "C:/Users/dtriglianos/Documents/UTG/DEFN=UV=VO=1436-20190320.coremif";
 	
 	public static void main(String args[]) {
 		
