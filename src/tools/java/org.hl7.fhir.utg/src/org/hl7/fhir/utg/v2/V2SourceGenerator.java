@@ -69,7 +69,6 @@ public class V2SourceGenerator extends BaseGenerator {
 
 	private static final String MASTER_VERSION = "2.9";
 
-	private static final String INTERNAL_CS_OID_PREFIX = "2.16.840.1.113883.18.";
 	private static final List<String> VS_ONLY_CS_ID_LIST = Collections
 			.unmodifiableList(Arrays.asList("0338", "0125", "0136", "0458", "0459", "0567", "0568", "0929", "0930"));
 
@@ -629,8 +628,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		}
 
 		public boolean isInternalCsOid() {
-			String csOid = this.master.getCsoid();
-			return csOid == null || csOid.startsWith(INTERNAL_CS_OID_PREFIX);
+			return isInternalOid(this.master.getCsoid());
 		}
 	}
 

@@ -251,9 +251,10 @@ public class V3SourceGenerator extends BaseGenerator {
 		for (Element l : list) {
 			CodeSystem cs = generateV3CodeSystem(l);
 			csmap.put(cs.getUserString("oid"), cs);
-			
-			manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
-			//manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, true));
+			if (cs.getInternal()) {
+				manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
+				//manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, true));
+			}
 		}
 
 		postProcess();
@@ -261,8 +262,10 @@ public class V3SourceGenerator extends BaseGenerator {
 
 		// Extension ext = null;
 		for (CodeSystem cs : csmap.values()) {
-			new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-					.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml"), cs);
+			if (cs.getInternal()) {
+				new XmlParser().setOutputStyle(OutputStyle.PRETTY)
+				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml"), cs);
+			}
 		}
 		System.out.println("Save v3 code systems (" + Integer.toString(csmap.size()) + " found)");
 	}
@@ -424,7 +427,8 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void processReleasedVersion(Element item, CodeSystem cs) throws Exception {
 		// ignore: hl7MaintainedIndicator, hl7ApprovedIndicator
-		if (!Boolean.parseBoolean(item.getAttribute("hl7MaintainedIndicator"))) {
+		cs.setInternal(Boolean.parseBoolean(item.getAttribute("hl7MaintainedIndicator")));
+		if (!cs.getInternal()) {
 			// Is External
 			String codeSystemId = cs.getUserData("oid").toString();
 			ExternalProvider forcedInclusionProvider = ExternalProvider.getForcedInclusionProvider(codeSystemId);

@@ -10,91 +10,93 @@ import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.utilities.Utilities;
 
 public class BaseGenerator {
-  
-  protected String dest;
-  protected Map<String, CodeSystem> csmap;
-  protected Set<String> knownCS;
-  
-  
-  public BaseGenerator(String dest, Map<String, CodeSystem> csmap, Set<String> knownCS) {
-    super();
-    this.dest = dest;
-    this.csmap = csmap;
-    this.knownCS = knownCS;
-    knownCS.add("http://snomed.info/sct");
-    knownCS.add("http://loinc.org");
-    knownCS.add("http://hl7.org/fhir/sid/cvx");
-    knownCS.add("http://phdsc.org/standards/payer-typology.asp");
-    knownCS.add("http://www.nlm.nih.gov/research/umls/rxnorm");
-    knownCS.add("http://ncimeta.nci.nih.gov");
-  }
 
-  protected List<String> sorted(Set<String> keys) {
-    List<String> res = new ArrayList<String>();
-    res.addAll(keys);
-    Collections.sort(res);
-    return res;
-  }
-  
-  protected static String csext(String name) {
-    return "http://hl7.org/fhir/StructureDefinition/codesystem-"+name;
-  }
+	protected String dest;
+	protected Map<String, CodeSystem> csmap;
+	protected Set<String> knownCS;
 
-  protected static String vsext(String name) {
-	    return "http://hl7.org/fhir/StructureDefinition/valueset-"+name;
-	  }
+	protected static final String INTERNAL_CS_OID_PREFIX = "2.16.840.1.113883.18.";
 
-  protected static String resext(String name) {
-	    return "http://hl7.org/fhir/StructureDefinition/resource-"+name;
-	  }
+	public BaseGenerator(String dest, Map<String, CodeSystem> csmap, Set<String> knownCS) {
+		super();
+		this.dest = dest;
+		this.csmap = csmap;
+		this.knownCS = knownCS;
+		knownCS.add("http://snomed.info/sct");
+		knownCS.add("http://loinc.org");
+		knownCS.add("http://hl7.org/fhir/sid/cvx");
+		knownCS.add("http://phdsc.org/standards/payer-typology.asp");
+		knownCS.add("http://www.nlm.nih.gov/research/umls/rxnorm");
+		knownCS.add("http://ncimeta.nci.nih.gov");
+	}
 
-  protected String makeSafeId(String s) {
-    if (s.contains("(")) {
-    	s = s.replace('(', '-').replace(')', ' ').trim();
-    }
-    
-    return Utilities.makeId(s);
-  }
+	protected List<String> sorted(Set<String> keys) {
+		List<String> res = new ArrayList<String>();
+		res.addAll(keys);
+		Collections.sort(res);
+		return res;
+	}
 
+	protected static String csext(String name) {
+		return "http://hl7.org/fhir/StructureDefinition/codesystem-" + name;
+	}
 
+	protected static String vsext(String name) {
+		return "http://hl7.org/fhir/StructureDefinition/valueset-" + name;
+	}
 
-  protected String identifyOID(String oid) {
-    if (Utilities.noString(oid))
-      return null;
-    if ("SNOMEDCT".equals(oid))
-      return "http://snomed.info/sct";
-    if ("2.16.840.1.113883.6.96".equals(oid))
-      return "http://snomed.info/sct";
-    if ("2.16.840.1.113883.6.1".equals(oid))
-      return "http://loinc.org";
-    if ("2.16.840.1.113883.12.292".equals(oid))
-      return "http://hl7.org/fhir/sid/cvx";
-    if ("2.16.840.1.113883.3.221.5".equals(oid))
-      return "http://phdsc.org/standards/payer-typology.asp";
-    if ("2.16.840.1.113883.6.88".equals(oid))
-      return "http://www.nlm.nih.gov/research/umls/rxnorm";
-     
-    if (csmap.containsKey(oid))
-      return csmap.get(oid).getUrl();
+	protected static String resext(String name) {
+		return "http://hl7.org/fhir/StructureDefinition/resource-" + name;
+	}
 
-    return "urn:oid:"+oid;
-  }
+	protected String makeSafeId(String s) {
+		if (s.contains("(")) {
+			s = s.replace('(', '-').replace(')', ' ').trim();
+		}
 
-  public String getDest() {
-    return dest;
-  }
+		return Utilities.makeId(s);
+	}
 
-  public void setDest(String dest) {
-    this.dest = dest;
-  }
+	protected String identifyOID(String oid) {
+		if (Utilities.noString(oid))
+			return null;
+		if ("SNOMEDCT".equals(oid))
+			return "http://snomed.info/sct";
+		if ("2.16.840.1.113883.6.96".equals(oid))
+			return "http://snomed.info/sct";
+		if ("2.16.840.1.113883.6.1".equals(oid))
+			return "http://loinc.org";
+		if ("2.16.840.1.113883.12.292".equals(oid))
+			return "http://hl7.org/fhir/sid/cvx";
+		if ("2.16.840.1.113883.3.221.5".equals(oid))
+			return "http://phdsc.org/standards/payer-typology.asp";
+		if ("2.16.840.1.113883.6.88".equals(oid))
+			return "http://www.nlm.nih.gov/research/umls/rxnorm";
 
-  public Map<String, CodeSystem> getCsmap() {
-    return csmap;
-  }
+		if (csmap.containsKey(oid))
+			return csmap.get(oid).getUrl();
 
-  public void setCsmap(Map<String, CodeSystem> csmap) {
-    this.csmap = csmap;
-  }
+		return "urn:oid:" + oid;
+	}
 
+	public String getDest() {
+		return dest;
+	}
+
+	public void setDest(String dest) {
+		this.dest = dest;
+	}
+
+	public Map<String, CodeSystem> getCsmap() {
+		return csmap;
+	}
+
+	public void setCsmap(Map<String, CodeSystem> csmap) {
+		this.csmap = csmap;
+	}
+
+	public static boolean isInternalOid(String oid) {
+		return oid == null || oid.isEmpty() || oid.startsWith(INTERNAL_CS_OID_PREFIX);
+	}
 
 }

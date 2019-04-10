@@ -2806,6 +2806,13 @@ public class CodeSystem extends MetadataResource {
     @Description(shortDefinition="Concepts in the code system", formalDefinition="Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are." )
     protected List<ConceptDefinitionComponent> concept;
 
+    /**
+     * True if this is a system maintained by HL7
+     */
+    @Child(name = "internal", type = {BooleanType.class}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="True if code system is maintained by HL7", formalDefinition="True if code system is maintained by HL7." )
+    protected BooleanType internal;
+
     private static final long serialVersionUID = 533217354L;
 
   /**
@@ -3723,6 +3730,51 @@ public class CodeSystem extends MetadataResource {
         if (this.compositional == null)
           this.compositional = new BooleanType();
         this.compositional.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #internal} (True if code system is maintained by HL7.). This is the underlying object with id, value and extensions. The accessor "getInternal" gives direct access to the value
+     */
+    public BooleanType getInternalElement() { 
+      if (this.internal == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CodeSystem.internal");
+        else if (Configuration.doAutoCreate())
+          this.internal = new BooleanType(); 
+      return this.internal;
+    }
+
+    public boolean hasInternalElement() { 
+      return this.internal != null && !this.internal.isEmpty();
+    }
+
+    public boolean hasInternal() { 
+      return this.internal != null && !this.internal.isEmpty();
+    }
+
+    /**
+     * @param value {@link #internal} (True if code system is maintained by HL7.). This is the underlying object with id, value and extensions. The accessor "getInternal" gives direct access to the value
+     */
+    public CodeSystem setInternalElement(BooleanType value) { 
+      this.internal = value;
+      return this;
+    }
+
+    /**
+     * @return True If code system is maintained by HL7.
+     */
+    public boolean getInternal() { 
+      return this.internal == null || this.internal.isEmpty() ? false : this.internal.getValue();
+    }
+
+    /**
+     * @param value True If code system is maintained by HL7.
+     */
+    public CodeSystem setInternal(boolean value) { 
+        if (this.internal == null)
+          this.internal = new BooleanType();
+        this.internal.setValue(value);
       return this;
     }
 
