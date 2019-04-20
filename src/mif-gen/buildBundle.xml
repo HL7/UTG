@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project name="org.hl7.fhir.tools" default="buildBundle">
-  <property name="version" value="todo"/>
+  <property name="version" value="20190414"/>
+  <property name="oldMif" value="DEFN=UV=VO=1436-20190320"/>
   <path id="saxon.path">
     <fileset dir="../tools/java/imports">
       <include name="*.jar"/>
@@ -8,7 +9,7 @@
   </path>
   <property name="saxon.classname" value="net.sf.saxon.TransformerFactoryImpl"/>
   <target name="buildBundle">
-    <get src="http://build.fhir.org/org.hl7.fhir.validator.jar" dest="." usetimestamp="true"/>
+    <get src="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=ca.uhn.hapi.fhir&amp;a=org.hl7.fhir.validation.cli&amp;v=LATEST&amp;e=jar" dest="org.hl7.fhir.validator.jar" usetimestamp="true"/>
     <concat destfile="vocabFiles.xml">
       <resources>
         <fileset dir="../../sourceOfTruth" includes="**/*.xml"/>
@@ -28,11 +29,14 @@
       <factory name="${saxon.classname}"/>
       <param name="version" expression="${version}"/>
     </xslt>
-    <xslt in="DEFN=UV=VO=1422-20180812.coremif" out="mormalizedMif.xml" style="normalizeOriginalMIF.xslt" classpathref="saxon.path">
+    <xslt in="${oldMif}.coremif" out="normalizedMif.xml" style="normalizeOriginalMIF.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <xslt in="DEFN=UV=VO=${version}.coremif" out="normalizedNewMif.xml" style="normalizeOriginalMIF.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
     </xslt>
     <java jar="org.hl7.fhir.validator.jar" fork="true">
-      <arg line="vocabBundle.xml -output validation.txt"/>
+      <arg line="vocabBundle.xml -version 4.0.0 -output validation.txt"/>
     </java>
   </target>
     <!--<ant
