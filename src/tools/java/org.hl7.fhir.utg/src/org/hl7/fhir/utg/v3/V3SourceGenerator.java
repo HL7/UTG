@@ -463,7 +463,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		if (item.hasAttribute("responsiblePersonName"))
 			ext.addExtension("author", new StringType(item.getAttribute("responsiblePersonName")));
 		if (item.hasAttribute("isSubstantiveChange"))
-			ext.addExtension("substantiative", new BooleanType(item.getAttribute("isSubstantiveChange")));
+			ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
 		if (item.hasAttribute("isBackwardCompatibleChange"))
 			ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
 
@@ -1184,7 +1184,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		if (item.hasAttribute("responsiblePersonName"))
 			ext.addExtension("author", new StringType(item.getAttribute("responsiblePersonName")));
 		if (item.hasAttribute("isSubstantiveChange"))
-			ext.addExtension("substantiative", new BooleanType(item.getAttribute("isSubstantiveChange")));
+			ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
 		if (item.hasAttribute("isBackwardCompatibleChange"))
 			ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
 
