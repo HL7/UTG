@@ -15,8 +15,12 @@ import org.hl7.fhir.utilities.Utilities;;
 
 public class ListResourceExt {
 	public static ListResource createManifestList(String title) throws Exception {
+		return createManifestList(title, UUID.randomUUID().toString());
+	}
+	
+	public static ListResource createManifestList(String title, String id) throws Exception {
 		ListResource manifest = new ListResource();
-		manifest.setId(UUID.randomUUID().toString());   
+		manifest.setId(id);   
 		manifest.setStatus(ListResource.ListStatus.CURRENT);
 		manifest.setMode(ListResource.ListMode.WORKING);
 		   

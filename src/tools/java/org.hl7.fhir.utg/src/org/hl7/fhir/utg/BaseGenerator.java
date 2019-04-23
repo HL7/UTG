@@ -1,13 +1,26 @@
 package org.hl7.fhir.utg;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.utilities.Utilities;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 public class BaseGenerator {
 
@@ -97,6 +110,85 @@ public class BaseGenerator {
 
 	public static boolean isInternalOid(String oid) {
 		return oid == null || oid.isEmpty() || oid.startsWith(INTERNAL_CS_OID_PREFIX);
+	}
+
+	protected static Document removeXMLNSAttribute(Document doc)
+			throws ParserConfigurationException, SAXException, IOException {
+		NodeList nodeList = doc.getElementsByTagName("*");
+		for (int i = 0; i < nodeList.getLength(); i++) {
+			if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
+				Element ele = (Element) nodeList.item(i);
+				NamedNodeMap nnm = ele.getAttributes();
+				for (int a = nnm.getLength() - 1; a >= 0; a--) { // back to front because of remove in loop!
+					Attr attr = (Attr) nnm.item(a);
+					if (attr.getNodeName().startsWith("xmlns")) {
+						ele.removeAttributeNode(attr);
+					}
+				}
+			}
+		}
+		return doc;
+	}
+
+	protected static Document addListXMLNSAttribute(Document doc) {
+		NodeList nodeList = doc.getElementsByTagName("List");
+		for (int i = 0; i < nodeList.getLength(); i++) {
+			if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
+				Element ele = (Element) nodeList.item(i);
+				ele.setAttribute("this", "http://hl7.org/fhir");
+			}
+		}
+		return doc;
+	}
+	
+	protected static Document merge(String title, File... files) throws Exception {
+		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+		docBuilderFactory.setIgnoringElementContentWhitespace(true);
+		DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+		final String ns = "http://hl7.org/fhir";
+		
+		//Document base = docBuilder.parse(files[0]);
+		//Element rootNode = base.getDocumentElement();
+		
+		Document base = docBuilder.newDocument();
+		Element listElement = base.createElementNS(ns, "List");
+		base.appendChild(listElement);
+		
+		Element idElement = base.createElementNS(ns, "id");
+		idElement.setAttribute("value", "id-here");
+		listElement.appendChild(idElement);
+		
+		Element statusElement = base.createElement("status");
+		statusElement.setAttribute("value", "current");
+		listElement.appendChild(statusElement);
+		
+		Element modeElement = base.createElement("mode");
+		modeElement.setAttribute("value", "working");
+		listElement.appendChild(modeElement);
+		
+		Element titleElement = base.createElement("title");
+		titleElement.setAttribute("value", title);
+		listElement.appendChild(titleElement);
+		
+		
+		
+		for (int i = 1; i < files.length; i++) {
+			Document merge = docBuilder.parse(files[i]);
+			NodeList nextResults = merge.getDocumentElement().getElementsByTagName("entry");
+
+			for (int j = 0; j < nextResults.getLength(); j++) {
+				Element entryElement = (Element) nextResults.item(j);
+				//kid.
+				//kid = base.importNode(kid, true);
+				//rootNode.appendChild(kid);
+				entryElement.setAttribute("xmlns", ns);
+				
+				Node newEntryNode = base.importNode(entryElement, true);
+				listElement.appendChild(newEntryNode);
+				
+			}
+		}
+		return base;
 	}
 
 }

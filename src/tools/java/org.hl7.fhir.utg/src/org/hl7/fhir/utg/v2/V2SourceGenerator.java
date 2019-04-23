@@ -1,6 +1,5 @@
 package org.hl7.fhir.utg.v2;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,16 +19,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.BooleanType;
@@ -46,6 +35,7 @@ import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.IntegerType;
 import org.hl7.fhir.r4.model.ListResource;
+import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.r4.model.ValueSet;
@@ -57,13 +47,6 @@ import org.hl7.fhir.utg.BaseGenerator;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utilities.FolderNameConstants;
 import org.hl7.fhir.utilities.Utilities;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 public class V2SourceGenerator extends BaseGenerator {
 
@@ -863,101 +846,23 @@ public class V2SourceGenerator extends BaseGenerator {
 		return count;
 	}
 
-	public void generateCodeSystems() throws Exception {
+	public void generateCodeSystems(ListResource v2manifest) throws Exception {
 		int c = 0;
 		int h = 0;
-
-		ListResource csManifest = ListResourceExt.createManifestList("V2 Code System Release Manifest");
-		ListResource vsManifest = ListResourceExt.createManifestList("V2 Value Set Release Manifest");
 
 		for (String n : sorted(tables.keySet())) {
 			if (!n.equals("0000")) {
 				Table t = tables.get(n);
-				generateCodeSystem(t, csManifest, vsManifest);
+				generateCodeSystem(t, v2manifest);
 			}
 		}
 		System.out.println("Saved v2 code systems (" + Integer.toString(c) + " found, with " + Integer.toString(h)
 				+ " past versions)");
 
-		saveManifest(csManifest, vsManifest);
 	}
 
-	private void saveManifest(ListResource csManifest, ListResource vsManifest) throws Exception {
-		if (csManifest != null) {
-			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
-					new FileOutputStream(
-							Utilities.path(dest, FolderNameConstants.RELEASE, "v2-CodeSystem-Manifest.xml")),
-					csManifest);
-			System.out.println("V2 Code System Manifest saved");
-		}
 
-		if (vsManifest != null) {
-			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(
-					new FileOutputStream(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-ValueSet-Manifest.xml")),
-					vsManifest);
-			System.out.println("V2 Value Set Manifest saved");
-		}
-	}
-
-	private void saveV2Manifest(Document document) throws Exception {
-		TransformerFactory factory = TransformerFactory.newInstance();
-		Transformer transformer = factory.newTransformer();
-		Result result = new StreamResult(
-				new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v2-Manifest.xml")));
-		Source source = new DOMSource(document);
-		transformer.transform(source, result);
-		System.out.println("V2 Manifest saved");
-	}
-
-	public void mergeV2Manifests() throws Exception {
-		File codeSystemManifestFile = new File(
-				Utilities.path(dest, FolderNameConstants.RELEASE, "v2-CodeSystem-Manifest.xml"));
-		File valueSetSystemManifestFile = new File(
-				Utilities.path(dest, FolderNameConstants.RELEASE, "v2-ValueSet-Manifest.xml"));
-		Document doc = merge(codeSystemManifestFile, valueSetSystemManifestFile);
-		removeXMLNSAttribute(doc);
-		saveV2Manifest(doc);
-	}
-
-	private static Document merge(File... files) throws Exception {
-		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-		docBuilderFactory.setIgnoringElementContentWhitespace(true);
-		DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-		Document base = docBuilder.parse(files[0]);
-		Element rootNode = base.getDocumentElement();
-
-		for (int i = 1; i < files.length; i++) {
-			Document merge = docBuilder.parse(files[i]);
-			NodeList nextResults = merge.getDocumentElement().getElementsByTagName("entry");
-
-			for (int j = 0; j < nextResults.getLength(); j++) {
-				Node kid = nextResults.item(j);
-				kid = base.importNode(kid, true);
-				rootNode.appendChild(kid);
-			}
-		}
-		return base;
-	}
-
-	private static Document removeXMLNSAttribute(Document doc)
-			throws ParserConfigurationException, SAXException, IOException {
-		NodeList nodeList = doc.getElementsByTagName("*");
-		for (int i = 0; i < nodeList.getLength(); i++) {
-			if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
-				Element ele = (Element) nodeList.item(i);
-				NamedNodeMap nnm = ele.getAttributes();
-				for (int a = nnm.getLength() - 1; a >= 0; a--) { // back to front because of remove in loop!
-					Attr attr = (Attr) nnm.item(a);
-					if (attr.getNodeName().startsWith("xmlns")) {
-						ele.removeAttributeNode(attr);
-					}
-				}
-			}
-		}
-		return doc;
-	}
-
-	private void generateCodeSystem(Table t, ListResource csManifest, ListResource vsManifest)
+	private void generateCodeSystem(Table t, ListResource v2manifest)
 			throws FileNotFoundException, IOException {
 		TableVersion tv = t.master;
 
@@ -1065,6 +970,8 @@ public class V2SourceGenerator extends BaseGenerator {
 					Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId())
 							+ ".xml"),
 					cs);
+			ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs, (String) null);
+			v2manifest.addEntry(csEntry);
 		}
 
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY)
@@ -1073,8 +980,10 @@ public class V2SourceGenerator extends BaseGenerator {
 								+ ".xml"),
 						vs);
 
-		csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, (String) null));
-		vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs, (String) null));
+		ListEntryComponent vsEntry = ListResourceExt.createValueSetListEntry(vs, (String) null);
+		
+		v2manifest.addEntry(vsEntry);
+		
 	}
 
 	// private void generateVersionCodeSystem(Table t, TableVersion tv, ListResource
@@ -1240,7 +1149,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		return vs;
 	}
 
-	public void generateTables() throws FileNotFoundException, IOException {
+	public void generateTables(ListResource v2manifest) throws FileNotFoundException, IOException {
 		CodeSystem cs = new CodeSystem();
 		cs.setId("v2-tables");
 		cs.setUrl("http://hl7.org/terminology.hl7.org/CodeSystem/" + cs.getId());
@@ -1343,6 +1252,7 @@ public class V2SourceGenerator extends BaseGenerator {
 				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.V2, "v2-tables.xml")), cs);
 		System.out.println("Save tables (" + Integer.toString(count) + " found)");
 
+		v2manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
 	}
 
 	private List<String> normalizeStewardValue(String steward) {

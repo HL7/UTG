@@ -17,12 +17,6 @@ import java.util.Set;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
@@ -44,6 +38,7 @@ import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.ListResource;
+import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.r4.model.StringType;
@@ -61,12 +56,7 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class V3SourceGenerator extends BaseGenerator {
@@ -244,21 +234,21 @@ public class V3SourceGenerator extends BaseGenerator {
 		return res;
 	}
 
-	public void generateCodeSystems() throws Exception {
+	public void generateCodeSystems(ListResource v3manifest) throws Exception {
 		List<Element> list = new LinkedList<Element>();
-		ListResource manifest = ListResourceExt.createManifestList("V3 Code System Release Manifest");
+		
 		XMLUtil.getNamedChildren(mif, "codeSystem", list);
 		for (Element l : list) {
 			CodeSystem cs = generateV3CodeSystem(l);
 			csmap.put(cs.getUserString("oid"), cs);
 			if (cs.getInternal()) {
-				manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
+				ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs);
+				v3manifest.addEntry(csEntry);
 				//manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, true));
 			}
 		}
 
 		postProcess();
-		saveCodeSystemManifest(manifest);
 
 		// Extension ext = null;
 		for (CodeSystem cs : csmap.values()) {
@@ -268,12 +258,6 @@ public class V3SourceGenerator extends BaseGenerator {
 			}
 		}
 		System.out.println("Save v3 code systems (" + Integer.toString(csmap.size()) + " found)");
-	}
-
-	private void saveCodeSystemManifest(ListResource manifest) throws Exception {
-		new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-CodeSystem-Manifest.xml")), manifest);
-		System.out.println("V3 Code System Manifest saved");
 	}
 
 	private CodeSystem generateV3CodeSystem(Element item) throws Exception {
@@ -938,20 +922,20 @@ public class V3SourceGenerator extends BaseGenerator {
 					"Unexpected value for attribute relationshipName " + item.getAttribute("relationshipName"));
 	}
 
-	public void generateValueSets() throws Exception {
+	public void generateValueSets(ListResource v3manifest) throws Exception {
 		List<Element> list = new LinkedList<Element>();
-		ListResource manifest = ListResourceExt.createManifestList("V3 Value Set Release Manifest");
 		XMLUtil.getNamedChildren(mif, "valueSet", list);
 		HashMap<String, ValueSet> vsmap = new HashMap<String, ValueSet>();
 		for (Element l : list) {
 			ValueSet vs = generateV3ValueSet(l);
 			vsmap.put(vs.getUserString("oid"), vs);
 
-			manifest.addEntry(ListResourceExt.createValueSetListEntry(vs));
+			ListEntryComponent vsEntry = ListResourceExt.createValueSetListEntry(vs); 
+			v3manifest.addEntry(vsEntry);
 			//manifest.addEntry(ListResourceExt.createValueSetListEntry(vs, true));
 		}
 		postProcess(vsmap);
-		saveValueSetManifest(manifest);
+
 		for (ValueSet vs : vsmap.values())
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY)
 					.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.VALUESETS, vs.getId()) + ".xml"), vs);
@@ -962,66 +946,22 @@ public class V3SourceGenerator extends BaseGenerator {
 				System.out.println(" ..unknown.. " + s);
 	}
 
-	private void saveValueSetManifest(ListResource manifest) throws Exception {
-		new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-ValueSet-Manifest.xml")), manifest);
-		System.out.println("V3 Value Set Manifest saved");
-	}
-
-	private void saveV3Manifest(Document document) throws Exception {
-		TransformerFactory factory = TransformerFactory.newInstance();
-		Transformer transformer = factory.newTransformer();
-		Result result = new StreamResult(new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-Manifest.xml")));
-		Source source = new DOMSource(document);
-		transformer.transform(source, result);
-		System.out.println("V3 Manifest saved");
-	}
-
-	public void mergeV3Manifests() throws Exception {
-		File codeSystemManifestFile = new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-CodeSystem-Manifest.xml"));
-		File valueSetSystemManifestFile = new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-ValueSet-Manifest.xml"));
-		Document doc = merge(codeSystemManifestFile, valueSetSystemManifestFile);
-		removeXMLNSAttribute(doc);
-		saveV3Manifest(doc);
-	}
-
-	private static Document merge(File... files) throws Exception {
-		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-		docBuilderFactory.setIgnoringElementContentWhitespace(true);
-		DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-		Document base = docBuilder.parse(files[0]);
-		Element rootNode = base.getDocumentElement();
-
-		for (int i = 1; i < files.length; i++) {
-			Document merge = docBuilder.parse(files[i]);
-			NodeList nextResults = merge.getDocumentElement().getElementsByTagName("entry");
-
-			for (int j = 0; j < nextResults.getLength(); j++) {
-				Node kid = nextResults.item(j);
-				kid = base.importNode(kid, true);
-				rootNode.appendChild(kid);
-			}
-		}
-		return base;
-	}
-
-	private static Document removeXMLNSAttribute(Document doc)
-			throws ParserConfigurationException, SAXException, IOException {
-		NodeList nodeList = doc.getElementsByTagName("*");
-		for (int i = 0; i < nodeList.getLength(); i++) {
-			if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
-				Element ele = (Element) nodeList.item(i);
-				NamedNodeMap nnm = ele.getAttributes();
-				for (int a = nnm.getLength() - 1; a >= 0; a--) { // back to front because of remove in loop!
-					Attr attr = (Attr) nnm.item(a);
-					if (attr.getNodeName().startsWith("xmlns")) {
-						ele.removeAttributeNode(attr);
-					}
-				}
-			}
-		}
-		return doc;
-	}
+//	private void saveV3Manifest(Document document) throws Exception {
+//		TransformerFactory factory = TransformerFactory.newInstance();
+//		Transformer transformer = factory.newTransformer();
+//		Result result = new StreamResult(new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-Manifest.xml")));
+//		Source source = new DOMSource(document);
+//		transformer.transform(source, result);
+//		System.out.println("V3 Manifest saved");
+//	}
+//
+//	public void mergeV3Manifests() throws Exception {
+//		File codeSystemManifestFile = new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-CodeSystem-Manifest.xml"));
+//		File valueSetSystemManifestFile = new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-ValueSet-Manifest.xml"));
+//		Document doc = merge("V3 Release Manifest", codeSystemManifestFile, valueSetSystemManifestFile);
+//		//removeXMLNSAttribute(doc);
+//		saveV3Manifest(doc);
+//	}
 
 	private void postProcess(HashMap<String, ValueSet> vsmap) throws Exception {
 		// resolve vs references

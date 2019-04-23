@@ -27,8 +27,10 @@ import org.hl7.fhir.r4.model.CodeSystem.PropertyType;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.utg.external.ExternalProvider;
+import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utg.v2.V2SourceGenerator;
 import org.hl7.fhir.utg.v3.V3SourceGenerator;
 import org.hl7.fhir.utilities.FolderNameConstants;
@@ -98,23 +100,27 @@ public class UTGGenerator extends BaseGenerator {
 	}
 
 	private void execute() throws Exception {
+		ListResource v2manifest = ListResourceExt.createManifestList("V2 Release Manifest", "v2-Manifest");
+		ListResource v3manifest = ListResourceExt.createManifestList("V3 Release Manifest", "v3-Manifest");
+		
 		v2.loadTables();
 		v3.loadMif();
 		v2.process();
-		generateConceptDomains();
-		v2.generateTables();
-		v2.generateCodeSystems();
-		v2.mergeV2Manifests();
-		v3.generateCodeSystems();
-		v3.generateValueSets();
-		v3.mergeV3Manifests();
+		v2.generateTables(v2manifest);
+		v2.generateCodeSystems(v2manifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "v2-Manifest.xml"), v2manifest);
+
+		generateConceptDomains(v3manifest);
+		v3.generateCodeSystems(v3manifest);
+		v3.generateValueSets(v3manifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "v3-Manifest.xml"), v3manifest);
 		
 		writeExternalManifestFiles();
 		
 		System.out.println("finished");
 	}
 
-	private void generateConceptDomains() throws FileNotFoundException, IOException, Exception {
+	private void generateConceptDomains(ListResource v3manifest) throws FileNotFoundException, IOException, Exception {
 		CodeSystem cs = new CodeSystem();
 		cs.setId("conceptdomains");
 		cs.setUrl("http://terminology.hl7.org/CodeSystem/ConceptDomain");
@@ -160,6 +166,8 @@ public class UTGGenerator extends BaseGenerator {
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY)
 				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS, "conceptdomains.xml")), cs);
 		System.out.println("Save conceptdomains (" + Integer.toString(count) + " found)");
+		
+		v3manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
 	}
 
 	private void createMissingOutputFolders() throws IOException {
@@ -200,4 +208,15 @@ public class UTGGenerator extends BaseGenerator {
 		}
 		
 	}
+
+	private void writeManifest(String path, ListResource manifest) throws Exception {
+		//new XmlParser().setOutputStyle(OutputStyle.PRETTY)
+		//		.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-ValueSet-Manifest.xml")), manifest);
+		String manifestName = manifest.getId();
+		
+		new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(path), manifest);
+
+		System.out.println("Manifest '" + manifestName + "' saved");
+	}
+
 }
