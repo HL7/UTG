@@ -252,11 +252,13 @@ public class V3SourceGenerator extends BaseGenerator {
 
 		// Extension ext = null;
 		for (CodeSystem cs : csmap.values()) {
-			if (cs.getInternal()) {
-				new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml"), cs);
-			}
+			String resourcePath = (cs.getInternal())?  
+					Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml" :
+					Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml";
+		
+			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
 		}
+		
 		System.out.println("Save v3 code systems (" + Integer.toString(csmap.size()) + " found)");
 	}
 

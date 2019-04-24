@@ -1,5 +1,6 @@
 package org.hl7.fhir.utg;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
@@ -173,14 +173,13 @@ public class UTGGenerator extends BaseGenerator {
 	private void createMissingOutputFolders() throws IOException {
 		Files.createDirectories(Paths.get(Utilities.path(dest)));
 		// Clear the output folders in case any already existed and contained prior data
-//		Utilities.clearDirectory(Utilities.path(dest));
-//		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.UNIFIED));
-//		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RELEASE));
-//		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.PUBLISH));
-//		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V2));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL)));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RELEASE));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.PUBLISH));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.CODESYSTEMS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.VALUESETS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RELEASE)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.PUBLISH)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS)));
@@ -191,31 +190,31 @@ public class UTGGenerator extends BaseGenerator {
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.VALUESETS)));
 
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.PUBLISH));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.RELEASE));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.VALUESETS));
-		
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.CODESYSTEMS));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.VALUESETS));
+
 	}
 	
-	private void writeExternalManifestFiles() throws ParserConfigurationException, TransformerException, IOException {
+	private void writeExternalManifestFiles() throws Exception {
 		String outputPath = Utilities.path(dest, FolderNameConstants.EXTERNAL);
 		System.out.println("Writing " + externalProviders.size() + " External Provider Manifests");
 		for (ExternalProvider provider : externalProviders.values()) {
-			provider.writeXMLManifest(outputPath);
+			writeManifest(outputPath + File.separator + provider.getFilename(), provider.getManifest());
 		}
 		if (ExternalProvider.hasUnclassifiedCodeSystems()) {
 			System.out.println("Writing Manifest for Unclassified External CodeSystems");
-			ExternalProvider.writeUnclassifiedXMLManifest(outputPath);
+			ExternalProvider provider = ExternalProvider.getCatchAll();
+			writeManifest(outputPath + File.separator + provider.getFilename(), provider.getManifest());
 		}
 		
 	}
 
 	private void writeManifest(String path, ListResource manifest) throws Exception {
-		//new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-		//		.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-ValueSet-Manifest.xml")), manifest);
 		String manifestName = manifest.getId();
-		
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(path), manifest);
-
 		System.out.println("Manifest '" + manifestName + "' saved");
 	}
 

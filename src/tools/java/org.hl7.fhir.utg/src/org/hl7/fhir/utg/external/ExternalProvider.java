@@ -12,14 +12,11 @@ import java.util.UUID;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.ListResource;
+import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
+import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -28,7 +25,7 @@ import org.xml.sax.SAXException;
 
 public class ExternalProvider {
 	private static final String XMLNS = "http://hl7.org/fhir";
-	private static final ExternalProvider CATCH_ALL = ExternalProvider.getCatchAll();
+	private static ExternalProvider CATCH_ALL = null;
 	
 	private static final Map<String, ExternalProvider> forcedInclusionCodeSystemMap = new HashMap<String, ExternalProvider>();
 	
@@ -47,6 +44,14 @@ public class ExternalProvider {
 		return UUID.nameUUIDFromBytes(bytes);
 	}
 	
+	public String getId() {
+		return "ext_" + this.getName() + "_voc";
+	}
+	
+	public String getFilename() {
+		return this.getId() + ".xml";
+	}
+	
 	public List<CodeSystem> getCodeSystems() { return _codeSystems; }
 	public void addCodeSystem(CodeSystem cs) { _codeSystems.add(cs); }
 	
@@ -61,13 +66,15 @@ public class ExternalProvider {
 		_codeSystems = new LinkedList<CodeSystem>();
 	}
 	
-	private static ExternalProvider getCatchAll() {
-		ExternalProvider catchAllProvider  = new ExternalProvider(
-				"Unclassified",
-				"Unclassified External Vocabulary Provider",
-				"Manifest of all external vocabularies that are not handled in a specified way"
-		);
-		return catchAllProvider;
+	public static ExternalProvider getCatchAll() {
+		if (CATCH_ALL == null) {
+			CATCH_ALL = new ExternalProvider(
+					"Unclassified",
+					"Unclassified External Vocabulary Provider",
+					"Manifest of all external vocabularies that are not handled in a specified way"
+			);
+		}
+		return CATCH_ALL;
 	}
 	
 	public static ExternalProvider getForcedInclusionProvider(String codeSystemId) {
@@ -75,70 +82,79 @@ public class ExternalProvider {
 	}
 	
 	public static void handleUnclassifiedCodeSystem(CodeSystem cs) {
-		CATCH_ALL.addCodeSystem(cs);
+		getCatchAll().addCodeSystem(cs);
 	}
 	
-	public static void writeUnclassifiedXMLManifest(String outputPath) throws ParserConfigurationException, TransformerException, IOException {
-		CATCH_ALL.writeXMLManifest(outputPath);
+	public static ListResource writeUnclassifiedXMLManifest() throws Exception {
+		return getCatchAll().getManifest();
 	}
 	
 	public static boolean hasUnclassifiedCodeSystems() {
-		return (CATCH_ALL.getCodeSystems().size() > 0);
+		return (getCatchAll().getCodeSystems().size() > 0);
 	}
 	
-	public void writeXMLManifest(String outputPath) throws ParserConfigurationException, TransformerException, IOException {
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		Document doc = dBuilder.newDocument();
-		
-		Element root = doc.createElementNS(XMLNS, "List");
-		doc.appendChild(root);
-		
-		Element eId = doc.createElementNS(XMLNS, "id");
-		eId.setAttribute("value", this.getUUID().toString());
-		root.appendChild(eId);
-		
-		Element eStatus = doc.createElementNS(XMLNS, "status");
-		eStatus.setAttribute("value", "current");
-		root.appendChild(eStatus);
-		
-		Element eMode = doc.createElementNS(XMLNS, "mode");
-		eMode.setAttribute("value", "working");
-		root.appendChild(eMode);
-		
-		Element eTitle = doc.createElementNS(XMLNS, "title");
-		eTitle.setAttribute("value", this.getTitle());
-		root.appendChild(eTitle);
-		
-		Element eNote = doc.createElementNS(XMLNS, "note");
-		Element eNoteText = doc.createElementNS(XMLNS, "text");
-		eNoteText.setAttribute("value", this.getNote());
-		eNote.appendChild(eNoteText);
-		root.appendChild(eNote);
+	public ListResource getManifest() throws Exception {
+		ListResource manifest = ListResourceExt.createManifestList(this.getTitle(), this.getId());
 		
 		for (CodeSystem cs : this.getCodeSystems()) {
-			Element eEntry = doc.createElementNS(XMLNS, "entry");
-			Element eItem = doc.createElementNS(XMLNS, "item");
-			Element eReference = doc.createElementNS(XMLNS, "reference");
-			eReference.setAttribute("value", cs.getUrl().toString());
-			eItem.appendChild(eReference);
-			eEntry.appendChild(eItem);
-			root.appendChild(eEntry);
+			ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs);
+			manifest.addEntry(csEntry);		
 		}
 		
-        // create the xml file
-		//transform the DOM Object to an XML File
-		TransformerFactory transformerFactory = TransformerFactory.newInstance();
-		Transformer transformer = transformerFactory.newTransformer();
-		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-
-		DOMSource domSource = new DOMSource(doc);
-		String fileName = "ext_" + this.getName() + "_voc.xml";
-		String filePath = outputPath + File.separator + fileName;
-		StreamResult streamResult = new StreamResult(new File(filePath));
-		//StreamResult streamResult = new StreamResult(System.out);
-		transformer.transform(domSource, streamResult);
+		return manifest;
+		
+//		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+//		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+//		Document doc = dBuilder.newDocument();
+//		
+//		Element root = doc.createElementNS(XMLNS, "List");
+//		doc.appendChild(root);
+//		
+//		Element eId = doc.createElementNS(XMLNS, "id");
+//		eId.setAttribute("value", this.getUUID().toString());
+//		root.appendChild(eId);
+//		
+//		Element eStatus = doc.createElementNS(XMLNS, "status");
+//		eStatus.setAttribute("value", "current");
+//		root.appendChild(eStatus);
+//		
+//		Element eMode = doc.createElementNS(XMLNS, "mode");
+//		eMode.setAttribute("value", "working");
+//		root.appendChild(eMode);
+//		
+//		Element eTitle = doc.createElementNS(XMLNS, "title");
+//		eTitle.setAttribute("value", this.getTitle());
+//		root.appendChild(eTitle);
+//		
+//		Element eNote = doc.createElementNS(XMLNS, "note");
+//		Element eNoteText = doc.createElementNS(XMLNS, "text");
+//		eNoteText.setAttribute("value", this.getNote());
+//		eNote.appendChild(eNoteText);
+//		root.appendChild(eNote);
+//		
+//		for (CodeSystem cs : this.getCodeSystems()) {
+//			Element eEntry = doc.createElementNS(XMLNS, "entry");
+//			Element eItem = doc.createElementNS(XMLNS, "item");
+//			Element eReference = doc.createElementNS(XMLNS, "reference");
+//			eReference.setAttribute("value", cs.getUrl().toString());
+//			eItem.appendChild(eReference);
+//			eEntry.appendChild(eItem);
+//			root.appendChild(eEntry);
+//		}
+//		
+//        // create the xml file
+//		//transform the DOM Object to an XML File
+//		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+//		Transformer transformer = transformerFactory.newTransformer();
+//		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+//		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+//
+//		DOMSource domSource = new DOMSource(doc);
+//		String fileName = "ext_" + this.getName() + "_voc.xml";
+//		String filePath = outputPath + File.separator + fileName;
+//		StreamResult streamResult = new StreamResult(new File(filePath));
+//		//StreamResult streamResult = new StreamResult(System.out);
+//		transformer.transform(domSource, streamResult);
 
 	}
 	
