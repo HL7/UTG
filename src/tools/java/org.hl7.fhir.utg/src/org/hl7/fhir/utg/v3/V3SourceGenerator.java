@@ -948,23 +948,6 @@ public class V3SourceGenerator extends BaseGenerator {
 				System.out.println(" ..unknown.. " + s);
 	}
 
-//	private void saveV3Manifest(Document document) throws Exception {
-//		TransformerFactory factory = TransformerFactory.newInstance();
-//		Transformer transformer = factory.newTransformer();
-//		Result result = new StreamResult(new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-Manifest.xml")));
-//		Source source = new DOMSource(document);
-//		transformer.transform(source, result);
-//		System.out.println("V3 Manifest saved");
-//	}
-//
-//	public void mergeV3Manifests() throws Exception {
-//		File codeSystemManifestFile = new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-CodeSystem-Manifest.xml"));
-//		File valueSetSystemManifestFile = new File(Utilities.path(dest, FolderNameConstants.RELEASE, "v3-ValueSet-Manifest.xml"));
-//		Document doc = merge("V3 Release Manifest", codeSystemManifestFile, valueSetSystemManifestFile);
-//		//removeXMLNSAttribute(doc);
-//		saveV3Manifest(doc);
-//	}
-
 	private void postProcess(HashMap<String, ValueSet> vsmap) throws Exception {
 		// resolve vs references
 		for (ValueSet vs : vsmap.values()) {
@@ -1245,6 +1228,7 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void processGeneralContent(Element item, ValueSet vs, String url, boolean include, int level)
 			throws Exception {
+
 		Element child = XMLUtil.getFirstChild(item);
 
 		ConceptSetComponent baseSet = new ConceptSetComponent();
@@ -1262,39 +1246,45 @@ public class V3SourceGenerator extends BaseGenerator {
 			filteredSet.setSystem(url);
 		}
 
-		while (child != null) {
-			if (child.getNodeName().equals("codeBasedContent") && !child.hasChildNodes()) {
-				processCodeBasedContent(child, vs, enumeratedSet);
-			
-			} else if (child.getNodeName().equals("codeBasedContent")) {
-				processCodeBasedContent(child, vs, filteredSet);
-					
-			} else if (child.getNodeName().equals("combinedContent")) {
-				if (!include && level > 0)
-					throw new Exception("recursion not supported on exclusion in " + vs.getUrl());
-				processCombinedContent(child, vs, url);
-				
-			} else if (child.getNodeName().equals("valueSetRef")) {
-				// ConceptSetComponent vset = include ? vs.getCompose().addInclude() :
-				// vs.getCompose().addExclude() ;
-
-				CanonicalType vsref = new CanonicalType();
-				valuesetSet.getValueSet().add(vsref);
-				vsref.setUserData("vsref", child.getAttribute("id"));
-				vsref.setUserData("vsname", child.getAttribute("name"));
-				
-			} else
-				throw new Exception("Unprocessed element " + child.getNodeName());
-			child = XMLUtil.getNextSibling(child);
-		}
-		
-		addToValuesetCompose(vs, enumeratedSet, include);
-		addToValuesetCompose(vs, filteredSet, include);
-		addToValuesetCompose(vs, valuesetSet, include);
-		
-		if (level == 0 && !vs.getCompose().hasExclude() && !vs.getCompose().hasInclude()) {
+		if (child == null) {
 			addToValuesetCompose(vs, baseSet, include, true);
+		} else {
+			
+			while (child != null) {
+				if (child.getNodeName().equals("codeBasedContent") && !child.hasChildNodes()) {
+					processCodeBasedContent(child, vs, enumeratedSet);
+				
+				} else if (child.getNodeName().equals("codeBasedContent")) {
+					processCodeBasedContent(child, vs, filteredSet);
+						
+				} else if (child.getNodeName().equals("combinedContent")) {
+					if (!include && level > 0)
+						throw new Exception("recursion not supported on exclusion in " + vs.getUrl());
+					processCombinedContent(child, vs, url);
+					
+				} else if (child.getNodeName().equals("valueSetRef")) {
+					// ConceptSetComponent vset = include ? vs.getCompose().addInclude() :
+					// vs.getCompose().addExclude() ;
+	
+					CanonicalType vsref = new CanonicalType();
+					valuesetSet.getValueSet().add(vsref);
+					vsref.setUserData("vsref", child.getAttribute("id"));
+					vsref.setUserData("vsname", child.getAttribute("name"));
+					
+				} else
+					throw new Exception("Unprocessed element " + child.getNodeName());
+				child = XMLUtil.getNextSibling(child);
+			}
+			
+			addToValuesetCompose(vs, enumeratedSet, include);
+			addToValuesetCompose(vs, filteredSet, include);
+			addToValuesetCompose(vs, valuesetSet, include);
+		
 		}
+
+		//if (level == 0 && !vs.getCompose().hasExclude() && !vs.getCompose().hasInclude()) {
+		//	addToValuesetCompose(vs, baseSet, include, true);
+		//}
 
 	}
 
