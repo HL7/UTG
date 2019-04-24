@@ -1230,7 +1230,8 @@ public class V3SourceGenerator extends BaseGenerator {
 			throws Exception {
 
 		Element child = XMLUtil.getFirstChild(item);
-
+		boolean noChildren = (child == null);
+		
 		ConceptSetComponent baseSet = new ConceptSetComponent();
 		ConceptSetComponent enumeratedSet = new ConceptSetComponent();
 		ConceptSetComponent filteredSet = new ConceptSetComponent();
@@ -1246,45 +1247,39 @@ public class V3SourceGenerator extends BaseGenerator {
 			filteredSet.setSystem(url);
 		}
 
-		if (child == null) {
-			addToValuesetCompose(vs, baseSet, include, true);
-		} else {
+		while (child != null) {
+			if (child.getNodeName().equals("codeBasedContent") && !child.hasChildNodes()) {
+				processCodeBasedContent(child, vs, enumeratedSet);
 			
-			while (child != null) {
-				if (child.getNodeName().equals("codeBasedContent") && !child.hasChildNodes()) {
-					processCodeBasedContent(child, vs, enumeratedSet);
+			} else if (child.getNodeName().equals("codeBasedContent")) {
+				processCodeBasedContent(child, vs, filteredSet);
+					
+			} else if (child.getNodeName().equals("combinedContent")) {
+				if (!include && level > 0)
+					throw new Exception("recursion not supported on exclusion in " + vs.getUrl());
+				processCombinedContent(child, vs, url);
 				
-				} else if (child.getNodeName().equals("codeBasedContent")) {
-					processCodeBasedContent(child, vs, filteredSet);
-						
-				} else if (child.getNodeName().equals("combinedContent")) {
-					if (!include && level > 0)
-						throw new Exception("recursion not supported on exclusion in " + vs.getUrl());
-					processCombinedContent(child, vs, url);
-					
-				} else if (child.getNodeName().equals("valueSetRef")) {
-					// ConceptSetComponent vset = include ? vs.getCompose().addInclude() :
-					// vs.getCompose().addExclude() ;
-	
-					CanonicalType vsref = new CanonicalType();
-					valuesetSet.getValueSet().add(vsref);
-					vsref.setUserData("vsref", child.getAttribute("id"));
-					vsref.setUserData("vsname", child.getAttribute("name"));
-					
-				} else
-					throw new Exception("Unprocessed element " + child.getNodeName());
-				child = XMLUtil.getNextSibling(child);
-			}
-			
-			addToValuesetCompose(vs, enumeratedSet, include);
-			addToValuesetCompose(vs, filteredSet, include);
-			addToValuesetCompose(vs, valuesetSet, include);
-		
-		}
+			} else if (child.getNodeName().equals("valueSetRef")) {
+				// ConceptSetComponent vset = include ? vs.getCompose().addInclude() :
+				// vs.getCompose().addExclude() ;
 
-		//if (level == 0 && !vs.getCompose().hasExclude() && !vs.getCompose().hasInclude()) {
-		//	addToValuesetCompose(vs, baseSet, include, true);
-		//}
+				CanonicalType vsref = new CanonicalType();
+				valuesetSet.getValueSet().add(vsref);
+				vsref.setUserData("vsref", child.getAttribute("id"));
+				vsref.setUserData("vsname", child.getAttribute("name"));
+				
+			} else
+				throw new Exception("Unprocessed element " + child.getNodeName());
+			child = XMLUtil.getNextSibling(child);
+		}
+		
+		addToValuesetCompose(vs, enumeratedSet, include);
+		addToValuesetCompose(vs, filteredSet, include);
+		addToValuesetCompose(vs, valuesetSet, include);
+	
+		if ((noChildren) || (level == 0 && !vs.getCompose().hasExclude() && !vs.getCompose().hasInclude())) {
+			addToValuesetCompose(vs, baseSet, include, true);
+		}
 
 	}
 
