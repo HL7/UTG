@@ -613,6 +613,10 @@ public class V2SourceGenerator extends BaseGenerator {
 		public boolean isInternalCsOid() {
 			return isInternalOid(this.master.getCsoid());
 		}
+		
+		public boolean hasContent() {
+			return !this.master.entries.isEmpty();
+		}
 	}
 
 	public class ObjectInfo {
@@ -909,10 +913,15 @@ public class V2SourceGenerator extends BaseGenerator {
 			cs.setCaseSensitive(false);
 		else
 			cs.setCaseSensitive(true);
+		
 		cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA); // todo - is this correct
 		cs.setCompositional(false);
 		cs.setVersionNeeded(false);
-		cs.setContent(CodeSystemContentMode.COMPLETE);
+		
+		// Internal systems are complete, externals are either fragment or notpresent
+		cs.setContent((t.isInternalCsOid()) ? CodeSystemContentMode.COMPLETE :
+						   (t.hasContent()) ? CodeSystemContentMode.FRAGMENT :
+											  CodeSystemContentMode.NOTPRESENT);
 
 		if (!Utilities.noString(tv.getSteward())) {
 			List<String> stewards = normalizeStewardValue(tv.getSteward());
@@ -963,21 +972,22 @@ public class V2SourceGenerator extends BaseGenerator {
 
 		ValueSet vs = produceValueSet("Master", cs, t, tv);
 
-		// Only write code systems if not value set only and cs oid starts with prefix,
+		// Only write code systems if not value set only 
 		// per Ted
-		if (!t.isValueSetOnlyTable() && t.isInternalCsOid()) {
-			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(
-					Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId())
-							+ ".xml"),
-					cs);
+		if (!t.isValueSetOnlyTable()) {
+		
+			String resourcePath = (t.isInternalCsOid())?  
+					Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml" :
+					Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
+		 
+			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
 			ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs, (String) null);
 			v2manifest.addEntry(csEntry);
 		}
 
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY)
 				.compose(new FileOutputStream(
-						Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS, "vs-" + cs.getId())
-								+ ".xml"),
+						Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS, "vs-" + cs.getId()) + ".xml"),
 						vs);
 
 		ListEntryComponent vsEntry = ListResourceExt.createValueSetListEntry(vs, (String) null);

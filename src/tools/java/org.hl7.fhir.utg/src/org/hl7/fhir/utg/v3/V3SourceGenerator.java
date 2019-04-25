@@ -254,7 +254,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		for (CodeSystem cs : csmap.values()) {
 			String resourcePath = (cs.getInternal())?  
 					Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml" :
-					Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml";
+					Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml";
 		
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
 		}
