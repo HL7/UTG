@@ -44,6 +44,7 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.utg.BaseGenerator;
+import org.hl7.fhir.utg.URLLookup;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utilities.FolderNameConstants;
 import org.hl7.fhir.utilities.Utilities;
@@ -158,6 +159,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		private String last;
 		public String status;
 		public boolean backwardsCompatible;
+		
 
 		public boolean hasLang(String code) {
 			return langs.containsKey(code);
@@ -221,6 +223,8 @@ public class V2SourceGenerator extends BaseGenerator {
 		private String vocabDomain;
 		private String comment;
 		private boolean noCodeSystem;
+		private boolean tableOnly = false;
+		private boolean domainOnly = false;
 
 		private List<TableEntry> entries = new ArrayList<TableEntry>();
 
@@ -411,6 +415,23 @@ public class V2SourceGenerator extends BaseGenerator {
 		public void setNoCodeSystem(boolean noCodeSystem) {
 			this.noCodeSystem = noCodeSystem;
 		}
+		
+		public boolean isTableOnly() {
+			return tableOnly;
+		}
+
+		public void setTableOnly(boolean tableOnly) {
+			this.tableOnly = tableOnly;
+		}
+
+		public boolean isDomainOnly() {
+			return domainOnly;
+		}
+
+		public void setDomainOnly(boolean domainOnly) {
+			this.domainOnly = domainOnly;
+		}
+
 	}
 
 	public class Table {
@@ -533,6 +554,9 @@ public class V2SourceGenerator extends BaseGenerator {
 					master.vocabDomain = tv.vocabDomain;
 					master.comment = tv.comment;
 					master.noCodeSystem = tv.noCodeSystem;
+					master.tableOnly = tv.tableOnly;
+					master.domainOnly = tv.domainOnly;
+					
 					for (TableEntry te : tv.entries) {
 						TableEntry tem = master.find(te.code);
 						if (tem == null) {
@@ -616,6 +640,14 @@ public class V2SourceGenerator extends BaseGenerator {
 		
 		public boolean hasContent() {
 			return !this.master.entries.isEmpty();
+		}
+		
+		public boolean isTableOnly() {
+			return this.master.isTableOnly();
+		}
+		
+		public boolean isDomainOnly() {
+			return this.master.isDomainOnly();
 		}
 	}
 
@@ -711,7 +743,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		query = stmt.executeQuery(
 				"SELECT t.table_id, t.version_id, t.display_name, t.oid_table, t.cs_oid, t.cs_version, t.vs_oid, t.vs_expansion, t.vocab_domain, t.interpretation, "
 						+ "t.description_as_pub, t.table_type, t.generate, t.section, t.anchor, t.case_insensitive, t.steward, t.where_used, t.v2codetablecomment, t.binding, t.vs_expansion, "
-						+ "t.vocab_domain, t.comment, o.object_description, v.hl7_version " + "FROM ((HL7Tables t "
+						+ "t.vocab_domain, t.comment, o.object_description, v.hl7_version, t.v2codetable " + "FROM ((HL7Tables t "
 						+ "INNER JOIN HL7Objects o ON t.oid_table = o.oid) "
 						+ "INNER JOIN HL7Versions v ON t.version_introduced = v.version_id) "
 						+ "WHERE t.version_id < 100 order by t.version_id");
@@ -720,6 +752,7 @@ public class V2SourceGenerator extends BaseGenerator {
 			String tid = Utilities.padLeft(Integer.toString(query.getInt("table_id")), '0', 4);
 			String vid = vers.get(Integer.toString(query.getInt("version_id"))).getVersion();
 			String dn = query.getString("display_name");
+			String v2CodeTable = query.getString("v2codetable");
 			nameCache.put(tid + "/" + vid, dn);
 			if (!tables.containsKey(tid))
 				tables.put(tid, new Table(tid));
@@ -755,6 +788,10 @@ public class V2SourceGenerator extends BaseGenerator {
 			tv.setVsExpansion(query.getString("vs_expansion"));
 			tv.setVocabDomain(query.getString("vocab_domain"));
 			tv.setComment(query.getString("comment"));
+			if (v2CodeTable != null) {
+				tv.setTableOnly(v2CodeTable.equalsIgnoreCase("table only"));
+				tv.setDomainOnly(v2CodeTable.equalsIgnoreCase("domain only"));
+			}
 
 			if (!Utilities.noString(tv.comment) && tv.comment.contains("no-cs")) {
 				tv.noCodeSystem = true;
@@ -822,27 +859,29 @@ public class V2SourceGenerator extends BaseGenerator {
 		for (String n : sorted(tables.keySet())) {
 			if (!n.equals("0000")) {
 				Table t = tables.get(n);
-				TableVersion tv = t.versions.get(MASTER_VERSION);
-				if (tv != null) {
-					ObjectInfo oi = objects.get(tv.getConceptDomainRef());
-					if (oi != null) {
-						ConceptDefinitionComponent c = cs.addConcept();
-						c.setCode(oi.getDisplay());
-						count++;
-						String name = t.getName();
-						c.setDisplay(name + " (" + t.id + ")");
-						c.setDefinition(oi.description);
-						if (codes.containsKey(c.getCode())) {
-							System.out.println("Name clash for Domain \"" + c.getCode() + ": used on "
-									+ codes.get(c.getCode()) + " and on table " + t.id);
-							if (codes.get(c.getCode()).equals("v3"))
-								c.setCode(c.getCode() + "V2");
-							else
-								c.setCode(c.getCode() + "SNAFU");
-							codes.put(c.getCode(), "table " + t.id);
-						} else
-							codes.put(c.getCode(), "table " + t.id);
-						c.addProperty().setCode("source").setValue(new CodeType("v2"));
+				if (!t.isTableOnly()) {
+					TableVersion tv = t.versions.get(MASTER_VERSION);
+					if (tv != null) {
+						ObjectInfo oi = objects.get(tv.getConceptDomainRef());
+						if (oi != null) {
+							ConceptDefinitionComponent c = cs.addConcept();
+							c.setCode(oi.getDisplay());
+							count++;
+							String name = t.getName();
+							c.setDisplay(name + " (" + t.id + ")");
+							c.setDefinition(oi.description);
+							if (codes.containsKey(c.getCode())) {
+								System.out.println("Name clash for Domain \"" + c.getCode() + ": used on "
+										+ codes.get(c.getCode()) + " and on table " + t.id);
+								if (codes.get(c.getCode()).equals("v3"))
+									c.setCode(c.getCode() + "V2");
+								else
+									c.setCode(c.getCode() + "SNAFU");
+								codes.put(c.getCode(), "table " + t.id);
+							} else
+								codes.put(c.getCode(), "table " + t.id);
+							c.addProperty().setCode("source").setValue(new CodeType("v2"));
+						}
 					}
 				}
 			}
@@ -868,11 +907,20 @@ public class V2SourceGenerator extends BaseGenerator {
 
 	private void generateCodeSystem(Table t, ListResource v2manifest)
 			throws FileNotFoundException, IOException {
+
+		if (Arrays.asList("0458", "0459", "0461", "0462", "0929", "0930").contains(t.id)) {
+			// TODO remove
+  			System.out.println("stop");
+		}
+		
 		TableVersion tv = t.master;
 
 		if (tv.noCodeSystem)
 			return;
 
+		if (t.isDomainOnly() || t.isTableOnly()) 
+			return;
+		
 		CodeSystem cs = new CodeSystem();
 
 		cs.setId("v2-" + t.id);
@@ -888,6 +936,10 @@ public class V2SourceGenerator extends BaseGenerator {
 			cs.setName("V2Table" + t.id);
 		}
 
+		if (URLLookup.hasUrlOverride(tv.csoid)) {
+			cs.setUrl(URLLookup.getUrl(tv.csoid));
+		}
+		
 		// knownCS is a HashSet
 		knownCS.add(cs.getUrl());
 
@@ -1123,11 +1175,13 @@ public class V2SourceGenerator extends BaseGenerator {
 	}
 
 	private ValueSet produceValueSet(String vid, CodeSystem cs, Table t, TableVersion tv) {
+		
 		ValueSet vs = new ValueSet();
 		vs.setId(cs.getId());
 		vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
 		// Set all value set versions to 1, per Ted
 		vs.setVersion("1");
+		
 		if (tv.vsoid != null) {
 			vs.setName(Utilities.capitalize(objects.get(tv.vsoid).display));
 			vs.setTitle(objects.get(tv.vsoid).display);

@@ -4041,6 +4041,19 @@ public class CodeSystem extends MetadataResource {
       return false;
     }
 
+    public boolean hasPropertyCode(String code) {
+    	if (this.property == null) {
+    		return false;
+    	} else {
+			for (PropertyComponent item : this.property) {
+				if (!item.isEmpty() && item.getCode() != null && item.getCode().equalsIgnoreCase(code)) {
+					return true;
+				}
+			}
+    	}
+    	return false;
+    }
+    
     public PropertyComponent addProperty() { //3
       PropertyComponent t = new PropertyComponent();
       if (this.property == null)

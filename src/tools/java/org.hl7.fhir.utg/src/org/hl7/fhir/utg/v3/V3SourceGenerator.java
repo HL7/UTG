@@ -18,6 +18,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.commons.lang.StringUtils;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
@@ -264,10 +265,13 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private CodeSystem generateV3CodeSystem(Element item) throws Exception {
 		CodeSystem cs = new CodeSystem();
-		cs.setId("v3-" + makeSafeId(item.getAttribute("name")));
+		
+		String shortSafeName = StringUtils.left(makeSafeId(item.getAttribute("name")), 61);
+		
+		cs.setId("v3-" + shortSafeName);
 		cs.setUrl("http://terminology.hl7.org/CodeSystem/" + cs.getId());
 		knownCS.add(cs.getUrl());
-		cs.setName(item.getAttribute("name"));
+		cs.setName(shortSafeName);
 		cs.setTitle(item.getAttribute("title"));
 		cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:" + item.getAttribute("codeSystemId"));
 		cs.setUserData("oid", item.getAttribute("codeSystemId"));
@@ -320,6 +324,7 @@ public class V3SourceGenerator extends BaseGenerator {
 							ConceptPropertyComponent parentProperty = cd.addProperty();
 							parentProperty.setCode("subsumedBy");
 							parentProperty.setValue(new CodeType(parentConcept.getCode()));
+							addCodeSystemProperty(cs, "subsumedBy", PropertyType.CODE, "The concept code of a parent concept");
 						}
 					} else {
 						moved.add(cd);
@@ -671,6 +676,7 @@ public class V3SourceGenerator extends BaseGenerator {
 					ConceptPropertyComponent codeSynonymProperty = cd.addProperty();
 					codeSynonymProperty.setCode("synonymCode");
 					codeSynonymProperty.setValue(new CodeType(otherCodeElement.getAttribute("code")));
+					addCodeSystemProperty(cs, "synonymCode", PropertyType.CODE, "An additional concept code that was also attributed to a concept");
 				}
 			}
 
@@ -971,9 +977,12 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private ValueSet generateV3ValueSet(Element item) throws Exception {
 		ValueSet vs = new ValueSet();
-		vs.setId("v3-" + makeSafeId(item.getAttribute("name")));
+		
+		String shortSafeName = StringUtils.left(makeSafeId(item.getAttribute("name")), 61);
+		
+		vs.setId("v3-" + shortSafeName);
 		vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
-		vs.setName(item.getAttribute("name"));
+		vs.setName(shortSafeName);
 		vs.setTitle(item.getAttribute("name"));
 		vs.addIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:" + item.getAttribute("id"));
 		vs.setUserData("oid", item.getAttribute("id"));
@@ -1393,4 +1402,12 @@ public class V3SourceGenerator extends BaseGenerator {
 		return V3_STEWARD_MAP.get(steward);
 	}
 
+	private void addCodeSystemProperty(CodeSystem cs, String propertyCode, PropertyType type, String description) {
+		if (!cs.hasPropertyCode(propertyCode)) {
+			PropertyComponent pd = cs.addProperty();
+			pd.setCode(propertyCode);
+			pd.setType(type);
+			pd.setDescription(description);
+		}
+	}
 }
