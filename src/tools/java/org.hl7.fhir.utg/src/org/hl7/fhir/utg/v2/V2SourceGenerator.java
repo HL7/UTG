@@ -899,6 +899,9 @@ public class V2SourceGenerator extends BaseGenerator {
 				generateCodeSystem(t, v2manifest);
 			}
 		}
+
+		reportUndefinedConceptProperties("V2");
+
 		System.out.println("Saved v2 code systems (" + Integer.toString(c) + " found, with " + Integer.toString(h)
 				+ " past versions)");
 
@@ -1035,6 +1038,8 @@ public class V2SourceGenerator extends BaseGenerator {
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
 			ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs, (String) null);
 			v2manifest.addEntry(csEntry);
+			
+			findUndefinedConceptProperties(cs);
 		}
 
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY)

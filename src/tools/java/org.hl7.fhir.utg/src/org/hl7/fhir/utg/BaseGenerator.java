@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -13,6 +15,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r4.model.CodeSystem.ConceptPropertyComponent;
 import org.hl7.fhir.utilities.Utilities;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -27,6 +31,7 @@ public class BaseGenerator {
 	protected String dest;
 	protected Map<String, CodeSystem> csmap;
 	protected Set<String> knownCS;
+	protected Map<String, HashSet<String>> undefinedConceptProperties = new HashMap<String, HashSet<String>>();
 
 	protected static final String INTERNAL_CS_OID_PREFIX = "2.16.840.1.113883.18.";
 
@@ -191,4 +196,35 @@ public class BaseGenerator {
 		return base;
 	}
 
+	protected void findUndefinedConceptProperties(CodeSystem cs) {
+
+		// Check for concept properties not defined in code system
+		List<ConceptDefinitionComponent> concepts = cs.getConcept();
+		for (ConceptDefinitionComponent concept : concepts) {
+			List<ConceptPropertyComponent> conceptProperties = concept.getProperty();
+			for (ConceptPropertyComponent conceptProperty : conceptProperties) {
+				String propertyCode = conceptProperty.getCode();
+				if (propertyCode != null && !propertyCode.isEmpty()) {
+					if (!cs.hasPropertyCode(propertyCode)) {
+						if (!undefinedConceptProperties.containsKey(cs.getName())) {
+							undefinedConceptProperties.put(cs.getName(), new HashSet<String>());
+						}
+						undefinedConceptProperties.get(cs.getName()).add(propertyCode);
+					}
+				}
+			}
+		}
+	}
+	
+	protected void reportUndefinedConceptProperties(String name) {
+		if (undefinedConceptProperties.isEmpty()) {
+			System.out.println("No undefined concept properties found in " + name);
+		} else {
+			for (String csName : undefinedConceptProperties.keySet()) {
+				for (String propertyCode : undefinedConceptProperties.get(csName)) {
+				    System.out.println("Concept property code not defined in " + name + ": " + csName + ": " + propertyCode);
+				}
+			}
+		}
+	}
 }

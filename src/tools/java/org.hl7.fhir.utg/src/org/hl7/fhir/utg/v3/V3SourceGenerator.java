@@ -1,15 +1,12 @@
 package org.hl7.fhir.utg.v3;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.StringReader;
-import java.io.Writer;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -75,7 +72,6 @@ public class V3SourceGenerator extends BaseGenerator {
 	private Set<String> notations = new HashSet<String>();
 	private Set<String> systems = new HashSet<String>();
 	private Map<String, ExternalProvider> externalProviders;
-	private Map<String, HashSet<String>> undefinedConceptProperties = new HashMap<String, HashSet<String>>();
 	
 	private static final Map<String, String> DEFINITION_TEXT_PROPERTY_TAGS = new HashMap<String, String>() {
 		private static final long serialVersionUID = 1L;
@@ -265,14 +261,8 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 		
 		System.out.println("Save v3 code systems (" + Integer.toString(csmap.size()) + " found)");
-		
-		if (!undefinedConceptProperties.isEmpty()) {
-			for (String csName : undefinedConceptProperties.keySet()) {
-				for (String propertyCode : undefinedConceptProperties.get(csName)) {
-				    System.out.println("Concept property code not defined in '" + csName + ": " + propertyCode);
-				}
-			}
-		}
+
+		reportUndefinedConceptProperties("V3");
 	}
 
 	private CodeSystem generateV3CodeSystem(Element item) throws Exception {
@@ -305,21 +295,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		
 		
 		// Check for concept properties not defined in code system
-		List<ConceptDefinitionComponent> concepts = cs.getConcept();
-		for (ConceptDefinitionComponent concept : concepts) {
-			List<ConceptPropertyComponent> conceptProperties = concept.getProperty();
-			for (ConceptPropertyComponent conceptProperty : conceptProperties) {
-				String propertyCode = conceptProperty.getCode();
-				if (propertyCode != null && !propertyCode.isEmpty()) {
-					if (!cs.hasPropertyCode(propertyCode)) {
-						if (!undefinedConceptProperties.containsKey(cs.getName())) {
-							undefinedConceptProperties.put(cs.getName(), new HashSet<String>());
-						}
-						undefinedConceptProperties.get(cs.getName()).add(propertyCode);
-					}
-				}
-			}
-		}
+		findUndefinedConceptProperties(cs);
 		
 		return cs;
 		
