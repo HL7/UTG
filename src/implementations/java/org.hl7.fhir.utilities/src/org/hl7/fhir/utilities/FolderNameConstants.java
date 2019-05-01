@@ -16,4 +16,7 @@ public class FolderNameConstants {
 	public static final String DATATYPES = "datatypes";
 	
 	public static final String CDA = "cda";
+	public static final String CIMI = "cimi";
+	public static final String FHIR = "fhir";
+	
 }

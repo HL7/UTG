@@ -190,7 +190,13 @@ public class UTGGenerator extends BaseGenerator {
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.VALUESETS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CDA)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CIMI)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.FHIR)));
 
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CDA));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CIMI));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.FHIR));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.PUBLISH));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.RELEASE));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS));
