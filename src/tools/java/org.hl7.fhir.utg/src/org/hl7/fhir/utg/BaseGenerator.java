@@ -78,6 +78,13 @@ public class BaseGenerator {
 	protected String identifyOID(String oid) {
 		if (Utilities.noString(oid))
 			return null;
+		
+		if (OIDLookup.hasUrlOverride(oid)) 
+			return OIDLookup.getUrl(oid);
+		
+		if (OIDLookup.noUrl(oid))
+			return null;
+		
 		if ("SNOMEDCT".equals(oid))
 			return "http://snomed.info/sct";
 		if ("2.16.840.1.113883.6.96".equals(oid))

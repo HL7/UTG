@@ -49,6 +49,7 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.r4.model.ValueSet.FilterOperator;
 import org.hl7.fhir.utg.BaseGenerator;
+import org.hl7.fhir.utg.OIDLookup;
 import org.hl7.fhir.utg.UTGGenerator;
 import org.hl7.fhir.utg.external.ExternalProvider;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
@@ -241,11 +242,13 @@ public class V3SourceGenerator extends BaseGenerator {
 		XMLUtil.getNamedChildren(mif, "codeSystem", list);
 		for (Element l : list) {
 			CodeSystem cs = generateV3CodeSystem(l);
-			csmap.put(cs.getUserString("oid"), cs);
-			if (cs.getInternal()) {
-				ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs);
-				v3manifest.addEntry(csEntry);
-				//manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, true));
+			if (cs != null) {
+				csmap.put(cs.getUserString("oid"), cs);
+				if (cs.getInternal()) {
+					ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs);
+					v3manifest.addEntry(csEntry);
+					//manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, true));
+				}
 			}
 		}
 
@@ -266,16 +269,29 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	private CodeSystem generateV3CodeSystem(Element item) throws Exception {
+		String oid = item.getAttribute("codeSystemId");
+		
+		if (OIDLookup.doNotGenerate(oid))
+			return null;
+		
 		CodeSystem cs = new CodeSystem();
-		
 		String shortSafeName = StringUtils.left(makeSafeId(item.getAttribute("name")), 61);
-		
+
+		if (OIDLookup.hasUrlOverride(oid)) {
+			cs.setUrl(OIDLookup.getUrl(oid));
+		} else if (OIDLookup.noUrl(oid)) {
+			cs.setUrl(null);
+		} else {
+			cs.setUrl("http://terminology.hl7.org/CodeSystem/" + cs.getId());
+		}
+		if (cs.getUrl() != null) {
+			knownCS.add(cs.getUrl());
+		}
+
 		cs.setId("v3-" + shortSafeName);
-		cs.setUrl("http://terminology.hl7.org/CodeSystem/" + cs.getId());
-		knownCS.add(cs.getUrl());
 		cs.setName(shortSafeName);
 		cs.setTitle(item.getAttribute("title"));
-		cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:" + item.getAttribute("codeSystemId"));
+		cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:" + oid);
 		cs.setUserData("oid", item.getAttribute("codeSystemId"));
 		cs.setStatus(PublicationStatus.ACTIVE);
 		Element child = XMLUtil.getFirstChild(item);
