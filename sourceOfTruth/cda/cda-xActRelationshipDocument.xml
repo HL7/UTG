@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-xActRelationshipDocument"/>
+    <meta id="2831"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-xActRelationshipDocument"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.1.11.11610"/>
+    </identifier>
+    <name value="xActRelationshipDocument"/>
+    <title value="x_ActRelationshipDocument"/>
+    <status value="active"/>
+    <description value="Used to enumerate the relationships between two clinical documents for document management."/>
+    <compose>
+        <include>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType"/>
+            <concept>
+                <code value="RPLC"/>
+                <display value="Replaces"/>
+            </concept>
+            <concept>
+                <code value="APND"/>
+                <display value="Is appendage"/>
+            </concept>
+            <concept>
+                <code value="XFRM"/>
+                <display value="Transformation"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

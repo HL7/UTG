@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-HLObservationResultStatusCodesInterpretation"/>
+    <meta id="5494"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-HLObservationResultStatusCodesInterpretation"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.21.38"/>
+    </identifier>
+    <name value="HLObservationResultStatusCodesInterpretation"/>
+    <title value="HL7 Observation Result Status Codes Interpretation"/>
+    <status value="draft"/>
+    <description value="Concepts which specify observation result status. These codes reflect the current completion status of the results for one Observation Identifier. (V2 Table 0085)"/>
+    <compose>
+        <include>
+            <system value="http://terminology.hl7.org/CodeSystem/2.16.840.1.113883.18.34"/>
+            <concept>
+                <code value="A"/>
+                <display value="Amended based on adjustments provided by the Placer (Physician) regarding patient demographics (such as age and/or gender or other patient specific information)"/>
+            </concept>
+            <concept>
+                <code value="B"/>
+                <display value="Appended Report - Final results reviewed and further information provided for clarity without change to the original result values."/>
+            </concept>
+            <concept>
+                <code value="C"/>
+                <display value="Record coming over is a correction and thus replaces a final result"/>
+            </concept>
+            <concept>
+                <code value="D"/>
+                <display value="Deletes the OBX record"/>
+            </concept>
+            <concept>
+                <code value="F"/>
+                <display value="Final results"/>
+            </concept>
+            <concept>
+                <code value="I"/>
+                <display value="Specimen in lab; results pending"/>
+            </concept>
+            <concept>
+                <code value="N"/>
+                <display value="Not asked; used to affirmatively document that the observation identified in the OBX was not sought when the universal service ID in OBR-4 implies that it would be sought."/>
+            </concept>
+            <concept>
+                <code value="O"/>
+                <display value="Order detail description only (no result)"/>
+            </concept>
+            <concept>
+                <code value="P"/>
+                <display value="Preliminary results"/>
+            </concept>
+            <concept>
+                <code value="R"/>
+                <display value="Results entered -- not verified"/>
+            </concept>
+            <concept>
+                <code value="U"/>
+                <display value="Results status change to final without retransmitting results already sent as 'preliminary.' E.g. radiology changes status from preliminary to final"/>
+            </concept>
+            <concept>
+                <code value="V"/>
+                <display value="Verified - Final results reviewed and confirmed to be correct, no change to result value, normal range or abnormal flag"/>
+            </concept>
+            <concept>
+                <code value="W"/>
+                <display value="Post original as wrong, e.g. transmitted for wrong patient"/>
+            </concept>
+            <concept>
+                <code value="X"/>
+                <display value="Results cannot be obtained for this observation"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

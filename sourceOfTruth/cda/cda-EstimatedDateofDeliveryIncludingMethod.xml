@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-EstimatedDateofDeliveryIncludingMethod"/>
+    <meta id="4460"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-EstimatedDateofDeliveryIncludingMethod"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.11.20.9.81"/>
+    </identifier>
+    <name value="EstimatedDateofDeliveryIncludingMethod"/>
+    <title value="Estimated Date of Delivery Including Method"/>
+    <status value="active"/>
+    <description value="This value set contains codes to describe that the template in which they are used represents the estimated date of delivery. If the method of determination by which the date was estimated is known it is included in the code."/>
+    <compose>
+        <include>
+            <system value="http://loinc.org"/>
+            <concept>
+                <code value="11778-8"/>
+                <display value="Delivery date Estimated (no method specified)"/>
+            </concept>
+            <concept>
+                <code value="11779-6"/>
+                <display value="Delivery date Estimated from last menstrual period"/>
+            </concept>
+            <concept>
+                <code value="11780-4"/>
+                <display value="Delivery date Estimated from ovulation date"/>
+            </concept>
+            <concept>
+                <code value="53692-0"/>
+                <display value="Delivery date Estimated from conception date"/>
+            </concept>
+            <concept>
+                <code value="57064-8"/>
+                <display value="Delivery date Estimated from date fundal height reaches umb"/>
+            </concept>
+            <concept>
+                <code value="57063-0"/>
+                <display value="Delivery date Estimated from quickening date"/>
+            </concept>
+            <concept>
+                <code value="53694-6"/>
+                <display value="Delivery date Estimated from prior gestational age assessment"/>
+            </concept>
+            <concept>
+                <code value="11781-2"/>
+                <display value="Delivery date US composite estimate"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

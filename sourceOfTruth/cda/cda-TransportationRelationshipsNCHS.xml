@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-TransportationRelationshipsNCHS"/>
+    <meta id="4317"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-TransportationRelationshipsNCHS"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.114222.4.11.6005"/>
+    </identifier>
+    <name value="TransportationRelationshipsNCHS"/>
+    <title value="Transportation Relationships (NCHS)"/>
+    <status value="active"/>
+    <description value="To reflect the specific role played by the decedent, e.g., driver, passenger in a death related to transportation. For &quot;Other: specify&quot; use @nullFlavor=&quot;OTH&quot; and record the text in orginalText."/>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+                <code value="236320001"/>
+                <display value="Driver/Operator"/>
+            </concept>
+            <concept>
+                <code value="257500003"/>
+                <display value="Passenger"/>
+            </concept>
+            <concept>
+                <code value="257518000"/>
+                <display value="Pedestrian"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

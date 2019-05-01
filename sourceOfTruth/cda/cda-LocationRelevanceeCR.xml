@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-LocationRelevanceeCR"/>
+    <meta id="4383"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-LocationRelevanceeCR"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.20.15.2.5.6"/>
+    </identifier>
+    <name value="LocationRelevanceeCR"/>
+    <title value="Location Relevance (eCR)"/>
+    <status value="active"/>
+    <description value="This valueset contains codes to indicate the location because of which the responsible agency is relevant."/>
+    <compose>
+        <include>
+            <system value="http://terminology.hl7.org/CodeSystem/2.16.840.1.114222.4.5.274"/>
+            <concept>
+                <code value="RRVS5"/>
+                <display value="Patient home address"/>
+            </concept>
+            <concept>
+                <code value="RRVS6"/>
+                <display value="Provider facility address"/>
+            </concept>
+            <concept>
+                <code value="RRVS7"/>
+                <display value="Both patient home address and provider facility address"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

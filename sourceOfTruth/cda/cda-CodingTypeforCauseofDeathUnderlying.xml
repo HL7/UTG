@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-CodingTypeforCauseofDeathUnderlying"/>
+    <meta id="4354"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-CodingTypeforCauseofDeathUnderlying"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.20.26.1.5.1"/>
+    </identifier>
+    <name value="CodingTypeforCauseofDeathUnderlying"/>
+    <title value="Coding Type for Cause of Death Underlying"/>
+    <status value="active"/>
+    <description value="Coding type (automated or manual) for assigning an underlying cause to a person’s death by interpreting the rules defined by WHO for selecting the underlying cause of death from among the various causes identified for the person’s death in the ICD."/>
+    <compose>
+        <include>
+            <system value="http://loinc.org"/>
+            <concept>
+                <code value="80358-5"/>
+                <display value="Cause of death.underlying [Automated]"/>
+            </concept>
+            <concept>
+                <code value="80359-3"/>
+                <display value="Cause of death.underlying [Manual]"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

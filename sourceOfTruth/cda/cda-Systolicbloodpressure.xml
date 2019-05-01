@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-Systolicbloodpressure"/>
+    <meta id="18"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-Systolicbloodpressure"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.11.20.5.20"/>
+    </identifier>
+    <name value="Systolicbloodpressure"/>
+    <title value="Systolic blood pressure"/>
+    <status value="active"/>
+    <description value="A valueSet of SNOMED and LOINC codes for systolic blood pressure"/>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+                <code value="271649006"/>
+                <display value="Systolic blood pressure"/>
+            </concept>
+        </include>
+        <include>
+            <system value="http://loinc.org"/>
+            <concept>
+                <code value="8480-6"/>
+                <display value="Intravascular systolic:Pres"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

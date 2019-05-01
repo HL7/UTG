@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-QDMDiagnosisStatus"/>
+    <meta id="4275"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-QDMDiagnosisStatus"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113762.1.4.1021.35"/>
+    </identifier>
+    <name value="QDMDiagnosisStatus"/>
+    <title value="QDM Diagnosis Status"/>
+    <status value="active"/>
+    <description value="The Quality Data Model (QDM) v4.2 Condition/Diagnosis/Problem data type implicitly supports active and resolved status through the use of timing relationships. The statusCode for Active diagnosis is &quot;active&quot;; the statusCode for Resolved diagnosis is &quot;completed&quot;."/>
+    <compose>
+        <include>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActStatus"/>
+            <concept>
+                <code value="Active"/>
+                <display value="Active"/>
+            </concept>
+            <concept>
+                <code value="Complete"/>
+                <display value="Complete"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

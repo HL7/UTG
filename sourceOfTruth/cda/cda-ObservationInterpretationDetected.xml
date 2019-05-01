@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-ObservationInterpretationDetected"/>
+    <meta id="2399"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-ObservationInterpretationDetected"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.1.11.20328"/>
+    </identifier>
+    <name value="ObservationInterpretationDetected"/>
+    <status value="active"/>
+    <description value="The specializations of this concept indicate the presence or absence of an analyte in a test or of a sign in a clinical observation. In keeping with laboratory data processing practice, these codes provide a categorical interpretation of the &quot;meaning&quot; of the quantitative value for the same observation. "/>
+    <compose>
+        <include>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
+            <concept>
+                <code value="IND"/>
+                <display value="Indeterminate"/>
+            </concept>
+            <concept>
+                <code value="NEG"/>
+                <display value="Negative"/>
+            </concept>
+            <concept>
+                <code value="POS"/>
+                <display value="Positive"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

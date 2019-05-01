@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-PregnancyEditFlagsNCHS"/>
+    <meta id="4362"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-PregnancyEditFlagsNCHS"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.114222.4.11.7391"/>
+    </identifier>
+    <name value="PregnancyEditFlagsNCHS"/>
+    <title value="Pregnancy Edit Flags (NCHS)"/>
+    <status value="active"/>
+    <description value="To reflect the relevant edit possibilities for pregnancy status.&#xA;"/>
+    <compose>
+        <include>
+            <system value="http://terminology.hl7.org/CodeSystem/2.16.840.1.114222.4.5.274"/>
+            <concept>
+                <code value="PHC1380"/>
+                <display value="Off"/>
+            </concept>
+            <concept>
+                <code value="PHC1381"/>
+                <display value="On (verified)"/>
+            </concept>
+            <concept>
+                <code value="PHC1382"/>
+                <display value="On (queried but not verified)"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-APTARegistryDataElements"/>
+    <meta id="4444"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-APTARegistryDataElements"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113762.1.4.1099.13"/>
+    </identifier>
+    <name value="APTARegistryDataElements"/>
+    <title value="APTA_RegistryDataElements"/>
+    <status value="draft"/>
+    <description value="Clinical data elements tracked and assessed by the APTA through their registry program. Data elements collected for the APTA Registry. Includes active LOINC codes that describe data elements defined in the APTA Registry Data Dictionary and included in the APTA Registry panel Organization maintaind by LOINC under concept 76464-7. Excludes concepts that are structural elements of the APTA Registry Data panel Organization."/>
+    <compose>
+        <include>
+            <system value="http://loinc.org"/>
+            <concept>
+                <code value="18630-4"/>
+                <display value="Primary diagnosis"/>
+            </concept>
+            <concept>
+                <code value="3141-9"/>
+                <display value="Body height Measured"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

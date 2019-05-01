@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-Bodyweight"/>
+    <meta id="15"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-Bodyweight"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.11.20.5.18"/>
+    </identifier>
+    <name value="Bodyweight"/>
+    <title value="Body weight"/>
+    <status value="active"/>
+    <description value="A valueSet of SNOMED and LOINC codes for measured body weight"/>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+                <code value="27113001"/>
+                <display value="Body weight"/>
+            </concept>
+        </include>
+        <include>
+            <system value="http://loinc.org"/>
+            <concept>
+                <code value="3141-9"/>
+                <display value="Body weight (measured)"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

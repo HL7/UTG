@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-Bodytemperature"/>
+    <meta id="17"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-Bodytemperature"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.11.20.5.2"/>
+    </identifier>
+    <name value="Bodytemperature"/>
+    <title value="Body temperature"/>
+    <status value="active"/>
+    <description value="A valueSet of applicable body temperature codes for neonatal ICU from SNOMED and LOINC."/>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+                <code value="386725007"/>
+                <display value="Body temperature"/>
+            </concept>
+            <concept>
+                <code value="276885007"/>
+                <display value="Core body temperature"/>
+            </concept>
+            <concept>
+                <code value="415882003"/>
+                <display value="Axillary temperature"/>
+            </concept>
+            <concept>
+                <code value="307047009"/>
+                <display value=" Rectal temperature"/>
+            </concept>
+            <concept>
+                <code value="364537001"/>
+                <display value="Temperature of skin"/>
+            </concept>
+        </include>
+        <include>
+            <system value="http://loinc.org"/>
+            <concept>
+                <code value="8310-5"/>
+                <display value="Body Temperature"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

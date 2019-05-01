@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-WorkSchedule"/>
+    <meta id="4429"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-WorkSchedule"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.1.11.20561"/>
+    </identifier>
+    <name value="WorkSchedule"/>
+    <title value="Work Schedule"/>
+    <status value="draft"/>
+    <description value="Describes an individual's typical arrangement of working hours for an occupation. For example, work schedule may capture that an individual typically works a regular day shift, evening shift, or night shift. It can also specify if an individual has an irregular schedule such as a rotating shift, split shift, etc. In healthcare settings, knowledge of a patient's typical work schedule may assist in diagnosis of healthcare issues related to irregular work hours or sleep patterns. It may also assist in determining appropriate treatment and prevention plans that will coordinate with the patient's work schedule."/>
+    <compose>
+        <include>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/>
+            <concept>
+                <code value="DS"/>
+                <display value="Daytime Shift"/>
+            </concept>
+            <concept>
+                <code value="ES"/>
+                <display value="Evening Shift"/>
+            </concept>
+            <concept>
+                <code value="NS"/>
+                <display value="Night Shift"/>
+            </concept>
+            <concept>
+                <code value="EMS"/>
+                <display value="Early Morning Shift"/>
+            </concept>
+            <concept>
+                <code value="RSWN"/>
+                <display value="Rotating Shift with Nights"/>
+            </concept>
+            <concept>
+                <code value="RSWON"/>
+                <display value="Rotating Shift without Nights"/>
+            </concept>
+            <concept>
+                <code value="SS"/>
+                <display value="Split Shift"/>
+            </concept>
+            <concept>
+                <code value="VLS"/>
+                <display value="Very Long Shift"/>
+            </concept>
+            <concept>
+                <code value="VS"/>
+                <display value="Variable Shift"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

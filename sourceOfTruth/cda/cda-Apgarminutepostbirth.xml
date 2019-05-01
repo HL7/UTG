@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-Apgarminutepostbirth"/>
+    <meta id="13"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-Apgarminutepostbirth"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.11.20.5.16"/>
+    </identifier>
+    <name value="Apgarminutepostbirth"/>
+    <title value="Apgar 1 minute post birth"/>
+    <status value="active"/>
+    <description value="A valueSet of SNOMED and LOINC codes for the 1 minute Apgar"/>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+                <code value="169895004"/>
+                <display value="Apgar at 1 minute"/>
+            </concept>
+        </include>
+        <include>
+            <system value="http://loinc.org"/>
+            <concept>
+                <code value="48334-7"/>
+                <display value="Apgar panel^1M post birth"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

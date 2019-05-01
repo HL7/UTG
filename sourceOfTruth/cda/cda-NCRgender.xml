@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-NCRgender"/>
+    <meta id="22"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-NCRgender"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.11.20.5.24"/>
+    </identifier>
+    <name value="NCRgender"/>
+    <title value="NCR gender"/>
+    <status value="active"/>
+    <description value="A valueSet of both the HL7 administrativeGender codes valueSet and HITSP foundations sex structure codes valueSet"/>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+                <code value="1086007"/>
+                <display value="Female"/>
+            </concept>
+            <concept>
+                <code value="10052007"/>
+                <display value="Male"/>
+            </concept>
+            <concept>
+                <code value="37791004"/>
+                <display value="Indeterminate"/>
+            </concept>
+        </include>
+        <include>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender"/>
+            <concept>
+                <code value="F"/>
+                <display value="Female"/>
+            </concept>
+            <concept>
+                <code value="M"/>
+                <display value="Male"/>
+            </concept>
+            <concept>
+                <code value="UN"/>
+                <display value="Undifferentiated"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

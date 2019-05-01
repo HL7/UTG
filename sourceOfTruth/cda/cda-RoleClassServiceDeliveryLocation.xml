@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-RoleClassServiceDeliveryLocation"/>
+    <meta id="2443"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-RoleClassServiceDeliveryLocation"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.1.11.16927"/>
+    </identifier>
+    <name value="RoleClassServiceDeliveryLocation"/>
+    <status value="active"/>
+    <description value="Location(s) in which care being measured is rendered."/>
+    <compose>
+        <include>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+            <concept>
+                <code value="SDLOC"/>
+                <display value="service delivery location"/>
+            </concept>
+            <concept>
+                <code value="DSDLOC"/>
+                <display value="dedicated service delivery location/health care facility"/>
+            </concept>
+            <concept>
+                <code value="ISDLOC"/>
+                <display value="incidental service delivery location"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

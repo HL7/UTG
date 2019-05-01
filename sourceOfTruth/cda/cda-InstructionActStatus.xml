@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-InstructionActStatus"/>
+    <meta id="4438"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-InstructionActStatus"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113762.1.4.1115.2"/>
+    </identifier>
+    <name value="InstructionActStatus"/>
+    <status value="draft"/>
+    <description value="This value set holds the state model concepts for an Obligation Instruction or Prohibition Instrucation. These are instructions that a patient, or a patient's healthcare agent or other type of surrogate decision-maker may decide to make when the patient is unable to communicate"/>
+    <compose>
+        <include>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActStatus"/>
+            <concept>
+                <code value="active"/>
+                <display value="active"/>
+            </concept>
+            <concept>
+                <code value="completed"/>
+                <display value="completed"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

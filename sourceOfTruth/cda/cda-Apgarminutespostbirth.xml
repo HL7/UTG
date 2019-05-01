@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="cda-Apgarminutespostbirth"/>
+    <meta id="2807"/>
+    <url value="http://terminology.hl7.org/ValueSet/cda-Apgarminutespostbirth"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:bxdefects_OID"/>
+    </identifier>
+    <name value="Apgarminutespostbirth"/>
+    <title value="Apgar 10 minutes post birth"/>
+    <status value="draft"/>
+    <description value="To Reflect the 10 Min Apgar Score"/>
+    <compose>
+        <include>
+            <system value="http://loinc.org"/>
+            <concept>
+                <code value="48332-1"/>
+                <display value="Apgar panel^10M post birth"/>
+            </concept>
+        </include>
+        <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+                <code value="169922007"/>
+                <display value="Apgar at 10 minutes"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>

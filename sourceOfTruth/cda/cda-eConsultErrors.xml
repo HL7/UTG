@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet
+    xmlns="http://hl7.org/fhir">
+    <id value="eConsultErrors"/>
+    <meta id="4195"/>
+    <url value="https://ehealthontario.ca/API/FHIR/ValueSet/eConsult/1/eConsultErrors"/>
+    <name value="eConsult Errors"/>
+    <status value="draft"/>
+    <compose>
+        <include>
+            <system value="https://ehealthontario.ca/API/FHIR/NamingSystem/eConsult/1/eConsultError"/>
+            <concept>
+                <code value="R_KEYWORD_TOO_SHORT"/>
+                <display value="Keyword is less than two characters"/>
+            </concept>
+            <concept>
+                <code value="R_SPECIALTY_TOO_SHORT"/>
+                <display value="Specialty is less than two characters"/>
+            </concept>
+            <concept>
+                <code value="R_LASTNAME_TOO_SHORT"/>
+                <display value="Last Name is less than two characters"/>
+            </concept>
+            <concept>
+                <code value="R_CITY_TOO_SHORT"/>
+                <display value="City is less than two characters"/>
+            </concept>
+            <concept>
+                <code value="R_ORGANIZATION_TOO_SHORT"/>
+                <display value="Organization is less than two characters"/>
+            </concept>
+            <concept>
+                <code value="R_MANDATORY_FIELD_MISSING"/>
+                <display value="Mandatory fields missing"/>
+            </concept>
+            <concept>
+                <code value="R_INVALID_RECIPIENT"/>
+                <display value="Invalid recipient"/>
+            </concept>
+            <concept>
+                <code value="R_PRACTICE_ID_INSUFFICIENT_PERMISSION"/>
+                <display value="PracticeID doesn’t have proper permission to invoke this API"/>
+            </concept>
+            <concept>
+                <code value="R_INVALID_STATE"/>
+                <display value="Case state from input is not a valid state"/>
+            </concept>
+            <concept>
+                <code value="R_CASE_NOT_FOUND"/>
+                <display value="Case not found"/>
+            </concept>
+            <concept>
+                <code value="R_ACTION_NOT_ALLOWED_IN_CURRENT_STATE"/>
+                <display value="Action not allowed in the current state"/>
+            </concept>
+            <concept>
+                <code value="R_EXPIRED_FILE_URL"/>
+                <display value="File upload url expired"/>
+            </concept>
+            <concept>
+                <code value="R_INVALID_SHARED_SECRET"/>
+                <display value="invalid shared secret"/>
+            </concept>
+            <concept>
+                <code value="R_FILE_TYPE_NOT_SUPPORTED"/>
+                <display value="Non-supported file types"/>
+            </concept>
+            <concept>
+                <code value="R_FILE_SIZE_TOO_LARGE"/>
+                <display value="File size exceeds 500MB "/>
+            </concept>
+            <concept>
+                <code value="R_VIRUS_DETECTED"/>
+                <display value="Virus detected"/>
+            </concept>
+            <concept>
+                <code value="R_USER_NOT_FOUND"/>
+                <display value="User not found in eConsult"/>
+            </concept>
+            <concept>
+                <code value="R_USER_INSUFFICIENT_PERMISSIONS"/>
+                <display value="User does not have permission to invoke this API"/>
+            </concept>
+            <concept>
+                <code value="R_INVALID_FILE_NAME"/>
+                <display value="The uploaded file name does not match our record"/>
+            </concept>
+            <concept>
+                <code value="R_EMPTY_FILE"/>
+                <display value="File content is missing or file size is 0"/>
+            </concept>
+            <concept>
+                <code value="R_INVALID_URL"/>
+                <display value="The url is invalid"/>
+            </concept>
+            <concept>
+                <code value="R_SEARCH_CRITERIA_NOT_SUPPORTED"/>
+                <display value="Search Criteria not Supported"/>
+            </concept>
+            <concept>
+                <code value="R_VALIDATION_ERROR"/>
+                <display value="Validation error"/>
+            </concept>
+            <concept>
+                <code value="R_INVALID_REQUESTER"/>
+                <display value="Invalid requester"/>
+            </concept>
+            <concept>
+                <code value="R_RECIPIENT_CANNOT_BE_THE_SAME"/>
+                <display value="Recipient cannot be the same"/>
+            </concept>
+            <concept>
+                <code value="R_FIELD_EXCEEDS_LIMIT"/>
+                <display value="Field exceeds limit"/>
+            </concept>
+            <concept>
+                <code value="R_COMPOSITION_NOT_FOUND"/>
+                <display value="Composition not found"/>
+            </concept>
+        </include>
+        <include>
+            <system value="https://ehealthontario.ca/API/FHIR/NamingSystem/eConsult/1/eConsultService"/>
+            <concept>
+                <code value="R_FILE_NOT_FOUND"/>
+                <display value="File not found"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>
