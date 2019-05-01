@@ -44,7 +44,7 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.utg.BaseGenerator;
-import org.hl7.fhir.utg.URLLookup;
+import org.hl7.fhir.utg.OIDLookup;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utilities.FolderNameConstants;
 import org.hl7.fhir.utilities.Utilities;
@@ -918,6 +918,9 @@ public class V2SourceGenerator extends BaseGenerator {
 		
 		TableVersion tv = t.master;
 
+		if (OIDLookup.doNotGenerate(tv.csoid))
+			return;
+		
 		if (tv.noCodeSystem)
 			return;
 
@@ -939,8 +942,12 @@ public class V2SourceGenerator extends BaseGenerator {
 			cs.setName("V2Table" + t.id);
 		}
 
-		if (URLLookup.hasUrlOverride(tv.csoid)) {
-			cs.setUrl(URLLookup.getUrl(tv.csoid));
+		if (OIDLookup.hasUrlOverride(tv.csoid)) {
+			cs.setUrl(OIDLookup.getUrl(tv.csoid));
+		}
+		
+		if (OIDLookup.noUrl(tv.csoid)) {
+			cs.setUrl(null);
 		}
 		
 		// knownCS is a HashSet
