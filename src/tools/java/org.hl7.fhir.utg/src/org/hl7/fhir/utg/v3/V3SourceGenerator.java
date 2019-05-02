@@ -886,7 +886,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		boolean isPreferred = ("true".equalsIgnoreCase(item.getAttribute("preferredForLanguage")));
 		boolean isCodeSystemLanguage = (language.equalsIgnoreCase(cs.getLanguage()));
 		
-		if (isCodeSystemLanguage && isPreferred) {
+		if (isCodeSystemLanguage && isPreferred && (cd.getDisplay() == null || cd.getDisplay().isEmpty())) {
 			cd.setDisplay(printName);
 		} else {
 			Coding use = (isPreferred)? 
@@ -1340,11 +1340,6 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 	
 	private void processCodeBasedContent(Element item, ValueSet vs, ConceptSetComponent cset) throws Exception {
-		// TODO remove
-		if (vs.getName().equalsIgnoreCase("ActMoodCompletionTrack")) {
-			System.out.println("stop");
-		}
-		
 		String code = item.getAttribute("code");
 		boolean filtered = false;
 
