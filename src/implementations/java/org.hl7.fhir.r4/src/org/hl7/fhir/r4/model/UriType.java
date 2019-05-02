@@ -54,7 +54,7 @@ public class UriType extends PrimitiveType<String> {
 	 * Constructor
 	 */
 	public UriType(String theValue) {
-		setValueAsString(theValue);
+		setValueAsString(StringUtils.trimToNull(theValue));
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class UriType extends PrimitiveType<String> {
 
 	@Override
 	protected String encode(String theValue) {
-		return theValue;
+		return StringUtils.trimToNull(theValue);
 	}
 
 	/**

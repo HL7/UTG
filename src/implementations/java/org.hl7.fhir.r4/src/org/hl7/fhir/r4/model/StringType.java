@@ -54,7 +54,7 @@ public class StringType extends PrimitiveType<String> {
 	 * Create a new String
 	 */
 	public StringType(String theValue) {
-		setValue(theValue);
+		setValue(StringUtils.trimToNull(theValue));
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class StringType extends PrimitiveType<String> {
 
 	@Override
 	protected String encode(String theValue) {
-		return theValue;
+		return StringUtils.trimToNull(theValue);
 	}
 
 	@Override

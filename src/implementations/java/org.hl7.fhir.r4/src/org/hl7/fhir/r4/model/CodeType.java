@@ -30,6 +30,7 @@ package org.hl7.fhir.r4.model;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.utilities.Utilities;
 
 import ca.uhn.fhir.model.api.annotation.DatatypeDef;
@@ -47,7 +48,7 @@ public class CodeType extends StringType implements Comparable<CodeType>, ICodin
 	}
 
 	public CodeType(String theCode) {
-		setValue(theCode);
+		setValue(StringUtils.trimToNull(theCode));
 	}
 
 	public int compareTo(CodeType theCode) {
@@ -59,12 +60,12 @@ public class CodeType extends StringType implements Comparable<CodeType>, ICodin
 
 	@Override
 	protected String parse(String theValue) {
-		return theValue.trim();
+		return StringUtils.trimToNull(theValue);
 	}
 
 	@Override
 	protected String encode(String theValue) {
-		return theValue;
+		return StringUtils.trimToNull(theValue);
 	}
 
 	@Override
@@ -89,7 +90,7 @@ public class CodeType extends StringType implements Comparable<CodeType>, ICodin
   }
   
   public CodeType setSystem(String system) {
-    this.system = system;
+    this.system = StringUtils.trimToNull(system);
     return this;
   }
 
