@@ -1340,8 +1340,22 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 	
 	private void processCodeBasedContent(Element item, ValueSet vs, ConceptSetComponent cset) throws Exception {
+		// TODO remove
+		if (vs.getName().equalsIgnoreCase("ActMoodCompletionTrack")) {
+			System.out.println("stop");
+		}
+		
 		String code = item.getAttribute("code");
 		boolean filtered = false;
+
+		if (!code.isEmpty() && "false".equalsIgnoreCase(item.getAttribute("includeHeadCode"))) {
+			ConceptSetComponent excludeHeadCodeSet = new ConceptSetComponent();
+			excludeHeadCodeSet.setSystem(cset.getSystem());
+			excludeHeadCodeSet.addConcept().setCode(code);
+			addToValuesetCompose(vs, excludeHeadCodeSet, false);
+		}
+		
+		
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("includeRelatedCodes")) {
