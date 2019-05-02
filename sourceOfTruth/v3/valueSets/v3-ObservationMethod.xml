@@ -53,7 +53,7 @@
   <description value=" A code that provides additional detail about the means or technique used to ascertain the observation.  &#xD;&#xA; Examples:Blood pressure measurement method: arterial puncture vs. sphygmomanometer (Riva-Rocci), sitting vs. supine position, etc.  &#xD;&#xA; Constraints:In all observations the method is already partially specified by the Act.code. In this case, the methodCode NEED NOT be used at all. The methodCode MAY still be used to identify this method more clearly in addition to what is implied from the Act.code. However, an information consumer system or process SHOULD NOT depend on this methodCode information for method detail that is implied by the Act.code. If the methodCode is used to express method detail that is also implied by the Act.code, the methodCode MUST NOT be in conflict with the implied method of the Act.code."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/null"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationMethod"/>
       <concept>
         <code value="0001"/>
       </concept>
@@ -890,13 +890,13 @@
       <valueSet value="http://terminology.hl7.org/ValueSet/v3-GeneticObservationMethod"/>
     </include>
     <exclude>
-      <system value="http://terminology.hl7.org/CodeSystem/null"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationMethod"/>
       <concept>
         <code value="_VerificationMethod"/>
       </concept>
     </exclude>
     <exclude>
-      <system value="http://terminology.hl7.org/CodeSystem/null"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationMethod"/>
       <concept>
         <code value="_GeneticObservationMethod"/>
       </concept>
