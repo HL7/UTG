@@ -275,7 +275,15 @@ public class V3SourceGenerator extends BaseGenerator {
 			return null;
 		
 		CodeSystem cs = new CodeSystem();
-		String shortSafeName = StringUtils.left(makeSafeId(item.getAttribute("name")), 61);
+		
+		String originalName = item.getAttribute("name").trim();
+		String className = Utilities.makeClassName(originalName);
+		String shortClassName = StringUtils.left(className, 61);
+		String shortId = StringUtils.left(makeSafeId(originalName), 61);
+
+		cs.setId("v3-" + shortId);
+		cs.setName(shortClassName);
+		cs.setTitle(item.getAttribute("title"));
 
 		if (OIDLookup.hasUrlOverride(oid)) {
 			cs.setUrl(OIDLookup.getUrl(oid));
@@ -288,9 +296,6 @@ public class V3SourceGenerator extends BaseGenerator {
 			knownCS.add(cs.getUrl());
 		}
 
-		cs.setId("v3-" + shortSafeName);
-		cs.setName(shortSafeName);
-		cs.setTitle(item.getAttribute("title"));
 		cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:" + oid);
 		cs.setUserData("oid", item.getAttribute("codeSystemId"));
 		cs.setStatus(PublicationStatus.ACTIVE);

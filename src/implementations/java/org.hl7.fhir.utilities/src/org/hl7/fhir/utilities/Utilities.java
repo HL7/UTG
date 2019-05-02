@@ -601,6 +601,10 @@ public class Utilities {
   }
 
 
+  private static boolean isAlphaNumeric(char c) {
+	  return isAlphabetic(c) || isDigit(c);
+  }
+  
   public static String getDirectoryForFile(String filepath) {
     File f = new File(filepath);
     return f.getParent();
@@ -1112,7 +1116,27 @@ public class Utilities {
     return b.toString();
   }
 
-
+  public static String makeClassName(String name) {
+	  StringBuilder b = new StringBuilder();
+	  for (char c : name.toCharArray()) {
+		  if (isAlphaNumeric(c)) {
+			  b.append(c);
+		  } else {
+			  b.append(" ");
+		  }
+	  }
+	  String[] parts = b.toString().split(" ");
+	  String finalClassName = "";
+	  
+	  for (String part : parts) {
+		  part = part.trim();
+		  if (!part.isEmpty()) {
+			  finalClassName += capitalize(part);
+		  }
+	  }
+	  
+	  return finalClassName;
+  }
 
 
 }

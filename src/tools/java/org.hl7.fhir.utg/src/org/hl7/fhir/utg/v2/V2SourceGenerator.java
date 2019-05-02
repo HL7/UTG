@@ -911,11 +911,6 @@ public class V2SourceGenerator extends BaseGenerator {
 	private void generateCodeSystem(Table t, ListResource v2manifest)
 			throws FileNotFoundException, IOException {
 
-		if (Arrays.asList("0458", "0459", "0461", "0462", "0929", "0930").contains(t.id)) {
-			// TODO remove
-  			System.out.println("stop");
-		}
-		
 		TableVersion tv = t.master;
 
 		if (OIDLookup.doNotGenerate(tv.csoid))
@@ -935,11 +930,15 @@ public class V2SourceGenerator extends BaseGenerator {
 		ObjectInfo oi = objects.get(tv.csoid);
 		if (oi != null) {
 			cs.setUrl(oi.uri);
-			cs.setName(Utilities.capitalize(oi.display));
+			String originalName = oi.display;
+			cs.setName(Utilities.makeClassName(originalName));
+			cs.setTitle(originalName);
+			//cs.setName(Utilities.capitalize(oi.display));
 			// cs.setName(oi.display);
 		} else {
 			cs.setUrl("http://terminology.hl7.org/CodeSystem/" + cs.getId());
 			cs.setName("V2Table" + t.id);
+			cs.setTitle("V2 Table Code System: " + t.name);
 		}
 
 		if (OIDLookup.hasUrlOverride(tv.csoid)) {
@@ -954,7 +953,6 @@ public class V2SourceGenerator extends BaseGenerator {
 		knownCS.add(cs.getUrl());
 
 		cs.setValueSet("http://terminology.hl7.org/ValueSet/" + cs.getId());
-		cs.setTitle("V2 Table Code System: " + t.name);
 		cs.setStatus(PublicationStatus.ACTIVE);
 		cs.setExperimental(false);
 		if (tv.csoid != null) {
@@ -1194,9 +1192,12 @@ public class V2SourceGenerator extends BaseGenerator {
 		// Set all value set versions to 1, per Ted
 		vs.setVersion("1");
 		
-		if (tv.vsoid != null) {
-			vs.setName(Utilities.capitalize(objects.get(tv.vsoid).display));
-			vs.setTitle(objects.get(tv.vsoid).display);
+		// TODO 
+		ObjectInfo oi = objects.get(tv.csoid);
+		if (oi != null) {
+			String originalName = oi.display;
+			vs.setName(Utilities.makeClassName(originalName));
+			vs.setTitle(originalName);
 		} else {
 			vs.setName("V2Table" + t.id + "Version" + vid);
 			vs.setTitle("V2 Table " + t.id + " Version " + vid);
