@@ -1450,6 +1450,15 @@ public class V3SourceGenerator extends BaseGenerator {
 			pd.setCode(propertyCode);
 			pd.setType(type);
 			pd.setDescription(description);
+
+			Extension ext = new Extension().setUrl(csext("mif-extended-properties"));
+			pd.getExtension().add(ext);
+			ext.addExtension("isMandatory", new BooleanType(false));
+
+			if (propertyCode.equals("status")) {
+				ext.addExtension("defaultValue", new StringType("active"));
+			}
+			
 		}
 	}
 }
