@@ -45,7 +45,7 @@ public class ExternalProvider {
 	}
 	
 	public String getId() {
-		return "ext_" + this.getName() + "_voc";
+		return "ext-" + this.getName() + "-voc";
 	}
 	
 	public String getFilename() {
