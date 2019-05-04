@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project name="org.hl7.fhir.tools" default="buildBundle">
-  <property name="version" value="20190414"/>
+  <tstamp/>
+  <property name="version" value="9999-${DSTAMP}"/>
   <property name="oldMif" value="DEFN=UV=VO=1436-20190320"/>
   <path id="saxon.path">
     <fileset dir="../tools/java/imports">
@@ -29,10 +30,10 @@
       <factory name="${saxon.classname}"/>
       <param name="version" expression="${version}"/>
     </xslt>
-    <xslt in="${oldMif}.coremif" out="normalizedMif.xml" style="normalizeOriginalMIF.xslt" classpathref="saxon.path">
+    <xslt in="${oldMif}.coremif" out="DEFN=UV=VO=9999-old.coremif" style="normalizeOriginalMIF.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
     </xslt>
-    <xslt in="DEFN=UV=VO=${version}.coremif" out="normalizedNewMif.xml" style="normalizeOriginalMIF.xslt" classpathref="saxon.path">
+    <xslt in="DEFN=UV=VO=${version}.coremif" out="DEFN=UV=VO=9999-new.coremif" style="normalizeOriginalMIF.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
     </xslt>
     <java jar="org.hl7.fhir.validator.jar" fork="true">

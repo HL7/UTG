@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fn="http://hl7.org" xmlns:saxon="http://saxon.sf.net/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:f="http://hl7.org/fhir" xmlns="urn:hl7-org:v3/mif2" xpath-default-namespace="http://hl7.org/fhir" exclude-result-prefixes="fn saxon xs f">
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
-	<xsl:param name="version" select="'todo'"/>
+	<xsl:param name="version"/>
 	<xsl:variable name="bindingDate" select="concat(substring($version, 1, 4), '-', substring($version, 5, 2), '-', substring($version, 7, 2))"/>
 	<xsl:key name="resourceByUrl" match="/Bundle/entry" use="fullUrl/@value"/>
 	<xsl:variable name="toolVersion" select="0.1"/>
@@ -16,7 +16,7 @@
     <vocabularyModel name="{$version}" title="HL7 Vocabulary" packageKind="version" definitionKind="partial-publishing" schemaVersion="2.1.7">
       <packageLocation combinedId="DEFN=UV=VO={$version}" root="DEFN" artifact="VO" realmNamespace="UV" version="{$version}"/>
       <header>
-        <renderingInformation renderingTime="{current-dateTime()}" application="UTG FHIR to MIF transform {$toolVersion}"/>
+        <renderingInformation renderingTime="{substring(string(current-dateTime()),1,19)}" application="UTG FHIR to MIF transform {$toolVersion}"/>
         <legalese copyrightOwner="Health Level Seven, Inc." copyrightYears="{substring(string(current-date()), 1, 4)}"/>
       </header>
       <xsl:call-template name="doConceptDomains"/>
@@ -82,7 +82,7 @@
     </xsl:for-each>
 	</xsl:template>
   <xsl:template name="doCodeSystems">
-    <xsl:for-each select="key('resourceByUrl', 'http://terminology.hl7.org/List/v3-term-manifest')/resource/List/entry">
+    <xsl:for-each select="key('resourceByUrl', 'http://terminology.hl7.org/List/v3-Manifest')/resource/List/entry">
       <!-- Todo: yank this 'if' and collapse for-each loops once source is fixed -->
       <xsl:if test="not(preceding-sibling::entry[item/reference/@value=current()/item/reference/@value])">
         <xsl:for-each select="item/reference">
@@ -134,7 +134,8 @@
                       </xsl:otherwise>
                     </xsl:choose>
                   </xsl:variable>
-                  <supportedConceptProperty propertyName="{code/@value}" type="{$type}" isMandatoryIndicator="{extension[@url='http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties']/extension[@url='isMandatory']/valueBoolean/@value}">
+                  <xsl:variable name="mandatory" select="extension[@url='http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties']/extension[@url='isMandatory']/valueBoolean/@value"/>
+                  <supportedConceptProperty propertyName="{code/@value}" type="{$type}" isMandatoryIndicator="{if ($mandatory!='') then $mandatory else 'false'}">
                     <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties']/extension[not(@url='isMandatory')]">
                       <xsl:attribute name="{@url}" select="*[starts-with(local-name(.), 'value')]/@value"/>
                     </xsl:for-each>
@@ -370,7 +371,7 @@
     </xsl:if>
   </xsl:template>
   <xsl:template name="doValueSets">
-    <xsl:for-each select="key('resourceByUrl', 'http://terminology.hl7.org/List/v3-term-manifest')/resource/List/entry/item/reference">
+    <xsl:for-each select="key('resourceByUrl', 'http://terminology.hl7.org/List/v3-Manifest')/resource/List/entry/item/reference">
       <xsl:variable name="url" select="if (contains(@value, '|')) then substring-before(@value, '|') else @value"/>
       <xsl:for-each select="key('resourceByUrl', $url)/resource/ValueSet">
         <valueSet name="{title/@value}" id="{fn:getOID(.)}">
@@ -379,7 +380,10 @@
           </xsl:if>
           <xsl:call-template name="doHeaderElements"/>
           <version versionDate="{date/@value}">
-            <xsl:for-each select="distinct-values(compose/include/system/@value)">
+            <xsl:variable name="codeSystems" as="xs:string+">
+              <xsl:apply-templates mode="getSystems" select="compose"/>
+            </xsl:variable>
+            <xsl:for-each select="distinct-values($codeSystems)">
               <supportedCodeSystem>
                 <xsl:value-of select="fn:urlToOID(.)"/>
               </supportedCodeSystem>
@@ -425,6 +429,14 @@
       </xsl:for-each>
     </xsl:for-each>
   </xsl:template>
+  <xsl:template mode="getSystems" match="compose">
+    <xsl:for-each select="include/system">
+      <xsl:value-of select="@value"/>
+    </xsl:for-each>
+    <xsl:for-each select="include/valueSet">
+      <xsl:apply-templates mode="getSystems" select="ancestor::Bundle/entry[fullUrl/@value=current()/@value]/resource/ValueSet/compose"/>
+    </xsl:for-each>
+  </xsl:template>
   <xsl:template name="doBindingRealms">
     <xsl:for-each select="key('resourceByUrl', 'http://terminology.hl7.org/CodeSystem/v3-hl7Realm')/resource/CodeSystem//concept[code/@value=('US', 'UV') or property[code/@value='OwningAffiliate']/valueCoding/code/@value='UV']">
       <xsl:variable name="owner" select="property[code/@value='OwningAffiliate']/valueCoding/code/@value"/>
@@ -453,9 +465,9 @@
 <!-- Todo: Get rid of this case and throw an error as all systems should be known -->
 <xsl:message>Got here</xsl:message>
         <xsl:attribute name="codeSystem">2.16.840.1.113883.5.1</xsl:attribute>
-        <xsl:comment>
+<!--        <xsl:comment>
           <xsl:value-of select="concat('Unable to find system: ', system/@value, ', so defaulting to AdministrativeGender')"/>
-        </xsl:comment>
+        </xsl:comment>-->
       </xsl:when>
       <xsl:otherwise>
         <xsl:for-each select="system">
