@@ -244,11 +244,11 @@ public class V3SourceGenerator extends BaseGenerator {
 			CodeSystem cs = generateV3CodeSystem(l);
 			if (cs != null) {
 				csmap.put(cs.getUserString("oid"), cs);
-				if (cs.getInternal()) {
+				//if (cs.getInternal()) {
 					ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs);
 					v3manifest.addEntry(csEntry);
 					//manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, true));
-				}
+				//}
 			}
 		}
 
