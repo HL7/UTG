@@ -1,0 +1,33 @@
+{
+  "version": "4.0.0",
+  "source": "utg.xml",
+  "dependencyList": [],
+  "special-urls": [],
+  "fixed-business-version" : "0.0.1",
+  "defaults": {
+    "ConceptMap": {"template-base": "cm.html"},
+    "Any": {
+      "template-base": "base.html",
+      "template-format": "format.html"
+    },
+    "ValueSet": {"template-base": "vs.html"},
+    "CodeSystem": {"template-base": "cs.html"}
+  },
+  "tool": "jekyll",
+  "license": "CC0-1.0",
+  "canonicalBase": "http://terminology.hl7.org",
+  "npm-name": "hl7.fhir.terminology",
+  "paths": {
+    "temp": "temp",
+    "resources": [ "resources", "sourceOfTruth/v2", "sourceOfTruth/v2/valueSets", "sourceOfTruth/v2/codeSystems", "sourceOfTruth/v3/valueSets", "sourceOfTruth/v3/codeSystems"],
+    "pages": "pages",
+    "txCache": "txCache",
+    "output": "output",
+    "qa" : "qa",
+    "specification": "http://hl7.org/fhir"
+  },
+  "path-pattern": "[type]-[id].html",
+  "resources": { 
+    "*" : { }
+  }
+}
