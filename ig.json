@@ -8,18 +8,21 @@
     "ConceptMap": {"template-base": "cm.html"},
     "Any": {
       "template-base": "base.html",
-      "template-format": "format.html"
+      "template-format": "format.html",
+      "list-types" : "CodeSystem|ValueSet"
     },
     "ValueSet": {"template-base": "vs.html"},
     "CodeSystem": {"template-base": "cs.html"}
   },
   "tool": "jekyll",
   "license": "CC0-1.0",
+  "suppress-qa" : true,
   "canonicalBase": "http://terminology.hl7.org",
   "npm-name": "hl7.fhir.terminology",
   "paths": {
     "temp": "temp",
-    "resources": [ "resources", "sourceOfTruth/v2", "sourceOfTruth/v2/valueSets", "sourceOfTruth/v2/codeSystems", "sourceOfTruth/v3/valueSets", "sourceOfTruth/v3/codeSystems"],
+    "resources": [ "resources", "sourceOfTruth/v2", "sourceOfTruth/v2/valueSets", "sourceOfTruth/v2/codeSystems", "sourceOfTruth/v3/valueSets", 
+      "sourceOfTruth/v3/codeSystems", "sourceOfTruth/publish-control"],
     "pages": "pages",
     "txCache": "txCache",
     "output": "output",
