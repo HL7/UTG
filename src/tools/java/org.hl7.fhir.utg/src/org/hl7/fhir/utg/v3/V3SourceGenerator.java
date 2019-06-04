@@ -321,18 +321,40 @@ public class V3SourceGenerator extends BaseGenerator {
 		cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:" + oid);
 		cs.setUserData("oid", item.getAttribute("codeSystemId"));
 		cs.setStatus(PublicationStatus.ACTIVE);
+
+		// DT 6/4/19
+		// Make two passes through elements, to insure that header and released version are processed 
+		// before history items and annotations
+		
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
-			if (child.getNodeName().equals("header"))
+			if (child.getNodeName().equals("header")) {
 				processHeader(child, cs);
-			else if (child.getNodeName().equals("annotations"))
-				processCSAnnotations(child, cs);
-			else if (child.getNodeName().equals("releasedVersion"))
+			} else if (child.getNodeName().equals("releasedVersion")) {
 				processReleasedVersion(child, cs);
-			else if (child.getNodeName().equals("historyItem"))
-				processHistoryItem(child, cs);
-			else
+			} else if (child.getNodeName().equals("historyItem")) {
+				// NO OP on first pass
+			} else if (child.getNodeName().equals("annotations")) {
+				// NO OP on first pass
+			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
+			child = XMLUtil.getNextSibling(child);
+		}
+		
+		child = XMLUtil.getFirstChild(item);
+		while (child != null) {
+			if (child.getNodeName().equals("header")) {
+				// NO OP second pass
+			} else if (child.getNodeName().equals("releasedVersion")) {
+				// NO OP second pass
+			} else if (child.getNodeName().equals("historyItem")) {
+				processHistoryItem(child, cs);
+			} else if (child.getNodeName().equals("annotations")) {
+				processCSAnnotations(child, cs);
+			} else {
+				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
 			child = XMLUtil.getNextSibling(child);
 		}
 		
@@ -582,6 +604,9 @@ public class V3SourceGenerator extends BaseGenerator {
 				}
 				XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
 				html.setName("div");
+				if (cs.hasLanguage()) {
+					html.getAttributes().put("xml:lang", cs.getLanguage());
+				}
 				cs.getText().setDiv(html);
 				cs.getText().setStatus(NarrativeStatus.GENERATED);
 			} else
@@ -1046,18 +1071,36 @@ public class V3SourceGenerator extends BaseGenerator {
 		vs.setStatus(PublicationStatus.ACTIVE);
 		if ("true".equals(item.getAttribute("isImmutable")))
 			vs.setImmutable(true);
+		
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
-			if (child.getNodeName().equals("header"))
+			if (child.getNodeName().equals("header")) {
 				processHeader(child, vs);
-			else if (child.getNodeName().equals("annotations"))
-				processVSAnnotations(child, vs);
-			else if (child.getNodeName().equals("version"))
+			} else if (child.getNodeName().equals("version")) {
 				processVersion(child, vs);
-			else if (child.getNodeName().equals("historyItem"))
-				processHistoryItem(child, vs);
-			else
+			} else if (child.getNodeName().equals("annotations")) {
+				// No op first pass
+			} else if (child.getNodeName().equals("historyItem")) {
+				// No op first pass
+			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
+			child = XMLUtil.getNextSibling(child);
+		}
+
+		child = XMLUtil.getFirstChild(item);
+		while (child != null) {
+			if (child.getNodeName().equals("header")) {
+				// No op second pass
+			} else if (child.getNodeName().equals("version")) {
+				// No op second pass
+			} else if (child.getNodeName().equals("annotations")) {
+				processVSAnnotations(child, vs);
+			} else if (child.getNodeName().equals("historyItem")) {
+				processHistoryItem(child, vs);
+			} else {
+				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
 			child = XMLUtil.getNextSibling(child);
 		}
 
@@ -1163,6 +1206,9 @@ public class V3SourceGenerator extends BaseGenerator {
 				vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(child));
 				XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
 				html.setName("div");
+				if (vs.hasLanguage()) {
+					html.getAttributes().put("xml:lang", vs.getLanguage());
+				}
 				vs.getText().setDiv(html);
 				vs.getText().setStatus(NarrativeStatus.GENERATED);
 
