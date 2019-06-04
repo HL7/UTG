@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -73,6 +74,7 @@ public class V3SourceGenerator extends BaseGenerator {
 	private Set<String> notations = new HashSet<String>();
 	private Set<String> systems = new HashSet<String>();
 	private Map<String, ExternalProvider> externalProviders;
+	private Map<String, CodeSystem> csByName = new HashMap<String, CodeSystem>();
 	
 	private static final Map<String, String> DEFINITION_TEXT_PROPERTY_TAGS = new HashMap<String, String>() {
 		private static final long serialVersionUID = 1L;
@@ -209,8 +211,28 @@ public class V3SourceGenerator extends BaseGenerator {
 			else
 				codes.put(c.getCode(), "v3");
 			c.addProperty().setCode("source").setValue(new CodeType("v3"));
-			if (cd.conceptualClass != null)
-				c.addProperty().setCode("ConceptualSpaceForClassCode").setValue(new CodeType(cd.conceptualClass));
+			
+			if (cd.conceptualClass != null) {
+				String conClass = cd.conceptualClass;
+				String[] conClassParts = conClass.split("\\.");
+				if (conClassParts.length >= 2) {
+					String csName = conClassParts[0].toLowerCase();
+					String code = String.join(".", Arrays.copyOfRange(conClassParts, 1, conClassParts.length));
+					
+					if (csByName.containsKey(csName)) {
+						String csSystem = csByName.get(csName).getUrl();
+						Coding value = new Coding();
+						value.setSystem(csSystem); // system url
+						value.setCode(code); // code
+						c.addProperty().setCode("ConceptualSpaceForClassCode").setValue(value);
+					} else {
+						System.out.println("***   No code system match for '" + csName + "'");
+					}
+					
+				} else {
+					System.out.println("***   Invalid Conceptual Class Code found for concept domain '" + cd.name + "': '" + conClass + "'");
+				}
+			}
 			
 			if (cd.contextBindings != null) {
 				for (ContextBinding cb : cd.contextBindings) {
@@ -318,6 +340,8 @@ public class V3SourceGenerator extends BaseGenerator {
 		// Check for concept properties not defined in code system
 		findUndefinedConceptProperties(cs);
 		
+		csByName.put(originalName.toLowerCase(), cs);
+
 		return cs;
 		
 		

@@ -110,9 +110,9 @@ public class UTGGenerator extends BaseGenerator {
 		v2.generateCodeSystems(v2manifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "v2-Manifest.xml"), v2manifest);
 
-		generateConceptDomains(v3manifest);
 		v3.generateCodeSystems(v3manifest);
 		v3.generateValueSets(v3manifest);
+		generateConceptDomains(v3manifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "v3-Manifest.xml"), v3manifest);
 		
 		writeExternalManifestFiles();
@@ -144,7 +144,7 @@ public class UTGGenerator extends BaseGenerator {
 		cs.addProperty().setCode("source").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
 				.setType(PropertyType.CODE);
 		cs.addProperty().setCode("ConceptualSpaceForClassCode").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
-				.setType(PropertyType.CODE);
+				.setType(PropertyType.CODING);
 		cs.addProperty().setCode("openIssue").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
 				.setType(PropertyType.STRING);
 		cs.addProperty().setCode("deprecationInfo").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
