@@ -597,18 +597,22 @@ public class V3SourceGenerator extends BaseGenerator {
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
 				String desc = XMLUtil.htmlToXmlEscapedPlainText(child).trim();
-				cs.setDescription(desc);
-				Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(desc);
-				for (String propertyName : additionalProperties.keySet()) {
-					cs.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
+				if (desc.isEmpty()) {
+					System.out.println("Empty description for code system '" + cs.getName() + "'");
+				} else {
+					cs.setDescription(desc);
+					Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(desc);
+					for (String propertyName : additionalProperties.keySet()) {
+						cs.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
+					}
+					XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
+					html.setName("div");
+					if (cs.hasLanguage()) {
+						html.getAttributes().put("xml:lang", cs.getLanguage());
+					}
+					cs.getText().setDiv(html);
+					cs.getText().setStatus(NarrativeStatus.GENERATED);
 				}
-				XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
-				html.setName("div");
-				if (cs.hasLanguage()) {
-					html.getAttributes().put("xml:lang", cs.getLanguage());
-				}
-				cs.getText().setDiv(html);
-				cs.getText().setStatus(NarrativeStatus.GENERATED);
 			} else
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			child = XMLUtil.getNextSibling(child);
@@ -1203,27 +1207,32 @@ public class V3SourceGenerator extends BaseGenerator {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
-				vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(child));
-				XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
-				html.setName("div");
-				if (vs.hasLanguage()) {
-					html.getAttributes().put("xml:lang", vs.getLanguage());
-				}
-				vs.getText().setDiv(html);
-				vs.getText().setStatus(NarrativeStatus.GENERATED);
-
-				Element grandChild = XMLUtil.getFirstChild(child);
-				while (grandChild != null) {
-					if (grandChild.getNodeName().equals("p")) {
-						Element greatGrandChild = XMLUtil.getFirstChild(grandChild);
-						if (greatGrandChild != null && greatGrandChild.getNodeName().equals("i")
-								&& greatGrandChild.getTextContent() != null
-								&& greatGrandChild.getTextContent().startsWith("Steward:")) {
-							String steward = normalizeStewardValue(grandChild.getTextContent().trim());
-							vs.addExtension("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg", new CodeType(steward));
-						}
+				String desc = XMLUtil.htmlToXmlEscapedPlainText(child).trim();
+				if (desc == null || desc.isEmpty()) {
+					System.out.println("Empty description for value set '" + vs.getName() + "'");
+				} else {
+					vs.setDescription(desc);
+					XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
+					html.setName("div");
+					if (vs.hasLanguage()) {
+						html.getAttributes().put("xml:lang", vs.getLanguage());
 					}
-					grandChild = XMLUtil.getNextSibling(grandChild);
+					vs.getText().setDiv(html);
+					vs.getText().setStatus(NarrativeStatus.GENERATED);
+
+					Element grandChild = XMLUtil.getFirstChild(child);
+					while (grandChild != null) {
+						if (grandChild.getNodeName().equals("p")) {
+							Element greatGrandChild = XMLUtil.getFirstChild(grandChild);
+							if (greatGrandChild != null && greatGrandChild.getNodeName().equals("i")
+									&& greatGrandChild.getTextContent() != null
+									&& greatGrandChild.getTextContent().startsWith("Steward:")) {
+								String steward = normalizeStewardValue(grandChild.getTextContent().trim());
+								vs.addExtension("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg", new CodeType(steward));
+							}
+						}
+						grandChild = XMLUtil.getNextSibling(grandChild);
+					}
 				}
 
 			} else
