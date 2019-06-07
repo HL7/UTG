@@ -1250,7 +1250,7 @@ public class V2SourceGenerator extends BaseGenerator {
 				.setType(PropertyType.STRING).setDescription("OID For Table");
 		cs.addProperty().setCode("csoid").setUri("http://terminology.hl7.org/csprop/csoid").setType(PropertyType.STRING)
 				.setDescription("OID For Code System");
-		cs.addProperty().setCode("csoid").setUri("http://terminology.hl7.org/csprop/csuri").setType(PropertyType.STRING)
+		cs.addProperty().setCode("csuri").setUri("http://terminology.hl7.org/csprop/csuri").setType(PropertyType.STRING)
 				.setDescription("URI For Code System");
 		cs.addProperty().setCode("vsoid").setUri("http://terminology.hl7.org/csprop/vsoid").setType(PropertyType.STRING)
 				.setDescription("OID For Value Set");

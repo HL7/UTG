@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -73,6 +74,7 @@ public class V3SourceGenerator extends BaseGenerator {
 	private Set<String> notations = new HashSet<String>();
 	private Set<String> systems = new HashSet<String>();
 	private Map<String, ExternalProvider> externalProviders;
+	private Map<String, CodeSystem> csByName = new HashMap<String, CodeSystem>();
 	
 	private static final Map<String, String> DEFINITION_TEXT_PROPERTY_TAGS = new HashMap<String, String>() {
 		private static final long serialVersionUID = 1L;
@@ -209,8 +211,28 @@ public class V3SourceGenerator extends BaseGenerator {
 			else
 				codes.put(c.getCode(), "v3");
 			c.addProperty().setCode("source").setValue(new CodeType("v3"));
-			if (cd.conceptualClass != null)
-				c.addProperty().setCode("ConceptualSpaceForClassCode").setValue(new CodeType(cd.conceptualClass));
+			
+			if (cd.conceptualClass != null) {
+				String conClass = cd.conceptualClass;
+				String[] conClassParts = conClass.split("\\.");
+				if (conClassParts.length >= 2) {
+					String csName = conClassParts[0].toLowerCase();
+					String code = String.join(".", Arrays.copyOfRange(conClassParts, 1, conClassParts.length));
+					
+					if (csByName.containsKey(csName)) {
+						String csSystem = csByName.get(csName).getUrl();
+						Coding value = new Coding();
+						value.setSystem(csSystem); // system url
+						value.setCode(code); // code
+						c.addProperty().setCode("ConceptualSpaceForClassCode").setValue(value);
+					} else {
+						System.out.println("***   No code system match for '" + csName + "'");
+					}
+					
+				} else {
+					System.out.println("***   Invalid Conceptual Class Code found for concept domain '" + cd.name + "': '" + conClass + "'");
+				}
+			}
 			
 			if (cd.contextBindings != null) {
 				for (ContextBinding cb : cd.contextBindings) {
@@ -299,18 +321,40 @@ public class V3SourceGenerator extends BaseGenerator {
 		cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:" + oid);
 		cs.setUserData("oid", item.getAttribute("codeSystemId"));
 		cs.setStatus(PublicationStatus.ACTIVE);
+
+		// DT 6/4/19
+		// Make two passes through elements, to insure that header and released version are processed 
+		// before history items and annotations
+		
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
-			if (child.getNodeName().equals("header"))
+			if (child.getNodeName().equals("header")) {
 				processHeader(child, cs);
-			else if (child.getNodeName().equals("annotations"))
-				processCSAnnotations(child, cs);
-			else if (child.getNodeName().equals("releasedVersion"))
+			} else if (child.getNodeName().equals("releasedVersion")) {
 				processReleasedVersion(child, cs);
-			else if (child.getNodeName().equals("historyItem"))
-				processHistoryItem(child, cs);
-			else
+			} else if (child.getNodeName().equals("historyItem")) {
+				// NO OP on first pass
+			} else if (child.getNodeName().equals("annotations")) {
+				// NO OP on first pass
+			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
+			child = XMLUtil.getNextSibling(child);
+		}
+		
+		child = XMLUtil.getFirstChild(item);
+		while (child != null) {
+			if (child.getNodeName().equals("header")) {
+				// NO OP second pass
+			} else if (child.getNodeName().equals("releasedVersion")) {
+				// NO OP second pass
+			} else if (child.getNodeName().equals("historyItem")) {
+				processHistoryItem(child, cs);
+			} else if (child.getNodeName().equals("annotations")) {
+				processCSAnnotations(child, cs);
+			} else {
+				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
 			child = XMLUtil.getNextSibling(child);
 		}
 		
@@ -318,6 +362,8 @@ public class V3SourceGenerator extends BaseGenerator {
 		// Check for concept properties not defined in code system
 		findUndefinedConceptProperties(cs);
 		
+		csByName.put(originalName.toLowerCase(), cs);
+
 		return cs;
 		
 		
@@ -551,15 +597,22 @@ public class V3SourceGenerator extends BaseGenerator {
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
 				String desc = XMLUtil.htmlToXmlEscapedPlainText(child).trim();
-				cs.setDescription(desc);
-				Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(desc);
-				for (String propertyName : additionalProperties.keySet()) {
-					cs.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
+				if (desc.isEmpty()) {
+					System.out.println("Empty description for code system '" + cs.getName() + "'");
+				} else {
+					cs.setDescription(desc);
+					Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(desc);
+					for (String propertyName : additionalProperties.keySet()) {
+						cs.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
+					}
+					XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
+					html.setName("div");
+					if (cs.hasLanguage()) {
+						html.getAttributes().put("xml:lang", cs.getLanguage());
+					}
+					cs.getText().setDiv(html);
+					cs.getText().setStatus(NarrativeStatus.GENERATED);
 				}
-				XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
-				html.setName("div");
-				cs.getText().setDiv(html);
-				cs.getText().setStatus(NarrativeStatus.GENERATED);
 			} else
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			child = XMLUtil.getNextSibling(child);
@@ -1022,18 +1075,36 @@ public class V3SourceGenerator extends BaseGenerator {
 		vs.setStatus(PublicationStatus.ACTIVE);
 		if ("true".equals(item.getAttribute("isImmutable")))
 			vs.setImmutable(true);
+		
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
-			if (child.getNodeName().equals("header"))
+			if (child.getNodeName().equals("header")) {
 				processHeader(child, vs);
-			else if (child.getNodeName().equals("annotations"))
-				processVSAnnotations(child, vs);
-			else if (child.getNodeName().equals("version"))
+			} else if (child.getNodeName().equals("version")) {
 				processVersion(child, vs);
-			else if (child.getNodeName().equals("historyItem"))
-				processHistoryItem(child, vs);
-			else
+			} else if (child.getNodeName().equals("annotations")) {
+				// No op first pass
+			} else if (child.getNodeName().equals("historyItem")) {
+				// No op first pass
+			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
+			child = XMLUtil.getNextSibling(child);
+		}
+
+		child = XMLUtil.getFirstChild(item);
+		while (child != null) {
+			if (child.getNodeName().equals("header")) {
+				// No op second pass
+			} else if (child.getNodeName().equals("version")) {
+				// No op second pass
+			} else if (child.getNodeName().equals("annotations")) {
+				processVSAnnotations(child, vs);
+			} else if (child.getNodeName().equals("historyItem")) {
+				processHistoryItem(child, vs);
+			} else {
+				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
 			child = XMLUtil.getNextSibling(child);
 		}
 
@@ -1136,24 +1207,32 @@ public class V3SourceGenerator extends BaseGenerator {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
-				vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(child));
-				XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
-				html.setName("div");
-				vs.getText().setDiv(html);
-				vs.getText().setStatus(NarrativeStatus.GENERATED);
-
-				Element grandChild = XMLUtil.getFirstChild(child);
-				while (grandChild != null) {
-					if (grandChild.getNodeName().equals("p")) {
-						Element greatGrandChild = XMLUtil.getFirstChild(grandChild);
-						if (greatGrandChild != null && greatGrandChild.getNodeName().equals("i")
-								&& greatGrandChild.getTextContent() != null
-								&& greatGrandChild.getTextContent().startsWith("Steward:")) {
-							String steward = normalizeStewardValue(grandChild.getTextContent().trim());
-							vs.addExtension("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg", new CodeType(steward));
-						}
+				String desc = XMLUtil.htmlToXmlEscapedPlainText(child).trim();
+				if (desc == null || desc.isEmpty()) {
+					System.out.println("Empty description for value set '" + vs.getName() + "'");
+				} else {
+					vs.setDescription(desc);
+					XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
+					html.setName("div");
+					if (vs.hasLanguage()) {
+						html.getAttributes().put("xml:lang", vs.getLanguage());
 					}
-					grandChild = XMLUtil.getNextSibling(grandChild);
+					vs.getText().setDiv(html);
+					vs.getText().setStatus(NarrativeStatus.GENERATED);
+
+					Element grandChild = XMLUtil.getFirstChild(child);
+					while (grandChild != null) {
+						if (grandChild.getNodeName().equals("p")) {
+							Element greatGrandChild = XMLUtil.getFirstChild(grandChild);
+							if (greatGrandChild != null && greatGrandChild.getNodeName().equals("i")
+									&& greatGrandChild.getTextContent() != null
+									&& greatGrandChild.getTextContent().startsWith("Steward:")) {
+								String steward = normalizeStewardValue(grandChild.getTextContent().trim());
+								vs.addExtension("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg", new CodeType(steward));
+							}
+						}
+						grandChild = XMLUtil.getNextSibling(grandChild);
+					}
 				}
 
 			} else
