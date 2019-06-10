@@ -102,6 +102,7 @@ public class UTGGenerator extends BaseGenerator {
 	private void execute() throws Exception {
 		ListResource v2manifest = ListResourceExt.createManifestList("V2 Release Manifest", "v2-Manifest");
 		ListResource v3manifest = ListResourceExt.createManifestList("V3 Release Manifest", "v3-Manifest");
+		ListResource unifiedManifest = ListResourceExt.createManifestList("Unified Manifest", "unified-Manifest");
 		
 		v2.loadTables();
 		v3.loadMif();
@@ -112,15 +113,17 @@ public class UTGGenerator extends BaseGenerator {
 
 		v3.generateCodeSystems(v3manifest);
 		v3.generateValueSets(v3manifest);
-		generateConceptDomains(v3manifest);
+		generateConceptDomains(unifiedManifest);
+		generateStaticUnifiedCodeSystems(unifiedManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "v3-Manifest.xml"), v3manifest);
 		
+		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "unified-Manifest.xml"), unifiedManifest);
 		writeExternalManifestFiles();
 		
 		System.out.println("finished");
 	}
 
-	private void generateConceptDomains(ListResource v3manifest) throws FileNotFoundException, IOException, Exception {
+	private void generateConceptDomains(ListResource manifest) throws FileNotFoundException, IOException, Exception {
 		CodeSystem cs = new CodeSystem();
 		cs.setId("conceptdomains");
 		cs.setUrl("http://terminology.hl7.org/CodeSystem/ConceptDomain");
@@ -167,7 +170,18 @@ public class UTGGenerator extends BaseGenerator {
 				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS, "conceptdomains.xml")), cs);
 		System.out.println("Save conceptdomains (" + Integer.toString(count) + " found)");
 		
-		v3manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
+		manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
+	}
+	
+	private void generateStaticUnifiedCodeSystems(ListResource manifest) {
+		CodeSystem cs = new CodeSystem();
+		cs.setId("hl7TermMaintInfra");
+		cs.setUrl("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra");
+		cs.setName("Hl7TermMaintInfra");
+		cs.setTitle("HL7 Terminology Maintenance Infrastructure Vocabulary");
+		cs.setStatus(PublicationStatus.ACTIVE);
+
+		manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
 	}
 
 	private void createMissingOutputFolders() throws IOException {
