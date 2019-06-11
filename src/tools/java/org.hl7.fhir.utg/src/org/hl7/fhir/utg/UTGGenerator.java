@@ -103,21 +103,24 @@ public class UTGGenerator extends BaseGenerator {
 		ListResource v2manifest = ListResourceExt.createManifestList("V2 Release Manifest", "v2-Manifest");
 		ListResource v3manifest = ListResourceExt.createManifestList("V3 Release Manifest", "v3-Manifest");
 		ListResource unifiedManifest = ListResourceExt.createManifestList("Unified Manifest", "unified-Manifest");
+		ListResource externalManifest = ListResourceExt.createManifestList("External Manifest", "external-Manifest");
 		
 		v2.loadTables();
 		v3.loadMif();
 		v2.process();
 		v2.generateTables(v2manifest);
-		v2.generateCodeSystems(v2manifest);
-		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "v2-Manifest.xml"), v2manifest);
+		v2.generateCodeSystems(v2manifest, externalManifest);
 
-		v3.generateCodeSystems(v3manifest);
+		v3.generateCodeSystems(v3manifest, externalManifest);
 		v3.generateValueSets(v3manifest);
 		generateConceptDomains(unifiedManifest);
 		generateStaticUnifiedCodeSystems(unifiedManifest);
-		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "v3-Manifest.xml"), v3manifest);
 		
+		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "v2-Manifest.xml"), v2manifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "v3-Manifest.xml"), v3manifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "unified-Manifest.xml"), unifiedManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "external-Manifest.xml"), externalManifest);
+
 		writeExternalManifestFiles();
 		
 		System.out.println("finished");

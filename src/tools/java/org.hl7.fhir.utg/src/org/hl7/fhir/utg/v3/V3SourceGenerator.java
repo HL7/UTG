@@ -258,7 +258,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		return res;
 	}
 
-	public void generateCodeSystems(ListResource v3manifest) throws Exception {
+	public void generateCodeSystems(ListResource v3manifest, ListResource externalManifest) throws Exception {
 		List<Element> list = new LinkedList<Element>();
 		
 		XMLUtil.getNamedChildren(mif, "codeSystem", list);
@@ -266,11 +266,12 @@ public class V3SourceGenerator extends BaseGenerator {
 			CodeSystem cs = generateV3CodeSystem(l);
 			if (cs != null) {
 				csmap.put(cs.getUserString("oid"), cs);
-				//if (cs.getInternal()) {
-					ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs);
+				ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs);
+				if (cs.getInternal()) {
 					v3manifest.addEntry(csEntry);
-					//manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs, true));
-				//}
+				} else {
+					externalManifest.addEntry(csEntry);
+				}
 			}
 		}
 

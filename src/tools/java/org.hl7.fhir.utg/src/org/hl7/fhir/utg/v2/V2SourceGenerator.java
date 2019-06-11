@@ -889,14 +889,14 @@ public class V2SourceGenerator extends BaseGenerator {
 		return count;
 	}
 
-	public void generateCodeSystems(ListResource v2manifest) throws Exception {
+	public void generateCodeSystems(ListResource v2manifest, ListResource externalManifest) throws Exception {
 		int c = 0;
 		int h = 0;
 
 		for (String n : sorted(tables.keySet())) {
 			if (!n.equals("0000")) {
 				Table t = tables.get(n);
-				generateCodeSystem(t, v2manifest);
+				generateCodeSystem(t, v2manifest, externalManifest);
 			}
 		}
 
@@ -908,7 +908,7 @@ public class V2SourceGenerator extends BaseGenerator {
 	}
 
 
-	private void generateCodeSystem(Table t, ListResource v2manifest)
+	private void generateCodeSystem(Table t, ListResource v2manifest, ListResource externalManifest)
 			throws FileNotFoundException, IOException {
 
 		TableVersion tv = t.master;
@@ -1042,7 +1042,12 @@ public class V2SourceGenerator extends BaseGenerator {
 		 
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
 			ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs, (String) null);
-			v2manifest.addEntry(csEntry);
+			
+			if (t.isInternalCsOid()) {
+				v2manifest.addEntry(csEntry);
+			} else {
+				externalManifest.addEntry(csEntry);
+			}
 			
 			findUndefinedConceptProperties(cs);
 		}
