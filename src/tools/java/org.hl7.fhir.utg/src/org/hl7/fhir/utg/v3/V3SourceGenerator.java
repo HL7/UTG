@@ -42,6 +42,7 @@ import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
 import org.hl7.fhir.r4.model.MetadataResource;
+import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.UriType;
@@ -260,6 +261,8 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	public void generateCodeSystems(ListResource v3manifest, ListResource externalManifest) throws Exception {
 		List<Element> list = new LinkedList<Element>();
+		List<NamingSystem> namingSystems = new LinkedList<NamingSystem>();
+		List<CodeSystem> codeSystems = new LinkedList<CodeSystem>();
 		
 		XMLUtil.getNamedChildren(mif, "codeSystem", list);
 		for (Element l : list) {
@@ -269,22 +272,35 @@ public class V3SourceGenerator extends BaseGenerator {
 				ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs);
 				if (cs.getInternal()) {
 					v3manifest.addEntry(csEntry);
+					codeSystems.add(cs);
 				} else {
-					externalManifest.addEntry(csEntry);
+					if (cs.hasConcept()) {
+						externalManifest.addEntry(csEntry);
+						codeSystems.add(cs);
+					} else {
+						NamingSystem ns = new NamingSystem(cs);
+						externalManifest.addEntry(ListResourceExt.createNamingSystemListEntry(ns));
+						namingSystems.add(ns);
+					}
 				}
 			}
 		}
 
 		postProcess();
 
-		// Extension ext = null;
-		for (CodeSystem cs : csmap.values()) {
+		for (CodeSystem cs : codeSystems) {
 			String resourcePath = (cs.getInternal())?  
 					Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml" :
 					Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml";
 		
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
 		}
+		
+		for (NamingSystem ns : namingSystems) {
+			String resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS, ns.getId()) + ".xml";
+			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), ns);
+		}
+		
 		
 		System.out.println("Save v3 code systems (" + Integer.toString(csmap.size()) + " found)");
 

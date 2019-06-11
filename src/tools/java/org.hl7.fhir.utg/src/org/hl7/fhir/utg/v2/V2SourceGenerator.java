@@ -36,6 +36,7 @@ import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.IntegerType;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
+import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.r4.model.ValueSet;
@@ -1035,18 +1036,21 @@ public class V2SourceGenerator extends BaseGenerator {
 		// Only write code systems if not value set only 
 		// per Ted
 		if (!t.isValueSetOnlyTable()) {
-		
-			String resourcePath = (t.isInternalCsOid())?  
-					Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml" :
-					Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
-		 
-			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
-			ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs, (String) null);
-			
 			if (t.isInternalCsOid()) {
-				v2manifest.addEntry(csEntry);
+				String resourcePath = Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
+				new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
+				v2manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
 			} else {
-				externalManifest.addEntry(csEntry);
+				if (cs.hasConcept()) {
+					String resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
+					externalManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
+					new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
+				} else {
+					NamingSystem ns = new NamingSystem(cs);
+					String resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.NAMINGSYSTEMS, "cs-" + cs.getId()) + ".xml";
+					externalManifest.addEntry(ListResourceExt.createNamingSystemListEntry(ns));
+					new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), ns);
+				}
 			}
 			
 			findUndefinedConceptProperties(cs);

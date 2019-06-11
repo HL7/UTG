@@ -10,6 +10,7 @@ public class FolderNameConstants {
 	public static final String V3 = "v3";
 	public static final String CODESYSTEMS = "codeSystems";
 	public static final String VALUESETS = "valueSets";
+	public static final String NAMINGSYSTEMS = "namingSystems";
 	
 	public static final String SEGMENTS = "segments";
 	public static final String TABLES = "tables";
