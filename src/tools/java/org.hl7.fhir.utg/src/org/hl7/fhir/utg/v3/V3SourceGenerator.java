@@ -269,20 +269,20 @@ public class V3SourceGenerator extends BaseGenerator {
 			CodeSystem cs = generateV3CodeSystem(l);
 			if (cs != null) {
 				csmap.put(cs.getUserString("oid"), cs);
-				ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs);
+				ListEntryComponent manifestEntry = ListResourceExt.createCodeSystemListEntry(cs);
 				if (cs.getInternal()) {
-					v3manifest.addEntry(csEntry);
 					codeSystems.add(cs);
 				} else {
 					if (cs.hasConcept()) {
-						externalManifest.addEntry(csEntry);
 						codeSystems.add(cs);
 					} else {
 						NamingSystem ns = new NamingSystem(cs);
-						externalManifest.addEntry(ListResourceExt.createNamingSystemListEntry(ns));
+						manifestEntry = ListResourceExt.createNamingSystemListEntry(ns);
 						namingSystems.add(ns);
 					}
+					externalManifest.addEntry(manifestEntry);
 				}
+				v3manifest.addEntry(manifestEntry);
 			}
 		}
 
