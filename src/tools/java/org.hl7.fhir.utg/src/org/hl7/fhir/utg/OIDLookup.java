@@ -129,7 +129,7 @@ public class OIDLookup {
 		}
 	};
 	
-	private static final Set<String> OID_DO_NOT_GENERATE = new HashSet<String>() {
+/*	private static final Set<String> OID_DO_NOT_GENERATE = new HashSet<String>() {
 		private static final long serialVersionUID = 1L;
 		{
 			// add("some OID");
@@ -318,7 +318,8 @@ public class OIDLookup {
 			add("2.16.840.1.114222.4.5.327"  );
 		}
 	};
-	
+*/	
+
 	public static String getUrl(String oid) {
 		return OID_URL_MAP.get(oid);
 	}
@@ -332,6 +333,7 @@ public class OIDLookup {
 	}
 	
 	public static boolean doNotGenerate(String oid) {
-		return !hasUrlOverride(oid) && OID_DO_NOT_GENERATE.contains(oid);
+		//return !hasUrlOverride(oid) && OID_DO_NOT_GENERATE.contains(oid);
+		return false;
 	}
 }

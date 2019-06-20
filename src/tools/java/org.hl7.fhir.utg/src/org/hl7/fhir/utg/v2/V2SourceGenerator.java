@@ -36,7 +36,6 @@ import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.IntegerType;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
-import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
@@ -1041,14 +1040,15 @@ public class V2SourceGenerator extends BaseGenerator {
 			String resourcePath = Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
 			Resource outputResource = cs;
 			if (!t.isInternalCsOid()) {
-				if (cs.hasConcept()) {
+				//if (cs.hasConcept()) {
 					resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
-				} else {
-					NamingSystem ns = new NamingSystem(cs);
-					manifestEntry = ListResourceExt.createNamingSystemListEntry(ns);
-					outputResource = ns;
-					resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.NAMINGSYSTEMS, "cs-" + cs.getId()) + ".xml";
-				}
+				//} else {
+				//	NamingSystem ns = new NamingSystem(cs);
+				//	manifestEntry = ListResourceExt.createNamingSystemListEntry(ns);
+				//	outputResource = ns;
+				//	//resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.NAMINGSYSTEMS, "cs-" + cs.getId()) + ".xml";
+				//	resourcePath = Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS, "cs-" + cs.getId()) + ".xml";
+				//}
 				externalManifest.addEntry(manifestEntry);
 			}
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), outputResource);

@@ -297,7 +297,8 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 		
 		for (NamingSystem ns : namingSystems) {
-			String resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS, ns.getId()) + ".xml";
+			//String resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS, ns.getId()) + ".xml";
+			String resourcePath = Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS, ns.getId()) + ".xml";
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), ns);
 		}
 		
