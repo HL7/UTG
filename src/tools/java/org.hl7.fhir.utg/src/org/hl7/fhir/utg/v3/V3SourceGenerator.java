@@ -259,7 +259,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		return res;
 	}
 
-	public void generateCodeSystems(ListResource v3manifest, ListResource externalManifest) throws Exception {
+	public void generateCodeSystems(ListResource v3manifest, ListResource externalManifest, ListResource nsManifest) throws Exception {
 		List<Element> list = new LinkedList<Element>();
 		List<NamingSystem> namingSystems = new LinkedList<NamingSystem>();
 		List<CodeSystem> codeSystems = new LinkedList<CodeSystem>();
@@ -268,21 +268,24 @@ public class V3SourceGenerator extends BaseGenerator {
 		for (Element l : list) {
 			CodeSystem cs = generateV3CodeSystem(l);
 			if (cs != null) {
-				csmap.put(cs.getUserString("oid"), cs);
+				String oid = cs.getUserString("oid"); 
+				csmap.put(oid, cs);
 				ListEntryComponent manifestEntry = ListResourceExt.createCodeSystemListEntry(cs);
 				if (cs.getInternal()) {
 					codeSystems.add(cs);
+					v3manifest.addEntry(manifestEntry);
 				} else {
-					if (cs.hasConcept()) {
+					if (OIDLookup.hasContent(oid)) {
 						codeSystems.add(cs);
+						externalManifest.addEntry(manifestEntry);
+						v3manifest.addEntry(manifestEntry);
 					} else {
 						NamingSystem ns = new NamingSystem(cs);
 						manifestEntry = ListResourceExt.createNamingSystemListEntry(ns);
+						nsManifest.addEntry(manifestEntry);
 						namingSystems.add(ns);
 					}
-					externalManifest.addEntry(manifestEntry);
 				}
-				v3manifest.addEntry(manifestEntry);
 			}
 		}
 

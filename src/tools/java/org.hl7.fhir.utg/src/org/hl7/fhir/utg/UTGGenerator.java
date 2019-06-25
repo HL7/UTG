@@ -106,6 +106,7 @@ public class UTGGenerator extends BaseGenerator {
 		ListResource externalManifest = ListResourceExt.createManifestList("External Rendering Manifest", "external-Rendering");
 		ListResource fhirManifest = ListResourceExt.createManifestList("FHIR Rendering Manifest", "fhir-Rendering");
 		ListResource cdaManifest = ListResourceExt.createManifestList("CDA Rendering Manifest", "cda-Rendering");
+		ListResource nsManifest = ListResourceExt.createManifestList("Naming Systems Manifest", "namingSystems-Rendering");
 		
 		v2.loadTables();
 		v3.loadMif();
@@ -113,7 +114,7 @@ public class UTGGenerator extends BaseGenerator {
 		v2.generateTables(v2Publishing);
 		v2.generateCodeSystems(v2Publishing, externalManifest);
 
-		v3.generateCodeSystems(v3Publishing, externalManifest);
+		v3.generateCodeSystems(v3Publishing, externalManifest, nsManifest);
 		v3.generateValueSets(v3Publishing);
 		generateConceptDomains(unifiedManifest);
 		generateStaticUnifiedCodeSystems(unifiedManifest);
@@ -121,13 +122,19 @@ public class UTGGenerator extends BaseGenerator {
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Publishing.xml"), v2Publishing);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Publishing.xml"), v3Publishing);
 
+		v2Publishing.setTitle("V2 Rendering Manifest");
+		v2Publishing.setId("v2-rendering");
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Rendering.xml"), v2Publishing);
+
+		v3Publishing.setTitle("V3 Rendering Manifest");
+		v3Publishing.setId("v3-rendering");
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Rendering.xml"), v3Publishing);
 		
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "unified-Rendering.xml"), unifiedManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "external-Rendering.xml"), externalManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Rendering.xml"), fhirManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "cda-Rendering.xml"), cdaManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "namingSystems-Rendering.xml"), nsManifest);
 
 		writeExternalManifestFiles();
 		
