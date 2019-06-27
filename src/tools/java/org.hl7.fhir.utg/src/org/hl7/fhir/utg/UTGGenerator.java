@@ -24,6 +24,8 @@ import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.PropertyType;
+import org.hl7.fhir.r4.model.CodeableConcept;
+import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
@@ -100,14 +102,14 @@ public class UTGGenerator extends BaseGenerator {
 	}
 
 	private void execute() throws Exception {
-		ListResource v2Publishing = ListResourceExt.createManifestList("V2 Publishing Manifest", "v2-Publishing");
-		ListResource v3Publishing = ListResourceExt.createManifestList("V3 Publishing Manifest", "v3-Publishing");
-		ListResource unifiedManifest = ListResourceExt.createManifestList("Unified Rendering Manifest", "unified-Rendering");
-		ListResource externalManifest = ListResourceExt.createManifestList("External Rendering Manifest", "external-Rendering");
-		ListResource fhirManifest = ListResourceExt.createManifestList("FHIR Rendering Manifest", "fhir-Rendering");
-		ListResource fhirNormativeManifest = ListResourceExt.createManifestList("FHIR Normative Manifest", "fhir-Normative");
-		ListResource cdaManifest = ListResourceExt.createManifestList("CDA Rendering Manifest", "cda-Rendering");
-		ListResource nsManifest = ListResourceExt.createManifestList("Naming Systems Manifest", "namingSystems-Rendering");
+		ListResource v2Publishing = createManifestList("V2 Publishing Manifest", "v2-Publishing");
+		ListResource v3Publishing = createManifestList("V3 Publishing Manifest", "v3-Publishing");
+		ListResource unifiedManifest = createManifestList("Unified Rendering Manifest", "unified-Rendering");
+		ListResource externalManifest = createManifestList("External Rendering Manifest", "external-Rendering");
+		ListResource fhirManifest = createManifestList("FHIR Rendering Manifest", "fhir-Rendering");
+		ListResource fhirNormativeManifest = createManifestList("FHIR Normative Manifest", "fhir-Normative");
+		ListResource cdaManifest = createManifestList("CDA Rendering Manifest", "cda-Rendering");
+		ListResource nsManifest = createManifestList("Naming Systems Manifest", "namingSystems-Rendering");
 		
 		v2.loadTables();
 		v3.loadMif();
@@ -272,4 +274,13 @@ public class UTGGenerator extends BaseGenerator {
 		System.out.println("Manifest '" + manifestName + "' saved");
 	}
 
+	private static ListResource createManifestList(String title, String id) throws Exception {
+		ListResource manifest = ListResourceExt.createManifestList(title, id);
+		
+		manifest.setCode(new CodeableConcept().addCoding(new Coding().setSystem("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra").setCode("UTGCTGManifest")));
+		manifest.setOrderedBy(new CodeableConcept().addCoding(new Coding().setSystem("http://terminology.hl7.org/CodeSystem/list-order").setCode("alphabetic")));
+		
+		return manifest;
+	}
+	
 }
