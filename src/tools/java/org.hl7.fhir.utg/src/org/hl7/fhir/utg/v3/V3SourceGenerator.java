@@ -626,6 +626,8 @@ public class V3SourceGenerator extends BaseGenerator {
 					for (String propertyName : additionalProperties.keySet()) {
 						cs.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
 					}
+					// Do not add text block - will be auto-generated
+					/*
 					XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
 					html.setName("div");
 					if (cs.hasLanguage()) {
@@ -633,6 +635,7 @@ public class V3SourceGenerator extends BaseGenerator {
 					}
 					cs.getText().setDiv(html);
 					cs.getText().setStatus(NarrativeStatus.GENERATED);
+					*/
 				}
 			} else
 				throw new Exception("Unprocessed element " + child.getNodeName());

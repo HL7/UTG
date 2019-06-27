@@ -105,6 +105,7 @@ public class UTGGenerator extends BaseGenerator {
 		ListResource unifiedManifest = ListResourceExt.createManifestList("Unified Rendering Manifest", "unified-Rendering");
 		ListResource externalManifest = ListResourceExt.createManifestList("External Rendering Manifest", "external-Rendering");
 		ListResource fhirManifest = ListResourceExt.createManifestList("FHIR Rendering Manifest", "fhir-Rendering");
+		ListResource fhirNormativeManifest = ListResourceExt.createManifestList("FHIR Normative Manifest", "fhir-Normative");
 		ListResource cdaManifest = ListResourceExt.createManifestList("CDA Rendering Manifest", "cda-Rendering");
 		ListResource nsManifest = ListResourceExt.createManifestList("Naming Systems Manifest", "namingSystems-Rendering");
 		
@@ -133,6 +134,7 @@ public class UTGGenerator extends BaseGenerator {
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "unified-Rendering.xml"), unifiedManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "external-Rendering.xml"), externalManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Rendering.xml"), fhirManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Normative.xml"), fhirNormativeManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "cda-Rendering.xml"), cdaManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "namingSystems-Rendering.xml"), nsManifest);
 

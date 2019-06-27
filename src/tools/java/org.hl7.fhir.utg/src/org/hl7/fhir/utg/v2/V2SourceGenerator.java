@@ -1053,7 +1053,7 @@ public class V2SourceGenerator extends BaseGenerator {
 			}
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), outputResource);
 			v2manifest.addEntry(manifestEntry);
-			
+
 			findUndefinedConceptProperties(cs);
 		}
 
