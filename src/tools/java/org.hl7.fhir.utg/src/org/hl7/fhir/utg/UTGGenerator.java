@@ -32,6 +32,7 @@ import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.utg.external.ExternalProvider;
+import org.hl7.fhir.utg.fhir.FHIRSourceGenerator;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utg.v2.V2SourceGenerator;
 import org.hl7.fhir.utg.v3.V3SourceGenerator;
@@ -50,12 +51,12 @@ public class UTGGenerator extends BaseGenerator {
 	public static void main(String[] args) throws Exception {
 
 		String problems = "";
-		if (args.length > 4) {
-			System.out.println("Warning: Only four arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, External Provider Manifest filename. Additional arguments will be ignored.");
+		if (args.length > 5) {
+			System.out.println("Warning: Only five arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, FHIR Source URL, External Provider Manifest filename. Additional arguments will be ignored.");
 		}
 		
-		if (args.length < 3) {
-			problems += "\t- Four arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, External Provider Manifest filename.\n";
+		if (args.length < 5) {
+			problems += "\t- Five arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, FHIR Source URL, External Provider Manifest filename.\n";
 		} else {
 			if (!Files.isDirectory(Paths.get(args[0]))) {
 				problems += "\t- Specified output folder does not exist or is not a directory.\n";
@@ -66,7 +67,7 @@ public class UTGGenerator extends BaseGenerator {
 			if (Files.notExists(Paths.get(args[2]))) {
 				problems += "\t- Specified V3 Coremif file does not exist.\n";
 			}
-			if (Files.notExists(Paths.get(args[3]))) {
+			if (Files.notExists(Paths.get(args[4]))) {
 				problems += "\t- Specified External Provider Manifest file does not exist.\n";
 			}
 		}
@@ -75,8 +76,9 @@ public class UTGGenerator extends BaseGenerator {
 			String dest = args[0]; // the vocabulary repository to populate
 			String v2source = args[1]; // access database name
 			String v3source = args[2]; // MIF file name
-			String externalProviderManifest = args[3]; // External Provider Manifest
-			new UTGGenerator(dest, v2source, v3source, externalProviderManifest).execute();
+			String fhirSourceUrl = args[3]; // FHIR Source URL
+			String externalProviderManifest = args[4]; // External Provider Manifest
+			new UTGGenerator(dest, v2source, v3source, fhirSourceUrl, externalProviderManifest).execute();
 		} else {
 			System.out.println("One or more problems exist with the specified parameters:\n" + problems);
 		}
@@ -86,9 +88,10 @@ public class UTGGenerator extends BaseGenerator {
 	private Date currentVersionDate;
 	private V3SourceGenerator v3;
 	private V2SourceGenerator v2;
+	private FHIRSourceGenerator fhirGenerator;
 	private Map<String, ExternalProvider> externalProviders;
 	
-	public UTGGenerator(String dest, String v2source, String v3source, String externalProviderManifest) throws IOException, ClassNotFoundException,
+	public UTGGenerator(String dest, String v2source, String v3source, String fhirSourceUrl, String externalProviderManifest) throws IOException, ClassNotFoundException,
 			SQLException, FHIRException, SAXException, ParserConfigurationException {
 		super(dest, new HashMap<String, CodeSystem>(), new HashSet<String>());
 		createMissingOutputFolders();
@@ -96,9 +99,11 @@ public class UTGGenerator extends BaseGenerator {
 		externalProviders = ExternalProvider.getExternalProviders(externalProviderManifest);
 		v2 = new V2SourceGenerator(dest, csmap, knownCS);
 		v3 = new V3SourceGenerator(dest, csmap, knownCS, externalProviders);
+		fhirGenerator = new FHIRSourceGenerator(dest, csmap, knownCS);
 		
 		v2.load(v2source);
 		v3.load(v3source);
+		fhirGenerator.load(fhirSourceUrl);
 	}
 
 	private void execute() throws Exception {
@@ -121,6 +126,8 @@ public class UTGGenerator extends BaseGenerator {
 		v3.generateValueSets(v3Publishing);
 		generateConceptDomains(unifiedManifest);
 		generateStaticUnifiedCodeSystems(unifiedManifest);
+
+		fhirGenerator.generateCodeSystems(fhirManifest, fhirNormativeManifest);
 		
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Publishing.xml"), v2Publishing);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Publishing.xml"), v3Publishing);

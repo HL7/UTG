@@ -391,18 +391,6 @@ public class OIDLookup {
 	};
 	
 	
-	private static final Set<String> OID_FHIR_NORMATIVE = new HashSet<String>() {
-		private static final long serialVersionUID = 1L;
-		{
-			// add("some OID");
-			add("2.16.840.1.113883.4.642.1.1048");
-			add("2.16.840.1.113883.4.642.1.1191");
-			add("2.16.840.1.113883.4.642.1.1080");
-			add("2.16.840.1.113883.4.642.1.1079");
-		}
-		
-	};
-	
 /*	private static final Set<String> OID_DO_NOT_GENERATE = new HashSet<String>() {
 		private static final long serialVersionUID = 1L;
 		{
@@ -613,14 +601,6 @@ public class OIDLookup {
 	
 	public static boolean hasContent(String oid) {
 		return !OID_NO_CONTENT.contains(oid);
-	}
-	
-	public static boolean fhirNormative(String oid) {
-		return OID_FHIR_NORMATIVE.contains(oid);
-	}
-	
-	public static boolean fhirCodeSystem(String url) {
-		return url != null && url.toLowerCase().startsWith("http://terminology.hl7.org/codesystem/");
 	}
 	
 }
