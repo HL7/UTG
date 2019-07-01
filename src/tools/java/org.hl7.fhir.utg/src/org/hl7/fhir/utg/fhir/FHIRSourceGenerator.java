@@ -82,6 +82,7 @@ public class FHIRSourceGenerator extends BaseGenerator {
 
 			Resource resource = new XmlParser().parse(inputStream);
 
+			
 			if (resource instanceof CodeSystem) {
 				CodeSystem cs = (CodeSystem) resource;
 				Extension standardsStatusExt = cs.getExtensionByUrl(
@@ -94,7 +95,7 @@ public class FHIRSourceGenerator extends BaseGenerator {
 				if (isExternal) {
 					codeSystemCount++;
 					// Do any massaging here
-
+					
 					// Write resource to file
 					String resourcePath = Utilities.path(dest, FolderNameConstants.FHIR, cs.getId()) + ".xml";
 					new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
@@ -112,19 +113,6 @@ public class FHIRSourceGenerator extends BaseGenerator {
 
 		System.out.println("Generated " + codeSystemCount + " FHIR CodeSystems, " + normativeCount + " Normative");
 	}
-
-	/*
-	 * private static String readUrl(String sourceUrl) throws IOException {
-	 * 
-	 * StringBuilder sb = new StringBuilder();
-	 * 
-	 * URL url = new URL(sourceUrl); BufferedReader read = new BufferedReader( new
-	 * InputStreamReader(url.openStream())); String line; while ((line =
-	 * read.readLine()) != null) { sb.append(line); // System.out.println(line); }
-	 * read.close();
-	 * 
-	 * return sb.toString(); }
-	 */
 
 	public String innerXml(Node node) {
 		DOMImplementationLS lsImpl = (DOMImplementationLS) node.getOwnerDocument().getImplementation().getFeature("LS",
