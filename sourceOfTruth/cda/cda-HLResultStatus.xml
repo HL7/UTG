@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet
-    xmlns="http://hl7.org/fhir">
-    <id value="cda-HLResultStatus"/>
-    <meta id="5508"/>
-    <url value="http://terminology.hl7.org/ValueSet/cda-HLResultStatus"/>
-    <identifier>
-        <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:oid:2.16.840.1.113883.21.55"/>
-    </identifier>
-    <name value="HLResultStatus"/>
-    <title value="HL7 Result Status"/>
-    <status value="draft"/>
-    <description value="Concepts which specify a status of results for an order. (HL7 V2 Table0123)"/>
-    <compose>
-        <include>
-            <system value="http://terminology.hl7.org/CodeSystem/2.16.840.1.113883.18.51"/>
-            <concept>
-                <code value="A"/>
-                <display value="Some, but not all, results available"/>
-            </concept>
-            <concept>
-                <code value="C"/>
-                <display value="Correction to results"/>
-            </concept>
-            <concept>
-                <code value="F"/>
-                <display value="Final results; results stored and verified. Can only be changed with a corrected result."/>
-            </concept>
-            <concept>
-                <code value="I"/>
-                <display value="No results available; specimen received, procedure incomplete"/>
-            </concept>
-            <concept>
-                <code value="O"/>
-                <display value="Order received; specimen not yet received"/>
-            </concept>
-            <concept>
-                <code value="P"/>
-                <display value="Preliminary: A verified early result is available, final results not yet obtained"/>
-            </concept>
-            <concept>
-                <code value="R"/>
-                <display value="Results stored; not yet verified"/>
-            </concept>
-            <concept>
-                <code value="S"/>
-                <display value="No results available; procedure scheduled, but not done"/>
-            </concept>
-            <concept>
-                <code value="X"/>
-                <display value="No results available; Order canceled."/>
-            </concept>
-            <concept>
-                <code value="Y"/>
-                <display value="No order on record for this test. (Used only on queries)"/>
-            </concept>
-            <concept>
-                <code value="Z"/>
-                <display value="No record of this patient. (Used only on queries)"/>
-            </concept>
-            <concept>
-                <code value="M"/>
-                <display value="A result under an order, that has not yet been finalized has been corrected"/>
-            </concept>
-        </include>
-    </compose>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="cda-HLResultStatus"/>
+  <meta id="5508"/>
+  <url value="http://terminology.hl7.org/ValueSet/cda-HLResultStatus"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.21.55"/>
+  </identifier>
+  <name value="HLResultStatus"/>
+  <title value="HL7 Result Status"/>
+  <status value="draft"/>
+  <description value="Concepts which specify a status of results for an order. (HL7 V2 Table0123)"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/2.16.840.1.113883.18.51"/>
+      <concept>
+        <code value="A"/>
+        <display value="Some, but not all, results available"/>
+      </concept>
+      <concept>
+        <code value="C"/>
+        <display value="Correction to results"/>
+      </concept>
+      <concept>
+        <code value="F"/>
+        <display value="Final results; results stored and verified. Can only be changed with a corrected result."/>
+      </concept>
+      <concept>
+        <code value="I"/>
+        <display value="No results available; specimen received, procedure incomplete"/>
+      </concept>
+      <concept>
+        <code value="O"/>
+        <display value="Order received; specimen not yet received"/>
+      </concept>
+      <concept>
+        <code value="P"/>
+        <display value="Preliminary: A verified early result is available, final results not yet obtained"/>
+      </concept>
+      <concept>
+        <code value="R"/>
+        <display value="Results stored; not yet verified"/>
+      </concept>
+      <concept>
+        <code value="S"/>
+        <display value="No results available; procedure scheduled, but not done"/>
+      </concept>
+      <concept>
+        <code value="X"/>
+        <display value="No results available; Order canceled."/>
+      </concept>
+      <concept>
+        <code value="Y"/>
+        <display value="No order on record for this test. (Used only on queries)"/>
+      </concept>
+      <concept>
+        <code value="Z"/>
+        <display value="No record of this patient. (Used only on queries)"/>
+      </concept>
+      <concept>
+        <code value="M"/>
+        <display value="A result under an order, that has not yet been finalized has been corrected"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

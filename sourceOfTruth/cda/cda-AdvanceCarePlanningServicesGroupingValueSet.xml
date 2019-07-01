@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet
-    xmlns="http://hl7.org/fhir">
-    <id value="cda-AdvanceCarePlanningServicesGroupingValueSet"/>
-    <meta id="4412"/>
-    <url value="http://terminology.hl7.org/ValueSet/cda-AdvanceCarePlanningServicesGroupingValueSet"/>
-    <identifier>
-        <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:oid:2.16.840.1.113883.11.20.9.69.1.3"/>
-    </identifier>
-    <name value="AdvanceCarePlanningServicesGroupingValueSet"/>
-    <title value="Advance Care Planning Services Grouping Value Set"/>
-    <status value="draft"/>
-    <description value="This value set includes concepts that describe the type of advance care planning services. It groups value sets that express these concepts in SNOMED CT and CPT.&#xA;&#xA;Concepts from the Advance Care Planning Services Value Set can be used with the serviceEvent/code element in the header of the Summary of Care document when such services have been provided during the encounter."/>
-    <compose>
-        <include>
-            <system value="http://snomed.info/sct"/>
-            <concept>
-                <code value="713603004"/>
-                <display value="Advance care planning (procedure)"/>
-            </concept>
-            <concept>
-                <code value="713662007"/>
-                <display value="Discussion about advance care planning (procedure)"/>
-            </concept>
-            <concept>
-                <code value="713604005"/>
-                <display value="Education about advance care planning (procedure)"/>
-            </concept>
-        </include>
-        <include>
-            <system value="http://www.ama-assn.org/go/cpt"/>
-            <concept>
-                <code value="99497"/>
-                <display value="Advance care planning - first 30 minutes"/>
-            </concept>
-            <concept>
-                <code value="99498"/>
-                <display value="Advance care planning - each additional 30 minutes"/>
-            </concept>
-        </include>
-    </compose>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="cda-AdvanceCarePlanningServicesGroupingValueSet"/>
+  <meta id="4412"/>
+  <url value="http://terminology.hl7.org/ValueSet/cda-AdvanceCarePlanningServicesGroupingValueSet"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.11.20.9.69.1.3"/>
+  </identifier>
+  <name value="AdvanceCarePlanningServicesGroupingValueSet"/>
+  <title value="Advance Care Planning Services Grouping Value Set"/>
+  <status value="draft"/>
+  <description value="This value set includes concepts that describe the type of advance care planning services. It groups value sets that express these concepts in SNOMED CT and CPT.&#xA;&#xA;Concepts from the Advance Care Planning Services Value Set can be used with the serviceEvent/code element in the header of the Summary of Care document when such services have been provided during the encounter."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="713603004"/>
+        <display value="Advance care planning (procedure)"/>
+      </concept>
+      <concept>
+        <code value="713662007"/>
+        <display value="Discussion about advance care planning (procedure)"/>
+      </concept>
+      <concept>
+        <code value="713604005"/>
+        <display value="Education about advance care planning (procedure)"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://www.ama-assn.org/go/cpt"/>
+      <concept>
+        <code value="99497"/>
+        <display value="Advance care planning - first 30 minutes"/>
+      </concept>
+      <concept>
+        <code value="99498"/>
+        <display value="Advance care planning - each additional 30 minutes"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>
