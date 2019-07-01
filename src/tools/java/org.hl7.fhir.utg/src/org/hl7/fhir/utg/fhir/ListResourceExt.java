@@ -10,6 +10,7 @@ import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
+import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.utilities.Utilities;;
 
@@ -47,6 +48,10 @@ public class ListResourceExt {
 		return entry;
 	}	
 
+	public static ListEntryComponent createNamingSystemListEntry(NamingSystem resource) {
+		return createListEntry(resource.getUrl(), null, ResourceType.NAMINGSYSTEM.getDisplay());
+	}
+	
 	public static ListEntryComponent createCodeSystemListEntry(CodeSystem resource) {	
 		return createListEntry(resource.getUrl(), null, ResourceType.CODESYSTEM.getDisplay());
 	}

@@ -36,6 +36,7 @@ import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.IntegerType;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
+import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.r4.model.ValueSet;
@@ -889,14 +890,14 @@ public class V2SourceGenerator extends BaseGenerator {
 		return count;
 	}
 
-	public void generateCodeSystems(ListResource v2manifest) throws Exception {
+	public void generateCodeSystems(ListResource v2manifest, ListResource externalManifest) throws Exception {
 		int c = 0;
 		int h = 0;
 
 		for (String n : sorted(tables.keySet())) {
 			if (!n.equals("0000")) {
 				Table t = tables.get(n);
-				generateCodeSystem(t, v2manifest);
+				generateCodeSystem(t, v2manifest, externalManifest);
 			}
 		}
 
@@ -908,7 +909,7 @@ public class V2SourceGenerator extends BaseGenerator {
 	}
 
 
-	private void generateCodeSystem(Table t, ListResource v2manifest)
+	private void generateCodeSystem(Table t, ListResource v2manifest, ListResource externalManifest)
 			throws FileNotFoundException, IOException {
 
 		TableVersion tv = t.master;
@@ -1035,15 +1036,24 @@ public class V2SourceGenerator extends BaseGenerator {
 		// Only write code systems if not value set only 
 		// per Ted
 		if (!t.isValueSetOnlyTable()) {
-		
-			String resourcePath = (t.isInternalCsOid())?  
-					Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml" :
-					Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
-		 
-			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
-			ListEntryComponent csEntry = ListResourceExt.createCodeSystemListEntry(cs, (String) null);
-			v2manifest.addEntry(csEntry);
-			
+			ListEntryComponent manifestEntry = ListResourceExt.createCodeSystemListEntry(cs);
+			String resourcePath = Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
+			Resource outputResource = cs;
+			if (!t.isInternalCsOid()) {
+				//if (cs.hasConcept()) {
+					resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
+				//} else {
+				//	NamingSystem ns = new NamingSystem(cs);
+				//	manifestEntry = ListResourceExt.createNamingSystemListEntry(ns);
+				//	outputResource = ns;
+				//	//resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.NAMINGSYSTEMS, "cs-" + cs.getId()) + ".xml";
+				//	resourcePath = Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS, "cs-" + cs.getId()) + ".xml";
+				//}
+				externalManifest.addEntry(manifestEntry);
+			}
+			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), outputResource);
+			v2manifest.addEntry(manifestEntry);
+
 			findUndefinedConceptProperties(cs);
 		}
 
@@ -1250,7 +1260,7 @@ public class V2SourceGenerator extends BaseGenerator {
 				.setType(PropertyType.STRING).setDescription("OID For Table");
 		cs.addProperty().setCode("csoid").setUri("http://terminology.hl7.org/csprop/csoid").setType(PropertyType.STRING)
 				.setDescription("OID For Code System");
-		cs.addProperty().setCode("csoid").setUri("http://terminology.hl7.org/csprop/csuri").setType(PropertyType.STRING)
+		cs.addProperty().setCode("csuri").setUri("http://terminology.hl7.org/csprop/csuri").setType(PropertyType.STRING)
 				.setDescription("URI For Code System");
 		cs.addProperty().setCode("vsoid").setUri("http://terminology.hl7.org/csprop/vsoid").setType(PropertyType.STRING)
 				.setDescription("OID For Value Set");

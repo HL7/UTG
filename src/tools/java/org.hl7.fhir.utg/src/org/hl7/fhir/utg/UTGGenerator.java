@@ -24,12 +24,15 @@ import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.PropertyType;
+import org.hl7.fhir.r4.model.CodeableConcept;
+import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.utg.external.ExternalProvider;
+import org.hl7.fhir.utg.fhir.FHIRSourceGenerator;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utg.v2.V2SourceGenerator;
 import org.hl7.fhir.utg.v3.V3SourceGenerator;
@@ -48,12 +51,12 @@ public class UTGGenerator extends BaseGenerator {
 	public static void main(String[] args) throws Exception {
 
 		String problems = "";
-		if (args.length > 4) {
-			System.out.println("Warning: Only four arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, External Provider Manifest filename. Additional arguments will be ignored.");
+		if (args.length > 5) {
+			System.out.println("Warning: Only five arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, FHIR Source URL, External Provider Manifest filename. Additional arguments will be ignored.");
 		}
 		
-		if (args.length < 3) {
-			problems += "\t- Four arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, External Provider Manifest filename.\n";
+		if (args.length < 5) {
+			problems += "\t- Five arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, FHIR Source URL, External Provider Manifest filename.\n";
 		} else {
 			if (!Files.isDirectory(Paths.get(args[0]))) {
 				problems += "\t- Specified output folder does not exist or is not a directory.\n";
@@ -64,7 +67,7 @@ public class UTGGenerator extends BaseGenerator {
 			if (Files.notExists(Paths.get(args[2]))) {
 				problems += "\t- Specified V3 Coremif file does not exist.\n";
 			}
-			if (Files.notExists(Paths.get(args[3]))) {
+			if (Files.notExists(Paths.get(args[4]))) {
 				problems += "\t- Specified External Provider Manifest file does not exist.\n";
 			}
 		}
@@ -73,8 +76,9 @@ public class UTGGenerator extends BaseGenerator {
 			String dest = args[0]; // the vocabulary repository to populate
 			String v2source = args[1]; // access database name
 			String v3source = args[2]; // MIF file name
-			String externalProviderManifest = args[3]; // External Provider Manifest
-			new UTGGenerator(dest, v2source, v3source, externalProviderManifest).execute();
+			String fhirSourceUrl = args[3]; // FHIR Source URL
+			String externalProviderManifest = args[4]; // External Provider Manifest
+			new UTGGenerator(dest, v2source, v3source, fhirSourceUrl, externalProviderManifest).execute();
 		} else {
 			System.out.println("One or more problems exist with the specified parameters:\n" + problems);
 		}
@@ -84,9 +88,10 @@ public class UTGGenerator extends BaseGenerator {
 	private Date currentVersionDate;
 	private V3SourceGenerator v3;
 	private V2SourceGenerator v2;
+	private FHIRSourceGenerator fhirGenerator;
 	private Map<String, ExternalProvider> externalProviders;
 	
-	public UTGGenerator(String dest, String v2source, String v3source, String externalProviderManifest) throws IOException, ClassNotFoundException,
+	public UTGGenerator(String dest, String v2source, String v3source, String fhirSourceUrl, String externalProviderManifest) throws IOException, ClassNotFoundException,
 			SQLException, FHIRException, SAXException, ParserConfigurationException {
 		super(dest, new HashMap<String, CodeSystem>(), new HashSet<String>());
 		createMissingOutputFolders();
@@ -94,33 +99,60 @@ public class UTGGenerator extends BaseGenerator {
 		externalProviders = ExternalProvider.getExternalProviders(externalProviderManifest);
 		v2 = new V2SourceGenerator(dest, csmap, knownCS);
 		v3 = new V3SourceGenerator(dest, csmap, knownCS, externalProviders);
+		fhirGenerator = new FHIRSourceGenerator(dest, csmap, knownCS);
 		
 		v2.load(v2source);
 		v3.load(v3source);
+		fhirGenerator.load(fhirSourceUrl);
 	}
 
 	private void execute() throws Exception {
-		ListResource v2manifest = ListResourceExt.createManifestList("V2 Release Manifest", "v2-Manifest");
-		ListResource v3manifest = ListResourceExt.createManifestList("V3 Release Manifest", "v3-Manifest");
+		ListResource v2Publishing = createManifestList("V2 Publishing Manifest", "v2-Publishing");
+		ListResource v3Publishing = createManifestList("V3 Publishing Manifest", "v3-Publishing");
+		ListResource unifiedManifest = createManifestList("Unified Rendering Manifest", "unified-Rendering");
+		ListResource externalManifest = createManifestList("External Rendering Manifest", "external-Rendering");
+		ListResource fhirManifest = createManifestList("FHIR Rendering Manifest", "fhir-Rendering");
+		ListResource fhirNormativeManifest = createManifestList("FHIR Normative Manifest", "fhir-Normative");
+		ListResource cdaManifest = createManifestList("CDA Rendering Manifest", "cda-Rendering");
+		ListResource nsManifest = createManifestList("Naming Systems Manifest", "namingSystems-Rendering");
 		
 		v2.loadTables();
 		v3.loadMif();
 		v2.process();
-		v2.generateTables(v2manifest);
-		v2.generateCodeSystems(v2manifest);
-		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "v2-Manifest.xml"), v2manifest);
+		v2.generateTables(v2Publishing);
+		v2.generateCodeSystems(v2Publishing, externalManifest);
 
-		generateConceptDomains(v3manifest);
-		v3.generateCodeSystems(v3manifest);
-		v3.generateValueSets(v3manifest);
-		writeManifest(Utilities.path(dest, FolderNameConstants.PUBLISH, "v3-Manifest.xml"), v3manifest);
+		v3.generateCodeSystems(v3Publishing, externalManifest, nsManifest);
+		v3.generateValueSets(v3Publishing);
+		generateConceptDomains(unifiedManifest);
+		generateStaticUnifiedCodeSystems(unifiedManifest);
+
+		fhirGenerator.generateCodeSystems(fhirManifest, fhirNormativeManifest);
 		
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Publishing.xml"), v2Publishing);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Publishing.xml"), v3Publishing);
+
+		v2Publishing.setTitle("V2 Rendering Manifest");
+		v2Publishing.setId("v2-rendering");
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Rendering.xml"), v2Publishing);
+
+		v3Publishing.setTitle("V3 Rendering Manifest");
+		v3Publishing.setId("v3-rendering");
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Rendering.xml"), v3Publishing);
+		
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "unified-Rendering.xml"), unifiedManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "external-Rendering.xml"), externalManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Rendering.xml"), fhirManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Normative.xml"), fhirNormativeManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "cda-Rendering.xml"), cdaManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "namingSystems-Rendering.xml"), nsManifest);
+
 		writeExternalManifestFiles();
 		
 		System.out.println("finished");
 	}
 
-	private void generateConceptDomains(ListResource v3manifest) throws FileNotFoundException, IOException, Exception {
+	private void generateConceptDomains(ListResource manifest) throws FileNotFoundException, IOException, Exception {
 		CodeSystem cs = new CodeSystem();
 		cs.setId("conceptdomains");
 		cs.setUrl("http://terminology.hl7.org/CodeSystem/ConceptDomain");
@@ -144,7 +176,7 @@ public class UTGGenerator extends BaseGenerator {
 		cs.addProperty().setCode("source").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
 				.setType(PropertyType.CODE);
 		cs.addProperty().setCode("ConceptualSpaceForClassCode").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
-				.setType(PropertyType.CODE);
+				.setType(PropertyType.CODING);
 		cs.addProperty().setCode("openIssue").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
 				.setType(PropertyType.STRING);
 		cs.addProperty().setCode("deprecationInfo").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
@@ -167,7 +199,18 @@ public class UTGGenerator extends BaseGenerator {
 				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS, "conceptdomains.xml")), cs);
 		System.out.println("Save conceptdomains (" + Integer.toString(count) + " found)");
 		
-		v3manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
+		manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
+	}
+	
+	private void generateStaticUnifiedCodeSystems(ListResource manifest) {
+		CodeSystem cs = new CodeSystem();
+		cs.setId("hl7TermMaintInfra");
+		cs.setUrl("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra");
+		cs.setName("Hl7TermMaintInfra");
+		cs.setTitle("HL7 Terminology Maintenance Infrastructure Vocabulary");
+		cs.setStatus(PublicationStatus.ACTIVE);
+
+		manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
 	}
 
 	private void createMissingOutputFolders() throws IOException {
@@ -177,28 +220,38 @@ public class UTGGenerator extends BaseGenerator {
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RELEASE));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.PUBLISH));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.VALUESETS)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.VALUESETS)));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CONTROL));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS));
+
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RELEASE)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.PUBLISH)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.VALUESETS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CONTROL)));
+		
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS)));
+		
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.VALUESETS)));
+
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.VALUESETS)));
+
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.VALUESETS)));
+		
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.VALUESETS)));
+		
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CDA)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CIMI)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.FHIR)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS)));
 
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CDA));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CIMI));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.FHIR));
-		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.PUBLISH));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CONTROL));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.RELEASE));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.VALUESETS));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS));
@@ -228,4 +281,13 @@ public class UTGGenerator extends BaseGenerator {
 		System.out.println("Manifest '" + manifestName + "' saved");
 	}
 
+	private static ListResource createManifestList(String title, String id) throws Exception {
+		ListResource manifest = ListResourceExt.createManifestList(title, id);
+		
+		manifest.setCode(new CodeableConcept().addCoding(new Coding().setSystem("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra").setCode("UTGCTGManifest")));
+		manifest.setOrderedBy(new CodeableConcept().addCoding(new Coding().setSystem("http://terminology.hl7.org/CodeSystem/list-order").setCode("alphabetic")));
+		
+		return manifest;
+	}
+	
 }

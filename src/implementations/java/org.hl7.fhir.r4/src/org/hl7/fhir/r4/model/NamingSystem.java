@@ -773,6 +773,29 @@ public class NamingSystem extends MetadataResource {
       this.date = date;
     }
 
+    public NamingSystem(CodeSystem cs) {
+    	super();
+    	setId(cs.getId());
+    	setName(cs.getName());
+    	setUrl(cs.getUrl());
+    	setTitle(cs.getTitle());
+    	setStatus(cs.getStatus());
+    	setKind(NamingSystemType.CODESYSTEM);
+    	setDate(cs.getDate());
+    	setPublisher(cs.getPublisher());
+    	setContact(cs.getContact());
+    	setResponsible(cs.getPublisher());
+    	setDescription(cs.getDescription());
+    	setUseContext(cs.getUseContext());
+    	setJurisdiction(cs.getJurisdiction());
+    	
+    	
+    	
+    	if (cs.hasUserData("oid")) {
+        	getUniqueId().add(new NamingSystemUniqueIdComponent().setType(NamingSystemIdentifierType.OID).setValue((String) cs.getUserData("oid")));
+    	}
+    	getUniqueId().add(new NamingSystemUniqueIdComponent().setType(NamingSystemIdentifierType.URI).setValue(cs.getUrl()));
+    }
     /**
      * @return {@link #name} (A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
