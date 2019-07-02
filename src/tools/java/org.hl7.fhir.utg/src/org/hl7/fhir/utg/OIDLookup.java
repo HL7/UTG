@@ -14,9 +14,9 @@ public class OIDLookup {
 			// V2 OIDS
 			put("2.16.840.1.113883.6.301.9"    , "http://terminology.hl7.org/CodeSystem/v3-extTmp-OCEEC"   );
 
-			put("1.0.3166.1.2.2"               , "urn:iso:std:iso:3166 "                                   );
+			put("1.0.3166.1.2.2"               , "urn:iso:std:iso:3166"                                   );
 			put("1.2.840.10008.2.16.4"         , "http://dicom.nema.org/resources/ontology/DCM"            );
-			put("1.3.160"                      , "https://www.gs1.org/gtin "                               );
+			put("1.3.160"                      , "https://www.gs1.org/gtin"                               );
 			put("2.16.840.1.113883.12.1"       , "http://terminology.hl7.org/CodeSystem/v2-0001"           );
 			put("2.16.840.1.113883.12.136"     , "http://terminology.hl7.org/CodeSystem/v2-0532"           );
 			put("2.16.840.1.113883.12.162"     , "http://terminology.hl7.org/CodeSystem/v2-0162"           );
@@ -29,37 +29,37 @@ public class OIDLookup {
 			put("2.16.840.1.113883.13.191"     , "http://www.ncbi.nlm.nih.gov/pubmed"                      );
 			put("2.16.840.1.113883.2.4.4.31.1" , "http://hl7.org/fhir/sid/icpc-1-nl"                       );
 			put("2.16.840.1.113883.3.1077"     , "http://clinicaltrials.gov"                               );
-			put("2.16.840.1.113883.3.26.1.2"   , "http://ncimeta.nci.nih.gov "                             );
+			put("2.16.840.1.113883.3.26.1.2"   , "http://ncimeta.nci.nih.gov"                             );
 			put("2.16.840.1.113883.3.3150"     , "http://www.ada.org/snodent"                              );
 			put("2.16.840.1.113883.3.912"      , "http://cancer.sanger.ac.uk/cancergenome/projects/cosmic" );
 			put("2.16.840.1.113883.3.913"      , "http://www.pharmgkb.org"                                 );
-			put("2.16.840.1.113883.4.9"        , "http://fdasis.nlm.nih.gov "                              );
+			put("2.16.840.1.113883.4.9"        , "http://fdasis.nlm.nih.gov"                              );
 			// Ted said do not generate for this oid
-			//put("2.16.840.1.113883.5.1105"     , "http://hl7.org/fhir/NamingSystem/ca-hc-din "             );
-			//put("2.16.840.1.113883.5.1105"     , "http://hl7.org/fhir/sid/ca-hc-npn "                      );
-			put("2.16.840.1.113883.6.1"        , "http://loinc.org "                                       );
-			put("2.16.840.1.113883.6.101"      , "http://nucc.org/provider-taxonomy "                      );
-			put("2.16.840.1.113883.6.12"       , "http://www.ama-assn.org/go/cpt "                         );
-			put("2.16.840.1.113883.6.139"      , "http://hl7.org/fhir/sid/icpc-2 "                         );
+			//put("2.16.840.1.113883.5.1105"     , "http://hl7.org/fhir/NamingSystem/ca-hc-din"             );
+			//put("2.16.840.1.113883.5.1105"     , "http://hl7.org/fhir/sid/ca-hc-npn"                      );
+			put("2.16.840.1.113883.6.1"        , "http://loinc.org"                                       );
+			put("2.16.840.1.113883.6.101"      , "http://nucc.org/provider-taxonomy"                      );
+			put("2.16.840.1.113883.6.12"       , "http://www.ama-assn.org/go/cpt"                         );
+			put("2.16.840.1.113883.6.139"      , "http://hl7.org/fhir/sid/icpc-2"                         );
 			put("2.16.840.1.113883.6.14"       , "http://terminology.hl7.org/CodeSystem/HCPCS"             );
 			put("2.16.840.1.113883.6.174"      , "http://www.omim.org"                                     );
-			put("2.16.840.1.113883.6.209"      , "http://hl7.org/fhir/ndfrt "                              );
-			put("2.16.840.1.113883.6.24"       , "urn:iso:std:iso:11073:10101 "                            );
-			put("2.16.840.1.113883.6.254"      , "http://hl7.org/fhir/sid/icf-nl "                         );
-			put("2.16.840.1.113883.6.256 "     , "http://www.radlex.org "                                  );
+			put("2.16.840.1.113883.6.209"      , "http://hl7.org/fhir/ndfrt"                              );
+			put("2.16.840.1.113883.6.24"       , "urn:iso:std:iso:11073:10101"                            );
+			put("2.16.840.1.113883.6.254"      , "http://hl7.org/fhir/sid/icf-nl"                         );
+			put("2.16.840.1.113883.6.256"     , "http://www.radlex.org"                                  );
 			put("2.16.840.1.113883.6.280"      , "http://www.ncbi.nlm.nih.gov/refseq/"                     );
 			put("2.16.840.1.113883.6.281"      , "http://www.genenames.org"                                );
 			put("2.16.840.1.113883.6.282"      , "http://varnomen.hgvs.org/"                               );
 			put("2.16.840.1.113883.6.283"      , "http://www.lrg-sequence.org"                             );
 			put("2.16.840.1.113883.6.284"      , "http://www.ncbi.nlm.nih.gov/projects/SNP"                );
-			put("2.16.840.1.113883.6.301.5"    , "http://www.nubc.org/patient-discharge "                  );
-			put("2.16.840.1.113883.6.341"      , "http://www.ebi.ac.uk/ipd/imgt/hla "                      );
-			put("2.16.840.1.113883.6.344"      , "http://hl7.org/fhir/sid/dsm5 "                           );
-			put("2.16.840.1.113883.6.69"       , "http://hl7.org/fhir/sid/ndc "                            );
-			put("2.16.840.1.113883.6.73"       , "http://www.whocc.no/atc "                                );
-			put("2.16.840.1.113883.6.8"        , "http://unitsofmeasure.org "                              );
+			put("2.16.840.1.113883.6.301.5"    , "http://www.nubc.org/patient-discharge"                  );
+			put("2.16.840.1.113883.6.341"      , "http://www.ebi.ac.uk/ipd/imgt/hla"                      );
+			put("2.16.840.1.113883.6.344"      , "http://hl7.org/fhir/sid/dsm5"                           );
+			put("2.16.840.1.113883.6.69"       , "http://hl7.org/fhir/sid/ndc"                            );
+			put("2.16.840.1.113883.6.73"       , "http://www.whocc.no/atc"                                );
+			put("2.16.840.1.113883.6.8"        , "http://unitsofmeasure.org"                              );
 			put("2.16.840.1.113883.6.88"       , "http://www.nlm.nih.gov/research/umls/rxnorm"             );
-			put("2.16.840.1.113883.6.96"       , "http://snomed.info/sct "                                 );	
+			put("2.16.840.1.113883.6.96"       , "http://snomed.info/sct"                                 );	
 			
 			// V3
 			put("1.0.21000.6"                  , "http://terminology.hl7.org/CodeSystem/v3-extTmp-RDD"                                                      );

@@ -35,44 +35,57 @@ public class CDASourceGenerator extends BaseGenerator {
 		File dir = new File(folder);
 		if (dir.isDirectory()) {
 			sourceFiles = dir.listFiles();
+			if (sourceFiles == null) {
+				System.out.println("There was a problem reading the CDA source folder '" + folder + "'. This may not be a valid directory.");
+			}
 		}
 	}
 
-	public void generateResources(ListResource cdaManifest) throws FHIRFormatError, IOException {
+	public void generateResources(ListResource cdaManifest) throws IOException {
 		System.out.println("Generating CDA Resources");
+		int codeSystemCount = 0;
+		int valueSetCount = 0;
+		int errorCount = 0;
+		
 		if (sourceFiles != null) {
 			for (File sourceFile : sourceFiles) {
 				InputStream inputStream = new FileInputStream(sourceFile);
-				Resource resource = new XmlParser().parse(inputStream);
+				Resource resource = null;
+				try {
+					resource = new XmlParser().parse(inputStream);
+				} catch (FHIRFormatError e) {
+					errorCount++;
+					System.out.println("FHIR Format Error parsing '" + sourceFile.getName() + "'. File will be ignored.");
+				}
 				inputStream.close();
 				
-				// Do massaging here
-				
-				// Write resource file
-				String resourcePath = Utilities.path(dest, FolderNameConstants.CDA, resource.getId()) + ".xml";
-				new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), resource);
-				
-				// Add manifest entry
-				ListEntryComponent manifestEntry = null;
-				
-				if (resource instanceof CodeSystem) {
-					manifestEntry = ListResourceExt.createCodeSystemListEntry((CodeSystem) resource);
-				} else if (resource instanceof ValueSet) {
-					manifestEntry = ListResourceExt.createValueSetListEntry((ValueSet) resource);
+				if (resource != null) {
+					// Do massaging here
+					
+					// Write resource file
+					String resourcePath = Utilities.path(dest, FolderNameConstants.CDA, resource.getId()) + ".xml";
+					new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), resource);
+					
+					// Add manifest entry
+					ListEntryComponent manifestEntry = null;
+					
+					if (resource instanceof CodeSystem) {
+						manifestEntry = ListResourceExt.createCodeSystemListEntry((CodeSystem) resource);
+						codeSystemCount++;
+					} else if (resource instanceof ValueSet) {
+						manifestEntry = ListResourceExt.createValueSetListEntry((ValueSet) resource);
+						valueSetCount++;
+					}
+					
+					if (manifestEntry != null) {
+						cdaManifest.addEntry(manifestEntry);
+					}
 				}
-				
-				if (manifestEntry != null) {
-					cdaManifest.addEntry(manifestEntry);
-				}
-				
-				
 			}
-		} else {
-			// Handle the case where dir is not really a directory.
-			// Checking dir.isDirectory() above would not be sufficient
-			// to avoid race conditions with another process that deletes
-			// directories.
 		}
+
+		System.out.println("Generated " + codeSystemCount + " CDA CodeSystems, " + valueSetCount + " ValueSets, " + errorCount + " Unreadable files");
+		
 	}
 
 	public static void main(String[] args) {
