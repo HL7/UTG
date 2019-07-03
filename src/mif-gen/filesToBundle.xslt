@@ -20,10 +20,10 @@
     </xsl:copy>
 	</xsl:template>
 	<xsl:template match="f:concept/f:property[not(*[starts-with(local-name(.), 'value')])]"/>
-	<xsl:template match="@url[.='version annotation']">
+<!--	<xsl:template match="@url[.='version annotation']">
     <xsl:attribute name="url" select="'annotation'"/>
 	</xsl:template>
 	<xsl:template match="f:id/@value[string-length(.)&gt;64]">
     <xsl:attribute name="value" select="substring(., 64)"/>
-	</xsl:template>
+	</xsl:template>-->
 </xsl:stylesheet>
