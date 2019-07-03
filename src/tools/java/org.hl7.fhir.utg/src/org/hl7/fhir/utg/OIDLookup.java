@@ -89,6 +89,7 @@ public class OIDLookup {
 			put("2.16.840.1.113883.4.80"       , "http://terminology.hl7.org/CodeSystem/v3-extTmp-GCRT"                                                     );
 			put("2.16.840.1.113883.4.81"       , "http://terminology.hl7.org/CodeSystem/v3-extTmp-gs-cpnum"                                                 );
 			put("2.16.840.1.113883.5.1102"     , "http://terminology.hl7.org/CodeSystem/v3-extTmp-opinions"                                                 );
+			// Make these next 4 unique until we get the correct URLs
 			put("2.16.840.1.113883.5.1103"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-1" );
 			put("2.16.840.1.113883.5.1104"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-2" );
 			put("2.16.840.1.113883.5.1105"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-3" );
