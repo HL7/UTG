@@ -89,10 +89,10 @@ public class OIDLookup {
 			put("2.16.840.1.113883.4.80"       , "http://terminology.hl7.org/CodeSystem/v3-extTmp-GCRT"                                                     );
 			put("2.16.840.1.113883.4.81"       , "http://terminology.hl7.org/CodeSystem/v3-extTmp-gs-cpnum"                                                 );
 			put("2.16.840.1.113883.5.1102"     , "http://terminology.hl7.org/CodeSystem/v3-extTmp-opinions"                                                 );
-			put("2.16.840.1.113883.5.1103"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database" );
-			put("2.16.840.1.113883.5.1104"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database" );
-			put("2.16.840.1.113883.5.1105"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database" );
-			put("2.16.840.1.113883.5.1106"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database" );
+			put("2.16.840.1.113883.5.1103"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-1" );
+			put("2.16.840.1.113883.5.1104"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-2" );
+			put("2.16.840.1.113883.5.1105"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-3" );
+			put("2.16.840.1.113883.5.1106"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-4" );
 			put("2.16.840.1.113883.5.53"       , "http://terminology.hl7.org/CodeSystem/v3-HealthcareProviderTaxonomyHIPAA"                                 );
 			put("2.16.840.1.113883.5.79"       , "http://terminology.hl7.org/CodeSystem/v3-extTmp-mediatypes"                                               );
 			put("2.16.840.1.113883.6.10"       , "http://www.iana.org/assignments/media-types"                                                              );
