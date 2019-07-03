@@ -8,14 +8,12 @@
   </xsl:template>
   <xsl:template match="vocabularyModel">
     <xsl:copy>
-<!-- Todo: put these back
       <xsl:apply-templates select="@*|packageLocation|header"/>
       <xsl:for-each select="conceptDomain">
         <xsl:sort select="@name"/>
         <xsl:apply-templates select="."/>
       </xsl:for-each>
-      <xsl:apply-templates select="codeSystem|valueSet"/>-->
-      <xsl:apply-templates select="valueSet"/>
+      <xsl:apply-templates select="codeSystem|valueSet"/>
     </xsl:copy>
   </xsl:template>
   <xsl:template match="releasedVersion">
@@ -65,6 +63,9 @@
   <xsl:template match="conceptDomain/annotations/appInfo|conceptDomain/historyItem"/>
   <xsl:template match="@publisherVersionId"/>
   <xsl:template match="conceptProperty[@name='status' and @value='retired']"/>
-  <xsl:template match="codeSystem[releasedVersion/@hl7MaintainedIndicator='false']"/>
-  <xsl:template match="@includeHeadCode|valueSetRef/@name|unionWithContent[valueSetRef]/@codeSystem|content[combinedContent]/@codeSystem"/>
+<!--  <xsl:template match="codeSystem[releasedVersion/@hl7MaintainedIndicator='false']"/>
+  <xsl:template match="valueSet[not(descendant::valueSetRef)]"/>-->
+  <xsl:template priority="5" match="comment()"/>
+  <xsl:template match="@includeHeadCode|valueSetRef/@name|content[valueSetRef]/@codeSystem|unionWithContent[valueSetRef]/@codeSystem|content[combinedContent]/@codeSystem"/>
+<!--  <xsl:template match="@includeHeadCode|valueSetRef/@name|unionWithContent[valueSetRef]/@codeSystem|content[combinedContent]/@codeSystem"/>-->
 </xsl:stylesheet>
