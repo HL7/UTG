@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet
-    xmlns="http://hl7.org/fhir">
-    <id value="cda-HLRelationshipConjunction"/>
-    <meta id="5512"/>
-    <url value="http://terminology.hl7.org/ValueSet/cda-HLRelationshipConjunction"/>
-    <identifier>
-        <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:oid:2.16.840.1.113883.1.11.10365"/>
-    </identifier>
-    <name value="HLRelationshipConjunction"/>
-    <title value="HL7RelationshipConjunction"/>
-    <status value="draft"/>
-    <description value="A code specifying the logical conjunction of the criteria among all the condition-links of Acts (e.g., and, or, exclusive-or.)&#xA;&#xA;Constraints: All AND criteria must be true. If OR and AND criteria occur together, one criterion out of the OR-group must be true and all AND criteria must be true also. If XOR criteria occur together with OR and AND criteria, exactly one of the XOR criteria must be true, and at least one of the OR criteria and all AND criteria must be true. In other words, the sets of AND, OR, and XOR criteria are in turn combined by a logical AND operator (all AND criteria and at least one OR criterion and exactly one XOR criterion.) To overcome this ordering, Act criteria can be nested in any way necessary."/>
-    <compose>
-        <include>
-            <system value="http://terminology.hl7.org/CodeSystem/v3-RelationshipConjunction"/>
-            <concept>
-                <code value="AND"/>
-                <display value="and"/>
-            </concept>
-            <concept>
-                <code value="OR"/>
-                <display value="or"/>
-            </concept>
-            <concept>
-                <code value="XOR"/>
-                <display value="exclusive or"/>
-            </concept>
-        </include>
-    </compose>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="cda-HLRelationshipConjunction"/>
+  <meta id="5512"/>
+  <url value="http://terminology.hl7.org/ValueSet/cda-HLRelationshipConjunction"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.10365"/>
+  </identifier>
+  <name value="HLRelationshipConjunction"/>
+  <title value="HL7RelationshipConjunction"/>
+  <status value="active"/>
+  <description value="A code specifying the logical conjunction of the criteria among all the condition-links of Acts (e.g., and, or, exclusive-or.)&#xA;&#xA;Constraints: All AND criteria must be true. If OR and AND criteria occur together, one criterion out of the OR-group must be true and all AND criteria must be true also. If XOR criteria occur together with OR and AND criteria, exactly one of the XOR criteria must be true, and at least one of the OR criteria and all AND criteria must be true. In other words, the sets of AND, OR, and XOR criteria are in turn combined by a logical AND operator (all AND criteria and at least one OR criterion and exactly one XOR criterion.) To overcome this ordering, Act criteria can be nested in any way necessary."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RelationshipConjunction"/>
+      <concept>
+        <code value="AND"/>
+        <display value="and"/>
+      </concept>
+      <concept>
+        <code value="OR"/>
+        <display value="or"/>
+      </concept>
+      <concept>
+        <code value="XOR"/>
+        <display value="exclusive or"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

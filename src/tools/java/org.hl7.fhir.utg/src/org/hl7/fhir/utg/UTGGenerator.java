@@ -31,6 +31,7 @@ import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
+import org.hl7.fhir.utg.cda.CDASourceGenerator;
 import org.hl7.fhir.utg.external.ExternalProvider;
 import org.hl7.fhir.utg.fhir.FHIRSourceGenerator;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
@@ -51,12 +52,12 @@ public class UTGGenerator extends BaseGenerator {
 	public static void main(String[] args) throws Exception {
 
 		String problems = "";
-		if (args.length > 5) {
-			System.out.println("Warning: Only five arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, FHIR Source URL, External Provider Manifest filename. Additional arguments will be ignored.");
+		if (args.length > 6) {
+			System.out.println("Warning: Only six arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, FHIR Source URL, CDA Source Folder, External Provider Manifest filename. Additional arguments will be ignored.");
 		}
 		
-		if (args.length < 5) {
-			problems += "\t- Five arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, FHIR Source URL, External Provider Manifest filename.\n";
+		if (args.length < 6) {
+			problems += "\t- Six arguments are required: Output Folder, V2 Access DB filename, V3 Coremif filename, FHIR Source URL, CDA Source Folder, External Provider Manifest filename.\n";
 		} else {
 			if (!Files.isDirectory(Paths.get(args[0]))) {
 				problems += "\t- Specified output folder does not exist or is not a directory.\n";
@@ -68,6 +69,9 @@ public class UTGGenerator extends BaseGenerator {
 				problems += "\t- Specified V3 Coremif file does not exist.\n";
 			}
 			if (Files.notExists(Paths.get(args[4]))) {
+				problems += "\t- Specified CDA source folder does not exist.\n";
+			}
+			if (Files.notExists(Paths.get(args[5]))) {
 				problems += "\t- Specified External Provider Manifest file does not exist.\n";
 			}
 		}
@@ -77,8 +81,10 @@ public class UTGGenerator extends BaseGenerator {
 			String v2source = args[1]; // access database name
 			String v3source = args[2]; // MIF file name
 			String fhirSourceUrl = args[3]; // FHIR Source URL
-			String externalProviderManifest = args[4]; // External Provider Manifest
-			new UTGGenerator(dest, v2source, v3source, fhirSourceUrl, externalProviderManifest).execute();
+			String cdaSourceFolder = args[4]; // CDA Source Folder
+			String externalProviderManifest = args[5]; // External Provider Manifest
+			
+			new UTGGenerator(dest, v2source, v3source, fhirSourceUrl, cdaSourceFolder, externalProviderManifest).execute();
 		} else {
 			System.out.println("One or more problems exist with the specified parameters:\n" + problems);
 		}
@@ -89,9 +95,10 @@ public class UTGGenerator extends BaseGenerator {
 	private V3SourceGenerator v3;
 	private V2SourceGenerator v2;
 	private FHIRSourceGenerator fhirGenerator;
+	private CDASourceGenerator cdaGenerator;
 	private Map<String, ExternalProvider> externalProviders;
 	
-	public UTGGenerator(String dest, String v2source, String v3source, String fhirSourceUrl, String externalProviderManifest) throws IOException, ClassNotFoundException,
+	public UTGGenerator(String dest, String v2source, String v3source, String fhirSourceUrl, String cdaSourceFolder, String externalProviderManifest) throws IOException, ClassNotFoundException,
 			SQLException, FHIRException, SAXException, ParserConfigurationException {
 		super(dest, new HashMap<String, CodeSystem>(), new HashSet<String>());
 		createMissingOutputFolders();
@@ -100,10 +107,12 @@ public class UTGGenerator extends BaseGenerator {
 		v2 = new V2SourceGenerator(dest, csmap, knownCS);
 		v3 = new V3SourceGenerator(dest, csmap, knownCS, externalProviders);
 		fhirGenerator = new FHIRSourceGenerator(dest, csmap, knownCS);
+		cdaGenerator = new CDASourceGenerator(dest, csmap, knownCS);
 		
 		v2.load(v2source);
 		v3.load(v3source);
 		fhirGenerator.load(fhirSourceUrl);
+		cdaGenerator.load(cdaSourceFolder);
 	}
 
 	private void execute() throws Exception {
@@ -128,6 +137,8 @@ public class UTGGenerator extends BaseGenerator {
 		generateStaticUnifiedCodeSystems(unifiedManifest);
 
 		fhirGenerator.generateCodeSystems(fhirManifest, fhirNormativeManifest);
+		
+		cdaGenerator.generateResources(cdaManifest);
 		
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Publishing.xml"), v2Publishing);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Publishing.xml"), v3Publishing);
@@ -222,6 +233,8 @@ public class UTGGenerator extends BaseGenerator {
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RELEASE));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CONTROL));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.FHIR));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CDA));
 
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RELEASE)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CONTROL)));

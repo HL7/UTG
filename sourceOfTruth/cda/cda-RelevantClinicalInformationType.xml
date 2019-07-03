@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet
-    xmlns="http://hl7.org/fhir">
-    <id value="cda-RelevantClinicalInformationType"/>
-    <meta id="5504"/>
-    <url value="http://terminology.hl7.org/ValueSet/cda-RelevantClinicalInformationType"/>
-    <identifier>
-        <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:oid:2.16.840.1.113883.10.20.22.5.301"/>
-    </identifier>
-    <name value="RelevantClinicalInformationType"/>
-    <title value="Relevant Clinical Information Type"/>
-    <status value="draft"/>
-    <description value="This value set contains codes that represent the type of relevant clinical information such as additional supporting information or questions related to the laboratory results. This value set contains codes from two HL7 V2 tables - Table0936 and Table 0937."/>
-    <compose>
-        <include>
-            <system value="http://terminology.hl7.org/CodeSystem/2.16.840.1.113883.18.439"/>
-            <concept>
-                <code value="QST"/>
-                <display value="Question"/>
-            </concept>
-            <concept>
-                <code value="SCI"/>
-                <display value="Supporting Clinical Information"/>
-            </concept>
-        </include>
-        <include>
-            <system value="http://terminology.hl7.org/CodeSystem/2.16.840.1.113883.18.440"/>
-            <concept>
-                <code value="AOE"/>
-                <display value="Ask at Order Entry"/>
-            </concept>
-            <concept>
-                <code value="ASC"/>
-                <display value="Ask at Specimen Collection"/>
-            </concept>
-        </include>
-    </compose>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="cda-RelevantClinicalInformationType"/>
+  <meta id="5504"/>
+  <url value="http://terminology.hl7.org/ValueSet/cda-RelevantClinicalInformationType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.10.20.22.5.301"/>
+  </identifier>
+  <name value="RelevantClinicalInformationType"/>
+  <title value="Relevant Clinical Information Type"/>
+  <status value="active"/>
+  <description value="This value set contains codes that represent the type of relevant clinical information such as additional supporting information or questions related to the laboratory results. This value set contains codes from two HL7 V2 tables - Table0936 and Table 0937."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/2.16.840.1.113883.18.439"/>
+      <concept>
+        <code value="QST"/>
+        <display value="Question"/>
+      </concept>
+      <concept>
+        <code value="SCI"/>
+        <display value="Supporting Clinical Information"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/2.16.840.1.113883.18.440"/>
+      <concept>
+        <code value="AOE"/>
+        <display value="Ask at Order Entry"/>
+      </concept>
+      <concept>
+        <code value="ASC"/>
+        <display value="Ask at Specimen Collection"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

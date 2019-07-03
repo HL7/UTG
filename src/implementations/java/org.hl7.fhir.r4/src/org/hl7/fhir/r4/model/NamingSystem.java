@@ -789,13 +789,12 @@ public class NamingSystem extends MetadataResource {
     	setUseContext(cs.getUseContext());
     	setJurisdiction(cs.getJurisdiction());
     	
-    	
-    	
     	if (cs.hasUserData("oid")) {
-        	getUniqueId().add(new NamingSystemUniqueIdComponent().setType(NamingSystemIdentifierType.OID).setValue((String) cs.getUserData("oid")));
+        	getUniqueId().add(new NamingSystemUniqueIdComponent().setType(NamingSystemIdentifierType.OID).setValue((String) cs.getUserData("oid")).setPreferred(true));
     	}
-    	getUniqueId().add(new NamingSystemUniqueIdComponent().setType(NamingSystemIdentifierType.URI).setValue(cs.getUrl()));
+    	getUniqueId().add(new NamingSystemUniqueIdComponent().setType(NamingSystemIdentifierType.URI).setValue(cs.getUrl()).setPreferred(true));
     }
+    
     /**
      * @return {@link #name} (A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */

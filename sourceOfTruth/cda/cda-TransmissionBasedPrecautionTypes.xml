@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet
-    xmlns="http://hl7.org/fhir">
-    <id value="cda-TransmissionBasedPrecautionTypes"/>
-    <meta id="5510"/>
-    <url value="http://terminology.hl7.org/ValueSet/cda-TransmissionBasedPrecautionTypes"/>
-    <identifier>
-        <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:oid:2.16.840.1.113883.10.20.22.5.300"/>
-    </identifier>
-    <name value="TransmissionBasedPrecautionTypes"/>
-    <title value="Transmission Based Precaution Types"/>
-    <status value="draft"/>
-    <description value="Types of transmission-based precautions. Descendants of the SNOMED CT code 409583003 |Transmission-based precautions (procedure)."/>
-    <compose>
-        <include>
-            <system value="http://snomed.info/sct"/>
-            <concept>
-                <code value="409529001"/>
-                <display value="Contact precautions (procedure)"/>
-            </concept>
-            <concept>
-                <code value="409524006"/>
-                <display value="Airborne precautions (procedure)"/>
-            </concept>
-            <concept>
-                <code value="409525007"/>
-                <display value="Respiratory secretion precautions (procedure)"/>
-            </concept>
-        </include>
-    </compose>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="cda-TransmissionBasedPrecautionTypes"/>
+  <meta id="5510"/>
+  <url value="http://terminology.hl7.org/ValueSet/cda-TransmissionBasedPrecautionTypes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.10.20.22.5.300"/>
+  </identifier>
+  <name value="TransmissionBasedPrecautionTypes"/>
+  <title value="Transmission Based Precaution Types"/>
+  <status value="active"/>
+  <description value="(Clinical Focus: Codes used to represent the second tier of basic infection control used in addition to standard precautions for certain patients infected or colonized with pathogens requiring additional precautions to prevent transmission of infectious pathogens. See https://www.cdc.gov/infectioncontrol/pdf/guidelines/isolation-guidelines-H.pdf for further details.),(Data Element Scope: Data element representing the second tier of basic infection control used in addition to standard precautions for certain patients infected or colonized with pathogens requiring additional precautions to prevent transmission of infectious pathogens.),(Inclusion Criteria: Hierarchy descending from the SNOMED CT code 409583003 |Transmission-based precautions (procedure).),(Exclusion Criteria: None.)&#xA;&#xA;This value set was imported on 6/10/2019 with a version of 20190425."/>
+  <expansion>
+    <identifier value="urn:oid:2.16.840.1.113883.10.20.22.5.300"/>
+    <timestamp value="2019-06-10T22:02:32.077-04:00"/>
+    <total value="3"/>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.96"/>
+      <code value="409524006"/>
+      <display value="Airborne precautions (procedure)"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.96"/>
+      <code value="409525007"/>
+      <display value="Respiratory secretion (droplet) precautions (procedure)"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.96"/>
+      <code value="409529001"/>
+      <display value="Contact precautions (procedure)"/>
+    </contains>
+  </expansion>
 </ValueSet>

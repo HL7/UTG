@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="eicr-processing-status-reason-ecr"/>
+  <meta id="4386"/>
+  <url value="http://hl7.org/fhir/us/ecr/ValueSet/eicr-processing-status-reason-ecr"/>
+  <name value="eICR Processing Status Reason (eCR)"/>
+  <status value="active"/>
+  <description value="This value set contains codes that describe the reason for the processing status (warning or error)."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/2.16.840.1.114222.4.5.274"/>
+      <concept>
+        <code value="RRVS23"/>
+        <display value="eICR was not processed due to an error of: fatal problem with the eICR that was received"/>
+      </concept>
+      <concept>
+        <code value="RRVS24"/>
+        <display value="eICR was not processed due to an error of: an ongoing server problem"/>
+      </concept>
+      <concept>
+        <code value="RRVS25"/>
+        <display value="eICR was not processed due to an error of: significant content or format issues"/>
+      </concept>
+      <concept>
+        <code value="RRVS26"/>
+        <display value="eICR was processed with the warning of: invalid eICR identifier"/>
+      </concept>
+      <concept>
+        <code value="RRVS27"/>
+        <display value="eICR was processed with the warning of: required data not found"/>
+      </concept>
+      <concept>
+        <code value="RRVS28"/>
+        <display value="eICR was processed with the warning of: content or format issues"/>
+      </concept>
+      <concept>
+        <code value="RRVS30"/>
+        <display value="eICR was processed with the warning of: inactive RCTC code"/>
+      </concept>
+      <concept>
+        <code value="RRVS29"/>
+        <display value="eICR was processed with the warning of: outdated RCTC version"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

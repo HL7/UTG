@@ -1,47 +1,519 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet
-    xmlns="http://hl7.org/fhir">
-    <id value="cda-DischargeSummaryDocumentTypeCode"/>
-    <meta id="176"/>
-    <url value="http://terminology.hl7.org/ValueSet/cda-DischargeSummaryDocumentTypeCode"/>
-    <identifier>
-        <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:oid:2.16.840.1.113883.11.20.4.1"/>
-    </identifier>
-    <name value="DischargeSummaryDocumentTypeCode"/>
-    <status value="active"/>
-    <description value="A value set of LOINC document codes for discharge summaries.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Specific URL Pending"/>
-    <compose>
-        <include>
-            <system value="http://loinc.org"/>
-            <concept>
-                <code value="18842-5"/>
-                <display value="Discharge summary"/>
-            </concept>
-            <concept>
-                <code value="11490-0"/>
-                <display value="Physician Discharge summary"/>
-            </concept>
-            <concept>
-                <code value="28655-9"/>
-                <display value="Physician attending Discharge summary"/>
-            </concept>
-            <concept>
-                <code value="29761-4"/>
-                <display value="Dentist Discharge summary"/>
-            </concept>
-            <concept>
-                <code value="34745-0"/>
-                <display value="Nurse Discharge summary"/>
-            </concept>
-            <concept>
-                <code value="34105-7"/>
-                <display value="Hospital Discharge summary"/>
-            </concept>
-            <concept>
-                <code value="34106-5"/>
-                <display value="Physician Hospital Discharge summary"/>
-            </concept>
-        </include>
-    </compose>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="cda-DischargeSummaryDocumentTypeCode"/>
+  <meta id="176"/>
+  <url value="http://terminology.hl7.org/ValueSet/cda-DischargeSummaryDocumentTypeCode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.11.20.4.1"/>
+  </identifier>
+  <name value="DischargeSummaryDocumentTypeCode"/>
+  <status value="active"/>
+  <description value="(Clinical Focus: Kind of discharge summary document classified by author role),(Data Element Scope: ),(Inclusion Criteria: A list of LOINC terms, intended to identify Discharge Summary Notes where component contains &quot;Discharge Summary Note&quot;, Timing = &quot;Patient&quot;, Property = Find&quot; , scale = &quot;Doc&quot;),(Exclusion Criteria: )&#xA;&#xA;This value set was imported on 6/24/2019 with a version of 20190425."/>
+  <expansion>
+    <identifier value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.4.1"/>
+    <timestamp value="2019-06-24T19:44:20.327-04:00"/>
+    <total value="100"/>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="11490-0"/>
+      <display value="Physician Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="18842-5"/>
+      <display value="Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="28655-9"/>
+      <display value="Attending Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="29761-4"/>
+      <display value="Dentistry Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="34105-7"/>
+      <display value="Hospital Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="34106-5"/>
+      <display value="Physician Hospital Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="34745-0"/>
+      <display value="Nurse Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="57058-0"/>
+      <display value="Maternal discharge summary note"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="59258-4"/>
+      <display value="Emergency department Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="59259-2"/>
+      <display value="Psychiatry Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68558-6"/>
+      <display value="Obstetrics and Gynecology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68572-7"/>
+      <display value="Ophthalmology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68578-4"/>
+      <display value="Orthopaedic surgery Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68591-7"/>
+      <display value="Plastic surgery Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68612-1"/>
+      <display value="Adolescent medicine Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68626-1"/>
+      <display value="Allergy and immunology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68642-8"/>
+      <display value="Child and adolescent psychiatry Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68653-5"/>
+      <display value="Clinical genetics Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68663-4"/>
+      <display value="Developmental-behavioral pediatrics Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68674-1"/>
+      <display value="Multi-specialty program Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68688-1"/>
+      <display value="Neurological surgery Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68697-2"/>
+      <display value="Neurology with special qualifications in child neurology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68709-5"/>
+      <display value="Pain medicine Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68719-4"/>
+      <display value="Pediatric cardiology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68733-5"/>
+      <display value="Pediatric endocrinology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68738-4"/>
+      <display value="Pediatric gastroenterology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68749-1"/>
+      <display value="Pediatric hematology-oncology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68768-1"/>
+      <display value="Pediatric nephrology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68773-1"/>
+      <display value="Pediatric otolaryngology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68779-8"/>
+      <display value="Pediatric pulmonology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68795-4"/>
+      <display value="Pediatric surgery Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68805-1"/>
+      <display value="Pediatric urology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68815-0"/>
+      <display value="Pediatrics Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68823-4"/>
+      <display value="Pediatrics Hospital Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68831-7"/>
+      <display value="Primary care Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68841-6"/>
+      <display value="Speech-language pathology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="68856-4"/>
+      <display value="Pediatric transplant hepatology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="77409-1"/>
+      <display value="Cardiology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="77417-4"/>
+      <display value="Critical care medicine Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="78263-1"/>
+      <display value="Mental health Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="78264-9"/>
+      <display value="General medicine Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="78418-1"/>
+      <display value="Neonatal perinatal medicine Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="78419-9"/>
+      <display value="Nephrology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="78420-7"/>
+      <display value="Neurology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="78421-5"/>
+      <display value="Oncology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="78585-7"/>
+      <display value="Palliative care Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="80811-3"/>
+      <display value="Geriatric medicine Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="83523-1"/>
+      <display value="Cardiology Intensive care unit Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="83551-2"/>
+      <display value="Nurse practitioner Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="83712-0"/>
+      <display value="Physical medicine and rehab Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="83810-2"/>
+      <display value="Physician assistant Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="83898-7"/>
+      <display value="Psychology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="83921-7"/>
+      <display value="Recreational therapy Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="83932-4"/>
+      <display value="Research Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="83956-3"/>
+      <display value="Social worker Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="83961-3"/>
+      <display value="Social worker Patient&#39;s home Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="83968-8"/>
+      <display value="Social worker Long term care facility Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="83993-6"/>
+      <display value="Spinal cord injury medicine Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84013-2"/>
+      <display value="Surgery Intensive care unit Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84017-3"/>
+      <display value="Surgery Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84018-1"/>
+      <display value="Surgery Outpatient Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84024-9"/>
+      <display value="Team Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84040-5"/>
+      <display value="Urology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84132-0"/>
+      <display value="Primary care Patient&#39;s home Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84139-5"/>
+      <display value="Hematology+Medical oncology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84179-1"/>
+      <display value="Kinesiotherapy Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84248-4"/>
+      <display value="Nurse Emergency department Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84254-2"/>
+      <display value="Nurse Hospital Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84257-5"/>
+      <display value="Nurse Long term care facility Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84262-5"/>
+      <display value="Nurse Observation unit Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84278-1"/>
+      <display value="Nutrition and dietetics Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84310-2"/>
+      <display value="Vocational rehabilitation Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84321-9"/>
+      <display value="Physical therapy Outpatient Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84328-4"/>
+      <display value="Physical therapy Hospital Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84331-8"/>
+      <display value="Physical therapy Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84367-2"/>
+      <display value="Otolaryngology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="84393-8"/>
+      <display value="Occupational therapy Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85154-3"/>
+      <display value="Pharmacology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85176-6"/>
+      <display value="Custodial care facility Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85192-3"/>
+      <display value="Long term care facility Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85200-4"/>
+      <display value="Observation unit Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85223-6"/>
+      <display value="Case manager Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85240-0"/>
+      <display value="Internal medicine Intensive care unit Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85243-4"/>
+      <display value="Internal medicine Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85433-1"/>
+      <display value="Respiratory therapy Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85434-9"/>
+      <display value="Rheumatology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85440-6"/>
+      <display value="Vascular surgery Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85442-2"/>
+      <display value="Hematology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85514-8"/>
+      <display value="Bariatric surgery Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85520-5"/>
+      <display value="Child and adolescent psychology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85849-8"/>
+      <display value="Anesthesiology Recovery room Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85875-3"/>
+      <display value="Nurse Recovery room Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="85878-7"/>
+      <display value="Neuropsychology Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="87235-8"/>
+      <display value="Dialysis Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="87256-4"/>
+      <display value="Addiction medicine Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="88641-6"/>
+      <display value="Community health care Adult day care center Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="88645-7"/>
+      <display value="Outpatient hospital Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="88693-7"/>
+      <display value="Patient&#39;s home Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="89214-1"/>
+      <display value="Obstetrics Discharge summary"/>
+    </contains>
+    <contains>
+      <system value="urn:oid:2.16.840.1.113883.6.1"/>
+      <code value="89218-2"/>
+      <display value="Gynecology Discharge summary"/>
+    </contains>
+  </expansion>
 </ValueSet>
