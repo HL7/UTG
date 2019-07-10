@@ -43,7 +43,6 @@ import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.NamingSystem;
-import org.hl7.fhir.r4.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
@@ -57,8 +56,6 @@ import org.hl7.fhir.utg.external.ExternalProvider;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utilities.FolderNameConstants;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.XhtmlNode;
-import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -1236,6 +1233,9 @@ public class V3SourceGenerator extends BaseGenerator {
 					System.out.println("Empty description for value set '" + vs.getName() + "'");
 				} else {
 					vs.setDescription(desc);
+					
+					// Do not generate text block - will be auto-generated per Ted
+					/*
 					XhtmlNode html = new XhtmlParser().parseHtmlNode(child);
 					html.setName("div");
 					if (vs.hasLanguage()) {
@@ -1243,6 +1243,7 @@ public class V3SourceGenerator extends BaseGenerator {
 					}
 					vs.getText().setDiv(html);
 					vs.getText().setStatus(NarrativeStatus.GENERATED);
+					*/
 
 					Element grandChild = XMLUtil.getFirstChild(child);
 					while (grandChild != null) {
