@@ -3,26 +3,6 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="v3-ObservationMethod"/>
   <language value="en"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-                  
-      <p>A code that provides additional detail about the means or technique used to ascertain the observation.</p>
-                  
-      <p>
-                     
-        <i>Examples:</i> Blood pressure measurement method: arterial puncture vs. sphygmomanometer (Riva-Rocci), sitting vs. supine position, etc. 
-      </p>
-                  
-      <p>
-                     
-        <i>Constraints:</i> In all observations the method is already partially specified by the Act.code. In this case, the methodCode NEED NOT be used at all. The methodCode MAY still be used to identify this method more clearly in addition to what is implied from the Act.code. However, an information consumer system or process SHOULD NOT depend on this methodCode information for method detail that is implied by the Act.code. 
-      </p>
-                  
-      <p>If the methodCode is used to express method detail that is also implied by the Act.code, the methodCode MUST NOT be in conflict with the implied method of the Act.code.</p>
-               
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/resource-history">
     <extension url="id">
       <valueString value="2014T1_2014-03-26_001283"/>

@@ -3,20 +3,6 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="v3-ActClassConsent"/>
   <language value="en"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-                  
-      <p>The Consent class represents informed consents and all similar medico-legal transactions between the patient (or his legal guardian) and the provider. Examples are informed consent for surgical procedures, informed consent for clinical trials, advanced beneficiary notice, against medical advice decline from service, release of information agreement, etc.</p>
-                  
-      <p>The details of consents vary. Often an institution has a number of different consent forms for various purposes, including reminding the physician about the topics to mention. Such forms also include patient education material. In electronic medical record communication, consents thus are information-generating acts on their own and need to be managed similar to medical activities. Thus, Consent is modeled as a special class of Act.</p>
-                  
-      <p>The &quot;signatures&quot; to the consent document are represented electronically through Participation instances to the consent object. Typically an informed consent has Participation.typeCode of &quot;performer&quot;, the healthcare provider informing the patient, and &quot;consenter&quot;, the patient or legal guardian. Some consent may associate a witness or a notary public (e.g., living wills, advanced directives). In consents where a healthcare provider is not required (e.g. living will), the performer may be the patient himself or a notary public.</p>
-                  
-      <p>Some consent has a minimum required delay between the consent and the service, so as to allow the patient to rethink his decisions. This minimum delay can be expressed in the act definition by the ActRelationship.pauseQuantity attribute that delays the service until the pause time has elapsed after the consent has been completed.</p>
-               
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/resource-history">
     <extension url="id">
       <valueString value="2014T1_2014-03-26_001283"/>

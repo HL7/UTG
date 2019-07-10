@@ -3,29 +3,6 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="v3-ActClassDetectedIssue"/>
   <language value="en"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-                  
-      <p>An observation identifying a potential adverse outcome as a result of an Act or combination of Acts.</p>
-                  
-      <p>
-                     
-        <i>Examples:</i> Detection of a drug-drug interaction; Identification of a late-submission for an invoice; Requesting discharge for a patient who does not meet hospital-defined discharge criteria.
-      </p>
-                  
-      <p>
-                     
-        <i>Discussion:</i> This class is commonly used for identifying &#39;business rule&#39; or &#39;process&#39; problems that may result in a refusal to carry out a particular request. In some circumstances it may be possible to &#39;bypass&#39; a problem by modifying the request to acknowledge the issue and/or by providing some form of mitigation.
-      </p>
-                  
-      <p>
-                     
-        <i>Constraints:</i> the Act or Acts that may cause the the adverse outcome are the target of a subject ActRelationship. The subbtypes of this concept indicate the type of problem being detected (e.g. drug-drug interaction) while the Observation.value is used to repesent a specific problem code (e.g. specific drug-drug interaction id).
-      </p>
-               
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/resource-history">
     <extension url="id">
       <valueString value="2014T1_2014-03-26_001283"/>
