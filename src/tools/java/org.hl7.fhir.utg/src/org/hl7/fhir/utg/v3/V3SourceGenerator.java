@@ -60,6 +60,8 @@ import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
+import com.overzealous.remark.Remark;
+
 public class V3SourceGenerator extends BaseGenerator {
 
 	public V3SourceGenerator(String dest, Map<String, CodeSystem> csmap, Set<String> knownCS, Map<String, ExternalProvider> externalProviders) {
@@ -121,6 +123,7 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	public void loadMif() throws FHIRFormatError {
+		Remark remark = new Remark();
 		List<Element> contextBindingElements = new LinkedList<>();
 		Map<String, List<ContextBinding>> contextBindings = new HashMap<>();
 		XMLUtil.getNamedChildren(mif, "contextBinding", contextBindingElements);
@@ -146,7 +149,13 @@ public class V3SourceGenerator extends BaseGenerator {
 					XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "definition"),
 					"text");
 			// cd.definition = new XhtmlParser().parseHtmlNode(xhtml);
-			cd.text = XMLUtil.htmlToXmlEscapedPlainText(xhtml);
+			
+			//cd.text = XMLUtil.htmlToXmlEscapedPlainText(xhtml);
+
+			String elementText = XMLUtil.elementToString(xhtml);
+			String markdownText = remark.convert(elementText);
+			cd.text = markdownText;
+			
 			Element spec = XMLUtil.getNamedChild(e, "specializesDomain");
 			if (spec != null)
 				cd.parent = spec.getAttribute("name");
