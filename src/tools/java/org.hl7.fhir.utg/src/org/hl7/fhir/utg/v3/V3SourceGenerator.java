@@ -55,12 +55,11 @@ import org.hl7.fhir.utg.UTGGenerator;
 import org.hl7.fhir.utg.external.ExternalProvider;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utilities.FolderNameConstants;
+import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
-
-import com.overzealous.remark.Remark;
 
 public class V3SourceGenerator extends BaseGenerator {
 
@@ -123,7 +122,6 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	public void loadMif() throws FHIRFormatError {
-		Remark remark = new Remark();
 		List<Element> contextBindingElements = new LinkedList<>();
 		Map<String, List<ContextBinding>> contextBindings = new HashMap<>();
 		XMLUtil.getNamedChildren(mif, "contextBinding", contextBindingElements);
@@ -150,11 +148,8 @@ public class V3SourceGenerator extends BaseGenerator {
 					"text");
 			// cd.definition = new XhtmlParser().parseHtmlNode(xhtml);
 			
-			//cd.text = XMLUtil.htmlToXmlEscapedPlainText(xhtml);
-
-			String elementText = XMLUtil.elementToString(xhtml);
-			String markdownText = remark.convert(elementText);
-			cd.text = markdownText;
+			// cd.text = XMLUtil.htmlToXmlEscapedPlainText(xhtml);
+			cd.text = MarkDownProcessor.htmlToMarkdown(xhtml);
 			
 			Element spec = XMLUtil.getNamedChild(e, "specializesDomain");
 			if (spec != null)
