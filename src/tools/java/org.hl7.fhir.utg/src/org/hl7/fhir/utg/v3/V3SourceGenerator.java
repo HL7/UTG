@@ -622,7 +622,8 @@ public class V3SourceGenerator extends BaseGenerator {
 				if (desc.isEmpty()) {
 					System.out.println("Empty description for code system '" + cs.getName() + "'");
 				} else {
-					cs.setDescription(desc);
+					//cs.setDescription(desc);
+					cs.setDescription(MarkDownProcessor.htmlToMarkdown(child));
 					Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(desc);
 					for (String propertyName : additionalProperties.keySet()) {
 						cs.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
@@ -858,7 +859,9 @@ public class V3SourceGenerator extends BaseGenerator {
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
 				String def = XMLUtil.htmlToXmlEscapedPlainText(child).trim();
-				cd.setDefinition(def);
+				//cd.setDefinition(def);
+				cd.setDefinition(MarkDownProcessor.htmlToMarkdown(child));
+				
 				Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(def);
 				for (String propertyName : additionalProperties.keySet()) {
 					cd.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
@@ -887,10 +890,12 @@ public class V3SourceGenerator extends BaseGenerator {
 	private void processConceptOpenIssue(Element item, ConceptDefinitionComponent cd) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
-			if (child.getNodeName().equals("text"))
-				cd.addExtension(resext("openIssue"), new StringType(XMLUtil.htmlToXmlEscapedPlainText(child)));
-			else
+			if (child.getNodeName().equals("text")) {
+				//cd.addExtension(resext("openIssue"), new StringType(XMLUtil.htmlToXmlEscapedPlainText(child)));
+				cd.addExtension(resext("openIssue"), new StringType(MarkDownProcessor.htmlToMarkdown(child)));
+			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
 			child = XMLUtil.getNextSibling(child);
 		}
 	}
@@ -1236,7 +1241,8 @@ public class V3SourceGenerator extends BaseGenerator {
 				if (desc == null || desc.isEmpty()) {
 					System.out.println("Empty description for value set '" + vs.getName() + "'");
 				} else {
-					vs.setDescription(desc);
+					//vs.setDescription(desc);
+					vs.setDescription(MarkDownProcessor.htmlToMarkdown(child));
 					
 					// Do not generate text block - will be auto-generated per Ted
 					/*
@@ -1274,7 +1280,8 @@ public class V3SourceGenerator extends BaseGenerator {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
-				vs.setPurpose(XMLUtil.htmlToXmlEscapedPlainText(child));
+				//vs.setPurpose(XMLUtil.htmlToXmlEscapedPlainText(child));
+				vs.setPurpose(MarkDownProcessor.htmlToMarkdown(child));
 			} else
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			child = XMLUtil.getNextSibling(child);
