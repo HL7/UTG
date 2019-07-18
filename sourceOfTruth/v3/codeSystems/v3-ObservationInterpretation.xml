@@ -27,7 +27,7 @@
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value="One or more codes providing a rough qualitative interpretation of the observation, such as &quot;normal&quot; / &quot;abnormal&quot;, &quot;low&quot; / &quot;high&quot;, &quot;better&quot; / &quot;worse&quot;, &quot;resistant&quot; /  &quot;susceptible&quot;, &quot;expected&quot; / &quot;not expected&quot;. The value set is intended to be for ANY use where coded representation of an interpretation is needed."/>
+  <description value="One or more codes providing a rough qualitative interpretation of the observation, such as &quot;normal&quot; / &quot;abnormal&quot;, &quot;low&quot; / &quot;high&quot;, &quot;better&quot; / &quot;worse&quot;, &quot;resistant&quot; / &quot;susceptible&quot;, &quot;expected&quot; / &quot;not expected&quot;. The value set is intended to be for ANY use where coded representation of an interpretation is needed."/>
   <content value="complete"/>
   <property>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
@@ -159,7 +159,7 @@
     </extension>
     <code value="EX"/>
     <display value="outside threshold"/>
-    <definition value="The observation/test result is interpreted as being outside the inclusion range for a particular protocol within which the result is being reported. Example:A positive result on a Hepatitis screening test.  &#xD;&#xA; Open Issue:EX, HX, LX: These three concepts do not seem to meet a clear need in the vocabulary, and their use in observation interpretation appears likely to be covered by other existing concepts (e.g., A, H, L).  The only apparent significant difference is their reference to use in protocols for exclusion of study subjects.&#xA;These concepts/codes were proposed by RCRIM for use in the CTLaboratory message.  They were submitted and approved in the November 2005 Harmonization cycle in proposal &quot;030103C_VOCAB_RCRIM_l_quade_RCRIM Obs Interp_20051028154455&quot;.  However, this proposal was not fully implemented in the vocabulary.  The proposal recommended creation of the x_ClinicalResearchExclusion domain in ObservationInterpretation with a value set including those three concepts/codes, but there is no subdomain of that name or equivalent with a binding to either of the value sets that contain these concepts/codes.&#xA;Members of the OO WG have recently attempted to contact members of RCRIM regarding these concepts, both by email and at the recent WGM in Atlanta, without response.  It is felt by OO that the best course of action to take at this time is to add this comprehensive Open Issue rather than deprecate these three concepts at this time, until further discussion is held."/>
+    <definition value="The observation/test result is interpreted as being outside the inclusion range for a particular protocol within which the result is being reported.&#xD;&#xA;&#xD;&#xA;**Example:** A positive result on a Hepatitis screening test.&#xD;&#xA;&#xD;&#xA;*Open Issue:* EX, HX, LX: These three concepts do not seem to meet a clear need in the vocabulary, and their use in observation interpretation appears likely to be covered by other existing concepts (e.g., A, H, L). The only apparent significant difference is their reference to use in protocols for exclusion of study subjects. These concepts/codes were proposed by RCRIM for use in the CTLaboratory message. They were submitted and approved in the November 2005 Harmonization cycle in proposal &quot;030103C\_VOCAB\_RCRIM\_l\_quade\_RCRIM Obs Interp\_20051028154455&quot;. However, this proposal was not fully implemented in the vocabulary. The proposal recommended creation of the x\_ClinicalResearchExclusion domain in ObservationInterpretation with a value set including those three concepts/codes, but there is no subdomain of that name or equivalent with a binding to either of the value sets that contain these concepts/codes. Members of the OO WG have recently attempted to contact members of RCRIM regarding these concepts, both by email and at the recent WGM in Atlanta, without response. It is felt by OO that the best course of action to take at this time is to add this comprehensive Open Issue rather than deprecate these three concepts at this time, until further discussion is held."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -175,7 +175,7 @@
     </extension>
     <code value="HM"/>
     <display value="Hold for Medical Review"/>
-    <definition value="Hold for Medical Review  &#xD;&#xA; Usage Note:This code is not intended for use in V3 artifacts.  It is included in the code system to maintain alignment with the V2 Table 0078 &quot;Interpretation Codes.&quot;"/>
+    <definition value="Hold for Medical Review&#xD;&#xA;&#xD;&#xA;*Usage Note:* This code is not intended for use in V3 artifacts. It is included in the code system to maintain alignment with the V2 Table 0078 &quot;Interpretation Codes.&quot;"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -225,7 +225,7 @@
     </extension>
     <code value="OBX"/>
     <display value="Interpretation qualifiers in separate OBX segments"/>
-    <definition value="Interpretation qualifiers in separate OBX segments  &#xD;&#xA; Usage Note:This code is not intended for use in V3 artifacts.  It is included in the code system to maintain alignment with the V2 Table 0078 &quot;Interpretation Codes.&quot;"/>
+    <definition value="Interpretation qualifiers in separate OBX segments&#xD;&#xA;&#xD;&#xA;*Usage Note:* This code is not intended for use in V3 artifacts. It is included in the code system to maintain alignment with the V2 Table 0078 &quot;Interpretation Codes.&quot;"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -278,7 +278,7 @@
     </extension>
     <code value="Carrier"/>
     <display value="Carrier"/>
-    <definition value="The patient is considered as carrier based on the testing results. A carrier is an individual who carries an altered form of a gene which can lead to having a child or offspring in future generations with a genetic disorder.  &#xD;&#xA;  Deprecation Comment:This code is currently the same string as the print name for this concept and is inconsistent with the conventions being used for the other codes in the coding system, as it is a full word with initial capitalization, rather than an all upper case mnemonic.  The recommendation from OO is to deprecate the code &quot;Carrier&quot; and to add &quot;CAR&quot; as the new active code representation for this concept."/>
+    <definition value="The patient is considered as carrier based on the testing results. A carrier is an individual who carries an altered form of a gene which can lead to having a child or offspring in future generations with a genetic disorder.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is currently the same string as the print name for this concept and is inconsistent with the conventions being used for the other codes in the coding system, as it is a full word with initial capitalization, rather than an all upper case mnemonic. The recommendation from OO is to deprecate the code &quot;Carrier&quot; and to add &quot;CAR&quot; as the new active code representation for this concept."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -295,7 +295,7 @@
   <concept>
     <code value="B"/>
     <display value="Better"/>
-    <definition value="The current result or observation value has improved compared to the previous result or observation value (the change is significant as defined in the respective test procedure). [Note: This can be applied to quantitative or qualitative observations.]"/>
+    <definition value="The current result or observation value has improved compared to the previous result or observation value (the change is significant as defined in the respective test procedure).&#xD;&#xA;&#xD;&#xA;\[Note: This can be applied to quantitative or qualitative observations.\]"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -346,7 +346,7 @@
   <concept>
     <code value="W"/>
     <display value="Worse"/>
-    <definition value="The current result or observation value has degraded compared to the previous result or observation value (the change is significant as defined in the respective test procedure). [Note: This can be applied to quantitative or qualitative observations.]"/>
+    <definition value="The current result or observation value has degraded compared to the previous result or observation value (the change is significant as defined in the respective test procedure).&#xD;&#xA;&#xD;&#xA;\[Note: This can be applied to quantitative or qualitative observations.\]"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -363,7 +363,7 @@
   <concept>
     <code value="&lt;"/>
     <display value="Off scale low"/>
-    <definition value="The result is below the minimum detection limit (the test procedure or equipment is the limiting factor). Synonyms: Below analytical limit, low off scale."/>
+    <definition value="The result is below the minimum detection limit (the test procedure or equipment is the limiting factor).&#xD;&#xA;&#xD;&#xA;Synonyms: Below analytical limit, low off scale."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -380,7 +380,7 @@
   <concept>
     <code value="&gt;"/>
     <display value="Off scale high"/>
-    <definition value="The result is above the maximum quantifiable limit (the test procedure or equipment is the limiting factor). Synonyms: Above analytical limit, high off scale."/>
+    <definition value="The result is above the maximum quantifiable limit (the test procedure or equipment is the limiting factor).&#xD;&#xA;&#xD;&#xA;Synonyms: Above analytical limit, high off scale."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -403,7 +403,7 @@
     </extension>
     <code value="AC"/>
     <display value="Anti-complementary substances present"/>
-    <definition value="A valid result cannot be obtained for the specified component / analyte due to the presence of anti-complementary substances in the sample.  &#xD;&#xA;  Deprecation Comment:This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
+    <definition value="A valid result cannot be obtained for the specified component / analyte due to the presence of anti-complementary substances in the sample.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -420,7 +420,7 @@
   <concept>
     <code value="IE"/>
     <display value="Insufficient evidence"/>
-    <definition value="There is insufficient evidence that the species in question is a good target for therapy with the drug.  A categorical interpretation is not possible. [Note: A MIC with &quot;IE&quot; and/or a comment may be reported (without an accompanying S, I or R-categorization).]"/>
+    <definition value="There is insufficient evidence that the species in question is a good target for therapy with the drug. A categorical interpretation is not possible.&#xD;&#xA;&#xD;&#xA;\[Note: A MIC with &quot;IE&quot; and/or a comment may be reported (without an accompanying S, I or R-categorization).\]"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -447,7 +447,7 @@
     </extension>
     <code value="QCF"/>
     <display value="Quality control failure"/>
-    <definition value="A result cannot be considered valid for the specified component / analyte or organism due to failure in the quality control testing component.  &#xD;&#xA;  Deprecation Comment:This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
+    <definition value="A result cannot be considered valid for the specified component / analyte or organism due to failure in the quality control testing component.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -470,7 +470,7 @@
     </extension>
     <code value="TOX"/>
     <display value="Cytotoxic substance present"/>
-    <definition value="A valid result cannot be obtained for the specified organism or cell line due to the presence of cytotoxic substances in the sample or culture.  &#xD;&#xA;  Deprecation Comment:This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
+    <definition value="A valid result cannot be obtained for the specified organism or cell line due to the presence of cytotoxic substances in the sample or culture.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -487,7 +487,7 @@
   <concept>
     <code value="A"/>
     <display value="Abnormal"/>
-    <definition value="The result or observation value is outside the reference range or expected norm (as defined for the respective test procedure). [Note: Typically applies to non-numeric results.]"/>
+    <definition value="The result or observation value is outside the reference range or expected norm (as defined for the respective test procedure).&#xD;&#xA;&#xD;&#xA;\[Note: Typically applies to non-numeric results.\]"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -504,7 +504,7 @@
   <concept>
     <code value="N"/>
     <display value="Normal"/>
-    <definition value="The result or observation value is within the reference range or expected norm (as defined for the respective test procedure). [Note: Applies to numeric or non-numeric results.]"/>
+    <definition value="The result or observation value is within the reference range or expected norm (as defined for the respective test procedure).&#xD;&#xA;&#xD;&#xA;\[Note: Applies to numeric or non-numeric results.\]"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -521,7 +521,7 @@
   <concept>
     <code value="I"/>
     <display value="Intermediate"/>
-    <definition value="Bacterial strain inhibited in vitro by a concentration of an antimicrobial agent that is associated with uncertain therapeutic effect. Reference: CLSI (http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm)&#xA;Projects: ISO 20776-1, ISO 20776-2 [Note 1: Bacterial strains are categorized as intermediate by applying the appropriate breakpoints in a defined phenotypic test system.] [Note 2: This class of susceptibility implies that an infection due to the isolate can be appropriately treated in body sites where the drugs are physiologically concentrated or when a high dosage of drug can be used.] [Note 3: This class also indicates a &quot;buffer zone,&quot; to prevent small, uncontrolled, technical factors from causing major discrepancies in interpretations.] [Note 4: These breakpoints can be altered due to changes in circumstances (e.g., changes in commonly used drug dosages, emergence of new resistance mechanisms).]"/>
+    <definition value="Bacterial strain inhibited in vitro by a concentration of an antimicrobial agent that is associated with uncertain therapeutic effect. Reference: CLSI (http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized\_Terminolo.htm) Projects: ISO 20776-1, ISO 20776-2&#xD;&#xA;&#xD;&#xA;\[Note 1: Bacterial strains are categorized as intermediate by applying the appropriate breakpoints in a defined phenotypic test system.\]&#xD;&#xA;&#xD;&#xA;\[Note 2: This class of susceptibility implies that an infection due to the isolate can be appropriately treated in body sites where the drugs are physiologically concentrated or when a high dosage of drug can be used.\]&#xD;&#xA;&#xD;&#xA;\[Note 3: This class also indicates a &quot;buffer zone,&quot; to prevent small, uncontrolled, technical factors from causing major discrepancies in interpretations.\]&#xD;&#xA;&#xD;&#xA;\[Note 4: These breakpoints can be altered due to changes in circumstances (e.g., changes in commonly used drug dosages, emergence of new resistance mechanisms).\]"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -544,7 +544,7 @@
     </extension>
     <code value="MS"/>
     <display value="moderately susceptible"/>
-    <definition value="The patient is considered as carrier based on the testing results. A carrier is an individual who carries an altered form of a gene which can lead to having a child or offspring in future generations with a genetic disorder.  &#xD;&#xA;  Deprecation Comment:This antimicrobial susceptibility test interpretation concept is recommended by OO to be deprecated as it is no longer recommended for use in susceptibility testing by CLSI (reference CLSI document M100-S22; Vol. 32 No.3; CLSI Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement. Jan 2012)."/>
+    <definition value="The patient is considered as carrier based on the testing results. A carrier is an individual who carries an altered form of a gene which can lead to having a child or offspring in future generations with a genetic disorder.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This antimicrobial susceptibility test interpretation concept is recommended by OO to be deprecated as it is no longer recommended for use in susceptibility testing by CLSI (reference CLSI document M100-S22; Vol. 32 No.3; CLSI Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement. Jan 2012)."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -578,7 +578,7 @@
   <concept>
     <code value="NS"/>
     <display value="Non-susceptible"/>
-    <definition value="A category used for isolates for which only a susceptible interpretive criterion has been designated because of the absence or rare occurrence of resistant strains. Isolates that have MICs above or zone diameters below the value indicated for the susceptible breakpoint should be reported as non-susceptible. NOTE 1: An isolate that is interpreted as non-susceptible does not necessarily mean that the isolate has a resistance mechanism. It is possible that isolates with MICs above the susceptible breakpoint that lack resistance mechanisms may be encountered within the wild-type distribution subsequent to the time the susceptible-only breakpoint is set. NOTE 2: For strains yielding results in the &quot;nonsusceptible&quot; category, organism identification and antimicrobial susceptibility test results should be confirmed. Synonym: decreased susceptibility."/>
+    <definition value="A category used for isolates for which only a susceptible interpretive criterion has been designated because of the absence or rare occurrence of resistant strains. Isolates that have MICs above or zone diameters below the value indicated for the susceptible breakpoint should be reported as non-susceptible.&#xD;&#xA;&#xD;&#xA;NOTE 1: An isolate that is interpreted as non-susceptible does not necessarily mean that the isolate has a resistance mechanism. It is possible that isolates with MICs above the susceptible breakpoint that lack resistance mechanisms may be encountered within the wild-type distribution subsequent to the time the susceptible-only breakpoint is set.&#xD;&#xA;&#xD;&#xA;NOTE 2: For strains yielding results in the &quot;nonsusceptible&quot; category, organism identification and antimicrobial susceptibility test results should be confirmed.&#xD;&#xA;&#xD;&#xA;Synonym: decreased susceptibility."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -595,7 +595,7 @@
   <concept>
     <code value="R"/>
     <display value="Resistant"/>
-    <definition value="Bacterial strain inhibited in vitro by a concentration of an antimicrobial agent that is associated with a high likelihood of therapeutic failure.&#xA;Reference: CLSI (http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm)  &#xA;Projects: ISO 20776-1, ISO 20776-2 [Note 1: Bacterial strains are categorized as resistant by applying the appropriate breakpoints in a defined phenotypic test system.] [Note 2: This breakpoint can be altered due to changes in circumstances (e.g., changes in commonly used drug dosages, emergence of new resistance mechanisms).]"/>
+    <definition value="Bacterial strain inhibited in vitro by a concentration of an antimicrobial agent that is associated with a high likelihood of therapeutic failure. Reference: CLSI (http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized\_Terminolo.htm) Projects: ISO 20776-1, ISO 20776-2&#xD;&#xA;&#xD;&#xA;\[Note 1: Bacterial strains are categorized as resistant by applying the appropriate breakpoints in a defined phenotypic test system.\]&#xD;&#xA;&#xD;&#xA;\[Note 2: This breakpoint can be altered due to changes in circumstances (e.g., changes in commonly used drug dosages, emergence of new resistance mechanisms).\]"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -612,7 +612,7 @@
   <concept>
     <code value="S"/>
     <display value="Susceptible"/>
-    <definition value="Bacterial strain inhibited by in vitro concentration of an antimicrobial agent that is associated with a high likelihood of therapeutic success.&#xA;Reference: CLSI (http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm)&#xA;Synonym (earlier term): Sensitive Projects: ISO 20776-1, ISO 20776-2 [Note 1: Bacterial strains are categorized as susceptible by applying the appropriate breakpoints in a defined phenotypic system.] [Note 2: This breakpoint can be altered due to changes in circumstances (e.g., changes in commonly used drug dosages, emergence of new resistance mechanisms).]"/>
+    <definition value="Bacterial strain inhibited by in vitro concentration of an antimicrobial agent that is associated with a high likelihood of therapeutic success. Reference: CLSI (http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized\_Terminolo.htm) Synonym (earlier term): Sensitive Projects: ISO 20776-1, ISO 20776-2&#xD;&#xA;&#xD;&#xA;\[Note 1: Bacterial strains are categorized as susceptible by applying the appropriate breakpoints in a defined phenotypic system.\]&#xD;&#xA;&#xD;&#xA;\[Note 2: This breakpoint can be altered due to changes in circumstances (e.g., changes in commonly used drug dosages, emergence of new resistance mechanisms).\]"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -635,7 +635,7 @@
     </extension>
     <code value="VS"/>
     <display value="very susceptible"/>
-    <definition value="The patient is considered as carrier based on the testing results. A carrier is an individual who carries an altered form of a gene which can lead to having a child or offspring in future generations with a genetic disorder.  &#xD;&#xA;  Deprecation Comment:This antimicrobial susceptibility test interpretation concept is recommended by OO to be deprecated as it is no longer recommended for use in susceptibility testing by CLSI (reference CLSI document M100-S22; Vol. 32 No.3; CLSI Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement. Jan 2012)."/>
+    <definition value="The patient is considered as carrier based on the testing results. A carrier is an individual who carries an altered form of a gene which can lead to having a child or offspring in future generations with a genetic disorder.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This antimicrobial susceptibility test interpretation concept is recommended by OO to be deprecated as it is no longer recommended for use in susceptibility testing by CLSI (reference CLSI document M100-S22; Vol. 32 No.3; CLSI Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement. Jan 2012)."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -652,7 +652,7 @@
   <concept>
     <code value="AA"/>
     <display value="Critical abnormal"/>
-    <definition value="The result or observation value is outside a reference range or expected norm at a level at which immediate action should be considered for patient safety (as defined for the respective test procedure). [Note: Typically applies to non-numeric results.  Analogous to critical/panic limits for numeric results.]"/>
+    <definition value="The result or observation value is outside a reference range or expected norm at a level at which immediate action should be considered for patient safety (as defined for the respective test procedure).&#xD;&#xA;&#xD;&#xA;\[Note: Typically applies to non-numeric results. Analogous to critical/panic limits for numeric results.\]"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -669,7 +669,7 @@
   <concept>
     <code value="H"/>
     <display value="High"/>
-    <definition value="The result for a quantitative observation is above the upper limit of the reference range (as defined for the respective test procedure). Synonym: Above high normal"/>
+    <definition value="The result for a quantitative observation is above the upper limit of the reference range (as defined for the respective test procedure).&#xD;&#xA;&#xD;&#xA;Synonym: Above high normal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -686,7 +686,7 @@
   <concept>
     <code value="L"/>
     <display value="Low"/>
-    <definition value="The result for a quantitative observation is below the lower limit of the reference range (as defined for the respective test procedure). Synonym: Below low normal"/>
+    <definition value="The result for a quantitative observation is below the lower limit of the reference range (as defined for the respective test procedure).&#xD;&#xA;&#xD;&#xA;Synonym: Below low normal"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -703,7 +703,7 @@
   <concept>
     <code value="HH"/>
     <display value="Critical high"/>
-    <definition value="The result for a quantitative observation is above a reference level at which immediate action should be considered for patient safety (as defined for the respective test procedure). Synonym: Above upper panic limits."/>
+    <definition value="The result for a quantitative observation is above a reference level at which immediate action should be considered for patient safety (as defined for the respective test procedure).&#xD;&#xA;&#xD;&#xA;Synonym: Above upper panic limits."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -728,7 +728,7 @@
   <concept>
     <code value="LL"/>
     <display value="Critical low"/>
-    <definition value="The result for a quantitative observation is below a reference level at which immediate action should be considered for patient safety (as defined for the respective test procedure). Synonym: Below lower panic limits."/>
+    <definition value="The result for a quantitative observation is below a reference level at which immediate action should be considered for patient safety (as defined for the respective test procedure).&#xD;&#xA;&#xD;&#xA;Synonym: Below lower panic limits."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -756,7 +756,7 @@
     </extension>
     <code value="HX"/>
     <display value="above high threshold"/>
-    <definition value="The observation/test result is interpreted as being outside the inclusion range for a particular protocol within which the result is being reported. Example:A positive result on a Hepatitis screening test.  &#xD;&#xA; Open Issue:EX, HX, LX: These three concepts do not seem to meet a clear need in the vocabulary, and their use in observation interpretation appears likely to be covered by other existing concepts (e.g., A, H, L).  The only apparent significant difference is their reference to use in protocols for exclusion of study subjects.  These concepts/codes were proposed by RCRIM for use in the CTLaboratory message.  They were submitted and approved in the November 2005 Harmonization cycle in proposal &quot;030103C_VOCAB_RCRIM_l_quade_RCRIM Obs Interp_20051028154455&quot;. However, this proposal was not fully implemented in the vocabulary.  The proposal recommended creation of the x_ClinicalResearchExclusion domain in ObservationInterpretation with a value set including those three concepts/codes, but there is no subdomain of that name or equivalent with a binding to either of the value sets that contain these concepts/codes.  Members of the OO WG have recently attempted to contact members of RCRIM regarding these concepts, both by email and at the recent WGM in Atlanta, without response.  It is felt by OO that the best course of action to take at this time is to add this comprehensive Open Issue rather than deprecate these three concepts at this time, until further discussion is held."/>
+    <definition value="The observation/test result is interpreted as being outside the inclusion range for a particular protocol within which the result is being reported.&#xD;&#xA;&#xD;&#xA;**Example:** A positive result on a Hepatitis screening test.&#xD;&#xA;&#xD;&#xA;*Open Issue:* EX, HX, LX: These three concepts do not seem to meet a clear need in the vocabulary, and their use in observation interpretation appears likely to be covered by other existing concepts (e.g., A, H, L). The only apparent significant difference is their reference to use in protocols for exclusion of study subjects. These concepts/codes were proposed by RCRIM for use in the CTLaboratory message. They were submitted and approved in the November 2005 Harmonization cycle in proposal &quot;030103C\_VOCAB\_RCRIM\_l\_quade\_RCRIM Obs Interp\_20051028154455&quot;. However, this proposal was not fully implemented in the vocabulary. The proposal recommended creation of the x\_ClinicalResearchExclusion domain in ObservationInterpretation with a value set including those three concepts/codes, but there is no subdomain of that name or equivalent with a binding to either of the value sets that contain these concepts/codes. Members of the OO WG have recently attempted to contact members of RCRIM regarding these concepts, both by email and at the recent WGM in Atlanta, without response. It is felt by OO that the best course of action to take at this time is to add this comprehensive Open Issue rather than deprecate these three concepts at this time, until further discussion is held."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -776,7 +776,7 @@
     </extension>
     <code value="LX"/>
     <display value="below low threshold"/>
-    <definition value="The numeric observation/test result is interpreted as being below the low threshold value for a particular protocol within which the result is being reported. Example:A Total White Blood Cell Count falling below a protocol-defined threshold value of 3000/mm^3  &#xD;&#xA; Open Issue:EX, HX, LX: These three concepts do not seem to meet a clear need in the vocabulary, and their use in observation interpretation appears likely to be covered by other existing concepts (e.g., A, H, L).  The only apparent significant difference is their reference to use in protocols for exclusion of study subjects.  These concepts/codes were proposed by RCRIM for use in the CTLaboratory message.  They were submitted and approved in the November 2005 Harmonization cycle in proposal &quot;030103C_VOCAB_RCRIM_l_quade_RCRIM Obs Interp_20051028154455&quot;.  However, this proposal was not fully implemented in the vocabulary.  The proposal recommended creation of the x_ClinicalResearchExclusion domain in ObservationInterpretation with a value set including those three concepts/codes, but there is no subdomain of that name or equivalent with a binding to either of the value sets that contain these concepts/codes.  Members of the OO WG have recently attempted to contact members of RCRIM regarding these concepts, both by email and at the recent WGM in Atlanta, without response.  It is felt by OO that the best course of action to take at this time is to add this comprehensive Open Issue rather than deprecate these three concepts at this time, until further discussion is held."/>
+    <definition value="The numeric observation/test result is interpreted as being below the low threshold value for a particular protocol within which the result is being reported.&#xD;&#xA;&#xD;&#xA;**Example:** A Total White Blood Cell Count falling below a protocol-defined threshold value of 3000/mm^3&#xD;&#xA;&#xD;&#xA;*Open Issue:* EX, HX, LX: These three concepts do not seem to meet a clear need in the vocabulary, and their use in observation interpretation appears likely to be covered by other existing concepts (e.g., A, H, L). The only apparent significant difference is their reference to use in protocols for exclusion of study subjects. These concepts/codes were proposed by RCRIM for use in the CTLaboratory message. They were submitted and approved in the November 2005 Harmonization cycle in proposal &quot;030103C\_VOCAB\_RCRIM\_l\_quade\_RCRIM Obs Interp\_20051028154455&quot;. However, this proposal was not fully implemented in the vocabulary. The proposal recommended creation of the x\_ClinicalResearchExclusion domain in ObservationInterpretation with a value set including those three concepts/codes, but there is no subdomain of that name or equivalent with a binding to either of the value sets that contain these concepts/codes. Members of the OO WG have recently attempted to contact members of RCRIM regarding these concepts, both by email and at the recent WGM in Atlanta, without response. It is felt by OO that the best course of action to take at this time is to add this comprehensive Open Issue rather than deprecate these three concepts at this time, until further discussion is held."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -799,7 +799,7 @@
     </extension>
     <code value="H&gt;"/>
     <display value="Significantly high"/>
-    <definition value="A test result that is significantly higher than the reference (normal) or therapeutic interval, but has not reached the critically high value and might need special attention, as defined by the laboratory or the clinician. [Note: This level is situated between &#39;H&#39; and &#39;HH&#39;.]  &#xD;&#xA; Deprecation Comment:The code &#39;H&gt;&#39; is being deprecated in order to align with the use of the code &#39;HU&#39; for &quot;Very high&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;. [Note: The use of code &#39;H&gt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;HU&#39; instead."/>
+    <definition value="A test result that is significantly higher than the reference (normal) or therapeutic interval, but has not reached the critically high value and might need special attention, as defined by the laboratory or the clinician.&#xD;&#xA;&#xD;&#xA;\[Note: This level is situated between &#39;H&#39; and &#39;HH&#39;.\]&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:* The code &#39;H&gt;&#39; is being deprecated in order to align with the use of the code &#39;HU&#39; for &quot;Very high&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;.&#xD;&#xA;&#xD;&#xA;\[Note: The use of code &#39;H&gt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;HU&#39; instead."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -856,7 +856,7 @@
     </extension>
     <code value="L&lt;"/>
     <display value="Significantly low"/>
-    <definition value="A test result that is significantly lower than the reference (normal) or therapeutic interval, but has not reached the critically low value and might need special attention, as defined by the laboratory or the clinician. [Note: This level is situated between &#39;L&#39; and &#39;LL&#39;.]  &#xD;&#xA; Deprecation Comment:The code &#39;L&lt;&#39; is being deprecated in order to align with the use of the code &#39;LU&#39; for &quot;Very low&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;. [Note: The use of code &#39;L&lt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;LU&#39; instead."/>
+    <definition value="A test result that is significantly lower than the reference (normal) or therapeutic interval, but has not reached the critically low value and might need special attention, as defined by the laboratory or the clinician.&#xD;&#xA;&#xD;&#xA;\[Note: This level is situated between &#39;L&#39; and &#39;LL&#39;.\]&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:* The code &#39;L&lt;&#39; is being deprecated in order to align with the use of the code &#39;LU&#39; for &quot;Very low&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;.&#xD;&#xA;&#xD;&#xA;\[Note: The use of code &#39;L&lt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;LU&#39; instead."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -907,7 +907,7 @@
   <concept>
     <code value="IND"/>
     <display value="Indeterminate"/>
-    <definition value="The specified component / analyte, organism or clinical sign could neither be declared positive / negative nor detected / not detected by the performed test or procedure.  &#xD;&#xA; Usage Note:For example, if the specimen was degraded, poorly processed, or was missing the required anatomic structures, then &quot;indeterminate&quot; (i.e. &quot;cannot be determined&quot;) is the appropriate response, not &quot;equivocal&quot;."/>
+    <definition value="The specified component / analyte, organism or clinical sign could neither be declared positive / negative nor detected / not detected by the performed test or procedure.&#xD;&#xA;&#xD;&#xA;*Usage Note:* For example, if the specimen was degraded, poorly processed, or was missing the required anatomic structures, then &quot;indeterminate&quot; (i.e. &quot;cannot be determined&quot;) is the appropriate response, not &quot;equivocal&quot;."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -924,7 +924,7 @@
   <concept>
     <code value="NEG"/>
     <display value="Negative"/>
-    <definition value="An absence finding of the specified component / analyte, organism or clinical sign based on the established threshold of the performed test or procedure. [Note: Negative does not necessarily imply the complete absence of the specified item.]"/>
+    <definition value="An absence finding of the specified component / analyte, organism or clinical sign based on the established threshold of the performed test or procedure.&#xD;&#xA;&#xD;&#xA;\[Note: Negative does not necessarily imply the complete absence of the specified item.\]"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -958,7 +958,7 @@
   <concept>
     <code value="EXP"/>
     <display value="Expected"/>
-    <definition value="This result has been evaluated in light of known contraindicators.  Once those contraindicators have been taken into account the result is determined to be &quot;Expected&quot;  (e.g., presence of drugs in a patient that is taking prescription medication for pain management)."/>
+    <definition value="This result has been evaluated in light of known contraindicators. Once those contraindicators have been taken into account the result is determined to be &quot;Expected&quot; (e.g., presence of drugs in a patient that is taking prescription medication for pain management)."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -975,7 +975,7 @@
   <concept>
     <code value="UNE"/>
     <display value="Unexpected"/>
-    <definition value="This result has been evaluated in light of known contraindicators.  Once those contraindicators have been taken into account the result is determined to be &quot;Unexpected&quot; (e.g., presence of non-prescribed drugs in a patient that is taking prescription medication for pain management)."/>
+    <definition value="This result has been evaluated in light of known contraindicators. Once those contraindicators have been taken into account the result is determined to be &quot;Unexpected&quot; (e.g., presence of non-prescribed drugs in a patient that is taking prescription medication for pain management)."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1012,7 +1012,7 @@
     </extension>
     <code value="SYN-R"/>
     <display value="Synergy - resistant"/>
-    <definition value="A category for isolates where the bacteria (e.g. enterococci) are not susceptible in vitro to a combination therapy (e.g., high-level aminoglycoside and cell wall active agent).  This is predictive that this combination therapy will not be effective.  &#xD;&#xA; Usage Note:Since the use of penicillin or ampicillin alone often results in treatment failure of serious enterococcal or other bacterial infections, combination therapy is usually indicated to enhance bactericidal activity. The synergy between a cell wall active agent (such as penicillin, ampicillin, or vancomycin) and an aminoglycoside (such as gentamicin, kanamycin or streptomycin) is best predicted by screening for high-level bacterial resistance to the aminoglycoside.  &#xD;&#xA; Open Issue:The print name of the code is very general and the description is very specific to a pair of classes of agents, which may lead to confusion of these concepts in the future should other synergies be found."/>
+    <definition value="A category for isolates where the bacteria (e.g. enterococci) are not susceptible in vitro to a combination therapy (e.g., high-level aminoglycoside and cell wall active agent). This is predictive that this combination therapy will not be effective.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Since the use of penicillin or ampicillin alone often results in treatment failure of serious enterococcal or other bacterial infections, combination therapy is usually indicated to enhance bactericidal activity. The synergy between a cell wall active agent (such as penicillin, ampicillin, or vancomycin) and an aminoglycoside (such as gentamicin, kanamycin or streptomycin) is best predicted by screening for high-level bacterial resistance to the aminoglycoside.&#xD;&#xA;&#xD;&#xA;*Open Issue:* The print name of the code is very general and the description is very specific to a pair of classes of agents, which may lead to confusion of these concepts in the future should other synergies be found."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1080,7 +1080,7 @@
   <concept>
     <code value="SDD"/>
     <display value="Susceptible-dose dependent"/>
-    <definition value="A category that includes isolates with antimicrobial agent minimum inhibitory concentrations (MICs) that approach usually attainable blood and tissue levels and for which response rates may be lower than for susceptible isolates. Reference: CLSI document M44-A2 2009 &quot;Method for antifungal disk diffusion susceptibility testing of yeasts; approved guideline - second edition&quot; - page 2."/>
+    <definition value="A category that includes isolates with antimicrobial agent minimum inhibitory concentrations (MICs) that approach usually attainable blood and tissue levels and for which response rates may be lower than for susceptible isolates.&#xD;&#xA;&#xD;&#xA;Reference: CLSI document M44-A2 2009 &quot;Method for antifungal disk diffusion susceptibility testing of yeasts; approved guideline - second edition&quot; - page 2."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1100,7 +1100,7 @@
     </extension>
     <code value="SYN-S"/>
     <display value="Synergy - susceptible"/>
-    <definition value="A category for isolates where the bacteria (e.g. enterococci) are susceptible in vitro to a combination therapy (e.g., high-level aminoglycoside and cell wall active agent).  This is predictive that this combination therapy will be effective.  &#xD;&#xA; Usage Note:Since the use of penicillin or ampicillin alone often results in treatment failure of serious enterococcal or other bacterial infections, combination therapy is usually indicated to enhance bactericidal activity. The synergy between a cell wall active agent (such as penicillin, ampicillin, or vancomycin) and an aminoglycoside (such as gentamicin, kanamycin or streptomycin) is best predicted by screening for high-level bacterial resistance to the aminoglycoside.  &#xD;&#xA; Open Issue:The print name of the code is very general and the description is very specific to a pair of classes of agents, which may lead to confusion of these concepts in the future should other synergies be found."/>
+    <definition value="A category for isolates where the bacteria (e.g. enterococci) are susceptible in vitro to a combination therapy (e.g., high-level aminoglycoside and cell wall active agent). This is predictive that this combination therapy will be effective.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Since the use of penicillin or ampicillin alone often results in treatment failure of serious enterococcal or other bacterial infections, combination therapy is usually indicated to enhance bactericidal activity. The synergy between a cell wall active agent (such as penicillin, ampicillin, or vancomycin) and an aminoglycoside (such as gentamicin, kanamycin or streptomycin) is best predicted by screening for high-level bacterial resistance to the aminoglycoside.&#xD;&#xA;&#xD;&#xA;*Open Issue:* The print name of the code is very general and the description is very specific to a pair of classes of agents, which may lead to confusion of these concepts in the future should other synergies be found."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
