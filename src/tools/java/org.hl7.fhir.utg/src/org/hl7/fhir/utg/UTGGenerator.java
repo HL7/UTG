@@ -241,6 +241,8 @@ public class UTGGenerator extends BaseGenerator {
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.VALUESETS));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.NAMINGSYSTEMS));
 		
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.DEPRECATED));
+
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RELEASE));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CONTROL));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.FHIR));
@@ -263,6 +265,10 @@ public class UTGGenerator extends BaseGenerator {
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.VALUESETS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS)));
 		
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.CODESYSTEMS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.VALUESETS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.NAMINGSYSTEMS)));
+
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.VALUESETS)));
 		
@@ -278,8 +284,11 @@ public class UTGGenerator extends BaseGenerator {
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.FHIR));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CONTROL));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.RELEASE));
-		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS));
 		
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.CODESYSTEMS));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.VALUESETS));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.NAMINGSYSTEMS));
+
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.VALUESETS));
 

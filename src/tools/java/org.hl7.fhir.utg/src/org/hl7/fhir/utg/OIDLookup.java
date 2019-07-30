@@ -135,8 +135,15 @@ public class OIDLookup {
 		{
 			// add("some OID");
 			// V3
-
-		}
+			add("2.16.1");
+			add("2.16.2");
+			add("2.16.3");
+			add("2.16.840.1.113883.5.1084");
+			add("2.16.840.1.113883.5.1127");
+			add("2.16.840.1.113883.5.28");
+			add("2.16.840.1.113883.5.36");
+			add("2.16.840.1.113883.5.73");
+			add("2.16.840.1.113883.6.9");		}
 	};
 	
 	private static final Set<String> OID_NO_CONTENT = new HashSet<String>() {
