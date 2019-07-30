@@ -260,9 +260,11 @@ public class V3SourceGenerator extends BaseGenerator {
 		return res;
 	}
 
-	public void generateCodeSystems(ListResource v3manifest, ListResource externalManifest, ListResource nsManifest) throws Exception {
+	//public void generateCodeSystems(ListResource v3manifest, ListResource externalManifest, ListResource nsManifest) throws Exception {
+	public void generateCodeSystems(ListResource v3manifest, ListResource externalManifest) throws Exception {
 		List<Element> list = new LinkedList<Element>();
-		List<NamingSystem> namingSystems = new LinkedList<NamingSystem>();
+		List<NamingSystem> intNamingSystems = new LinkedList<NamingSystem>();
+		List<NamingSystem> extNamingSystems = new LinkedList<NamingSystem>();
 		List<CodeSystem> codeSystems = new LinkedList<CodeSystem>();
 		
 		XMLUtil.getNamedChildren(mif, "codeSystem", list);
@@ -272,21 +274,24 @@ public class V3SourceGenerator extends BaseGenerator {
 				String oid = cs.getUserString("oid"); 
 				csmap.put(oid, cs);
 				ListEntryComponent manifestEntry = ListResourceExt.createCodeSystemListEntry(cs);
-				if (cs.getInternal()) {
+				
+				if (OIDLookup.hasContent(oid)) {
 					codeSystems.add(cs);
-					v3manifest.addEntry(manifestEntry);
-				} else {
-					if (OIDLookup.hasContent(oid)) {
-						codeSystems.add(cs);
+					if (!cs.getInternal()) {
 						externalManifest.addEntry(manifestEntry);
-						v3manifest.addEntry(manifestEntry);
+					}
+				
+				} else {
+					NamingSystem ns = new NamingSystem(cs);
+					manifestEntry = ListResourceExt.createNamingSystemListEntry(ns);
+					if (cs.getInternal()) {
+						intNamingSystems.add(ns);
 					} else {
-						NamingSystem ns = new NamingSystem(cs);
-						manifestEntry = ListResourceExt.createNamingSystemListEntry(ns);
-						nsManifest.addEntry(manifestEntry);
-						namingSystems.add(ns);
+						externalManifest.addEntry(manifestEntry);
+						extNamingSystems.add(ns);
 					}
 				}
+				v3manifest.addEntry(manifestEntry);
 			}
 		}
 
@@ -300,9 +305,13 @@ public class V3SourceGenerator extends BaseGenerator {
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
 		}
 		
-		for (NamingSystem ns : namingSystems) {
-			//String resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS, ns.getId()) + ".xml";
-			String resourcePath = Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS, ns.getId()) + ".xml";
+		for (NamingSystem ns : intNamingSystems) {
+			String resourcePath = Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS, ns.getId()) + ".xml";
+			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), ns);
+		}
+		
+		for (NamingSystem ns : extNamingSystems) {
+			String resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS, ns.getId()) + ".xml";
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), ns);
 		}
 		

@@ -123,7 +123,7 @@ public class UTGGenerator extends BaseGenerator {
 		ListResource fhirManifest = createManifestList("FHIR Rendering Manifest", "fhir-Rendering");
 		ListResource fhirNormativeManifest = createManifestList("FHIR Normative Manifest", "fhir-Normative");
 		ListResource cdaManifest = createManifestList("CDA Rendering Manifest", "cda-Rendering");
-		ListResource nsManifest = createManifestList("Naming Systems Manifest", "namingSystems-Rendering");
+		//ListResource nsManifest = createManifestList("Naming Systems Manifest", "namingSystems-Rendering");
 		
 		v2.loadTables();
 		v3.loadMif();
@@ -131,7 +131,8 @@ public class UTGGenerator extends BaseGenerator {
 		v2.generateTables(v2Publishing);
 		v2.generateCodeSystems(v2Publishing, externalManifest);
 
-		v3.generateCodeSystems(v3Publishing, externalManifest, nsManifest);
+		//v3.generateCodeSystems(v3Publishing, externalManifest, nsManifest);
+		v3.generateCodeSystems(v3Publishing, externalManifest);
 		v3.generateValueSets(v3Publishing);
 		generateConceptDomains(unifiedManifest);
 		generateStaticUnifiedCodeSystems(unifiedManifest);
@@ -156,7 +157,7 @@ public class UTGGenerator extends BaseGenerator {
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Rendering.xml"), fhirManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Normative.xml"), fhirNormativeManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "cda-Rendering.xml"), cdaManifest);
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "namingSystems-Rendering.xml"), nsManifest);
+		//writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "namingSystems-Rendering.xml"), nsManifest);
 
 		writeExternalManifestFiles();
 		
@@ -226,51 +227,68 @@ public class UTGGenerator extends BaseGenerator {
 
 	private void createMissingOutputFolders() throws IOException {
 		Files.createDirectories(Paths.get(Utilities.path(dest)));
+		
 		// Clear the output folders in case any already existed and contained prior data
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V2));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.NAMINGSYSTEMS));
+		
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.VALUESETS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS));
+		
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.CODESYSTEMS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.VALUESETS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.NAMINGSYSTEMS));
+		
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RELEASE));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CONTROL));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.FHIR));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CDA));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CIMI));
 
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RELEASE)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CONTROL)));
-		
+		// Create output folders
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.NAMINGSYSTEMS)));
 		
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.VALUESETS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS)));
 
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.VALUESETS)));
 
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.VALUESETS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS)));
 		
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.VALUESETS)));
 		
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RELEASE)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CONTROL)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.FHIR)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CDA)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CIMI)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.FHIR)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS)));
 
+		// Create placeholder files
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CDA));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CIMI));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.FHIR));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CONTROL));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.RELEASE));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS));
+		
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.VALUESETS));
+
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.VALUESETS));
+
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.VALUESETS));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS));
 
 	}
 	
