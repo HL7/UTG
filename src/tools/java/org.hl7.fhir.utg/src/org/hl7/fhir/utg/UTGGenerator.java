@@ -132,7 +132,7 @@ public class UTGGenerator extends BaseGenerator {
 		v2.generateCodeSystems(v2Publishing, externalManifest);
 
 		v3.generateCodeSystems(v3Publishing, externalManifest, deprecatedManifest);
-		v3.generateValueSets(v3Publishing);
+		v3.generateValueSets(v3Publishing, deprecatedManifest);
 		generateConceptDomains(unifiedManifest);
 		generateStaticUnifiedCodeSystems(unifiedManifest);
 

@@ -1083,24 +1083,41 @@ public class V3SourceGenerator extends BaseGenerator {
 					"Unexpected value for attribute relationshipName " + item.getAttribute("relationshipName"));
 	}
 
-	public void generateValueSets(ListResource v3manifest) throws Exception {
+	public void generateValueSets(ListResource v3manifest, ListResource deprecatedManifest) throws Exception {
 		List<Element> list = new LinkedList<Element>();
 		XMLUtil.getNamedChildren(mif, "valueSet", list);
 		HashMap<String, ValueSet> vsmap = new HashMap<String, ValueSet>();
+		List<ValueSet> deprecatedValueSets = new LinkedList<ValueSet>();
+		
 		for (Element l : list) {
 			ValueSet vs = generateV3ValueSet(l);
-			vsmap.put(vs.getUserString("oid"), vs);
+			ListEntryComponent manifestEntry = ListResourceExt.createValueSetListEntry(vs); 
+			String oid = vs.getUserString("oid");
+			
+			if (OIDLookup.isDeprecated(oid)) {
+				deprecatedValueSets.add(vs);
+				deprecatedManifest.addEntry(manifestEntry);
+			} else {
+				vsmap.put(oid, vs);
+				v3manifest.addEntry(manifestEntry);
+			}
 
-			ListEntryComponent vsEntry = ListResourceExt.createValueSetListEntry(vs); 
-			v3manifest.addEntry(vsEntry);
-			//manifest.addEntry(ListResourceExt.createValueSetListEntry(vs, true));
 		}
 		postProcess(vsmap);
 
-		for (ValueSet vs : vsmap.values())
+		for (ValueSet vs : vsmap.values()) {
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY)
 					.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.VALUESETS, vs.getId()) + ".xml"), vs);
+		}
+
+		for (ValueSet vs : deprecatedValueSets) {
+			new XmlParser().setOutputStyle(OutputStyle.PRETTY)
+					.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.VALUESETS, vs.getId()) + ".xml"), vs);
+		}
+		
+		
 		System.out.println("Save v3 value sets (" + Integer.toString(vsmap.size()) + " found)");
+		System.out.println("Save deprecated v3 value sets (" + Integer.toString(deprecatedValueSets.size()) + " found)");
 		System.out.println("Unknown systems");
 		for (String s : sorted(systems))
 			if (!knownCS.contains(s))
