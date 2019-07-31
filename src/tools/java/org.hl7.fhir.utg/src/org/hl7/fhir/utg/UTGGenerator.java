@@ -123,7 +123,7 @@ public class UTGGenerator extends BaseGenerator {
 		ListResource fhirManifest = createManifestList("FHIR Rendering Manifest", "fhir-Rendering");
 		ListResource fhirNormativeManifest = createManifestList("FHIR Normative Manifest", "fhir-Normative");
 		ListResource cdaManifest = createManifestList("CDA Rendering Manifest", "cda-Rendering");
-		//ListResource nsManifest = createManifestList("Naming Systems Manifest", "namingSystems-Rendering");
+		ListResource deprecatedManifest = createManifestList("Deprecated Manifest", "deprecated-retired-Rendering");
 		
 		v2.loadTables();
 		v3.loadMif();
@@ -131,8 +131,7 @@ public class UTGGenerator extends BaseGenerator {
 		v2.generateTables(v2Publishing);
 		v2.generateCodeSystems(v2Publishing, externalManifest);
 
-		//v3.generateCodeSystems(v3Publishing, externalManifest, nsManifest);
-		v3.generateCodeSystems(v3Publishing, externalManifest);
+		v3.generateCodeSystems(v3Publishing, externalManifest, deprecatedManifest);
 		v3.generateValueSets(v3Publishing);
 		generateConceptDomains(unifiedManifest);
 		generateStaticUnifiedCodeSystems(unifiedManifest);
@@ -157,7 +156,7 @@ public class UTGGenerator extends BaseGenerator {
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Rendering.xml"), fhirManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Normative.xml"), fhirNormativeManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "cda-Rendering.xml"), cdaManifest);
-		//writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "namingSystems-Rendering.xml"), nsManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "deprecated-retired-Rendering.xml"), deprecatedManifest);
 
 		writeExternalManifestFiles();
 		

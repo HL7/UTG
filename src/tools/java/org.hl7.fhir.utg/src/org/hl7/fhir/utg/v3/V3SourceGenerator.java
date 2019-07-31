@@ -261,11 +261,14 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	//public void generateCodeSystems(ListResource v3manifest, ListResource externalManifest, ListResource nsManifest) throws Exception {
-	public void generateCodeSystems(ListResource v3manifest, ListResource externalManifest) throws Exception {
+	public void generateCodeSystems(ListResource v3manifest, ListResource externalManifest, ListResource deprecatedManifest) throws Exception {
 		List<Element> list = new LinkedList<Element>();
+		List<NamingSystem> depNamingSystems = new LinkedList<NamingSystem>();
 		List<NamingSystem> intNamingSystems = new LinkedList<NamingSystem>();
 		List<NamingSystem> extNamingSystems = new LinkedList<NamingSystem>();
-		List<CodeSystem> codeSystems = new LinkedList<CodeSystem>();
+		List<CodeSystem> intCodeSystems = new LinkedList<CodeSystem>();
+		List<CodeSystem> extCodeSystems = new LinkedList<CodeSystem>();
+		List<CodeSystem> depCodeSystems = new LinkedList<CodeSystem>();
 		
 		XMLUtil.getNamedChildren(mif, "codeSystem", list);
 		for (Element l : list) {
@@ -276,32 +279,52 @@ public class V3SourceGenerator extends BaseGenerator {
 				ListEntryComponent manifestEntry = ListResourceExt.createCodeSystemListEntry(cs);
 				
 				if (OIDLookup.hasContent(oid)) {
-					codeSystems.add(cs);
-					if (!cs.getInternal()) {
-						externalManifest.addEntry(manifestEntry);
+					if (OIDLookup.isDeprecated(oid)) {
+						depCodeSystems.add(cs);
+						deprecatedManifest.addEntry(manifestEntry);
+					} else {
+						v3manifest.addEntry(manifestEntry);
+						if (cs.getInternal()) {
+							intCodeSystems.add(cs);
+						} else {
+							extCodeSystems.add(cs);
+							externalManifest.addEntry(manifestEntry);
+						}
 					}
 				
 				} else {
 					NamingSystem ns = new NamingSystem(cs);
 					manifestEntry = ListResourceExt.createNamingSystemListEntry(ns);
-					if (cs.getInternal()) {
-						intNamingSystems.add(ns);
+					if (OIDLookup.isDeprecated(oid)) {
+						depNamingSystems.add(ns);
+						deprecatedManifest.addEntry(manifestEntry);
 					} else {
-						externalManifest.addEntry(manifestEntry);
-						extNamingSystems.add(ns);
+						v3manifest.addEntry(manifestEntry);
+						if (cs.getInternal()) {
+							intNamingSystems.add(ns);
+						} else {
+							externalManifest.addEntry(manifestEntry);
+							extNamingSystems.add(ns);
+						}
 					}
 				}
-				v3manifest.addEntry(manifestEntry);
 			}
 		}
 
 		postProcess();
 
-		for (CodeSystem cs : codeSystems) {
-			String resourcePath = (cs.getInternal())?  
-					Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml" :
-					Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml";
+		for (CodeSystem cs : intCodeSystems) {
+			String resourcePath = Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml";
+			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
+		}
 		
+		for (CodeSystem cs : extCodeSystems) {
+			String resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml";
+			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
+		}
+		
+		for (CodeSystem cs : depCodeSystems) {
+			String resourcePath = Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml";
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
 		}
 		
@@ -312,6 +335,11 @@ public class V3SourceGenerator extends BaseGenerator {
 		
 		for (NamingSystem ns : extNamingSystems) {
 			String resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS, ns.getId()) + ".xml";
+			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), ns);
+		}
+		
+		for (NamingSystem ns : depNamingSystems) {
+			String resourcePath = Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.NAMINGSYSTEMS, ns.getId()) + ".xml";
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), ns);
 		}
 		
