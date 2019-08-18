@@ -778,7 +778,7 @@ public class NamingSystem extends MetadataResource {
     	setId(cs.getId());
     	setName(cs.getName());
     	setUrl(cs.getUrl());
-    	setTitle(cs.getTitle());
+    	//setTitle(cs.getTitle());
     	setStatus(cs.getStatus());
     	setKind(NamingSystemType.CODESYSTEM);
     	setDate(cs.getDate());

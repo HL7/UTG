@@ -76,12 +76,7 @@ public class OIDLookup {
 			put("1.2.840.10008.2.16.4"         , "http://dicom.nema.org/medical/dicom"                                                                      );
 			put("1.3.160"                      , "http://terminology.hl7.org/CodeSystem/v3-extTmp-gtin"                                                     );
 			put("2.16.840.1.113883.1.18"       , "http://terminology.hl7.org/CodeSystem/v3-TrigEventID"                                                     );
-			put("2.16.840.1.113883.2.13"       , "http://terminology.hl7.org/CodeSystem/v3-extTmp-ncpdp-sbu"                                                );
 			put("2.16.840.1.113883.2.20.5.1"   , "http://terminology.hl7.org/CodeSystem/v3-extTmp-pclocd"                                                   );
-			put("2.16.840.1.113883.2.20.5.2"   , "http://terminology.hl7.org/CodeSystem/v3-extTmp-sctmp"                                                    );
-			put("2.16.840.1.113883.2.20.5.3"   , "http://terminology.hl7.org/CodeSystem/v3-extTmp-scptype"                                                  );
-			put("2.16.840.1.113883.2.20.5.4"   , "http://terminology.hl7.org/CodeSystem/v3-extTmp-scpqual"                                                  );
-			put("2.16.840.1.113883.2.21.10"    , "http://terminology.hl7.org/CodeSystem/v3-extTmp-brz-pcsus"                                                );
 			put("2.16.840.1.113883.3.26.1.1"   , "http://ncithesaurus-stage.nci.nih.gov"                                                                    );
 			put("2.16.840.1.113883.3.26.1.5"   , "http://terminology.hl7.org/CodeSystem/v3-extTmp-nci-ndfrt"                                                );
 			put("2.16.840.1.113883.3.84"       , "http://terminology.hl7.org/CodeSystem/v3-extTmp-FDBHIC"                                                   );
@@ -89,12 +84,7 @@ public class OIDLookup {
 			put("2.16.840.1.113883.4.80"       , "http://terminology.hl7.org/CodeSystem/v3-extTmp-GCRT"                                                     );
 			put("2.16.840.1.113883.4.81"       , "http://terminology.hl7.org/CodeSystem/v3-extTmp-gs-cpnum"                                                 );
 			put("2.16.840.1.113883.5.1102"     , "http://terminology.hl7.org/CodeSystem/v3-extTmp-opinions"                                                 );
-			// Make these next 4 unique until we get the correct URLs
-			put("2.16.840.1.113883.5.1103"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-1" );
-			put("2.16.840.1.113883.5.1104"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-2" );
-			put("2.16.840.1.113883.5.1105"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-3" );
-			put("2.16.840.1.113883.5.1106"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-4" );
-			put("2.16.840.1.113883.5.53"       , "http://terminology.hl7.org/CodeSystem/v3-HealthcareProviderTaxonomyHIPAA"                                 );
+
 			put("2.16.840.1.113883.5.79"       , "http://terminology.hl7.org/CodeSystem/v3-extTmp-mediatypes"                                               );
 			put("2.16.840.1.113883.6.10"       , "http://www.iana.org/assignments/media-types"                                                              );
 			put("2.16.840.1.113883.6.100"      , "http://terminology.hl7.org/CodeSystem/v3-extTmp-639-2"                                                    );
@@ -115,6 +105,35 @@ public class OIDLookup {
 			put("2.16.840.1.113883.6.102.5.19" , "http://terminology.hl7.org/CodeSystem/v3-extTmp-DEEDS519"                                                 );
 			put("2.16.840.1.113883.6.102.5.6"  , "http://terminology.hl7.org/CodeSystem/v3-extTmp-DEEDS506"                                                 );
 			put("2.16.840.1.113883.6.102.5.8"  , "http://terminology.hl7.org/CodeSystem/v3-extTmp-DEEDS508"                                                 );			
+		
+			// updated CDN urls
+			//put("2.16.840.1.113883.2.13"       , "http://terminology.hl7.org/CodeSystem/v3-extTmp-ncpdp-sbu"                                                );
+			//put("2.16.840.1.113883.2.20.5.2"   , "http://terminology.hl7.org/CodeSystem/v3-extTmp-sctmp"                                                    );
+			//put("2.16.840.1.113883.2.20.5.3"   , "http://terminology.hl7.org/CodeSystem/v3-extTmp-scptype"                                                  );
+			//put("2.16.840.1.113883.2.20.5.4"   , "http://terminology.hl7.org/CodeSystem/v3-extTmp-scpqual"                                                  );
+			//put("2.16.840.1.113883.2.21.10"    , "http://terminology.hl7.org/CodeSystem/v3-extTmp-brz-pcsus"                                                );
+			//put("2.16.840.1.113883.5.53"       , "http://terminology.hl7.org/CodeSystem/v3-HealthcareProviderTaxonomyHIPAA"                                 );
+
+			put("2.16.840.1.113883.2.13"		, "http://terminology.hl7.org/CodeSystem/v3-triggerEventID");
+			put("2.16.840.1.113883.2.20.5.2"	, "https://fhir.infoway-inforoute.ca/CodeSystem/pCLOCD");
+			put("2.16.840.1.113883.2.20.5.3"	, "https://fhir.infoway-inforoute.ca/CodeSystem/sctemp");
+			put("2.16.840.1.113883.2.20.5.4"	, "https://fhir.infoway-inforoute.ca/CodeSystem/scptype");
+			put("2.16.840.1.113883.2.21.10"		, "https://fhir.infoway-inforoute.ca/CodeSystem/scpqual");
+			put("2.16.840.1.113883.5.53"		, "http://hl7.org/fhir/sid/ca-hc-npn");
+
+			// Make these next 4 unique until we get the correct URLs
+			put("2.16.840.1.113883.5.1103"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-1" );
+			put("2.16.840.1.113883.5.1104"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-2" );
+			put("2.16.840.1.113883.5.1105"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-3" );
+			//put("2.16.840.1.113883.5.1106"     , "http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-4" );
+
+			put("2.16.840.1.113883.5.1106"		, "http://hl7.org/fhir/NamingSystem/ca-hc-din");
+
+			put("2.16.840.1.113883.6.95"		, "http://hl7.org/fhir/sid/icd-10-ca");
+
+			// This one is def not right.  conflicts with SCT
+			//put("2.16.840.1.113883.6.96"		, "http://cihi.ca/fhir/CodeSystem/cihi-cci");
+
 			
 		}
 	};
