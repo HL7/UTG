@@ -127,12 +127,14 @@ public class UTGGenerator extends BaseGenerator {
 		
 		v2.loadTables();
 		v3.loadMif();
+		
+		v3.generateCodeSystems(v3Publishing, externalManifest, deprecatedManifest);
+		v3.generateValueSets(v3Publishing, deprecatedManifest);
+
 		v2.process();
 		v2.generateTables(v2Publishing);
 		v2.generateCodeSystems(v2Publishing, externalManifest);
 
-		v3.generateCodeSystems(v3Publishing, externalManifest, deprecatedManifest);
-		v3.generateValueSets(v3Publishing, deprecatedManifest);
 		generateConceptDomains(unifiedManifest);
 		generateStaticUnifiedCodeSystems(unifiedManifest);
 
