@@ -1,6 +1,6 @@
 # {{ page.title }}
 
 ## Introduction
-This is the terminology defined by HL7.
+This is the home page for the full set of all terminology defined and published by HL7.
 
-todo: doco users need to consume UTG
+Users may browse the terminology on these pages.
