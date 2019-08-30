@@ -1301,10 +1301,14 @@ public class V2SourceGenerator extends BaseGenerator {
 					c.addProperty().setCode("table-oid").setValue(new StringType(t.oid));
 					if (!Utilities.noString(tv.csoid)) {
 						c.addProperty().setCode("csoid").setValue(new StringType(tv.csoid));
-						ObjectInfo oi = objects.get(tv.csoid);
-
-						if (oi != null) {
-							c.addProperty().setCode("csuri").setValue(new StringType(oi.uri));
+						String v3url = OIDLookup.get_v3_to_v2_url_bridge(tv.csoid);
+						if (v3url != null) {
+							c.addProperty().setCode("csuri").setValue(new StringType(v3url));
+						} else {
+							ObjectInfo oi = objects.get(tv.csoid);
+							if (oi != null) {
+								c.addProperty().setCode("csuri").setValue(new StringType(oi.uri));
+							}
 						}
 					}
 					if (!Utilities.noString(tv.vsoid))

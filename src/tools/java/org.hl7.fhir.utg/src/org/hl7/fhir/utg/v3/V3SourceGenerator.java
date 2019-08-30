@@ -275,7 +275,9 @@ public class V3SourceGenerator extends BaseGenerator {
 			CodeSystem cs = generateV3CodeSystem(l);
 			if (cs != null) {
 				String oid = cs.getUserString("oid"); 
+				OIDLookup.put_v3_to_v2_url_bridge(oid, cs.getUrl());
 				csmap.put(oid, cs);
+
 				ListEntryComponent manifestEntry = ListResourceExt.createCodeSystemListEntry(cs);
 				
 				if (OIDLookup.hasContent(oid)) {

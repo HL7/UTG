@@ -872,6 +872,21 @@ public class OIDLookup {
 	};
 */	
 
+	private static final Set<String> OID_V3_TO_V2_URL_BRIDGE = new HashSet<String>() {
+		private static final long serialVersionUID = 1L;
+		{
+			// add("some OID");
+			add("2.16.840.1.113883.5.83");
+			add("2.16.840.1.113883.5.4");
+			add("2.16.840.1.113883.5.1001");
+			add("2.16.840.1.113883.5.25");
+			add("2.16.840.1.113883.5.8");
+			add("2.16.840.1.113883.5.1063");
+			add("2.16.840.1.113883.5.1063");
+			add("2.16.840.1.113883.5.1139");
+		}
+	};
+	
 	public static String getUrl(String oid) {
 		return OID_URL_MAP.get(oid);
 	}
@@ -897,4 +912,15 @@ public class OIDLookup {
 		return OID_DEPRECATED.contains(oid);
 	}
 	
+	private static HashMap<String, String> v3_to_v2_url_bridge = new HashMap<String, String>();
+	
+	public static void put_v3_to_v2_url_bridge(String oid, String url) {
+		if (OID_V3_TO_V2_URL_BRIDGE.contains(oid)) {
+			v3_to_v2_url_bridge.put(oid, url);
+		}
+	}
+	
+	public static String get_v3_to_v2_url_bridge(String oid) {
+		return v3_to_v2_url_bridge.get(oid);
+	}
 }
