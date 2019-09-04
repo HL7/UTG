@@ -1,13 +1,13 @@
 # {{ page.title }}
 
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#">All Value Sets</a></li>
-  <li><a href="valuesets-v3.html">V3</a></li>
+  <li><a href="valuesets.html">All Value Sets</a></li>
+  <li class="active"><a href="#">V3</a></li>
   <li><a href="valuesets-v2.html">V2</a></li>
 </ul>
 
-Value sets browsable on these pages: 
+v3 Value Sets defined by HL7.
 
 <ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
-{% include list-simple-valuesets.xhtml %}
+{% include List-v3-rendering-list-id-simple-ValueSet.xhtml %}
 </ul>
