@@ -11,5 +11,5 @@
 Code systems defined and maintaineed by HL7 that have been unified, and may be used across all of the HL7 product families..
 
 <ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
-{% include List-unified-rendering-list-name-simple-CodeSystem.xhtml %}
+{% include List-unified-Rendering-list-name-simple-CodeSystem.xhtml %}
 </ul>
