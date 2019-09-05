@@ -10,5 +10,5 @@
 CDA Value Sets defined and maintained by HL7 as part of the CDA family of Standards.
 
 <ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
-{% include List-v2-rendering-list-name-simple-ValueSet.xhtml %}
+{% include List-cda-rendering-list-name-simple-ValueSet.xhtml %}
 </ul>
