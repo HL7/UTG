@@ -118,8 +118,8 @@ public class UTGGenerator extends BaseGenerator {
 	private void execute() throws Exception {
 		ListResource v2PublishingManifest = createManifestList("V2 Publishing Manifest", "v2-Publishing");
 		ListResource v3PublishingManifest = createManifestList("V3 Publishing Manifest", "v3-Publishing");
-		ListResource v2RenderingManifest = createManifestList("V2 Rendering Manifest", "v2-Rendering");
-		ListResource v3RenderingManifest = createManifestList("V3 Rendering Manifest", "v3-Rendering");
+		ListResource v2RenderingManifest = createManifestList("V2 Rendering Manifest", "v2-rendering");
+		ListResource v3RenderingManifest = createManifestList("V3 Rendering Manifest", "v3-rendering");
 		ListResource unifiedManifest = createManifestList("Unified Rendering Manifest", "unified-Rendering");
 		ListResource externalManifest = createManifestList("External Rendering Manifest", "external-Rendering");
 		ListResource fhirManifest = createManifestList("FHIR Rendering Manifest", "fhir-Rendering");
