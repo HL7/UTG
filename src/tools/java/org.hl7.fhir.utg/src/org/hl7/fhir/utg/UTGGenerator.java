@@ -116,8 +116,10 @@ public class UTGGenerator extends BaseGenerator {
 	}
 
 	private void execute() throws Exception {
-		ListResource v2Publishing = createManifestList("V2 Publishing Manifest", "v2-Publishing");
-		ListResource v3Publishing = createManifestList("V3 Publishing Manifest", "v3-Publishing");
+		ListResource v2PublishingManifest = createManifestList("V2 Publishing Manifest", "v2-Publishing");
+		ListResource v3PublishingManifest = createManifestList("V3 Publishing Manifest", "v3-Publishing");
+		ListResource v2RenderingManifest = createManifestList("V2 Rendering Manifest", "v2-Rendering");
+		ListResource v3RenderingManifest = createManifestList("V3 Rendering Manifest", "v3-Rendering");
 		ListResource unifiedManifest = createManifestList("Unified Rendering Manifest", "unified-Rendering");
 		ListResource externalManifest = createManifestList("External Rendering Manifest", "external-Rendering");
 		ListResource fhirManifest = createManifestList("FHIR Rendering Manifest", "fhir-Rendering");
@@ -128,12 +130,12 @@ public class UTGGenerator extends BaseGenerator {
 		v2.loadTables();
 		v3.loadMif();
 		
-		v3.generateCodeSystems(v3Publishing, externalManifest, deprecatedManifest);
-		v3.generateValueSets(v3Publishing, deprecatedManifest);
+		v3.generateCodeSystems(v3PublishingManifest, v3RenderingManifest, externalManifest, deprecatedManifest);
+		v3.generateValueSets(v3PublishingManifest, deprecatedManifest);
 
 		v2.process();
-		v2.generateTables(v2Publishing);
-		v2.generateCodeSystems(v2Publishing, externalManifest);
+		v2.generateTables(v2PublishingManifest);
+		v2.generateCodeSystems(v2PublishingManifest, v2RenderingManifest, externalManifest);
 
 		generateConceptDomains(unifiedManifest);
 		generateStaticUnifiedCodeSystems(unifiedManifest);
@@ -142,16 +144,11 @@ public class UTGGenerator extends BaseGenerator {
 		
 		cdaGenerator.generateResources(cdaManifest);
 		
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Publishing.xml"), v2Publishing);
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Publishing.xml"), v3Publishing);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Publishing.xml"), v2PublishingManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Publishing.xml"), v3PublishingManifest);
 
-		v2Publishing.setTitle("V2 Rendering Manifest");
-		v2Publishing.setId("v2-rendering");
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Rendering.xml"), v2Publishing);
-
-		v3Publishing.setTitle("V3 Rendering Manifest");
-		v3Publishing.setId("v3-rendering");
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Rendering.xml"), v3Publishing);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Rendering.xml"), v2RenderingManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Rendering.xml"), v3RenderingManifest);
 		
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "unified-Rendering.xml"), unifiedManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "external-Rendering.xml"), externalManifest);

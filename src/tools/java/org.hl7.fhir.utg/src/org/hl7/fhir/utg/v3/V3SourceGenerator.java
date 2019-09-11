@@ -260,8 +260,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		return res;
 	}
 
-	//public void generateCodeSystems(ListResource v3manifest, ListResource externalManifest, ListResource nsManifest) throws Exception {
-	public void generateCodeSystems(ListResource v3manifest, ListResource externalManifest, ListResource deprecatedManifest) throws Exception {
+	public void generateCodeSystems(ListResource v3PublishingManifest, ListResource internalManifest, ListResource externalManifest, ListResource deprecatedManifest) throws Exception {
 		List<Element> list = new LinkedList<Element>();
 		List<NamingSystem> depNamingSystems = new LinkedList<NamingSystem>();
 		List<NamingSystem> intNamingSystems = new LinkedList<NamingSystem>();
@@ -285,9 +284,10 @@ public class V3SourceGenerator extends BaseGenerator {
 						depCodeSystems.add(cs);
 						deprecatedManifest.addEntry(manifestEntry);
 					} else {
-						v3manifest.addEntry(manifestEntry);
+						v3PublishingManifest.addEntry(manifestEntry);
 						if (cs.getInternal()) {
 							intCodeSystems.add(cs);
+							internalManifest.addEntry(manifestEntry);
 						} else {
 							extCodeSystems.add(cs);
 							externalManifest.addEntry(manifestEntry);
@@ -301,8 +301,9 @@ public class V3SourceGenerator extends BaseGenerator {
 						depNamingSystems.add(ns);
 						deprecatedManifest.addEntry(manifestEntry);
 					} else {
-						v3manifest.addEntry(manifestEntry);
+						v3PublishingManifest.addEntry(manifestEntry);
 						if (cs.getInternal()) {
+							internalManifest.addEntry(manifestEntry);
 							intNamingSystems.add(ns);
 						} else {
 							externalManifest.addEntry(manifestEntry);

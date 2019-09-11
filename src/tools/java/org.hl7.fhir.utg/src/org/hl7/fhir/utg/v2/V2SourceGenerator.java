@@ -890,14 +890,14 @@ public class V2SourceGenerator extends BaseGenerator {
 		return count;
 	}
 
-	public void generateCodeSystems(ListResource v2manifest, ListResource externalManifest) throws Exception {
+	public void generateCodeSystems(ListResource v2PublishingManifest, ListResource v2RenderingManifest, ListResource externalManifest) throws Exception {
 		int c = 0;
 		int h = 0;
 
 		for (String n : sorted(tables.keySet())) {
 			if (!n.equals("0000")) {
 				Table t = tables.get(n);
-				generateCodeSystem(t, v2manifest, externalManifest);
+				generateCodeSystem(t, v2PublishingManifest, v2RenderingManifest, externalManifest);
 			}
 		}
 
@@ -909,7 +909,7 @@ public class V2SourceGenerator extends BaseGenerator {
 	}
 
 
-	private void generateCodeSystem(Table t, ListResource v2manifest, ListResource externalManifest)
+	private void generateCodeSystem(Table t, ListResource v2PublishingManifest, ListResource internalManifest, ListResource externalManifest)
 			throws FileNotFoundException, IOException {
 
 		TableVersion tv = t.master;
@@ -1033,39 +1033,35 @@ public class V2SourceGenerator extends BaseGenerator {
 
 		ValueSet vs = produceValueSet("Master", cs, t, tv);
 
-		// Only write code systems if not value set only 
+		// Only write code systems if not value set only AND cs oid is present
 		// per Ted
-		if (!t.isValueSetOnlyTable()) {
+		if (tv.getCsoid() != null && !t.isValueSetOnlyTable()) {
 			ListEntryComponent manifestEntry = ListResourceExt.createCodeSystemListEntry(cs);
 			String resourcePath = Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
 			Resource outputResource = cs;
-			if (!t.isInternalCsOid()) {
-				//if (cs.hasConcept()) {
-					resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
-				//} else {
-				//	NamingSystem ns = new NamingSystem(cs);
-				//	manifestEntry = ListResourceExt.createNamingSystemListEntry(ns);
-				//	outputResource = ns;
-				//	//resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.NAMINGSYSTEMS, "cs-" + cs.getId()) + ".xml";
-				//	resourcePath = Utilities.path(dest, FolderNameConstants.NAMINGSYSTEMS, "cs-" + cs.getId()) + ".xml";
-				//}
+			if (t.isInternalCsOid()) {
+				internalManifest.addEntry(manifestEntry);
+			} else {
+				resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
 				externalManifest.addEntry(manifestEntry);
 			}
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), outputResource);
-			v2manifest.addEntry(manifestEntry);
+			v2PublishingManifest.addEntry(manifestEntry);
 
 			findUndefinedConceptProperties(cs);
 		}
 
-		new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-				.compose(new FileOutputStream(
-						Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS, "vs-" + cs.getId()) + ".xml"),
-						vs);
-
-		ListEntryComponent vsEntry = ListResourceExt.createValueSetListEntry(vs, (String) null);
-		
-		v2manifest.addEntry(vsEntry);
-		
+		// only write value set if vs oid is present
+		if (tv.getVsoid() != null) {
+			new XmlParser().setOutputStyle(OutputStyle.PRETTY)
+					.compose(new FileOutputStream(
+							Utilities.path(dest, FolderNameConstants.V2, FolderNameConstants.VALUESETS, "vs-" + cs.getId()) + ".xml"),
+							vs);
+	
+			ListEntryComponent vsEntry = ListResourceExt.createValueSetListEntry(vs, (String) null);
+			
+			v2PublishingManifest.addEntry(vsEntry);
+		}
 	}
 
 	// private void generateVersionCodeSystem(Table t, TableVersion tv, ListResource
