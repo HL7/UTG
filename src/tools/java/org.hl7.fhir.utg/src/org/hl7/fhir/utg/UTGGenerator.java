@@ -131,7 +131,7 @@ public class UTGGenerator extends BaseGenerator {
 		v3.loadMif();
 		
 		v3.generateCodeSystems(v3PublishingManifest, v3RenderingManifest, externalManifest, deprecatedManifest);
-		v3.generateValueSets(v3PublishingManifest, deprecatedManifest);
+		v3.generateValueSets(v3PublishingManifest, v3RenderingManifest, deprecatedManifest);
 
 		v2.process();
 		v2.generateTables(v2PublishingManifest);
@@ -147,8 +147,8 @@ public class UTGGenerator extends BaseGenerator {
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Publishing.xml"), v2PublishingManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Publishing.xml"), v3PublishingManifest);
 
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-rendering.xml"), v2RenderingManifest);
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-rendering.xml"), v3RenderingManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Rendering.xml"), v2RenderingManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Rendering.xml"), v3RenderingManifest);
 		
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "unified-Rendering.xml"), unifiedManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "external-Rendering.xml"), externalManifest);

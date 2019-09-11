@@ -1061,6 +1061,7 @@ public class V2SourceGenerator extends BaseGenerator {
 			ListEntryComponent vsEntry = ListResourceExt.createValueSetListEntry(vs, (String) null);
 			
 			v2PublishingManifest.addEntry(vsEntry);
+			internalManifest.addEntry(vsEntry);
 		}
 	}
 
