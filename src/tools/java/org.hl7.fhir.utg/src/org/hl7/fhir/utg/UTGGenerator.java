@@ -147,8 +147,8 @@ public class UTGGenerator extends BaseGenerator {
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Publishing.xml"), v2PublishingManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Publishing.xml"), v3PublishingManifest);
 
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Rendering.xml"), v2RenderingManifest);
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Rendering.xml"), v3RenderingManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-rendering.xml"), v2RenderingManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-rendering.xml"), v3RenderingManifest);
 		
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "unified-Rendering.xml"), unifiedManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "external-Rendering.xml"), externalManifest);
