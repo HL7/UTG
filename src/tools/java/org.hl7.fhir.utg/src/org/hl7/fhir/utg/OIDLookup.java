@@ -71,7 +71,7 @@ public class OIDLookup {
 			put("1.0.3166.2"                   , "http://terminology.hl7.org/CodeSystem/v3-extTmp-3166-2"                                                   );
 			put("1.0.4217"                     , "http://terminology.hl7.org/CodeSystem/v3-extTmp-4217"                                                     );
 			put("1.0.639.1"                    , "http://terminology.hl7.org/CodeSystem/v3-extTmp-639-1"                                                    );
-			put("1.0.639.2"                    , "http://terminology.hl7.org/CodeSystem/v3-extTmp-639-2"                                                    );
+			put("1.0.639.2"                    , "http://terminology.hl7.org/CodeSystem/v3-extTmp-iso639-2"                                                    );
 			put("1.0.639.3"                    , "http://terminology.hl7.org/CodeSystem/v3-extTmp-639-3"                                                    );
 			put("1.2.840.10008.2.16.4"         , "http://dicom.nema.org/medical/dicom"                                                                      );
 			put("1.3.160"                      , "http://terminology.hl7.org/CodeSystem/v3-extTmp-gtin"                                                     );
@@ -87,7 +87,7 @@ public class OIDLookup {
 
 			put("2.16.840.1.113883.5.79"       , "http://terminology.hl7.org/CodeSystem/v3-extTmp-mediatypes"                                               );
 			put("2.16.840.1.113883.6.10"       , "http://www.iana.org/assignments/media-types"                                                              );
-			put("2.16.840.1.113883.6.100"      , "http://terminology.hl7.org/CodeSystem/v3-extTmp-639-2"                                                    );
+			put("2.16.840.1.113883.6.100"      , "http://terminology.hl7.org/CodeSystem/v3-extTmp-v3639-2"                                                    );
 			put("2.16.840.1.113883.6.102"      , "http://terminology.hl7.org/CodeSystem/v3-extTmp-DEEDS"                                                    );
 			put("2.16.840.1.113883.6.102.2.10" , "http://terminology.hl7.org/CodeSystem/v3-extTmp-DEEDS210"                                                 );
 			put("2.16.840.1.113883.6.102.4.12" , "http://terminology.hl7.org/CodeSystem/v3-extTmp-DEEDS412"                                                 );
