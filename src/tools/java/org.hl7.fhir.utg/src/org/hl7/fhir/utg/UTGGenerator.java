@@ -134,7 +134,7 @@ public class UTGGenerator extends BaseGenerator {
 		v3.generateValueSets(v3PublishingManifest, v3RenderingManifest, deprecatedManifest);
 
 		v2.process();
-		v2.generateTables(v2PublishingManifest);
+		v2.generateTables(v2PublishingManifest, v2RenderingManifest);
 		v2.generateCodeSystems(v2PublishingManifest, v2RenderingManifest, externalManifest);
 
 		generateConceptDomains(unifiedManifest);

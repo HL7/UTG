@@ -1233,7 +1233,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		return vs;
 	}
 
-	public void generateTables(ListResource v2manifest) throws FileNotFoundException, IOException {
+	public void generateTables(ListResource v2PublishingManifest, ListResource v2RenderingManifest) throws FileNotFoundException, IOException {
 		CodeSystem cs = new CodeSystem();
 		cs.setId("v2-tables");
 		cs.setUrl("http://hl7.org/terminology.hl7.org/CodeSystem/" + cs.getId());
@@ -1340,7 +1340,9 @@ public class V2SourceGenerator extends BaseGenerator {
 				.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.V2, "v2-tables.xml")), cs);
 		System.out.println("Save tables (" + Integer.toString(count) + " found)");
 
-		v2manifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs));
+		ListEntryComponent manifestEntry = ListResourceExt.createCodeSystemListEntry(cs); 
+		v2PublishingManifest.addEntry(manifestEntry);
+		v2RenderingManifest.addEntry(manifestEntry);
 	}
 
 	private List<String> normalizeStewardValue(String steward) {

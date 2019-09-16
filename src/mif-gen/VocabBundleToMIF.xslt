@@ -90,7 +90,7 @@
     </xsl:for-each>
 	</xsl:template>
   <xsl:template name="doCodeSystems">
-    <xsl:for-each select="key('resourceByUrl', 'http://terminology.hl7.org/List/v3-Manifest')/resource/List/entry">
+    <xsl:for-each select="key('resourceByUrl', 'http://terminology.hl7.org/List/v3-Publishing')/resource/List/entry">
       <!-- Todo: yank this 'if' and collapse for-each loops once source is fixed -->
       <xsl:choose>
         <xsl:when test="not(preceding-sibling::entry[item/reference/@value=current()/item/reference/@value])">-->
@@ -268,15 +268,17 @@
                 <xsl:for-each select="/Bundle/entry/resource/NamingSystem[uniqueId[type/@value='uri' and preferred/@value='true' and value/@value=$url]]">
   
                   <codeSystem name="{substring-after(id/@value, 'v3-')}" title="{title/@value}" codeSystemId="{uniqueId[type/@value='oid' and preferred/@value='true']/value/@value}">
-                    <annotations>
-                      <documentation>
-                        <description>
-                          <text>
-                            <xsl:copy-of select="fn:markdownToHTML(description/@value, true())"/>
-                          </text>
-                        </description>
-                      </documentation>
-                    </annotations>
+                    <xsl:if test="description/@value">
+                      <annotations>
+                        <documentation>
+                          <description>
+                            <text>
+                              <xsl:copy-of select="fn:markdownToHTML(description/@value, true())"/>
+                            </text>
+                          </description>
+                        </documentation>
+                      </annotations>
+                    </xsl:if>
                     <releasedVersion releaseDate="{substring(date/@value, 1, 10)}" hl7MaintainedIndicator="false" completeCodesIndicator="false" hl7ApprovedIndicator="false">
                       <supportedLanguage>en</supportedLanguage>
                     </releasedVersion>
@@ -287,7 +289,7 @@
           </xsl:for-each>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:message select="concat('Duplicate item in v3-Manifest: ', item/reference/@value)"/>
+          <xsl:message select="concat('Duplicate item in v3-Publishing: ', item/reference/@value)"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:for-each>
@@ -414,7 +416,7 @@
     </xsl:if>
   </xsl:template>
   <xsl:template name="doValueSets">
-    <xsl:for-each select="key('resourceByUrl', 'http://terminology.hl7.org/List/v3-Manifest')/resource/List/entry/item/reference">
+    <xsl:for-each select="key('resourceByUrl', 'http://terminology.hl7.org/List/v3-Publishing')/resource/List/entry/item/reference">
       <xsl:variable name="url" select="if (contains(@value, '|')) then substring-before(@value, '|') else @value"/>
       <xsl:for-each select="key('resourceByUrl', $url)/resource/ValueSet">
         <valueSet name="{title/@value}" id="{fn:getOID(.)}">
