@@ -6,6 +6,7 @@
   <li><a href="codesystems-v2.html">V2</a></li>
   <li><a href="codesystems-fhir.html">FHIR</a></li>
   <li><a href="codesystems-unified.html">Unified</a></li>
+  <li><a href="codesystems-external.html">External</a></li>
 </ul>
 
 v3 Code systems defined by HL7.
