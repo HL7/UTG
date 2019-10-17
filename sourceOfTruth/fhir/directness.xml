@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="resource-type-link"/>
+  <id value="directness"/>
   <meta>
     <lastUpdated value="2019-10-16T18:52:48.487+00:00"/>
   </meta>
@@ -9,16 +9,16 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
             
-      <h2>PayeeResourceType</h2>
+      <h2>EvidenceDirectness</h2>
             
       <div>
               
-        <p>The type of payee Resource.</p>
+        <p>The quality of how direct the match is.</p>
 
             
       </div>
             
-      <p>This code system http://terminology.hl7.org/CodeSystem/resource-type-link defines the following codes:</p>
+      <p>This code system http://terminology.hl7.org/CodeSystem/directness defines the following codes:</p>
             
       <table class="codes">
               
@@ -46,57 +46,57 @@
               
         <tr>
                 
-          <td style="white-space:nowrap">organization
+          <td style="white-space:nowrap">low
                   
-            <a name="resource-type-link-organization"> </a>
+            <a name="directness-low"> </a>
                 
           </td>
                 
-          <td>Organization</td>
+          <td>Low quality match</td>
                 
-          <td>Organization resource.</td>
+          <td>Low level of directness.</td>
               
         </tr>
               
         <tr>
                 
-          <td style="white-space:nowrap">patient
+          <td style="white-space:nowrap">moderate
                   
-            <a name="resource-type-link-patient"> </a>
+            <a name="directness-moderate"> </a>
                 
           </td>
                 
-          <td>Patient</td>
+          <td>Moderate quality match</td>
                 
-          <td>Patient resource.</td>
+          <td>Moderate level of directness.</td>
               
         </tr>
               
         <tr>
                 
-          <td style="white-space:nowrap">practitioner
+          <td style="white-space:nowrap">high
                   
-            <a name="resource-type-link-practitioner"> </a>
+            <a name="directness-high"> </a>
                 
           </td>
                 
-          <td>Practitioner</td>
+          <td>High quality match</td>
                 
-          <td>Practitioner resource.</td>
+          <td>High level of directness.</td>
               
         </tr>
               
         <tr>
                 
-          <td style="white-space:nowrap">relatedperson
+          <td style="white-space:nowrap">exact
                   
-            <a name="resource-type-link-relatedperson"> </a>
+            <a name="directness-exact"> </a>
                 
           </td>
                 
-          <td>RelatedPerson</td>
+          <td>Exact match</td>
                 
-          <td>RelatedPerson resource.</td>
+          <td>Exact directness.</td>
               
         </tr>
             
@@ -104,14 +104,23 @@
           
     </div>
   </text>
-  <url value="http://terminology.hl7.org/CodeSystem/resource-type-link"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/directness"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1180"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1459"/>
   </identifier>
   <version value="4.1.0"/>
-  <name value="PayeeResourceType"/>
-  <title value="PayeeResourceType"/>
+  <name value="EvidenceDirectness"/>
+  <title value="EvidenceDirectness"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2019-10-16T18:52:48+00:00"/>
@@ -126,28 +135,28 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The type of payee Resource."/>
+  <description value="The quality of how direct the match is."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/resource-type-link"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/directness"/>
   <content value="complete"/>
   <concept>
-    <code value="organization"/>
-    <display value="Organization"/>
-    <definition value="Organization resource."/>
+    <code value="low"/>
+    <display value="Low quality match"/>
+    <definition value="Low level of directness."/>
   </concept>
   <concept>
-    <code value="patient"/>
-    <display value="Patient"/>
-    <definition value="Patient resource."/>
+    <code value="moderate"/>
+    <display value="Moderate quality match"/>
+    <definition value="Moderate level of directness."/>
   </concept>
   <concept>
-    <code value="practitioner"/>
-    <display value="Practitioner"/>
-    <definition value="Practitioner resource."/>
+    <code value="high"/>
+    <display value="High quality match"/>
+    <definition value="High level of directness."/>
   </concept>
   <concept>
-    <code value="relatedperson"/>
-    <display value="RelatedPerson"/>
-    <definition value="RelatedPerson resource."/>
+    <code value="exact"/>
+    <display value="Exact match"/>
+    <definition value="Exact directness."/>
   </concept>
 </CodeSystem>

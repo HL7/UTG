@@ -80,7 +80,12 @@ public class FHIRSourceGenerator extends BaseGenerator {
 
 			InputStream inputStream = new ByteArrayInputStream(codeSystemXml.getBytes(Charset.forName("UTF-8")));
 
-			Resource resource = new XmlParser().parse(inputStream);
+			Resource resource = null;
+			try {
+				resource = new XmlParser().parse(inputStream);
+			} catch (FHIRFormatError e) {
+				System.out.println("FHIR Format Error found. Resource skipped. XML begins: " + codeSystemXml.substring(0, 100));
+			}
 
 			
 			if (resource instanceof CodeSystem) {
