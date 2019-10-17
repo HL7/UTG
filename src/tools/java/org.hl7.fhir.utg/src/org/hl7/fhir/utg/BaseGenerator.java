@@ -34,7 +34,9 @@ public class BaseGenerator {
 	protected Map<String, HashSet<String>> undefinedConceptProperties = new HashMap<String, HashSet<String>>();
 
 	protected static final String INTERNAL_CS_OID_PREFIX = "2.16.840.1.113883.18.";
-
+	protected static final String V3_INTERNAL_CS_OID_PREFIX = "2.16.840.1.113883.5.";
+	protected static final String FHIR_CS_OID_PREFIX = "2.16.840.1.113883.4.642.1.";
+	
 	public BaseGenerator(String dest, Map<String, CodeSystem> csmap, Set<String> knownCS) {
 		super();
 		this.dest = dest;
@@ -124,6 +126,11 @@ public class BaseGenerator {
 		return oid == null || oid.isEmpty() || oid.startsWith(INTERNAL_CS_OID_PREFIX);
 	}
 
+	public static boolean isV3orFhirOid(String oid) {
+		return oid.startsWith(FHIR_CS_OID_PREFIX) || oid.startsWith(V3_INTERNAL_CS_OID_PREFIX);
+	}
+
+	
 	protected static Document removeXMLNSAttribute(Document doc)
 			throws ParserConfigurationException, SAXException, IOException {
 		NodeList nodeList = doc.getElementsByTagName("*");

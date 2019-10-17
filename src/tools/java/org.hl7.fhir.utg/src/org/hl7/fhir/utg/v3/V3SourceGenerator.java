@@ -302,11 +302,12 @@ public class V3SourceGenerator extends BaseGenerator {
 						deprecatedManifest.addEntry(manifestEntry);
 					} else {
 						v3PublishingManifest.addEntry(manifestEntry);
+						// namingSystems do not go in rendering manifest
 						if (cs.getInternal()) {
-							internalManifest.addEntry(manifestEntry);
+							//internalManifest.addEntry(manifestEntry);
 							intNamingSystems.add(ns);
 						} else {
-							externalManifest.addEntry(manifestEntry);
+							//externalManifest.addEntry(manifestEntry);
 							extNamingSystems.add(ns);
 						}
 					}

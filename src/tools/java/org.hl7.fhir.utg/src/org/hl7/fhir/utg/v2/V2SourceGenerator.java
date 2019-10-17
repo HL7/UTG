@@ -639,6 +639,10 @@ public class V2SourceGenerator extends BaseGenerator {
 			return isInternalOid(this.master.getCsoid());
 		}
 		
+		public boolean isV3orFhirCsOid() {
+			return isV3orFhirOid(this.master.getCsoid());
+		}
+		
 		public boolean hasContent() {
 			return !this.master.entries.isEmpty();
 		}
@@ -1041,12 +1045,14 @@ public class V2SourceGenerator extends BaseGenerator {
 			Resource outputResource = cs;
 			if (t.isInternalCsOid()) {
 				internalManifest.addEntry(manifestEntry);
-			} else {
+				new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), outputResource);
+				v2PublishingManifest.addEntry(manifestEntry);
+			} else if (!t.isV3orFhirCsOid() && t.hasContent()) {
 				resourcePath = Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS, "cs-" + cs.getId()) + ".xml";
 				externalManifest.addEntry(manifestEntry);
+				new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), outputResource);
+				v2PublishingManifest.addEntry(manifestEntry);
 			}
-			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), outputResource);
-			v2PublishingManifest.addEntry(manifestEntry);
 
 			findUndefinedConceptProperties(cs);
 		}
@@ -1297,6 +1303,7 @@ public class V2SourceGenerator extends BaseGenerator {
 					c.setDefinition(tv.objectDescription);
 					c.addProperty().setCode("table-oid").setValue(new StringType(t.oid));
 					if (!Utilities.noString(tv.csoid)) {
+						// TODO add condition csoid is .5 or FHIR
 						c.addProperty().setCode("csoid").setValue(new StringType(tv.csoid));
 						String v3url = OIDLookup.get_v3_to_v2_url_bridge(tv.csoid);
 						if (v3url != null) {

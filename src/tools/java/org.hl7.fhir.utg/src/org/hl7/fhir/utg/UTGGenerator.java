@@ -235,10 +235,15 @@ public class UTGGenerator extends BaseGenerator {
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.VALUESETS));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS));
 		
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.CODESYSTEMS));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.VALUESETS));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.NAMINGSYSTEMS));
-		
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.VALUESETS));
+
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.VALUESETS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS));
+
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL));
+
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RETIRED));
 
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RELEASE));
