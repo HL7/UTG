@@ -639,8 +639,16 @@ public class V2SourceGenerator extends BaseGenerator {
 			return isInternalOid(this.master.getCsoid());
 		}
 		
+		public boolean isV3CsOid() {
+			return isV3Oid(this.master.getCsoid());
+		}
+		
+		public boolean isFhirCsOid() {
+			return isFhirOid(this.master.getCsoid());
+		}
+		
 		public boolean isV3orFhirCsOid() {
-			return isV3orFhirOid(this.master.getCsoid());
+			return isV3CsOid() || isFhirCsOid();
 		}
 		
 		public boolean hasContent() {
@@ -918,6 +926,10 @@ public class V2SourceGenerator extends BaseGenerator {
 
 		TableVersion tv = t.master;
 
+		if (t.id.equals("0719")) {
+			System.out.println("stop");
+		}
+
 		if (OIDLookup.doNotGenerate(tv.csoid))
 			return;
 		
@@ -946,6 +958,13 @@ public class V2SourceGenerator extends BaseGenerator {
 			cs.setTitle("V2 Table Code System: " + t.name);
 		}
 
+		if (t.isV3CsOid()) {
+			String v3url = OIDLookup.get_v3_to_v2_url_bridge(tv.csoid);
+			if (v3url != null) {
+				cs.setUrl(v3url);
+			}
+		}
+		
 		if (OIDLookup.hasUrlOverride(tv.csoid)) {
 			cs.setUrl(OIDLookup.getUrl(tv.csoid));
 		}
@@ -1302,8 +1321,7 @@ public class V2SourceGenerator extends BaseGenerator {
 					c.setDisplay(t.name);
 					c.setDefinition(tv.objectDescription);
 					c.addProperty().setCode("table-oid").setValue(new StringType(t.oid));
-					if (!Utilities.noString(tv.csoid)) {
-						// TODO add condition csoid is .5 or FHIR
+					if (!Utilities.noString(tv.csoid) || t.isV3CsOid()) {
 						c.addProperty().setCode("csoid").setValue(new StringType(tv.csoid));
 						String v3url = OIDLookup.get_v3_to_v2_url_bridge(tv.csoid);
 						if (v3url != null) {

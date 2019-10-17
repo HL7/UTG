@@ -126,8 +126,12 @@ public class BaseGenerator {
 		return oid == null || oid.isEmpty() || oid.startsWith(INTERNAL_CS_OID_PREFIX);
 	}
 
-	public static boolean isV3orFhirOid(String oid) {
-		return oid.startsWith(FHIR_CS_OID_PREFIX) || oid.startsWith(V3_INTERNAL_CS_OID_PREFIX);
+	public static boolean isV3Oid(String oid) {
+		return oid != null && !oid.isEmpty() && oid.startsWith(V3_INTERNAL_CS_OID_PREFIX);
+	}
+
+	public static boolean isFhirOid(String oid) {
+		return oid != null && !oid.isEmpty() && oid.startsWith(FHIR_CS_OID_PREFIX);
 	}
 
 	
