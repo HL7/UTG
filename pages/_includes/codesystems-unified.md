@@ -6,6 +6,7 @@
   <li><a href="codesystems-v2.html">V2</a></li>
   <li><a href="codesystems-fhir.html">FHIR</a></li>
   <li class="active"><a href="#">Unified</a></li>
+  <li><a href="codesystems-external.html">External</a></li>
 </ul>
 
 Code systems defined and maintaineed by HL7 that have been unified, and may be used across all of the HL7 product families..
