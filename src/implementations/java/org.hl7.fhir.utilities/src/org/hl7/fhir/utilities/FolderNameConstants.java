@@ -20,5 +20,5 @@ public class FolderNameConstants {
 	public static final String UNIFIED = "unified";
 	public static final String EXTERNAL = "external";
 	
-	public static final String DEPRECATED = "deprecated-retired";
+	public static final String RETIRED = "retired";
 }

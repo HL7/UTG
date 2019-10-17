@@ -327,7 +327,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 		
 		for (CodeSystem cs : depCodeSystems) {
-			String resourcePath = Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml";
+			String resourcePath = Utilities.path(dest, FolderNameConstants.RETIRED, FolderNameConstants.CODESYSTEMS, cs.getId()) + ".xml";
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), cs);
 		}
 		
@@ -342,7 +342,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 		
 		for (NamingSystem ns : depNamingSystems) {
-			String resourcePath = Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.NAMINGSYSTEMS, ns.getId()) + ".xml";
+			String resourcePath = Utilities.path(dest, FolderNameConstants.RETIRED, FolderNameConstants.NAMINGSYSTEMS, ns.getId()) + ".xml";
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(resourcePath), ns);
 		}
 		
@@ -1116,7 +1116,7 @@ public class V3SourceGenerator extends BaseGenerator {
 
 		for (ValueSet vs : deprecatedValueSets) {
 			new XmlParser().setOutputStyle(OutputStyle.PRETTY)
-					.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.VALUESETS, vs.getId()) + ".xml"), vs);
+					.compose(new FileOutputStream(Utilities.path(dest, FolderNameConstants.RETIRED, FolderNameConstants.VALUESETS, vs.getId()) + ".xml"), vs);
 		}
 		
 		
