@@ -125,13 +125,13 @@ public class UTGGenerator extends BaseGenerator {
 		ListResource fhirManifest = createManifestList("FHIR Rendering Manifest", "fhir-Rendering");
 		ListResource fhirNormativeManifest = createManifestList("FHIR Normative Manifest", "fhir-Normative");
 		ListResource cdaManifest = createManifestList("CDA Rendering Manifest", "cda-Rendering");
-		ListResource deprecatedManifest = createManifestList("Deprecated Manifest", "deprecated-retired-Rendering");
+		ListResource retiredManifest = createManifestList("Retired Manifest", "retired-Rendering");
 		
 		v2.loadTables();
 		v3.loadMif();
 		
-		v3.generateCodeSystems(v3PublishingManifest, v3RenderingManifest, externalManifest, deprecatedManifest);
-		v3.generateValueSets(v3PublishingManifest, v3RenderingManifest, deprecatedManifest);
+		v3.generateCodeSystems(v3PublishingManifest, v3RenderingManifest, externalManifest, retiredManifest);
+		v3.generateValueSets(v3PublishingManifest, v3RenderingManifest, retiredManifest);
 
 		v2.process();
 		v2.generateTables(v2PublishingManifest, v2RenderingManifest);
@@ -155,7 +155,7 @@ public class UTGGenerator extends BaseGenerator {
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Rendering.xml"), fhirManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Normative.xml"), fhirNormativeManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "cda-Rendering.xml"), cdaManifest);
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "deprecated-retired-Rendering.xml"), deprecatedManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "retired-Rendering.xml"), retiredManifest);
 
 		writeExternalManifestFiles();
 		
@@ -235,11 +235,16 @@ public class UTGGenerator extends BaseGenerator {
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.VALUESETS));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS));
 		
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.CODESYSTEMS));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.VALUESETS));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.NAMINGSYSTEMS));
-		
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.DEPRECATED));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.CODESYSTEMS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V2, FolderNameConstants.VALUESETS));
+
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.CODESYSTEMS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.VALUESETS));
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS));
+
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL));
+
+		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RETIRED));
 
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RELEASE));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CONTROL));
@@ -263,9 +268,9 @@ public class UTGGenerator extends BaseGenerator {
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.VALUESETS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS)));
 		
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.CODESYSTEMS)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.VALUESETS)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.NAMINGSYSTEMS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RETIRED, FolderNameConstants.CODESYSTEMS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RETIRED, FolderNameConstants.VALUESETS)));
+		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RETIRED, FolderNameConstants.NAMINGSYSTEMS)));
 
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.VALUESETS)));
@@ -283,9 +288,9 @@ public class UTGGenerator extends BaseGenerator {
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CONTROL));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.RELEASE));
 		
-		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.CODESYSTEMS));
-		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.VALUESETS));
-		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.DEPRECATED, FolderNameConstants.NAMINGSYSTEMS));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.RETIRED, FolderNameConstants.CODESYSTEMS));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.RETIRED, FolderNameConstants.VALUESETS));
+		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.RETIRED, FolderNameConstants.NAMINGSYSTEMS));
 
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.VALUESETS));
