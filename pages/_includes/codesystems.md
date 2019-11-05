@@ -10,7 +10,7 @@
   <li><a href="codesystems-retired.html">Retired</a></li>
 </ul>
 
-Code systems defined by HL7.
+Code systems defined by HL7 and published in HL7 International Standards
 
 The list of code systems here are all of the code systems maintained by HL7 through the Unified Terminology Governance (UTG) process, published by HL7, and used in the different HL7 product families.   This is a continuous process, and the content available here is updated frequently.
 
