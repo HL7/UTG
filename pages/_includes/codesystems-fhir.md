@@ -7,6 +7,7 @@
   <li class="active"><a href="#">FHIR</a></li>
   <li><a href="codesystems-unified.html">Unified</a></li>
   <li><a href="codesystems-external.html">External</a></li>
+  <li><a href="codesystems-retired.html">Retired</a></li>
 </ul>
 
 FHIR Code systems defined by HL7.

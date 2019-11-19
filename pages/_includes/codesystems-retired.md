@@ -6,12 +6,13 @@
   <li><a href="codesystems-v2.html">V2</a></li>
   <li><a href="codesystems-fhir.html">FHIR</a></li>
   <li><a href="codesystems-unified.html">Unified</a></li>
-  <li class="active"><a href="#">External</a></li>
-  <li><a href="codesystems-retired.html">Retired</a></li>
+    <li><a href="codesystems-external.html">External</a></li>
+  <li class="active"><a href="#">Retired</a></li>
+
 </ul>
 
-External Code systems where HL7 has signed agreements for redistribution of non-HL7 published content.  Note that in nearly all cases these pages contain only a subset of the external code system content.   Full content is available from the publiher of the code systems.
+List of Code Systems that HL7 has published at some time in the past, but have been retired and are no longer being published.   These code systems are made accessible in order to process historic content, but should not be used to create new records.
 
 <ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
-{% include List-external-Rendering-list-name-simple-CodeSystem.xhtml %}
+{% include List-retired-Rendering-list-name-simple-CodeSystem.xhtml %}
 </ul>
