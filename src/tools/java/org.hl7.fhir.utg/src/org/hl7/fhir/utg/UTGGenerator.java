@@ -95,7 +95,7 @@ public class UTGGenerator extends BaseGenerator {
 	private V3SourceGenerator v3;
 	private V2SourceGenerator v2;
 	private FHIRSourceGenerator fhirGenerator;
-	private CDASourceGenerator cdaGenerator;
+	//private CDASourceGenerator cdaGenerator;
 	private Map<String, ExternalProvider> externalProviders;
 	
 	public UTGGenerator(String dest, String v2source, String v3source, String fhirSourceUrl, String cdaSourceFolder, String externalProviderManifest) throws IOException, ClassNotFoundException,
@@ -107,12 +107,12 @@ public class UTGGenerator extends BaseGenerator {
 		v2 = new V2SourceGenerator(dest, csmap, knownCS);
 		v3 = new V3SourceGenerator(dest, csmap, knownCS, externalProviders);
 		fhirGenerator = new FHIRSourceGenerator(dest, csmap, knownCS);
-		cdaGenerator = new CDASourceGenerator(dest, csmap, knownCS);
+		//cdaGenerator = new CDASourceGenerator(dest, csmap, knownCS);
 		
 		v2.load(v2source);
 		v3.load(v3source);
 		fhirGenerator.load(fhirSourceUrl);
-		cdaGenerator.load(cdaSourceFolder);
+		//cdaGenerator.load(cdaSourceFolder);
 	}
 
 	private void execute() throws Exception {
@@ -124,7 +124,7 @@ public class UTGGenerator extends BaseGenerator {
 		ListResource externalManifest = createManifestList("External Rendering Manifest", "external-Rendering");
 		ListResource fhirManifest = createManifestList("FHIR Rendering Manifest", "fhir-Rendering");
 		ListResource fhirNormativeManifest = createManifestList("FHIR Normative Manifest", "fhir-Normative");
-		ListResource cdaManifest = createManifestList("CDA Rendering Manifest", "cda-Rendering");
+		//ListResource cdaManifest = createManifestList("CDA Rendering Manifest", "cda-Rendering");
 		ListResource retiredManifest = createManifestList("Retired Manifest", "retired-Rendering");
 		
 		v2.loadTables();
@@ -142,7 +142,7 @@ public class UTGGenerator extends BaseGenerator {
 
 		fhirGenerator.generateCodeSystems(fhirManifest, fhirNormativeManifest);
 		
-		cdaGenerator.generateResources(cdaManifest);
+		//cdaGenerator.generateResources(cdaManifest);
 		
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Publishing.xml"), v2PublishingManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Publishing.xml"), v3PublishingManifest);
@@ -154,7 +154,7 @@ public class UTGGenerator extends BaseGenerator {
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "external-Rendering.xml"), externalManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Rendering.xml"), fhirManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Normative.xml"), fhirNormativeManifest);
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "cda-Rendering.xml"), cdaManifest);
+		//writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "cda-Rendering.xml"), cdaManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "retired-Rendering.xml"), retiredManifest);
 
 		writeExternalManifestFiles();
@@ -247,9 +247,9 @@ public class UTGGenerator extends BaseGenerator {
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RETIRED));
 
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RELEASE));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CONTROL));
+		//Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CONTROL));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.FHIR));
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CDA));
+		//Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CDA));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.CIMI));
 
 		// Create output folders
@@ -278,11 +278,11 @@ public class UTGGenerator extends BaseGenerator {
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.RELEASE)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CONTROL)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.FHIR)));
-		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CDA)));
+		//Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CDA)));
 		Files.createDirectories(Paths.get(Utilities.path(dest, FolderNameConstants.CIMI)));
 
 		// Create placeholder files
-		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CDA));
+		//PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CDA));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CIMI));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.FHIR));
 		PlaceHolderFile.create(Utilities.path(dest, FolderNameConstants.CONTROL));
