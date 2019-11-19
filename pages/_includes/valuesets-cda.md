@@ -7,7 +7,7 @@
   <li class="active"><a href="#">CDA</a></li>
 </ul>
 
-CDA Value Sets defined and maintained by HL7 as part of the CDA family of Standards.  Please note that this set is an early draft of the material in Trifolia, and includes test, trial, and training materials; it is included here for illustrative and debugging purposes.  This set is not the official HL7 CDA value set collection, and will not be until it is examined and cleaned up.
+CDA Value Sets defined and maintained by HL7 as part of the CDA family of Standards, and published in the International CDA r2 Base Standard.  Please note that all of these value sets at this time are drawn from the masters published in the HL7 Version 3 International Standard through the coremif.
 
 <ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
 {% include List-cda-Rendering-list-name-simple-ValueSet.xhtml %}

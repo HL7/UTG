@@ -7,7 +7,7 @@
   <li><a href="valuesets-cda.html">CDA</a></li>
 </ul>
 
-v3 Value Sets defined and maintained by HL7 as part of the Version 3 family of Standards..
+Value Sets defined and maintained by HL7 as part of the HL7 Version 3 family of International Standards.  This have historically been published in the Version 3 coremif file format.
 
 <ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
 {% include List-v3-rendering-list-id-simple-ValueSet.xhtml %}

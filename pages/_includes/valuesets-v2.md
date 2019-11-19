@@ -7,7 +7,7 @@
   <li><a href="valuesets-cda.html">CDA</a></li>
 </ul>
 
-v2 Value Sets defined and maintaineed by HL7 as part of the Version 2 familly of standards..
+Value Sets defined and maintaineed by HL7, and published as part of the Version 2 familly of International Standards.
 
 <ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
 {% include List-v2-rendering-list-name-simple-ValueSet.xhtml %}
