@@ -1,71 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<ImplementationGuide xmlns="http://hl7.org/fhir">
+<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas-r5/fhir-single.xsd">
   <id value="utg"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\resources"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\v2"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\v2\valueSets"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\v2\codeSystems"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\v3\valueSets"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\v3\codeSystems"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\control-manifests"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\unified\codeSystems"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\fhir"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\external\v3\codeSystems"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\external\v2\codeSystems"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\external\v3\namingSystems"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\v3\namingSystems"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\sourceOfTruth\retired\codeSystems"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/igpublisher-folder-pages">
-    <valueString value="C:\Users\lloyd\Documents\SVN\UTG\pages"/>
-  </extension>
   <url value="http://terminology.hl7.org/ImplementationGuide/utg"/>
   <version value="0.0.3"/>
-  <name value="HL7 Terminology (UTG)"/>
+  <name value="HL7Terminology"/>
+  <title value="HL7 Terminology"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-04-26T00:00:00-06:00"/>
-  <publisher value="HL7 (Vocab)"/>
+  <publisher value="HL7 International - Vocabulary Work Group"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/Special/committees/vocab"/>
+    </telecom>
+  </contact>
+  <description value="Defines and exposes all HL7 terminologies managed through the unified terminology governance process."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
   <packageId value="hl7.fhir.terminology"/>
   <license value="CC0-1.0"/>
-  <fhirVersion value="4.0.0"/>
   <fhirVersion value="4.0.1"/>
   <definition>
+    <page>
+      <nameUrl value="toc.html"/>
+      <title value="Table of Contents"/>
+      <generation value="html"/>
+      <page>
+        <nameUrl value="index.html"/>
+        <title value="IG Home Page"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="codesystems.html"/>
+        <title value="Code Systems"/>
+        <generation value="html"/>
+        <page>
+          <nameUrl value="codesystems-cda.html"/>
+          <title value="CDA Code Systems"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="codesystems-fhir.html"/>
+          <title value="FHIR Code Systems"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="codesystems-v2.html"/>
+          <title value="V2 Code Systems"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="codesystems-v3.html"/>
+          <title value="V3 Code Systems"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="codesystems-unified.html"/>
+          <title value="Unified Code Systems"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="codesystems-external.html"/>
+          <title value="External Code Systems"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="codesystems-retired.html"/>
+          <title value="Retired Code Systems"/>
+          <generation value="html"/>
+        </page>
+      </page>
+      <page>
+        <nameUrl value="valuesets.html"/>
+        <title value="Value Sets"/>
+        <generation value="html"/>
+        <page>
+          <nameUrl value="valuesets-cda.html"/>
+          <title value="CDA Value Sets"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="valuesets-v2.html"/>
+          <title value="V2 Value Sets"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="valuesets-v3.html"/>
+          <title value="V3 Value Sets"/>
+          <generation value="html"/>
+        </page>
+      </page>
+      <page>
+        <nameUrl value="conceptmaps.html"/>
+        <title value="Concept Maps"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="namingsystems.html"/>
+        <title value="Naming Systems"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="downloads.html"/>
+        <title value="Downloads"/>
+        <generation value="html"/>
+      </page>
+    </page>
     <parameter>
-      <code value="generate"/>
-      <value value="xml"/>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\control-manifests"/>
     </parameter>
     <parameter>
-      <code value="generate"/>
-      <value value="JSON"/>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\external\v2\codeSystems"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\external\v3\codeSystems"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\external\v3\namingSystems"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\fhir"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\retired\codeSystems"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\unified\codeSystems"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\v2"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\v2\codeSystems"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\v2\valueSets"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\v3\codeSystems"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\v3\namingSystems"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\v3\valueSets"/>
     </parameter>
   </definition>
 </ImplementationGuide>
