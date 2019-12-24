@@ -28,6 +28,7 @@ import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
+import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptPropertyComponent;
@@ -371,6 +372,8 @@ public class V3SourceGenerator extends BaseGenerator {
 		cs.setName(shortClassName);
 		cs.setTitle(item.getAttribute("title"));
 
+		cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA);
+		
 		if (OIDLookup.hasUrlOverride(oid)) {
 			cs.setUrl(OIDLookup.getUrl(oid));
 		} else if (OIDLookup.noUrl(oid)) {

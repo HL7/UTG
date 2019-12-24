@@ -977,6 +977,8 @@ public class V2SourceGenerator extends BaseGenerator {
 		// knownCS is a HashSet
 		knownCS.add(cs.getUrl());
 
+		cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA);
+		
 		cs.setValueSet("http://terminology.hl7.org/ValueSet/" + cs.getId());
 		cs.setStatus(PublicationStatus.ACTIVE);
 		cs.setExperimental(false);
