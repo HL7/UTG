@@ -241,7 +241,7 @@ public class UTGGenerator extends BaseGenerator {
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.VALUESETS));
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL, FolderNameConstants.V3, FolderNameConstants.NAMINGSYSTEMS));
 
-		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL));
+		//Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.EXTERNAL));
 
 		Utilities.clearDirectory(Utilities.path(dest, FolderNameConstants.RETIRED));
 
