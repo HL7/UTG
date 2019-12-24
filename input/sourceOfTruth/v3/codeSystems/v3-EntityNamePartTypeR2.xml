@@ -25,12 +25,14 @@
   <date value="2019-03-20"/>
   <publisher value="HL7"/>
   <description value="**Description:**Indicates whether the name part is a given name, family name, prefix, suffix, etc."/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-relationshipKind">
       <valueCode value="NonDefinitionallyQualifiedBy"/>
     </extension>
     <code value="MayBeQualifiedBy"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-qualified-by"/>
     <description value="Relationship points from a concept in EntityNamePartType to a concept in  EntityNamePartQualifier and indicates that the former concept may be qualified by the latter."/>
     <type value="Coding"/>
   </property>
@@ -41,6 +43,7 @@
       </extension>
     </extension>
     <code value="internalId"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
@@ -54,6 +57,7 @@
       </extension>
     </extension>
     <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
     <type value="code"/>
   </property>

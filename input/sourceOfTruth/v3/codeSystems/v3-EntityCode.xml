@@ -31,12 +31,14 @@
     <name value="Health Level Seven"/>
   </contact>
   <description value="*OpenIssue:* Missing description."/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-relationshipKind">
       <valueCode value="Specializes"/>
     </extension>
     <code value="ClassifiesClassCode"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-classifies-class-code"/>
     <description value="The child code is a classification of the particular class group identified by the &#39;classCode&#39; in a RIM class as the parent code.  Used only in RIM backbone classes to link the code and classCode values."/>
     <type value="Coding"/>
   </property>
@@ -47,6 +49,7 @@
       </extension>
     </extension>
     <code value="internalId"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
@@ -60,6 +63,7 @@
       </extension>
     </extension>
     <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
@@ -76,6 +80,7 @@
       </extension>
     </extension>
     <code value="subsumedBy"/>
+    <uri value="http://hl7.org/fhir/concept-properties#parent"/>
     <description value="The concept code of a parent concept"/>
     <type value="code"/>
   </property>

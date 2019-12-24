@@ -28,12 +28,14 @@
     <name value="Health Level Seven"/>
   </contact>
   <description value="**Description:** Code that specifies whether an address part names the street, city, country, postal code, post box, etc.&#xD;&#xA;&#xD;&#xA;Discussion: The hierarchical nature of these concepts shows composition. E.g. &quot;Street Name&quot; is part of &quot;Street Address Line&quot;"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-relationshipKind">
       <valueCode value="ComponentOf"/>
     </extension>
     <code value="ComponentOf"/>
+    <uri value="http://hl7.org/fhir/concept-properties#partOf"/>
     <description value="This relationship indicates that the source concept is a component of the target concept."/>
     <type value="Coding"/>
   </property>
@@ -44,6 +46,7 @@
       </extension>
     </extension>
     <code value="internalId"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
@@ -57,6 +60,7 @@
       </extension>
     </extension>
     <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
     <type value="code"/>
   </property>

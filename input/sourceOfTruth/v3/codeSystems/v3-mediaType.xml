@@ -28,6 +28,7 @@
     <name value="Health Level Seven"/>
   </contact>
   <description value="Internet Assigned Numbers Authority (IANA) Mime Media Types. Identifies the type of the encapsulated data and identifies a method to interpret or render the data. The IANA defined domain of media types is established by the Internet standard RFC 2045 \[http://www.ietf.org/rfc/rfc2045.txt\] and 2046 \[http://www.ietf.org/rfc/rfc2046.txt\]. RFC 2046 defines the media type to consist of two parts:&#xD;&#xA;&#xD;&#xA;1.  top level media type, and&#xD;&#xA;2.  media subtype&#xD;&#xA;&#xD;&#xA;However, this HL7 datatypes specification treats the entire media type as one atomic code symbol in the form defined by IANA, i.e., top level type followed by a slash &quot;/&quot; followed by media subtype. Currently defined media types are registered in a database \[http://www.iana.org/assignments/media-types/index.html\] maintained by IANA. Currently several hundred different MIME media types are defined, with the list growing rapidly. In general, all those types defined by the IANA MAY be used."/>
+  <hierarchyMeaning value="is-a"/>
   <content value="fragment"/>
   <property>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
@@ -36,6 +37,7 @@
       </extension>
     </extension>
     <code value="internalId"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
@@ -49,6 +51,7 @@
       </extension>
     </extension>
     <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
     <type value="code"/>
   </property>
@@ -59,6 +62,7 @@
       </extension>
     </extension>
     <code value="synonymCode"/>
+    <uri value="http://hl7.org/fhir/concept-properties#synonym"/>
     <description value="An additional concept code that was also attributed to a concept"/>
     <type value="code"/>
   </property>
