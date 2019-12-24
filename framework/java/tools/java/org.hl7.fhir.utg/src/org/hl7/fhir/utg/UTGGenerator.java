@@ -124,7 +124,6 @@ public class UTGGenerator extends BaseGenerator {
 		ListResource externalManifest = createManifestList("External Rendering Manifest", "external-Rendering");
 		ListResource fhirManifest = createManifestList("FHIR Rendering Manifest", "fhir-Rendering");
 		ListResource fhirNormativeManifest = createManifestList("FHIR Normative Manifest", "fhir-Normative");
-		//ListResource cdaManifest = createManifestList("CDA Rendering Manifest", "cda-Rendering");
 		ListResource retiredManifest = createManifestList("Retired Manifest", "retired-Rendering");
 		
 		v2.loadTables();
@@ -142,8 +141,9 @@ public class UTGGenerator extends BaseGenerator {
 
 		fhirGenerator.generateCodeSystems(fhirManifest, fhirNormativeManifest);
 		
-		//cdaGenerator.generateResources(cdaManifest);
-		
+		/*
+		 * Don't write manifests.  Manifests are now being manually maintained.
+		 *
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v2-Publishing.xml"), v2PublishingManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "v3-Publishing.xml"), v3PublishingManifest);
 
@@ -154,10 +154,10 @@ public class UTGGenerator extends BaseGenerator {
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "external-Rendering.xml"), externalManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Rendering.xml"), fhirManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Normative.xml"), fhirNormativeManifest);
-		//writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "cda-Rendering.xml"), cdaManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "retired-Rendering.xml"), retiredManifest);
 
 		writeExternalManifestFiles();
+		*/
 		
 		System.out.println("finished");
 	}
