@@ -51,6 +51,7 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.r4.model.ValueSet.FilterOperator;
 import org.hl7.fhir.utg.BaseGenerator;
 import org.hl7.fhir.utg.OIDLookup;
+import org.hl7.fhir.utg.PropertyLookup;
 import org.hl7.fhir.utg.UTGGenerator;
 import org.hl7.fhir.utg.external.ExternalProvider;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
@@ -724,6 +725,9 @@ public class V3SourceGenerator extends BaseGenerator {
 				"ComponentOf", "Other", "LessThan")) {
 			PropertyComponent pd = cs.addProperty();
 			pd.setCode(item.getAttribute("name"));
+			if (PropertyLookup.V3_PROPERTY_URIS.containsKey(item.getAttribute("name"))) {
+				pd.setUri(PropertyLookup.V3_PROPERTY_URIS.get(item.getAttribute("name")));
+			}
 			pd.setType(PropertyType.CODING);
 			pd.addExtension(csext("relationshipKind"), new CodeType(item.getAttribute("relationshipKind")));
 			Element child = XMLUtil.getFirstChild(item);
@@ -743,6 +747,9 @@ public class V3SourceGenerator extends BaseGenerator {
 		// item.getAttribute("propertyName").equals("internalId"));
 		PropertyComponent pd = cs.addProperty();
 		pd.setCode(item.getAttribute("propertyName"));
+		if (PropertyLookup.V3_PROPERTY_URIS.containsKey(item.getAttribute("propertyName"))) {
+			pd.setUri(PropertyLookup.V3_PROPERTY_URIS.get(item.getAttribute("propertyName")));
+		}
 		String type = item.getAttribute("type");
 		if ("Token".equals(type))
 			pd.setType(PropertyType.CODE);
@@ -788,7 +795,9 @@ public class V3SourceGenerator extends BaseGenerator {
 			throws Exception {
 		PropertyComponent pd = cs.addProperty();
 		pd.setCode(propertyName);
-		pd.setUri("http://hl7.org/fhir/concept-properties#" + propertyName);
+		if (PropertyLookup.V3_PROPERTY_URIS.containsKey(propertyName)) {
+			pd.setUri(PropertyLookup.V3_PROPERTY_URIS.get(propertyName));
+		}
 		pd.setType(type);
 		pd.setDescription(description);
 	}
@@ -1622,6 +1631,9 @@ public class V3SourceGenerator extends BaseGenerator {
 		if (!cs.hasPropertyCode(propertyCode)) {
 			PropertyComponent pd = cs.addProperty();
 			pd.setCode(propertyCode);
+			if (PropertyLookup.V3_PROPERTY_URIS.containsKey(propertyCode)) {
+				pd.setUri(PropertyLookup.V3_PROPERTY_URIS.get(propertyCode));
+			}
 			pd.setType(type);
 			pd.setDescription(description);
 

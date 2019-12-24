@@ -46,6 +46,7 @@ import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.utg.BaseGenerator;
 import org.hl7.fhir.utg.OIDLookup;
+import org.hl7.fhir.utg.PropertyLookup;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
 import org.hl7.fhir.utilities.FolderNameConstants;
 import org.hl7.fhir.utilities.Utilities;
@@ -1016,12 +1017,21 @@ public class V2SourceGenerator extends BaseGenerator {
 			}
 		}
 
-		cs.addProperty().setCode("status").setUri("http://terminology.hl7.org/csprop/status").setType(PropertyType.CODE)
-				.setDescription("Status of the concept");
+		cs.addProperty()
+			.setCode("status")
+			.setUri(PropertyLookup.V2_PROPERTY_URIS.get("status"))
+			.setType(PropertyType.CODE)
+			.setDescription("Status of the concept");
+		
 		// cs.addProperty().setCode("intro").setUri("http://terminology.hl7.org/csprop/intro").setType(PropertyType.CODE)
 		// .setDescription("Version of HL7 in which the code was first defined");
-		cs.addProperty().setCode("deprecated").setUri("http://terminology.hl7.org/csprop/deprecated")
-				.setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was deprecated");
+		
+		cs.addProperty()
+			.setCode("deprecated")
+			.setUri(PropertyLookup.V2_PROPERTY_URIS.get("deprecated"))
+			.setType(PropertyType.CODE)
+			.setDescription("Version of HL7 in which the code was deprecated");
+		
 		// cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible")
 		// .setType(PropertyType.BOOLEAN)
 		// .setDescription("Whether code is considered 'backwards compatible' (whatever
@@ -1278,36 +1288,88 @@ public class V2SourceGenerator extends BaseGenerator {
 		cs.setVersionNeeded(false);
 		cs.setContent(CodeSystemContentMode.COMPLETE);
 
-		cs.addProperty().setCode("table-oid").setUri("http://terminology.hl7.org/csprop/oid")
+		cs.addProperty()
+				.setCode("table-oid")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("table-oid"))
 				.setType(PropertyType.STRING).setDescription("OID For Table");
-		cs.addProperty().setCode("csoid").setUri("http://terminology.hl7.org/csprop/csoid").setType(PropertyType.STRING)
+		
+		cs.addProperty()
+				.setCode("csoid")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("csoid"))
+				.setType(PropertyType.STRING)
 				.setDescription("OID For Code System");
-		cs.addProperty().setCode("csuri").setUri("http://terminology.hl7.org/csprop/csuri").setType(PropertyType.STRING)
+		
+		cs.addProperty()
+				.setCode("csuri")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("csuri"))
+				.setType(PropertyType.STRING)
 				.setDescription("URI For Code System");
-		cs.addProperty().setCode("vsoid").setUri("http://terminology.hl7.org/csprop/vsoid").setType(PropertyType.STRING)
+		
+		cs.addProperty()
+				.setCode("vsoid")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("vsoid"))
+				.setType(PropertyType.STRING)
 				.setDescription("OID For Value Set");
-		cs.addProperty().setCode("v2type").setUri("http://terminology.hl7.org/csprop/v2type").setType(PropertyType.CODE)
+		
+		cs.addProperty()
+				.setCode("v2type")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("v2type"))
+				.setType(PropertyType.CODE)
 				.setDescription("Type of table");
-		cs.addProperty().setCode("generate").setUri("http://terminology.hl7.org/csprop/generate")
-				.setType(PropertyType.BOOLEAN).setDescription("whether to generate table");
-		cs.addProperty().setCode("version").setUri("http://terminology.hl7.org/csprop/version")
-				.setType(PropertyType.INTEGER).setDescription("Business version of table metadata");
-		cs.addProperty().setCode("structuredefinition-wg")
-				.setUri("http://terminology.hl7.org/csprop/structuredefinition-wg").setType(PropertyType.CODE)
+		
+		cs.addProperty()
+				.setCode("generate")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("generate"))
+				.setType(PropertyType.BOOLEAN)
+				.setDescription("whether to generate table");
+		
+		cs.addProperty()
+				.setCode("version")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("version"))
+				.setType(PropertyType.INTEGER)
+				.setDescription("Business version of table metadata");
+		
+		cs.addProperty()
+				.setCode("structuredefinition-wg")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("structuredefinition-wg"))
+				.setType(PropertyType.CODE)
 				.setDescription("Steward for the table.");
-		cs.addProperty().setCode("where-used").setUri("http://terminology.hl7.org/csprop/where-used")
-				.setType(PropertyType.STRING).setDescription("Where this table is used.");
-		cs.addProperty().setCode("v2-codes-table-comment")
-				.setUri("http://terminology.hl7.org/csprop/v2-codes-table-comment").setType(PropertyType.STRING)
+		
+		cs.addProperty()
+				.setCode("where-used")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("where-used"))
+				.setType(PropertyType.STRING)
+				.setDescription("Where this table is used.");
+		
+		cs.addProperty()
+				.setCode("v2-codes-table-comment")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("v2-codes-table-comment"))
+				.setType(PropertyType.STRING)
 				.setDescription("V2 Codes Table Comment.");
-		cs.addProperty().setCode("binding").setUri("http://terminology.hl7.org/csprop/binding")
-				.setType(PropertyType.STRING).setDescription("Binding.");
-		cs.addProperty().setCode("version-introduced").setUri("http://terminology.hl7.org/csprop/version-introduced")
-				.setType(PropertyType.STRING).setDescription("Version Introduced.");
-		cs.addProperty().setCode("cld").setUri("http://terminology.hl7.org/csprop/cld").setType(PropertyType.STRING)
+		
+		cs.addProperty()
+				.setCode("binding")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("binding"))
+				.setType(PropertyType.STRING)
+				.setDescription("Binding.");
+		
+		cs.addProperty()
+				.setCode("version-introduced")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("version-introduced"))
+				.setType(PropertyType.STRING)
+				.setDescription("Version Introduced.");
+		
+		cs.addProperty()
+				.setCode("cld")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("cld"))
+				.setType(PropertyType.STRING)
 				.setDescription("Content Logical Definition.");
-		cs.addProperty().setCode("vocab-domain").setUri("http://terminology.hl7.org/csprop/vocab-domain")
-				.setType(PropertyType.STRING).setDescription("Vocabulary Domain for this table");
+		
+		cs.addProperty()
+				.setCode("vocab-domain")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("vocab-domain"))
+				.setType(PropertyType.STRING)
+				.setDescription("Vocabulary Domain for this table");
 
 		int count = 0;
 		for (String n : sorted(tables.keySet())) {
