@@ -31,7 +31,6 @@ import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
-import org.hl7.fhir.utg.cda.CDASourceGenerator;
 import org.hl7.fhir.utg.external.ExternalProvider;
 import org.hl7.fhir.utg.fhir.FHIRSourceGenerator;
 import org.hl7.fhir.utg.fhir.ListResourceExt;
@@ -304,6 +303,7 @@ public class UTGGenerator extends BaseGenerator {
 
 	}
 	
+	@SuppressWarnings("unused")
 	private void writeExternalManifestFiles() throws Exception {
 		String outputPath = Utilities.path(dest, FolderNameConstants.EXTERNAL);
 		System.out.println("Writing " + externalProviders.size() + " External Provider Manifests");
