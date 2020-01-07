@@ -792,7 +792,9 @@ public class NamingSystem extends MetadataResource {
     	if (cs.hasUserData("oid")) {
         	getUniqueId().add(new NamingSystemUniqueIdComponent().setType(NamingSystemIdentifierType.OID).setValue((String) cs.getUserData("oid")).setPreferred(true));
     	}
-    	getUniqueId().add(new NamingSystemUniqueIdComponent().setType(NamingSystemIdentifierType.URI).setValue(cs.getUrl()).setPreferred(true));
+    	if (cs.hasUrl()) {
+        	getUniqueId().add(new NamingSystemUniqueIdComponent().setType(NamingSystemIdentifierType.URI).setValue(cs.getUrl()).setPreferred(true));
+    	}
     }
     
     /**
