@@ -788,6 +788,7 @@ public class NamingSystem extends MetadataResource {
     	setDescription(cs.getDescription());
     	setUseContext(cs.getUseContext());
     	setJurisdiction(cs.getJurisdiction());
+    	setVersion(cs.getVersion());
     	
     	if (cs.hasUserData("oid")) {
         	getUniqueId().add(new NamingSystemUniqueIdComponent().setType(NamingSystemIdentifierType.OID).setValue((String) cs.getUserData("oid")).setPreferred(true));

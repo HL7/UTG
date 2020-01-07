@@ -55,6 +55,8 @@ public class V2SourceGenerator extends BaseGenerator {
 
 	private static final String MASTER_VERSION = "2.9";
 
+	private static final String V2_INITIAL_VERSION_PATTERN = "2.v.0";
+
 	private static final List<String> VS_ONLY_CS_ID_LIST = Collections
 			.unmodifiableList(Arrays.asList("0338", "0125", "0136", "0458", "0459", "0567", "0568", "0929", "0930"));
 
@@ -943,7 +945,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		CodeSystem cs = new CodeSystem();
 
 		cs.setId("v2-" + t.id);
-		cs.setVersion(tv.csversion);
+		cs.setVersion(makeVersionString(tv.csversion));
 
 		ObjectInfo oi = objects.get(tv.csoid);
 		if (oi != null) {
@@ -1233,8 +1235,8 @@ public class V2SourceGenerator extends BaseGenerator {
 		ValueSet vs = new ValueSet();
 		vs.setId(cs.getId());
 		vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
-		// Set all value set versions to 1, per Ted
-		vs.setVersion("1");
+		// Set all value set versions to 2.0.0, per Ted
+		vs.setVersion(makeVersionString(0));
 		
 		// TODO 
 		ObjectInfo oi = objects.get(tv.csoid);
@@ -1440,5 +1442,13 @@ public class V2SourceGenerator extends BaseGenerator {
 			steward = V2_STEWARD_MAP.get(steward);
 		}
 		return Arrays.asList(steward.split("/"));
+	}
+	
+	private static String makeVersionString(int versionNumber) {
+		return makeVersionString(Integer.toString(versionNumber));
+	}
+	
+	private static String makeVersionString(String versionNumberString) {
+		return V2_INITIAL_VERSION_PATTERN.replace("v", versionNumberString);
 	}
 }

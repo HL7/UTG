@@ -77,6 +77,8 @@ public class V3SourceGenerator extends BaseGenerator {
 	private Map<String, ExternalProvider> externalProviders;
 	private Map<String, CodeSystem> csByName = new HashMap<String, CodeSystem>();
 	
+	private static final String V3_INITIAL_VERSION = "2.0.0";
+	
 	private static final Map<String, String> DEFINITION_TEXT_PROPERTY_TAGS = new HashMap<String, String>() {
 		private static final long serialVersionUID = 1L;
 		{
@@ -373,6 +375,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		cs.setTitle(item.getAttribute("title"));
 
 		cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA);
+		cs.setVersion(V3_INITIAL_VERSION);
 		
 		if (OIDLookup.hasUrlOverride(oid)) {
 			cs.setUrl(OIDLookup.getUrl(oid));
@@ -1176,6 +1179,8 @@ public class V3SourceGenerator extends BaseGenerator {
 		vs.setStatus(PublicationStatus.ACTIVE);
 		if ("true".equals(item.getAttribute("isImmutable")))
 			vs.setImmutable(true);
+		
+		vs.setVersion(V3_INITIAL_VERSION);
 		
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
