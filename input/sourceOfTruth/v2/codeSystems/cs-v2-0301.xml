@@ -10,12 +10,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.186"/>
   </identifier>
-  <version value="2"/>
+  <version value="2.2.0"/>
   <name value="UniversalIdType"/>
   <title value="universalIdType"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-04-01"/>
+  <date value="2019-12-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
@@ -44,37 +44,49 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
-  <concept id="2976">
+  <concept id="2977">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Use to identify assigning authority IDs, when an OID is not available."/>
+    </extension>
     <code value="CAP"/>
     <display value="College of American Pathologist Accreditation Number"/>
-    <definition value="College of American Pathologist Accreditation Number"/>
+    <definition value="Allows for the ability to designate organization identifier as a &quot;CAP&quot; assigned number (for labs)"/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="2977">
+  <concept id="2978">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Allows for the ability to designate organization identifier as a &#x201C;CLIA&#x201D; assigned number (for labs)"/>
+    </extension>
     <code value="CLIA"/>
     <display value="Clinical Laboratory Improvement Amendments"/>
-    <definition value="Clinical Laboratory Improvement Amendments"/>
-    <property>
-      <code value="status"/>
-      <valueCode value="A"/>
-    </property>
-  </concept>
-  <concept id="2978">
-    <code value="CLIP"/>
-    <display value="Clinical laboratory Improvement Program"/>
-    <definition value="Clinical laboratory Improvement Program"/>
+    <definition value="Clinical Laboratory Improvement Amendments. Allows for the ability to designate organization identifier as a &quot;CLIA&quot; assigned number (for labs)"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2979">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Allows for the ability to designate organization identifier as a &#x201C;CLIP&#x201D; assigned number (for labs).  Used by US Department of Defense."/>
+    </extension>
+    <code value="CLIP"/>
+    <display value="Clinical laboratory Improvement Program"/>
+    <definition value="Clinical laboratory Improvement Program. Allows for the ability to designate organization identifier as a &quot;CLIP&quot; assigned number (for labs).&#xC2;&#xA0; Used by US Department of Defense."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="2980">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="An Internet host name, in accordance with RFC 1035; or an IP address. Either in ASCII or as integers, with periods between components (&#x201C;dotted&#x201D; notation)."/>
+    </extension>
     <code value="DNS"/>
     <display value="Domain Name System"/>
-    <definition value="Domain Name System"/>
+    <definition value="An Internet dotted name. Either in ASCII or as integers"/>
     <designation>
       <language value="de"/>
       <use>
@@ -88,25 +100,31 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="2980">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="2981">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="IEEE 64-bit Extended Unique Identifier is comprised of a  24-bit company identifier and a 40-bit instance identifier.  The value shall be formatted as 16 ASCII HEX digits, for example, &#x201C;AABBCC1122334455&#x201D;.  The 24-bit company identifier, formally known as Organizationally Unique Identifier (OUI-24), is guaranteed to be globally unique.  The 40-bit extensions are assigned by manufacturers.  This identifier is often used in equipment interfaces (e.g., &#x201C;MAC&#x201D; address format for IPv4 &amp; IPv6).  [See http://standards.ieee.org/regauth/oui/tutorials/EUI64.htmlfor a detailed explanation of the format.]OUI-24 values are administered by the IEEE Registration Authority."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="OUI-24 values are administered by the IEEE Registration Authority."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="OUI-24 values are administered by the IEEE Registration Authority."/>
     </extension>
     <code value="EUI64"/>
     <display value="IEEE 64-bit Extended Unique Identifier"/>
-    <definition value="IEEE 64-bit Extended Unique Identifier"/>
+    <definition value="IEEE 64-bit Extended Unique Identifier is comprised of a  24-bit company identifier and a 40-bit instance identifier.  The value shall be formatted as 16 ASCII HEX digits, for example, &quot;AABBCC1122334455&quot;.  The 24-bit company identifier, formally known as"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="2981">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Retained for backward compatibility only as of v2.7; use UUID instead"/>
+  <concept id="2982">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Same as UUID. Retained for backward compatibility only as of v2.7; use UUID instead"/>
     </extension>
     <code value="GUID"/>
     <display value="globally unique identifier"/>
-    <definition value="globally unique identifier"/>
+    <definition value="Same as UUID."/>
     <designation>
       <language value="de"/>
       <use>
@@ -120,25 +138,25 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="2982">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Retained for backward compatibility only as of v2.7; does not identify Assigning Authorities"/>
+  <concept id="2983">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="The CEN Healthcare Coding Scheme Designator. Retained for backward compatibility only as of v2.7; does not identify Assigning Authorities"/>
     </extension>
     <code value="HCD"/>
     <display value="CEN Healthcare Coding Identifier"/>
-    <definition value="CEN Healthcare Coding Identifier"/>
+    <definition value="The CEN Healthcare Coding Scheme Designator. (Identifiers used in DICOM follow this assignment scheme.)"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="2983">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="2984">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Retained for backward compatibility only as of v2.7; HL7 assigns ISO OIDs for Assigning Authorities"/>
     </extension>
     <code value="HL7"/>
     <display value="HL7 registration schemes"/>
-    <definition value="HL7 registration schemes"/>
+    <definition value="Reserved for future HL7 registration schemes"/>
     <designation>
       <language value="de"/>
       <use>
@@ -152,10 +170,13 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="2984">
+  <concept id="2985">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="An International Standards Organization Object Identifier (OID), in accordance with ISO/IEC 8824.  Formatted as decimal digits separated by periods; recommended limit of 64 characters"/>
+    </extension>
     <code value="ISO"/>
     <display value="ISO Object Identifier"/>
-    <definition value="ISO Object Identifier"/>
+    <definition value="An International Standards Organization Object Identifier"/>
     <designation>
       <language value="de"/>
       <use>
@@ -169,13 +190,13 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="2985">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Retained for backward compatibility only as of v 2.8"/>
+  <concept id="2986">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8"/>
     </extension>
     <code value="L"/>
     <display value="Local"/>
-    <definition value="Local"/>
+    <definition value="These are reserved for locally defined coding schemes."/>
     <designation>
       <language value="de"/>
       <use>
@@ -189,13 +210,13 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="2986">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Retained for backward compatibility only as of v 2.8"/>
+  <concept id="2987">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8"/>
     </extension>
     <code value="L,M,N"/>
     <display value="Local"/>
-    <definition value="Local"/>
+    <definition value="These are reserved for locally defined coding schemes."/>
     <designation>
       <language value="de"/>
       <use>
@@ -209,33 +230,13 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="2987">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Retained for backward compatibility only as of v 2.8"/>
+  <concept id="2988">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8"/>
     </extension>
     <code value="M"/>
     <display value="Local"/>
-    <definition value="Local"/>
-    <designation>
-      <language value="de"/>
-      <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
-        <code value="preferredForLanguage"/>
-      </use>
-      <value value="reserviert f&#xFC;r lokale Tabellen"/>
-    </designation>
-    <property>
-      <code value="status"/>
-      <valueCode value="A"/>
-    </property>
-  </concept>
-  <concept id="2988">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Retained for backward compatibility only as of v 2.8"/>
-    </extension>
-    <code value="N"/>
-    <display value="Local"/>
-    <definition value="Local"/>
+    <definition value="These are reserved for locally defined coding schemes."/>
     <designation>
       <language value="de"/>
       <use>
@@ -250,21 +251,47 @@
     </property>
   </concept>
   <concept id="2989">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8"/>
+    </extension>
+    <code value="N"/>
+    <display value="Local"/>
+    <definition value="These are reserved for locally defined coding schemes."/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="reserviert f&#xFC;r lokale Tabellen"/>
+    </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="2990">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Use to identify assigning authority IDs, when an OID is not available.  Especially important in the CNN datatype. Namespace maintained and published in the US."/>
+    </extension>
     <code value="NPI"/>
     <display value="US National Provider Identifier"/>
-    <definition value="US National Provider Identifier"/>
+    <definition value="Allows for the ability to designate organization identifier as a &quot;NPI&quot; assigned number (lab, any medical provider, can be a person or an organization)"/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="2990">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead."/>
+  <concept id="2991">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Usually a base64 encoded string of random bits.Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead. Note: Random IDs are typically used for instance identifiers, rather than an identifier of an Assigning Authority that issues instance identifiers"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+      <valueString value="The uniqueness depends on the length of the bits.  Mail systems often generate ASCII string  &quot;unique names,&quot; from a combination of random bits and system names.  Obviously, such identifiers will not be constrained to the base64 character set."/>
     </extension>
     <code value="Random"/>
     <display value="Random"/>
-    <definition value="Random"/>
+    <definition value="Usually a base64 encoded string of random bits."/>
     <designation>
       <language value="de"/>
       <use>
@@ -278,7 +305,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="2991">
+  <concept id="2992">
     <code value="URI"/>
     <display value="Uniform Resource Identifier"/>
     <definition value="Uniform Resource Identifier"/>
@@ -295,10 +322,13 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="2992">
+  <concept id="2993">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="The DCE Universal Unique Identifier, in accordance with RFC 4122. Recommended format is 32 hexadecimal digits separated by hyphens, in the digit grouping 8-4-4-4-12"/>
+    </extension>
     <code value="UUID"/>
     <display value="Universal Unique Identifier"/>
-    <definition value="Universal Unique Identifier"/>
+    <definition value="The DCE Universal Unique Identifier"/>
     <designation>
       <language value="de"/>
       <use>
@@ -312,10 +342,13 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="2993">
+  <concept id="2994">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Recommended format is in accordance with RFC 1649"/>
+    </extension>
     <code value="x400"/>
     <display value="X.400 MHS identifier"/>
-    <definition value="X.400 MHS identifier"/>
+    <definition value="An X.400 MHS format identifier"/>
     <designation>
       <language value="de"/>
       <use>
@@ -329,10 +362,10 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="2994">
+  <concept id="2995">
     <code value="x500"/>
     <display value="X500 directory Name"/>
-    <definition value="X500 directory Name"/>
+    <definition value="An X.500 directory name"/>
     <designation>
       <language value="de"/>
       <use>

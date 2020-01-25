@@ -10,12 +10,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.192"/>
   </identifier>
-  <version value="3"/>
+  <version value="2.3.0"/>
   <name value="OrganDonorCodes"/>
   <title value="organDonorCodes"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-04-01"/>
+  <date value="2019-12-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
@@ -44,43 +44,43 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
-  <concept id="3015">
+  <concept id="3016">
     <code value="Y"/>
     <display value="Yes, patient is a documented donor and documentation is on file"/>
-    <definition value="Yes, patient is a documented donor and documentation is on file"/>
-    <property>
-      <code value="status"/>
-      <valueCode value="A"/>
-    </property>
-  </concept>
-  <concept id="3016">
-    <code value="F"/>
-    <display value="Yes, patient is a documented donor, but documentation is not on file"/>
-    <definition value="Yes, patient is a documented donor, but documentation is not on file"/>
+    <definition value="Yes, patient is a donor and card is on file"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="3017">
-    <code value="N"/>
-    <display value="No, patient has not agreed to be a donor"/>
-    <definition value="No, patient has not agreed to be a donor"/>
+    <code value="F"/>
+    <display value="Yes, patient is a documented donor, but documentation is not on file"/>
+    <definition value="Yes, patient is a donor, but card is not on file"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="3018">
-    <code value="I"/>
-    <display value="No, patient is not a documented donor, but information was provided"/>
-    <definition value="No, patient is not a documented donor, but information was provided"/>
+    <code value="N"/>
+    <display value="No, patient has not agreed to be a donor"/>
+    <definition value="No, patient is not a donor"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="3019">
+    <code value="I"/>
+    <display value="No, patient is not a documented donor, but information was provided"/>
+    <definition value="No, patient does not have a living will but information was provided"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="3020">
     <code value="R"/>
     <display value="Patient leaves organ donation decision to relatives"/>
     <definition value="Patient leaves organ donation decision to relatives"/>
@@ -89,7 +89,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3020">
+  <concept id="3021">
     <code value="P"/>
     <display value="Patient leaves organ donation decision to a specific person"/>
     <definition value="Patient leaves organ donation decision to a specific person"/>
@@ -98,7 +98,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3021">
+  <concept id="3022">
     <code value="U"/>
     <display value="Unknown"/>
     <definition value="Unknown"/>

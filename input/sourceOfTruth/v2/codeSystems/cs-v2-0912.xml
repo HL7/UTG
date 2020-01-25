@@ -10,12 +10,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.420"/>
   </identifier>
-  <version value="2"/>
+  <version value="2.2.0"/>
   <name value="Participation"/>
   <title value="participation"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-04-01"/>
+  <date value="2019-12-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
@@ -44,7 +44,10 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
-  <concept id="6564">
+  <concept id="6567">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="PRT-4 - identity of the clinical user"/>
+    </extension>
     <code value="AAP"/>
     <display value="Alert Acknowledging Provider"/>
     <definition value="Alert Acknowledging Provider"/>
@@ -53,17 +56,23 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6565">
+  <concept id="6568">
     <code value="AC"/>
     <display value="Administration Cosigner"/>
-    <definition value="Administration Cosigner"/>
+    <definition value="Person that cosigned the prescription"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6566">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="6569">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the PV1 segment, when more information about PV1-17 Admitting doctor is desired."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="PV1-17 Admitting doctor"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="PV1-17 Admitting doctor"/>
     </extension>
     <code value="AD"/>
@@ -74,16 +83,19 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6567">
+  <concept id="6570">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the AUT segment, which represents an authorization or a pre-authorization for a referred procedure or requested service by the payor covering the patient&#39;s health care.  This code is used when the authorization is for a person."/>
+    </extension>
     <code value="AHP"/>
     <display value="Authorized Performing Health Professional"/>
-    <definition value="Authorized Performing Health Professional"/>
+    <definition value="The specific Health Professional who has been approved to perform the ordered services for the patient."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6568">
+  <concept id="6571">
     <code value="AI"/>
     <display value="Assistant/Alternate Interpreter"/>
     <definition value="Assistant/Alternate Interpreter"/>
@@ -92,8 +104,14 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6569">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="6572">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the RXA segment, when more information about RXA-10 Administering Provider is desired."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="RXA-10 Administering Provider"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="RXA-10 Administering Provider"/>
     </extension>
     <code value="AP"/>
@@ -104,16 +122,22 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6570">
+  <concept id="6573">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the AUT segment, which represents an authorization or a pre-authorization for a referred procedure or requested service by the payor covering the patient&#39;s health care.  This code is used when the authorization is for an organization."/>
+    </extension>
     <code value="APO"/>
     <display value="Authorized Performing Provider Organization"/>
-    <definition value="Authorized Performing Provider Organization"/>
+    <definition value="The Provider Organization that has been approved to perform the sanctioned procedures to which the patient was referred to."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6571">
+  <concept id="6574">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the OBR segment, where OBR-33 Assistant Result Interpreter has been marked for backwards compatibility only."/>
+    </extension>
     <code value="ARI"/>
     <display value="Assistant Result Interpreter"/>
     <definition value="Assistant Result Interpreter"/>
@@ -122,8 +146,14 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6572">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="6575">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the PV1 segment, when more information about &#xD;&#xA; PV1-7 Attending doctor is desired."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="PV1-7 Attending doctor"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="PV1-7 Attending doctor"/>
     </extension>
     <code value="AT"/>
@@ -134,28 +164,37 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6573">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Replaces ORC-19 Action By"/>
+  <concept id="6576">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the ORC segment, where ORC-19 Action By has been marked for backwards compatibility only."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="ORC-19 Action By"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+      <valueString value="ORC-19 Action By"/>
     </extension>
     <code value="AUT"/>
     <display value="Author/Event Initiator"/>
-    <definition value="Author/Event Initiator"/>
+    <definition value="AUT Author/Event Initiator"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6574">
+  <concept id="6577">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the OBR segment, where OBR-10 Collector Identifier, when intended to convey the organization information, has been marked for backwards compatibility only."/>
+    </extension>
     <code value="CLPO"/>
     <display value="Collecting Provider Organization"/>
-    <definition value="Collecting Provider Organization"/>
+    <definition value="The organization that is responsible for collecting the specimen."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6575">
+  <concept id="6578">
     <code value="CP"/>
     <display value="Consulting Provider"/>
     <definition value="Consulting Provider"/>
@@ -164,17 +203,23 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6576">
+  <concept id="6579">
     <code value="DIE"/>
     <display value="De-Identification Entity"/>
-    <definition value="De-Identification Entity"/>
+    <definition value="Organization, person or device that has the authority to remove a specimen identifier."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6577">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="6580">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the RXD segment, where RXD-10 Dispensing Provider has been marked for backwards compatibility only."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="RXD-10 Dispensing Provider"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="RXD-10 Dispensing Provider"/>
     </extension>
     <code value="DP"/>
@@ -185,55 +230,76 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6578">
+  <concept id="6581">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This will support filtering orders into the correct work queue of the Assistant Result Interpreter."/>
+    </extension>
     <code value="EARI"/>
     <display value="Expected Assistant Result Interpreter"/>
-    <definition value="Expected Assistant Result Interpreter"/>
+    <definition value="The Assistant Result Interpreter who is expected to interpret the result (in the future)."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
-    </property>
-  </concept>
-  <concept id="6579">
-    <code value="ED"/>
-    <display value="Entering Device"/>
-    <definition value="Entering Device"/>
-    <property>
-      <code value="status"/>
-      <valueCode value="N"/>
-    </property>
-  </concept>
-  <concept id="6580">
-    <code value="EO"/>
-    <display value="Entering Organization"/>
-    <definition value="Entering Organization"/>
-    <property>
-      <code value="status"/>
-      <valueCode value="N"/>
-    </property>
-  </concept>
-  <concept id="6581">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Replaces ORC-10 Entered By"/>
-    </extension>
-    <code value="EP"/>
-    <display value="Entering Person"/>
-    <definition value="Entering Person"/>
-    <property>
-      <code value="status"/>
-      <valueCode value="A"/>
     </property>
   </concept>
   <concept id="6582">
-    <code value="EPRI"/>
-    <display value="Expected Principal Result Interpreter"/>
-    <definition value="Expected Principal Result Interpreter"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the ORC segment, where ORC-18 Entering Device has been marked for backwards compatibility only."/>
+    </extension>
+    <code value="ED"/>
+    <display value="Entering Device"/>
+    <definition value="Identifies the device that was used to enter the order into the system."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
   <concept id="6583">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the ORC segment, where ORC-17 Entering Organization has been marked for backwards compatibility only."/>
+    </extension>
+    <code value="EO"/>
+    <display value="Entering Organization"/>
+    <definition value="Identifies the organization that entered the order into the system."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6584">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Replaces ORC-10 Entered By"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="ORC-10 Entered By"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+      <valueString value="ORC-10 Entered By"/>
+    </extension>
+    <code value="EP"/>
+    <display value="Entering Person"/>
+    <definition value="Entering Provider (probably not the same as transcriptionist)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="6585">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This will support filtering orders into the correct work queue of the Principal Result Interpreter."/>
+    </extension>
+    <code value="EPRI"/>
+    <display value="Expected Principal Result Interpreter"/>
+    <definition value="The Principal Result Interpreter who is expected to interpret the result (in the future)."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="6586">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the OBX segment, where OBX-18 Equipment Instance Identifier has been marked for backwards compatibility only."/>
+    </extension>
     <code value="EQUIP"/>
     <display value="Equipment"/>
     <definition value="Equipment"/>
@@ -242,7 +308,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6584">
+  <concept id="6587">
     <code value="FHCP"/>
     <display value="Family Health Care Professional"/>
     <definition value="Family Health Care Professional"/>
@@ -251,17 +317,20 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6585">
+  <concept id="6588">
     <code value="FL"/>
     <display value="From Location"/>
-    <definition value="From Location"/>
+    <definition value="Describes the location (coordinates) of the specimen/container in the previous holder / storage equipment before the move or the geographical location from which the specimen/container was moved."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6586">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="6589">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="OBX-25 Performing Organization Medical Director"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="OBX-25 Performing Organization Medical Director"/>
     </extension>
     <code value="MDIR"/>
@@ -272,17 +341,26 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6587">
+  <concept id="6590">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the ORC segment, where ORC-21 Ordering Facility Name, ORC-22 Ordering Facility Address and ORC-23 Ordering Facility Phone Number have been marked for backwards compatibility only."/>
+    </extension>
     <code value="OF"/>
     <display value="Ordering Facility"/>
-    <definition value="Ordering Facility"/>
+    <definition value="The facility from where the order was placed"/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6588">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="6591">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with either the ORC segment, where ORC-12 Ordering Provider, OBR-16 Ordering Provider, ORC-24 Ordering Provider Address have been marked for backwards compatibility only, or the OBR segment, where OBR-16 Ordering Provider has been marked for backwards compatibility only; the RXO segment, when more information about RXO-14 Ordering Provider&#39;s DEA Number is desired; the RXE segment, where RXE-13 Ordering Provider&#39;s DEA Number has been marked for backwards compatibility only."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="ORC-12 Ordering Provider, OBR-16 Ordering Provider, RXO-14 Ordering Provider&#39;s DEA Number, RXE-13 Ordering Provider&#39;s DEA Number, ORC-24 Ordering Provider Address"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="ORC-12 Ordering Provider, OBR-16 Ordering Provider, RXO-14 Ordering Provider&#39;s DEA Number, RXE-13 Ordering Provider&#39;s DEA Number, ORC-24 Ordering Provider Address"/>
     </extension>
     <code value="OP"/>
@@ -293,17 +371,23 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6589">
+  <concept id="6592">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This code is broader than Referring Provider Organization (RPO); it can be used for inter and intra-organizational orders."/>
+    </extension>
     <code value="OPO"/>
     <display value="Ordering Provider Organization"/>
-    <definition value="Ordering Provider Organization"/>
+    <definition value="The organization the ordering provider is associated with."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6590">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="6593">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the OM1 segment, where OM1-27 Outside Site(s) Where Observation May Be Performed has been deprecated."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
       <valueString value="Replacing  OM1-27 Outside Site(s) Where Observation May Be Performed"/>
     </extension>
     <code value="OS"/>
@@ -314,7 +398,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6591">
+  <concept id="6594">
     <code value="PB"/>
     <display value="Packed by"/>
     <definition value="Packed by"/>
@@ -323,19 +407,25 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6592">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Replaces RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
+  <concept id="6595">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the RXE segment, where RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID has been marked for backwards compatibility only."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+      <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
     </extension>
     <code value="PH"/>
     <display value="Pharmacist"/>
-    <definition value="Pharmacist"/>
+    <definition value="Pharmacist   (not sure how to dissect Pharmacist/Treatment Supplier&#39;s Verifier ID)"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6593">
+  <concept id="6596">
     <code value="PI"/>
     <display value="Primary Interpreter"/>
     <definition value="Primary Interpreter"/>
@@ -344,7 +434,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6594">
+  <concept id="6597">
     <code value="PO"/>
     <display value="Performing Organization"/>
     <definition value="Performing Organization"/>
@@ -353,7 +443,10 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6595">
+  <concept id="6598">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the OBX segment, where OBX-25 Performing Organization Medical Director has been marked for backwards compatibility only"/>
+    </extension>
     <code value="POMD"/>
     <display value="Performing Organization Medical Director"/>
     <definition value="Performing Organization Medical Director"/>
@@ -362,7 +455,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6596">
+  <concept id="6599">
     <code value="PP"/>
     <display value="Primary Care Provider"/>
     <definition value="Primary Care Provider"/>
@@ -371,16 +464,25 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6597">
+  <concept id="6600">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="When a patient registers, this allows a system to indicate the default pharmacy to which the provider should send prescribed medication orders."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+      <valueString value="Most likely to be used in ADT messages for outpatient care."/>
+    </extension>
     <code value="PPH"/>
     <display value="Patient Preferred Pharmacy"/>
-    <definition value="Patient Preferred Pharmacy"/>
+    <definition value="Pharmacy the patient would prefer to use for any future medication orders."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6598">
+  <concept id="6601">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the OBR segment, where OBR-32 Principal Result Interpreter has been marked for backwards compatibility only."/>
+    </extension>
     <code value="PRI"/>
     <display value="Principal Result Interpreter"/>
     <definition value="Principal Result Interpreter"/>
@@ -389,7 +491,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6599">
+  <concept id="6602">
     <code value="RCT"/>
     <display value="Results Copies To"/>
     <definition value="Results Copies To"/>
@@ -398,26 +500,32 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6600">
+  <concept id="6603">
     <code value="RHP"/>
     <display value="Referring Health Professional"/>
-    <definition value="Referring Health Professional"/>
+    <definition value="The Health Professional who refers the patient."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6601">
+  <concept id="6604">
     <code value="RIE"/>
     <display value="Re-Identification Entity"/>
-    <definition value="Re-Identification Entity"/>
+    <definition value="Organization, person or device that has the authority to assign a specimen identifier."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6602">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="6605">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the OBX segment, where OBX-16 Responsible Observer has been marked for backwards compatibility only"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="OBX-16 Responsible Observer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="OBX-16 Responsible Observer"/>
     </extension>
     <code value="RO"/>
@@ -428,8 +536,14 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6603">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="6606">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the PV1 segment, when more information about PV1-8 Referring doctor is desired."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="PV1-8 Referring doctor"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="PV1-8 Referring doctor"/>
     </extension>
     <code value="RP"/>
@@ -440,16 +554,16 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6604">
+  <concept id="6607">
     <code value="RPO"/>
     <display value="Referring Provider Organization"/>
-    <definition value="Referring Provider Organization"/>
+    <definition value="The Provider Organization that refers the patient."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6605">
+  <concept id="6608">
     <code value="RT"/>
     <display value="Referred to Provider"/>
     <definition value="Referred to Provider"/>
@@ -458,7 +572,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6606">
+  <concept id="6609">
     <code value="SB"/>
     <display value="Send by"/>
     <definition value="Send by"/>
@@ -467,8 +581,14 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6607">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="6610">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the OBR segment, where OBR-10 Collector Identifier, when intended to convey person information, has been marked for backwards compatibility only"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="OBR-10 Collector Identifier"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="OBR-10 Collector Identifier"/>
     </extension>
     <code value="SC"/>
@@ -479,16 +599,19 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6608">
+  <concept id="6611">
     <code value="TL"/>
     <display value="To Location"/>
-    <definition value="To Location"/>
+    <definition value="Describes the location (coordinates) of the specimen/container in the previous holder / storage equipment after the move or the geographical location to which the specimen/container was moved."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6609">
+  <concept id="6612">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the OBR segment, where OBR-34 Technician has been marked for backwards compatibility only"/>
+    </extension>
     <code value="TN"/>
     <display value="Technician"/>
     <definition value="Technician"/>
@@ -497,7 +620,10 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6610">
+  <concept id="6613">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the OBR segment, where OBR-35 Transcriptionist has been marked for backwards compatibility only"/>
+    </extension>
     <code value="TR"/>
     <display value="Transcriptionist"/>
     <definition value="Transcriptionist"/>
@@ -506,20 +632,29 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6611">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Replaces ORC-11 Verified By"/>
+  <concept id="6614">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This role is used in the PRT associated with the ORC segment, where Replaces ORC-11 Verified By has been marked for backwards compatibility only"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="ORC-11 Verified By"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+      <valueString value="ORC-11 Verified By"/>
     </extension>
     <code value="VP"/>
     <display value="Verifier (Verifying Person)"/>
-    <definition value="Verifier (Verifying Person)"/>
+    <definition value="Verifying Provider"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6612">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="6615">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
     </extension>
     <code value="VPS"/>
@@ -530,8 +665,11 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6613">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="6616">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="RXE-14 Pharmacist/Treatment Supplier&#39;s Verifier ID"/>
     </extension>
     <code value="VTS"/>
@@ -542,7 +680,7 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="6614">
+  <concept id="6617">
     <code value="WAY"/>
     <display value="Waypoint"/>
     <definition value="Waypoint"/>
@@ -551,7 +689,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="6615">
+  <concept id="6618">
     <code value="WAYR"/>
     <display value="Waypoint Recipient"/>
     <definition value="Waypoint Recipient"/>

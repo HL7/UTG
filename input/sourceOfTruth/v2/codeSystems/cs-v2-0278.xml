@@ -7,12 +7,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.171"/>
   </identifier>
-  <version value="2"/>
+  <version value="2.2.0"/>
   <name value="FillerStatus"/>
   <title value="fillerStatus"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-04-01"/>
+  <date value="2019-12-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
@@ -41,13 +41,16 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
-  <concept id="2679">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="2680">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="Not used in the AIS, AIG, AIL, AIP segments."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="Not used in the AIS, AIG, AIL, AIP segments."/>
     </extension>
     <code value="BLOCKED"/>
     <display value="Blocked"/>
-    <definition value="Blocked"/>
+    <definition value="The indicated time slot(s) is(are) blocked."/>
     <property>
       <code value="deprecated"/>
       <valueCode value="2.9"/>
@@ -57,23 +60,10 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="2680">
+  <concept id="2681">
     <code value="BOOKED"/>
     <display value="Booked"/>
-    <definition value="Booked"/>
-    <property>
-      <code value="deprecated"/>
-      <valueCode value="2.9"/>
-    </property>
-    <property>
-      <code value="status"/>
-      <valueCode value="A"/>
-    </property>
-  </concept>
-  <concept id="2681">
-    <code value="CANCELLED"/>
-    <display value="Cancelled"/>
-    <definition value="Cancelled"/>
+    <definition value="The indicated appointment is booked"/>
     <property>
       <code value="deprecated"/>
       <valueCode value="2.9"/>
@@ -84,9 +74,9 @@
     </property>
   </concept>
   <concept id="2682">
-    <code value="COMPLETE"/>
-    <display value="Complete"/>
-    <definition value="Complete"/>
+    <code value="CANCELLED"/>
+    <display value="Cancelled"/>
+    <definition value="The indicated appointment was stopped from occurring (cancelled prior to starting)"/>
     <property>
       <code value="deprecated"/>
       <valueCode value="2.9"/>
@@ -97,9 +87,9 @@
     </property>
   </concept>
   <concept id="2683">
-    <code value="DELETED"/>
-    <display value="Deleted"/>
-    <definition value="Deleted"/>
+    <code value="COMPLETE"/>
+    <display value="Complete"/>
+    <definition value="The indicated appointment has completed normally (was not discontinued, canceled, or deleted)"/>
     <property>
       <code value="deprecated"/>
       <valueCode value="2.9"/>
@@ -110,9 +100,9 @@
     </property>
   </concept>
   <concept id="2684">
-    <code value="OVERBOOK"/>
-    <display value="Overbook"/>
-    <definition value="Overbook"/>
+    <code value="DELETED"/>
+    <display value="Deleted"/>
+    <definition value="The indicated appointment was deleted from the filler application"/>
     <property>
       <code value="deprecated"/>
       <valueCode value="2.9"/>
@@ -123,9 +113,9 @@
     </property>
   </concept>
   <concept id="2685">
-    <code value="PENDING"/>
-    <display value="Pending"/>
-    <definition value="Pending"/>
+    <code value="OVERBOOK"/>
+    <display value="Overbook"/>
+    <definition value="The appointment has been confirmed; however it is confirmed in an overbooked state"/>
     <property>
       <code value="deprecated"/>
       <valueCode value="2.9"/>
@@ -136,9 +126,9 @@
     </property>
   </concept>
   <concept id="2686">
-    <code value="STARTED"/>
-    <display value="Started"/>
-    <definition value="Started"/>
+    <code value="PENDING"/>
+    <display value="Pending"/>
+    <definition value="Appointment has not yet been confirmed"/>
     <property>
       <code value="deprecated"/>
       <valueCode value="2.9"/>
@@ -149,9 +139,9 @@
     </property>
   </concept>
   <concept id="2687">
-    <code value="WAITLIST"/>
-    <display value="Waitlist"/>
-    <definition value="Waitlist"/>
+    <code value="STARTED"/>
+    <display value="Started"/>
+    <definition value="The indicated appointment has begun and is currently in progress"/>
     <property>
       <code value="deprecated"/>
       <valueCode value="2.9"/>
@@ -162,108 +152,124 @@
     </property>
   </concept>
   <concept id="2688">
-    <code value="Pending"/>
-    <display value="Pending"/>
-    <definition value="Pending"/>
+    <code value="WAITLIST"/>
+    <display value="Waitlist"/>
+    <definition value="Appointment has been placed on a waiting list for a paricular slot, or set of slots"/>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2689">
-    <code value="Waitlist"/>
-    <display value="Waitlist"/>
-    <definition value="Waitlist"/>
+    <code value="Pending"/>
+    <display value="Pending"/>
+    <definition value="Appointment has not yet been confirmed"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2690">
-    <code value="Booked"/>
-    <display value="Booked"/>
-    <definition value="Booked"/>
+    <code value="Waitlist"/>
+    <display value="Waitlist"/>
+    <definition value="Appointment has been placed on a waiting list for a particular slot, or set of slots"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2691">
-    <code value="Started"/>
-    <display value="Started"/>
-    <definition value="Started"/>
+    <code value="Booked"/>
+    <display value="Booked"/>
+    <definition value="The indicated appointment is booked"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2692">
-    <code value="Complete"/>
-    <display value="Complete"/>
-    <definition value="Complete"/>
+    <code value="Started"/>
+    <display value="Started"/>
+    <definition value="The indicated appointment has begun and is currently in progress"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2693">
-    <code value="Cancelled"/>
-    <display value="Cancelled"/>
-    <definition value="Cancelled"/>
+    <code value="Complete"/>
+    <display value="Complete"/>
+    <definition value="The indicated appointment has completed normally (was not discontinued, canceled, or deleted)"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2694">
-    <code value="DC"/>
-    <display value="Discontinued"/>
-    <definition value="Discontinued"/>
-    <property>
-      <code value="status"/>
-      <valueCode value="D"/>
-    </property>
-  </concept>
-  <concept id="2695">
-    <code value="Discontinued"/>
-    <display value="Discontinued"/>
-    <definition value="Discontinued"/>
+    <code value="Cancelled"/>
+    <display value="Cancelled"/>
+    <definition value="T7he indicated appointment was stopped from occurring (canceled prior to starting)"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
+  <concept id="2695">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Replaced by code &#39;Discontinued&#39;"/>
+    </extension>
+    <code value="DC"/>
+    <display value="Discontinued"/>
+    <definition value="The indicated appointment was discontinued (DC&#x2019;ed while in progress, discontinued parent appointment, or discontinued child appointment)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="D"/>
+    </property>
+  </concept>
   <concept id="2696">
-    <code value="Deleted"/>
-    <display value="Deleted"/>
-    <definition value="Deleted"/>
+    <code value="Discontinued"/>
+    <display value="Discontinued"/>
+    <definition value="The indicated appointment was discontinued (DC&#x2019;ed while in progress, discontinued parent appointment, or discontinued child appointment)"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2697">
-    <code value="Blocked"/>
-    <display value="Blocked"/>
-    <definition value="Blocked"/>
+    <code value="Deleted"/>
+    <display value="Deleted"/>
+    <definition value="The indicated appointment was deleted from the filler application"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2698">
-    <code value="Overbook"/>
-    <display value="Overbook"/>
-    <definition value="Overbook"/>
+    <code value="Blocked"/>
+    <display value="Blocked"/>
+    <definition value="The indicated time slot(s) is(are) blocked"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2699">
+    <code value="Overbook"/>
+    <display value="Overbook"/>
+    <definition value="The appointment has been confirmed; however it is confirmed in an overbooked state"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="2700">
     <code value="Noshow"/>
     <display value="Noshow"/>
-    <definition value="Noshow"/>
+    <definition value="The patient did not show up for the appointment"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>

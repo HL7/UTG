@@ -10,12 +10,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.238"/>
   </identifier>
-  <version value="1"/>
+  <version value="2.1.0"/>
   <name value="CommandResponse"/>
   <title value="commandResponse"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-04-01"/>
+  <date value="2019-12-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
@@ -44,7 +44,7 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
-  <concept id="3852">
+  <concept id="3853">
     <code value="OK"/>
     <display value="Command completed successfully"/>
     <definition value="Command completed successfully"/>
@@ -53,7 +53,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3853">
+  <concept id="3854">
     <code value="TI"/>
     <display value="Command cannot be completed within requested completion time"/>
     <definition value="Command cannot be completed within requested completion time"/>
@@ -62,19 +62,19 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3854">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3855">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="See response parameters."/>
     </extension>
     <code value="ER"/>
     <display value="Command cannot be completed because of error condition"/>
-    <definition value="Command cannot be completed because of error condition"/>
+    <definition value="Command cannot be completed because of error condition (see response parameters)"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3855">
+  <concept id="3856">
     <code value="ST"/>
     <display value="Command cannot be completed because of the status of the requested equipment"/>
     <definition value="Command cannot be completed because of the status of the requested equipment"/>
@@ -83,7 +83,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3856">
+  <concept id="3857">
     <code value="UN"/>
     <display value="Command cannot be completed for unknown reasons"/>
     <definition value="Command cannot be completed for unknown reasons"/>
