@@ -545,10 +545,6 @@ public class V2SourceGenerator extends BaseGenerator {
 
 			// second pass, versions
 			for (String n : sorted(versions.keySet())) {
-				// if (this.id.equalsIgnoreCase("0104") && n.equals("2.9")) {
-				// System.out.println("stop");
-				// }
-
 				if (!n.contains(" ")) {
 					TableVersion tv = versions.get(n);
 					master.version = tv.version;
@@ -831,7 +827,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		query = stmt.executeQuery(
 				"SELECT "
 				+ "   table_id, version_id, sort_no, table_value, display_name, "
-				+ "   interpretation, comment_as_pub, active, modification,  "
+				+ "   interpretation, comment, active, modification,  "
 				+ "   description_as_pub, usage_note, comment_as_pub "
 				+ " from HL7TableValues "
 				+ " where version_id < 100");
@@ -964,10 +960,6 @@ public class V2SourceGenerator extends BaseGenerator {
 
 		TableVersion tv = t.master;
 
-		if (t.id.equals("0719")) {
-			System.out.println("stop");
-		}
-
 		if (OIDLookup.doNotGenerate(tv.csoid))
 			return;
 		
@@ -980,7 +972,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		CodeSystem cs = new CodeSystem();
 
 		cs.setId("v2-" + t.id);
-		cs.setVersion(makeVersionString(tv.csversion));
+		cs.setVersion(makeVersionString((tv.csversion == null)? "1" : tv.csversion));
 
 		ObjectInfo oi = objects.get(tv.csoid);
 		if (oi != null) {

@@ -37784,6 +37784,8 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory());
       if (element.hasKindElement())
         composeEnumeration("kind", element.getKindElement(), new NamingSystem.NamingSystemTypeEnumFactory());
+      if (element.hasVersionElement())
+    	composeString("version", element.getVersionElement());
       if (element.hasDateElement()) {
         composeDateTime("date", element.getDateElement());
       }

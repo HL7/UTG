@@ -151,12 +151,12 @@ public class UTGGenerator extends BaseGenerator {
 		
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "unified-Rendering.xml"), unifiedManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "external-Rendering.xml"), externalManifest);
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Rendering.xml"), fhirManifest);
-		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Normative.xml"), fhirNormativeManifest);
 		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "retired-Rendering.xml"), retiredManifest);
 
 		writeExternalManifestFiles();
 		*/
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Rendering.xml"), fhirManifest);
+		writeManifest(Utilities.path(dest, FolderNameConstants.CONTROL, "fhir-Normative.xml"), fhirNormativeManifest);
 		
 		System.out.println("finished");
 	}
