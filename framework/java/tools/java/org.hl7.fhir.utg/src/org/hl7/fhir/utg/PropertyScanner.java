@@ -28,15 +28,15 @@ public class PropertyScanner {
 	}};
 
 	private static Map<String, String> folders = new HashMap<String, String>() {{
-		put("CDA", "C:\\Users\\dtriglianos\\Workspaces\\UTG\\sourceOfTruth\\v3\\codeSystems");
-		put("V2",  "C:\\Users\\dtriglianos\\Workspaces\\UTG\\sourceOfTruth\\v2\\codeSystems");
-		put("V3",  "C:\\Users\\dtriglianos\\Workspaces\\UTG\\sourceOfTruth\\v3\\codeSystems");
+		put("CDA", "C:\\Users\\dtriglianos\\Workspaces\\UTG\\input\\sourceOfTruth\\v3\\codeSystems");
+		put("V2",  "C:\\Users\\dtriglianos\\Workspaces\\UTG\\input\\sourceOfTruth\\v2\\codeSystems");
+		put("V3",  "C:\\Users\\dtriglianos\\Workspaces\\UTG\\input\\sourceOfTruth\\v3\\codeSystems");
 	}};
 	
 	private static Map<String, String> manifests = new HashMap<String, String>() {{
-		put("CDA", "C:\\Users\\dtriglianos\\Workspaces\\UTG\\sourceOfTruth\\control-manifests\\cda-Rendering.xml");
-		put("V2",  "C:\\Users\\dtriglianos\\Workspaces\\UTG\\sourceOfTruth\\control-manifests\\v2-Rendering.xml");
-		put("V3",  "C:\\Users\\dtriglianos\\Workspaces\\UTG\\sourceOfTruth\\control-manifests\\v3-Rendering.xml");
+		put("CDA", "C:\\Users\\dtriglianos\\Workspaces\\UTG\\input\\sourceOfTruth\\control-manifests\\cda-Rendering.xml");
+		put("V2",  "C:\\Users\\dtriglianos\\Workspaces\\UTG\\input\\sourceOfTruth\\control-manifests\\v2-Rendering.xml");
+		put("V3",  "C:\\Users\\dtriglianos\\Workspaces\\UTG\\input\\sourceOfTruth\\control-manifests\\v3-Rendering.xml");
 	}};
 	
 	private static Map<String, List<String>> properties = new HashMap<String, List<String>>() {{
@@ -79,7 +79,7 @@ public class PropertyScanner {
 				String resourceFilename = folders.get(source) + "\\" + resourceName + ".xml";
 				
 				if (resourceName.equalsIgnoreCase("v2-tables")) {
-					resourceFilename = "C:\\Users\\dtriglianos\\Workspaces\\UTG\\sourceOfTruth\\v2\\" + resourceName + ".xml";
+					resourceFilename = "C:\\Users\\dtriglianos\\Workspaces\\UTG\\input\\sourceOfTruth\\v2\\" + resourceName + ".xml";
 				} else if (source.equalsIgnoreCase("V2")) {
 					resourceFilename = folders.get(source) + "\\cs-" + resourceName + ".xml";
 				} else {
