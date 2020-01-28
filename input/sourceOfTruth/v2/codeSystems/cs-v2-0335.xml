@@ -13,12 +13,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.205"/>
   </identifier>
-  <version value="3"/>
+  <version value="2.3.0"/>
   <name value="RepeatPattern"/>
   <title value="repeatPattern"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-04-01"/>
+  <date value="2019-12-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
@@ -47,7 +47,10 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
-  <concept id="3078">
+  <concept id="3079">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="Q&lt;integer&gt;S"/>
     <display value="every &lt;integer&gt; seconds"/>
     <definition value="every &lt;integer&gt; seconds"/>
@@ -56,7 +59,10 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3079">
+  <concept id="3080">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="Q&lt;integer&gt;M"/>
     <display value="every &lt;integer&gt; minutes"/>
     <definition value="every &lt;integer&gt; minutes"/>
@@ -65,7 +71,10 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3080">
+  <concept id="3081">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="Q&lt;integer&gt;H"/>
     <display value="every &lt;integer&gt; hours"/>
     <definition value="every &lt;integer&gt; hours"/>
@@ -74,7 +83,10 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3081">
+  <concept id="3082">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="Q&lt;integer&gt;D"/>
     <display value="every &lt;integer&gt; days"/>
     <definition value="every &lt;integer&gt; days"/>
@@ -83,7 +95,10 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3082">
+  <concept id="3083">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="Q&lt;integer&gt;W"/>
     <display value="every &lt;integer&gt; weeks"/>
     <definition value="every &lt;integer&gt; weeks"/>
@@ -92,7 +107,10 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3083">
+  <concept id="3084">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="Q&lt;integer&gt;L"/>
     <display value="every &lt;integer&gt; months (Lunar cycle)"/>
     <definition value="every &lt;integer&gt; months (Lunar cycle)"/>
@@ -101,67 +119,67 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3084">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="From the French jour (day). If &lt;integer&gt; is missing, the repeat rate is assumed to be 1. Day numbers are counted from 1=Monday to 7=Sunday. So Q2J2 means every second Tuesday; Q1J6 means every Saturday."/>
+  <concept id="3085">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
     </extension>
     <code value="Q&lt;integer&gt;J&lt;day#&gt;"/>
     <display value="repeats on a particular day of the week,"/>
-    <definition value="repeats on a particular day of the week,"/>
+    <definition value="repeats on a particular day of the week, from the French jour (day).  If &lt;integer&gt; is missing, the repeat rate is assumed to be 1.  Day numbers are counted from 1=Monday to 7=Sunday.  So Q2J2 means every second Tuesday; Q1J6 means every Saturday."/>
     <property>
       <code value="status"/>
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3085">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3086">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="(e.g., 9AM-4PM)"/>
     </extension>
     <code value="BID"/>
     <display value="twice a day at institution-specified times"/>
-    <definition value="twice a day at institution-specified times"/>
-    <property>
-      <code value="status"/>
-      <valueCode value="A"/>
-    </property>
-  </concept>
-  <concept id="3086">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="(e.g., 9AM-4PM-9PM)"/>
-    </extension>
-    <code value="TID"/>
-    <display value="three times a day at institution-specified times"/>
-    <definition value="three times a day at institution-specified times"/>
+    <definition value="twice a day at institution-specified times (e.g., 9AM-4PM)"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="3087">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="(e.g., 9AM-11AM-4PM-9PM)"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="(e.g., 9AM-4PM-9PM)"/>
     </extension>
-    <code value="QID"/>
-    <display value="four times a day at institution-specified times"/>
-    <definition value="four times a day at institution-specified times"/>
+    <code value="TID"/>
+    <display value="three times a day at institution-specified times"/>
+    <definition value="three times a day at institution-specified times (e.g., 9AM-4PM-9PM)"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="3088">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="(e.g., 5ID=five times per day; 8ID=8 times per day)"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="(e.g., 9AM-11AM-4PM-9PM)"/>
+    </extension>
+    <code value="QID"/>
+    <display value="four times a day at institution-specified times"/>
+    <definition value="four times a day at institution-specified times (e.g., 9AM-11AM-4PM-9PM)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="3089">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
     </extension>
     <code value="xID"/>
     <display value="&quot;X&quot; times per day at institution-specified times, where X is a numeral 5 or greater."/>
-    <definition value="&quot;X&quot; times per day at institution-specified times, where X is a numeral 5 or greater."/>
+    <definition value="&quot;X&quot; times per day at institution-specified times, where X is a numeral 5 or greater.  E.g., 5ID=five times per day; 8ID=8 times per day"/>
     <property>
       <code value="status"/>
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3089">
+  <concept id="3090">
     <code value="QAM"/>
     <display value="in the morning at institution-specified time"/>
     <definition value="in the morning at institution-specified time"/>
@@ -170,7 +188,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3090">
+  <concept id="3091">
     <code value="QSHIFT"/>
     <display value="during each of three eight-hour shifts at institution-specified times"/>
     <definition value="during each of three eight-hour shifts at institution-specified times"/>
@@ -179,19 +197,19 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3091">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3092">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="(same as Q2D)"/>
     </extension>
     <code value="QOD"/>
     <display value="every other day"/>
-    <definition value="every other day"/>
+    <definition value="every other day (same as Q2D)"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3092">
+  <concept id="3093">
     <code value="QHS"/>
     <display value="every day before the hour of sleep"/>
     <definition value="every day before the hour of sleep"/>
@@ -200,7 +218,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3093">
+  <concept id="3094">
     <code value="QPM"/>
     <display value="in the evening at institution-specified time"/>
     <definition value="in the evening at institution-specified time"/>
@@ -209,7 +227,7 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3094">
+  <concept id="3095">
     <code value="C"/>
     <display value="service is provided continuously between start time and stop time"/>
     <definition value="service is provided continuously between start time and stop time"/>
@@ -218,7 +236,10 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3095">
+  <concept id="3096">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="U &lt;spec&gt;"/>
     <display value="for future use, where &lt;spec&gt; is an interval specification as defined by the UNIX cron specification."/>
     <definition value="for future use, where &lt;spec&gt; is an interval specification as defined by the UNIX cron specification."/>
@@ -227,7 +248,7 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3096">
+  <concept id="3097">
     <code value="PRN"/>
     <display value="given as needed"/>
     <definition value="given as needed"/>
@@ -236,31 +257,34 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3097">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="(e.g., PRNQ6H); given as needed over the frequency period."/>
+  <concept id="3098">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
     </extension>
     <code value="PRNxxx"/>
     <display value="where xxx is some frequency code"/>
-    <definition value="where xxx is some frequency code"/>
+    <definition value="where xxx is some frequency code (e.g., PRNQ6H); given as needed over the frequency period."/>
     <property>
       <code value="status"/>
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3098">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3099">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="This is also the default when this component is null."/>
     </extension>
     <code value="Once"/>
     <display value="one time only."/>
-    <definition value="one time only."/>
+    <definition value="one time only.  This is also the default when this component is null."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3099">
+  <concept id="3100">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="Meal Related Timings"/>
     <display value="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
     <definition value="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
@@ -269,7 +293,10 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3100">
+  <concept id="3101">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="A"/>
     <display value="Ante (before)"/>
     <definition value="Ante (before)"/>
@@ -278,7 +305,10 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3101">
+  <concept id="3102">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="P"/>
     <display value="Post (after)"/>
     <definition value="Post (after)"/>
@@ -287,19 +317,22 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3102">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="(e.g., between this meal and the next, between dinner and sleep"/>
+  <concept id="3103">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
     </extension>
     <code value="I"/>
     <display value="Inter"/>
-    <definition value="Inter"/>
+    <definition value="Inter (e.g., between this meal and the next, between dinner and sleep"/>
     <property>
       <code value="status"/>
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3103">
+  <concept id="3104">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="M"/>
     <display value="Cibus Matutinus (breakfast)"/>
     <definition value="Cibus Matutinus (breakfast)"/>
@@ -308,7 +341,10 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3104">
+  <concept id="3105">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="D"/>
     <display value="Cibus Diurnus (lunch)"/>
     <definition value="Cibus Diurnus (lunch)"/>
@@ -317,7 +353,10 @@
       <valueCode value="D"/>
     </property>
   </concept>
-  <concept id="3105">
+  <concept id="3106">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </extension>
     <code value="V"/>
     <display value="Cibus Vespertinus (dinner)"/>
     <definition value="Cibus Vespertinus (dinner)"/>

@@ -10,12 +10,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.51"/>
   </identifier>
-  <version value="4"/>
+  <version value="2.4.0"/>
   <name value="ResultStatus"/>
   <title value="resultStatus"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-04-01"/>
+  <date value="2019-12-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
@@ -64,7 +64,7 @@
   <concept id="1431">
     <code value="I"/>
     <display value="No results available; specimen received, procedure incomplete"/>
-    <definition value="No results available; specimen received, procedure incomplete"/>
+    <definition value="Specimen in lab, not yet processed."/>
     <designation>
       <language value="de"/>
       <use>
@@ -81,7 +81,7 @@
   <concept id="1432">
     <code value="S"/>
     <display value="No results available; procedure scheduled, but not done"/>
-    <definition value="No results available; procedure scheduled, but not done"/>
+    <definition value="Procedure scheduled, not done"/>
     <designation>
       <language value="de"/>
       <use>
@@ -115,7 +115,7 @@
   <concept id="1434">
     <code value="P"/>
     <display value="Preliminary"/>
-    <definition value="Preliminary"/>
+    <definition value="Preliminary results"/>
     <designation>
       <language value="de"/>
       <use>
@@ -132,7 +132,7 @@
   <concept id="1435">
     <code value="C"/>
     <display value="Corrected, final"/>
-    <definition value="Corrected, final"/>
+    <definition value="Correction of previously transmitted results"/>
     <designation>
       <language value="de"/>
       <use>
@@ -149,7 +149,7 @@
   <concept id="1436">
     <code value="R"/>
     <display value="Results stored; not yet verified"/>
-    <definition value="Results stored; not yet verified"/>
+    <definition value="Results stored - not yet verified"/>
     <designation>
       <language value="de"/>
       <use>
@@ -164,9 +164,12 @@
     </property>
   </concept>
   <concept id="1437">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Can only be changed with a corrected result."/>
+    </extension>
     <code value="F"/>
     <display value="Final results"/>
-    <definition value="Final results"/>
+    <definition value="Final results - results stored &amp; verified"/>
     <designation>
       <language value="de"/>
       <use>
@@ -183,7 +186,7 @@
   <concept id="1438">
     <code value="X"/>
     <display value="No results available; Order canceled"/>
-    <definition value="No results available; Order canceled"/>
+    <definition value="No results available; Order canceled."/>
     <designation>
       <language value="de"/>
       <use>
@@ -234,16 +237,19 @@
   <concept id="1441">
     <code value="M"/>
     <display value="Corrected, not final"/>
-    <definition value="Corrected, not final"/>
+    <definition value="A result under an order, that has not yet been finalized has been corrected"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1442">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+      <valueString value="Transitions/Relationships: &#xA;OBR-25  Valid preceding state (... to N): O, I, S.  Succeeding state (N to ...): P, A, R, F, X&#xA;OBX-11  No OBX segments can be present where OBX-29 = RSLT"/>
+    </extension>
     <code value="N"/>
     <display value="Procedure completed, results pending"/>
-    <definition value="Procedure completed, results pending"/>
+    <definition value="No result available; requested procedure done.  To indicate that a requested test is performed but results are pending/not yet available."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>

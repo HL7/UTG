@@ -10,12 +10,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.217"/>
   </identifier>
-  <version value="2"/>
+  <version value="2.2.0"/>
   <name value="MessageErrorCondition"/>
   <title value="messageErrorCondition"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-04-01"/>
+  <date value="2019-12-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
@@ -44,8 +44,8 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
-  <concept id="3569">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3570">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Success. Optional, as the AA conveys success. Used for systems that must always return a status code."/>
     </extension>
     <code value="0"/>
@@ -64,8 +64,8 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3570">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3571">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Error: The message segments were not in the proper order, or required segments are missing."/>
     </extension>
     <code value="100"/>
@@ -84,8 +84,8 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3571">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3572">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Error: A required field is missing from a segment"/>
     </extension>
     <code value="101"/>
@@ -104,8 +104,8 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3572">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3573">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Error: The field contained data of the wrong data type, e.g., an NM field contained &quot;FOO&quot;."/>
     </extension>
     <code value="102"/>
@@ -124,8 +124,8 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3573">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3574">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Error: A field of data type ID or IS was compared against the corresponding table, and no match was found."/>
     </extension>
     <code value="103"/>
@@ -144,8 +144,14 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3574">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3575">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Error: a value exceeded the normative length, or the length that the application is able to safely handle."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="Error: a value exceeded the normative length, or the length that the application is able to safely handle."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
       <valueString value="Error: a value exceeded the normative length, or the length that the application is able to safely handle."/>
     </extension>
     <code value="104"/>
@@ -156,26 +162,32 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3575">
+  <concept id="3576">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Error: Cardinality is listed as [0..3] and more than 3 of the identified element are present in the message."/>
+    </extension>
     <code value="198"/>
     <display value="Non-Conformant Cardinality"/>
-    <definition value="Non-Conformant Cardinality"/>
-    <property>
-      <code value="status"/>
-      <valueCode value="N"/>
-    </property>
-  </concept>
-  <concept id="3576">
-    <code value="199"/>
-    <display value="Other HL7 Error"/>
-    <definition value="Other HL7 Error"/>
+    <definition value="An error has been encountered related to HL7 message content. Message is not -conformant with the applicable specification&#x2019;s (base standard, conformance profile or implementation profile)  cardinality."/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
   <concept id="3577">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Error"/>
+    </extension>
+    <code value="199"/>
+    <display value="Other HL7 Error"/>
+    <definition value="Any other error with the HL7 syntax that is not captured in any of the other error codes in this set."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="N"/>
+    </property>
+  </concept>
+  <concept id="3578">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Rejection: The Message Type is not supported."/>
     </extension>
     <code value="200"/>
@@ -194,8 +206,8 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3578">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3579">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Rejection: The Event Code is not supported."/>
     </extension>
     <code value="201"/>
@@ -214,8 +226,8 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3579">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3580">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Rejection: The Processing ID is not supported."/>
     </extension>
     <code value="202"/>
@@ -234,8 +246,8 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3580">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="3581">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Rejection:  The Version ID is not supported."/>
     </extension>
     <code value="203"/>
@@ -254,9 +266,9 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="3581">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Rejection: The ID of the patient, order, etc., was not found. Used for transactions other than additions, e.g., transfer of a non-existent patient."/>
+  <concept id="3582">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="ERR-3 (HL7 Error Code) should be used to convey errors at the structural level and this is an application level error, which should be reported in ERR-5 (Application Error Code)."/>
     </extension>
     <code value="204"/>
     <display value="Unknown key identifier"/>
@@ -274,9 +286,9 @@
       <valueCode value="B"/>
     </property>
   </concept>
-  <concept id="3582">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Rejection: The ID of the patient, order, etc., already exists. Used in response to addition transactions (Admit, New Order, etc.)."/>
+  <concept id="3583">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="ERR-3 (HL7 Error Code) should be used to convey errors at the structural level and this is an application level error, which should be reported in ERR-5 (Application Error Code)."/>
     </extension>
     <code value="205"/>
     <display value="Duplicate key identifier"/>
@@ -294,9 +306,9 @@
       <valueCode value="B"/>
     </property>
   </concept>
-  <concept id="3583">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Rejection: The transaction could not be performed at the application storage level, e.g., database locked."/>
+  <concept id="3584">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="ERR-3 (HL7 Error Code) should be used to convey errors at the structural level and this is an application level error, which should be reported in ERR-5 (Application Error Code)."/>
     </extension>
     <code value="206"/>
     <display value="Application record locked"/>
@@ -314,13 +326,13 @@
       <valueCode value="B"/>
     </property>
   </concept>
-  <concept id="3584">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="Rejection: A catchall for internal errors not explicitly covered by other codes."/>
+  <concept id="3585">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="This value is used when no other value in this list is applicable and there is an application error reported in ERR-5. It is applicable when ERR-3 is required in an implementation guide."/>
     </extension>
     <code value="207"/>
     <display value="Application error"/>
-    <definition value="Application error"/>
+    <definition value="Application internal error"/>
     <designation>
       <language value="de"/>
       <use>

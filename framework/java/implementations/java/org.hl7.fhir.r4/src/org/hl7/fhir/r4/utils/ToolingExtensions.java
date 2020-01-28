@@ -88,6 +88,10 @@ public class ToolingExtensions {
   public static final String EXT_CODE_GENERATION_PARENT = "http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super";
   public static final String EXT_HIERARCHY = "http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy";
 
+  public static final String EXT_CS_CONCEPT_COMMENT = "http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments";
+  public static final String EXT_CS_CONCEPT_COMMENT_AS_PUB = "http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub";
+  public static final String EXT_CS_CONCEPT_USAGE_NOTES = "http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes";
+
   // unregistered?
   public static final String EXT_MAPPING_PREFIX = "http://hl7.org/fhir/tools/StructureDefinition/logical-mapping-prefix";
   public static final String EXT_MAPPING_SUFFIX = "http://hl7.org/fhir/tools/StructureDefinition/logical-mapping-suffix";
@@ -207,6 +211,22 @@ public class ToolingExtensions {
     if (!StringUtils.isBlank(comment))
       nc.getExtension().add(Factory.newExtension(EXT_CS_COMMENT, Factory.newString_(comment), true));   
   }
+
+	public static void addCSConceptComment(ConceptDefinitionComponent nc, String comment) {
+		if (!StringUtils.isBlank(comment))
+			nc.getExtension().add(Factory.newExtension(EXT_CS_CONCEPT_COMMENT, Factory.newString_(comment), true));
+	}
+
+	public static void addCSConceptCommentAsPub(ConceptDefinitionComponent nc, String comment) {
+		if (!StringUtils.isBlank(comment))
+			nc.getExtension()
+					.add(Factory.newExtension(EXT_CS_CONCEPT_COMMENT_AS_PUB, Factory.newString_(comment), true));
+	}
+
+	public static void addCSConceptUsageNotes(ConceptDefinitionComponent nc, String comment) {
+		if (!StringUtils.isBlank(comment))
+			nc.getExtension().add(Factory.newExtension(EXT_CS_CONCEPT_USAGE_NOTES, Factory.newString_(comment), true));
+	}
 
 //  public static void markDeprecated(Element nc) {
 //    setDeprecated(nc);   

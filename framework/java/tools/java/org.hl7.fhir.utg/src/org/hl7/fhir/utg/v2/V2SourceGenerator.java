@@ -163,6 +163,9 @@ public class V2SourceGenerator extends BaseGenerator {
 		private String last;
 		public String status;
 		public boolean backwardsCompatible;
+		private String descriptionAsPublished;
+		private String usageNotes;
+		private String commentsAsPublished;
 		
 
 		public boolean hasLang(String code) {
@@ -171,13 +174,16 @@ public class V2SourceGenerator extends BaseGenerator {
 
 		public TableEntry copy() {
 			TableEntry result = new TableEntry();
-			result.code = code;
-			result.display = display;
-			result.langs.putAll(langs);
-			result.comments = comments;
-			result.sortNo = sortNo;
-			result.status = this.status;
-			result.backwardsCompatible = this.backwardsCompatible;
+			result.code 				= code;
+			result.display 				= display;
+			result.comments 			= this.comments;
+			result.sortNo 				= this.sortNo;
+			result.status 				= this.status;
+			result.backwardsCompatible 	= this.backwardsCompatible;
+			result.usageNotes 			= this.usageNotes;
+			result.commentsAsPublished 	= this.commentsAsPublished;
+			result.descriptionAsPublished 	= this.descriptionAsPublished;
+			result.langs.putAll(this.langs);
 			return result;
 		}
 
@@ -478,7 +484,9 @@ public class V2SourceGenerator extends BaseGenerator {
 		}
 
 		public void item(String version, String code, String display, String german, String table_name, String comments,
-				int sno, String status, boolean backwardsCompatible) {
+				int sno, String status, boolean backwardsCompatible, 
+				String descriptionAsPublished, String usageNotes, String commentsAsPublished) {
+			
 			if (!versions.containsKey(version))
 				versions.put(version, new TableVersion(version, table_name));
 			TableEntry entry = new TableEntry();
@@ -490,6 +498,11 @@ public class V2SourceGenerator extends BaseGenerator {
 			entry.sortNo = sno;
 			entry.status = status;
 			entry.backwardsCompatible = backwardsCompatible;
+			
+			entry.descriptionAsPublished = descriptionAsPublished;
+			entry.usageNotes = usageNotes;
+			entry.commentsAsPublished = commentsAsPublished;
+			
 			versions.get(version).entries.add(entry);
 		}
 
@@ -532,10 +545,6 @@ public class V2SourceGenerator extends BaseGenerator {
 
 			// second pass, versions
 			for (String n : sorted(versions.keySet())) {
-				// if (this.id.equalsIgnoreCase("0104") && n.equals("2.9")) {
-				// System.out.println("stop");
-				// }
-
 				if (!n.contains(" ")) {
 					TableVersion tv = versions.get(n);
 					master.version = tv.version;
@@ -816,7 +825,13 @@ public class V2SourceGenerator extends BaseGenerator {
 
 		int i = 0;
 		query = stmt.executeQuery(
-				"SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub, active, modification  from HL7TableValues where version_id < 100");
+				"SELECT "
+				+ "   table_id, version_id, sort_no, table_value, display_name, "
+				+ "   interpretation, comment, active, modification,  "
+				+ "   description_as_pub, usage_note, comment_as_pub "
+				+ " from HL7TableValues "
+				+ " where version_id < 100");
+		
 		while (query.next()) {
 			String tid = Utilities.padLeft(Integer.toString(query.getInt("table_id")), '0', 4);
 			VersionInfo vid = vers.get(Integer.toString(query.getInt("version_id")));
@@ -827,7 +842,12 @@ public class V2SourceGenerator extends BaseGenerator {
 			String code = query.getString("table_value");
 			String display = query.getString("display_name");
 			String german = query.getString("interpretation");
-			String comment = query.getString("comment_as_pub");
+			String comment = query.getString("comment");
+
+			String descriptionAsPublished = query.getString("description_as_pub");
+			String usageNotes = query.getString("usage_note");
+			String commentsAsPublished = query.getString("comment_as_pub");
+
 
 			// String status = readStatusColumns(query.getString("active"),
 			// query.getString("modification"));
@@ -835,8 +855,19 @@ public class V2SourceGenerator extends BaseGenerator {
 
 			boolean backwardsCompatible = "4".equals(query.getString("active"));
 
-			tables.get(tid).item(vid.getVersion(), code, display, german, nameCache.get(tid + "/" + vid), comment,
-					sno == null ? 0 : sno, conceptStatus.toString(), backwardsCompatible);
+			tables.get(tid).item(
+					vid.getVersion(), 
+					code, 
+					display, 
+					german, 
+					nameCache.get(tid + "/" + vid), 
+					comment,
+					(sno == null ? 0 : sno), 
+					conceptStatus.toString(), 
+					backwardsCompatible,
+					descriptionAsPublished,
+					usageNotes,
+					commentsAsPublished);
 			i++;
 		}
 		System.out.println(Integer.toString(i) + " entries loaded");
@@ -929,10 +960,6 @@ public class V2SourceGenerator extends BaseGenerator {
 
 		TableVersion tv = t.master;
 
-		if (t.id.equals("0719")) {
-			System.out.println("stop");
-		}
-
 		if (OIDLookup.doNotGenerate(tv.csoid))
 			return;
 		
@@ -945,7 +972,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		CodeSystem cs = new CodeSystem();
 
 		cs.setId("v2-" + t.id);
-		cs.setVersion(makeVersionString(tv.csversion));
+		cs.setVersion(makeVersionString((tv.csversion == null)? "1" : tv.csversion));
 
 		ObjectInfo oi = objects.get(tv.csoid);
 		if (oi != null) {
@@ -1046,12 +1073,18 @@ public class V2SourceGenerator extends BaseGenerator {
 			c.setCode(te.code);
 			String name = te.display;
 			c.setDisplay(name);
-			c.setDefinition(name);
+			c.setDefinition(Utilities.noString(te.descriptionAsPublished)? name : te.descriptionAsPublished);
 			// Use sequence for concept id, not sort_no
 			// c.setId(Integer.toString(te.sortNo));
 			c.setId(V2ConceptIdSequence.getNextConceptIdString());
+
 			if (!Utilities.noString(te.comments))
-				ToolingExtensions.addCSComment(c, te.comments);
+				ToolingExtensions.addCSConceptComment(c, te.comments);
+			if (!Utilities.noString(te.commentsAsPublished))
+				ToolingExtensions.addCSConceptCommentAsPub(c, te.commentsAsPublished);
+			if (!Utilities.noString(te.usageNotes))
+				ToolingExtensions.addCSConceptUsageNotes(c, te.usageNotes);
+
 			// if (te.getFirst() != null)
 			// c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
 			if (!Utilities.noString(te.getLast()))
@@ -1255,7 +1288,8 @@ public class V2SourceGenerator extends BaseGenerator {
 		vs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
 		vs.setPublisher("HL7, Inc");
 		vs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
-		vs.setDescription("V2 Table " + t.id + " Version " + vid + " (" + t.name + ")");
+		//vs.setDescription("V2 Table " + t.id + " Version " + vid + " (" + t.name + ")");
+		vs.setDescription(tv.getObjectDescription());
 		vs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
 
 		ValueSetComposeComponent vsCompose = vs.getCompose();

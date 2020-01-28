@@ -13,12 +13,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.183"/>
   </identifier>
-  <version value="2"/>
+  <version value="2.2.0"/>
   <name value="TimeSelectionCriteriaParameterClass"/>
   <title value="timeSelectionCriteriaParameterClass"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-04-01"/>
+  <date value="2019-12-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
@@ -47,7 +47,7 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
-  <concept id="2953">
+  <concept id="2954">
     <code value="PREFSTART"/>
     <display value="The preferred start time for the appointment request, service or resource.   Any legal time specification in the format HHMM, using 24-hour clock notation"/>
     <definition value="The preferred start time for the appointment request, service or resource.   Any legal time specification in the format HHMM, using 24-hour clock notation"/>
@@ -60,197 +60,172 @@
       <valueCode value="A"/>
     </property>
   </concept>
-  <concept id="2954">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+  <concept id="2955">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="In component 2, specify any valid time in the format HHMM, using 24-hour clock notation where HH = hour and MM = minutes"/>
     </extension>
     <code value="Prefstart"/>
     <display value="An indicator that there is a preferred start time for the appointment request, service or resource."/>
-    <definition value="An indicator that there is a preferred start time for the appointment request, service or resource."/>
-    <property>
-      <code value="status"/>
-      <valueCode value="A"/>
-    </property>
-  </concept>
-  <concept id="2955">
-    <code value="PREFEND"/>
-    <display value="The preferred end time for the appointment request, service or resource.  Any legal time specification in the format HHMM, using 24-hour clock notation"/>
-    <definition value="The preferred end time for the appointment request, service or resource.  Any legal time specification in the format HHMM, using 24-hour clock notation"/>
-    <property>
-      <code value="deprecated"/>
-      <valueCode value="2.9"/>
-    </property>
+    <definition value="The preferred start time for the appointment request, service or resource.   Any legal time specification in the format HHMM, using 24-hour clock notation"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2956">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="In component 2, specify any valid time in the format HHMM, using 24-hour clock notation where HH = hour and MM = minutes"/>
-    </extension>
-    <code value="Prefend"/>
-    <display value="An indicator that there is a preferred end time for the appointment request, service or resource."/>
-    <definition value="An indicator that there is a preferred end time for the appointment request, service or resource."/>
+    <code value="PREFEND"/>
+    <display value="The preferred end time for the appointment request, service or resource.  Any legal time specification in the format HHMM, using 24-hour clock notation"/>
+    <definition value="The preferred start time for the appointment request, service or resource.  Any legal time specification in the format HHMM, using 24-hour clock notation"/>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2957">
-    <code value="MON"/>
-    <display value="An indicator that Monday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
-    <definition value="An indicator that Monday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
-    <property>
-      <code value="deprecated"/>
-      <valueCode value="2.9"/>
-    </property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="In component 2, specify any valid time in the format HHMM, using 24-hour clock notation where HH = hour and MM = minutes"/>
+    </extension>
+    <code value="Prefend"/>
+    <display value="An indicator that there is a preferred end time for the appointment request, service or resource."/>
+    <definition value="The preferred end time for the appointment request, service or resource.  Any legal time specification in the format HHMM, using 24-hour clock notation"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2958">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
-    </extension>
-    <code value="Mon"/>
-    <display value="An indicator that Monday is or is not preferred for the day on which the appointment will occur."/>
-    <definition value="An indicator that Monday is or is not preferred for the day on which the appointment will occur."/>
+    <code value="MON"/>
+    <display value="An indicator that Monday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Monday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment dayNO = Day is not preferred"/>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2959">
-    <code value="TUE"/>
-    <display value="An indicator that Tuesday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
-    <definition value="An indicator that Tuesday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
-    <property>
-      <code value="deprecated"/>
-      <valueCode value="2.9"/>
-    </property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
+    </extension>
+    <code value="Mon"/>
+    <display value="An indicator that Monday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Monday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day; NO = Day is not preferred"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2960">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
-    </extension>
-    <code value="Tue"/>
-    <display value="An indicator that Tuesday is or is not preferred for the day on which the appointment will occur."/>
-    <definition value="An indicator that Tuesday is or is not preferred for the day on which the appointment will occur."/>
+    <code value="TUE"/>
+    <display value="An indicator that Tuesday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Tuesday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment dayNO = Day is not preferred"/>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2961">
-    <code value="WED"/>
-    <display value="An indicator that Wednesday is or is not preferred for the day on which the appointment will occur. OK = Preferred appointment day NO = Day is not preferred"/>
-    <definition value="An indicator that Wednesday is or is not preferred for the day on which the appointment will occur. OK = Preferred appointment day NO = Day is not preferred"/>
-    <property>
-      <code value="deprecated"/>
-      <valueCode value="2.9"/>
-    </property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
+    </extension>
+    <code value="Tue"/>
+    <display value="An indicator that Tuesday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Tuesday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day; NO = Day is not preferred"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2962">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
-    </extension>
-    <code value="Wed"/>
-    <display value="An indicator that Wednesday is or is not preferred for the day on which the appointment will occur."/>
-    <definition value="An indicator that Wednesday is or is not preferred for the day on which the appointment will occur."/>
+    <code value="WED"/>
+    <display value="An indicator that Wednesday is or is not preferred for the day on which the appointment will occur. OK = Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Wednesday is or is not preferred for the day on which the appointment will occur. OK = Preferred appointment dayNO = Day is not preferred"/>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2963">
-    <code value="THU"/>
-    <display value="An indicator that Thursday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
-    <definition value="An indicator that Thursday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
-    <property>
-      <code value="deprecated"/>
-      <valueCode value="2.9"/>
-    </property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
+    </extension>
+    <code value="Wed"/>
+    <display value="An indicator that Wednesday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Wednesday is or is not preferred for the day on which the appointment will occur. OK = Preferred appointment day; NO = Day is not preferred"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2964">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
-    </extension>
-    <code value="Thu"/>
-    <display value="An indicator that Thursday is or is not preferred for the day on which the appointment will occur."/>
-    <definition value="An indicator that Thursday is or is not preferred for the day on which the appointment will occur."/>
+    <code value="THU"/>
+    <display value="An indicator that Thursday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Thursday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment dayNO = Day is not preferred"/>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2965">
-    <code value="FRI"/>
-    <display value="An indicator that Friday is or is not preferred for the day on which the appointment will occur.  OK =  Preferred appointment day NO = Day is not preferred"/>
-    <definition value="An indicator that Friday is or is not preferred for the day on which the appointment will occur.  OK =  Preferred appointment day NO = Day is not preferred"/>
-    <property>
-      <code value="deprecated"/>
-      <valueCode value="2.9"/>
-    </property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
+    </extension>
+    <code value="Thu"/>
+    <display value="An indicator that Thursday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Thursday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day; NO = Day is not preferred"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2966">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
-    </extension>
-    <code value="Fri"/>
-    <display value="An indicator that Friday is or is not preferred for the day on which the appointment will occur."/>
-    <definition value="An indicator that Friday is or is not preferred for the day on which the appointment will occur."/>
+    <code value="FRI"/>
+    <display value="An indicator that Friday is or is not preferred for the day on which the appointment will occur.  OK =  Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Friday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment dayNO = Day is not preferred"/>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2967">
-    <code value="SAT"/>
-    <display value="An indicator that Saturday is or is not preferred for the day on which the appointment will occur.  OK =  Preferred appointment day NO = Day is not preferred"/>
-    <definition value="An indicator that Saturday is or is not preferred for the day on which the appointment will occur.  OK =  Preferred appointment day NO = Day is not preferred"/>
-    <property>
-      <code value="deprecated"/>
-      <valueCode value="2.9"/>
-    </property>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
+    </extension>
+    <code value="Fri"/>
+    <display value="An indicator that Friday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Friday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day; NO = Day is not preferred"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2968">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
-      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
-    </extension>
-    <code value="Sat"/>
-    <display value="An indicator that Saturday is or is not preferred for the day on which the appointment will occur."/>
-    <definition value="An indicator that Saturday is or is not preferred for the day on which the appointment will occur."/>
-    <property>
-      <code value="status"/>
-      <valueCode value="A"/>
-    </property>
-  </concept>
-  <concept id="2969">
-    <code value="SUN"/>
-    <display value="An indicator that Sunday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
-    <definition value="An indicator that Sunday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <code value="SAT"/>
+    <display value="An indicator that Saturday is or is not preferred for the day on which the appointment will occur.  OK =  Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Saturday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment dayNO = Day is not preferred"/>
     <property>
       <code value="deprecated"/>
       <valueCode value="2.9"/>
@@ -260,13 +235,38 @@
       <valueCode value="A"/>
     </property>
   </concept>
+  <concept id="2969">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
+    </extension>
+    <code value="Sat"/>
+    <display value="An indicator that Saturday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Saturday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day; NO = Day is not preferred"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
   <concept id="2970">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-comments">
+    <code value="SUN"/>
+    <display value="An indicator that Sunday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day NO = Day is not preferred"/>
+    <definition value="An indicator that Sunday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment dayNO = Day is not preferred"/>
+    <property>
+      <code value="deprecated"/>
+      <valueCode value="2.9"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="2971">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="In component 2, specify OK or NO.&lt;p&gt;OK = Preferred appointment day NO = Day is not preferred"/>
     </extension>
     <code value="Sun"/>
     <display value="An indicator that Sunday is or is not preferred for the day on which the appointment will occur."/>
-    <definition value="An indicator that Sunday is or is not preferred for the day on which the appointment will occur."/>
+    <definition value="An indicator that Sunday is or is not preferred for the day on which the appointment will occur.  OK = Preferred appointment day; NO = Day is not preferred"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>

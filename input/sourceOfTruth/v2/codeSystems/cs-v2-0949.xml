@@ -10,12 +10,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.449"/>
   </identifier>
-  <version value="1"/>
+  <version value="2.1.0"/>
   <name value="OrderControlCodeReason"/>
   <title value="orderControlCodeReason"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-04-01"/>
+  <date value="2019-12-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
@@ -44,37 +44,55 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
-  <concept id="6766">
+  <concept id="6769">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="In an order replacement context, this would accompany proposal of a similar but lower cost order"/>
+    </extension>
     <code value="CO"/>
     <display value="Cost"/>
-    <definition value="Cost"/>
+    <definition value="Order changed based on cost"/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6767">
+  <concept id="6770">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Order placer may accept, cancel and replace, or choose other testing."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+      <valueString value="Recommend testing that can use the submitted specimen type"/>
+    </extension>
     <code value="ST"/>
     <display value="Specimen Type"/>
-    <definition value="Specimen Type"/>
+    <definition value="Incorrect specimen type submitted for the requested test"/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6768">
+  <concept id="6771">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="The question is how to use the available specimen. The Order Placer may choose a different subset of tests."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+      <valueString value="Recommend a subset of ordered tests appropriate for volume"/>
+    </extension>
     <code value="SV"/>
     <display value="Specimen Volume"/>
-    <definition value="Specimen Volume"/>
+    <definition value="Provided specimen volume inadequate for testing"/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
-  <concept id="6769">
+  <concept id="6772">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="In an order replacement context, an alternative might be proposed."/>
+    </extension>
     <code value="UN"/>
     <display value="Unavailable test"/>
-    <definition value="Unavailable test"/>
+    <definition value="Requested test not available"/>
     <property>
       <code value="status"/>
       <valueCode value="N"/>

@@ -14164,6 +14164,8 @@ public class XmlParser extends XmlParserBase {
         res.setUsageElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("uniqueId")) {
         res.getUniqueId().add(parseNamingSystemNamingSystemUniqueIdComponent(xpp, res));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("version")) {
+    	res.setVersionElement(parseString(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
         return false;
     return true;
@@ -37784,6 +37786,8 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory());
       if (element.hasKindElement())
         composeEnumeration("kind", element.getKindElement(), new NamingSystem.NamingSystemTypeEnumFactory());
+      if (element.hasVersionElement())
+    	composeString("version", element.getVersionElement());
       if (element.hasDateElement()) {
         composeDateTime("date", element.getDateElement());
       }

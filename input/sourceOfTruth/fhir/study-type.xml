@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="study-type"/>
   <meta>
-    <lastUpdated value="2019-10-16T18:52:48.487+00:00"/>
+    <lastUpdated value="2020-01-21T20:48:01.643+00:00"/>
   </meta>
   <text>
     <status value="generated"/>
@@ -108,9 +108,9 @@
                 
           </td>
                 
-          <td>uncontrolled cohort or case series</td>
+          <td>uncontrolled case series</td>
                 
-          <td>uncontrolled cohort or case series.</td>
+          <td>uncontrolled case series.</td>
               
         </tr>
               
@@ -130,15 +130,29 @@
               
         <tr>
                 
-          <td style="white-space:nowrap">mixed
+          <td style="white-space:nowrap">RCTandCohort
                   
-            <a name="study-type-mixed"> </a>
+            <a name="study-type-RCTandCohort"> </a>
                 
           </td>
                 
-          <td>mixed methods</td>
+          <td>mixed RCT and cohort</td>
                 
-          <td>a combination of 1 or more types of studies.</td>
+          <td>a combination of 1 or more RCTs and cohorts.</td>
+              
+        </tr>
+              
+        <tr>
+                
+          <td style="white-space:nowrap">cross-section
+                  
+            <a name="study-type-cross-section"> </a>
+                
+          </td>
+                
+          <td>cross sectional study</td>
+                
+          <td>uncontrolled cohort.</td>
               
         </tr>
             
@@ -146,26 +160,17 @@
           
     </div>
   </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
-  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/study-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1350"/>
   </identifier>
-  <version value="4.1.0"/>
+  <version value="4.2.0"/>
   <name value="StatisticStudyType"/>
   <title value="StatisticStudyType"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2019-10-16T18:52:48+00:00"/>
+  <date value="2020-01-21T20:48:01+00:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -203,8 +208,8 @@
   </concept>
   <concept>
     <code value="series"/>
-    <display value="uncontrolled cohort or case series"/>
-    <definition value="uncontrolled cohort or case series."/>
+    <display value="uncontrolled case series"/>
+    <definition value="uncontrolled case series."/>
   </concept>
   <concept>
     <code value="case-report"/>
@@ -212,8 +217,13 @@
     <definition value="a single case report."/>
   </concept>
   <concept>
-    <code value="mixed"/>
-    <display value="mixed methods"/>
-    <definition value="a combination of 1 or more types of studies."/>
+    <code value="RCTandCohort"/>
+    <display value="mixed RCT and cohort"/>
+    <definition value="a combination of 1 or more RCTs and cohorts."/>
+  </concept>
+  <concept>
+    <code value="cross-section"/>
+    <display value="cross sectional study"/>
+    <definition value="uncontrolled cohort."/>
   </concept>
 </CodeSystem>

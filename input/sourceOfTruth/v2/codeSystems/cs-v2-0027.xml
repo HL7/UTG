@@ -13,12 +13,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.18.15"/>
   </identifier>
-  <version value="2"/>
+  <version value="2.2.0"/>
   <name value="Priority"/>
   <title value="priority"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-04-01"/>
+  <date value="2019-12-01"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <telecom>
@@ -50,7 +50,7 @@
   <concept id="674">
     <code value="S"/>
     <display value="Stat (do immediately)"/>
-    <definition value="Stat (do immediately)"/>
+    <definition value="Stat. Required immediately."/>
     <designation>
       <language value="de"/>
       <use>
@@ -67,7 +67,7 @@
   <concept id="675">
     <code value="A"/>
     <display value="As soon as possible (a priority lower than stat)"/>
-    <definition value="As soon as possible (a priority lower than stat)"/>
+    <definition value="ASAP. Fill after STAT orders."/>
     <designation>
       <language value="de"/>
       <use>
@@ -82,9 +82,12 @@
     </property>
   </concept>
   <concept id="676">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+      <valueString value="default"/>
+    </extension>
     <code value="R"/>
     <display value="Routine"/>
-    <definition value="Routine"/>
+    <definition value="Routine (default)"/>
     <designation>
       <language value="de"/>
       <use>
@@ -99,6 +102,9 @@
     </property>
   </concept>
   <concept id="677">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+      <valueString value="to be done prior to surgery"/>
+    </extension>
     <code value="P"/>
     <display value="Preoperative (to be done prior to surgery)"/>
     <definition value="Preoperative (to be done prior to surgery)"/>
@@ -118,7 +124,7 @@
   <concept id="678">
     <code value="T"/>
     <display value="Timing critical (do as near as possible to requested time)"/>
-    <definition value="Timing critical (do as near as possible to requested time)"/>
+    <definition value="Timed collection"/>
     <designation>
       <language value="de"/>
       <use>
