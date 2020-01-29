@@ -86,7 +86,7 @@
     </extension>
     <code value="DNS"/>
     <display value="Domain Name System"/>
-    <definition value="An Internet dotted name. Either in ASCII or as integers"/>
+    <definition value="An Internet host name, in accordance with RFC 1035; or an IP address. Either in ASCII or as integers, with periods between components (&quot;dotted&quot; notation)."/>
     <designation>
       <language value="de"/>
       <use>
@@ -107,12 +107,9 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
       <valueString value="OUI-24 values are administered by the IEEE Registration Authority."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="OUI-24 values are administered by the IEEE Registration Authority."/>
-    </extension>
     <code value="EUI64"/>
     <display value="IEEE 64-bit Extended Unique Identifier"/>
-    <definition value="IEEE 64-bit Extended Unique Identifier is comprised of a  24-bit company identifier and a 40-bit instance identifier.  The value shall be formatted as 16 ASCII HEX digits, for example, &quot;AABBCC1122334455&quot;.  The 24-bit company identifier, formally known as"/>
+    <definition value="IEEE 64-bit Extended Unique Identifier is comprised of a  24-bit company identifier and a 40-bit instance identifier.  The value shall be formatted as 16 ASCII HEX digits, for example, &#x201C;AABBCC1122334455&#x201D;.  The 24-bit company identifier, formally known as Organizationally Unique Identifier (OUI-24), is guaranteed to be globally unique.  The 40-bit extensions are assigned by manufacturers.  This identifier is often used in equipment interfaces (e.g., &#x201C;MAC&#x201D; address format for IPv4 &amp; IPv6).  [See http://standards.ieee.org/regauth/oui/tutorials/EUI64.html for a detailed explanation of the format.]"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -121,6 +118,9 @@
   <concept id="2982">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Same as UUID. Retained for backward compatibility only as of v2.7; use UUID instead"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="Retained for backward compatibility only as of v2.7; use UUID instead"/>
     </extension>
     <code value="GUID"/>
     <display value="globally unique identifier"/>
@@ -142,9 +142,12 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="The CEN Healthcare Coding Scheme Designator. Retained for backward compatibility only as of v2.7; does not identify Assigning Authorities"/>
     </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="Retained for backward compatibility only as of v2.7; does not identify Assigning Authorities"/>
+    </extension>
     <code value="HCD"/>
     <display value="CEN Healthcare Coding Identifier"/>
-    <definition value="The CEN Healthcare Coding Scheme Designator. (Identifiers used in DICOM follow this assignment scheme.)"/>
+    <definition value="The CEN Healthcare Coding Scheme Designator"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -154,9 +157,12 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Retained for backward compatibility only as of v2.7; HL7 assigns ISO OIDs for Assigning Authorities"/>
     </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="Retained for backward compatibility only as of v2.7; HL7 assigns ISO OIDs for Assigning Authorities"/>
+    </extension>
     <code value="HL7"/>
     <display value="HL7 registration schemes"/>
-    <definition value="Reserved for future HL7 registration schemes"/>
+    <definition value="HL7 registration schemes"/>
     <designation>
       <language value="de"/>
       <use>
@@ -176,7 +182,7 @@
     </extension>
     <code value="ISO"/>
     <display value="ISO Object Identifier"/>
-    <definition value="An International Standards Organization Object Identifier"/>
+    <definition value="An International Standards Organization Object Identifier (OID), in accordance with ISO/IEC 8824.  Formatted as decimal digits separated by periods; recommended limit of 64 characters"/>
     <designation>
       <language value="de"/>
       <use>
@@ -213,6 +219,9 @@
   <concept id="2987">
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Locally defined coding entity identifier.Retained for backward compatibility only as of v 2.8"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="Retained for backward compatibility only as of v 2.8"/>
     </extension>
     <code value="L,M,N"/>
     <display value="Local"/>
@@ -286,12 +295,15 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
       <valueString value="Usually a base64 encoded string of random bits.Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead. Note: Random IDs are typically used for instance identifiers, rather than an identifier of an Assigning Authority that issues instance identifiers"/>
     </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
+      <valueString value="Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead."/>
+    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="The uniqueness depends on the length of the bits.  Mail systems often generate ASCII string  &quot;unique names,&quot; from a combination of random bits and system names.  Obviously, such identifiers will not be constrained to the base64 character set."/>
+      <valueString value="Retained for backward compatibility only as of v2.7; equivalent to a locally defined entity identifier scheme; use L. M, or N instead."/>
     </extension>
     <code value="Random"/>
     <display value="Random"/>
-    <definition value="Usually a base64 encoded string of random bits."/>
+    <definition value="Usually a base64 encoded string of random bits.&lt;p&gt;Note: Random IDs are typically used for instance identifiers, rather than an identifier of an Assigning Authority that issues instance identifiers"/>
     <designation>
       <language value="de"/>
       <use>
@@ -328,7 +340,7 @@
     </extension>
     <code value="UUID"/>
     <display value="Universal Unique Identifier"/>
-    <definition value="The DCE Universal Unique Identifier"/>
+    <definition value="The DCE Universal Unique Identifier, in accordance with RFC 4122. Recommended format is 32 hexadecimal digits separated by hyphens, in the digit grouping 8-4-4-4-12"/>
     <designation>
       <language value="de"/>
       <use>
@@ -348,7 +360,7 @@
     </extension>
     <code value="x400"/>
     <display value="X.400 MHS identifier"/>
-    <definition value="An X.400 MHS format identifier"/>
+    <definition value="An X.400 MHS identifier. Recommended format is in accordance with RFC 1649"/>
     <designation>
       <language value="de"/>
       <use>
