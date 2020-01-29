@@ -483,9 +483,19 @@ public class V2SourceGenerator extends BaseGenerator {
 			this.oid = oid;
 		}
 
-		public void item(String version, String code, String display, String german, String table_name, String comments,
-				int sno, String status, boolean backwardsCompatible, 
-				String descriptionAsPublished, String usageNotes, String commentsAsPublished) {
+		public void item(
+				String version, 
+				String code, 
+				String display, 
+				String german, 
+				String table_name, 
+				String comments,
+				int sno, 
+				String status, 
+				boolean backwardsCompatible, 
+				String descriptionAsPublished, 
+				String usageNotes, 
+				String commentsAsPublished) {
 			
 			if (!versions.containsKey(version))
 				versions.put(version, new TableVersion(version, table_name));
@@ -518,6 +528,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		}
 
 		public void processVersions() {
+			
 			master = new TableVersion(null, name);
 			// first pass, languages
 			for (String n : sorted(versions.keySet())) {
@@ -579,13 +590,21 @@ public class V2SourceGenerator extends BaseGenerator {
 						} else {
 							if (!Utilities.noString(te.display))
 								tem.display = te.display;
-							if (!Utilities.noString(te.comments))
-								tem.comments = te.comments;
 							for (String c : te.langs.keySet())
 								tem.langs.put(c, te.langs.get(c));
 							tem.sortNo = te.sortNo;
 							tem.status = te.status;
 							tem.backwardsCompatible = te.backwardsCompatible;
+							
+							// TODO check this behavior with Ted
+							//if (!Utilities.noString(te.comments))
+							//	tem.comments = te.comments;
+							tem.comments = te.comments;
+							tem.usageNotes 			= te.usageNotes;
+							tem.commentsAsPublished 	= te.commentsAsPublished;
+							tem.descriptionAsPublished 	= te.descriptionAsPublished;
+
+							
 							tem.setLast(null);
 						}
 					}

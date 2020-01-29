@@ -223,9 +223,9 @@ public class ToolingExtensions {
 					.add(Factory.newExtension(EXT_CS_CONCEPT_COMMENT_AS_PUB, Factory.newString_(comment), true));
 	}
 
-	public static void addCSConceptUsageNotes(ConceptDefinitionComponent nc, String comment) {
-		if (!StringUtils.isBlank(comment))
-			nc.getExtension().add(Factory.newExtension(EXT_CS_CONCEPT_USAGE_NOTES, Factory.newString_(comment), true));
+	public static void addCSConceptUsageNotes(ConceptDefinitionComponent nc, String usageNotes) {
+		if (!StringUtils.isBlank(usageNotes))
+			nc.getExtension().add(Factory.newExtension(EXT_CS_CONCEPT_USAGE_NOTES, Factory.newString_(usageNotes), true));
 	}
 
 //  public static void markDeprecated(Element nc) {
