@@ -45,12 +45,15 @@
     <type value="code"/>
   </property>
   <concept id="5586">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Use this severity when parts of the message may not have been stored."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Transaction successful, but there may issues"/>
     </extension>
     <code value="W"/>
     <display value="Warning"/>
-    <definition value="Warning"/>
+    <definition value="Transaction successful, but there may be issues"/>
     <designation>
       <language value="de"/>
       <use>
@@ -65,12 +68,15 @@
     </property>
   </concept>
   <concept id="5587">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="e.g., inform patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Transaction was successful but includes information e.g., inform patient"/>
     </extension>
     <code value="I"/>
     <display value="Information"/>
-    <definition value="Information"/>
+    <definition value="Transaction was successful but includes information"/>
     <designation>
       <language value="de"/>
       <use>
@@ -85,9 +91,12 @@
     </property>
   </concept>
   <concept id="5588">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Transaction was unsuccessful"/>
+    </extension>
     <code value="E"/>
     <display value="Error"/>
-    <definition value="Error"/>
+    <definition value="Transaction was unsuccessful"/>
     <designation>
       <language value="de"/>
       <use>
@@ -102,9 +111,12 @@
     </property>
   </concept>
   <concept id="5589">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Message not processed due to application or network failure condition"/>
+    </extension>
     <code value="F"/>
     <display value="Fatal Error"/>
-    <definition value="Fatal Error"/>
+    <definition value="Message not processed due to application or network failure condition"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>

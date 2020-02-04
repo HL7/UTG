@@ -64,7 +64,7 @@
   <concept id="1431">
     <code value="I"/>
     <display value="No results available; specimen received, procedure incomplete"/>
-    <definition value="Specimen in lab, not yet processed."/>
+    <definition value="No results available; specimen received, procedure incomplete"/>
     <designation>
       <language value="de"/>
       <use>
@@ -81,7 +81,7 @@
   <concept id="1432">
     <code value="S"/>
     <display value="No results available; procedure scheduled, but not done"/>
-    <definition value="Procedure scheduled, not done"/>
+    <definition value="No results available; procedure scheduled, but not done"/>
     <designation>
       <language value="de"/>
       <use>
@@ -115,7 +115,7 @@
   <concept id="1434">
     <code value="P"/>
     <display value="Preliminary"/>
-    <definition value="Preliminary results"/>
+    <definition value="A verified early result is available, final results not yet obtained"/>
     <designation>
       <language value="de"/>
       <use>
@@ -132,7 +132,7 @@
   <concept id="1435">
     <code value="C"/>
     <display value="Corrected, final"/>
-    <definition value="Correction of previously transmitted results"/>
+    <definition value="A result under an order, that has been finalized has been corrected"/>
     <designation>
       <language value="de"/>
       <use>
@@ -149,7 +149,7 @@
   <concept id="1436">
     <code value="R"/>
     <display value="Results stored; not yet verified"/>
-    <definition value="Results stored - not yet verified"/>
+    <definition value="Results stored; not yet verified"/>
     <designation>
       <language value="de"/>
       <use>
@@ -164,12 +164,12 @@
     </property>
   </concept>
   <concept id="1437">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Can only be changed with a corrected result."/>
     </extension>
     <code value="F"/>
     <display value="Final results"/>
-    <definition value="Final results - results stored &amp; verified"/>
+    <definition value="Final results; results stored and verified."/>
     <designation>
       <language value="de"/>
       <use>
@@ -201,9 +201,12 @@
     </property>
   </concept>
   <concept id="1439">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
+      <valueString value="Used only on queries"/>
+    </extension>
     <code value="Y"/>
     <display value="No order on record for this test"/>
-    <definition value="No order on record for this test"/>
+    <definition value="No order on record for this test."/>
     <designation>
       <language value="de"/>
       <use>
@@ -218,9 +221,12 @@
     </property>
   </concept>
   <concept id="1440">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
+      <valueString value="Used only on queries"/>
+    </extension>
     <code value="Z"/>
     <display value="No record of this patient"/>
-    <definition value="No record of this patient"/>
+    <definition value="No record of this patient."/>
     <designation>
       <language value="de"/>
       <use>
@@ -244,7 +250,7 @@
     </property>
   </concept>
   <concept id="1442">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
       <valueString value="Transitions/Relationships: &#xA;OBR-25  Valid preceding state (... to N): O, I, S.  Succeeding state (N to ...): P, A, R, F, X&#xA;OBX-11  No OBX segments can be present where OBX-29 = RSLT"/>
     </extension>
     <code value="N"/>

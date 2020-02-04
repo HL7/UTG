@@ -45,7 +45,7 @@
     <type value="code"/>
   </property>
   <concept id="1968">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="In Ask at Order Entry (AOE) questions this can be used to identify the ID with the assigning authority.  For instance, a credentialed sonographer whose identifier assigned by the credentialing body has been entered can be properly labeled."/>
     </extension>
     <code value="AC"/>
@@ -57,22 +57,19 @@
     </property>
   </concept>
   <concept id="1969">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Accession Identifier"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Accession Identifier"/>
     </extension>
     <code value="ACSN"/>
     <display value="Accession ID"/>
-    <definition value="Accession ID"/>
+    <definition value="Accession Identifier"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1970">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="AIN is the official acronym used by USDA"/>
     </extension>
     <code value="AIN"/>
@@ -84,7 +81,10 @@
     </property>
   </concept>
   <concept id="1971">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Deprecated and replaced by BC in v 2.5."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Deprecated and replaced by BC in v 2.5."/>
     </extension>
     <code value="AM"/>
@@ -104,18 +104,24 @@
     </property>
   </concept>
   <concept id="1972">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A physician identifier assigned by the AMA."/>
+    </extension>
     <code value="AMA"/>
     <display value="American Medical Association Number"/>
-    <definition value="American Medical Association Number"/>
+    <definition value="A physician identifier assigned by the AMA."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1973">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to an account."/>
+    </extension>
     <code value="AN"/>
     <display value="Account number"/>
-    <definition value="Account Number"/>
+    <definition value="Account An identifier that is unique to an account."/>
     <designation>
       <language value="de"/>
       <use>
@@ -130,106 +136,97 @@
     </property>
   </concept>
   <concept id="1974">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Class: Financial&lt;p&gt;Sometimes two distinct account numbers must be transmitted in the same message, one as the creditor, the other as the debitor.&lt;p&gt;Kreditorenkontonummer"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Class: Financial"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Class: Financial"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Class: Financial&lt;p&gt;A more precise definition of an account number: sometimes two distinct account numbers must be transmitted in the same message, one as the creditor, the other as the debitor.&lt;p&gt;Kreditorenkontonummer"/>
     </extension>
     <code value="ANC"/>
     <display value="Account number Creditor"/>
-    <definition value="Account number Creditor"/>
+    <definition value="A more precise definition of an account number"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1975">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Class: Financial&lt;p&gt;Sometimes two distinct account numbers must be transmitted in the same message, one as the creditor, the other as the debitor.&lt;p&gt;Debitorenkontonummer"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Class: Financial"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Class: Financial"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Class: Financial&lt;p&gt;A more precise definition of an account number: sometimes two distinct account numbers must be transmitted in the same message, one as the creditor, the other as the debitor.&lt;p&gt;Debitorenkontonummer"/>
     </extension>
     <code value="AND"/>
     <display value="Account number debitor"/>
-    <definition value="Account number debitor"/>
+    <definition value="A more precise definition of an account number"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1976">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Justification: For public health reporting purposes, anonymous identifiers are occasionally used for protecting patient identity in reporting certain results. For instance, a state health department may choose to use a scheme for generating an anonymous identifier for reporting a patient that has had a positive human immunodeficiency virus antibody test. Anonymous identifiers can be used in PID 3 by replacing the medical record number or other non-anonymous identifier. The assigning authority for an anonymous identifier would be the state/local health department."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Justification: For public health reporting purposes, anonymous identifiers are occasionally used for protecting patient identity in reporting certain results. For instance, a state health department may choose to use a scheme for generating an anonymous i"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Justification: For public health reporting purposes, anonymous identifiers are occasionally used for protecting patient identity in reporting certain results. For instance, a state health department may choose to use a scheme for generating an anonymous i"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier for a living subject whose real identity is protected or suppressed&#xD;&#xA;Justification: For public health reporting purposes, anonymous identifiers are occasionally used for protecting patient identity in reporting certain results. For instance, a state health department may choose to use a scheme for generating an anonymous identifier for reporting a patient that has had a positive human immunodeficiency virus antibody test. Anonymous identifiers can be used in PID 3 by replacing the medical record number or other non-anonymous identifier. The assigning authority for an anonymous identifier would be the state/local health department."/>
     </extension>
     <code value="ANON"/>
     <display value="Anonymous identifier"/>
-    <definition value="Anonymous identifier"/>
+    <definition value="An identifier for a living subject whose real identity is protected or suppressed"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1977">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Class: Financial&#xD;&#xA;Use Case: An ancillary system that does not normally assign account numbers is the first time to register a patient. This ancillary system will generate a temporary account number that will only be used until an official account number is assigned."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Temporary version of an Account Number."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Temporary version of an Account Number."/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Class: Financial&#xD;&#xA;Temporary version of an Account Number.&#xD;&#xA;Use Case: An ancillary system that does not normally assign account numbers is the first time to register a patient. This ancillary system will generate a temporary account number that will only be used until an official account number is assigned."/>
     </extension>
     <code value="ANT"/>
     <display value="Temporary Account Number"/>
-    <definition value="Temporary Account Number"/>
+    <definition value="Temporary version of an Account Number"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1978">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to an advanced practice registered nurse within the jurisdiction of a certifying board"/>
+    </extension>
     <code value="APRN"/>
     <display value="Advanced Practice Registered Nurse number"/>
-    <definition value="Advanced Practice Registered Nurse number"/>
+    <definition value="An identifier that is unique to an advanced practice registered nurse within the jurisdiction of a certifying board"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1979">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="All child, grandchild, etc. specimens of the ancestor specimen share the same Ancestor Specimen ID."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="A unique identifier for the ancestor specimen. All child, grandchild, etc. specimens of the ancestor specimen share the same Ancestor Specimen ID."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="A unique identifier for the ancestor specimen. All child, grandchild, etc. specimens of the ancestor specimen share the same Ancestor Specimen ID."/>
     </extension>
     <code value="ASID"/>
     <display value="Ancestor Specimen ID"/>
-    <definition value="Ancestor Specimen ID"/>
+    <definition value="A unique identifier for the ancestor specimen."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1980">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class: Financial"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Class: Financial"/>
     </extension>
     <code value="BA"/>
@@ -241,18 +238,15 @@
     </property>
   </concept>
   <concept id="1981">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Class: Financial&lt;p&gt;Replaces AM, DI, DS, MS, and VS beginning in v 2.5."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="An identifier that is unique to a person_s bank card. Replaces AM, DI, DS, MS, and VS beginning in v 2.5."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="An identifier that is unique to a person_s bank card. Replaces AM, DI, DS, MS, and VS beginning in v 2.5."/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Class: Financial&lt;p&gt;An identifier that is unique to a person&#39;s bank card. Replaces AM, DI, DS, MS, and VS beginning in v 2.5."/>
     </extension>
     <code value="BC"/>
     <display value="Bank Card Number"/>
-    <definition value="Bank Card Number"/>
+    <definition value="An identifier that is unique to a person&#39;s bank card"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -268,18 +262,24 @@
     </property>
   </concept>
   <concept id="1983">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number associated with a document identifying the event of a person&#39;s birth."/>
+    </extension>
     <code value="BCT"/>
     <display value="Birth Certificate"/>
-    <definition value="Birth Certificate"/>
+    <definition value="A number associated with a document identifying the event of a person&#39;s birth"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1984">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier unique within the Assigning Authority that is the official legal record of a person&#39;s birth."/>
+    </extension>
     <code value="BR"/>
     <display value="Birth registry number"/>
-    <definition value="Birth Registry Number"/>
+    <definition value="An identifier unique within the Assigning Authority that is the official legal record of a person&#39;s birth."/>
     <designation>
       <language value="de"/>
       <use>
@@ -303,13 +303,10 @@
     </property>
   </concept>
   <concept id="1986">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Betriebsst&#xE4;ttennummer - for use in the German realm."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Betriebsst&#xE4;ttennummer - for use in the German realm."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Betriebsst&#xE4;ttennummer - for use in the German realm."/>
     </extension>
     <code value="BSNR"/>
@@ -321,7 +318,7 @@
     </property>
   </concept>
   <concept id="1987">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="This may be the same as a username, but frequently is different."/>
     </extension>
     <code value="CAAI"/>
@@ -333,14 +330,11 @@
     </property>
   </concept>
   <concept id="1988">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Class: Financial&lt;p&gt;Use Case: needed especially for transmitting information about invoices."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Use Case: needed especially for transmitting information about invoices."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Use Case: needed especially for transmitting information about invoices."/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Class: Financial&lt;p&gt;Use Case: needed especially for transmitting information about invoices."/>
     </extension>
     <code value="CC"/>
     <display value="Cost Center number"/>
@@ -351,9 +345,12 @@
     </property>
   </concept>
   <concept id="1989">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number associated with a document identifying a person&#39;s legal change of name."/>
+    </extension>
     <code value="CONM"/>
     <display value="Change of Name Document"/>
-    <definition value="Change of Name Document"/>
+    <definition value="A number associated with a document identifying a person&#39;s legal change of name."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -369,9 +366,12 @@
     </property>
   </concept>
   <concept id="1991">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number assigned by a person&#39;s country of residence to identify a person&#39;s citizenship."/>
+    </extension>
     <code value="CZ"/>
     <display value="Citizenship Card"/>
-    <definition value="Citizenship Card"/>
+    <definition value="A number assigned by a person&#39;s country of residence to identify a person&#39;s citizenship."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -396,57 +396,57 @@
     </property>
   </concept>
   <concept id="1994">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to a dentist within the jurisdiction of the licensing board"/>
+    </extension>
     <code value="DDS"/>
     <display value="Dentist license number"/>
-    <definition value="Dentist license number"/>
+    <definition value="An identifier that is unique to a dentist within the jurisdiction of the licensing board"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1995">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Use case: This is a registration number that identifies an individual or organization relative to controlled substance regulation and transactions. &#xD;&#xA;A DEA number has a very precise and widely accepted meaning within the United States. Surprisingly, the US Drug Enforcement Administration does not solely assign DEA numbers in the United States. Hospitals have the authority to issue DEA numbers to their medical residents. These DEA numbers are based upon the hospital&#x2019;s DEA number, but the authority rests with the hospital on the assignment to the residents. Thus, DEA as an Identifier Type is necessary in addition to DEA as an Assigning Authority."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Use case: This is a registration number that identifies an individual or organization relative to controlled substance regulation and transactions."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Use case: This is a registration number that identifies an individual or organization relative to controlled substance regulation and transactions."/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier for an individual or organization relative to controlled substance regulation and transactions.&#xD;&#xA;Use case: This is a registration number that identifies an individual or organization relative to controlled substance regulation and transactions. &#xD;&#xA;A DEA number has a very precise and widely accepted meaning within the United States. Surprisingly, the US Drug Enforcement Administration does not solely assign DEA numbers in the United States. Hospitals have the authority to issue DEA numbers to their medical residents. These DEA numbers are based upon the hospital&#x2019;s DEA number, but the authority rests with the hospital on the assignment to the residents. Thus, DEA as an Identifier Type is necessary in addition to DEA as an Assigning Authority."/>
     </extension>
     <code value="DEA"/>
     <display value="Drug Enforcement Administration registration number"/>
-    <definition value="Drug Enforcement Administration registration number"/>
+    <definition value="An identifier for an individual or organization relative to controlled substance regulation and transactions."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1996">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Use Case: A nurse practitioner has authorization to furnish or prescribe pharmaceutical substances; this identifier is in component 1."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Use Case: A nurse practitioner has authorization to furnish or prescribe pharmaceutical substances; this identifier is in component 1."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Use Case: A nurse practitioner has authorization to furnish or prescribe pharmaceutical substances; this identifier is in component 1."/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier issued to a health care provider authorizing the person to write drug orders&lt;p&gt;Use Case: A nurse practitioner has authorization to furnish or prescribe pharmaceutical substances; this identifier is in component 1."/>
     </extension>
     <code value="DFN"/>
     <display value="Drug Furnishing or prescriptive authority Number"/>
-    <definition value="Drug Furnishing or prescriptive authority Number"/>
+    <definition value="An identifier issued to a health care provider authorizing the person to write drug orders"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1997">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Deprecated and replaced by BC in v 2.5."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Deprecated and replaced by BC in v 2.5."/>
     </extension>
     <code value="DI"/>
     <display value="Diner&#39;s Club card"/>
-    <definition value="Diner&#39;s Club Card"/>
+    <definition value="Diner&#39;s Club card"/>
     <designation>
       <language value="de"/>
       <use>
@@ -463,7 +463,7 @@
   <concept id="1998">
     <code value="DL"/>
     <display value="Driver&#39;s license number"/>
-    <definition value="Driver&#39;s License Number"/>
+    <definition value="Driver&#39;s license number"/>
     <designation>
       <language value="de"/>
       <use>
@@ -480,7 +480,7 @@
   <concept id="1999">
     <code value="DN"/>
     <display value="Doctor number"/>
-    <definition value="Doctor Number"/>
+    <definition value="Doctor number"/>
     <designation>
       <language value="de"/>
       <use>
@@ -495,27 +495,36 @@
     </property>
   </concept>
   <concept id="2000">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to an osteopath within the jurisdiction of a licensing board."/>
+    </extension>
     <code value="DO"/>
     <display value="Osteopathic License number"/>
-    <definition value="Osteopathic License number"/>
+    <definition value="An identifier that is unique to an osteopath within the jurisdiction of a licensing board."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2001">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number assigned to a diplomatic passport."/>
+    </extension>
     <code value="DP"/>
     <display value="Diplomatic Passport"/>
-    <definition value="Diplomatic Passport"/>
+    <definition value="A number assigned to a diplomatic passport."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2002">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to a podiatrist within the jurisdiction of the licensing board."/>
+    </extension>
     <code value="DPM"/>
     <display value="Podiatrist license number"/>
-    <definition value="Podiatrist license number"/>
+    <definition value="An identifier that is unique to a podiatrist within the jurisdiction of the licensing board."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -531,7 +540,10 @@
     </property>
   </concept>
   <concept id="2004">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Deprecated and replaced by BC in v 2.5."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Deprecated and replaced by BC in v 2.5."/>
     </extension>
     <code value="DS"/>
@@ -551,7 +563,7 @@
     </property>
   </concept>
   <concept id="2005">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Example: Radiology studies"/>
     </extension>
     <code value="DSG"/>
@@ -563,9 +575,12 @@
     </property>
   </concept>
   <concept id="2006">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number that uniquely identifies an employee to an employer."/>
+    </extension>
     <code value="EI"/>
     <display value="Employee number"/>
-    <definition value="Employee Number"/>
+    <definition value="A number that uniquely identifies an employee to an employer."/>
     <designation>
       <language value="de"/>
       <use>
@@ -582,7 +597,7 @@
   <concept id="2007">
     <code value="EN"/>
     <display value="Employer number"/>
-    <definition value="Employer Number"/>
+    <definition value="Employer number"/>
     <designation>
       <language value="de"/>
       <use>
@@ -597,9 +612,12 @@
     </property>
   </concept>
   <concept id="2008">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to a staff member within an enterprise (as identified by the Assigning Authority)."/>
+    </extension>
     <code value="ESN"/>
     <display value="Staff Enterprise Number"/>
-    <definition value="Staff Enterprise Number"/>
+    <definition value="An identifier that is unique to a staff member within an enterprise (as identified by the Assigning Authority)."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -624,7 +642,7 @@
     </property>
   </concept>
   <concept id="2011">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="This is analogous to the Placer Group Number ORC-4, except that it is assigned by the filler."/>
     </extension>
     <code value="FGN"/>
@@ -654,12 +672,15 @@
     </property>
   </concept>
   <concept id="2014">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class: Financial"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Class: Financial"/>
     </extension>
     <code value="GI"/>
     <display value="Guarantor internal identifier"/>
-    <definition value="Guarantor Internal Identifier"/>
+    <definition value="Guarantor internal identifier"/>
     <designation>
       <language value="de"/>
       <use>
@@ -674,7 +695,7 @@
     </property>
   </concept>
   <concept id="2015">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="GIN is the official acronym used by USDA"/>
     </extension>
     <code value="GIN"/>
@@ -686,7 +707,10 @@
     </property>
   </concept>
   <concept id="2016">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class: Financial"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Class: Financial"/>
     </extension>
     <code value="GL"/>
@@ -698,12 +722,15 @@
     </property>
   </concept>
   <concept id="2017">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class: Financial"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Class: Financial"/>
     </extension>
     <code value="GN"/>
     <display value="Guarantor external  identifier"/>
-    <definition value="Guarantor External Identifier"/>
+    <definition value="Guarantor external  identifier"/>
     <designation>
       <language value="de"/>
       <use>
@@ -727,52 +754,52 @@
     </property>
   </concept>
   <concept id="2019">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number assigned to a member of an indigenous or aboriginal group outside of Canada."/>
+    </extension>
     <code value="IND"/>
     <display value="Indigenous/Aboriginal"/>
-    <definition value="Indigenous/Aboriginal"/>
+    <definition value="A number assigned to a member of an indigenous or aboriginal group outside of Canada."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2020">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class: Insurance&lt;p&gt;2 uses: a) UK jurisdictional CHI number; b) Canadian provincial health card number:"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Class: Insurance&lt;p&gt;2 uses: a) UK jurisdictional CHI number; b) Canadian provincial health card number:"/>
     </extension>
     <code value="JHN"/>
     <display value="Jurisdictional health number"/>
-    <definition value="Jurisdictional health number (Canada)"/>
+    <definition value="Jurisdictional health number"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2021">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="The concept of accession is used in other domains such as radiology, so the LACSN is used to distinguish a lab accession id from an radiology accession id"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="A laboratory accession id is used in the laboratory domain. The concept of accession is used in other domains such as radiology, so the LACSN is used to distinguish a lab accession id from an radiology accession id"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="A laboratory accession id is used in the laboratory domain. The concept of accession is used in other domains such as radiology, so the LACSN is used to distinguish a lab accession id from an radiology accession id"/>
     </extension>
     <code value="LACSN"/>
     <display value="Laboratory Accession ID"/>
-    <definition value="Laboratory Accession ID"/>
+    <definition value="A laboratory accession id is used in the laboratory domain."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2022">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Lebenslange Arztnummer - for use in German realm."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Lebenslange Arztnummer - for use in German realm."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Lebenslange Arztnummer - for use in German realm."/>
     </extension>
     <code value="LANR"/>
@@ -811,12 +838,15 @@
     </property>
   </concept>
   <concept id="2026">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class: Insurance"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Class: Insurance"/>
     </extension>
     <code value="MA"/>
     <display value="Patient Medicaid number"/>
-    <definition value="Medicaid Number"/>
+    <definition value="Patient Medicaid number"/>
     <designation>
       <language value="de"/>
       <use>
@@ -831,30 +861,30 @@
     </property>
   </concept>
   <concept id="2027">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Use Case: Person is covered by an insurance policy. This person may or may not be the subscriber of the policy."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Use Case: Person is covered by an insurance policy. This person may or may not be the subscriber of the policy."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Use Case: Person is covered by an insurance policy. This person may or may not be the subscriber of the policy."/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier for the insured of an insurance policy (this insured always has a subscriber), usually assigned by the insurance carrier.&lt;p&gt;Use Case: Person is covered by an insurance policy. This person may or may not be the subscriber of the policy."/>
     </extension>
     <code value="MB"/>
     <display value="Member Number"/>
-    <definition value="Member Number"/>
+    <definition value="An identifier for the insured of an insurance policy (this insured always has a subscriber), usually assigned by the insurance carrier."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2028">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class: Insurance"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Class: Insurance"/>
     </extension>
     <code value="MC"/>
     <display value="Patient&#39;s Medicare number"/>
-    <definition value="Medicare Number"/>
+    <definition value="Patient&#39;s Medicare number"/>
     <designation>
       <language value="de"/>
       <use>
@@ -869,7 +899,10 @@
     </property>
   </concept>
   <concept id="2029">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class: Insurance"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Class: Insurance"/>
     </extension>
     <code value="MCD"/>
@@ -890,7 +923,10 @@
     </property>
   </concept>
   <concept id="2031">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class: Insurance"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Class: Insurance"/>
     </extension>
     <code value="MCR"/>
@@ -902,45 +938,51 @@
     </property>
   </concept>
   <concept id="2032">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number associated with a document identifying the event of a person&#39;s marriage."/>
+    </extension>
     <code value="MCT"/>
     <display value="Marriage Certificate"/>
-    <definition value="Marriage Certificate"/>
+    <definition value="A number associated with a document identifying the event of a person&#39;s marriage."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2033">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Use Case: These license numbers are sometimes used as identifiers. In some states, the same authority issues all three identifiers, e.g., medical, osteopathic, and physician assistant licenses all issued by one state medical board. For this case, the CX data type requires distinct identifier types to accurately interpret component 1. Additionally, the distinction among these license types is critical in most health care settings (this is not to convey full licensing information, which requires a segment to support all related attributes)."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Use Case: These license numbers are sometimes used as identifiers. In some states, the same authority issues all three identifiers, e.g., medical, osteopathic, and physician assistant licenses all issued by one state medical board. For this case, the CX d"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Use Case: These license numbers are sometimes used as identifiers. In some states, the same authority issues all three identifiers, e.g., medical, osteopathic, and physician assistant licenses all issued by one state medical board. For this case, the CX d"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to a medical doctor within the jurisdiction of a licensing board.&#xD;&#xA;Use Case: These license numbers are sometimes used as identifiers. In some states, the same authority issues all three identifiers, e.g., medical, osteopathic, and physician assistant licenses all issued by one state medical board. For this case, the CX data type requires distinct identifier types to accurately interpret component 1. Additionally, the distinction among these license types is critical in most health care settings (this is not to convey full licensing information, which requires a segment to support all related attributes)."/>
     </extension>
     <code value="MD"/>
     <display value="Medical License number"/>
-    <definition value="Medical License number"/>
+    <definition value="An identifier that is unique to a medical doctor within the jurisdiction of a licensing board."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2034">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number assigned to an individual who has had military duty, but is not currently on active duty. The number is assigned by the DOD or Veterans&#39; Affairs (VA)."/>
+    </extension>
     <code value="MI"/>
     <display value="Military ID number"/>
-    <definition value="Military ID number"/>
+    <definition value="A number assigned to an individual who has had military duty, but is not currently on active duty. The number is assigned by the DOD or Veterans&#39; Affairs (VA)."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2035">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to a patient within a set of medical records, not necessarily unique within an application."/>
+    </extension>
     <code value="MR"/>
     <display value="Medical record number"/>
-    <definition value="Medical Record Number"/>
+    <definition value="An identifier that is unique to a patient within a set of medical records, not necessarily unique within an application."/>
     <designation>
       <language value="de"/>
       <use>
@@ -955,30 +997,30 @@
     </property>
   </concept>
   <concept id="2036">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Use Case: An ancillary system that does not normally assign medical record numbers is the first time to register a patient. This ancillary system will generate a temporary medical record number that will only be used until an official medical record number is assigned."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Use Case: An ancillary system that does not normally assign medical record numbers is the first time to register a patient. This ancillary system will generate a temporary medical record number that will only be used until an official medical record numbe"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Use Case: An ancillary system that does not normally assign medical record numbers is the first time to register a patient. This ancillary system will generate a temporary medical record number that will only be used until an official medical record numbe"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Temporary version of a Medical Record Number&#xD;&#xA;Use Case: An ancillary system that does not normally assign medical record numbers is the first time to register a patient. This ancillary system will generate a temporary medical record number that will only be used until an official medical record number is assigned."/>
     </extension>
     <code value="MRT"/>
     <display value="Temporary Medical Record Number"/>
-    <definition value="Temporary Medical Record Number"/>
+    <definition value="Temporary version of a Medical Record Number"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2037">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Deprecated and replaced by BC in v 2.5."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Deprecated and replaced by BC in v 2.5."/>
     </extension>
     <code value="MS"/>
     <display value="MasterCard"/>
-    <definition value="Master Card"/>
+    <definition value="MasterCard"/>
     <designation>
       <language value="de"/>
       <use>
@@ -993,13 +1035,10 @@
     </property>
   </concept>
   <concept id="2038">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Nebenbetriebsst&#xE4;ttennummer - for use in the German realm."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Nebenbetriebsst&#xE4;ttennummer - for use in the German realm."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Nebenbetriebsst&#xE4;ttennummer - for use in the German realm."/>
     </extension>
     <code value="NBSNR"/>
@@ -1011,16 +1050,22 @@
     </property>
   </concept>
   <concept id="2039">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number associated with a document identifying a person&#39;s retention of citizenship in a particular country."/>
+    </extension>
     <code value="NCT"/>
     <display value="Naturalization Certificate"/>
-    <definition value="Naturalization Certificate"/>
+    <definition value="A number associated with a document identifying a person&#39;s retention of citizenship in a particular country."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2040">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
     </extension>
     <code value="NE"/>
@@ -1032,8 +1077,11 @@
     </property>
   </concept>
   <concept id="2041">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Class: Insurance&#xD;&#xA;Used for the UK NHS national identifier."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Class: Insurance&lt;p&gt;Used for the UK NHS national identifier.&lt;p&gt;In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
     </extension>
     <code value="NH"/>
     <display value="National Health Plan Identifier"/>
@@ -1044,7 +1092,10 @@
     </property>
   </concept>
   <concept id="2042">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class: Insurance&#xD;&#xA;In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Class: Insurance&#xD;&#xA;In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
     </extension>
     <code value="NI"/>
@@ -1056,14 +1107,11 @@
     </property>
   </concept>
   <concept id="2043">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Class: Insurance&#xD;&#xA;In Germany a national identifier for an insurance company. It is printed on the insurance card (health card). It is not to be confused with the health card number itself.&lt;p&gt;Krankenkassen-ID der KV-Karte"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Class: Insurance"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Class: Insurance"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Class: Insurance&#xD;&#xA;In Germany a national identifier for an insurance company. It is printed on the insurance card (health card). It is not to be confused with the health card number itself.&lt;p&gt;Krankenkassen-ID der KV-Karte"/>
     </extension>
     <code value="NII"/>
     <display value="National Insurance Organization Identifier"/>
@@ -1082,14 +1130,11 @@
     </property>
   </concept>
   <concept id="2044">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Class: Insurance&#xD;&#xA;In Germany the insurance identifier addressed as the payor.&lt;p&gt;Krankenkassen-ID des Rechnungsempf&#xE4;ngers&lt;p&gt;Use case: a subdivision issues the card with their identifier, but the main division is going to pay the invoices."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Class: Insurance"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Class: Insurance"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Class: Insurance&#xD;&#xA;In Germany the insurance identifier addressed as the payor.&lt;p&gt;Krankenkassen-ID des Rechnungsempf&#xE4;ngers&lt;p&gt;Use case: a subdivision issues the card with their identifier, but the main division is going to pay the invoices."/>
     </extension>
     <code value="NIIP"/>
     <display value="National Insurance Payor Identifier (Payor)"/>
@@ -1110,23 +1155,29 @@
   <concept id="2045">
     <code value="NNxxx"/>
     <display value="National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code"/>
-    <definition value="National Person Identifier where the xxx is the ISO table 3166  3-character (alphabetic) country  code"/>
+    <definition value="National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2046">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to a nurse practitioner within the jurisdiction of a certifying board."/>
+    </extension>
     <code value="NP"/>
     <display value="Nurse practitioner number"/>
-    <definition value="Nurse practitioner number"/>
+    <definition value="An identifier that is unique to a nurse practitioner within the jurisdiction of a certifying board."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2047">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class: Insurance&#xD;&#xA;In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Class: Insurance&#xD;&#xA;In the US, the Assigning Authority for this value is typically CMS, but it may be used by all providers and insurance companies in HIPAA related transactions."/>
     </extension>
     <code value="NPI"/>
@@ -1138,7 +1189,7 @@
     </property>
   </concept>
   <concept id="2048">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="For example in the IHE-LCC Profile this is used to identify the OBX-21 of the result for which a clarification is requested using an OML^O59_OML_O59 message structure"/>
     </extension>
     <code value="OBI"/>
@@ -1150,18 +1201,24 @@
     </property>
   </concept>
   <concept id="2049">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number that is unique to an individual optometrist within the jurisdiction of the licensing board."/>
+    </extension>
     <code value="OD"/>
     <display value="Optometrist license number"/>
-    <definition value="Optometrist license number"/>
+    <definition value="A number that is unique to an individual optometrist within the jurisdiction of the licensing board."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2050">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to a physician assistant within the jurisdiction of a licensing board"/>
+    </extension>
     <code value="PA"/>
     <display value="Physician Assistant number"/>
-    <definition value="Physician Assistant number"/>
+    <definition value="An identifier that is unique to a physician assistant within the jurisdiction of a licensing board"/>
     <designation>
       <language value="de"/>
       <use>
@@ -1176,27 +1233,36 @@
     </property>
   </concept>
   <concept id="2051">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number identifying a person on parole."/>
+    </extension>
     <code value="PC"/>
     <display value="Parole Card"/>
-    <definition value="Parole Card"/>
+    <definition value="A number identifying a person on parole."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2052">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number assigned to individual who is incarcerated."/>
+    </extension>
     <code value="PCN"/>
     <display value="Penitentiary/correctional institution Number"/>
-    <definition value="Penitentiary/correctional institution Number"/>
+    <definition value="A number assigned to individual who is incarcerated."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2053">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to a living subject within an enterprise (as identified by the Assigning Authority)."/>
+    </extension>
     <code value="PE"/>
     <display value="Living Subject Enterprise Number"/>
-    <definition value="Living Subject Enterprise Number"/>
+    <definition value="An identifier that is unique to a living subject within an enterprise (as identified by the Assigning Authority)."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -1212,7 +1278,7 @@
     </property>
   </concept>
   <concept id="2055">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="This is analogous to the Placer Group Number ORC-4."/>
     </extension>
     <code value="PGN"/>
@@ -1224,7 +1290,7 @@
     </property>
   </concept>
   <concept id="2056">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="For example every person affected by the Norovirus outbreak on a cruise ship will be assigned a case ID for investigation and follow up"/>
     </extension>
     <code value="PHC"/>
@@ -1236,7 +1302,7 @@
     </property>
   </concept>
   <concept id="2057">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="For example an outbreak of Norovirus on a cruise ship &#x2013; this is assigned by a public health jurisdiction at the local, state or federal level"/>
     </extension>
     <code value="PHE"/>
@@ -1248,7 +1314,7 @@
     </property>
   </concept>
   <concept id="2058">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="May need to identify contact in a PHA that approved a test request or is in charge of an investigation."/>
     </extension>
     <code value="PHO"/>
@@ -1260,9 +1326,12 @@
     </property>
   </concept>
   <concept id="2059">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number that is unique to a patient within an Assigning Authority."/>
+    </extension>
     <code value="PI"/>
     <display value="Patient internal identifier"/>
-    <definition value="Patient Internal Identifier"/>
+    <definition value="A number that is unique to a patient within an Assigning Authority."/>
     <designation>
       <language value="de"/>
       <use>
@@ -1277,7 +1346,7 @@
     </property>
   </concept>
   <concept id="2060">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="The owner of the premises, or a person designated by the owner of the premises, can register his/her location. A premises identification number, or PIN, is then permanently assigned to that location associating it with the mailing address. If there is no mailing address at the property, geographic coordinates&#x2014;latitude and longitude&#x2014;can be used instead to describe the location.   A premises identification number (PIN) is a unique, 7-digit code that includes both letters and numbers. Example: A123R69"/>
     </extension>
     <code value="PIN"/>
@@ -1298,9 +1367,12 @@
     </property>
   </concept>
   <concept id="2062">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number that is unique to a living subject within an Assigning Authority."/>
+    </extension>
     <code value="PN"/>
     <display value="Person number"/>
-    <definition value="Person number"/>
+    <definition value="A number that is unique to a living subject within an Assigning Authority."/>
     <designation>
       <language value="de"/>
       <use>
@@ -1315,16 +1387,25 @@
     </property>
   </concept>
   <concept id="2063">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Temporary version of a Lining Subject Number."/>
+    </extension>
     <code value="PNT"/>
     <display value="Temporary Living Subject Number"/>
-    <definition value="Temporary Living Subject Number"/>
+    <definition value="Temporary version of a Living Subject Number."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2064">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class:  Insurance"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Class:  Insurance"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
       <valueString value="Class:  Insurance"/>
     </extension>
     <code value="PPIN"/>
@@ -1336,12 +1417,15 @@
     </property>
   </concept>
   <concept id="2065">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="In the US this number is issued only by the State Department."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A unique number assigned to the document affirming that a person is a citizen of the country. In the US this number is issued only by the State Department."/>
     </extension>
     <code value="PPN"/>
     <display value="Passport number"/>
-    <definition value="Passport number"/>
+    <definition value="A unique number assigned to the document affirming that a person is a citizen of the country."/>
     <designation>
       <language value="de"/>
       <use>
@@ -1365,12 +1449,15 @@
     </property>
   </concept>
   <concept id="2067">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Use case: This allows PRN to represent either an individual (a nurse) or a group/organization (orthopedic surgery team)."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number that is unique to an individual provider, a provider group or an organization within an Assigning Authority.&lt;p&gt;Use case: This allows PRN to represent either an individual (a nurse) or a group/organization (orthopedic surgery team)."/>
     </extension>
     <code value="PRN"/>
     <display value="Provider number"/>
-    <definition value="Provider number"/>
+    <definition value="A number that is unique to an individual provider, a provider group or an organization within an Assigning Authority."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -1379,7 +1466,7 @@
   <concept id="2068">
     <code value="PT"/>
     <display value="Patient external identifier"/>
-    <definition value="Patient External Identifier"/>
+    <definition value="Patient external identifier"/>
     <designation>
       <language value="de"/>
       <use>
@@ -1403,45 +1490,51 @@
     </property>
   </concept>
   <concept id="2070">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Use Case: An identifier type is needed to accommodate what are commonly known as resources. The resources can include human (e.g. a respiratory therapist), non-human (e.g., a companion animal), inanimate object (e.g., an exam room), organization (e.g., diabetic education class) or any other physical or logical entity."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Use Case: An identifier type is needed to accommodate what are commonly known as resources. The resources can include human (e.g. a respiratory therapist), non-human (e.g., a companion animal), inanimate object (e.g., an exam room), organization (e.g., di"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Use Case: An identifier type is needed to accommodate what are commonly known as resources. The resources can include human (e.g. a respiratory therapist), non-human (e.g., a companion animal), inanimate object (e.g., an exam room), organization (e.g., di"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A generalized resource identifier.&#xD;&#xA;Use Case: An identifier type is needed to accommodate what are commonly known as resources. The resources can include human (e.g. a respiratory therapist), non-human (e.g., a companion animal), inanimate object (e.g., an exam room), organization (e.g., diabetic education class) or any other physical or logical entity."/>
     </extension>
     <code value="RI"/>
     <display value="Resource identifier"/>
-    <definition value="Resource identifier"/>
+    <definition value="A generalized resource identifier."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2071">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to a registered nurse within the jurisdiction of the licensing board."/>
+    </extension>
     <code value="RN"/>
     <display value="Registered Nurse Number"/>
-    <definition value="Registered Nurse Number"/>
+    <definition value="An identifier that is unique to a registered nurse within the jurisdiction of the licensing board."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2072">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier that is unique to a pharmacist within the jurisdiction of the licensing board."/>
+    </extension>
     <code value="RPH"/>
     <display value="Pharmacist license number"/>
-    <definition value="Pharmacist license number"/>
+    <definition value="An identifier that is unique to a pharmacist within the jurisdiction of the licensing board."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2073">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="An identifier for an individual enrolled with the Railroad Retirement Administration.  Analogous to, but distinct from, a Social Security Number"/>
+    </extension>
     <code value="RR"/>
     <display value="Railroad Retirement number"/>
-    <definition value="Railroad Retirement Number"/>
+    <definition value="An identifier for an individual enrolled with the Railroad Retirement Administration.  Analogous to, but distinct from, a Social Security Number"/>
     <designation>
       <language value="de"/>
       <use>
@@ -1465,7 +1558,10 @@
     </property>
   </concept>
   <concept id="2075">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Class:  Insurance"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Class:  Insurance"/>
     </extension>
     <code value="RRP"/>
@@ -1477,7 +1573,7 @@
     </property>
   </concept>
   <concept id="2076">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="This accession is a permanent record locator for the BioSample record which contains metadata about the biological sample."/>
     </extension>
     <code value="SAMN"/>
@@ -1498,18 +1594,15 @@
     </property>
   </concept>
   <concept id="2078">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Used when it is not known if the specimen ID is a unique specimen ID (USID) or an ancestor ID (ASID)."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Identifier for a specimen. Used when it is not known if the specimen ID is a unique specimen ID (USID) or an ancestor ID (ASID)."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Identifier for a specimen. Used when it is not known if the specimen ID is a unique specimen ID (USID) or an ancestor ID (ASID)."/>
     </extension>
     <code value="SID"/>
     <display value="Specimen ID"/>
-    <definition value="Specimen ID"/>
+    <definition value="Identifier for a specimen."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -1525,25 +1618,22 @@
     </property>
   </concept>
   <concept id="2080">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Class: Insurance&#xD;&#xA;Use Case: A person is the subscriber of an insurance policy. The person&#x2019;s family may be plan members, but are not the subscriber."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="An identifier for a subscriber of an insurance policy which is unique for, and usually assigned by, the insurance carrier."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="An identifier for a subscriber of an insurance policy which is unique for, and usually assigned by, the insurance carrier."/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Class: Insurance&#xD;&#xA;An identifier for a subscriber of an insurance policy which is unique for, and usually assigned by, the insurance carrier.&#xD;&#xA;Use Case: A person is the subscriber of an insurance policy. The person&#x2019;s family may be plan members, but are not the subscriber."/>
     </extension>
     <code value="SN"/>
     <display value="Subscriber Number"/>
-    <definition value="Subscriber Number"/>
+    <definition value="An identifier for a subscriber of an insurance policy which is unique for, and usually assigned by, the insurance carrier."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2081">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="For use either with OBX-5 as CX datatype, where OBX-3 uses LOINC 57716-3^State printed on filter paper card [Identifier] in NBS card^LN, or in SPM-31"/>
     </extension>
     <code value="SNBSN"/>
@@ -1564,9 +1654,12 @@
     </property>
   </concept>
   <concept id="2083">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number associated with a permit identifying a person who is a resident of a jurisdiction for the purpose of education."/>
+    </extension>
     <code value="SP"/>
     <display value="Study Permit"/>
-    <definition value="Study Permit"/>
+    <definition value="A number associated with a permit identifying a person who is a resident of a jurisdiction for the purpose of education."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -1582,7 +1675,7 @@
     </property>
   </concept>
   <concept id="2085">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="This provides both the sequence data and metadata on how the sample was sequenced. &#x2013; This accession is a permanent record locator for the submitted un-assembled sequence data."/>
     </extension>
     <code value="SRX"/>
@@ -1596,7 +1689,7 @@
   <concept id="2086">
     <code value="SS"/>
     <display value="Social Security number"/>
-    <definition value="Social Security Number"/>
+    <definition value="Social Security number"/>
     <designation>
       <language value="de"/>
       <use>
@@ -1611,7 +1704,7 @@
     </property>
   </concept>
   <concept id="2087">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="For example the Fed Ex / UPS / DHS / USPS tracking number"/>
     </extension>
     <code value="STN"/>
@@ -1640,27 +1733,27 @@
     </property>
   </concept>
   <concept id="2089">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Use Case: First Nation."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="Use Case: First Nation."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
-      <valueString value="Use Case: First Nation."/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number assigned to a member of an indigenous group in Canada.&lt;p&gt;Use Case: First Nation."/>
     </extension>
     <code value="TN"/>
     <display value="Treaty Number/ (Canada)"/>
-    <definition value="Treaty Number/ (Canada)"/>
+    <definition value="A number assigned to a member of an indigenous group in Canada."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2090">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number associated with a document identifying a person&#39;s temporary permanent resident status."/>
+    </extension>
     <code value="TPR"/>
     <display value="Temporary Permanent Resident (Canada)"/>
-    <definition value="Temporary Permanent Resident (Canada)"/>
+    <definition value="A number associated with a document identifying a person&#39;s temporary permanent resident status."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -1678,7 +1771,7 @@
   <concept id="2092">
     <code value="U"/>
     <display value="Unspecified identifier"/>
-    <definition value="Unspecified"/>
+    <definition value="Unspecified identifier"/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -1694,27 +1787,27 @@
     </property>
   </concept>
   <concept id="2094">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Class: Insurance"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="Class: Insurance&lt;p&gt;An identifier for a provider within the CMS/Medicare program.  A globally unique identifier for the provider in the Medicare program."/>
     </extension>
     <code value="UPIN"/>
     <display value="Medicare/CMS (formerly HCFA)&#39;s Universal Physician Identification numbers"/>
-    <definition value="Medicare/HCFA&#x2019;s Universal Physician Identification numbers"/>
+    <definition value="An identifier for a provider within the CMS/Medicare program.  A globally unique identifier for the provider in the Medicare program."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2095">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-commentsAsPub">
-      <valueString value="A unique identifier for a specimen."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="A unique identifier for a specimen."/>
     </extension>
     <code value="USID"/>
     <display value="Unique Specimen ID"/>
-    <definition value="Unique Specimen ID"/>
+    <definition value="A unique identifier for a specimen."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -1723,7 +1816,7 @@
   <concept id="2096">
     <code value="VN"/>
     <display value="Visit number"/>
-    <definition value="Visit Number"/>
+    <definition value="Visit number"/>
     <designation>
       <language value="de"/>
       <use>
@@ -1738,9 +1831,12 @@
     </property>
   </concept>
   <concept id="2097">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number associated with a document identifying a person as a visitor of a jurisdiction or country."/>
+    </extension>
     <code value="VP"/>
     <display value="Visitor Permit"/>
-    <definition value="Visitor Permit"/>
+    <definition value="A number associated with a document identifying a person as a visitor of a jurisdiction or country."/>
     <designation>
       <language value="de"/>
       <use>
@@ -1755,7 +1851,10 @@
     </property>
   </concept>
   <concept id="2098">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
+      <valueString value="Deprecated and replaced by BC in v 2.5."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
       <valueString value="Deprecated and replaced by BC in v 2.5."/>
     </extension>
     <code value="VS"/>
@@ -1793,19 +1892,22 @@
     </property>
   </concept>
   <concept id="2101">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
+      <valueString value="A number associated with a permit for a person who is granted permission to work in a country for a specified time period."/>
+    </extension>
     <code value="WP"/>
     <display value="Work Permit"/>
-    <definition value="Work Permit"/>
+    <definition value="A number associated with a permit for a person who is granted permission to work in a country for a specified time period."/>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="2102">
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
       <valueString value="Also referred to as HPID (Health Plan Identifier)."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-usageNotes">
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
       <valueString value="The code value &#x2018;XV&#x2019; is used in CMS mandated Health Insurance Portability and Accountability Act (HIPAA) transactions."/>
     </extension>
     <code value="XV"/>
@@ -1819,7 +1921,7 @@
   <concept id="2103">
     <code value="XX"/>
     <display value="Organization identifier"/>
-    <definition value="Organizaiton Indentifier"/>
+    <definition value="Organization identifier"/>
     <designation>
       <language value="de"/>
       <use>
