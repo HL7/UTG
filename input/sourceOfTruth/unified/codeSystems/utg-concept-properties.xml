@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="utg-concept-properties"/>
+  <url value="http://terminology.hl7.org/CodeSystem/utg-concept-properties"/>
+  <name value="ConceptProperties"/>
+  <title value="UTG Specific Concept Properties"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project"/>
+  <description value="A set of concept properties used by UTG to maintain legacy terminology distribution systems"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <property>
+    <code value="comment"/>
+    <uri value="http://hl7.org/fhir/concept-properties#comment"/>
+    <type value="string"/>
+  </property>
+  <concept>
+    <code value="v2-binding"/>
+    <display value="binding"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v2-cld"/>
+    <display value="cld"/>
+    <definition value="General kind of Content Logical Definition for the value set informing the table, as printed in the V2 ballot"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v2-cs-oid"/>
+    <display value="csoid"/>
+    <definition value="OID of the code system associated with the table"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v2-cs-uri"/>
+    <display value="csuri"/>
+    <definition value="URI of the code system associated with the table"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v2-table-deprecated"/>
+    <display value="deprecated"/>
+    <definition value="Indicates that although still being published in the V2 international standard, the table has been deprecated in favor of alternative codes, and will be withdrawn in the future."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v2-generate"/>
+    <display value="generate"/>
+    <definition value="flag used in the V2 publishing spece for generation of table content in the pdf document"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="status"/>
+    <display value="status"/>
+    <definition value="Status of the table as published in the V2 ballots"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="steward"/>
+    <display value="structuredefinition-wg"/>
+    <definition value="steward workgroup for the table"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v2-table-oid"/>
+    <display value="table-oid"/>
+    <definition value="OID value for the table object"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v2-table-type"/>
+    <display value="v2type"/>
+    <definition value="Type of V2 table, e.g. HL7 or User"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v2-cs-version"/>
+    <display value="version"/>
+    <definition value="Version of the code system informing the table"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v2-version-introduced"/>
+    <display value="version-introduced"/>
+    <definition value="HL7 V2 version when the table was introduced"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="vocab-domain"/>
+    <display value="vocab-domain"/>
+    <definition value="Associated Concept Domain for the table"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v2-vs-oid"/>
+    <display value="vsoid"/>
+    <definition value="OID of the value set informing the table"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v2-where-used"/>
+    <display value="where-used"/>
+    <definition value="String holding the segment and field where the table is bound in the interational standard."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in v2-tables.xml"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-classifies-class-code"/>
+    <display value="ClassifiesClassCode"/>
+    <definition value="Associates a concept domain with th ActClass code that it is intended to be associated with, ie for late binding, informs the IG devloper which code should be populated in ActClass when a value sset for ActCode is being bound."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in concept domains; in the coremif called 'ConceptualSpaceForClassCode'"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-qualified-by"/>
+    <display value="MayBeQualifiedBy"/>
+    <definition value="One of the types of concept relationships that implements qualifying relationships"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="This needs reexamination to see how it is represented in UTG and if it correct; in V3 relationships between concepts in the same code system are represented internal to the system, not as a map.  Note that we have an extension for code systems for 'conceptrelationshipkind'"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-inbound-relationship"/>
+    <display value="Name:Act:inboundRelationship:ActRelationship"/>
+    <definition value="Name of inboundRelationship from Act to ActReln"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-outbound-relationship"/>
+    <display value="Name:Act:outboundRelationship:ActRelationship"/>
+    <definition value="Formal name of outboundRelationship from Act to ActReln"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-participation"/>
+    <display value="Name:Act:participation:Participation"/>
+    <definition value="Name of relationship from Act to Participation"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-ActRelationship-source"/>
+    <display value="Name:ActRelationship:source:Act"/>
+    <definition value="The name of the assciation from ActRelationship to the source Act"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-ActRelationship-target"/>
+    <display value="Name:ActRelationship:target:Act"/>
+    <definition value="The name of the assciation from ActRelationship to the source Act"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-Class"/>
+    <display value="Name:Class"/>
+    <definition value="The formal name for the class clone under this code"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-Entity-played"/>
+    <display value="Name:Entity:playedRole:Role"/>
+    <definition value="The name of the relationship from the Entity to the playedRole"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-Entity-scoped"/>
+    <display value="Name:Entity:scopedRole:Role"/>
+    <definition value="The name of the relationship from the Entity to the scopedRole"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-Participation-act"/>
+    <display value="Name:Participation:act:Act"/>
+    <definition value="The formal name for relationship from Participation to Act"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-Participation-role"/>
+    <display value="Name:Participation:role:Role"/>
+    <definition value="The name of the relationship from Participation to Role"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-Role-inbound"/>
+    <display value="Name:Role:inboundLink:RoleLink"/>
+    <definition value="Name of inboundLink relationship from Role to RoleLink"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-Role-outbound"/>
+    <display value="Name:Role:outboundLink:RoleLink"/>
+    <definition value="Name of outboundLink relationship from Role to RoleLink"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-Role-participation"/>
+    <display value="Name:Role:participation:Participation"/>
+    <definition value="Name of relationship from Role to Participation"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-Role-player"/>
+    <display value="Name:Role:player:Entity"/>
+    <definition value="The name of the relationship from Role to the payer Entity"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-Role-scoper"/>
+    <display value="Name:Role:scoper:Entity"/>
+    <definition value="The name of the relationship from Role to the scoper Entity"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in structural code system content"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v3-cs-oid"/>
+    <display value="OID"/>
+    <definition value="Property applies to concepts in the CodeSystem Code System.  The property holds the OID that uniquely identifies the code system represented by this coded concept."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="This code system of code systems was retired a long time ago, and should not be in UTG so this property is unnecessary"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="owning-affiliate"/>
+    <display value="OwningAffiliate"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="not certain where this came from"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="owning-section"/>
+    <display value="OwningSection"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="not certain where this came from"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="owning-subsection"/>
+    <display value="OwningSubSection"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="not certain where this came from"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v3-smaller-than"/>
+    <display value="SmallerThan"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="not certain where this came from"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-Act-inbound-sort"/>
+    <display value="Sort:Act:inboundRelationship:ActRelationship"/>
+    <definition value="Sort key for the inboundRelationship from Act to ActReln; used to publish the RIM"/>
+  </concept>
+  <concept>
+    <code value="rim-act-outbound-sort"/>
+    <display value="Sort:Act:outboundRelationship:ActRelationship"/>
+    <definition value="Sort key for the outboundRelationship from Act to ActReln; used to publish the RIM"/>
+  </concept>
+  <concept>
+    <code value="rim-Act-participation-sort"/>
+    <display value="Sort:Act:participation:Participation"/>
+    <definition value="Sort key for relationship from Act to Participation; used to publish the RIM"/>
+  </concept>
+  <concept>
+    <code value="rim-Entity-played-sort"/>
+    <display value="Sort:Entity:playedRole:Role"/>
+    <definition value="Sort key for the relationship from the Entity to the playedRole; used to publish the RIM"/>
+  </concept>
+  <concept>
+    <code value="rim-Entity-scoped-sort"/>
+    <display value="Sort:Entity:scopedRole:Role"/>
+    <definition value="The sort key for the relationship from the Entity to the scopedRole; used to publish the RIM"/>
+  </concept>
+  <concept>
+    <code value="rim-Role-inbound-sort"/>
+    <display value="Sort:Role:inboundLink:RoleLink"/>
+    <definition value="Sort key for inboundLink relationship from Role to RoleLink; used to publish the RIM"/>
+  </concept>
+  <concept>
+    <code value="rim-Role-outbound-sort"/>
+    <display value="Sort:Role:outboundLink:RoleLink"/>
+    <definition value="Sort key for outboundLink relationship from Role to RoleLink; used to publish the RIM"/>
+  </concept>
+  <concept>
+    <code value="rim-Role-participation-sort"/>
+    <display value="Sort:Role:participation:Participation"/>
+    <definition value="Sort key for relationship from Role to Participation; used to publish the RIM"/>
+  </concept>
+  <concept>
+    <code value="v3-applies-to"/>
+    <display value="appliesTo"/>
+    <definition value="Haven't a clue!"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in ObservationMethod, and appears to link types of tests with equipment, manufacturers, reagents, or organisms."/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-conductible"/>
+    <display value="conductible"/>
+    <definition value="If true, indicates that ActRelationships or Participations of the specified type (and any specializations thereof) will normally conduct. For more usage information, refer to the Core Principles specification."/>
+  </concept>
+  <concept>
+    <code value="v3-how-applies"/>
+    <display value="howApplies"/>
+    <definition value="Haven't a clue!"/>
+    <property>
+      <code value="comment"/>
+      <valueString value="used only in ObservationMethod, and appears to link types of tests with equipment, manufacturers, reagents, or organisms."/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v3-internal-id"/>
+    <display value="internalId"/>
+    <definition value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="this should not be migrated to UTG"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="v3-inverse-relationship"/>
+    <display value="inverseRelationship"/>
+    <definition value="Property applies to the ConceptCodeRelationship code system. For each concept, it identifies the name of the inverse relationship."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="only used in the code system of contept relationships..  Forgot we had this.   Not sure how it should be modeled in UTG."/>
+    </property>
+  </concept>
+  <concept>
+    <code value="rim-document-characteristic"/>
+    <display value="isDocumentCharacteristic"/>
+    <definition value="If true, indicates that the Act attribute or association (as represented by a typeCode for eaither ActRelationship or Pareticipation is a descriptor of the document (record) represented by the act object. If false, indicates the property is a descriptor of the action itself, actual, intended, or potential.  Applies to interpretation of attributes and associations with respect to changes in the value of Act.actionNegationInd and Act.moodCode. (See descriptions of these attributes for further discussion.) For example, in an order, the id attribute [isDocumentCharacteristic = true] is an identifier of the record of the order, not an identifier of the intended event.  On the other hand, the code attribute [isDocumentCharacteristic = false] describes a characteristic of the intended event."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="This may not behave the same based on the final outcome from the negation project.   Or this may be the impleentation of their recommendations; need to discuss with Rob Hausam.   Clear the this is used as part of RIM documentation.  Note that this is only used in these two structural code systems."/>
+    </property>
+  </concept>
+</CodeSystem>
