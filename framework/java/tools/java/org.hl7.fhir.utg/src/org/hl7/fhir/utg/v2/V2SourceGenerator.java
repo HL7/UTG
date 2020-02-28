@@ -458,6 +458,16 @@ public class V2SourceGenerator extends BaseGenerator {
 				throw new Error("TableId wrong length " + tableid);
 		}
 
+		public int getIdValue() {
+			int idValue = 0;
+			try {
+				idValue = Integer.parseInt(id);
+			} catch (Exception e) {
+				// no op
+			}
+			return idValue;
+		}
+		
 		public String getlang(String code) {
 			return langs.get(code);
 		}
@@ -1156,109 +1166,6 @@ public class V2SourceGenerator extends BaseGenerator {
 		}
 	}
 
-	// private void generateVersionCodeSystem(Table t, TableVersion tv, ListResource
-	// csManifest, ListResource vsManifest) throws FileNotFoundException,
-	// IOException {
-	// CodeSystem cs = new CodeSystem();
-	// cs.setId("v2-"+t.id+"-"+tv.version);
-	// cs.setUrl("http://terminology.hl7.org/CodeSystem/"+cs.getId());
-	// knownCS.add(cs.getUrl());
-	// cs.setValueSet("http://terminology.hl7.org/ValueSet/"+cs.getId());
-	//
-	// cs.setVersion(tv.csversion);
-	// cs.setName("V2Table"+t.id+"v"+tv.version);
-	// cs.setTitle("V2 Table: "+t.name);
-	// cs.setStatus(PublicationStatus.ACTIVE);
-	// cs.setExperimental(false);
-	// cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.csoid);
-	// cs.setDateElement(new DateTimeType(currentVersionDate,
-	// TemporalPrecisionEnum.DAY));
-	// cs.setPublisher("HL7, Inc");
-	// cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
-	// if (tv.csoid != null && objects.containsKey(tv.csoid))
-	// cs.setDescription(objects.get(tv.csoid).description);
-	// else if (!Utilities.noString(tv.description))
-	// cs.setDescription(tv.description);
-	// else
-	// cs.setDescription("Underlying Code System for V2 table "+t.id+" ("+t.name+"
-	// "+tv.version+")");
-	// cs.setPurpose("Underlying Code System for V2 table "+t.id+" ("+t.name+",
-	// version "+tv.version+")");
-	// cs.setCopyright("Copyright HL7. Licensed under creative commons public
-	// domain");
-	// if (tv.isCaseInsensitive())
-	// cs.setCaseSensitive(false);
-	// else
-	// cs.setCaseSensitive(true); // not that it matters, since they are all numeric
-	// cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA); // todo - is this
-	// correct
-	// cs.setCompositional(false);
-	// cs.setVersionNeeded(false);
-	// cs.setContent(CodeSystemContentMode.COMPLETE);
-	// if (!Utilities.noString(tv.getSteward()))
-	// cs.getExtension().add(new
-	// Extension().setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg").setValue(new
-	// CodeType(tv.getSteward())));
-	//// if (!Utilities.noString(tv.getAnchor()))
-	//// cs.getExtension().add(new
-	// Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref").setValue(new
-	// UriType("http://hl7.org/v2/"+tv.getAnchor())));
-	//// if (!Utilities.noString(tv.getSection()))
-	//// cs.getExtension().add(new
-	// Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection").setValue(new
-	// StringType(tv.getSection())));
-	// if (tv.getType() > 0)
-	// cs.getExtension().add(new
-	// Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type").setValue(new
-	// CodeType(codeForType(tv.getType()))));
-	// if (tv.isGenerate())
-	// cs.getExtension().add(new
-	// Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate").setValue(new
-	// BooleanType(true)));
-	//
-	// cs.addProperty().setCode("status").setUri("http://terminology.hl7.org/csprop/status").setType(PropertyType.CODE).setDescription("Status
-	// of the concept");
-	// cs.addProperty().setCode("intro").setUri("http://terminology.hl7.org/csprop/intro").setType(PropertyType.CODE).setDescription("Version
-	// of HL7 in which the code was first defined");
-	// cs.addProperty().setCode("deprecated").setUri("http://terminology.hl7.org/csprop/deprecated").setType(PropertyType.CODE).setDescription("Version
-	// of HL7 in which the code was deprecated");
-	// cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible").setType(PropertyType.BOOLEAN).setDescription("Whether
-	// code is considered 'backwards compatible' (whatever that means)");
-	//
-	// for (TableEntry te : tv.entries) {
-	// ConceptDefinitionComponent c = cs.addConcept();
-	// c.setCode(te.code);
-	// String name = te.display;
-	// c.setDisplay(name);
-	// c.setDefinition(name);
-	// c.setId(Integer.toString(te.sortNo));
-	// if (!Utilities.noString(te.comments))
-	// ToolingExtensions.addCSComment(c, te.comments);
-	// if (te.getFirst() != null)
-	// c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
-	// if (!Utilities.noString(te.getLast()))
-	// c.addProperty().setCode("deprecated").setValue(new CodeType(te.getLast()));
-	// if (!Utilities.noString(te.status))
-	// c.addProperty().setCode("status").setValue(new CodeType(te.status));
-	// if (te.backwardsCompatible)
-	// c.addProperty().setCode("backwardsCompatible").setValue(new
-	// BooleanType(te.backwardsCompatible));
-	// }
-	//
-	// ValueSet vs = produceValueSet("Master", cs, t, tv);
-	// new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new
-	// FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "v"+tv.version,
-	// "cs-"+cs.getId())+".xml"), cs);
-	// new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new
-	// FileOutputStream(Utilities.path(dest, "v2", "valueSets", "v"+tv.version,
-	// "vs-"+cs.getId())+".xml"), vs);
-	//
-	// csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs,
-	// (String)null));
-	// vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs,
-	// (String)null));
-	// }
-
 	private String codeForType(int type) {
 		if (type == 0)
 			return "undefined";
@@ -1290,16 +1197,29 @@ public class V2SourceGenerator extends BaseGenerator {
 		// Set all value set versions to 2.0.0, per Ted
 		vs.setVersion(makeVersionString(0));
 		
-		// TODO 
-		ObjectInfo oi = objects.get(tv.csoid);
-		if (oi != null) {
-			String originalName = oi.display;
-			vs.setName(Utilities.makeClassName(originalName));
-			vs.setTitle(originalName);
+		ObjectInfo csObjectInfo = objects.get(tv.csoid);
+		ObjectInfo vsObjectInfo = objects.get(tv.vsoid);
+		String defaultDisplay = "V2 Table " + t.id + " Version " + vid;
+		String defaultDescription = "V2 Table " + t.id + " Version " + vid + " (" + t.name + ")";
+		
+		if (csObjectInfo != null && csObjectInfo.display != null && !csObjectInfo.display.isEmpty()) {
+			vs.setName(Utilities.makeClassName(csObjectInfo.display));
 		} else {
-			vs.setName("V2Table" + t.id + "Version" + vid);
-			vs.setTitle("V2 Table " + t.id + " Version " + vid);
+			vs.setName(defaultDisplay);
 		}
+		
+		if (vsObjectInfo != null && vsObjectInfo.display != null && !vsObjectInfo.display.isEmpty()) {
+			vs.setTitle(vsObjectInfo.display);
+		} else {
+			vs.setTitle(defaultDisplay);
+		}
+		
+		if (vsObjectInfo != null && vsObjectInfo.description != null && !vsObjectInfo.description.isEmpty()) {
+			vs.setDescription(vsObjectInfo.getDescription());
+		} else {
+			vs.setDescription(defaultDescription);
+		}
+		
 		vs.setStatus(PublicationStatus.ACTIVE);
 		vs.setExperimental(false);
 		if (tv.vsoid != null)
@@ -1307,8 +1227,6 @@ public class V2SourceGenerator extends BaseGenerator {
 		vs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
 		vs.setPublisher("HL7, Inc");
 		vs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
-		//vs.setDescription("V2 Table " + t.id + " Version " + vid + " (" + t.name + ")");
-		vs.setDescription(tv.getObjectDescription());
 		vs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
 
 		ValueSetComposeComponent vsCompose = vs.getCompose();
@@ -1432,6 +1350,12 @@ public class V2SourceGenerator extends BaseGenerator {
 		for (String n : sorted(tables.keySet())) {
 			if (!n.equals("0000")) {
 				Table t = tables.get(n);
+				
+				if (t.getIdValue() > 4000) {
+					// Per Ted, do not generate for table IDs over 4000
+					continue;
+				}
+				
 				TableVersion tv = t.master;
 				if (tv != null) {
 					ConceptDefinitionComponent c = cs.addConcept();
