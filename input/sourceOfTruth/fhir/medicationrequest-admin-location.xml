@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="medication-admin-category"/>
+  <id value="medicationrequest-admin-location"/>
   <meta>
-    <lastUpdated value="2020-01-26T07:48:49.547+00:00"/>
+    <lastUpdated value="2020-02-24T04:14:31.424+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
             
-      <h2>Medication administration  category  codes</h2>
+      <h2>Medication request  administration  location  codes</h2>
             
       <div>
               
-        <p>MedicationAdministration Category Codes</p>
+        <p>MedicationRequest Administration Location Codes</p>
 
             
       </div>
             
-      <p>This code system http://terminology.hl7.org/CodeSystem/medication-admin-category defines the following codes:</p>
+      <p>This code system http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location defines the following codes:</p>
             
       <table class="codes">
               
@@ -49,13 +49,13 @@
                 
           <td style="white-space:nowrap">inpatient
                   
-            <a name="medication-admin-category-inpatient"> </a>
+            <a name="medicationrequest-admin-location-inpatient"> </a>
                 
           </td>
                 
           <td>Inpatient</td>
                 
-          <td>Includes administrations in an inpatient or acute care setting</td>
+          <td>Includes requests for medications to be administered or consumed in an inpatient or acute care setting</td>
               
         </tr>
               
@@ -63,13 +63,13 @@
                 
           <td style="white-space:nowrap">outpatient
                   
-            <a name="medication-admin-category-outpatient"> </a>
+            <a name="medicationrequest-admin-location-outpatient"> </a>
                 
           </td>
                 
           <td>Outpatient</td>
                 
-          <td>Includes administrations in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor&#39;s office)</td>
+          <td>Includes requests for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor&#39;s office)</td>
               
         </tr>
               
@@ -77,13 +77,13 @@
                 
           <td style="white-space:nowrap">community
                   
-            <a name="medication-admin-category-community"> </a>
+            <a name="medicationrequest-admin-location-community"> </a>
                 
           </td>
                 
           <td>Community</td>
                 
-          <td>Includes administrations by the patient in their home (this would include long term care or nursing homes, hospices, etc.)</td>
+          <td>Includes requests for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc.)</td>
               
         </tr>
             
@@ -94,14 +94,20 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="phx"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/medication-admin-category"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1111"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
   <version value="4.2.0"/>
-  <name value="MedicationAdministration Category Codes"/>
-  <title value="Medication administration  category  codes"/>
+  <name value="medicationRequest Administration Location Codes"/>
+  <title value="Medication request  administration  location  codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <publisher value="FHIR Project team"/>
@@ -111,23 +117,23 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="MedicationAdministration Category Codes"/>
+  <description value="MedicationRequest Administration Location Codes"/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/medication-admin-category"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"/>
   <content value="complete"/>
   <concept>
     <code value="inpatient"/>
     <display value="Inpatient"/>
-    <definition value="Includes administrations in an inpatient or acute care setting"/>
+    <definition value="Includes requests for medications to be administered or consumed in an inpatient or acute care setting"/>
   </concept>
   <concept>
     <code value="outpatient"/>
     <display value="Outpatient"/>
-    <definition value="Includes administrations in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor&#39;s office)"/>
+    <definition value="Includes requests for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor&#39;s office)"/>
   </concept>
   <concept>
     <code value="community"/>
     <display value="Community"/>
-    <definition value="Includes administrations by the patient in their home (this would include long term care or nursing homes, hospices, etc.)"/>
+    <definition value="Includes requests for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc.)"/>
   </concept>
 </CodeSystem>
