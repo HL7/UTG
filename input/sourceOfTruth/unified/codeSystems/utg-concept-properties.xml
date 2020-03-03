@@ -13,6 +13,7 @@
   <property>
     <code value="comment"/>
     <uri value="http://hl7.org/fhir/concept-properties#comment"/>
+    <description value="VComments and notes on the Domain."/>
     <type value="string"/>
   </property>
   <concept>
@@ -433,4 +434,127 @@
       <valueString value="This may not behave the same based on the final outcome from the negation project.   Or this may be the impleentation of their recommendations; need to discuss with Rob Hausam.   Clear the this is used as part of RIM documentation.  Note that this is only used in these two structural code systems."/>
     </property>
   </concept>
+  <concept>
+    <code value="ConceptualSpaceForClassCode"/>
+    <display value="Conceptual Space For ClassCode"/>
+    <sefimition value="This concept domain provides the semantic category space indicates by the identifies Class code.  Used in HL7 V3 RIM."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="Only used in the V3 RIM concept domains.  Identifies the class code that should be used in either ActClass or EntityClass when this domain is the terminology constraint for ActCode or EntityCode attribute"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="source"/>
+    <display value="Source"/>
+    <definition value="Indicaates the etiology of this domain, i.e. which HL7 product family or other area that the domain originally was needed for and triggered its creation."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="Currently valued only for the v3 Concept Domains."/>
+    </property>
+  </concept>
+  
+  <concept>
+    <code value="openIssue"/>
+    <display value="Open Issue"/>
+    <definition value="Documents some V3 issue that was never resolved for a particular concept domain."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="Currently valued only for the v3 Concept Domains.  May be used for open issues on particular concepts in code systems later."/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="deprecationInfo"/>
+    <display value="Deprecation Information"/>
+    <definition value="Docmuentation of V3 concept domains that have been deprecated."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="Currently valued only for the v3 Concept Domains.   Includes commentary and release IDs when they were deprecated, and possibly replacement information"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="deprecationInfo"/>
+    <display value="Deprecation Information"/>
+    <definition value="Documentation of V3 concept domains that have been deprecated."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="Currently valued only for the v3 Concept Domains.   Includes commentary and release IDs when they were deprecated, and possibly replacement information"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="contextBindingUV-valueSet"/>
+    <display value="UV Bound ValueSet"/>
+    <definition value="Identifies the Value Set bound to this Concept Domain in the Universal Realm."/>
+  </concept>
+
+  <concept>
+    <code value="contextBindingUV-effectiveDate"/>
+    <display value="UV Binding Effective Date"/>
+    <definition value="Effective Date of the specified Value Set bound to this Concwpt Domain in the Universal Realm."/>
+  </concept>
+
+  <concept>
+    <code value="contextBindingR1-valueSet"/>
+    <display value="R1 Bound ValueSet"/>
+    <definition value="Identifies the Value Set bound to this Concept Domain in the Representative Realm."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="R1 Bindings have been implemented in at least one Realm, and are offered for general use as they may be valid in other Realms."/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="contextBindingR1-effectiveDate"/>
+    <display value="R1 Binding Effective Date"/>
+    <definition value="Effective Date of the specified Value Set bound to this Concept Domain in the Representative Realm."/>
+  </concept>
+
+  <concept>
+    <code value="contextBindingX1-valueSet"/>
+    <display value="X1 Bound ValueSet"/>
+    <definition value="Identifies the Value Set bound to this Concept Domain in the Example Realm."/>
+   <property>
+      <code value="comment"/>
+      <valueString value="X1 Bindings are used solely for published or educational examples, and are known to be incorrect or invalid content for real world systems.  They should not be used in production systems."/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="contextBindingX1-effectiveDate"/>
+    <display value="X1 Binding Effective Date"/>
+    <definition value="Effective Date of the specified Value Set bound to this Concept Domain in the Example Realm."/>
+  </concept>
+
+  <concept>
+    <code value="contextBindingC1-valueSet"/>
+    <display value="C1 Bound ValueSet"/>
+    <definition value="Identifies the Value Set bound to this Concept Domain in the Example Realm."/>
+   <property>
+      <code value="comment"/>
+      <valueString value="C1 Bindings are used solely for provisional or draft bindings, and are intended to be removed or updated at some tiem in the future.  In general, C1 bindings may be incorrect or invalid content for real world systems, or may be subject to change without notice.  They should not be used in production systems."/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="contextBindingC1-effectiveDate"/>
+    <display value="C1 Binding Effective Date"/>
+    <definition value="Effective Date of the specified Value Set bound to this Concept Domain in the Unclassified Realm."/>
+  </concept>
+
+  <concept>
+    <code value="contextBindingUS-valueSet"/>
+    <display value="US Bound ValueSet"/>
+    <definition value="Identifies the Value Set bound to this Concept Domain in the US (United States of America) Realm."/>
+  </concept>
+
+  <concept>
+    <code value="contextBindingUS-effectiveDate"/>
+    <display value="US Binding Effective Date"/>
+    <definition value="Effective Date of the specified Value Set bound to this Concwpt Domain in the US Realm."/>
+  </concept>
+
+
+
 </CodeSystem>
