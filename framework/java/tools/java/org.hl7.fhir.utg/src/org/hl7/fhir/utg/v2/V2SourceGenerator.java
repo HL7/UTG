@@ -1292,12 +1292,12 @@ public class V2SourceGenerator extends BaseGenerator {
 				.setType(PropertyType.CODE)
 				.setDescription("Type of table");
 		
-		cs.addProperty()
+/*		cs.addProperty()
 				.setCode("generate")
 				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("generate"))
 				.setType(PropertyType.BOOLEAN)
 				.setDescription("whether to generate table");
-		
+*/		
 		cs.addProperty()
 				.setCode("version")
 				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("version"))
@@ -1380,8 +1380,10 @@ public class V2SourceGenerator extends BaseGenerator {
 						c.addProperty().setCode("vsoid").setValue(new StringType(tv.vsoid));
 					if (tv.getType() > 0)
 						c.addProperty().setCode("v2type").setValue(new CodeType(codeForType(tv.getType())));
-					if (tv.isGenerate())
+					
+/*					if (tv.isGenerate())
 						c.addProperty().setCode("generate").setValue(new BooleanType(true));
+*/					
 					c.addProperty().setCode("version").setValue(new IntegerType(10));
 					if (!Utilities.noString(tv.steward))
 						for (String steward : normalizeStewardValue(tv.steward)) {
