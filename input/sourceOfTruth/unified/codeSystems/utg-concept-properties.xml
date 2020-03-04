@@ -19,6 +19,7 @@
   <concept>
     <code value="v2-binding"/>
     <display value="binding"/>
+    <definition value="Coded value identifying the binding realm for those tables that have a binding to a value set.  0=no binding or binding N/A; 1=Example; 2=Representative; 3=Universal; 4=US Realm."/>
     <property>
       <code value="comment"/>
       <valueString value="used only in v2-tables.xml"/>
@@ -27,10 +28,10 @@
   <concept>
     <code value="v2-cld"/>
     <display value="cld"/>
-    <definition value="General kind of Content Logical Definition for the value set informing the table, as printed in the V2 ballot"/>
+    <definition value="Categorization of Content Logical Definition for the V2 value set informing the table, as printed in the V2 ballot.  0=no expansion, 1=all codes, 2=enumerated, 3=V3 vaue set definition, 4=unique intensional definition, 5=non-HL7 value set definition, 6=FHIR value set definition"/>
     <property>
       <code value="comment"/>
-      <valueString value="used only in v2-tables.xml"/>
+      <valueString value="Used only for value sets informing the coded content of HL7 V2 tables. There are only a few types of value set compose statements for V2, and this code indicates now the exapnsion for puisblishing is to be caclulated."/>
     </property>
   </concept>
   <concept>
@@ -55,15 +56,6 @@
     <code value="v2-table-deprecated"/>
     <display value="deprecated"/>
     <definition value="Indicates that although still being published in the V2 international standard, the table has been deprecated in favor of alternative codes, and will be withdrawn in the future."/>
-    <property>
-      <code value="comment"/>
-      <valueString value="used only in v2-tables.xml"/>
-    </property>
-  </concept>
-  <concept>
-    <code value="v2-generate"/>
-    <display value="generate"/>
-    <definition value="flag used in the V2 publishing spece for generation of table content in the pdf document"/>
     <property>
       <code value="comment"/>
       <valueString value="used only in v2-tables.xml"/>
@@ -315,6 +307,7 @@
   <concept>
     <code value="owning-affiliate"/>
     <display value="OwningAffiliate"/>
+    <definition value="Property defined in V3 tooling, but may not be currently used."/>
     <property>
       <code value="comment"/>
       <valueString value="not certain where this came from"/>
@@ -323,6 +316,7 @@
   <concept>
     <code value="owning-section"/>
     <display value="OwningSection"/>
+    <definition value="Property defined in V3 tooling, but may not be currently used."/>
     <property>
       <code value="comment"/>
       <valueString value="not certain where this came from"/>
@@ -331,6 +325,7 @@
   <concept>
     <code value="owning-subsection"/>
     <display value="OwningSubSection"/>
+    <definition value="Property defined in V3 tooling, but may not be currently used."/>
     <property>
       <code value="comment"/>
       <valueString value="not certain where this came from"/>
@@ -339,6 +334,7 @@
   <concept>
     <code value="v3-smaller-than"/>
     <display value="SmallerThan"/>
+    <definition value="Property defined in V3 tooling, but may not be currently used."/>
     <property>
       <code value="comment"/>
       <valueString value="not certain where this came from"/>
@@ -437,7 +433,7 @@
   <concept>
     <code value="ConceptualSpaceForClassCode"/>
     <display value="Conceptual Space For ClassCode"/>
-    <sefimition value="This concept domain provides the semantic category space indicates by the identifies Class code.  Used in HL7 V3 RIM."/>
+    <definition value="This concept domain provides the semantic category space indicates by the identifies Class code.  Used in HL7 V3 RIM."/>
     <property>
       <code value="comment"/>
       <valueString value="Only used in the V3 RIM concept domains.  Identifies the class code that should be used in either ActClass or EntityClass when this domain is the terminology constraint for ActCode or EntityCode attribute"/>
