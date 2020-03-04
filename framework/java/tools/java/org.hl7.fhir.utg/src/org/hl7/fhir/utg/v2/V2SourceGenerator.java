@@ -1364,6 +1364,7 @@ public class V2SourceGenerator extends BaseGenerator {
 					c.setDisplay(t.name);
 					c.setDefinition(tv.objectDescription);
 					c.addProperty().setCode("table-oid").setValue(new StringType(t.oid));
+					
 					if (!Utilities.noString(tv.csoid) || t.isV3CsOid()) {
 						c.addProperty().setCode("csoid").setValue(new StringType(tv.csoid));
 						String v3url = OIDLookup.get_v3_to_v2_url_bridge(tv.csoid);
@@ -1400,8 +1401,14 @@ public class V2SourceGenerator extends BaseGenerator {
 						c.addProperty().setCode("version-introduced").setValue(new StringType(tv.versionIntroduced));
 					if (!Utilities.noString(tv.versionIntroduced))
 						c.addProperty().setCode("cld").setValue(new StringType(tv.vsExpansion));
-					if (!Utilities.noString(tv.vocabDomain))
-						c.addProperty().setCode("vocab-domain").setValue(new StringType(tv.vocabDomain));
+					
+					if (!Utilities.noString(tv.vocabDomain)) {
+						ObjectInfo tableObject = objects.get(tv.vocabDomain);
+						if (tableObject != null) {
+							c.addProperty().setCode("vocab-domain").setValue(new StringType(tableObject.display));
+						}
+					}
+					
 				}
 			}
 		}
