@@ -1396,7 +1396,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/resource-history");
 		vs.getExtension().add(ext);
 		// ext.addExtension("id", new StringType(item.getAttribute("id")));
-		vs.setVersion(item.getAttribute("id"));
+		//vs.setVersion(item.getAttribute("id"));
 		ext.addExtension("id", new StringType(item.getAttribute("id")));
 		ext.addExtension("date", new DateTimeType(item.getAttribute("dateTime")));
 		if (item.hasAttribute("responsiblePersonName"))
