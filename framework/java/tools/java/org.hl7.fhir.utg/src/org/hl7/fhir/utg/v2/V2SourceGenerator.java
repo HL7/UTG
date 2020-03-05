@@ -1197,13 +1197,13 @@ public class V2SourceGenerator extends BaseGenerator {
 		// Set all value set versions to 2.0.0, per Ted
 		vs.setVersion(makeVersionString(0));
 		
-		ObjectInfo csObjectInfo = objects.get(tv.csoid);
+		//ObjectInfo csObjectInfo = objects.get(tv.csoid);
 		ObjectInfo vsObjectInfo = objects.get(tv.vsoid);
 		String defaultDisplay = "V2 Table " + t.id + " Version " + vid;
 		String defaultDescription = "V2 Table " + t.id + " Version " + vid + " (" + t.name + ")";
 		
-		if (csObjectInfo != null && csObjectInfo.display != null && !csObjectInfo.display.isEmpty()) {
-			vs.setName(Utilities.makeClassName(csObjectInfo.display));
+		if (vsObjectInfo != null && vsObjectInfo.display != null && !vsObjectInfo.display.isEmpty()) {
+			vs.setName(Utilities.makeClassName(vsObjectInfo.display));
 		} else {
 			vs.setName(defaultDisplay);
 		}
