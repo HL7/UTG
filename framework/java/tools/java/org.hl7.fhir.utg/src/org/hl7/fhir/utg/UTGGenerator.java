@@ -1,28 +1,34 @@
 package org.hl7.fhir.utg;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
+import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.PropertyType;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
@@ -181,24 +187,43 @@ public class UTGGenerator extends BaseGenerator {
 		cs.setVersionNeeded(false);
 		cs.setContent(CodeSystemContentMode.COMPLETE);
 
-		// TODO - Fix these property URIs?
-		cs.addProperty().setCode("source").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
-				.setType(PropertyType.CODE);
-		cs.addProperty().setCode("ConceptualSpaceForClassCode").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
-				.setType(PropertyType.CODING);
-		cs.addProperty().setCode("openIssue").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
-				.setType(PropertyType.STRING);
-		cs.addProperty().setCode("deprecationInfo").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
-				.setType(PropertyType.STRING);
+		String propertyUriRoot = "http://terminology.hl7.org/CodeSystem/utg-concept-properties#";
+		@SuppressWarnings("serial")
+		Map<String, PropertyType> propertyCodesAndTypes = new HashMap<String, PropertyType>() {
+			{
+				put("source", PropertyType.CODE);
+				put("ConceptualSpaceForClassCode", PropertyType.CODING);
+				put("openIssue", PropertyType.STRING);
+				put("deprecationInfo", PropertyType.STRING);
+				for (String realm : BINDING_REALMS) {
+					put(CONTEXT_BINDING_PREFIX + realm + "-valueSet", PropertyType.STRING);
+					put(CONTEXT_BINDING_PREFIX + realm + "-effectiveDate", PropertyType.DATETIME);
+					// put(CONTEXT_BINDING_PREFIX + realm + "-codingStrength", PropertyType.CODE);
+				}
+			}
+		};
 
-		
-		for (String realm : BINDING_REALMS) {
-			String propertyCodePrefix = CONTEXT_BINDING_PREFIX + realm;
-			cs.addProperty().setCode(propertyCodePrefix + "-valueSet").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/").setType(PropertyType.STRING);
-			//cs.addProperty().setCode(propertyCodePrefix + "-codingStrength").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/").setType(PropertyType.CODE);
-			cs.addProperty().setCode(propertyCodePrefix + "-effectiveDate").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/").setType(PropertyType.DATETIME);
+		String utgConceptPropertiesFilename = Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS, "utg-concept-properties.xml");
+		Map<String, ConceptDefinitionComponent> utgConceptProperties;
+		try {
+			utgConceptProperties = loadUTGConceptProperties(utgConceptPropertiesFilename);
+		} catch (Exception e) {
+			throw new RuntimeException("Error reading UTG Concept Properties file: '" + utgConceptPropertiesFilename + "'", e);
 		}
-		
+
+		List<String> propertyCodes = new LinkedList<>(propertyCodesAndTypes.keySet());
+		Collections.sort(propertyCodes);
+		for (String propertyCode : propertyCodes) {
+			if (!utgConceptProperties.containsKey(propertyCode)) {
+				throw new RuntimeException(String.format("Error generating concept domains: Property code '%s' not found in UTG Concept Properties file", propertyCode));
+			}
+			cs.addProperty()
+				.setCode(propertyCode)
+				.setUri(propertyUriRoot + propertyCode)
+				.setDescription(utgConceptProperties.get(propertyCode).getDisplay())
+				.setType(propertyCodesAndTypes.get(propertyCode));
+		}
+
 		Map<String, String> codes = new HashMap<String, String>();
 
 		int count = cs.getConcept().size() + v3.addConceptDomains(cs.getConcept(), codes);
@@ -331,5 +356,21 @@ public class UTGGenerator extends BaseGenerator {
 		
 		return manifest;
 	}
-	
+
+	private Map<String, ConceptDefinitionComponent> loadUTGConceptProperties(String utgConceptPropertiesFilename) throws IOException, FHIRFormatError {
+		File utgConceptPropertiesFile = new File(utgConceptPropertiesFilename);
+		InputStream inputStream = null;
+		CodeSystem utgConceptPropertiesCodesystem = null;
+
+		inputStream = new FileInputStream(utgConceptPropertiesFile);
+		utgConceptPropertiesCodesystem = (CodeSystem) new XmlParser().parse(inputStream);
+		inputStream.close();
+
+		Map<String, ConceptDefinitionComponent> utgConceptProperties = new HashMap<>();
+		utgConceptPropertiesCodesystem.getConcept().forEach(concept -> {
+			utgConceptProperties.put(concept.getCode(), concept);
+		});
+		
+		return utgConceptProperties;
+	}
 }
