@@ -947,8 +947,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
-				//cd.addExtension(resext("openIssue"), new StringType(XMLUtil.htmlToXmlEscapedPlainText(child)));
-				cd.addExtension(resext("openIssue"), new StringType(MarkDownProcessor.htmlToMarkdown(child)));
+				//cd.addExtension(resext("openIssue"), new StringType(MarkDownProcessor.htmlToMarkdown(child)));
 			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			}
