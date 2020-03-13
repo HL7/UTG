@@ -21481,10 +21481,6 @@ public class XmlParser extends XmlParserBase {
         res.setCompose(parseValueSetValueSetComposeComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("expansion")) {
         res.setExpansion(parseValueSetValueSetExpansionComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("rim-assoc-conc-propname")) {
-    	res.setAssociatedConceptPropertyNameElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("rim-assoc-conc-propvalue")) {
-    	res.setAssociatedConceptPropertyValueElement(parseString(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
         return false;
     return true;
