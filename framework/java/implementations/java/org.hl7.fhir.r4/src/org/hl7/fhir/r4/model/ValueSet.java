@@ -4649,6 +4649,16 @@ public class ValueSet extends MetadataResource {
         return this;
       }
     
+    public ValueSet setAssociatedConceptPropertyNameElement(StringType value) { 
+        this.associatedConceptPropertyName = value;
+        return this;
+    }
+
+    public ValueSet setAssociatedConceptPropertyValueElement(StringType value) { 
+        this.associatedConceptPropertyValue = value;
+        return this;
+    }
+    
     public boolean hasAssociatedConceptPropertyName() {
     	return this.associatedConceptPropertyName != null && !this.associatedConceptPropertyName.isEmpty();
     }
