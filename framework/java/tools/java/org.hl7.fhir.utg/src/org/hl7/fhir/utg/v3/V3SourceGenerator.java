@@ -735,7 +735,7 @@ public class V3SourceGenerator extends BaseGenerator {
 				pd.setUri(PropertyLookup.V3_PROPERTY_URIS.get(item.getAttribute("name")));
 			}
 			pd.setType(PropertyType.CODING);
-			pd.addExtension(csext("relationshipKind"), new CodeType(item.getAttribute("relationshipKind")));
+			// pd.addExtension(csext("relationshipKind"), new CodeType(item.getAttribute("relationshipKind")));
 			Element child = XMLUtil.getFirstChild(item);
 			while (child != null) {
 				if (child.getNodeName().equals("description"))
