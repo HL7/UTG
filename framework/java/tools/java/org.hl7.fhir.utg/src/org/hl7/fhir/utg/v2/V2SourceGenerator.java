@@ -1108,11 +1108,11 @@ public class V2SourceGenerator extends BaseGenerator {
 			c.setId(V2ConceptIdSequence.getNextConceptIdString());
 
 			if (!Utilities.noString(te.comments))
-				ToolingExtensions.addCSConceptComment(c, te.comments);
+				c.addProperty().setCode("v2-concComment").setValue(new StringType(te.comments));
 			if (!Utilities.noString(te.commentsAsPublished))
-				ToolingExtensions.addCSConceptCommentAsPub(c, te.commentsAsPublished);
+				c.addProperty().setCode("v2-concCommentAsPub").setValue(new StringType(te.commentsAsPublished));
 			if (!Utilities.noString(te.usageNotes))
-				ToolingExtensions.addCSConceptUsageNotes(c, te.usageNotes);
+				c.addProperty().setCode("v2-UsageNotes").setValue(new StringType(te.usageNotes));
 
 			// if (te.getFirst() != null)
 			// c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
