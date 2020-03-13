@@ -512,17 +512,26 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void processLegalese(Element item, CodeSystem cs) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
+		String licenseTerms = "";
+		String versioningPolicy = "";
 		while (child != null) {
 			if (child.getNodeName().equals("notation")) {
 				notations.add(child.getTextContent());
 				cs.addExtension(csext("legalese"), new StringType(child.getTextContent()));
-			} else if (child.getNodeName().equals("licenseTerms"))
-				cs.setCopyright(child.getTextContent());
-			else if (child.getNodeName().equals("versioningPolicy"))
-				cs.addExtension(resext("versioningPolicy"), new StringType(child.getTextContent()));
-			else
+			} else if (child.getNodeName().equals("licenseTerms")) {
+				licenseTerms = child.getTextContent();
+				//cs.setCopyright(child.getTextContent());
+			} else if (child.getNodeName().equals("versioningPolicy")) {
+				versioningPolicy = child.getTextContent();
+				//cs.addExtension(resext("versioningPolicy"), new StringType(child.getTextContent()));
+			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
 			child = XMLUtil.getNextSibling(child);
+		}
+		String copyright = String.join(" ", licenseTerms, versioningPolicy).trim();
+		if (!copyright.isEmpty()) {
+			cs.setCopyright(copyright);
 		}
 	}
 
@@ -1242,17 +1251,24 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void processLegalese(Element item, ValueSet vs) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
+		String licenseTerms = "";
+		String versioningPolicy = "";
 		while (child != null) {
 			if (child.getNodeName().equals("notation"))
 				notations.add(child.getTextContent());
 			else if (child.getNodeName().equals("licenseTerms"))
-				vs.setCopyright(child.getTextContent());
+				licenseTerms = child.getTextContent();
 			else if (child.getNodeName().equals("versioningPolicy"))
-				vs.addExtension(resext("versioningPolicy"), new StringType(child.getTextContent()));
+				versioningPolicy = child.getTextContent();
 			else
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			child = XMLUtil.getNextSibling(child);
 		}
+		String copyright = String.join(" ", licenseTerms, versioningPolicy).trim();
+		if (!copyright.isEmpty()) {
+			vs.setCopyright(copyright);
+		}
+		
 	}
 
 	private void processContributor(Element item, ValueSet vs) throws Exception {
