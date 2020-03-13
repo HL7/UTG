@@ -254,7 +254,7 @@ public class V3SourceGenerator extends BaseGenerator {
 						.setValue(new StringType(cb.valueSetOID))
 						.addExtension(resext("concept-binding-strength"), new CodeType(cb.codingStrength));
 					
-					//c.addProperty().setCode(propertyCodePrefix + "-codingStrength").setValue(new CodeType(cb.codingStrength));
+					c.addProperty().setCode(propertyCodePrefix + "-codingStrength").setValue(new CodeType(cb.codingStrength));
 					c.addProperty().setCode(propertyCodePrefix + "-effectiveDate").setValue(new DateTimeType(cb.effectiveDate));
 				}
 			}
