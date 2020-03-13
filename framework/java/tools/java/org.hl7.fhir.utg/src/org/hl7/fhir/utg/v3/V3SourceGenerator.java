@@ -544,14 +544,14 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 
 		
-		Extension ext = new Extension().setUrl(csext("contributor"));
+/*		Extension ext = new Extension().setUrl(csext("contributor"));
 		cs.getExtension().add(ext);
 		ext.addExtension("name", new StringType(name));
 		ext.addExtension("role", new StringType(role));
 		if (notes != null) {
 			ext.addExtension("notes", new StringType(notes));
 		}
-
+*/
 		if (!Utilities.existsInList(role, "Publisher", "Sponsor"))
 			throw new Exception("Unprocessed role " + role);
 		if (name.equalsIgnoreCase("(see notes)"))
