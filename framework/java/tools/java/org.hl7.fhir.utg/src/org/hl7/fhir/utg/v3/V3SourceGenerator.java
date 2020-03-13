@@ -708,7 +708,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		String v = item.getAttribute("deprecationEffectiveVersion");
 		if (Utilities.noString(v))
 			throw new Exception("Element not understood: " + item.getNodeName());
-		cs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
+		// cs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
 		cs.setStatus(PublicationStatus.RETIRED);
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -959,7 +959,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		String v = item.getAttribute("deprecationEffectiveVersion");
 		if (Utilities.noString(v))
 			throw new Exception("Element not understood: " + item.getNodeName());
-		cd.addExtension(resext("versionDeprecated"), Factory.newString_(v));
+		// cd.addExtension(resext("versionDeprecated"), Factory.newString_(v));
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
@@ -1378,7 +1378,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		String v = item.getAttribute("deprecationEffectiveVersion");
 		if (Utilities.noString(v))
 			throw new Exception("Element not understood: " + item.getNodeName());
-		vs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
+		// vs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
 		vs.setStatus(PublicationStatus.RETIRED);
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
