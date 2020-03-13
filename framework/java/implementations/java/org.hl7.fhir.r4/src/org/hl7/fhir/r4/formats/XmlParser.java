@@ -45340,12 +45340,6 @@ public class XmlParser extends XmlParserBase {
       if (element.hasExpansion()) {
         composeValueSetValueSetExpansionComponent("expansion", element.getExpansion());
       }
-      if (element.hasAssociatedConceptPropertyName()) {
-    	  composeString("rim-assoc-conc-propname", element.getAssociatedConceptPropertyNameElement());
-      }
-      if (element.hasAssociatedConceptPropertyValue()) {
-    	  composeString("rim-assoc-conc-propvalue", element.getAssociatedConceptPropertyValueElement());
-      }
   }
 
   protected void composeValueSetValueSetComposeComponent(String name, ValueSet.ValueSetComposeComponent element) throws IOException {

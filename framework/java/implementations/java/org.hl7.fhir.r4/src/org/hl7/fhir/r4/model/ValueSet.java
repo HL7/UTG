@@ -47,11 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A ValueSet resource specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
  */
 @ResourceDef(name="ValueSet", profile="http://hl7.org/fhir/Profile/ValueSet")
-@ChildOrder(names={
-		"url", "identifier", "version", "name", "title", "status", "experimental", "date", 
-		"publisher", "contact", "description", "useContext", "jurisdiction", "immutable", 
-		"purpose", "copyright", "extensible", "compose", "expansion", "associatedConceptPropertyName", "associatedConceptPropertyValue" 
-	})
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "immutable", "purpose", "copyright", "extensible", "compose", "expansion"})
 public class ValueSet extends MetadataResource {
 
     public enum FilterOperator {
@@ -3699,20 +3695,6 @@ public class ValueSet extends MetadataResource {
     @Description(shortDefinition="Used when the value set is \"expanded\"", formalDefinition="A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed." )
     protected ValueSetExpansionComponent expansion;
 
-    /**
-     * Associated Concept Property Name
-     */
-    @Child(name = "associatedConceptPropertyName", type = {StringType.class}, order=7, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Associated Concept Property Name", formalDefinition="Name of associated concept property" )
-    protected StringType associatedConceptPropertyName;
-
-    /**
-     * Associated Concept Property Value
-     */
-    @Child(name = "associatedConceptPropertyValue", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Associated Concept Property Value", formalDefinition="Value of associated concept property" )
-    protected StringType associatedConceptPropertyValue;
-
     private static final long serialVersionUID = -173192200L;
 
   /**
@@ -4611,52 +4593,6 @@ public class ValueSet extends MetadataResource {
       return this;
     }
 
-    public String getAssociatedConceptPropertyName() {
-        return this.associatedConceptPropertyName == null ? null : this.associatedConceptPropertyName.getValue();
-    }
-    
-    public StringType getAssociatedConceptPropertyNameElement() {
-        return this.associatedConceptPropertyName;
-    }
-    
-    public String getAssociatedConceptPropertyValue() {
-        return this.associatedConceptPropertyValue == null ? null : this.associatedConceptPropertyValue.getValue();
-    }
-    
-    public StringType getAssociatedConceptPropertyValueElement() {
-        return this.associatedConceptPropertyValue;
-    }
-    
-    public MetadataResource setAssociatedConceptPropertyName(String value) { 
-        if (Utilities.noString(value))
-          this.associatedConceptPropertyName = null;
-        else {
-          if (this.associatedConceptPropertyName == null)
-            this.associatedConceptPropertyName = new StringType();
-          this.associatedConceptPropertyName.setValue(value);
-        }
-        return this;
-      }
-
-    public MetadataResource setAssociatedConceptPropertyValue(String value) { 
-        if (Utilities.noString(value))
-          this.associatedConceptPropertyValue = null;
-        else {
-          if (this.associatedConceptPropertyValue == null)
-            this.associatedConceptPropertyValue = new StringType();
-          this.associatedConceptPropertyValue.setValue(value);
-        }
-        return this;
-      }
-    
-    public boolean hasAssociatedConceptPropertyName() {
-    	return this.associatedConceptPropertyName != null && !this.associatedConceptPropertyName.isEmpty();
-    }
-    
-    public boolean hasAssociatedConceptPropertyValue() {
-    	return this.associatedConceptPropertyValue != null && !this.associatedConceptPropertyValue.isEmpty();
-    }
-    
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("url", "uri", "An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this value set is (or will be) published.", 0, 1, url));
