@@ -785,7 +785,7 @@ public class V3SourceGenerator extends BaseGenerator {
 				throw new Exception("Unsupported default value " + defaultValue);
 		}
 		
-		if (!(isMandatory + defaultHandlingCode + defaultValue).isEmpty()) {
+/*		if (!(isMandatory + defaultHandlingCode + defaultValue).isEmpty()) {
 			Extension ext = new Extension().setUrl(csext("mif-extended-properties"));
 			pd.getExtension().add(ext);
 			if (!isMandatory.isEmpty())
@@ -795,7 +795,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			if (!defaultValue.isEmpty())
 				ext.addExtension("defaultValue", new StringType(defaultValue));
 		}
-		
+*/		
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("description"))
@@ -1660,14 +1660,14 @@ public class V3SourceGenerator extends BaseGenerator {
 			pd.setType(type);
 			pd.setDescription(description);
 
-			Extension ext = new Extension().setUrl(csext("mif-extended-properties"));
+/*			Extension ext = new Extension().setUrl(csext("mif-extended-properties"));
 			pd.getExtension().add(ext);
 			ext.addExtension("isMandatory", new BooleanType(false));
 
 			if (propertyCode.equals("status")) {
 				ext.addExtension("defaultValue", new StringType("active"));
 			}
-			
+*/			
 		}
 	}
 }
