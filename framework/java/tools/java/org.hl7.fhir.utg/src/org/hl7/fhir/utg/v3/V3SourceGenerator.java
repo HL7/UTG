@@ -615,10 +615,10 @@ public class V3SourceGenerator extends BaseGenerator {
 		ext.addExtension("id", new StringType(item.getAttribute("id")));
 		if (item.hasAttribute("responsiblePersonName"))
 			ext.addExtension("author", new StringType(item.getAttribute("responsiblePersonName")));
-		if (item.hasAttribute("isSubstantiveChange"))
-			ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
-		if (item.hasAttribute("isBackwardCompatibleChange"))
-			ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
+		//if (item.hasAttribute("isSubstantiveChange"))
+		//	ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
+		//if (item.hasAttribute("isBackwardCompatibleChange"))
+		//	ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
 
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -1400,10 +1400,10 @@ public class V3SourceGenerator extends BaseGenerator {
 		ext.addExtension("date", new DateTimeType(item.getAttribute("dateTime")));
 		if (item.hasAttribute("responsiblePersonName"))
 			ext.addExtension("author", new StringType(item.getAttribute("responsiblePersonName")));
-		if (item.hasAttribute("isSubstantiveChange"))
-			ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
-		if (item.hasAttribute("isBackwardCompatibleChange"))
-			ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
+		// if (item.hasAttribute("isSubstantiveChange"))
+		//	 ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
+		// if (item.hasAttribute("isBackwardCompatibleChange"))
+		//	 ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
 
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
