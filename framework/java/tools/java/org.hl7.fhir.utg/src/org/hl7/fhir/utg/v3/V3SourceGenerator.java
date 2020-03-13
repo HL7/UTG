@@ -1460,12 +1460,12 @@ public class V3SourceGenerator extends BaseGenerator {
 		if (propertyName.isEmpty()) {
 			throw new Exception("No name attribute for Associated Concept Property in Value Set " + vs.getName());
 		}
-
-		Extension ext = vs.addExtension().setUrl(vsext("hl7-assocConceptProp"));
-		ext.addExtension().setUrl("name").setValue(new StringType(propertyName));
+		
+		vs.setAssociatedConceptPropertyName(propertyName);
 		if (!propertyValue.isEmpty()) {
-			ext.addExtension().setUrl("value").setValue(new StringType(propertyValue));
+			vs.setAssociatedConceptPropertyValue(propertyValue);
 		}
+		
 	}
 	
 	private void processContent(Element item, ValueSet vs) throws Exception {
