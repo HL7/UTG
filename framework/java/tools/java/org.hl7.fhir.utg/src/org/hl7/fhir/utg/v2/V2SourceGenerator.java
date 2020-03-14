@@ -634,6 +634,12 @@ public class V2SourceGenerator extends BaseGenerator {
 					}
 				}
 			}
+			if (!Utilities.noString(master.vsoid)) {
+				ObjectInfo oi = objects.get(master.vsoid);
+				if (oi != null) {
+					oi.setUri("http://terminology.hl7.org/ValueSet/v2-" + this.id);
+				}
+			}
 		}
 
 		private String translateAffiliateCode(String code) {
@@ -1090,29 +1096,15 @@ public class V2SourceGenerator extends BaseGenerator {
 			.setType(PropertyType.CODE)
 			.setDescription("Version of HL7 in which the code was deprecated");
 		
-		cs.addProperty()
-			.setCode("v2-concComment")
-			.setUri(PropertyLookup.getPropertyUri("v2-concComment"))
-			.setType(PropertyType.STRING)
-			.setDescription(PropertyLookup.getUtgConceptProperty("v2-concComment").getDisplay());
-	
-		cs.addProperty()
-			.setCode("v2-concCommentAsPub")
-			.setUri(PropertyLookup.getPropertyUri("v2-concCommentAsPub"))
-			.setType(PropertyType.STRING)
-			.setDescription(PropertyLookup.getUtgConceptProperty("v2-concCommentAsPub").getDisplay());
-	
-		cs.addProperty()
-			.setCode("v2-usageNotes")
-			.setUri(PropertyLookup.getPropertyUri("v2-usageNotes"))
-			.setType(PropertyType.STRING)
-			.setDescription(PropertyLookup.getUtgConceptProperty("v2-usageNotes").getDisplay());
-	
 		// cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible")
 		// .setType(PropertyType.BOOLEAN)
 		// .setDescription("Whether code is considered 'backwards compatible' (whatever
 		// that means)");
 
+		boolean hasConceptComments = false, 
+				hasConceptCommentsAsPub = false,
+				hasUsageNotes = false;
+		
 		for (TableEntry te : tv.entries) {
 			ConceptDefinitionComponent c = cs.addConcept();
 			c.setCode(te.code);
@@ -1123,12 +1115,18 @@ public class V2SourceGenerator extends BaseGenerator {
 			// c.setId(Integer.toString(te.sortNo));
 			c.setId(V2ConceptIdSequence.getNextConceptIdString());
 
-			if (!Utilities.noString(te.comments))
+			if (!Utilities.noString(te.comments)) {
 				c.addProperty().setCode("v2-concComment").setValue(new StringType(te.comments));
-			if (!Utilities.noString(te.commentsAsPublished))
+				hasConceptComments = true;
+			}
+			if (!Utilities.noString(te.commentsAsPublished)) {
 				c.addProperty().setCode("v2-concCommentAsPub").setValue(new StringType(te.commentsAsPublished));
-			if (!Utilities.noString(te.usageNotes))
+				hasConceptCommentsAsPub = true;
+			}
+			if (!Utilities.noString(te.usageNotes)) {
 				c.addProperty().setCode("v2-UsageNotes").setValue(new StringType(te.usageNotes));
+				hasUsageNotes = true;
+			}
 
 			// if (te.getFirst() != null)
 			// c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
@@ -1144,6 +1142,30 @@ public class V2SourceGenerator extends BaseGenerator {
 						.setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("preferredForLanguage"))
 						.setValue(te.langs.get(language));
 			}
+		}
+
+		if (hasConceptComments) {
+			cs.addProperty()
+				.setCode("v2-concComment")
+				.setUri(PropertyLookup.getPropertyUri("v2-concComment"))
+				.setType(PropertyType.STRING)
+				.setDescription(PropertyLookup.getUtgConceptProperty("v2-concComment").getDisplay());
+		}
+
+		if (hasConceptCommentsAsPub) {
+			cs.addProperty()
+				.setCode("v2-concCommentAsPub")
+				.setUri(PropertyLookup.getPropertyUri("v2-concCommentAsPub"))
+				.setType(PropertyType.STRING)
+				.setDescription(PropertyLookup.getUtgConceptProperty("v2-concCommentAsPub").getDisplay());
+		}
+		
+		if (hasUsageNotes) {
+			cs.addProperty()
+				.setCode("v2-usageNotes")
+				.setUri(PropertyLookup.getPropertyUri("v2-usageNotes"))
+				.setType(PropertyType.STRING)
+				.setDescription(PropertyLookup.getUtgConceptProperty("v2-usageNotes").getDisplay());
 		}
 
 		ValueSet vs = produceValueSet("Master", cs, t, tv);
@@ -1306,7 +1328,7 @@ public class V2SourceGenerator extends BaseGenerator {
 				.setCode("vsuri")
 				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("vsuri"))
 				.setType(PropertyType.STRING)
-				.setDescription("OID For Value Set");
+				.setDescription("URI For Value Set");
 
 		cs.addProperty()
 				.setCode("v2type")
