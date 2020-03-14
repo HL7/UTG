@@ -44,13 +44,19 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="5586">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Use this severity when parts of the message may not have been stored."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Transaction successful, but there may issues"/>
-    </extension>
     <code value="W"/>
     <display value="Warning"/>
     <definition value="Transaction successful, but there may be issues"/>
@@ -63,17 +69,19 @@
       <value value="Warnung"/>
     </designation>
     <property>
+      <code value="v2-concComment"/>
+      <valueString value="Use this severity when parts of the message may not have been stored."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Transaction successful, but there may issues"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="5587">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="e.g., inform patient"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Transaction was successful but includes information e.g., inform patient"/>
-    </extension>
     <code value="I"/>
     <display value="Information"/>
     <definition value="Transaction was successful but includes information"/>
@@ -86,14 +94,19 @@
       <value value="Information"/>
     </designation>
     <property>
+      <code value="v2-concComment"/>
+      <valueString value="e.g., inform patient"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Transaction was successful but includes information e.g., inform patient"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="5588">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Transaction was unsuccessful"/>
-    </extension>
     <code value="E"/>
     <display value="Error"/>
     <definition value="Transaction was unsuccessful"/>
@@ -106,17 +119,22 @@
       <value value="Fehler"/>
     </designation>
     <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Transaction was unsuccessful"/>
+    </property>
+    <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="5589">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Message not processed due to application or network failure condition"/>
-    </extension>
     <code value="F"/>
     <display value="Fatal Error"/>
     <definition value="Message not processed due to application or network failure condition"/>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Message not processed due to application or network failure condition"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>

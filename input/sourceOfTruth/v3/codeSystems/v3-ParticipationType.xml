@@ -6,14 +6,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
-    <extension url="name">
-      <valueString value="Health Level Seven"/>
-    </extension>
-    <extension url="role">
-      <valueString value="Sponsor"/>
-    </extension>
-  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -31,97 +23,48 @@
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultValue">
-        <valueString value="active"/>
-      </extension>
-    </extension>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultHandlingCode">
-        <valueCode value="Hierarchical"/>
-      </extension>
-    </extension>
     <code value="conductible"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-conductible"/>
     <description value="If true, indicates that ActRelationships or Participations of the specified type (and any specializations thereof) will normally conduct. For more usage information, refer to the Core Principles specification."/>
     <type value="boolean"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="Name:Act:participation:Participation"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-participation"/>
     <description value="Name of relationship from Act to Participation"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="Name:Role:participation:Participation"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Role-participation"/>
     <description value="Name of relationship from Role to Participation"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="Sort:Act:participation:Participation"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Act-participation-sort"/>
     <description value="Sort key for relationship from Act to Participation"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="Sort:Role:participation:Participation"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Role-participation-sort"/>
     <description value="Sort key for relationship from Role to Participation"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultHandlingCode">
-        <valueCode value="Hierarchical"/>
-      </extension>
-    </extension>
     <code value="isDocumentCharacteristic"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-document-characteristic"/>
     <description value="If true, indicates that the Act attribute or association (as represented by a typeCode for eaither ActRelationship or Pareticipation is a descriptor of the document (record) represented by the act object. If false, indicates the property is a descriptor of the action itself, actual, intended, or potential.  Applies to interpretation of attributes and associations with respect to changes in the value of Act.actionNegationInd and Act.moodCode. (See descriptions of these attributes for further discussion.) For example, in an order, the id attribute [isDocumentCharacteristic = true] is an identifier of the record of the order, not an identifier of the intended event.  On the other hand, the code attribute [isDocumentCharacteristic = false] describes a characteristic of the intended event."/>
@@ -269,9 +212,6 @@
         </property>
       </concept>
       <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-          <valueString value="ID values are NOT correct on this one and must be fixed as a technical correction."/>
-        </extension>
         <code value="CON"/>
         <display value="consultant"/>
         <definition value="An advisor participating in the service by performing evaluations and making recommendations."/>
@@ -330,9 +270,6 @@
         </property>
       </concept>
       <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-          <valueString value="ID values are NOT correct on this one and must be fixed as a technical correction."/>
-        </extension>
         <code value="ESC"/>
         <display value="escort"/>
         <definition value="Only with Transportation services. A person who escorts the patient."/>

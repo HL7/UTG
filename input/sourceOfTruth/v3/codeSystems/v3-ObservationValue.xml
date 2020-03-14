@@ -6,14 +6,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
-    <extension url="name">
-      <valueString value="Health Level Seven"/>
-    </extension>
-    <extension url="role">
-      <valueString value="Sponsor"/>
-    </extension>
-  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -32,25 +24,12 @@
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultValue">
-        <valueString value="active"/>
-      </extension>
-    </extension>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
@@ -1627,9 +1606,6 @@
     </concept>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1221-20130726"/>
-    </extension>
     <code value="_ObservationPopulationInclusion"/>
     <display value="ObservationPopulationInclusion"/>
     <definition value="Observation values used to assert various populations that a subject falls into."/>
@@ -1642,9 +1618,6 @@
       <valueCode value="23044"/>
     </property>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1221-20130726"/>
-      </extension>
       <code value="DENEX"/>
       <display value="denominator exclusions"/>
       <definition value="Patients who should be removed from the eMeasure population and denominator before determining if numerator criteria are met. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator."/>
@@ -1658,9 +1631,6 @@
       </property>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1221-20130726"/>
-      </extension>
       <code value="DENEXCEP"/>
       <display value="denominator exceptions"/>
       <definition value="Denominator exceptions are those conditions that should remove a patient, procedure or unit of measurement from the denominator only if the numerator criteria are not met. Denominator exceptions allow for adjustment of the calculated score for those providers with higher risk populations. Denominator exceptions are used only in proportion eMeasures. They are not appropriate for ratio or continuous variable eMeasures. Denominator exceptions allow for the exercise of clinical judgment and should be specifically defined where capturing the information in a structured manner fits the clinical workflow. Generic denominator exception reasons used in proportion eMeasures fall into three general categories:&#xD;&#xA;&#xD;&#xA; *  Medical reasons&#xD;&#xA; *  Patient reasons&#xD;&#xA; *  System reasons"/>
@@ -1674,9 +1644,6 @@
       </property>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1221-20130726"/>
-      </extension>
       <code value="DENOM"/>
       <display value="denominator"/>
       <definition value="It can be the same as the initial patient population or a subset of the initial patient population to further constrain the population for the purpose of the eMeasure. Different measures within an eMeasure set may have different Denominators. Continuous Variable eMeasures do not have a Denominator, but instead define a Measure Population."/>
@@ -1690,9 +1657,6 @@
       </property>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1221-20130726"/>
-      </extension>
       <code value="IP"/>
       <display value="initial population"/>
       <definition value="The initial population refers to all entities to be evaluated by a specific quality measure who share a common set of specified characteristics within a specific measurement set to which a given measure belongs."/>
@@ -1705,9 +1669,6 @@
         <valueCode value="23528"/>
       </property>
       <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-          <valueString value="1221-20130726"/>
-        </extension>
         <code value="IPP"/>
         <display value="initial patient population"/>
         <definition value="The initial patient population refers to all patients to be evaluated by a specific quality measure who share a common set of specified characteristics within a specific measurement set to which a given measure belongs. Details often include information based upon specific age groups, diagnoses, diagnostic and procedure codes, and enrollment periods."/>
@@ -1722,9 +1683,6 @@
       </concept>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1221-20130726"/>
-      </extension>
       <code value="MSRPOPL"/>
       <display value="measure population"/>
       <definition value="Measure population is used only in continuous variable eMeasures. It is a narrative description of the eMeasure population. (e.g., all patients seen in the Emergency Department during the measurement period)."/>
@@ -1738,9 +1696,6 @@
       </property>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1221-20130726"/>
-      </extension>
       <code value="NUMER"/>
       <display value="numerator"/>
       <definition value="Numerators are used in proportion and ratio eMeasures. In proportion measures the numerator criteria are the processes or outcomes expected for each patient, procedure, or other unit of measurement defined in the denominator. In ratio measures the numerator is related, but not directly derived from the denominator (e.g., a numerator listing the number of central line blood stream infections and a denominator indicating the days per thousand of central line usage in a specific time period)."/>
@@ -1754,9 +1709,6 @@
       </property>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1221-20130726"/>
-      </extension>
       <code value="NUMEX"/>
       <display value="numerator exclusions"/>
       <definition value="Numerator Exclusions are used only in ratio eMeasures to define instances that should not be included in the numerator data. (e.g., if the number of central line blood stream infections per 1000 catheter days were to exclude infections with a specific bacterium, that bacterium would be listed as a numerator exclusion.)"/>

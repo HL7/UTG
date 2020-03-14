@@ -6,14 +6,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
-    <extension url="name">
-      <valueString value="Health Level Seven"/>
-    </extension>
-    <extension url="role">
-      <valueString value="Sponsor"/>
-    </extension>
-  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -32,11 +24,6 @@
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
@@ -49,25 +36,12 @@
     <type value="boolean"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultValue">
-        <valueString value="active"/>
-      </extension>
-    </extension>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="subsumedBy"/>
     <uri value="http://hl7.org/fhir/concept-properties#parent"/>
     <description value="The concept code of a parent concept"/>
@@ -175,9 +149,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1372-20161110"/>
-    </extension>
     <code value="HM"/>
     <display value="Hold for Medical Review"/>
     <definition value="Hold for Medical Review&#xD;&#xA;&#xD;&#xA;*Usage Note:* This code is not intended for use in V3 artifacts. It is included in the code system to maintain alignment with the V2 Table 0078 &quot;Interpretation Codes.&quot;"/>
@@ -225,9 +196,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1372-20161110"/>
-    </extension>
     <code value="OBX"/>
     <display value="Interpretation qualifiers in separate OBX segments"/>
     <definition value="Interpretation qualifiers in separate OBX segments&#xD;&#xA;&#xD;&#xA;*Usage Note:* This code is not intended for use in V3 artifacts. It is included in the code system to maintain alignment with the V2 Table 0078 &quot;Interpretation Codes.&quot;"/>
@@ -277,9 +245,6 @@
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
       <valueString value="This code is currently the same string as the print name for this concept and is inconsistent with the conventions being used for the other codes in the coding system, as it is a full word with initial capitalization, rather than an all upper case mnemonic.  The recommendation from OO is to deprecate the code &quot;Carrier&quot; and to add &quot;CAR&quot; as the new active code representation for this concept."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1227-20130728"/>
     </extension>
     <code value="Carrier"/>
     <display value="Carrier"/>
@@ -403,9 +368,6 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
       <valueString value="This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1372-20161110"/>
-    </extension>
     <code value="AC"/>
     <display value="Anti-complementary substances present"/>
     <definition value="A valid result cannot be obtained for the specified component / analyte due to the presence of anti-complementary substances in the sample.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
@@ -447,9 +409,6 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
       <valueString value="This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1372-20161110"/>
-    </extension>
     <code value="QCF"/>
     <display value="Quality control failure"/>
     <definition value="A result cannot be considered valid for the specified component / analyte or organism due to failure in the quality control testing component.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
@@ -469,9 +428,6 @@
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
       <valueString value="This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1372-20161110"/>
     </extension>
     <code value="TOX"/>
     <display value="Cytotoxic substance present"/>
@@ -543,9 +499,6 @@
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
       <valueString value="This antimicrobial susceptibility test interpretation concept is recommended by OO to be deprecated as it is no longer recommended for use in susceptibility testing by CLSI (reference CLSI document M100-S22; Vol. 32 No.3; CLSI Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement. Jan 2012)."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1227-20130728"/>
     </extension>
     <code value="MS"/>
     <display value="moderately susceptible"/>
@@ -634,9 +587,6 @@
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
       <valueString value="This antimicrobial susceptibility test interpretation concept is recommended by OO to be deprecated as it is no longer recommended for use in susceptibility testing by CLSI (reference CLSI document M100-S22; Vol. 32 No.3; CLSI Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement. Jan 2012)."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1227-20130728"/>
     </extension>
     <code value="VS"/>
     <display value="very susceptible"/>
@@ -799,9 +749,6 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
       <valueString value="The code &#39;H&gt;&#39; is being deprecated in order to align with the use of the code &#39;HU&#39; for &quot;Very high&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;. [Note: The use of code &#39;H&gt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;HU&#39; instead."/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1326-20150323"/>
-    </extension>
     <code value="H&gt;"/>
     <display value="Significantly high"/>
     <definition value="A test result that is significantly higher than the reference (normal) or therapeutic interval, but has not reached the critically high value and might need special attention, as defined by the laboratory or the clinician.&#xD;&#xA;&#xD;&#xA;\[Note: This level is situated between &#39;H&#39; and &#39;HH&#39;.\]&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:* The code &#39;H&gt;&#39; is being deprecated in order to align with the use of the code &#39;HU&#39; for &quot;Very high&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;.&#xD;&#xA;&#xD;&#xA;\[Note: The use of code &#39;H&gt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;HU&#39; instead."/>
@@ -855,9 +802,6 @@
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
       <valueString value="The code &#39;L&lt;&#39; is being deprecated in order to align with the use of the code &#39;LU&#39; for &quot;Very low&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;. [Note: The use of code &#39;L&lt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;LU&#39; instead."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1326-20150323"/>
     </extension>
     <code value="L&lt;"/>
     <display value="Significantly low"/>

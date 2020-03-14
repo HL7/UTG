@@ -41,6 +41,18 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="2813">
     <code value="BASIC"/>
     <display value="ISDN PCM audio data"/>
@@ -194,15 +206,17 @@
     </property>
   </concept>
   <concept id="2829">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Retained for backwards compatibility only as of v2.6 and CDA R 2. Preferred value is text/xml."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Retained for backwards compatibility only as of v2.6 and CDA R 2. Preferred value is text/xml."/>
-    </extension>
     <code value="x-hl7-cda-level-one"/>
     <display value="HL7 Clinical Document Architecture Level One document"/>
     <definition value="HL7 Clinical Document Architecture Level One document"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Retained for backwards compatibility only as of v2.6 and CDA R 2. Preferred value is text/xml."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Retained for backwards compatibility only as of v2.6 and CDA R 2. Preferred value is text/xml."/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>

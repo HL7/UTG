@@ -44,6 +44,18 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="3853">
     <code value="OK"/>
     <display value="Command completed successfully"/>
@@ -63,15 +75,17 @@
     </property>
   </concept>
   <concept id="3855">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="See response parameters."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="See response parameters."/>
-    </extension>
     <code value="ER"/>
     <display value="Command cannot be completed because of error condition"/>
     <definition value="Command cannot be completed because of error condition"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="See response parameters."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="See response parameters."/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>

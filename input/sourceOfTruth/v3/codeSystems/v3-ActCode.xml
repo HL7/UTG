@@ -6,14 +6,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
-    <extension url="name">
-      <valueString value="Health Level Seven"/>
-    </extension>
-    <extension url="role">
-      <valueString value="Sponsor"/>
-    </extension>
-  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -32,34 +24,18 @@
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-relationshipKind">
-      <valueCode value="Specializes"/>
-    </extension>
     <code value="ClassifiesClassCode"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-classifies-class-code"/>
     <description value="The child code is a classification of the particular class group identified by the &#39;classCode&#39; in a RIM class as the parent code.  Used only in RIM backbone classes to link the code and classCode values."/>
     <type value="Coding"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultValue">
-        <valueString value="active"/>
-      </extension>
-    </extension>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
@@ -72,22 +48,12 @@
     <type value="boolean"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="synonymCode"/>
     <uri value="http://hl7.org/fhir/concept-properties#synonym"/>
     <description value="An additional concept code that was also attributed to a concept"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="subsumedBy"/>
     <uri value="http://hl7.org/fhir/concept-properties#parent"/>
     <description value="The concept code of a parent concept"/>
@@ -1409,9 +1375,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="637-20081220"/>
-    </extension>
     <code value="STORE"/>
     <display value="Storage"/>
     <definition value="The act of putting something away for safe keeping. The &quot;something&quot; may be physical object such as a specimen, or information, such as observations regarding a specimen."/>
@@ -10520,9 +10483,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1428-20181115"/>
-    </extension>
     <code value="_ActConsentDirective"/>
     <display value="ActConsentDirective"/>
     <definition value="Specifies the type of agreement between one or more grantor and grantee in which rights and obligations related to one or more shared items of interest are allocated.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Such agreements may be considered &quot;consent directives&quot; or &quot;contracts&quot; depending on the context, and are considered closely related or synonymous from a legal perspective.&#xD;&#xA;&#xD;&#xA;**Examples:** &#xD;&#xA;&#xD;&#xA; *  Healthcare Privacy Consent Directive permitting or restricting in whole or part the collection, access, use, and disclosure of health information, and any associated handling caveats.&#xD;&#xA; *  Healthcare Medical Consent Directive to receive medical procedures after being informed of risks and benefits, thereby reducing the grantee&#39;s liability.&#xD;&#xA; *  Research Informed Consent for participation in clinical trials and disclosure of health information after being informed of risks and benefits, thereby reducing the grantee&#39;s liability.&#xD;&#xA; *  Substitute decision maker delegation in which the grantee assumes responsibility to act on behalf of the grantor.&#xD;&#xA; *  Contracts in which the agreement requires assent/dissent by the grantor of terms offered by a grantee, a consumer opts out of an &quot;award&quot; system for use of a retailer&#39;s marketing or credit card vendor&#39;s point collection cards in exchange for allowing purchase tracking and profiling.&#xD;&#xA; *  A mobile device or App privacy policy and terms of service to which a user must agree in whole or in part in order to utilize the service.&#xD;&#xA; *  Agreements between a client and an authorization server or between an authorization server and a resource operator and/or resource owner permitting or restricting e.g., collection, access, use, and disclosure of information, and any associated handling caveats."/>
@@ -19714,9 +19674,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="These codes are dissimilar from their parent and do not belong in this hierarchy. PHER and Pharmace to resolve."/>
-    </extension>
     <code value="BOOSTER"/>
     <display value="Booster Immunization"/>
     <definition value="An additional immunization administration within a series intended to bolster or enhance immunity."/>
@@ -19734,9 +19691,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="These codes are dissimilar from their parent and do not belong in this hierarchy. PHER and Pharmace to resolve."/>
-    </extension>
     <code value="INITIMMUNIZ"/>
     <display value="Initial Immunization"/>
     <definition value="The first immunization administration in a series intended to produce immunity"/>
