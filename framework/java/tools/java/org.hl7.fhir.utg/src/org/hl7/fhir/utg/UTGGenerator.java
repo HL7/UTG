@@ -1,11 +1,9 @@
 package org.hl7.fhir.utg;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLException;
@@ -22,13 +20,11 @@ import java.util.Map;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.PropertyType;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
@@ -108,6 +104,8 @@ public class UTGGenerator extends BaseGenerator {
 		super(dest, new HashMap<String, CodeSystem>(), new HashSet<String>());
 		createMissingOutputFolders();
 
+		PropertyLookup.initialize(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS, "utg-concept-properties.xml"));
+		
 		externalProviders = ExternalProvider.getExternalProviders(externalProviderManifest);
 		v2 = new V2SourceGenerator(dest, csmap, knownCS);
 		v3 = new V3SourceGenerator(dest, csmap, knownCS, externalProviders);
@@ -203,24 +201,16 @@ public class UTGGenerator extends BaseGenerator {
 			}
 		};
 
-		String utgConceptPropertiesFilename = Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS, "utg-concept-properties.xml");
-		Map<String, ConceptDefinitionComponent> utgConceptProperties;
-		try {
-			utgConceptProperties = loadUTGConceptProperties(utgConceptPropertiesFilename);
-		} catch (Exception e) {
-			throw new RuntimeException("Error reading UTG Concept Properties file: '" + utgConceptPropertiesFilename + "'", e);
-		}
-
 		List<String> propertyCodes = new LinkedList<>(propertyCodesAndTypes.keySet());
 		Collections.sort(propertyCodes);
 		for (String propertyCode : propertyCodes) {
-			if (!utgConceptProperties.containsKey(propertyCode)) {
+			if (!PropertyLookup.hasUtgConceptProperty(propertyCode)) {
 				throw new RuntimeException(String.format("Error generating concept domains: Property code '%s' not found in UTG Concept Properties file", propertyCode));
 			}
 			cs.addProperty()
 				.setCode(propertyCode)
 				.setUri(propertyUriRoot + propertyCode)
-				.setDescription(utgConceptProperties.get(propertyCode).getDisplay())
+				.setDescription(PropertyLookup.getUtgConceptProperty(propertyCode).getDisplay())
 				.setType(propertyCodesAndTypes.get(propertyCode));
 		}
 
@@ -357,20 +347,4 @@ public class UTGGenerator extends BaseGenerator {
 		return manifest;
 	}
 
-	private Map<String, ConceptDefinitionComponent> loadUTGConceptProperties(String utgConceptPropertiesFilename) throws IOException, FHIRFormatError {
-		File utgConceptPropertiesFile = new File(utgConceptPropertiesFilename);
-		InputStream inputStream = null;
-		CodeSystem utgConceptPropertiesCodesystem = null;
-
-		inputStream = new FileInputStream(utgConceptPropertiesFile);
-		utgConceptPropertiesCodesystem = (CodeSystem) new XmlParser().parse(inputStream);
-		inputStream.close();
-
-		Map<String, ConceptDefinitionComponent> utgConceptProperties = new HashMap<>();
-		utgConceptPropertiesCodesystem.getConcept().forEach(concept -> {
-			utgConceptProperties.put(concept.getCode(), concept);
-		});
-		
-		return utgConceptProperties;
-	}
 }

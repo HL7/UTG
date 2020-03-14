@@ -21,7 +21,6 @@ import java.util.Set;
 
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
@@ -43,7 +42,6 @@ import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.utg.BaseGenerator;
 import org.hl7.fhir.utg.OIDLookup;
 import org.hl7.fhir.utg.PropertyLookup;
@@ -1092,6 +1090,24 @@ public class V2SourceGenerator extends BaseGenerator {
 			.setType(PropertyType.CODE)
 			.setDescription("Version of HL7 in which the code was deprecated");
 		
+		cs.addProperty()
+			.setCode("v2-concComment")
+			.setUri(PropertyLookup.getPropertyUri("v2-concComment"))
+			.setType(PropertyType.STRING)
+			.setDescription(PropertyLookup.getUtgConceptProperty("v2-concComment").getDisplay());
+	
+		cs.addProperty()
+			.setCode("v2-concCommentAsPub")
+			.setUri(PropertyLookup.getPropertyUri("v2-concCommentAsPub"))
+			.setType(PropertyType.STRING)
+			.setDescription(PropertyLookup.getUtgConceptProperty("v2-concCommentAsPub").getDisplay());
+	
+		cs.addProperty()
+			.setCode("v2-usageNotes")
+			.setUri(PropertyLookup.getPropertyUri("v2-usageNotes"))
+			.setType(PropertyType.STRING)
+			.setDescription(PropertyLookup.getUtgConceptProperty("v2-usageNotes").getDisplay());
+	
 		// cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible")
 		// .setType(PropertyType.BOOLEAN)
 		// .setDescription("Whether code is considered 'backwards compatible' (whatever
@@ -1285,7 +1301,13 @@ public class V2SourceGenerator extends BaseGenerator {
 				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("vsoid"))
 				.setType(PropertyType.STRING)
 				.setDescription("OID For Value Set");
-		
+
+		cs.addProperty()
+				.setCode("vsuri")
+				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("vsuri"))
+				.setType(PropertyType.STRING)
+				.setDescription("OID For Value Set");
+
 		cs.addProperty()
 				.setCode("v2type")
 				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("v2type"))
@@ -1377,8 +1399,14 @@ public class V2SourceGenerator extends BaseGenerator {
 							}
 						}
 					}
-					if (!Utilities.noString(tv.vsoid))
+					if (!Utilities.noString(tv.vsoid)) {
 						c.addProperty().setCode("vsoid").setValue(new StringType(tv.vsoid));
+						ObjectInfo vsObject = objects.get(tv.vsoid);
+						if (vsObject != null && vsObject.uri != null && !vsObject.uri.isEmpty()) {
+							c.addProperty().setCode("vsuri").setValue(new StringType(vsObject.uri));
+						}
+					}
+					
 					if (tv.getType() > 0)
 						c.addProperty().setCode("v2type").setValue(new CodeType(codeForType(tv.getType())));
 					

@@ -39,7 +39,6 @@ import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Extension;
-import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
 import org.hl7.fhir.r4.model.MetadataResource;
@@ -775,7 +774,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		else
 			throw new Exception("unknown type " + type);
 
-		String isMandatory = item.getAttribute("isMandatoryIndicator");
+/*		String isMandatory = item.getAttribute("isMandatoryIndicator");
 		String defaultHandlingCode = item.getAttribute("defaultHandlingCode");
 		String defaultValue = item.getAttribute("defaultValue");
 
@@ -785,7 +784,7 @@ public class V3SourceGenerator extends BaseGenerator {
 				throw new Exception("Unsupported default value " + defaultValue);
 		}
 		
-/*		if (!(isMandatory + defaultHandlingCode + defaultValue).isEmpty()) {
+		if (!(isMandatory + defaultHandlingCode + defaultValue).isEmpty()) {
 			Extension ext = new Extension().setUrl(csext("mif-extended-properties"));
 			pd.getExtension().add(ext);
 			if (!isMandatory.isEmpty())
