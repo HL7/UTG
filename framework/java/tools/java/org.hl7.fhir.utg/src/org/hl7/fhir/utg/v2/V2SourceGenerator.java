@@ -1376,7 +1376,7 @@ public class V2SourceGenerator extends BaseGenerator {
 				.setCode("version-introduced")
 				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("version-introduced"))
 				.setType(PropertyType.STRING)
-				.setDescription("Version Introduced.");
+				.setDescription(PropertyLookup.getUtgConceptProperty("v2-version-introduced").getDefinition());
 		
 		cs.addProperty()
 				.setCode("cld")
@@ -1447,9 +1447,13 @@ public class V2SourceGenerator extends BaseGenerator {
 								.setValue(new StringType(tv.v2CodeTableComment));
 					if (!Utilities.noString(tv.binding))
 						c.addProperty().setCode("binding").setValue(new StringType(tv.binding));
-					if (!Utilities.noString(tv.versionIntroduced))
-						c.addProperty().setCode("version-introduced").setValue(new StringType(tv.versionIntroduced));
-					if (!Utilities.noString(tv.versionIntroduced))
+
+					//if (!Utilities.noString(tv.versionIntroduced))
+					//	c.addProperty().setCode("version-introduced").setValue(new StringType(tv.versionIntroduced));
+
+					c.addProperty().setCode("version-introduced").setValue(new StringType("2.9"));
+
+					if (!Utilities.noString(tv.vsExpansion))
 						c.addProperty().setCode("cld").setValue(new StringType(tv.vsExpansion));
 					
 					if (!Utilities.noString(tv.vocabDomain)) {
