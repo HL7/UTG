@@ -196,7 +196,7 @@ public class UTGGenerator extends BaseGenerator {
 				for (String realm : BINDING_REALMS) {
 					put(CONTEXT_BINDING_PREFIX + realm + "-valueSet", PropertyType.STRING);
 					put(CONTEXT_BINDING_PREFIX + realm + "-effectiveDate", PropertyType.DATETIME);
-					put(CONTEXT_BINDING_PREFIX + realm + "-codingStrength", PropertyType.CODE);
+					put(CONTEXT_BINDING_PREFIX + realm + "-strength", PropertyType.CODE);
 				}
 			}
 		};
