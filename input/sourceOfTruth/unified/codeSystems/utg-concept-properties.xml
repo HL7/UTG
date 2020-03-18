@@ -18,7 +18,7 @@
   </property>
   <concept>
     <code value="v2-binding"/>
-    <display value="binding"/>
+    <display value="V2 Binding Code"/>
     <definition value="Coded value identifying the binding realm for those tables that have a binding to a value set.  0=no binding or binding N/A; 1=Example; 2=Representative; 3=Universal; 4=US Realm."/>
     <property>
       <code value="comment"/>
@@ -27,7 +27,7 @@
   </concept>
   <concept>
     <code value="v2-cld"/>
-    <display value="cld"/>
+    <display value="V2 VS CLD Type"/>
     <definition value="Categorization of Content Logical Definition for the V2 value set informing the table, as printed in the V2 ballot.  0=no expansion, 1=all codes, 2=enumerated, 3=V3 vaue set definition, 4=unique intensional definition, 5=non-HL7 value set definition, 6=FHIR value set definition"/>
     <property>
       <code value="comment"/>
@@ -36,7 +36,7 @@
   </concept>
   <concept>
     <code value="v2-cs-oid"/>
-    <display value="csoid"/>
+    <display value="V2 Code System OID"/>
     <definition value="OID of the code system associated with the table"/>
     <property>
       <code value="comment"/>
@@ -45,7 +45,7 @@
   </concept>
   <concept>
     <code value="v2-cs-uri"/>
-    <display value="csuri"/>
+    <display value="V2 Code System URI"/>
     <definition value="URI of the code system associated with the table"/>
     <property>
       <code value="comment"/>
@@ -55,7 +55,7 @@
 
   <concept>
     <code value="v2-vs-uri"/>
-    <display value="vsuri"/>
+    <display value="V2 Value Set URI"/>
     <definition value="URI of the value set informing the content of the table"/>
     <property>
       <code value="comment"/>
@@ -74,7 +74,7 @@
   </concept>
   <concept>
     <code value="status"/>
-    <display value="status"/>
+    <display value="V2 Table Status"/>
     <definition value="Status of the table as published in the V2 ballots"/>
     <property>
       <code value="comment"/>
@@ -83,7 +83,7 @@
   </concept>
   <concept>
     <code value="steward"/>
-    <display value="structuredefinition-wg"/>
+    <display value="Steward WorkGroup"/>
     <definition value="steward workgroup for the table"/>
     <property>
       <code value="comment"/>
@@ -92,7 +92,7 @@
   </concept>
   <concept>
     <code value="v2-table-oid"/>
-    <display value="table-oid"/>
+    <display value="V2 Table OID"/>
     <definition value="OID value for the table object"/>
     <property>
       <code value="comment"/>
@@ -101,7 +101,7 @@
   </concept>
   <concept>
     <code value="v2-table-type"/>
-    <display value="v2type"/>
+    <display value="V2 Table Type"/>
     <definition value="Type of V2 table, e.g. HL7 or User"/>
     <property>
       <code value="comment"/>
@@ -110,8 +110,8 @@
   </concept>
   <concept>
     <code value="v2-cs-version"/>
-    <display value="version"/>
-    <definition value="Version of the code system informing the table"/>
+    <display value="V2 Code System Version"/>
+    <definition value="Version of the code system informing the table. Note this is a denorm"/>
     <property>
       <code value="comment"/>
       <valueString value="used only in v2-tables.xml"/>
@@ -128,7 +128,7 @@
   </concept>
   <concept>
     <code value="vocab-domain"/>
-    <display value="vocab-domain"/>
+    <display value="Concept Domain"/>
     <definition value="Associated Concept Domain for the table"/>
     <property>
       <code value="comment"/>
@@ -137,7 +137,7 @@
   </concept>
   <concept>
     <code value="v2-vs-oid"/>
-    <display value="vsoid"/>
+    <display value="V2 Value Set OID"/>
     <definition value="OID of the value set informing the table"/>
     <property>
       <code value="comment"/>
@@ -146,7 +146,7 @@
   </concept>
   <concept>
     <code value="v2-where-used"/>
-    <display value="where-used"/>
+    <display value="Field Where Used"/>
     <definition value="String holding the segment and field where the table is bound in the interational standard."/>
     <property>
       <code value="comment"/>
@@ -155,7 +155,7 @@
   </concept>
   <concept>
     <code value="rim-classifies-class-code"/>
-    <display value="ClassifiesClassCode"/>
+    <display value="ClassifiesC RIM Class Code"/>
     <definition value="Associates a concept domain with th ActClass code that it is intended to be associated with, ie for late binding, informs the IG devloper which code should be populated in ActClass when a value sset for ActCode is being bound."/>
     <property>
       <code value="comment"/>
@@ -164,7 +164,7 @@
   </concept>
   <concept>
     <code value="rim-qualified-by"/>
-    <display value="MayBeQualifiedBy"/>
+    <display value="May Be QualifiedB y"/>
     <definition value="One of the types of concept relationships that implements qualifying relationships"/>
     <property>
       <code value="comment"/>
@@ -649,6 +649,36 @@
     <property>
       <code value="comment"/>
       <valueString value="used only in the Version 2 code systems concepts"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="propIsMandatory"/>
+    <display value="RIM Property is Mandatory"/>
+    <definition value="Boolean indicating when an attribure of a RIM class attribute is mandatory."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="propDefaultValue"/>
+    <display value="Default value of RIM Property"/>
+    <definition value="String holding an optional default value for a mandatory property."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="propDefaultHandling"/>
+    <display value="Default handling of RIM Property"/>
+    <definition value="Code value identifying the default handling code of a RIM attribute mandatory property."/>
+    <property>
+      <code value="comment"/>
+      <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
     </property>
   </concept>
 
