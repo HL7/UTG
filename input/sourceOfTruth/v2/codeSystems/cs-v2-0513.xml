@@ -44,6 +44,12 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
   <concept id="5560">
     <code value="RA"/>
     <display value="Returned unused and unlinked"/>
@@ -72,12 +78,13 @@
     </property>
   </concept>
   <concept id="5563">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="This is not expected to be an end state; transfusion will either be ended or restarted."/>
-    </extension>
     <code value="TI"/>
     <display value="Transfusion Interrupted"/>
     <definition value="Transfusion of the blood product was interrupted and considered ended; a reason for interruption is usually also reported."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="This is not expected to be an end state; transfusion will either be ended or restarted."/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
@@ -93,12 +100,13 @@
     </property>
   </concept>
   <concept id="5565">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="This code may be used for restart if interrupted as well."/>
-    </extension>
     <code value="TS"/>
     <display value="Transfusion Started"/>
     <definition value="Transfusion of the blood product has been started and is in progress"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="This code may be used for restart if interrupted as well."/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>

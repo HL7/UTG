@@ -44,6 +44,18 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="5511">
     <code value="S"/>
     <display value="Sequential"/>
@@ -54,15 +66,17 @@
     </property>
   </concept>
   <concept id="5512">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Used for indicating a repeating cycle of service requests; for example, individual intravenous solutions used in a cyclical sequence (a.k.a. &quot;Alternating IVs&quot;). This value would be compatible with linking separate service requests or with having all cyclical service request components in a single service request. Likewise, the value would be compatible with either Parent-Child messages or a single service request message to communicate the service requests&#39; sequencing"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Used for indicating a repeating cycle of service requests; for example, individual intravenous solutions used in a cyclical sequence (a.k.a. &quot;Alternating IVs&quot;). This value would be compatible with linking separate service requests or with having all cyclical service request components in a single service request. Likewise, the value would be compatible with either Parent-Child messages or a single service request message to communicate the service requests&#39; sequencing"/>
-    </extension>
     <code value="C"/>
     <display value="Cyclical"/>
     <definition value="Cyclical"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Used for indicating a repeating cycle of service requests; for example, individual intravenous solutions used in a cyclical sequence (a.k.a. &quot;Alternating IVs&quot;). This value would be compatible with linking separate service requests or with having all cyclical service request components in a single service request. Likewise, the value would be compatible with either Parent-Child messages or a single service request message to communicate the service requests&#39; sequencing"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Used for indicating a repeating cycle of service requests; for example, individual intravenous solutions used in a cyclical sequence (a.k.a. &quot;Alternating IVs&quot;). This value would be compatible with linking separate service requests or with having all cyclical service request components in a single service request. Likewise, the value would be compatible with either Parent-Child messages or a single service request message to communicate the service requests&#39; sequencing"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>

@@ -6,14 +6,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
-    <extension url="name">
-      <valueString value="Health Level Seven"/>
-    </extension>
-    <extension url="role">
-      <valueString value="Sponsor"/>
-    </extension>
-  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
     <valueString value="In Ballot 2009May, a strong Negative vote was lodged against several of the concept definitions in the vocabulary used for Act.moodCode. The vote was found &quot;Persuasive With Mod&quot;, with the understanding that M and M would undertake a detailed review of these concept definitions for a future release of the RIM."/>
   </extension>
@@ -35,36 +27,18 @@
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultValue">
-        <valueString value="active"/>
-      </extension>
-    </extension>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="Name:Class"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Class"/>
     <description value="The formal name for the class clone under this code"/>
@@ -77,11 +51,6 @@
     <type value="boolean"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="synonymCode"/>
     <uri value="http://hl7.org/fhir/concept-properties#synonym"/>
     <description value="An additional concept code that was also attributed to a concept"/>
@@ -427,9 +396,6 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
         <valueString value="This concept This codes should no longer be used.  Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion."/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1033-20100712"/>
-      </extension>
       <code value="CRT"/>
       <display value="criterion"/>
       <definition value="***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion.&#xD;&#xA;&#xD;&#xA;**Definition:** A condition that must be true for the source act to be considered."/>
@@ -448,9 +414,6 @@
       <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
           <valueString value="This concept This codes should no longer be used.  Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion."/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-          <valueString value="1037-20100712"/>
         </extension>
         <code value="EVN.CRT"/>
         <display value="event criterion"/>

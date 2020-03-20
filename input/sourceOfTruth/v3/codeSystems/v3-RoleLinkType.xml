@@ -6,14 +6,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
-    <extension url="name">
-      <valueString value="Health Level Seven"/>
-    </extension>
-    <extension url="role">
-      <valueString value="Sponsor"/>
-    </extension>
-  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-RoleLinkType"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -31,69 +23,36 @@
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="Name:Role:inboundLink:RoleLink"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Role-inbound"/>
     <description value="Name of inboundLink relationship from Role to RoleLink"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="Name:Role:outboundLink:RoleLink"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Role-outbound"/>
     <description value="Name of outboundLink relationship from Role to RoleLink"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="Sort:Role:inboundLink:RoleLink"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Role-inbound-sort"/>
     <description value="Sort key for inboundLink relationship from Role to RoleLink"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="Sort:Role:outboundLink:RoleLink"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Role-outbound-sort"/>
     <description value="Sort key for outboundLink relationship from Role to RoleLink"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultValue">
-        <valueString value="active"/>
-      </extension>
-    </extension>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
@@ -128,9 +87,6 @@
       <valueCode value="A________"/>
     </property>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-        <valueString value="PM TC needs to add an example that includes the notion of &quot;covers for&quot;, &quot;supports,&quot; &quot;delegates.&quot; Need to consider additional concepts and a more precise definition."/>
-      </extension>
       <code value="BACKUP"/>
       <display value="is backup for"/>
       <definition value="This relationship indicates the source Role is available to the target Role as a backup. An entity in a backup role will be available as a substitute or replacement in the event that the entity assigned the role is unavailable. In medical roles where it is critical that the function be performed and there is a possibility that the individual assigned may be ill or otherwise indisposed, another individual is assigned to cover for the individual originally assigned the role. A backup may be required to be identified, but unless the backup is actually used, he/she would not assume the assigned entity role."/>

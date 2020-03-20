@@ -44,6 +44,12 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
   <concept id="2115">
     <code value="A"/>
     <display value="Add/Insert"/>
@@ -79,12 +85,13 @@
     </property>
   </concept>
   <concept id="2117">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Snapshot mode is the expected default; use this code to explicitly state that."/>
-    </extension>
     <code value="S"/>
     <display value="Used in Snapshot mode"/>
     <definition value="Declares when segment falls under snapshot  mode handling, i.e. all elements that were previously sent will be sent, not just any changes"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Snapshot mode is the expected default; use this code to explicitly state that."/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>

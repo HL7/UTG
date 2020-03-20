@@ -9,9 +9,11 @@ import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -102,6 +104,8 @@ public class UTGGenerator extends BaseGenerator {
 		super(dest, new HashMap<String, CodeSystem>(), new HashSet<String>());
 		createMissingOutputFolders();
 
+		PropertyLookup.initialize(Utilities.path(dest, FolderNameConstants.UNIFIED, FolderNameConstants.CODESYSTEMS, "utg-concept-properties.xml"));
+		
 		externalProviders = ExternalProvider.getExternalProviders(externalProviderManifest);
 		v2 = new V2SourceGenerator(dest, csmap, knownCS);
 		v3 = new V3SourceGenerator(dest, csmap, knownCS, externalProviders);
@@ -181,24 +185,35 @@ public class UTGGenerator extends BaseGenerator {
 		cs.setVersionNeeded(false);
 		cs.setContent(CodeSystemContentMode.COMPLETE);
 
-		// TODO - Fix these property URIs?
-		cs.addProperty().setCode("source").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
-				.setType(PropertyType.CODE);
-		cs.addProperty().setCode("ConceptualSpaceForClassCode").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
-				.setType(PropertyType.CODING);
-		cs.addProperty().setCode("openIssue").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
-				.setType(PropertyType.STRING);
-		cs.addProperty().setCode("deprecationInfo").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/")
-				.setType(PropertyType.STRING);
+		String propertyUriRoot = "http://terminology.hl7.org/CodeSystem/utg-concept-properties#";
+		@SuppressWarnings("serial")
+		Map<String, PropertyType> propertyCodesAndTypes = new HashMap<String, PropertyType>() {
+			{
+				put("source", PropertyType.CODE);
+				put("ConceptualSpaceForClassCode", PropertyType.CODING);
+				put("openIssue", PropertyType.STRING);
+				put("deprecationInfo", PropertyType.STRING);
+				for (String realm : BINDING_REALMS) {
+					put(CONTEXT_BINDING_PREFIX + realm + "-valueSet", PropertyType.STRING);
+					put(CONTEXT_BINDING_PREFIX + realm + "-effectiveDate", PropertyType.DATETIME);
+					put(CONTEXT_BINDING_PREFIX + realm + "-strength", PropertyType.CODE);
+				}
+			}
+		};
 
-		
-		for (String realm : BINDING_REALMS) {
-			String propertyCodePrefix = CONTEXT_BINDING_PREFIX + realm;
-			cs.addProperty().setCode(propertyCodePrefix + "-valueSet").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/").setType(PropertyType.STRING);
-			//cs.addProperty().setCode(propertyCodePrefix + "-codingStrength").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/").setType(PropertyType.CODE);
-			cs.addProperty().setCode(propertyCodePrefix + "-effectiveDate").setUri("http://terminology.hl7.org/CodeSystem/ConceptDomain/").setType(PropertyType.DATETIME);
+		List<String> propertyCodes = new LinkedList<>(propertyCodesAndTypes.keySet());
+		Collections.sort(propertyCodes);
+		for (String propertyCode : propertyCodes) {
+			if (!PropertyLookup.hasUtgConceptProperty(propertyCode)) {
+				throw new RuntimeException(String.format("Error generating concept domains: Property code '%s' not found in UTG Concept Properties file", propertyCode));
+			}
+			cs.addProperty()
+				.setCode(propertyCode)
+				.setUri(propertyUriRoot + propertyCode)
+				.setDescription(PropertyLookup.getUtgConceptProperty(propertyCode).getDisplay())
+				.setType(propertyCodesAndTypes.get(propertyCode));
 		}
-		
+
 		Map<String, String> codes = new HashMap<String, String>();
 
 		int count = cs.getConcept().size() + v3.addConceptDomains(cs.getConcept(), codes);
@@ -331,5 +346,5 @@ public class UTGGenerator extends BaseGenerator {
 		
 		return manifest;
 	}
-	
+
 }

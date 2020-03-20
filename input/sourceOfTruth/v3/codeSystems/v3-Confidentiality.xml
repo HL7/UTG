@@ -6,14 +6,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
     <valueString value="Is in UMLS."/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
-    <extension url="name">
-      <valueString value="Health Level Seven"/>
-    </extension>
-    <extension url="role">
-      <valueString value="Sponsor"/>
-    </extension>
-  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -32,25 +24,12 @@
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultValue">
-        <valueString value="active"/>
-      </extension>
-    </extension>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
@@ -157,9 +136,6 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
       <valueString value="Deprecated due to updated confidentiality codes under ActCode"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1126-20111214"/>
-    </extension>
     <code value="_ConfidentialityByAccessKind"/>
     <display value="ConfidentialityByAccessKind"/>
     <definition value="**Description:** By accessing subject / role and relationship based rights (These concepts are mutually exclusive, one and only one is required for a valid confidentiality coding.)&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Deprecated due to updated confidentiality codes under ActCode"/>
@@ -179,9 +155,6 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
         <valueString value="Replced by ActCode.B"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1126-20111214"/>
-      </extension>
       <code value="B"/>
       <display value="business"/>
       <definition value="**Description:** Since the service class can represent knowledge structures that may be considered a trade or business secret, there is sometimes (though rarely) the need to flag those items as of business level confidentiality. However, no patient related information may ever be of this confidentiality level.&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:* Replced by ActCode.B"/>
@@ -197,9 +170,6 @@
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
         <valueString value="Deprecated due to updated confidentiality codes under ActCode"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1126-20111214"/>
       </extension>
       <code value="D"/>
       <display value="clinician"/>
@@ -217,9 +187,6 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
         <valueString value="Deprecated due to updated confidentiality codes under ActCode"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1126-20111214"/>
-      </extension>
       <code value="I"/>
       <display value="individual"/>
       <definition value="**Description:** Access only to individual persons who are mentioned explicitly as actors of this service and whose actor type warrants that access (cf. to actor type code).&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Deprecated due to updated confidentiality codes under ActCode"/>
@@ -236,9 +203,6 @@
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
       <valueString value="Deprecated due to updated confidentiality codes under ActCode"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1126-20111214"/>
     </extension>
     <code value="_ConfidentialityByInfoType"/>
     <display value="ConfidentialityByInfoType"/>
@@ -259,9 +223,6 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
         <valueString value="Replced by ActCode.ETH"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1126-20111214"/>
-      </extension>
       <code value="ETH"/>
       <display value="substance abuse related"/>
       <definition value="**Description:** Alcohol/drug-abuse related item&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.ETH"/>
@@ -277,9 +238,6 @@
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
         <valueString value="Replced by ActCode.HIV"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1126-20111214"/>
       </extension>
       <code value="HIV"/>
       <display value="HIV related"/>
@@ -297,9 +255,6 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
         <valueString value="Replced by ActCode.PSY"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1126-20111214"/>
-      </extension>
       <code value="PSY"/>
       <display value="psychiatry relate"/>
       <definition value="**Description:** Psychiatry related item&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.PSY"/>
@@ -315,9 +270,6 @@
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
         <valueString value="Replced by ActCode.SDV"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1126-20111214"/>
       </extension>
       <code value="SDV"/>
       <display value="sexual and domestic violence related"/>
@@ -335,9 +287,6 @@
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
       <valueString value="Deprecated due to updated confidentiality codes under ActCode"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1126-20111214"/>
     </extension>
     <code value="_ConfidentialityModifiers"/>
     <display value="ConfidentialityModifiers"/>
@@ -358,9 +307,6 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
         <valueString value="Replced by ActCode.CEL"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1126-20111214"/>
-      </extension>
       <code value="C"/>
       <display value="celebrity"/>
       <definition value="**Description:** Celebrities are people of public interest (VIP) including employees, whose information require special protection.&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.CEL"/>
@@ -377,9 +323,6 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
         <valueString value="Deprecated due to updated confidentiality codes under ActCode"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1126-20111214"/>
-      </extension>
       <code value="S"/>
       <display value="sensitive"/>
       <definition value="**Description:** &#xD;&#xA;&#xD;&#xA;Information for which the patient seeks heightened confidentiality. Sensitive information is not to be shared with family members. Information reported by the patient about family members is sensitive by default. Flag can be set or cleared on patient&#39;s request.&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Deprecated due to updated confidentiality codes under ActCode"/>
@@ -393,9 +336,6 @@
       </property>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1126-20111214"/>
-      </extension>
       <code value="T"/>
       <display value="taboo"/>
       <definition value="**Description:** Information not to be disclosed or discussed with patient except through physician assigned to patient in this case. This is usually a temporary constraint only, example use is a new fatal diagnosis or finding, such as malignancy or HIV.&#xD;&#xA;&#xD;&#xA;*Deprecation Note:*Replced by ActCode.TBOO"/>

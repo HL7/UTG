@@ -39,7 +39,6 @@ import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Extension;
-import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
 import org.hl7.fhir.r4.model.MetadataResource;
@@ -254,7 +253,7 @@ public class V3SourceGenerator extends BaseGenerator {
 						.setValue(new StringType(cb.valueSetOID))
 						.addExtension(resext("concept-binding-strength"), new CodeType(cb.codingStrength));
 					
-					//c.addProperty().setCode(propertyCodePrefix + "-codingStrength").setValue(new CodeType(cb.codingStrength));
+					c.addProperty().setCode(propertyCodePrefix + "-codingStrength").setValue(new CodeType(cb.codingStrength));
 					c.addProperty().setCode(propertyCodePrefix + "-effectiveDate").setValue(new DateTimeType(cb.effectiveDate));
 				}
 			}
@@ -512,17 +511,26 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void processLegalese(Element item, CodeSystem cs) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
+		String licenseTerms = "";
+		String versioningPolicy = "";
 		while (child != null) {
 			if (child.getNodeName().equals("notation")) {
 				notations.add(child.getTextContent());
 				cs.addExtension(csext("legalese"), new StringType(child.getTextContent()));
-			} else if (child.getNodeName().equals("licenseTerms"))
-				cs.setCopyright(child.getTextContent());
-			else if (child.getNodeName().equals("versioningPolicy"))
-				cs.addExtension(resext("versioningPolicy"), new StringType(child.getTextContent()));
-			else
+			} else if (child.getNodeName().equals("licenseTerms")) {
+				licenseTerms = child.getTextContent();
+				//cs.setCopyright(child.getTextContent());
+			} else if (child.getNodeName().equals("versioningPolicy")) {
+				versioningPolicy = child.getTextContent();
+				//cs.addExtension(resext("versioningPolicy"), new StringType(child.getTextContent()));
+			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
 			child = XMLUtil.getNextSibling(child);
+		}
+		String copyright = String.join(" ", licenseTerms, versioningPolicy).trim();
+		if (!copyright.isEmpty()) {
+			cs.setCopyright(copyright);
 		}
 	}
 
@@ -544,14 +552,14 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 
 		
-		Extension ext = new Extension().setUrl(csext("contributor"));
+/*		Extension ext = new Extension().setUrl(csext("contributor"));
 		cs.getExtension().add(ext);
 		ext.addExtension("name", new StringType(name));
 		ext.addExtension("role", new StringType(role));
 		if (notes != null) {
 			ext.addExtension("notes", new StringType(notes));
 		}
-
+*/
 		if (!Utilities.existsInList(role, "Publisher", "Sponsor"))
 			throw new Exception("Unprocessed role " + role);
 		if (name.equalsIgnoreCase("(see notes)"))
@@ -615,10 +623,10 @@ public class V3SourceGenerator extends BaseGenerator {
 		ext.addExtension("id", new StringType(item.getAttribute("id")));
 		if (item.hasAttribute("responsiblePersonName"))
 			ext.addExtension("author", new StringType(item.getAttribute("responsiblePersonName")));
-		if (item.hasAttribute("isSubstantiveChange"))
-			ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
-		if (item.hasAttribute("isBackwardCompatibleChange"))
-			ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
+		//if (item.hasAttribute("isSubstantiveChange"))
+		//	ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
+		//if (item.hasAttribute("isBackwardCompatibleChange"))
+		//	ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
 
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -708,7 +716,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		String v = item.getAttribute("deprecationEffectiveVersion");
 		if (Utilities.noString(v))
 			throw new Exception("Element not understood: " + item.getNodeName());
-		cs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
+		// cs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
 		cs.setStatus(PublicationStatus.RETIRED);
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -735,7 +743,7 @@ public class V3SourceGenerator extends BaseGenerator {
 				pd.setUri(PropertyLookup.V3_PROPERTY_URIS.get(item.getAttribute("name")));
 			}
 			pd.setType(PropertyType.CODING);
-			pd.addExtension(csext("relationshipKind"), new CodeType(item.getAttribute("relationshipKind")));
+			// pd.addExtension(csext("relationshipKind"), new CodeType(item.getAttribute("relationshipKind")));
 			Element child = XMLUtil.getFirstChild(item);
 			while (child != null) {
 				if (child.getNodeName().equals("description"))
@@ -766,7 +774,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		else
 			throw new Exception("unknown type " + type);
 
-		String isMandatory = item.getAttribute("isMandatoryIndicator");
+/*		String isMandatory = item.getAttribute("isMandatoryIndicator");
 		String defaultHandlingCode = item.getAttribute("defaultHandlingCode");
 		String defaultValue = item.getAttribute("defaultValue");
 
@@ -786,7 +794,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			if (!defaultValue.isEmpty())
 				ext.addExtension("defaultValue", new StringType(defaultValue));
 		}
-		
+*/		
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("description"))
@@ -947,8 +955,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
-				//cd.addExtension(resext("openIssue"), new StringType(XMLUtil.htmlToXmlEscapedPlainText(child)));
-				cd.addExtension(resext("openIssue"), new StringType(MarkDownProcessor.htmlToMarkdown(child)));
+				//cd.addExtension(resext("openIssue"), new StringType(MarkDownProcessor.htmlToMarkdown(child)));
 			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			}
@@ -960,7 +967,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		String v = item.getAttribute("deprecationEffectiveVersion");
 		if (Utilities.noString(v))
 			throw new Exception("Element not understood: " + item.getNodeName());
-		cd.addExtension(resext("versionDeprecated"), Factory.newString_(v));
+		// cd.addExtension(resext("versionDeprecated"), Factory.newString_(v));
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
@@ -1243,17 +1250,24 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void processLegalese(Element item, ValueSet vs) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
+		String licenseTerms = "";
+		String versioningPolicy = "";
 		while (child != null) {
 			if (child.getNodeName().equals("notation"))
 				notations.add(child.getTextContent());
 			else if (child.getNodeName().equals("licenseTerms"))
-				vs.setCopyright(child.getTextContent());
+				licenseTerms = child.getTextContent();
 			else if (child.getNodeName().equals("versioningPolicy"))
-				vs.addExtension(resext("versioningPolicy"), new StringType(child.getTextContent()));
+				versioningPolicy = child.getTextContent();
 			else
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			child = XMLUtil.getNextSibling(child);
 		}
+		String copyright = String.join(" ", licenseTerms, versioningPolicy).trim();
+		if (!copyright.isEmpty()) {
+			vs.setCopyright(copyright);
+		}
+		
 	}
 
 	private void processContributor(Element item, ValueSet vs) throws Exception {
@@ -1379,7 +1393,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		String v = item.getAttribute("deprecationEffectiveVersion");
 		if (Utilities.noString(v))
 			throw new Exception("Element not understood: " + item.getNodeName());
-		vs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
+		// vs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
 		vs.setStatus(PublicationStatus.RETIRED);
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -1396,15 +1410,15 @@ public class V3SourceGenerator extends BaseGenerator {
 		Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/resource-history");
 		vs.getExtension().add(ext);
 		// ext.addExtension("id", new StringType(item.getAttribute("id")));
-		vs.setVersion(item.getAttribute("id"));
+		//vs.setVersion(item.getAttribute("id"));
 		ext.addExtension("id", new StringType(item.getAttribute("id")));
 		ext.addExtension("date", new DateTimeType(item.getAttribute("dateTime")));
 		if (item.hasAttribute("responsiblePersonName"))
 			ext.addExtension("author", new StringType(item.getAttribute("responsiblePersonName")));
-		if (item.hasAttribute("isSubstantiveChange"))
-			ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
-		if (item.hasAttribute("isBackwardCompatibleChange"))
-			ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
+		// if (item.hasAttribute("isSubstantiveChange"))
+		//	 ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
+		// if (item.hasAttribute("isBackwardCompatibleChange"))
+		//	 ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
 
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -1645,14 +1659,14 @@ public class V3SourceGenerator extends BaseGenerator {
 			pd.setType(type);
 			pd.setDescription(description);
 
-			Extension ext = new Extension().setUrl(csext("mif-extended-properties"));
+/*			Extension ext = new Extension().setUrl(csext("mif-extended-properties"));
 			pd.getExtension().add(ext);
 			ext.addExtension("isMandatory", new BooleanType(false));
 
 			if (propertyCode.equals("status")) {
 				ext.addExtension("defaultValue", new StringType("active"));
 			}
-			
+*/			
 		}
 	}
 }
