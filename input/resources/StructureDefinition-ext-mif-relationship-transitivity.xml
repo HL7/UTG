@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+	<id value="ext-mif-relationship-transitivity"/>
+	<url value="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity"/>
+	<name value="SupportedConceptRelationshipTransitivity"/>
+	<title value="MIF concept relationship transitivity"/>
+	<status value="active"/>
+	<description value="Indicates whether the relationship always (transitive) or never (antitransitive) propagates such that if the association exists from A to B and from B to C that the relationship can be inferred to exist from A to C"/>
+	<fhirVersion value="4.0.1"/>
+	<mapping>
+    <identity value="mif"/>
+    <uri value="urn:hl7-org:v3/mif2"/>
+    <name value="HL7 V3 Model Interchange Format 2"/>
+  </mapping>
+	<kind value="complex-type"/>
+	<abstract value="false"/>
+	<context>
+		<type value="element"/>
+		<expression value="CodeSystem.property"/>
+	</context>
+	<type value="Extension"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+	<derivation value="constraint"/>
+	<differential>
+		<element id="Extension">
+			<path value="Extension"/>
+			<short value="MIF concept relationship transitivity"/>
+			<definition value="Indicates whether the relationship always (transitive) or never (antitransitive) propagates such that if the association exists from A to B and from B to C that the relationship can be inferred to exist from A to C"/>
+			<max value="1"/>
+		</element>
+		<element id="Extension.extension">
+			<path value="Extension.extension"/>
+			<max value="0"/>
+		</element>
+		<element id="Extension.url">
+			<path value="Extension.url"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<fixedUri value="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity"/>
+		</element>
+		<element id="Extension.value[x]">
+			<path value="Extension.value[x]"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+        <strength value="required"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/mif-conceptRelationshipTransitivity"/>
+      </binding>
+      <mapping>
+        <identity value="mif"/>
+        <map value="SupportedConceptRelationship.transitivity"/>
+      </mapping>
+		</element>
+	</differential>
+</StructureDefinition>
