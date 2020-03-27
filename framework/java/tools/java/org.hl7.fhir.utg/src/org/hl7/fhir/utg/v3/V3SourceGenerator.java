@@ -552,7 +552,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		while (child != null) {
 			if (child.getNodeName().equals("notation")) {
 				notations.add(child.getTextContent());
-				cs.addExtension(csext("legalese"), new StringType(child.getTextContent()));
+				//cs.addExtension(csext("legalese"), new StringType(child.getTextContent()));
 			} else if (child.getNodeName().equals("licenseTerms")) {
 				licenseTerms = child.getTextContent();
 				//cs.setCopyright(child.getTextContent());
