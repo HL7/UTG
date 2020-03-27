@@ -1285,7 +1285,8 @@ public class V3SourceGenerator extends BaseGenerator {
 			} else if (child.getNodeName().equals("annotations")) {
 				processVSAnnotations(child, vs);
 			} else if (child.getNodeName().equals("historyItem")) {
-				processHistoryItem(child, vs);
+				// No op - remove history extension
+				//processHistoryItem(child, vs);
 			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			}
@@ -1477,7 +1478,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 	}
 
-	private void processHistoryItem(Element item, ValueSet vs) throws Exception {
+/*	private void processHistoryItem(Element item, ValueSet vs) throws Exception {
 		Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/resource-history");
 		vs.getExtension().add(ext);
 		// ext.addExtension("id", new StringType(item.getAttribute("id")));
@@ -1501,7 +1502,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			child = XMLUtil.getNextSibling(child);
 		}
 	}
-
+*/
 	private void processVersion(Element item, ValueSet vs) throws Exception {
 		// ignore: hl7MaintainedIndicator, hl7ApprovedIndicator
 		
