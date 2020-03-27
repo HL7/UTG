@@ -193,6 +193,7 @@ public class UTGGenerator extends BaseGenerator {
 				put("ConceptualSpaceForClassCode", PropertyType.CODING);
 				put("openIssue", PropertyType.STRING);
 				put("deprecationInfo", PropertyType.STRING);
+				put("HL7usageNotes", PropertyType.STRING);
 				for (String realm : BINDING_REALMS) {
 					put(CONTEXT_BINDING_PREFIX + realm + "-valueSet", PropertyType.STRING);
 					put(CONTEXT_BINDING_PREFIX + realm + "-effectiveDate", PropertyType.DATETIME);

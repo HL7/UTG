@@ -77,14 +77,23 @@ public class V3SourceGenerator extends BaseGenerator {
 	private Map<String, CodeSystem> csByName = new HashMap<String, CodeSystem>();
 	
 	private static final String V3_INITIAL_VERSION = "2.0.0";
+	//private static final String UTG_CON_PROP_PREFIX = "UTG-CONCEPT-PROPERTY:";
 	
-	private static final Map<String, String> DEFINITION_TEXT_PROPERTY_TAGS = new HashMap<String, String>() {
+	private static final Map<String, String> CODE_SYSTEM_DEFINITION_TEXT_PROPERTY_TAGS = new HashMap<String, String>() {
 		private static final long serialVersionUID = 1L;
 		{
 			put("open issue", "openIssue");
 			put("openissue", "openIssue");
 			put("deprecation comment", "deprecationInfo");
 			put("deprecationcomment", "deprecationInfo");
+		}
+	};
+	
+	private static final Map<String, String> CONCEPT_DEFINITION_TEXT_PROPERTY_TAGS = new HashMap<String, String>() {
+		private static final long serialVersionUID = 1L;
+		{
+			put("usage notes", "HL7usageNotes");
+			put("usagenotes", "HL7usageNotes");
 		}
 	};
 	
@@ -207,7 +216,12 @@ public class V3SourceGenerator extends BaseGenerator {
 			c.setDisplay(cd.name);
 			c.setDefinition(cd.text);
 
-			Map<String, String> properties = extractAdditionalPropertiesFromText(c.getDefinition());
+			Map<String, String> properties = extractAdditionalPropertiesFromText(c.getDefinition(), CONCEPT_DEFINITION_TEXT_PROPERTY_TAGS);
+			for (String propertyName : properties.keySet()) {
+				c.addProperty().setCode(propertyName).setValue(new StringType(properties.get(propertyName)));
+			}
+			
+			properties = extractAdditionalPropertiesFromText(c.getDefinition(), CODE_SYSTEM_DEFINITION_TEXT_PROPERTY_TAGS);
 			for (String propertyName : properties.keySet()) {
 				c.addProperty().setCode(propertyName).setValue(new StringType(properties.get(propertyName)));
 			}
@@ -684,7 +698,7 @@ public class V3SourceGenerator extends BaseGenerator {
 				} else {
 					//cs.setDescription(desc);
 					cs.setDescription(MarkDownProcessor.htmlToMarkdown(child));
-					Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(desc);
+					Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(desc, CODE_SYSTEM_DEFINITION_TEXT_PROPERTY_TAGS);
 					for (String propertyName : additionalProperties.keySet()) {
 						cs.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
 					}
@@ -860,7 +874,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			Element child = XMLUtil.getFirstChild(item);
 			while (child != null) {
 				if (child.getNodeName().equals("annotations"))
-					processConceptAnnotations(child, cd);
+					processConceptAnnotations(child, cd, cs);
 				else if (child.getNodeName().equals("code")) {
 					// no op
 				}
@@ -879,11 +893,11 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 	}
 
-	private void processConceptAnnotations(Element item, ConceptDefinitionComponent cd) throws Exception {
+	private void processConceptAnnotations(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("documentation"))
-				processConceptDocumentation(child, cd);
+				processConceptDocumentation(child, cd, cs);
 			else if (child.getNodeName().equals("appInfo"))
 				processConceptAppInfo(child, cd);
 			else
@@ -892,11 +906,11 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 	}
 
-	private void processConceptDocumentation(Element item, ConceptDefinitionComponent cd) throws Exception {
+	private void processConceptDocumentation(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("definition"))
-				processConceptDefinition(child, cd);
+				processConceptDefinition(child, cd, cs);
 
 			// There does not seem to be a 'description' element at this level. 
 			// Commented out this option, and we'll see if an exception eventually gets thrown.
@@ -922,7 +936,7 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 	*/
 
-	private void processConceptDefinition(Element item, ConceptDefinitionComponent cd) throws Exception {
+	private void processConceptDefinition(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
@@ -930,7 +944,19 @@ public class V3SourceGenerator extends BaseGenerator {
 				//cd.setDefinition(def);
 				cd.setDefinition(MarkDownProcessor.htmlToMarkdown(child));
 				
-				Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(def);
+				Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(def, CONCEPT_DEFINITION_TEXT_PROPERTY_TAGS);
+				Set<String> addedUtgProperties = new HashSet<>();
+				for (String propertyName : additionalProperties.keySet()) {
+					addedUtgProperties.add(propertyName);
+					cd.addProperty()
+						.setCode(propertyName)
+						.setValue(new StringType(additionalProperties.get(propertyName)));
+				}
+				for (String addedPropertyCode : addedUtgProperties) {
+					addUTGConceptProperty(cs, addedPropertyCode);
+				}
+				
+				additionalProperties = extractAdditionalPropertiesFromText(def, CODE_SYSTEM_DEFINITION_TEXT_PROPERTY_TAGS);
 				for (String propertyName : additionalProperties.keySet()) {
 					cd.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
 				}
@@ -1617,7 +1643,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		return codeElements;
 	}
 
-	private static Map<String, String> extractAdditionalPropertiesFromText(String text) {
+	private static Map<String, String> extractAdditionalPropertiesFromText(String text, Map<String, String> propertyTags) {
 		Map<String, String> propertiesFromText = new HashMap<>();
 		try {
 			if (text != null && !text.isEmpty()) {
@@ -1628,8 +1654,8 @@ public class V3SourceGenerator extends BaseGenerator {
 					int colonIdx = line.indexOf(":");
 					if (colonIdx >= 0) {
 						String tag = line.substring(0, colonIdx).toLowerCase();
-						if (DEFINITION_TEXT_PROPERTY_TAGS.containsKey(tag)) {
-							String propertyName = DEFINITION_TEXT_PROPERTY_TAGS.get(tag);
+						if (propertyTags.containsKey(tag)) {
+							String propertyName = propertyTags.get(tag);
 							String propertyValue = line.substring(colonIdx+1).trim();
 							propertiesFromText.put(propertyName, propertyValue);
 						}
