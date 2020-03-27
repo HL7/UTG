@@ -111,6 +111,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		private String name;
 		// private XhtmlNode definition;
 		private String text;
+		private String markdownText;
 		private List<ConceptDomain> children = new LinkedList<ConceptDomain>();
 		public String parent;
 		public String conceptualClass;
@@ -162,8 +163,8 @@ public class V3SourceGenerator extends BaseGenerator {
 					"text");
 			// cd.definition = new XhtmlParser().parseHtmlNode(xhtml);
 			
-			//cd.text = XMLUtil.htmlToXmlEscapedPlainText(xhtml);
-			cd.text = MarkDownProcessor.htmlToMarkdown(xhtml);
+			cd.text = XMLUtil.htmlToXmlEscapedPlainText(xhtml);
+			cd.markdownText = MarkDownProcessor.htmlToMarkdown(xhtml);
 			
 			Element spec = XMLUtil.getNamedChild(e, "specializesDomain");
 			if (spec != null)
@@ -214,14 +215,18 @@ public class V3SourceGenerator extends BaseGenerator {
 			
 			c.setCode(cd.name);
 			c.setDisplay(cd.name);
-			c.setDefinition(cd.text);
+			c.setDefinition(cd.markdownText);
 
-			Map<String, String> properties = extractAdditionalPropertiesFromText(c.getDefinition(), CONCEPT_DEFINITION_TEXT_PROPERTY_TAGS);
+			if (cd.name.equalsIgnoreCase("ActConsentInformationAccessOverrideReason")) {
+				System.out.println("stop");
+			}
+			
+			Map<String, String> properties = extractAdditionalPropertiesFromText(cd.text, CONCEPT_DEFINITION_TEXT_PROPERTY_TAGS);
 			for (String propertyName : properties.keySet()) {
 				c.addProperty().setCode(propertyName).setValue(new StringType(properties.get(propertyName)));
 			}
 			
-			properties = extractAdditionalPropertiesFromText(c.getDefinition(), CODE_SYSTEM_DEFINITION_TEXT_PROPERTY_TAGS);
+			properties = extractAdditionalPropertiesFromText(cd.text, CODE_SYSTEM_DEFINITION_TEXT_PROPERTY_TAGS);
 			for (String propertyName : properties.keySet()) {
 				c.addProperty().setCode(propertyName).setValue(new StringType(properties.get(propertyName)));
 			}
@@ -873,19 +878,24 @@ public class V3SourceGenerator extends BaseGenerator {
 
 			Element child = XMLUtil.getFirstChild(item);
 			while (child != null) {
-				if (child.getNodeName().equals("annotations"))
+				if (child.getNodeName().equals("annotations")) {
 					processConceptAnnotations(child, cd, cs);
-				else if (child.getNodeName().equals("code")) {
+				
+				} else if (child.getNodeName().equals("code")) {
 					// no op
-				}
-				else if (child.getNodeName().equals("conceptProperty"))
+				
+				} else if (child.getNodeName().equals("conceptProperty")) {
 					processConceptProperty(child, cd, cs);
-				else if (child.getNodeName().equals("printName"))
+				
+				} else if (child.getNodeName().equals("printName")) {
 					processPrintName(child, cd, cs);
-				else if (child.getNodeName().equals("conceptRelationship"))
+				
+				} else if (child.getNodeName().equals("conceptRelationship")) {
 					processConceptRelationship(child, cd, cs);
-				else
+					
+				} else {
 					throw new Exception("Unprocessed element " + child.getNodeName());
+				}
 
 				child = XMLUtil.getNextSibling(child);
 				

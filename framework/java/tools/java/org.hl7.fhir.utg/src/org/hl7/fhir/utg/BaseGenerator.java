@@ -253,10 +253,14 @@ public class BaseGenerator {
 	}
 	
 	protected PropertyComponent addUTGConceptProperty(CodeSystem cs, String propertyCode, PropertyType type) {
-		return cs.addProperty()
-				.setCode(propertyCode)
-				.setUri(PropertyLookup.getPropertyUri(propertyCode))
-				.setType(type)
-				.setDescription(PropertyLookup.getPropertyDisplay(propertyCode));
+		if (cs.hasPropertyCode(propertyCode)) {
+			return cs.getProperty(propertyCode);
+		} else {
+			return cs.addProperty()
+					.setCode(propertyCode)
+					.setUri(PropertyLookup.getPropertyUri(propertyCode))
+					.setType(type)
+					.setDescription(PropertyLookup.getPropertyDisplay(propertyCode));
+		}
 	}
 }
