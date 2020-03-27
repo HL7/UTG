@@ -1301,94 +1301,25 @@ public class V2SourceGenerator extends BaseGenerator {
 		cs.setVersionNeeded(false);
 		cs.setContent(CodeSystemContentMode.COMPLETE);
 
-		cs.addProperty()
-				.setCode("table-oid")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("table-oid"))
-				.setType(PropertyType.STRING).setDescription("OID For Table");
-		
-		cs.addProperty()
-				.setCode("csoid")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("csoid"))
-				.setType(PropertyType.STRING)
-				.setDescription("OID For Code System");
-		
-		cs.addProperty()
-				.setCode("csuri")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("csuri"))
-				.setType(PropertyType.STRING)
-				.setDescription("URI For Code System");
-		
-		cs.addProperty()
-				.setCode("vsoid")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("vsoid"))
-				.setType(PropertyType.STRING)
-				.setDescription("OID For Value Set");
+		addUTGConceptProperty(cs, "v2-table-oid");
+		addUTGConceptProperty(cs, "v2-cs-oid");
+		addUTGConceptProperty(cs, "v2-cs-uri");
+		addUTGConceptProperty(cs, "v2-vs-oid");
+		addUTGConceptProperty(cs, "v2-vs-uri");
+		addUTGConceptProperty(cs, "v2-table-type", PropertyType.CODE);
+		addUTGConceptProperty(cs, "v2-cs-version", PropertyType.INTEGER);
+		addUTGConceptProperty(cs, "steward", PropertyType.CODE);
+		addUTGConceptProperty(cs, "v2-where-used");
+		addUTGConceptProperty(cs, "v2-binding");
+		addUTGConceptProperty(cs, "v2-version-introduced");
+		addUTGConceptProperty(cs, "v2-cld");
+		addUTGConceptProperty(cs, "vocab-domain");
 
 		cs.addProperty()
-				.setCode("vsuri")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("vsuri"))
-				.setType(PropertyType.STRING)
-				.setDescription("URI For Value Set");
-
-		cs.addProperty()
-				.setCode("v2type")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("v2type"))
-				.setType(PropertyType.CODE)
-				.setDescription("Type of table");
-		
-/*		cs.addProperty()
-				.setCode("generate")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("generate"))
-				.setType(PropertyType.BOOLEAN)
-				.setDescription("whether to generate table");
-*/		
-		cs.addProperty()
-				.setCode("version")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("version"))
-				.setType(PropertyType.INTEGER)
-				.setDescription("Business version of table metadata");
-		
-		cs.addProperty()
-				.setCode("structuredefinition-wg")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("structuredefinition-wg"))
-				.setType(PropertyType.CODE)
-				.setDescription("Steward for the table.");
-		
-		cs.addProperty()
-				.setCode("where-used")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("where-used"))
-				.setType(PropertyType.STRING)
-				.setDescription("Where this table is used.");
-		
-		cs.addProperty()
-				.setCode("v2-codes-table-comment")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("v2-codes-table-comment"))
-				.setType(PropertyType.STRING)
-				.setDescription("V2 Codes Table Comment.");
-		
-		cs.addProperty()
-				.setCode("binding")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("binding"))
-				.setType(PropertyType.STRING)
-				.setDescription("Binding.");
-		
-		cs.addProperty()
-				.setCode("version-introduced")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("version-introduced"))
-				.setType(PropertyType.STRING)
-				.setDescription(PropertyLookup.getUtgConceptProperty("v2-version-introduced").getDefinition());
-		
-		cs.addProperty()
-				.setCode("cld")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("cld"))
-				.setType(PropertyType.STRING)
-				.setDescription("Content Logical Definition.");
-		
-		cs.addProperty()
-				.setCode("vocab-domain")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("vocab-domain"))
-				.setType(PropertyType.STRING)
-				.setDescription("Vocabulary Domain for this table");
+			.setCode("v2-codes-table-comment")
+			.setUri(PropertyLookup.V2_PROPERTY_URIS.get("v2-codes-table-comment"))
+			.setType(PropertyType.STRING)
+			.setDescription("V2 Codes Table Comment.");
 
 		int count = 0;
 		for (String n : sorted(tables.keySet())) {
@@ -1407,54 +1338,50 @@ public class V2SourceGenerator extends BaseGenerator {
 					count++;
 					c.setDisplay(t.name);
 					c.setDefinition(tv.objectDescription);
-					c.addProperty().setCode("table-oid").setValue(new StringType(t.oid));
+					c.addProperty().setCode("v2-table-oid").setValue(new StringType(t.oid));
 					
 					if (!Utilities.noString(tv.csoid) || t.isV3CsOid()) {
-						c.addProperty().setCode("csoid").setValue(new StringType(tv.csoid));
+						c.addProperty().setCode("v2-cs-oid").setValue(new StringType(tv.csoid));
 						String v3url = OIDLookup.get_v3_to_v2_url_bridge(tv.csoid);
 						if (v3url != null) {
-							c.addProperty().setCode("csuri").setValue(new StringType(v3url));
+							c.addProperty().setCode("v2cs-uri").setValue(new StringType(v3url));
 						} else {
 							ObjectInfo oi = objects.get(tv.csoid);
 							if (oi != null) {
-								c.addProperty().setCode("csuri").setValue(new StringType(oi.uri));
+								c.addProperty().setCode("v2-cs-uri").setValue(new StringType(oi.uri));
 							}
 						}
 					}
 					if (!Utilities.noString(tv.vsoid)) {
-						c.addProperty().setCode("vsoid").setValue(new StringType(tv.vsoid));
+						c.addProperty().setCode("v2-vs-oid").setValue(new StringType(tv.vsoid));
 						ObjectInfo vsObject = objects.get(tv.vsoid);
 						if (vsObject != null && vsObject.uri != null && !vsObject.uri.isEmpty()) {
-							c.addProperty().setCode("vsuri").setValue(new StringType(vsObject.uri));
+							c.addProperty().setCode("v2-vs-uri").setValue(new StringType(vsObject.uri));
 						}
 					}
 					
 					if (tv.getType() > 0)
-						c.addProperty().setCode("v2type").setValue(new CodeType(codeForType(tv.getType())));
+						c.addProperty().setCode("v2-table-type").setValue(new CodeType(codeForType(tv.getType())));
 					
-/*					if (tv.isGenerate())
-						c.addProperty().setCode("generate").setValue(new BooleanType(true));
-*/					
-					c.addProperty().setCode("version").setValue(new IntegerType(10));
+					c.addProperty().setCode("v2-cs-version").setValue(new IntegerType(10));
 					if (!Utilities.noString(tv.steward))
 						for (String steward : normalizeStewardValue(tv.steward)) {
-							c.addProperty().setCode("structuredefinition-wg").setValue(new CodeType(steward));	
+							c.addProperty().setCode("steward").setValue(new CodeType(steward));	
 						}
 					if (!Utilities.noString(tv.whereUsed))
-						c.addProperty().setCode("where-used").setValue(new StringType(tv.whereUsed));
+						c.addProperty().setCode("v2-where-used").setValue(new StringType(tv.whereUsed));
+					
 					if (!Utilities.noString(tv.v2CodeTableComment))
 						c.addProperty().setCode("v2-codes-table-comment")
 								.setValue(new StringType(tv.v2CodeTableComment));
+					
 					if (!Utilities.noString(tv.binding))
-						c.addProperty().setCode("binding").setValue(new StringType(tv.binding));
+						c.addProperty().setCode("v2-binding").setValue(new StringType(tv.binding));
 
-					//if (!Utilities.noString(tv.versionIntroduced))
-					//	c.addProperty().setCode("version-introduced").setValue(new StringType(tv.versionIntroduced));
-
-					c.addProperty().setCode("version-introduced").setValue(new StringType("2.9"));
+					c.addProperty().setCode("v2-version-introduced").setValue(new StringType("2.9"));
 
 					if (!Utilities.noString(tv.vsExpansion))
-						c.addProperty().setCode("cld").setValue(new StringType(tv.vsExpansion));
+						c.addProperty().setCode("v2-cld").setValue(new StringType(tv.vsExpansion));
 					
 					if (!Utilities.noString(tv.vocabDomain)) {
 						ObjectInfo tableObject = objects.get(tv.vocabDomain);

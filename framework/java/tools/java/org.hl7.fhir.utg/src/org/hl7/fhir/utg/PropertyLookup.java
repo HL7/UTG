@@ -17,23 +17,23 @@ public class PropertyLookup {
 	public static final Map<String, String> V2_PROPERTY_URIS = new HashMap<String, String>() {
 		private static final long serialVersionUID = 1L;
 		{
-			put("binding", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-binding");
-			put("cld", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-cld");
-			put("csoid", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-cs-oid");
-			put("csuri", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-cs-uri");
-			put("deprecated", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated");
-			put("generate", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-generate");
-			put("status", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#status");
-			put("structuredefinition-wg", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#steward");
-			put("table-oid", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-oid");
-			put("v2-codes-table-comment", "http://hl7.org/fhir/concept-properties#comment");
-			put("v2type", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-type");
-			put("version", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-cs-version");
-			put("version-introduced", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-version-introduced");
-			put("vocab-domain", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#vocab-domain");
-			put("vsoid", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-vs-oid");
-			put("vsuri", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-vs-uri");
-			put("where-used", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-where-used");
+			//put("binding", 				"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-binding");
+			//put("cld", 					"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-cld");
+			//put("csoid", 					"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-cs-oid");
+			//put("csuri", 					"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-cs-uri");
+			put("deprecated", 				"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated");
+			//put("generate", 				"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-generate");
+			put("status", 					"http://terminology.hl7.org/CodeSystem/utg-concept-properties#status");
+			//put("structuredefinition-wg", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#steward");
+			//put("table-oid", 				"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-oid");
+			//put("v2type", 				"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-type");
+			//put("version", 				"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-cs-version");
+			//put("version-introduced", 	"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-version-introduced");
+			//put("vocab-domain", 			"http://terminology.hl7.org/CodeSystem/utg-concept-properties#vocab-domain");
+			//put("vsoid", 					"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-vs-oid");
+			//put("vsuri", 					"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-vs-uri");
+			//put("where-used", 			"http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-where-used");
+			put("v2-codes-table-comment", 	"http://hl7.org/fhir/concept-properties#comment");
 		}
 	};
 	
@@ -95,6 +95,16 @@ public class PropertyLookup {
 		} else {
 			return V3_PROPERTY_URIS.get(code);
 		}
+	}
+
+	public static String getPropertyDefinition(String code) {
+		if (utgConceptProperties == null) {
+			throw new RuntimeException("PropertyLookup not initialized");
+		}
+		if (utgConceptProperties.containsKey(code)) {
+			return utgConceptProperties.get(code).getDefinition(); 
+		}
+		return "PROPERTY CODE NOT FOUND IN UTG CONCEPT PROPERTIES";
 	}
 	
 	private static Map<String, ConceptDefinitionComponent> utgConceptProperties = null;

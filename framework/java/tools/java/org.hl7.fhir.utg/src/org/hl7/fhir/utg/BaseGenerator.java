@@ -17,6 +17,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptPropertyComponent;
+import org.hl7.fhir.r4.model.CodeSystem.PropertyComponent;
+import org.hl7.fhir.r4.model.CodeSystem.PropertyType;
 import org.hl7.fhir.utilities.Utilities;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -244,5 +246,17 @@ public class BaseGenerator {
 				}
 			}
 		}
+	}
+
+	protected PropertyComponent addUTGConceptProperty(CodeSystem cs, String propertyCode) {
+		return addUTGConceptProperty(cs, propertyCode, PropertyType.STRING);
+	}
+	
+	protected PropertyComponent addUTGConceptProperty(CodeSystem cs, String propertyCode, PropertyType type) {
+		return cs.addProperty()
+				.setCode(propertyCode)
+				.setUri(PropertyLookup.getPropertyUri(propertyCode))
+				.setType(type)
+				.setDescription(PropertyLookup.getPropertyDefinition(propertyCode));
 	}
 }
