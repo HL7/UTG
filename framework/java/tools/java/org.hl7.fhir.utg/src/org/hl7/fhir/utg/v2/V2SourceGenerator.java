@@ -1358,6 +1358,8 @@ public class V2SourceGenerator extends BaseGenerator {
 						if (vsObject != null && vsObject.uri != null && !vsObject.uri.isEmpty()) {
 							c.addProperty().setCode("v2-vs-uri").setValue(new StringType(vsObject.uri));
 						}
+
+						c.addProperty().setCode("v2-cld").setValue(new StringType((Utilities.noString(tv.vsExpansion))? "1" : tv.vsExpansion));
 					}
 					
 					if (tv.getType() > 0)
@@ -1380,8 +1382,6 @@ public class V2SourceGenerator extends BaseGenerator {
 
 					c.addProperty().setCode("v2-version-introduced").setValue(new StringType("2.9"));
 
-					if (!Utilities.noString(tv.vsExpansion))
-						c.addProperty().setCode("v2-cld").setValue(new StringType(tv.vsExpansion));
 					
 					if (!Utilities.noString(tv.vocabDomain)) {
 						ObjectInfo tableObject = objects.get(tv.vocabDomain);
