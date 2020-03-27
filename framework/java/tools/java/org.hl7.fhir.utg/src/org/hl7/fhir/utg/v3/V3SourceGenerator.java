@@ -120,6 +120,13 @@ public class V3SourceGenerator extends BaseGenerator {
 		}		
 	};
 
+	private static final Map<String, String> RELATIONSHIP_PROPERTIES_TO_USE = new HashMap<String, String>() {
+		private static final long serialVersionUID = 1L;
+		{
+			put("ClassifiesClassCode", "rim-ClassifiesClassCode");
+		}		
+	};
+
 	public class ConceptDomain {
 		private String name;
 		// private XhtmlNode definition;
@@ -775,13 +782,19 @@ public class V3SourceGenerator extends BaseGenerator {
 		if (Utilities.existsInList(item.getAttribute("relationshipKind"), "NonDefinitionallyQualifiedBy", "Specializes",
 				"ComponentOf", "Other", "LessThan", "Generalizes")) {
 			
-			PropertyComponent pd = cs.addProperty();
-			pd.setCode(item.getAttribute("name"));
-			if (PropertyLookup.V3_PROPERTY_URIS.containsKey(item.getAttribute("name"))) {
-				pd.setUri(PropertyLookup.V3_PROPERTY_URIS.get(item.getAttribute("name")));
+			String propertyName = item.getAttribute("name");
+			if (RELATIONSHIP_PROPERTIES_TO_USE.containsKey(propertyName)) {
+				propertyName = RELATIONSHIP_PROPERTIES_TO_USE.get(propertyName);
 			}
-			pd.setType(PropertyType.CODING);
-			// pd.addExtension(csext("relationshipKind"), new CodeType(item.getAttribute("relationshipKind")));
+			String propertyUri = PropertyLookup.getPropertyUri(propertyName);
+			
+			PropertyComponent pd = cs.addProperty()
+					.setCode(propertyName)
+					.setType(PropertyType.CODING);
+			
+			if (propertyUri != null) {
+				pd.setUri(propertyUri);
+			}
 			
 			for (String attributeName : RELATIONSHIP_ATTIBUTES.keySet()) {
 				if (item.hasAttribute(attributeName)) {
@@ -1140,9 +1153,12 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 	}
 
-	private void processConceptRelationship(Element item, ConceptDefinitionComponent cd, CodeSystem cs)
-			throws Exception {
-		if ("Specializes".equals(item.getAttribute("relationshipName"))) {
+	private void processConceptRelationship(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
+		
+		String propertyName = item.getAttribute("relationshipName");
+		String propertyNameToUse = (RELATIONSHIP_PROPERTIES_TO_USE.get(propertyName) == null)? propertyName : RELATIONSHIP_PROPERTIES_TO_USE.get(propertyName); 
+		
+		if ("Specializes".equals(propertyName)) {
 			Element child = XMLUtil.getFirstChild(item);
 			while (child != null) {
 				if (child.getNodeName().equals("targetConcept")) {
@@ -1157,20 +1173,20 @@ public class V3SourceGenerator extends BaseGenerator {
 					throw new Exception("Unprocessed element " + child.getNodeName());
 				child = XMLUtil.getNextSibling(child);
 			}
-		} else if (cs.getProperty(item.getAttribute("relationshipName")) != null) {
-			PropertyComponent pd = cs.getProperty(item.getAttribute("relationshipName"));
+		} else if (cs.getProperty(propertyNameToUse) != null) {
+			PropertyComponent codesystemProperty = cs.getProperty(propertyNameToUse);
 			Element child = XMLUtil.getFirstChild(item);
 			while (child != null) {
 				if (child.getNodeName().equals("targetConcept")) {
-					ConceptPropertyComponent t = cd.addProperty();
-					t.setCode(pd.getCode());
+					ConceptPropertyComponent conceptProperty = cd.addProperty();
+					conceptProperty.setCode(codesystemProperty.getCode());
 					Coding c = new Coding();
 					c.setCode(child.getAttribute("code"));
 					if (Utilities.noString(child.getAttribute("codeSystem")))
 						c.setSystem(cs.getUrl());
 					else
 						c.setUserData("oid", child.getAttribute("codeSystem"));
-					t.setValue(c);
+					conceptProperty.setValue(c);
 				} else
 					throw new Exception("Unprocessed element " + child.getNodeName());
 				child = XMLUtil.getNextSibling(child);

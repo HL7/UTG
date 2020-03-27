@@ -40,9 +40,9 @@ public class PropertyLookup {
 	public static final Map<String, String> V3_PROPERTY_URIS = new HashMap<String, String>() {
 		private static final long serialVersionUID = 1L;
 		{
-			put("ClassifiesClassCode", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-classifies-class-code");
-			put("ComponentOf", "http://hl7.org/fhir/concept-properties#partOf");
-			put("MayBeQualifiedBy", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-qualified-by");
+			//put("ClassifiesClassCode", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-classifies-class-code");
+			//put("ComponentOf", "http://hl7.org/fhir/concept-properties#partOf");
+			//put("MayBeQualifiedBy", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-qualified-by");
 			put("Name:Act:inboundRelationship:ActRelationship", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-inbound-relationship");
 			put("Name:Act:outboundRelationship:ActRelationship", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-outbound-relationship");
 			put("Name:Act:participation:Participation", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-participation");
@@ -59,10 +59,10 @@ public class PropertyLookup {
 			put("Name:Role:player:Entity", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Role-player");
 			put("Name:Role:scoper:Entity", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Role-scoper");
 			put("OID", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-cs-oid");
-			put("OwningAffiliate", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#owning-affiliate");
-			put("OwningSection", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#owning-section");
-			put("OwningSubSection", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#owning-subsection");
-			put("SmallerThan", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-smaller-than");
+			//put("OwningAffiliate", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#owning-affiliate");
+			//put("OwningSection", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#owning-section");
+			//put("OwningSubSection", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#owning-subsection");
+			//put("SmallerThan", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-smaller-than");
 			put("Sort:Act:inboundRelationship:ActRelationship", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Act-inbound-sort");
 			put("Sort:Act:outboundRelationship:ActRelationship", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-act-outbound-sort");
 			put("Sort:Act:participation:Participation", "http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Act-participation-sort");
