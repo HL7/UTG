@@ -257,6 +257,6 @@ public class BaseGenerator {
 				.setCode(propertyCode)
 				.setUri(PropertyLookup.getPropertyUri(propertyCode))
 				.setType(type)
-				.setDescription(PropertyLookup.getPropertyDefinition(propertyCode));
+				.setDescription(PropertyLookup.getPropertyDisplay(propertyCode));
 	}
 }

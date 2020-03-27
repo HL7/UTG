@@ -1124,7 +1124,7 @@ public class V2SourceGenerator extends BaseGenerator {
 				hasConceptCommentsAsPub = true;
 			}
 			if (!Utilities.noString(te.usageNotes)) {
-				c.addProperty().setCode("v2-UsageNotes").setValue(new StringType(te.usageNotes));
+				c.addProperty().setCode("HL7usageNotes").setValue(new StringType(te.usageNotes));
 				hasUsageNotes = true;
 			}
 
@@ -1145,27 +1145,15 @@ public class V2SourceGenerator extends BaseGenerator {
 		}
 
 		if (hasConceptComments) {
-			cs.addProperty()
-				.setCode("v2-concComment")
-				.setUri(PropertyLookup.getPropertyUri("v2-concComment"))
-				.setType(PropertyType.STRING)
-				.setDescription(PropertyLookup.getUtgConceptProperty("v2-concComment").getDisplay());
+			addUTGConceptProperty(cs, "v2-concComment");
 		}
 
 		if (hasConceptCommentsAsPub) {
-			cs.addProperty()
-				.setCode("v2-concCommentAsPub")
-				.setUri(PropertyLookup.getPropertyUri("v2-concCommentAsPub"))
-				.setType(PropertyType.STRING)
-				.setDescription(PropertyLookup.getUtgConceptProperty("v2-concCommentAsPub").getDisplay());
+			addUTGConceptProperty(cs, "v2-concCommentAsPub");
 		}
 		
 		if (hasUsageNotes) {
-			cs.addProperty()
-				.setCode("v2-usageNotes")
-				.setUri(PropertyLookup.getPropertyUri("v2-usageNotes"))
-				.setType(PropertyType.STRING)
-				.setDescription(PropertyLookup.getUtgConceptProperty("v2-usageNotes").getDisplay());
+			addUTGConceptProperty(cs, "HL7usageNotes");
 		}
 
 		ValueSet vs = produceValueSet("Master", cs, t, tv);

@@ -97,6 +97,16 @@ public class PropertyLookup {
 		}
 	}
 
+	public static String getPropertyDisplay(String code) {
+		if (utgConceptProperties == null) {
+			throw new RuntimeException("PropertyLookup not initialized");
+		}
+		if (utgConceptProperties.containsKey(code)) {
+			return utgConceptProperties.get(code).getDisplay(); 
+		}
+		return "PROPERTY CODE NOT FOUND IN UTG CONCEPT PROPERTIES";
+	}
+	
 	public static String getPropertyDefinition(String code) {
 		if (utgConceptProperties == null) {
 			throw new RuntimeException("PropertyLookup not initialized");
