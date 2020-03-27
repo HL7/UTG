@@ -44,6 +44,7 @@ import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.StringType;
+import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
@@ -105,6 +106,18 @@ public class V3SourceGenerator extends BaseGenerator {
 			put("oo wg", "oo");
 			put("security wg", "sec");
 		}
+	};
+	
+	private static final Map<String, PropertyType> RELATIONSHIP_ATTIBUTES = new HashMap<String, PropertyType>() {
+		private static final long serialVersionUID = 1L;
+		{
+			put("relationshipKind", PropertyType.CODE);
+			put("inverseName", PropertyType.STRING);
+			put("isNavigable", PropertyType.BOOLEAN);
+			put("symmetry", PropertyType.CODE);
+			put("reflexivity", PropertyType.CODE);
+			put("transitivity", PropertyType.CODE);
+		}		
 	};
 
 	public class ConceptDomain {
@@ -217,7 +230,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			c.setDisplay(cd.name);
 			c.setDefinition(cd.markdownText);
 
-			if (cd.name.equalsIgnoreCase("ActConsentInformationAccessOverrideReason")) {
+			if (cd.name.equalsIgnoreCase("EmploymentStatus")) {
 				System.out.println("stop");
 			}
 			
@@ -754,12 +767,14 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	private void processSupportedConceptRelationship(Element item, CodeSystem cs) throws Exception {
-		if ("Specializes".equals(item.getAttribute("name")))
-			return;
-		if ("Generalizes".equals(item.getAttribute("name")))
-			return;
+//		if ("Specializes".equals(item.getAttribute("name")))
+//			return;
+//		if ("Generalizes".equals(item.getAttribute("name")))
+//			return;
+		
 		if (Utilities.existsInList(item.getAttribute("relationshipKind"), "NonDefinitionallyQualifiedBy", "Specializes",
-				"ComponentOf", "Other", "LessThan")) {
+				"ComponentOf", "Other", "LessThan", "Generalizes")) {
+			
 			PropertyComponent pd = cs.addProperty();
 			pd.setCode(item.getAttribute("name"));
 			if (PropertyLookup.V3_PROPERTY_URIS.containsKey(item.getAttribute("name"))) {
@@ -767,6 +782,22 @@ public class V3SourceGenerator extends BaseGenerator {
 			}
 			pd.setType(PropertyType.CODING);
 			// pd.addExtension(csext("relationshipKind"), new CodeType(item.getAttribute("relationshipKind")));
+			
+			for (String attributeName : RELATIONSHIP_ATTIBUTES.keySet()) {
+				if (item.hasAttribute(attributeName)) {
+					Type attributeValue;
+					if (RELATIONSHIP_ATTIBUTES.get(attributeName) == PropertyType.CODE) {
+						attributeValue = new CodeType(item.getAttribute(attributeName));
+					} else if (RELATIONSHIP_ATTIBUTES.get(attributeName) == PropertyType.BOOLEAN) {
+						attributeValue = new BooleanType(item.getAttribute(attributeName));
+					} else { 
+						attributeValue = new StringType(item.getAttribute(attributeName));
+					}
+					pd.addExtension("http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-" + attributeName, attributeValue);
+				}
+			}
+			
+			
 			Element child = XMLUtil.getFirstChild(item);
 			while (child != null) {
 				if (child.getNodeName().equals("description"))
