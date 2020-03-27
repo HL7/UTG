@@ -1085,7 +1085,7 @@ public class V3SourceGenerator extends BaseGenerator {
 
 		/*
 		if (!"true".equals(item.getAttribute("preferredForLanguage")))
-			cd.addDesignation().setUse(new Coding().setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("deprecated alias"))
+			cd.addDesignation().setUse(new Coding().setSystem("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra").setCode("deprecated alias"))
 					.setValue(item.getAttribute("text"));
 		else if (Utilities.noString(item.getAttribute("language"))
 				|| item.getAttribute("language").equals(cs.getLanguage()))
@@ -1107,7 +1107,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			cd.setDisplay(printName);
 		} else {
 			Coding use = (isPreferred)? 
-							new Coding().setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("preferredForLanguage") :
+							new Coding().setSystem("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra").setCode("preferredForLanguage") :
 							new Coding().setSystem("http://snomed.info/sct").setCode("synonym");
 							
 			cd.addDesignation().setLanguage(language)
@@ -1126,7 +1126,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			throw new Exception("Unexpected value for attribute status " + item.getAttribute("status"));
 		if (cd.hasCode())
 			// change this to an extension once the build defines the extension to use
-			cd.addDesignation().setUse(new Coding().setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("synonym"))
+			cd.addDesignation().setUse(new Coding().setSystem("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra").setCode("synonym"))
 					.setValue(item.getAttribute("code"));
 		else
 			cd.setCode(item.getAttribute("code"));

@@ -1139,7 +1139,7 @@ public class V2SourceGenerator extends BaseGenerator {
 			// BooleanType(te.backwardsCompatible));
 			for (String language : te.langs.keySet()) {
 				c.addDesignation().setLanguage(language).setUse(new Coding()
-						.setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("preferredForLanguage"))
+						.setSystem("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra").setCode("preferredForLanguage"))
 						.setValue(te.langs.get(language));
 			}
 		}
