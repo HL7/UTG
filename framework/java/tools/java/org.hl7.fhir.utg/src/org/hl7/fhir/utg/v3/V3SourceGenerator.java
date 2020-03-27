@@ -134,7 +134,9 @@ public class V3SourceGenerator extends BaseGenerator {
 			cb.valueSetOID = cbElement.getAttribute("valueSet");
 			cb.bindingRealmName = cbElement.getAttribute("bindingRealmName");
 			cb.codingStrength = cbElement.getAttribute("codingStrength");
-			cb.effectiveDate = cbElement.getAttribute("effectiveDate");
+			//cb.effectiveDate = cbElement.getAttribute("effectiveDate");
+			// Changed effective date of all to 1/1/20 per Ted 
+			cb.effectiveDate = "2020-01-01";
 			if (!contextBindings.containsKey(cdName)) {
 				contextBindings.put(cdName, new LinkedList<ContextBinding>());
 			}
@@ -253,7 +255,7 @@ public class V3SourceGenerator extends BaseGenerator {
 						.setValue(new StringType(cb.valueSetOID))
 						.addExtension(resext("concept-binding-strength"), new CodeType(cb.codingStrength));
 					
-					c.addProperty().setCode(propertyCodePrefix + "-codingStrength").setValue(new CodeType(cb.codingStrength));
+					c.addProperty().setCode(propertyCodePrefix + "-strength").setValue(new CodeType(cb.codingStrength));
 					c.addProperty().setCode(propertyCodePrefix + "-effectiveDate").setValue(new DateTimeType(cb.effectiveDate));
 				}
 			}
