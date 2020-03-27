@@ -1108,7 +1108,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		} else {
 			Coding use = (isPreferred)? 
 							new Coding().setSystem("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra").setCode("preferredForLanguage") :
-							new Coding().setSystem("http://snomed.info/sct").setCode("synonym");
+							new Coding().setSystem("http://snomed.info/sct").setCode("900000000000013009");
 							
 			cd.addDesignation().setLanguage(language)
 					.setUse(use)
