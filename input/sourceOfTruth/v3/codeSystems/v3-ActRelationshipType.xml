@@ -108,6 +108,12 @@
     <type value="code"/>
   </property>
   <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
+  <property>
     <code value="subsumedBy"/>
     <uri value="http://hl7.org/fhir/concept-properties#parent"/>
     <description value="The concept code of a parent concept"/>
@@ -2328,6 +2334,10 @@
       <valueCode value="active"/>
     </property>
     <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="This explicitly represents the conventional notion of aggregation.  The target Act is part of a collection of Acts (no implication is made of cardinality, a source of Acts may contain zero, one, or more member target Acts). It is expected that this will be primarily used with _ActClassRecordOrganizer, BATTERY, and LIST"/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23594"/>
     </property>
@@ -2975,6 +2985,10 @@
       <valueCode value="active"/>
     </property>
     <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Sequence of steps may be indicated by use of _ActRelationshipTemporallyPertains, as well as via  ActRelationship.sequenceNumber, ActRelationship.pauseQuantity, Target.priorityCode."/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23595"/>
     </property>
@@ -3348,6 +3362,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="A usage relationship only makes sense if the target act is authored and occurs independently of the source act.  Otherwise a simpler relationship such as COMP would be appropriate."/>
     </property>
     <property>
       <code value="internalId"/>

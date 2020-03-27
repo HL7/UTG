@@ -47,6 +47,12 @@
     <type value="string"/>
   </property>
   <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
+  <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
     <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
@@ -435,6 +441,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="The focus in a GROUPER act is the grouping of the contained acts.  For example &quot;a request to group&quot; (RQO), &quot;a type of grouping that is allowed to occur&quot; (DEF), etc. Unlike WorkingList, which represents a dynamic, shared, continuously updated collection to provide a &quot;view&quot; of a set of objects, GROUPER collections tend to be static and simply indicate a shared set of semantics.  Note that sharing of semantics can be achieved using ACT as well.  However, with GROUPER, the sole semantic is of grouping."/>
     </property>
     <property>
       <code value="internalId"/>
@@ -951,6 +961,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="This class deals only with opportunity and not the outcome of the exposure; i.e. not all exposed parties will necessarily experience actual harm or benefit. Exposure differs from Substance Administration by the absence of the participation of a performer in the act. The following participations SHOULD be used with the following participations to distinguish the specific entities:   The exposed entity participates via the &quot;exposure target&quot; (EXPTRGT) participation.  An entity that has carried the agent transmitted in the exposure participates via the &quot;exposure source&quot; (EXSRC) participation.  For example:   a person or animal who carried an infectious disease and interacts (EXSRC) with another person or animal (EXPTRGT) transmitting the disease agent;  a place or other environment (EXSRC) and a person or animal (EXPTRGT) who is exposed in the presence of this environment.  When it is unknown whether a participating entity is the source of the agent (EXSRC) or the target of the transmission (EXPTRGT), the &quot;exposure participant&quot; (EXPART) is used.  The physical (including energy), chemical or biological substance which is participating in the exposure uses the &quot;exposure agent&quot; (EXPAGNT) participation.  There are at least three scenarios:   the player of the Role that participates as EXPAGNT is the chemical or biological substance mixed or carried by the scoper-entity of the Role (e.g., ingredient role); or  the player of the Role that participates as EXPAGNT is a mixture known to contain the chemical, radiological or biological substance of interest; or  the player of the Role that participates as a EXPAGNT is known to carry the agent (i.e., the player is a fomite, vector, etc.). The Exposure.statusCode attribute should be interpreted as the state of the Exposure business object (e.g., active, aborted, completed) and not the clinical status of the exposure (e.g., probable, confirmed).  The clinical status of the exposure should be associated with the exposure via a subject observation."/>
     </property>
     <property>
       <code value="internalId"/>
@@ -1526,6 +1540,10 @@
       <valueCode value="active"/>
     </property>
     <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Typically a Public Health Case involves an instance or instances of a reportable infectious disease or other condition. The public health case can include a health-related event concerning a single individual or it may refer to multiple health-related events that are occurrences of the same disease or condition of interest to public health. A public health case definition (Act.moodCode = &quot;definition&quot;) includes the description of the clinical, laboratory, and epidemiologic indicators associated with a disease or condition of interest to public health. There are case definitions for conditions that are reportable, as well as for those that are not. A public health case definition is a construct used by public health for the purpose of counting cases, and should not be used as clinical indications for treatment. Examples include AIDS, toxic-shock syndrome, and salmonellosis and their associated indicators that are used to define a case."/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23464"/>
     </property>
@@ -1545,6 +1563,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="The date on which an outbreak starts is the earliest date of onset among the cases assigned to the outbreak and its ending date is the last date of onset among the cases assigned to the outbreak. The effectiveTime attribute is used to convey the relevant dates for the case. An outbreak definition (Act.moodCode = &quot;definition&quot; includes the criteria for the number, types and occurrence pattern of cases necessary to declare an outbreak and to judge the severity of an outbreak."/>
     </property>
     <property>
       <code value="internalId"/>
@@ -2044,6 +2066,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="The focus in a BATTERY is that it is composed of individual observations. In request (RQO) mood, a battery is a request to perform the component observations. In event (EVN) mood a battery is a reporting of associated set of observation events. In definition mood a battery is the definition of the associated set of observations."/>
     </property>
     <property>
       <code value="internalId"/>
