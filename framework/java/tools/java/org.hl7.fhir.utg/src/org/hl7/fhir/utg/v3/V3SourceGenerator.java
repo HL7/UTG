@@ -420,7 +420,8 @@ public class V3SourceGenerator extends BaseGenerator {
 			} else if (child.getNodeName().equals("releasedVersion")) {
 				// NO OP second pass
 			} else if (child.getNodeName().equals("historyItem")) {
-				processHistoryItem(child, cs);
+				// NO OP for history, no longer writing history extension
+				//processHistoryItem(child, cs);
 			} else if (child.getNodeName().equals("annotations")) {
 				processCSAnnotations(child, cs);
 			} else {
@@ -618,7 +619,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			cs.setContent(CodeSystemContentMode.COMPLETE);
 	}
 
-	private void processHistoryItem(Element item, CodeSystem cs) throws Exception {
+/*	private void processHistoryItem(Element item, CodeSystem cs) throws Exception {
 		Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/resource-history");
 		cs.getExtension().add(ext);
 		ext.addExtension("date", new DateTimeType(item.getAttribute("dateTime")));
@@ -639,7 +640,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			child = XMLUtil.getNextSibling(child);
 		}
 	}
-
+*/
 	private void processSupportedLanguage(Element item, MetadataResource mr) throws Exception {
 		mr.setLanguage(item.getTextContent());
 		Element child = XMLUtil.getFirstChild(item);
