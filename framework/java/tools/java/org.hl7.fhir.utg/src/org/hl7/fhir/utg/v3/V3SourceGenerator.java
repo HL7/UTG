@@ -291,11 +291,15 @@ public class V3SourceGenerator extends BaseGenerator {
 					
 					c.addProperty()
 						.setCode(propertyCodePrefix + "-valueSet")
-						.setValue(new StringType(cb.valueSetOID))
-						.addExtension(resext("concept-binding-strength"), new CodeType(cb.codingStrength));
+						.setValue(new StringType(cb.valueSetOID));
 					
-					c.addProperty().setCode(propertyCodePrefix + "-strength").setValue(new CodeType(cb.codingStrength));
-					c.addProperty().setCode(propertyCodePrefix + "-effectiveDate").setValue(new DateTimeType(cb.effectiveDate));
+					c.addProperty()
+						.setCode(propertyCodePrefix + "-strength")
+						.setValue(new CodeType(cb.codingStrength));
+					
+					c.addProperty()
+						.setCode(propertyCodePrefix + "-effectiveDate")
+						.setValue(new DateTimeType(cb.effectiveDate));
 				}
 			}
 			
@@ -1548,7 +1552,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			throw new Exception("No name attribute for Associated Concept Property in Value Set " + vs.getName());
 		}
 
-		Extension ext = vs.addExtension().setUrl(vsext("hl7-assocConceptProp"));
+		Extension ext = vs.addExtension().setUrl("http://terminology.hl7.org/StructureDefinition/ext-mif-assocConceptProp");
 		ext.addExtension().setUrl("name").setValue(new StringType(propertyName));
 		if (!propertyValue.isEmpty()) {
 			ext.addExtension().setUrl("value").setValue(new StringType(propertyValue));
