@@ -293,6 +293,10 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 3 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px\"/>Expansion based on SNOMED CT International edition 09-Mar 2020<p>All codes from system <a href=\"http://hl7.org/fhir/R4/codesystem-snomedct.html\"><code>http://snomed.info/sct</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-413322009\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=413322009\">413322009</a></td><td>Problem resolved</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-55561003\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=55561003\">55561003</a></td><td>Active</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-73425007\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=73425007\">73425007</a></td><td>Inactive</td><td/></tr></table></div>"
+  },
   "status" : "active",
   "expansion" : {
     "identifier" : "urn:uuid:634f4612-b3bf-454d-96f4-3934654462ee",
@@ -345,6 +349,10 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 3 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px\"/>Expansion based on SNOMED CT International edition 09-Mar 2020<p>All codes from system <a href=\"http://hl7.org/fhir/R4/codesystem-snomedct.html\"><code>http://snomed.info/sct</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-171258008\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=171258008\">171258008</a></td><td>Up-to-date with immunizations</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-171279008\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=171279008\">171279008</a></td><td>Immunization due</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-171259000\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=171259000\">171259000</a></td><td>Not up to date with immunizations</td><td/></tr></table></div>"
+  },
   "status" : "active",
   "expansion" : {
     "identifier" : "urn:uuid:68afb5a4-f927-403f-a124-f4e3ab983e06",
@@ -483,6 +491,34 @@ v: {
 v: {
   "display" : "Synonym (core metadata concept)",
   "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
+      "valueBoolean" : true
+    }],
+    "identifier" : "urn:uuid:6e50acb6-df96-4c7c-9952-e3ddb36edc29",
+    "timestamp" : "2020-04-07T17:09:07.410Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    }]
+  }
+},
   "error" : ""
 }
 -------------------------------------------------------------------------------------
