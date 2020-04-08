@@ -168,7 +168,7 @@ public class UTGGenerator extends BaseGenerator {
 	private void generateConceptDomains(ListResource manifest) throws FileNotFoundException, IOException, Exception {
 		CodeSystem cs = new CodeSystem();
 		cs.setId("conceptdomains");
-		cs.setUrl("http://terminology.hl7.org/CodeSystem/ConceptDomain");
+		cs.setUrl("http://terminology.hl7.org/CodeSystem/conceptdomains");
 		cs.setName("ConceptDomains");
 		cs.setTitle("Concept Domains");
 		cs.setStatus(PublicationStatus.ACTIVE);

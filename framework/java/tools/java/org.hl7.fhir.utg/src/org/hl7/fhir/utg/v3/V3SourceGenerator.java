@@ -83,10 +83,15 @@ public class V3SourceGenerator extends BaseGenerator {
 	private static final Map<String, String> CODE_SYSTEM_DEFINITION_TEXT_PROPERTY_TAGS = new HashMap<String, String>() {
 		private static final long serialVersionUID = 1L;
 		{
-			put("open issue", "openIssue");
-			put("openissue", "openIssue");
-			put("deprecation comment", "deprecationInfo");
-			put("deprecationcomment", "deprecationInfo");
+			/*
+			 *  no longer populating openIssue or deprecationInfo.
+			 *  keeping mechanism in case we need it for something 
+			 *  else in the future.
+			 */
+			//put("open issue", "openIssue");
+			//put("openissue", "openIssue");
+			//put("deprecation comment", "deprecationInfo");
+			//put("deprecationcomment", "deprecationInfo");
 		}
 	};
 	
