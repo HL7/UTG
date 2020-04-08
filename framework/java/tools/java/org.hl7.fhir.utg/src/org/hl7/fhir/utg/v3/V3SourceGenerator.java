@@ -1272,10 +1272,14 @@ public class V3SourceGenerator extends BaseGenerator {
 		ValueSet vs = new ValueSet();
 		
 		String shortSafeName = StringUtils.left(makeSafeId(item.getAttribute("name")), 61);
+
+		String originalName = item.getAttribute("name").trim();
+		String className = Utilities.makeClassName(originalName);
+		String shortClassName = StringUtils.left(className, 61);
 		
 		vs.setId("v3-" + shortSafeName);
 		vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
-		vs.setName(shortSafeName);
+		vs.setName(shortClassName);
 		vs.setTitle(item.getAttribute("name"));
 		vs.addIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:" + item.getAttribute("id"));
 		vs.setUserData("oid", item.getAttribute("id"));
