@@ -1231,7 +1231,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		if (vsObjectInfo != null && vsObjectInfo.display != null && !vsObjectInfo.display.isEmpty()) {
 			vs.setName(Utilities.makeClassName(vsObjectInfo.display));
 		} else {
-			vs.setName(defaultDisplay);
+			vs.setName(Utilities.makeClassName(defaultDisplay));
 		}
 		
 		if (vsObjectInfo != null && vsObjectInfo.display != null && !vsObjectInfo.display.isEmpty()) {
