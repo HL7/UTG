@@ -1004,20 +1004,21 @@ public class V2SourceGenerator extends BaseGenerator {
 		
 		CodeSystem cs = new CodeSystem();
 
-		cs.setId("v2-" + t.id);
+		cs.setId("v2." + t.id);
+		cs.setName(cs.getId());
 		cs.setVersion(makeVersionString((tv.csversion == null)? "1" : tv.csversion));
 
 		ObjectInfo oi = objects.get(tv.csoid);
 		if (oi != null) {
 			cs.setUrl(oi.uri);
 			String originalName = oi.display;
-			cs.setName(Utilities.makeClassName(originalName));
+			//cs.setName(Utilities.makeClassName(originalName));
 			cs.setTitle(originalName);
 			//cs.setName(Utilities.capitalize(oi.display));
 			// cs.setName(oi.display);
 		} else {
 			cs.setUrl("http://terminology.hl7.org/CodeSystem/" + cs.getId());
-			cs.setName("V2Table" + t.id);
+			//cs.setName("V2Table" + t.id);
 			cs.setTitle("V2 Table Code System: " + t.name);
 		}
 
@@ -1219,6 +1220,8 @@ public class V2SourceGenerator extends BaseGenerator {
 		
 		ValueSet vs = new ValueSet();
 		vs.setId(cs.getId());
+		vs.setName(vs.getId());
+		
 		vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
 		// Set all value set versions to 2.0.0, per Ted
 		vs.setVersion(makeVersionString(0));
@@ -1228,11 +1231,11 @@ public class V2SourceGenerator extends BaseGenerator {
 		String defaultDisplay = "V2 Table " + t.id + " Version " + vid;
 		String defaultDescription = "V2 Table " + t.id + " Version " + vid + " (" + t.name + ")";
 		
-		if (vsObjectInfo != null && vsObjectInfo.display != null && !vsObjectInfo.display.isEmpty()) {
-			vs.setName(Utilities.makeClassName(vsObjectInfo.display));
-		} else {
-			vs.setName(defaultDisplay);
-		}
+//		if (vsObjectInfo != null && vsObjectInfo.display != null && !vsObjectInfo.display.isEmpty()) {
+//			vs.setName(Utilities.makeClassName(vsObjectInfo.display));
+//		} else {
+//			vs.setName(defaultDisplay);
+//		}
 		
 		if (vsObjectInfo != null && vsObjectInfo.display != null && !vsObjectInfo.display.isEmpty()) {
 			vs.setTitle(vsObjectInfo.display);
@@ -1271,7 +1274,7 @@ public class V2SourceGenerator extends BaseGenerator {
 
 	public void generateTables(ListResource v2PublishingManifest, ListResource v2RenderingManifest) throws FileNotFoundException, IOException {
 		CodeSystem cs = new CodeSystem();
-		cs.setId("v2-tables");
+		cs.setId("v2tables");
 		cs.setUrl("http://hl7.org/terminology.hl7.org/CodeSystem/" + cs.getId());
 		cs.setName("V2Tables");
 		cs.setTitle("V2 Table List");

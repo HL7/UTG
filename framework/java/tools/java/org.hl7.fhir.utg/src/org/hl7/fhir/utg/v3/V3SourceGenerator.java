@@ -417,12 +417,13 @@ public class V3SourceGenerator extends BaseGenerator {
 		
 		String originalName = item.getAttribute("name").trim();
 		String className = Utilities.makeClassName(originalName);
-		String shortClassName = StringUtils.left(className, 61);
+		String prefixedClassName = "v3." + className;
+		String shortPrefixedClassName = StringUtils.left(className, 61);
 		//String shortId = StringUtils.left(makeSafeId(originalName), 61);
 
 		//cs.setId("v3-" + shortId);
-		cs.setId(shortClassName);
-		cs.setName(shortClassName);
+		cs.setId(shortPrefixedClassName);
+		cs.setName(shortPrefixedClassName);
 		cs.setTitle(item.getAttribute("title"));
 
 		cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA);
@@ -1272,9 +1273,9 @@ public class V3SourceGenerator extends BaseGenerator {
 	private ValueSet generateV3ValueSet(Element item) throws Exception {
 		ValueSet vs = new ValueSet();
 		
-		String shortSafeName = StringUtils.left(makeSafeId(item.getAttribute("name")), 61);
+		String shortSafeName = StringUtils.left("v3." + makeSafeId(item.getAttribute("name")), 61);
 		
-		vs.setId("v3-" + shortSafeName);
+		vs.setId(shortSafeName);
 		vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
 		vs.setName(shortSafeName);
 		vs.setTitle(item.getAttribute("name"));
