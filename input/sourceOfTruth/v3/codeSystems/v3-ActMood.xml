@@ -3,9 +3,6 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-ActMood"/>
   <language value="en"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-    <valueString value="In Ballot 2009May, a strong Negative vote was lodged against several of the concept definitions in the vocabulary used for Act.moodCode. The vote was found &quot;Persuasive With Mod&quot;, with the understanding that M and M would undertake a detailed review of these concept definitions for a future release of the RIM."/>
-  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -146,9 +143,6 @@
         <valueCode value="Potential"/>
       </property>
       <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-          <valueString value="The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be &quot;retired&quot; in the future in favor of the more general ActMood.CRT."/>
-        </extension>
         <code value="DEF"/>
         <display value="definition"/>
         <definition value="**Definition:** A definition of a kind of act that can occur .&#xD;&#xA;&#xD;&#xA;**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be &quot;retired&quot; in the future in favor of the more general ActMood.CRT."/>
@@ -462,9 +456,6 @@
       <valueCode value="Predicate"/>
     </property>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
-        <valueString value="This concept This codes should no longer be used.  Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion."/>
-      </extension>
       <code value="CRT"/>
       <display value="criterion"/>
       <definition value="***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion.&#xD;&#xA;&#xD;&#xA;**Definition:** A condition that must be true for the source act to be considered."/>
@@ -481,9 +472,6 @@
         <valueCode value="Criterion"/>
       </property>
       <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
-          <valueString value="This concept This codes should no longer be used.  Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion."/>
-        </extension>
         <code value="EVN.CRT"/>
         <display value="event criterion"/>
         <definition value="***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion.&#xD;&#xA;&#xD;&#xA;**Definition:** A criterion (CRT) that has\_match = an event (EVN)."/>

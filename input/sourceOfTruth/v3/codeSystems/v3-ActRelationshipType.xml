@@ -2312,9 +2312,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="The implications of negationInd on ActRelationship and the valueNegationind on Observation."/>
-    </extension>
     <code value="VALUE"/>
     <display value="has value"/>
     <definition value="**Description:**Indicates that the target Act represents the result of the source observation Act.&#xD;&#xA;&#xD;&#xA;**FormalConstraint:** Source Act must be an Observation or specialization there-of. Source Act must not have the value attribute specified&#xD;&#xA;&#xD;&#xA;**UsageNote:** This relationship allows the result of an observation to be fully expressed as RIM acts as opposed to being embedded in the value attribute. For example, sending a Document act as the result of an imaging observation, sending a list of Procedures and/or other acts as the result of a medical history observation.&#xD;&#xA;&#xD;&#xA;The valueNegationInd attribute on the source Act has the same semantics of &quot;negated finding&quot; when it applies to the target of a VALUE ActRelationship as it does to the value attribute. On the other hand, if the ActRelationship.negationInd is true for a VALUE ActRelationship, that means the specified observation does not have the indicated value but does not imply a negated finding. Because the semantics are extremely close, it is recommended that Observation.valueNegationInd be used, not ActRelationship.negationInd.&#xD;&#xA;&#xD;&#xA;**OpenIssue:** The implications of negationInd on ActRelationship and the valueNegationind on Observation."/>
@@ -3017,9 +3014,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="Need Additional guidelines on when each approach should be used."/>
-    </extension>
     <code value="STEP"/>
     <display value="has step"/>
     <definition value="A collection of sub-services as steps or subtasks performed for the source service. Services may be performed sequentially or concurrently.&#xD;&#xA;&#xD;&#xA;*UsageNotes:* Sequence of steps may be indicated by use of \_ActRelationshipTemporallyPertains, as well as via ActRelationship.sequenceNumber, ActRelationship.pauseQuantity, Target.priorityCode.&#xD;&#xA;&#xD;&#xA;*OpenIssue:* Need Additional guidelines on when each approach should be used."/>
