@@ -418,10 +418,9 @@ public class V3SourceGenerator extends BaseGenerator {
 		String originalName = item.getAttribute("name").trim();
 		String className = Utilities.makeClassName(originalName);
 		String shortClassName = StringUtils.left(className, 61);
-		//String shortId = StringUtils.left(makeSafeId(originalName), 61);
+		String shortId = StringUtils.left(makeSafeId(originalName), 61);
 
-		//cs.setId("v3-" + shortId);
-		cs.setId(shortClassName);
+		cs.setId("v3-" + shortId);
 		cs.setName(shortClassName);
 		cs.setTitle(item.getAttribute("title"));
 
