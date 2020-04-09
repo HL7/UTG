@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="library-type"/>
+  <id value="audit-event-outcome"/>
   <meta>
     <lastUpdated value="2020-04-09T15:22:34.957+00:00"/>
   </meta>
@@ -9,16 +9,16 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
             
-      <h2>LibraryType</h2>
+      <h2>AuditEventOutcome</h2>
             
       <div>
               
-        <p>The type of knowledge asset this library contains.</p>
+        <p>Indicates whether the event succeeded or failed.</p>
 
             
       </div>
             
-      <p>This code system http://terminology.hl7.org/CodeSystem/library-type defines the following codes:</p>
+      <p>This code system http://terminology.hl7.org/CodeSystem/audit-event-outcome defines the following codes:</p>
             
       <table class="codes">
               
@@ -46,57 +46,57 @@
               
         <tr>
                 
-          <td style="white-space:nowrap">logic-library
+          <td style="white-space:nowrap">0
                   
-            <a name="library-type-logic-library"> </a>
+            <a name="audit-event-outcome-0"> </a>
                 
           </td>
                 
-          <td>Logic Library</td>
+          <td>Success</td>
                 
-          <td>The resource is a shareable library of formalized knowledge.</td>
+          <td>The operation completed successfully (whether with warnings or not).</td>
               
         </tr>
               
         <tr>
                 
-          <td style="white-space:nowrap">model-definition
+          <td style="white-space:nowrap">4
                   
-            <a name="library-type-model-definition"> </a>
+            <a name="audit-event-outcome-4"> </a>
                 
           </td>
                 
-          <td>Model Definition</td>
+          <td>Minor failure</td>
                 
-          <td>The resource is a definition of an information model.</td>
+          <td>The action was not successful due to some kind of minor failure (often equivalent to an HTTP 400 response).</td>
               
         </tr>
               
         <tr>
                 
-          <td style="white-space:nowrap">asset-collection
+          <td style="white-space:nowrap">8
                   
-            <a name="library-type-asset-collection"> </a>
+            <a name="audit-event-outcome-8"> </a>
                 
           </td>
                 
-          <td>Asset Collection</td>
+          <td>Serious failure</td>
                 
-          <td>The resource is a collection of knowledge assets.</td>
+          <td>The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response).</td>
               
         </tr>
               
         <tr>
                 
-          <td style="white-space:nowrap">module-definition
+          <td style="white-space:nowrap">12
                   
-            <a name="library-type-module-definition"> </a>
+            <a name="audit-event-outcome-12"> </a>
                 
           </td>
                 
-          <td>Module Definition</td>
+          <td>Major failure</td>
                 
-          <td>The resource defines the dependencies, parameters, and data requirements for a particular module or evaluation context.</td>
+          <td>An error of such magnitude occurred that the system is no longer available for use (i.e. the system died).</td>
               
         </tr>
             
@@ -105,22 +105,22 @@
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
+    <valueCode value="sec"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="3"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/library-type"/>
+  <url value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1230"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
   <version value="4.2.0"/>
-  <name value="LibraryType"/>
-  <title value="LibraryType"/>
+  <name value="AuditEventOutcome"/>
+  <title value="AuditEventOutcome"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-04-09T15:22:34+00:00"/>
@@ -135,28 +135,28 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The type of knowledge asset this library contains."/>
+  <description value="Indicates whether the event succeeded or failed."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/library-type"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-outcome"/>
   <content value="complete"/>
   <concept>
-    <code value="logic-library"/>
-    <display value="Logic Library"/>
-    <definition value="The resource is a shareable library of formalized knowledge."/>
+    <code value="0"/>
+    <display value="Success"/>
+    <definition value="The operation completed successfully (whether with warnings or not)."/>
   </concept>
   <concept>
-    <code value="model-definition"/>
-    <display value="Model Definition"/>
-    <definition value="The resource is a definition of an information model."/>
+    <code value="4"/>
+    <display value="Minor failure"/>
+    <definition value="The action was not successful due to some kind of minor failure (often equivalent to an HTTP 400 response)."/>
   </concept>
   <concept>
-    <code value="asset-collection"/>
-    <display value="Asset Collection"/>
-    <definition value="The resource is a collection of knowledge assets."/>
+    <code value="8"/>
+    <display value="Serious failure"/>
+    <definition value="The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response)."/>
   </concept>
   <concept>
-    <code value="module-definition"/>
-    <display value="Module Definition"/>
-    <definition value="The resource defines the dependencies, parameters, and data requirements for a particular module or evaluation context."/>
+    <code value="12"/>
+    <display value="Major failure"/>
+    <definition value="An error of such magnitude occurred that the system is no longer available for use (i.e. the system died)."/>
   </concept>
 </CodeSystem>
