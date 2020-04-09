@@ -777,7 +777,7 @@ public class NamingSystem extends MetadataResource {
     	super();
     	setId(cs.getId());
     	setName(cs.getName());
-    	setUrl(cs.getUrl());
+    	setUrl("http://terminology.hl7.org/NamingSystem/" + this.getId());
     	setStatus(cs.getStatus());
     	setKind(NamingSystemType.CODESYSTEM);
     	setDate(cs.getDate());
