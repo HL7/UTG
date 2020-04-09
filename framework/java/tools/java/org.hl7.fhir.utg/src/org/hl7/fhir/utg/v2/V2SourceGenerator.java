@@ -1272,7 +1272,7 @@ public class V2SourceGenerator extends BaseGenerator {
 	public void generateTables(ListResource v2PublishingManifest, ListResource v2RenderingManifest) throws FileNotFoundException, IOException {
 		CodeSystem cs = new CodeSystem();
 		cs.setId("v2-tables");
-		cs.setUrl("http://hl7.org/terminology.hl7.org/CodeSystem/" + cs.getId());
+		cs.setUrl("http://terminology.hl7.org/CodeSystem/" + cs.getId());
 		cs.setName("V2Tables");
 		cs.setTitle("V2 Table List");
 		cs.setStatus(PublicationStatus.ACTIVE);

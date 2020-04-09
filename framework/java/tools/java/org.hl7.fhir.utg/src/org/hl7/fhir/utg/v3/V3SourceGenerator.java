@@ -349,6 +349,7 @@ public class V3SourceGenerator extends BaseGenerator {
 				
 				} else {
 					NamingSystem ns = new NamingSystem(cs);
+					ns.addExtension("http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url", new UriType("http://terminology.hl7.org/NamingSystem/" + ns.getId()));
 			    	ns.addExtension("http://terminology.hl7.org/StructureDefinition/ext-namingsystem-version", new StringType("2.0.0"));
 					manifestEntry = ListResourceExt.createNamingSystemListEntry(ns);
 					if (OIDLookup.isDeprecated(oid)) {
