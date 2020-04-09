@@ -787,8 +787,6 @@ public class NamingSystem extends MetadataResource {
     	setDescription(cs.getDescription());
     	setUseContext(cs.getUseContext());
     	setJurisdiction(cs.getJurisdiction());
-    	setVersion(cs.getVersion());
-    	
     	addExtension("http://terminology.hl7.org/StructureDefinition/ext-namingsystem-title", new StringType(cs.getTitle()));
 
     	if (cs.hasUserData("oid")) {

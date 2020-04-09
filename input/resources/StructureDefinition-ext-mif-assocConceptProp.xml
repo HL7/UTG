@@ -2,10 +2,10 @@
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
 	<id value="ext-mif-assocConceptProp"/>
 	<url value="http://terminology.hl7.org/StructureDefinition/ext-mif-assocConceptProp"/>
-	<name value="ValueSetAssociatedConceptProperty"/>
-	<title value="MIF Value Set associated concept property"/>
+	<name value="AssociatedConceptProperty"/>
+	<title value="MIF Associated concept property"/>
 	<status value="active"/>
-	<description value="Concept Properties that are associated with this Value Set Version because the property is DECLARED as value-set associatable by the Code System from which this value set draws its enumerated content"/>
+	<description value="Concept Properties that are associated with this Code System or Value Set Version"/>
 	<fhirVersion value="4.0.1"/>
 	<mapping>
     <identity value="mif"/>
@@ -17,6 +17,10 @@
 	<context>
 		<type value="element"/>
 		<expression value="CodeSystem.property"/>
+	</context>
+	<context>
+		<type value="element"/>
+		<expression value="ValueSet"/>
 	</context>
 	<type value="Extension"/>
 	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>

@@ -1231,7 +1231,7 @@ public class V2SourceGenerator extends BaseGenerator {
 		if (vsObjectInfo != null && vsObjectInfo.display != null && !vsObjectInfo.display.isEmpty()) {
 			vs.setName(Utilities.makeClassName(vsObjectInfo.display));
 		} else {
-			vs.setName(defaultDisplay);
+			vs.setName(Utilities.makeClassName(defaultDisplay));
 		}
 		
 		if (vsObjectInfo != null && vsObjectInfo.display != null && !vsObjectInfo.display.isEmpty()) {
@@ -1299,7 +1299,8 @@ public class V2SourceGenerator extends BaseGenerator {
 		addUTGConceptProperty(cs, "steward", PropertyType.CODE);
 		addUTGConceptProperty(cs, "v2-where-used");
 		addUTGConceptProperty(cs, "v2-binding");
-		addUTGConceptProperty(cs, "v2-version-introduced");
+		addUTGConceptProperty(cs, "v2-version-tbl-introduced");
+		addUTGConceptProperty(cs, "v2-version-csvs-introduced");
 		addUTGConceptProperty(cs, "v2-cld");
 		addUTGConceptProperty(cs, "vocab-domain");
 
@@ -1368,8 +1369,8 @@ public class V2SourceGenerator extends BaseGenerator {
 					if (!Utilities.noString(tv.binding))
 						c.addProperty().setCode("v2-binding").setValue(new StringType(tv.binding));
 
-					c.addProperty().setCode("v2-version-introduced").setValue(new StringType("2.9"));
-
+					c.addProperty().setCode("v2-version-tbl-introduced").setValue(new StringType(tv.versionIntroduced));
+					c.addProperty().setCode("v2-version-csvs-introduced").setValue(new StringType("2.9"));
 					
 					if (!Utilities.noString(tv.vocabDomain)) {
 						ObjectInfo tableObject = objects.get(tv.vocabDomain);
