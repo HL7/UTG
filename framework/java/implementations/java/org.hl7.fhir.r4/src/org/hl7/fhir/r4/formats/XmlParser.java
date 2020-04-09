@@ -37786,6 +37786,9 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasTitleElement())
     	composeString("title", element.getTitleElement());
+      if (element.hasUrlElement()) {
+          composeUri("url", element.getUrlElement());
+      }
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory());
       if (element.hasKindElement())
