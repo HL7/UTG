@@ -19,7 +19,7 @@
       <system value="http://terminology.hl7.org/CodeSystem/v3-EntityCode"/>
       <filter>
         <property value="concept"/>
-        <op value="is-a"/>
+        <op value="descendent-of"/>
         <value value="_MaterialEntityClassType"/>
       </filter>
     </include>
@@ -41,17 +41,5 @@
     <include>
       <valueSet value="http://terminology.hl7.org/ValueSet/v3-xBillableProduct"/>
     </include>
-    <exclude>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-EntityCode"/>
-      <concept>
-        <code value="_MaterialEntityClassType"/>
-      </concept>
-    </exclude>
-    <exclude>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-EntityCode"/>
-      <concept>
-        <code value="_x_BillableProduct"/>
-      </concept>
-    </exclude>
   </compose>
 </ValueSet>
