@@ -141,6 +141,12 @@
     <description value="Source"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="synonymCode"/>
+    <uri value="http://hl7.org/fhir/concept-properties#synonym"/>
+    <description value="An additional concept code that was also attributed to a concept"/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="AcknowledgementCondition"/>
     <display value="AcknowledgementCondition"/>
@@ -8507,7 +8513,7 @@
       <concept>
         <code value="AdministrableDrugForm"/>
         <display value="AdministrableDrugForm"/>
-        <definition value="**Description:** Indicates the form in which the drug product should be administered.&#xD;&#xA;&#xD;&#xA;This element only needs to be specified when (a) the form in which the drug is measured for dispensing differs from the form in which the drug is administered; and (b) the form in which the quantity of the administered drug being administered is not expressed as a discrete measured mass or volume, e.g. the dose is to be measured in &quot;number of actuations.&quot;"/>
+        <definition value="Indicates the form in which the drug product should be administered.&#xD;&#xA;&#xD;&#xA;This element only needs to be specified when (a) the form in which the drug is measured for dispensing differs from the form in which the drug is administered; and (b) the form in which the quantity of the administered drug being administered is not expressed as a discrete measured mass or volume, e.g. the dose is to be measured in &quot;number of actuations.&quot;"/>
         <property>
           <code value="source"/>
           <valueCode value="v3"/>
@@ -8524,6 +8530,39 @@
           <code value="contextBindingR1-effectiveDate"/>
           <valueDateTime value="2020-01-01"/>
         </property>
+        <property>
+          <code value="synonymCode"/>
+          <valueCode value="AdministratableDrugForm"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="AdministratableDrugForm"/>
+        <display value="AdministratableDrugForm"/>
+        <definition value="Indicates the form in which the drug product should be administered.&#xD;&#xA;&#xD;&#xA;This element only needs to be specified when (a) the form in which the drug is measured for dispensing differs from the form in which the drug is administered; and (b) the form in which the quantity of the administered drug being administered is not expressed as a discrete measured mass or volume, e.g. the dose is to be measured in &quot;number of actuations.&quot; Note that this code is a synonym of AdministrableDrugForm, and is the original misspelling as published in the CDA R2 base; the spelling was corrected in later revisions of V3, but is kept here for backwards compatibility."/>
+        <property>
+          <code value="source"/>
+          <valueCode value="cda"/>
+        </property>
+        <property>
+          <code value="contextBindingR1-valueSet"/>
+          <valueString value="2.16.840.1.113883.1.11.14570"/>
+        </property>
+        <property>
+          <code value="contextBindingR1-strength"/>
+          <valueCode value="CWE"/>
+        </property>
+        <property>
+          <code value="contextBindingR1-effectiveDate"/>
+          <valueDateTime value="2020-01-01"/>
+        </property>
+        <property>
+          <code value="synonymCode"/>
+          <valueCode value="AdministrableDrugForm"/>
+        </property>
+      <property>
+        <code value="openIssue"/>
+        <valueString value="Seems to be a misspelling of the name of the ConceptDomain from v3; published this way in the CDA R2 base standard."/>
+      </property>
       </concept>
       <concept>
         <code value="CombinedDoseForm"/>
@@ -13888,6 +13927,19 @@
       <code value="source"/>
       <valueCode value="v2"/>
     </property>
+    <concept>
+      <code value="x_BasicConfidentialityKind"/>
+      <display value="x_BasicConfidentialityKind"/>
+      <definnition value="Domain of possible values for basic confidentiality, as used and defined in the CDA base R2 standard."/>
+      <property>
+        <code value="source"/>
+        <valueCode value="cda"/>
+      </property>
+      <property>
+        <code value="openIssue"/>
+        <valueString value="Violates ConceptDomain naming rules, and appears to be an erroneous error using the value set name as the concept domain name."/>
+      </property>
+    </concept>
   </concept>
   <concept>
     <code value="FileLevelEventCode"/>
