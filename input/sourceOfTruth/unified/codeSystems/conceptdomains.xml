@@ -34,6 +34,12 @@
     <type value="string"/>
   </property>
   <property>
+    <code value="subsumedBy"/>
+    <uri value="http://hl7.org/fhir/concept-properties#parent"/>
+    <description value="The concept code of a parent concept"/>
+    <type value="code"/>
+  </property>
+  <property>
     <code value="contextBindingC1-effectiveDate"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#contextBindingC1-effectiveDate"/>
     <description value="C1 Binding Effective Date"/>
@@ -659,7 +665,7 @@
       <concept>
         <code value="ActEncounterType"/>
         <display value="ActEncounterType"/>
-        <definition value="**Definition:**Concepts representing types of patient encounter such as ambulatory encounter, inpatient encounter or emergency encounter."/>
+        <definition value="Concepts representing types of patient encounter such as ambulatory encounter, inpatient encounter or emergency encounter."/>
         <property>
           <code value="source"/>
           <valueCode value="v3"/>
@@ -684,6 +690,10 @@
             <code value="contextBindingR1-effectiveDate"/>
             <valueDateTime value="2020-01-01"/>
           </property>
+          <property>
+            <code value="subsumedBy"/>
+            <valueCode value="ActEncounterCode"/>
+          </property>
         </concept>
         <concept>
           <code value="ActEncounterEmergencyType"/>
@@ -704,6 +714,10 @@
           <property>
             <code value="contextBindingR1-effectiveDate"/>
             <valueDateTime value="2020-01-01"/>
+          </property>
+          <property>
+            <code value="subsumedBy"/>
+            <valueCode value="ActEncounterCode"/>
           </property>
         </concept>
         <concept>
@@ -726,6 +740,10 @@
             <code value="contextBindingR1-effectiveDate"/>
             <valueDateTime value="2020-01-01"/>
           </property>
+          <property>
+            <code value="subsumedBy"/>
+            <valueCode value="ActEncounterCode"/>
+          </property>
         </concept>
         <concept>
           <code value="ActEncounterHomeHealthType"/>
@@ -746,6 +764,10 @@
           <property>
             <code value="contextBindingR1-effectiveDate"/>
             <valueDateTime value="2020-01-01"/>
+          </property>
+          <property>
+            <code value="subsumedBy"/>
+            <valueCode value="ActEncounterCode"/>
           </property>
         </concept>
         <concept>
@@ -768,6 +790,10 @@
             <code value="contextBindingR1-effectiveDate"/>
             <valueDateTime value="2020-01-01"/>
           </property>
+          <property>
+            <code value="subsumedBy"/>
+            <valueCode value="ActEncounterCode"/>
+          </property>
         </concept>
         <concept>
           <code value="ActEncounterShortStayType"/>
@@ -788,6 +814,10 @@
           <property>
             <code value="contextBindingR1-effectiveDate"/>
             <valueDateTime value="2020-01-01"/>
+          </property>
+          <property>
+            <code value="subsumedBy"/>
+            <valueCode value="ActEncounterCode"/>
           </property>
         </concept>
         <concept>
@@ -810,6 +840,10 @@
             <code value="contextBindingR1-effectiveDate"/>
             <valueDateTime value="2020-01-01"/>
           </property>
+          <property>
+            <code value="subsumedBy"/>
+            <valueCode value="ActEncounterCode"/>
+          </property>
         </concept>
         <concept>
           <code value="EncounterAccident"/>
@@ -826,7 +860,24 @@
               <code value="ENC"/>
             </valueCoding>
           </property>
+          <property>
+            <code value="subsumedBy"/>
+            <valueCode value="ActEncounterCode"/>
+          </property>
         </concept>
+      </concept>
+      <concept>
+        <code value="ActEncounterCode"/>
+        <display value="ActEncounterCode"/>
+        <definition value="Concepts representing types of patient encounter such as ambulatory encounter, inpatient encounter or emergency encounter.  Note that this code is a synonym of ActEncounterType, and follows the original naming conventions for v3 Concept Domains, and is as published in the CDA R2 base; the naming conventions were corrected in later revisions of V3, but is kept here for backwards compatibility for the CDA R2 base."/>
+        <property>
+          <code value="source"/>
+          <valueCode value="cda"/>
+        </property>
+        <property>
+          <code value="synonymCode"/>
+          <valueCode value="ActEncounterType"/>
+        </property>
       </concept>
     </concept>
     <concept>
