@@ -2498,7 +2498,7 @@
       <concept>
         <code value="ActSubstanceAdministrationCode"/>
         <display value="ActSubstanceAdministrationCode"/>
-        <definition value="**Description:** Describes the type of substance administration being performed. This should not be used to carry codes for identification of products. Use an associated role or entity to carry such information."/>
+        <definition value="Describes the type of substance administration being performed. This should not be used to carry codes for identification of products. Use an associated role or entity to carry such information."/>
         <property>
           <code value="source"/>
           <valueCode value="v3"/>
@@ -2522,6 +2522,10 @@
           <code value="contextBindingC1-effectiveDate"/>
           <valueDateTime value="2020-01-01"/>
         </property>
+        <property>
+          <code value="synonymCode"/>
+          <valueCode value="SubstanceAdministrationActCode"/>
+        </property>
         <concept>
           <code value="ActSubstanceAdministrationImmunizationCode"/>
           <display value="ActSubstanceAdministrationImmunizationCode"/>
@@ -2542,7 +2546,31 @@
             <code value="contextBindingC1-effectiveDate"/>
             <valueDateTime value="2020-01-01"/>
           </property>
+          <property>
+            <code value="subsumedBy"/>
+            <valueCode value="SubstanceAdministrationActCode"/>
+          </property>
         </concept>
+      </concept>
+      <concept>
+        <code value="SubstanceAdministrationActCode"/>
+        <display value="SubstanceAdministrationActCode"/>
+        <definition value="Describes the type of substance administration being performed. This should not be used to carry codes for identification of products. Use an associated role or entity to carry such information.  Note that this code is a synonym of ActSubstanceAdministrationCode, and follows the original naming conventions for v3 Concept Domains, and is as published in the CDA R2 base; the naming conventions were corrected in later revisions of V3, but is kept here for backwards compatibility for the CDA R2 base."/>
+        <property>
+          <code value="source"/>
+          <valueCode value="cda"/>
+        </property>
+        <property>
+          <code value="ConceptualSpaceForClassCode"/>
+          <valueCoding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+            <code value="SBADM"/>
+          </valueCoding>
+        </property>
+        <property>
+          <code value="synonymCode"/>
+          <valueCode value="ActSubstanceAdministrationCode"/>
+        </property>
       </concept>
       <concept>
         <code value="ActSubstanceDerivationType"/>
