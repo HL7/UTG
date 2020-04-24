@@ -14,9 +14,14 @@
   <status value="active"/>
   <date value="2014-03-26"/>
   <description value="Countries of the world. ISO 3166, part 1, alpha-3 set."/>
-  <compose>
-    <include>
-      <system value="urn:iso:std:iso:3166"/>
-    </include>
-  </compose>
+  <compose> 
+    <include> 
+      <system value="urn:iso:std:iso:3166"/> 
+      <filter> 
+        <property value="code"/> 
+        <op value="regex"/> 
+        <value value="[A-Z]{3}"/> 
+      </filter> 
+    </include> 
+  </compose> 
 </ValueSet>
