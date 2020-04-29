@@ -16,18 +16,12 @@
   <description value="Application specific media type."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-extTmp-mediatypes"/>
+      <system value="http://terminology.hl7.org/CodeSystem/mediatypes"/>
       <filter>
         <property value="concept"/>
-        <op value="is-a"/>
+        <op value="descendent-of"/>
         <value value="application"/>
       </filter>
     </include>
-    <exclude>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-extTmp-mediatypes"/>
-      <concept>
-        <code value="application"/>
-      </concept>
-    </exclude>
   </compose>
 </ValueSet>
