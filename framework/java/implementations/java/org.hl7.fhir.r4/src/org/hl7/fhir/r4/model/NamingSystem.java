@@ -777,8 +777,7 @@ public class NamingSystem extends MetadataResource {
     	super();
     	setId(cs.getId());
     	setName(cs.getName());
-    	setUrl(cs.getUrl());
-    	//setTitle(cs.getTitle());
+    	//setUrl("http://terminology.hl7.org/NamingSystem/" + this.getId());
     	setStatus(cs.getStatus());
     	setKind(NamingSystemType.CODESYSTEM);
     	setDate(cs.getDate());
@@ -788,8 +787,8 @@ public class NamingSystem extends MetadataResource {
     	setDescription(cs.getDescription());
     	setUseContext(cs.getUseContext());
     	setJurisdiction(cs.getJurisdiction());
-    	setVersion(cs.getVersion());
-    	
+    	addExtension("http://terminology.hl7.org/StructureDefinition/ext-namingsystem-title", new StringType(cs.getTitle()));
+
     	if (cs.hasUserData("oid")) {
         	getUniqueId().add(new NamingSystemUniqueIdComponent().setType(NamingSystemIdentifierType.OID).setValue((String) cs.getUserData("oid")).setPreferred(true));
     	}

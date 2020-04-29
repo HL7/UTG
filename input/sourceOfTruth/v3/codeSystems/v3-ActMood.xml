@@ -3,20 +3,6 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-ActMood"/>
   <language value="en"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
-    <valueString value="Is in UMLS."/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
-    <extension url="name">
-      <valueString value="Health Level Seven"/>
-    </extension>
-    <extension url="role">
-      <valueString value="Sponsor"/>
-    </extension>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-    <valueString value="In Ballot 2009May, a strong Negative vote was lodged against several of the concept definitions in the vocabulary used for Act.moodCode. The vote was found &quot;Persuasive With Mod&quot;, with the understanding that M and M would undertake a detailed review of these concept definitions for a future release of the RIM."/>
-  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -35,36 +21,64 @@
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
     </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Specializes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Generalizes"/>
+    </extension>
+    <code value="Specializes"/>
+    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Generalizes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Specializes"/>
+    </extension>
+    <code value="Generalizes"/>
+    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+    <type value="Coding"/>
+  </property>
+  <property>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultValue">
-        <valueString value="active"/>
-      </extension>
-    </extension>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="Name:Class"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Class"/>
     <description value="The formal name for the class clone under this code"/>
@@ -77,15 +91,16 @@
     <type value="boolean"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="synonymCode"/>
     <uri value="http://hl7.org/fhir/concept-properties#synonym"/>
     <description value="An additional concept code that was also attributed to a concept"/>
     <type value="code"/>
+  </property>
+  <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
   </property>
   <concept>
     <code value="_ActMoodCompletionTrack"/>
@@ -128,9 +143,6 @@
         <valueCode value="Potential"/>
       </property>
       <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-          <valueString value="The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be &quot;retired&quot; in the future in favor of the more general ActMood.CRT."/>
-        </extension>
         <code value="DEF"/>
         <display value="definition"/>
         <definition value="**Definition:** A definition of a kind of act that can occur .&#xD;&#xA;&#xD;&#xA;**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be &quot;retired&quot; in the future in favor of the more general ActMood.CRT."/>
@@ -248,6 +260,10 @@
             <valueCode value="active"/>
           </property>
           <property>
+            <code value="HL7usageNotes"/>
+            <valueString value="Use of an HL7 defined request/fulfillment framework is not required to use this mood code."/>
+          </property>
+          <property>
             <code value="internalId"/>
             <valueCode value="23089"/>
           </property>
@@ -302,6 +318,10 @@
               <valueCode value="ORD"/>
             </property>
             <property>
+              <code value="HL7usageNotes"/>
+              <valueString value="The concepts of a &quot;request&quot; and an &quot;order&quot; are viewed as different, because there is an implication of a mandate associated with order.  In practice, however, this distinction has no general functional value in the inter-operation of health care computing.  &quot;Orders&quot; are commonly refused for a variety of clinical and business reasons, and the notion of a &quot;request&quot; obligates the recipient (the fulfiller) to respond to the sender (the author).  Indeed, in many regions, including Australia and Europe, the common term used is &quot;request.&quot; Thus, the concept embodies both notions, as there is no useful distinction to be made.  If a mandate is to be associated with a request, this will be embodied in the &quot;local&quot; business rules applied to the transactions.  Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept. The critical distinction here, is the difference between this concept and an &quot;intent&quot;, of which it is a specialization.  An intent involves decisions by a single party, the author.  A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."/>
+            </property>
+            <property>
               <code value="internalId"/>
               <valueCode value="19973"/>
             </property>
@@ -321,6 +341,10 @@
             <property>
               <code value="synonymCode"/>
               <valueCode value="RQO"/>
+            </property>
+            <property>
+              <code value="HL7usageNotes"/>
+              <valueString value="The concepts of a &quot;request&quot; and an &quot;order&quot; are viewed as different, because there is an implication of a mandate associated with order.  In practice, however, this distinction has no general functional value in the inter-operation of health care computing.  &quot;Orders&quot; are commonly refused for a variety of clinical and business reasons, and the notion of a &quot;request&quot; obligates the recipient (the fulfiller) to respond to the sender (the author).  Indeed, in many regions, including Australia and Europe, the common term used is &quot;request.&quot; Thus, the concept embodies both notions, as there is no useful distinction to be made.  If a mandate is to be associated with a request, this will be embodied in the &quot;local&quot; business rules applied to the transactions.  Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept. The critical distinction here, is the difference between this concept and an &quot;intent&quot;, of which it is a specialization.  An intent involves decisions by a single party, the author.  A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."/>
             </property>
             <property>
               <code value="internalId"/>
@@ -357,6 +381,10 @@
               <valueCode value="active"/>
             </property>
             <property>
+              <code value="HL7usageNotes"/>
+              <valueString value="Where there is no clear definition or applicable concept of &quot;professional responsibility&#xE2;&#x20AC;?, RMD becomes indistinguishable from PRP. ."/>
+            </property>
+            <property>
               <code value="internalId"/>
               <valueCode value="21571"/>
             </property>
@@ -374,6 +402,10 @@
         <property>
           <code value="status"/>
           <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="HL7usageNotes"/>
+          <valueString value="Commitments may be retracted or cancelled."/>
         </property>
         <property>
           <code value="internalId"/>
@@ -424,12 +456,6 @@
       <valueCode value="Predicate"/>
     </property>
     <concept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
-        <valueString value="This concept This codes should no longer be used.  Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion."/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-        <valueString value="1033-20100712"/>
-      </extension>
       <code value="CRT"/>
       <display value="criterion"/>
       <definition value="***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion.&#xD;&#xA;&#xD;&#xA;**Definition:** A condition that must be true for the source act to be considered."/>
@@ -446,12 +472,6 @@
         <valueCode value="Criterion"/>
       </property>
       <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
-          <valueString value="This concept This codes should no longer be used.  Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion."/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-          <valueString value="1037-20100712"/>
-        </extension>
         <code value="EVN.CRT"/>
         <display value="event criterion"/>
         <definition value="***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion.&#xD;&#xA;&#xD;&#xA;**Definition:** A criterion (CRT) that has\_match = an event (EVN)."/>
@@ -543,6 +563,10 @@
         <valueCode value="active"/>
       </property>
       <property>
+        <code value="HL7usageNotes"/>
+        <valueString value="INT (intent) reflects a plan for the future, which is a declaration to do something. This contrasts with expectation, which is a prediction that something will happen in the future. GOL (goal) reflects a hope rather than a prediction. RSK (risk) reflects a potential negative event that may or may not be expected to happen."/>
+      </property>
+      <property>
         <code value="internalId"/>
         <valueCode value="21574"/>
       </property>
@@ -557,6 +581,10 @@
         <property>
           <code value="status"/>
           <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="HL7usageNotes"/>
+          <valueString value="INT (intent) reflects a plan for the future, which is a declaration to do something.  This contrasts with goal which doesn&#39;t represent an intention to act, merely a hope for an eventual result.  A goal is distinct from the intended actions to reach that goal.  &quot;I will reduce the dose of drug x to 20mg&quot; is an intent.  &quot;I hope to be able to get the patient to the point where I can reduce the dose of drug x to 20mg&quot; is a goal. EXPEC (expectation) reflects a prediction rather than a hope. RSK (risk) reflects a potential negative event rather than a hope."/>
         </property>
         <property>
           <code value="internalId"/>
@@ -574,6 +602,10 @@
         <property>
           <code value="status"/>
           <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="HL7usageNotes"/>
+          <valueString value="Note: An observation in RSK mood expresses the undesirable act, and not the underlying risk factor. A risk factor that is present (e.g. obesity, smoking, etc) should be expressed in event mood. INT (intent) reflects a plan for the future, which is a declaration to do something. This contrasts with RSK (risk), which is the potential that something negative will occur that may or may not ever happen. GOL (goal) reflects a hope to achieve something. EXPEC (expectation) is the prediction of a positive or negative event. This contrasts with RSK (risk), which is the potential that something negative will occur that may or may not ever happen, and may not be expected to happen."/>
         </property>
         <property>
           <code value="internalId"/>

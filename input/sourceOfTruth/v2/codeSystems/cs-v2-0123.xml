@@ -44,6 +44,18 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
   <concept id="1430">
     <code value="O"/>
     <display value="Order received; specimen not yet received"/>
@@ -51,7 +63,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Auftrag erhalten - Probe steht noch aus"/>
@@ -68,7 +80,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Keine Ergebnisse - Probe liegt vor, Untersuchung unvollst&#xE4;ndig"/>
@@ -85,7 +97,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Keine Ergebnisse - Untersuchung eingeplant, aber noch nicht durchgef&#xFC;hrt"/>
@@ -102,7 +114,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="einige, aber nicht alle Ergebnisse verf&#xFC;gbar"/>
@@ -119,7 +131,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Vorl&#xE4;ufig - Validiertes Zwischenergebnis liegt vor, aber noch keine endg&#xFC;ltigen"/>
@@ -136,7 +148,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="korrigiertes Ergebnis, final"/>
@@ -153,7 +165,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Ergebnisse gespeichert, aber noch nicht validiert"/>
@@ -164,20 +176,21 @@
     </property>
   </concept>
   <concept id="1437">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Can only be changed with a corrected result."/>
-    </extension>
     <code value="F"/>
     <display value="Final results"/>
     <definition value="Final results; results stored and verified."/>
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Endergebnis - Auftrag erledigt, Ergebnisse validiert"/>
     </designation>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Can only be changed with a corrected result."/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -190,7 +203,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Keine Ergebnisse - Auftrag storniert"/>
@@ -201,40 +214,42 @@
     </property>
   </concept>
   <concept id="1439">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used only on queries"/>
-    </extension>
     <code value="Y"/>
     <display value="No order on record for this test"/>
     <definition value="No order on record for this test."/>
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Kein Auftrag zu dieser Untersuchung"/>
     </designation>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used only on queries"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1440">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used only on queries"/>
-    </extension>
     <code value="Z"/>
     <display value="No record of this patient"/>
     <definition value="No record of this patient."/>
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Keine Daten &#xFC;ber diesen Patienten"/>
     </designation>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used only on queries"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
@@ -250,12 +265,13 @@
     </property>
   </concept>
   <concept id="1442">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Transitions/Relationships: &#xA;OBR-25  Valid preceding state (... to N): O, I, S.  Succeeding state (N to ...): P, A, R, F, X&#xA;OBX-11  No OBX segments can be present where OBX-29 = RSLT"/>
-    </extension>
     <code value="N"/>
     <display value="Procedure completed, results pending"/>
     <definition value="No result available; requested procedure done.  To indicate that a requested test is performed but results are pending/not yet available."/>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Transitions/Relationships: &#xA;OBR-25  Valid preceding state (... to N): O, I, S.  Succeeding state (N to ...): P, A, R, F, X&#xA;OBX-11  No OBX segments can be present where OBX-29 = RSLT"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>

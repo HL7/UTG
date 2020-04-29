@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir">
+<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../input-cache/schemas/R4/fhir-single.xsd">
   <id value="hl7TermMaintInfra"/>
   <language value="en"/>
   <url value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
@@ -81,6 +81,102 @@
       <code value="UTGRELManifest"/>
       <display value="UTG Release Instance Manifest"/>
       <definition value="Identifies List resourrce instance used as a Manifest of a release of the HL7 Vocabulary through UTG."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="MIF"/>
+    <definition value="Frouper code for MIF-related terminology"/>
+    <concept>
+      <code value="MIF-ConceptRelationshipKind"/>
+      <definition value="Grouper code for MIF SupportedConceptRelationship.relationshipKind codes"/>
+      <concept>
+        <code value="Specializes"/>
+        <definition value="The child code is a more narrow version of concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymetric."/>
+      </concept>
+      <concept>
+        <code value="ComponentOf"/>
+        <definition value="The child code is a part of the concept represented by the parent code.  Used to determine allowed nesting, for example of address components.  Must be transitive, irreflexive, antisymetric."/>
+      </concept>
+      <concept>
+        <code value="GroupedBy"/>
+        <definition value="The child code is a part of a grouping represented by the parent code.  Used to determine navigational hierarchy not based on a specializes or component relationship.  E.g. ICD9 hierarchy.  Is transitive, irreflexive and antisymetric"/>
+      </concept>
+      <concept>
+        <code value="LessThan"/>
+        <definition value="For coded ordeinal code systems, indicates that the specified code is considered less than the related code.  Used to determine relationships for coded ordinals.  Must be transitive, irreflexive, antisymetric."/>
+      </concept>
+      <concept>
+        <code value="DefinitionallyQualifies"/>
+        <definition value="Identifies a code that can act as a qualifier for the referenced code, both as part of concept definition within the code system and as part of run-time concept definition to determine concepts allowed for use as qualifiers for a concept within a CD datatype.  Must be non-transitive, irreflexive."/>
+      </concept>
+      <concept>
+        <code value="NonDefinitionallyQualifies"/>
+        <definition value="Same as definitionally qualifies, but restricted to only being used at run-time.  Must be non-transitive, irreflexive."/>
+      </concept>
+      <concept>
+        <code value="Generalizes"/>
+        <definition value="Inverse of Specializes.  Only included as a derived relationship"/>
+      </concept>
+      <concept>
+        <code value="Component"/>
+        <definition value="Inverse of ComponentOf.  Only included as a derived relationship"/>
+      </concept>
+      <concept>
+        <code value="InGroup"/>
+        <definition value="Inverse of GroupedBy.  Only included as a derived relationship"/>
+      </concept>
+      <concept>
+        <code value="GreaterThan"/>
+        <definition value="Inverse of LessThan.  Only included as a derived relationship"/>
+      </concept>
+      <concept>
+        <code value="DefinitionallyQualifiedBy"/>
+        <definition value="Inverse of DefinitionallyQualifies.  Only included as a derived relationship"/>
+      </concept>
+      <concept>
+        <code value="NonDefinitionallyQualifiedBy"/>
+        <definition value="Inverse of NonDefinitionallyQualifies.  Only included as a derived relationship"/>
+      </concept>
+      <concept>
+        <code value="Other"/>
+        <definition value="The child code has a relationship with the parent that does not follow one of the pre-defined stereotypical patterns.  Any application behavior based on the relationship must be custom-coded.  Transitivity, Reflexivity and Symmetry must be asserted"/>
+      </concept>
+    </concept>
+    <concept>
+      <code value="MIF-ConceptRelationshipReflexivity"/>
+      <definition value="Grouper code for MIF SupportedConceptRelationship.reflexivity codes"/>
+      <concept>
+        <code value="reflexive"/>
+        <definition value="Relationship always holds from a code to itself"/>
+      </concept>
+      <concept>
+        <code value="irreflexive"/>
+        <definition value="Relationship never holds from a code to itself"/>
+      </concept>
+    </concept>
+    <concept>
+      <code value="MIF-ConceptRelationshipSymmetry"/>
+      <definition value="Grouper code for MIF SupportedConceptRelationship.symmetry codes"/>
+      <concept>
+        <code value="symmetric"/>
+        <definition value="Relationship always holds from target to source if it holds from source to target"/>
+      </concept>
+      <concept>
+        <code value="antisymmetric"/>
+        <definition value="Relationship never holds from target to source if it holds from source to target"/>
+      </concept>
+    </concept>
+    <concept>
+      <code value="MIF-ConceptRelationshipTransitivity"/>
+      <definition value="Grouper code for MIF SupportedConceptRelationship.transitivity codes"/>
+      <concept>
+        <code value="transitive"/>
+        <definition value="If a relationship exists from A to B and B to C, it always holds from A to C as well"/>
+      </concept>
+      <concept>
+        <code value="antitransitive"/>
+        <definition value="If a relationship exists from A to B and B to C, it never holds from A to C as well"/>
+      </concept>
     </concept>
   </concept>
 </CodeSystem>

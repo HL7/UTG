@@ -44,6 +44,18 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
   <concept id="6775">
     <code value="BS"/>
     <display value="Bank residual specimen"/>
@@ -54,144 +66,156 @@
     </property>
   </concept>
   <concept id="6776">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used to indicate why review is requested"/>
-    </extension>
     <code value="CR"/>
     <display value="Confirm results value"/>
     <definition value="Requests verification of previously reported results"/>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
   <concept id="6777">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Provides instructions for Specimen storage"/>
-    </extension>
     <code value="FP"/>
     <display value="Store residual specimen pending follow up"/>
     <definition value="Requests that the specimen should be saved for a short duration until follow up is completed"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Provides instructions for Specimen storage"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
   <concept id="6778">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used to indicate why review is requested"/>
-    </extension>
     <code value="IN"/>
     <display value="Interpret results"/>
     <definition value="Requests interpretation of previously reported results"/>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
   <concept id="6779">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used to indicate why review is requested"/>
-    </extension>
     <code value="IR"/>
     <display value="Review clinically inconsistent results"/>
     <definition value="Requests comparison of previously reported results amongst themselves"/>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
   <concept id="6780">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used to indicate why review is requested"/>
-    </extension>
     <code value="IT"/>
     <display value="Incorrect test performed"/>
     <definition value="For process improvement work this code can be used to identify when an incorrect test was performed for the target order"/>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
   <concept id="6781">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used to indicate why review is requested"/>
-    </extension>
     <code value="OP"/>
     <display value="Test ordering problem"/>
     <definition value="For process improvement work this code can be used to identify orders and the respective results, where problems occurred during ordering"/>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
   <concept id="6782">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used to indicate why review is requested"/>
-    </extension>
     <code value="PI"/>
     <display value="Patient identification problem"/>
     <definition value="For process improvement work this code can be used to identify when a patient identification issue has occurred on the target order"/>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
   <concept id="6783">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used to indicate why review is requested"/>
-    </extension>
     <code value="SI"/>
     <display value="Suspected interference"/>
     <definition value="Requests verification of previously reported results due to suspected interference"/>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
   <concept id="6784">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used to indicate why review is requested"/>
-    </extension>
     <code value="SP"/>
     <display value="Sampling problem"/>
     <definition value="For process improvement work this code can be used to identify orders, where problems occurred during sample collection"/>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="R"/>
     </property>
   </concept>
   <concept id="6785">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used to indicate why review is requested"/>
-    </extension>
     <code value="TP"/>
     <display value="Specimen transport problem"/>
     <definition value="For process improvement work this code can be used to identify orders, where problems occurred during sample transport"/>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
   <concept id="6786">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used to indicate why review is requested"/>
-    </extension>
     <code value="TT"/>
     <display value="Turnaround time problem"/>
     <definition value="For process improvement work this code can be used to identify results with excessive reporting delay"/>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>
     </property>
   </concept>
   <concept id="6787">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-usageNotes">
-      <valueString value="Used to indicate why review is requested"/>
-    </extension>
     <code value="XR"/>
     <display value="Incorrect results"/>
     <definition value="For process improvement work this code can be used to identify when incorrect result were reported for the target order"/>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to indicate why review is requested"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="N"/>

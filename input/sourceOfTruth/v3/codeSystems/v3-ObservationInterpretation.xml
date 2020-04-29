@@ -3,17 +3,6 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-ObservationInterpretation"/>
   <language value="en"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
-    <valueString value="Is in UMLS."/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
-    <extension url="name">
-      <valueString value="Health Level Seven"/>
-    </extension>
-    <extension url="role">
-      <valueString value="Sponsor"/>
-    </extension>
-  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -32,11 +21,52 @@
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
     </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Specializes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Generalizes"/>
+    </extension>
+    <code value="Specializes"/>
+    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Generalizes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Specializes"/>
+    </extension>
+    <code value="Generalizes"/>
+    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+    <type value="Coding"/>
+  </property>
+  <property>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
@@ -49,25 +79,12 @@
     <type value="boolean"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultValue">
-        <valueString value="active"/>
-      </extension>
-    </extension>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="subsumedBy"/>
     <uri value="http://hl7.org/fhir/concept-properties#parent"/>
     <description value="The concept code of a parent concept"/>
@@ -159,9 +176,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="EX, HX, LX: These three concepts do not seem to meet a clear need in the vocabulary, and their use in observation interpretation appears likely to be covered by other existing concepts (e.g., A, H, L).  The only apparent significant difference is their reference to use in protocols for exclusion of study subjects."/>
-    </extension>
     <code value="EX"/>
     <display value="outside threshold"/>
     <definition value="The observation/test result is interpreted as being outside the inclusion range for a particular protocol within which the result is being reported.&#xD;&#xA;&#xD;&#xA;**Example:** A positive result on a Hepatitis screening test.&#xD;&#xA;&#xD;&#xA;*Open Issue:* EX, HX, LX: These three concepts do not seem to meet a clear need in the vocabulary, and their use in observation interpretation appears likely to be covered by other existing concepts (e.g., A, H, L). The only apparent significant difference is their reference to use in protocols for exclusion of study subjects. These concepts/codes were proposed by RCRIM for use in the CTLaboratory message. They were submitted and approved in the November 2005 Harmonization cycle in proposal &quot;030103C\_VOCAB\_RCRIM\_l\_quade\_RCRIM Obs Interp\_20051028154455&quot;. However, this proposal was not fully implemented in the vocabulary. The proposal recommended creation of the x\_ClinicalResearchExclusion domain in ObservationInterpretation with a value set including those three concepts/codes, but there is no subdomain of that name or equivalent with a binding to either of the value sets that contain these concepts/codes. Members of the OO WG have recently attempted to contact members of RCRIM regarding these concepts, both by email and at the recent WGM in Atlanta, without response. It is felt by OO that the best course of action to take at this time is to add this comprehensive Open Issue rather than deprecate these three concepts at this time, until further discussion is held."/>
@@ -175,9 +189,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1372-20161110"/>
-    </extension>
     <code value="HM"/>
     <display value="Hold for Medical Review"/>
     <definition value="Hold for Medical Review&#xD;&#xA;&#xD;&#xA;*Usage Note:* This code is not intended for use in V3 artifacts. It is included in the code system to maintain alignment with the V2 Table 0078 &quot;Interpretation Codes.&quot;"/>
@@ -225,9 +236,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1372-20161110"/>
-    </extension>
     <code value="OBX"/>
     <display value="Interpretation qualifiers in separate OBX segments"/>
     <definition value="Interpretation qualifiers in separate OBX segments&#xD;&#xA;&#xD;&#xA;*Usage Note:* This code is not intended for use in V3 artifacts. It is included in the code system to maintain alignment with the V2 Table 0078 &quot;Interpretation Codes.&quot;"/>
@@ -275,12 +283,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
-      <valueString value="This code is currently the same string as the print name for this concept and is inconsistent with the conventions being used for the other codes in the coding system, as it is a full word with initial capitalization, rather than an all upper case mnemonic.  The recommendation from OO is to deprecate the code &quot;Carrier&quot; and to add &quot;CAR&quot; as the new active code representation for this concept."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1227-20130728"/>
-    </extension>
     <code value="Carrier"/>
     <display value="Carrier"/>
     <definition value="The patient is considered as carrier based on the testing results. A carrier is an individual who carries an altered form of a gene which can lead to having a child or offspring in future generations with a genetic disorder.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is currently the same string as the print name for this concept and is inconsistent with the conventions being used for the other codes in the coding system, as it is a full word with initial capitalization, rather than an all upper case mnemonic. The recommendation from OO is to deprecate the code &quot;Carrier&quot; and to add &quot;CAR&quot; as the new active code representation for this concept."/>
@@ -400,12 +402,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
-      <valueString value="This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1372-20161110"/>
-    </extension>
     <code value="AC"/>
     <display value="Anti-complementary substances present"/>
     <definition value="A valid result cannot be obtained for the specified component / analyte due to the presence of anti-complementary substances in the sample.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
@@ -444,12 +440,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
-      <valueString value="This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1372-20161110"/>
-    </extension>
     <code value="QCF"/>
     <display value="Quality control failure"/>
     <definition value="A result cannot be considered valid for the specified component / analyte or organism due to failure in the quality control testing component.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
@@ -467,12 +457,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
-      <valueString value="This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1372-20161110"/>
-    </extension>
     <code value="TOX"/>
     <display value="Cytotoxic substance present"/>
     <definition value="A valid result cannot be obtained for the specified organism or cell line due to the presence of cytotoxic substances in the sample or culture.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
@@ -541,12 +525,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
-      <valueString value="This antimicrobial susceptibility test interpretation concept is recommended by OO to be deprecated as it is no longer recommended for use in susceptibility testing by CLSI (reference CLSI document M100-S22; Vol. 32 No.3; CLSI Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement. Jan 2012)."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1227-20130728"/>
-    </extension>
     <code value="MS"/>
     <display value="moderately susceptible"/>
     <definition value="The patient is considered as carrier based on the testing results. A carrier is an individual who carries an altered form of a gene which can lead to having a child or offspring in future generations with a genetic disorder.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This antimicrobial susceptibility test interpretation concept is recommended by OO to be deprecated as it is no longer recommended for use in susceptibility testing by CLSI (reference CLSI document M100-S22; Vol. 32 No.3; CLSI Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement. Jan 2012)."/>
@@ -632,12 +610,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
-      <valueString value="This antimicrobial susceptibility test interpretation concept is recommended by OO to be deprecated as it is no longer recommended for use in susceptibility testing by CLSI (reference CLSI document M100-S22; Vol. 32 No.3; CLSI Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement. Jan 2012)."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1227-20130728"/>
-    </extension>
     <code value="VS"/>
     <display value="very susceptible"/>
     <definition value="The patient is considered as carrier based on the testing results. A carrier is an individual who carries an altered form of a gene which can lead to having a child or offspring in future generations with a genetic disorder.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This antimicrobial susceptibility test interpretation concept is recommended by OO to be deprecated as it is no longer recommended for use in susceptibility testing by CLSI (reference CLSI document M100-S22; Vol. 32 No.3; CLSI Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement. Jan 2012)."/>
@@ -756,9 +728,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="EX, HX, LX: These three concepts do not seem to meet a clear need in the vocabulary, and their use in observation interpretation appears likely to be covered by other existing concepts (e.g., A, H, L).  The only apparent significant difference is their reference to use in protocols for exclusion of study subjects.  These concepts/codes were proposed by RCRIM for use in the CTLaboratory message.  They were submitted and approved in the November 2005 Harmonization cycle in proposal &quot;030103C_VOCAB_RCRIM_l_quade_RCRIM Obs Interp_20051028154455&quot;. However, this proposal was not fully implemented in the vocabulary.  The proposal recommended creation of the x_ClinicalResearchExclusion domain in ObservationInterpretation with a value set including those three concepts/codes, but there is no subdomain of that name or equivalent with a binding to either of the value sets that contain these concepts/codes.  Members of the OO WG have recently attempted to contact members of RCRIM regarding these concepts, both by email and at the recent WGM in Atlanta, without response.  It is felt by OO that the best course of action to take at this time is to add this comprehensive Open Issue rather than deprecate these three concepts at this time, until further discussion is held."/>
-    </extension>
     <code value="HX"/>
     <display value="above high threshold"/>
     <definition value="The observation/test result is interpreted as being outside the inclusion range for a particular protocol within which the result is being reported.&#xD;&#xA;&#xD;&#xA;**Example:** A positive result on a Hepatitis screening test.&#xD;&#xA;&#xD;&#xA;*Open Issue:* EX, HX, LX: These three concepts do not seem to meet a clear need in the vocabulary, and their use in observation interpretation appears likely to be covered by other existing concepts (e.g., A, H, L). The only apparent significant difference is their reference to use in protocols for exclusion of study subjects. These concepts/codes were proposed by RCRIM for use in the CTLaboratory message. They were submitted and approved in the November 2005 Harmonization cycle in proposal &quot;030103C\_VOCAB\_RCRIM\_l\_quade\_RCRIM Obs Interp\_20051028154455&quot;. However, this proposal was not fully implemented in the vocabulary. The proposal recommended creation of the x\_ClinicalResearchExclusion domain in ObservationInterpretation with a value set including those three concepts/codes, but there is no subdomain of that name or equivalent with a binding to either of the value sets that contain these concepts/codes. Members of the OO WG have recently attempted to contact members of RCRIM regarding these concepts, both by email and at the recent WGM in Atlanta, without response. It is felt by OO that the best course of action to take at this time is to add this comprehensive Open Issue rather than deprecate these three concepts at this time, until further discussion is held."/>
@@ -776,9 +745,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="EX, HX, LX: These three concepts do not seem to meet a clear need in the vocabulary, and their use in observation interpretation appears likely to be covered by other existing concepts (e.g., A, H, L).  The only apparent significant difference is their reference to use in protocols for exclusion of study subjects.  These concepts/codes were proposed by RCRIM for use in the CTLaboratory message.  They were submitted and approved in the November 2005 Harmonization cycle in proposal &quot;030103C_VOCAB_RCRIM_l_quade_RCRIM Obs Interp_20051028154455&quot;.  However, this proposal was not fully implemented in the vocabulary.  The proposal recommended creation of the x_ClinicalResearchExclusion domain in ObservationInterpretation with a value set including those three concepts/codes, but there is no subdomain of that name or equivalent with a binding to either of the value sets that contain these concepts/codes.  Members of the OO WG have recently attempted to contact members of RCRIM regarding these concepts, both by email and at the recent WGM in Atlanta, without response.  It is felt by OO that the best course of action to take at this time is to add this comprehensive Open Issue rather than deprecate these three concepts at this time, until further discussion is held."/>
-    </extension>
     <code value="LX"/>
     <display value="below low threshold"/>
     <definition value="The numeric observation/test result is interpreted as being below the low threshold value for a particular protocol within which the result is being reported.&#xD;&#xA;&#xD;&#xA;**Example:** A Total White Blood Cell Count falling below a protocol-defined threshold value of 3000/mm^3&#xD;&#xA;&#xD;&#xA;*Open Issue:* EX, HX, LX: These three concepts do not seem to meet a clear need in the vocabulary, and their use in observation interpretation appears likely to be covered by other existing concepts (e.g., A, H, L). The only apparent significant difference is their reference to use in protocols for exclusion of study subjects. These concepts/codes were proposed by RCRIM for use in the CTLaboratory message. They were submitted and approved in the November 2005 Harmonization cycle in proposal &quot;030103C\_VOCAB\_RCRIM\_l\_quade\_RCRIM Obs Interp\_20051028154455&quot;. However, this proposal was not fully implemented in the vocabulary. The proposal recommended creation of the x\_ClinicalResearchExclusion domain in ObservationInterpretation with a value set including those three concepts/codes, but there is no subdomain of that name or equivalent with a binding to either of the value sets that contain these concepts/codes. Members of the OO WG have recently attempted to contact members of RCRIM regarding these concepts, both by email and at the recent WGM in Atlanta, without response. It is felt by OO that the best course of action to take at this time is to add this comprehensive Open Issue rather than deprecate these three concepts at this time, until further discussion is held."/>
@@ -796,12 +762,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
-      <valueString value="The code &#39;H&gt;&#39; is being deprecated in order to align with the use of the code &#39;HU&#39; for &quot;Very high&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;. [Note: The use of code &#39;H&gt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;HU&#39; instead."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1326-20150323"/>
-    </extension>
     <code value="H&gt;"/>
     <display value="Significantly high"/>
     <definition value="A test result that is significantly higher than the reference (normal) or therapeutic interval, but has not reached the critically high value and might need special attention, as defined by the laboratory or the clinician.&#xD;&#xA;&#xD;&#xA;\[Note: This level is situated between &#39;H&#39; and &#39;HH&#39;.\]&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:* The code &#39;H&gt;&#39; is being deprecated in order to align with the use of the code &#39;HU&#39; for &quot;Very high&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;.&#xD;&#xA;&#xD;&#xA;\[Note: The use of code &#39;H&gt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;HU&#39; instead."/>
@@ -853,12 +813,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-deprecationInfo">
-      <valueString value="The code &#39;L&lt;&#39; is being deprecated in order to align with the use of the code &#39;LU&#39; for &quot;Very low&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;. [Note: The use of code &#39;L&lt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;LU&#39; instead."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1326-20150323"/>
-    </extension>
     <code value="L&lt;"/>
     <display value="Significantly low"/>
     <definition value="A test result that is significantly lower than the reference (normal) or therapeutic interval, but has not reached the critically low value and might need special attention, as defined by the laboratory or the clinician.&#xD;&#xA;&#xD;&#xA;\[Note: This level is situated between &#39;L&#39; and &#39;LL&#39;.\]&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:* The code &#39;L&lt;&#39; is being deprecated in order to align with the use of the code &#39;LU&#39; for &quot;Very low&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;.&#xD;&#xA;&#xD;&#xA;\[Note: The use of code &#39;L&lt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;LU&#39; instead."/>
@@ -1012,9 +966,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="The print name of the code is very general and the description is very specific to a pair of classes of agents, which may lead to confusion of these concepts in the future should other synergies be found."/>
-    </extension>
     <code value="SYN-R"/>
     <display value="Synergy - resistant"/>
     <definition value="A category for isolates where the bacteria (e.g. enterococci) are not susceptible in vitro to a combination therapy (e.g., high-level aminoglycoside and cell wall active agent). This is predictive that this combination therapy will not be effective.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Since the use of penicillin or ampicillin alone often results in treatment failure of serious enterococcal or other bacterial infections, combination therapy is usually indicated to enhance bactericidal activity. The synergy between a cell wall active agent (such as penicillin, ampicillin, or vancomycin) and an aminoglycoside (such as gentamicin, kanamycin or streptomycin) is best predicted by screening for high-level bacterial resistance to the aminoglycoside.&#xD;&#xA;&#xD;&#xA;*Open Issue:* The print name of the code is very general and the description is very specific to a pair of classes of agents, which may lead to confusion of these concepts in the future should other synergies be found."/>
@@ -1100,9 +1051,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="The print name of the code is very general and the description is very specific to a pair of classes of agents, which may lead to confusion of these concepts in the future should other synergies be found."/>
-    </extension>
     <code value="SYN-S"/>
     <display value="Synergy - susceptible"/>
     <definition value="A category for isolates where the bacteria (e.g. enterococci) are susceptible in vitro to a combination therapy (e.g., high-level aminoglycoside and cell wall active agent). This is predictive that this combination therapy will be effective.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Since the use of penicillin or ampicillin alone often results in treatment failure of serious enterococcal or other bacterial infections, combination therapy is usually indicated to enhance bactericidal activity. The synergy between a cell wall active agent (such as penicillin, ampicillin, or vancomycin) and an aminoglycoside (such as gentamicin, kanamycin or streptomycin) is best predicted by screening for high-level bacterial resistance to the aminoglycoside.&#xD;&#xA;&#xD;&#xA;*Open Issue:* The print name of the code is very general and the description is very specific to a pair of classes of agents, which may lead to confusion of these concepts in the future should other synergies be found."/>

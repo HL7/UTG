@@ -3,17 +3,6 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-ActCode"/>
   <language value="en"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
-    <valueString value="Is in UMLS."/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
-    <extension url="name">
-      <valueString value="Health Level Seven"/>
-    </extension>
-    <extension url="role">
-      <valueString value="Sponsor"/>
-    </extension>
-  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -32,34 +21,67 @@
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-relationshipKind">
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
       <valueCode value="Specializes"/>
     </extension>
-    <code value="ClassifiesClassCode"/>
-    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-classifies-class-code"/>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Generalizes"/>
+    </extension>
+    <code value="Specializes"/>
+    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Generalizes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Specializes"/>
+    </extension>
+    <code value="Generalizes"/>
+    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Specializes"/>
+    </extension>
+    <code value="rim-ClassifiesClassCode"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-ClassifiesClassCode"/>
     <description value="The child code is a classification of the particular class group identified by the &#39;classCode&#39; in a RIM class as the parent code.  Used only in RIM backbone classes to link the code and classCode values."/>
     <type value="Coding"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultValue">
-        <valueString value="active"/>
-      </extension>
-    </extension>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
@@ -72,22 +94,18 @@
     <type value="boolean"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
+  <property>
     <code value="synonymCode"/>
     <uri value="http://hl7.org/fhir/concept-properties#synonym"/>
     <description value="An additional concept code that was also attributed to a concept"/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
     <code value="subsumedBy"/>
     <uri value="http://hl7.org/fhir/concept-properties#parent"/>
     <description value="The concept code of a parent concept"/>
@@ -106,7 +124,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ACCT"/>
@@ -130,7 +148,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ADJUD"/>
@@ -205,7 +223,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ROIBND"/>
@@ -229,7 +247,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="PCPR"/>
@@ -253,7 +271,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="CATEGORY"/>
@@ -277,7 +295,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="CONS"/>
@@ -301,7 +319,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="CONTREG"/>
@@ -325,7 +343,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="OBS"/>
@@ -349,7 +367,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="COV"/>
@@ -373,7 +391,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="COV"/>
@@ -397,7 +415,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="COV"/>
@@ -421,7 +439,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ALRT"/>
@@ -445,7 +463,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="EXPOS"/>
@@ -468,7 +486,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="XACT"/>
@@ -492,7 +510,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="INC"/>
@@ -550,7 +568,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="DOC"/>
@@ -574,7 +592,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="INVE"/>
@@ -598,7 +616,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="INVE"/>
@@ -622,7 +640,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="INVE"/>
@@ -646,7 +664,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="LIST"/>
@@ -670,7 +688,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="MPROT"/>
@@ -694,7 +712,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ACT"/>
@@ -718,7 +736,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="VERIF"/>
@@ -742,7 +760,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="XACT"/>
@@ -766,7 +784,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="SPLY"/>
@@ -790,7 +808,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="POLICY"/>
@@ -814,7 +832,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="SPLY"/>
@@ -838,7 +856,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="TRNS"/>
@@ -862,7 +880,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="SPCTRT"/>
@@ -886,7 +904,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="SBADM"/>
@@ -910,7 +928,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ACT"/>
@@ -934,7 +952,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="TRNS"/>
@@ -958,7 +976,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="OBS"/>
@@ -1409,9 +1427,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="637-20081220"/>
-    </extension>
     <code value="STORE"/>
     <display value="Storage"/>
     <definition value="The act of putting something away for safe keeping. The &quot;something&quot; may be physical object such as a specimen, or information, such as observations regarding a specimen."/>
@@ -1524,7 +1539,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ADJUD"/>
@@ -1895,7 +1910,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ALRT"/>
@@ -2232,7 +2247,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="PCPR"/>
@@ -2260,7 +2275,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ENC"/>
@@ -2582,6 +2597,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Map: An &quot;implied&quot; consent directive maps to ISO/TS 17975:2015(E) definition forImplied: Consent to Collect, Use and Disclose personal health information is implied by the actions or inactions of the individual and the circumstances under which it was implied&quot;."/>
     </property>
     <property>
       <code value="internalId"/>
@@ -2998,7 +3017,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="COV"/>
@@ -3081,7 +3100,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="COV"/>
@@ -3257,7 +3276,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="POLICY"/>
@@ -3348,7 +3367,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="PCPR"/>
@@ -3376,7 +3395,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="PCPR"/>
@@ -4806,7 +4825,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ACCM"/>
@@ -6695,9 +6714,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="This definition conflates a rule and a characteristic, and there may be a similar issue with ts sibling codes."/>
-    </extension>
     <code value="TBOO"/>
     <display value="taboo"/>
     <definition value="Policy for handling information not to be initially disclosed or discussed with patient except by a physician assigned to patient in this case. Information handling protocols based on organizational policies related to sensitive patient information that must be initially discussed with the patient by an attending physician before being disclosed to the patient.&#xD;&#xA;&#xD;&#xA;*Usage Note:* If there is a jurisdictional mandate, then use the applicable ActPrivacyLaw code system, and specify the law rather than or in addition to this more generic code.&#xD;&#xA;&#xD;&#xA;*Open Issue:* This definition conflates a rule and a characteristic, and there may be a similar issue with ts sibling codes."/>
@@ -8128,7 +8144,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ACCM"/>
@@ -8249,7 +8265,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="INVE"/>
@@ -8277,7 +8293,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="INVE"/>
@@ -8305,7 +8321,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="INVE"/>
@@ -8333,7 +8349,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="INVE"/>
@@ -8361,7 +8377,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="INVE"/>
@@ -8389,7 +8405,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="INVE"/>
@@ -9085,7 +9101,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="LIST"/>
@@ -9113,7 +9129,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="LIST"/>
@@ -10520,9 +10536,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-versionDeprecated">
-      <valueString value="1428-20181115"/>
-    </extension>
     <code value="_ActConsentDirective"/>
     <display value="ActConsentDirective"/>
     <definition value="Specifies the type of agreement between one or more grantor and grantee in which rights and obligations related to one or more shared items of interest are allocated.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Such agreements may be considered &quot;consent directives&quot; or &quot;contracts&quot; depending on the context, and are considered closely related or synonymous from a legal perspective.&#xD;&#xA;&#xD;&#xA;**Examples:** &#xD;&#xA;&#xD;&#xA; *  Healthcare Privacy Consent Directive permitting or restricting in whole or part the collection, access, use, and disclosure of health information, and any associated handling caveats.&#xD;&#xA; *  Healthcare Medical Consent Directive to receive medical procedures after being informed of risks and benefits, thereby reducing the grantee&#39;s liability.&#xD;&#xA; *  Research Informed Consent for participation in clinical trials and disclosure of health information after being informed of risks and benefits, thereby reducing the grantee&#39;s liability.&#xD;&#xA; *  Substitute decision maker delegation in which the grantee assumes responsibility to act on behalf of the grantor.&#xD;&#xA; *  Contracts in which the agreement requires assent/dissent by the grantor of terms offered by a grantee, a consumer opts out of an &quot;award&quot; system for use of a retailer&#39;s marketing or credit card vendor&#39;s point collection cards in exchange for allowing purchase tracking and profiling.&#xD;&#xA; *  A mobile device or App privacy policy and terms of service to which a user must agree in whole or in part in order to utilize the service.&#xD;&#xA; *  Agreements between a client and an authorization server or between an authorization server and a resource operator and/or resource owner permitting or restricting e.g., collection, access, use, and disclosure of information, and any associated handling caveats."/>
@@ -11183,7 +11196,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ALRT"/>
@@ -11317,7 +11330,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="LIST"/>
@@ -11345,7 +11358,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="TRNS"/>
@@ -11644,7 +11657,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ALRT"/>
@@ -11847,7 +11860,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ALRT"/>
@@ -12419,6 +12432,10 @@
       <valueCode value="active"/>
     </property>
     <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="If there is a jurisdictional mandate, then use the applicable ActPrivacyLaw code system, and specify the law rather than or in addition to this more generic code."/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23358"/>
     </property>
@@ -12832,6 +12849,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="RoleSensitivity codes are used to bind information to a Role.confidentialityCode per organizational policy.  Role.confidentialityCode is defined in the RIM as &quot;an indication of the appropriate disclosure of information about this Role with respect to the playing Entity.&quot;"/>
     </property>
     <property>
       <code value="internalId"/>
@@ -15240,9 +15261,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="The description does NOT align well with the definition used in the HQMF specfication; correct the MSGAGG definition, and the possible distinction of MSRAGG as a child of AGGREGATE."/>
-    </extension>
     <code value="MSRAGG"/>
     <display value="rate aggregation"/>
     <definition value="Describes how to combine information calculated based on logic in each of several populations into one summarized result. It can also be used to describe how to risk adjust the data based on supplemental data elements described in the eMeasure. (e.g., pneumonia hospital measures antibiotic selection in the ICU versus non-ICU and then the roll-up of the two).&#xD;&#xA;&#xD;&#xA;*Open Issue:* The description does NOT align well with the definition used in the HQMF specfication; correct the MSGAGG definition, and the possible distinction of MSRAGG as a child of AGGREGATE."/>
@@ -15579,7 +15597,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="OBSSER"/>
@@ -15607,7 +15625,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="SPCOBS"/>
@@ -15655,7 +15673,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="OBS"/>
@@ -15721,7 +15739,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="OBS"/>
@@ -15748,7 +15766,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="OBS"/>
@@ -15952,9 +15970,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="This code could be moved to LOINC if it can be done before there are significant implemenations using it."/>
-    </extension>
     <code value="CDIO"/>
     <display value="case disease imported observation"/>
     <definition value="An observation that states whether the disease was likely acquired outside the jurisdiction of observation, and if so, the nature of the inter-jurisdictional relationship.&#xD;&#xA;&#xD;&#xA;**OpenIssue:** This code could be moved to LOINC if it can be done before there are significant implemenations using it."/>
@@ -15989,9 +16004,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="This code could be moved to LOINC if it can be done before there are significant implemenations using it."/>
-    </extension>
     <code value="CTMO"/>
     <display value="case transmission mode observation"/>
     <definition value="An observation that states the mechanism by which disease was acquired by the living subject involved in the public health case.&#xD;&#xA;&#xD;&#xA;**OpenIssue:** This code could be moved to LOINC if it can be done before there are significant implemenations using it."/>
@@ -16085,9 +16097,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="The definition of this code does not correctly represent the concept space of its specializations (children)"/>
-    </extension>
     <code value="ISSUE"/>
     <display value="detected issue"/>
     <definition value="There is a clinical issue for the therapy that makes continuation of the therapy inappropriate.&#xD;&#xA;&#xD;&#xA;*Open Issue:* The definition of this code does not correctly represent the concept space of its specializations (children)"/>
@@ -16818,6 +16827,10 @@
       <valueCode value="active"/>
     </property>
     <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="No patient related information may ever be of this confidentiality level.   If there is a jurisdictional mandate, then use the applicable ActPrivacyLaw code system, and specify the law rather than or in addition to this more generic code."/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23347"/>
     </property>
@@ -16833,6 +16846,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="If there is a jurisdictional mandate, then use the applicable ActPrivacyLaw code system, and specify the law rather than or in addition to this more generic code."/>
     </property>
     <property>
       <code value="internalId"/>
@@ -16852,6 +16869,10 @@
       <valueCode value="active"/>
     </property>
     <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="If there is a jurisdictional mandate, then use the applicable ActPrivacyLaw code system, and specify the law rather than or in addition to this more generic code."/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23349"/>
     </property>
@@ -16867,6 +16888,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="If there is a jurisdictional mandate, then use the applicable ActPrivacyLaw code system, and specify the law rather than or in addition to this more generic code."/>
     </property>
     <property>
       <code value="internalId"/>
@@ -18132,7 +18157,7 @@
       <language value="en"/>
       <use>
         <system value="http://snomed.info/sct"/>
-        <code value="synonym"/>
+        <code value="900000000000013009"/>
       </use>
       <value value="Poly-pharmacy Alert"/>
     </designation>
@@ -19714,9 +19739,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="These codes are dissimilar from their parent and do not belong in this hierarchy. PHER and Pharmace to resolve."/>
-    </extension>
     <code value="BOOSTER"/>
     <display value="Booster Immunization"/>
     <definition value="An additional immunization administration within a series intended to bolster or enhance immunity."/>
@@ -19734,9 +19756,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="These codes are dissimilar from their parent and do not belong in this hierarchy. PHER and Pharmace to resolve."/>
-    </extension>
     <code value="INITIMMUNIZ"/>
     <display value="Initial Immunization"/>
     <definition value="The first immunization administration in a series intended to produce immunity"/>
@@ -19936,7 +19955,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ALRT"/>
@@ -19964,7 +19983,7 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="ClassifiesClassCode"/>
+      <code value="rim-ClassifiesClassCode"/>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
         <code value="ALRT"/>
@@ -20674,6 +20693,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="A mathematical transposition of a file or data stream so that it cannot be deciphered at the receiving end without the proper key. Encryption is a security feature that assures that only the parties who are supposed to be participating in a videoconference or data transfer are able to do so. It can include a password, public and private keys, or a complex combination of all.  (Per Infoway.)"/>
     </property>
     <property>
       <code value="internalId"/>
@@ -22858,6 +22881,10 @@
       <valueCode value="active"/>
     </property>
     <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Per ISO 22600-2, ObligationPolicy instances &#39;are event-triggered and define actions to be performed by manager agent&#39;. Per HL7 Composite Security and Privacy Domain Analysis Model:  This value set refers to the action required to receive the permission specified in the privacy rule. Per OASIS XACML, an obligation is an operation specified in a policy or policy that is performed in conjunction with the enforcement of an access control decision."/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="23372"/>
     </property>
@@ -22894,6 +22921,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="ISO 22600-2 species that a Refrain Policy &quot;defines actions the subjects must refrain from performing&quot;.  Per HL7 Composite Security and Privacy Domain Analysis Model:  May be used to indicate that a specific action is prohibited based on specific access control attributes e.g., purpose of use, information type, user role, etc."/>
     </property>
     <property>
       <code value="internalId"/>

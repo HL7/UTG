@@ -3,17 +3,6 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-ActReason"/>
   <language value="en"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
-    <valueString value="Is in UMLS."/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
-    <extension url="name">
-      <valueString value="Health Level Seven"/>
-    </extension>
-    <extension url="role">
-      <valueString value="Sponsor"/>
-    </extension>
-  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -32,25 +21,58 @@
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
     </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Specializes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Generalizes"/>
+    </extension>
+    <code value="Specializes"/>
+    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Generalizes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Specializes"/>
+    </extension>
+    <code value="Generalizes"/>
+    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+    <type value="Coding"/>
+  </property>
+  <property>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-      <extension url="defaultValue">
-        <valueString value="active"/>
-      </extension>
-    </extension>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
     <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
@@ -63,11 +85,12 @@
     <type value="boolean"/>
   </property>
   <property>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-mif-extended-properties">
-      <extension url="isMandatory">
-        <valueBoolean value="false"/>
-      </extension>
-    </extension>
+    <code value="HL7usageNotes"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
+    <description value="HL7 Concept Usage Notes"/>
+    <type value="string"/>
+  </property>
+  <property>
     <code value="subsumedBy"/>
     <uri value="http://hl7.org/fhir/concept-properties#parent"/>
     <description value="The concept code of a parent concept"/>
@@ -900,6 +923,10 @@
       <valueCode value="active"/>
     </property>
     <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="The patient is unable to provide consent, but the provider determines they have an urgent healthcare related reason to access the record."/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="22194"/>
     </property>
@@ -934,6 +961,10 @@
       <valueCode value="active"/>
     </property>
     <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="The patient, while able to give consent, has not.  However the provider believes it is in the patient&#39;s interest to access the record without patient consent."/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="22197"/>
     </property>
@@ -951,6 +982,10 @@
       <valueCode value="active"/>
     </property>
     <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="The patient, while able to give consent, has not.  However, the provider believes that access to masked patient information is justified because of concerns related to public safety."/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="22195"/>
     </property>
@@ -966,6 +1001,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="The patient, while able to give consent, has not.  However, the provider believes that access to masked patient information is justified because of concerns related to the health and safety of one or more third parties."/>
     </property>
     <property>
       <code value="internalId"/>
@@ -1115,6 +1154,10 @@
       <valueCode value="active"/>
     </property>
     <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="Used to convey the reason that a provider or other entity may or has accessed personal healthcare information.  Typically, this involves overriding the subject&#39;s consent directives."/>
+    </property>
+    <property>
       <code value="internalId"/>
       <valueCode value="22198"/>
     </property>
@@ -1130,6 +1173,10 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="HL7usageNotes"/>
+      <valueString value="The rationale or purpose for an act relating to the management of personal health information, such as collecting personal health information for research or public health purposes."/>
     </property>
     <property>
       <code value="internalId"/>
@@ -1162,9 +1209,6 @@
     </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/resource-openIssue">
-      <valueString value="Definition seems incomplete. It expresses the circumstances of suspension, but does not clearly state &quot;what it is&quot;."/>
-    </extension>
     <code value="COVSUS"/>
     <display value="coverage suspended"/>
     <definition value="When a client has no contact with the health system for an extended period, coverage is suspended. Client will be reinstated to original start date upon proof of identification, residency etc.&#xD;&#xA;&#xD;&#xA;Example: Coverage may be suspended during a strike situation, when employer benefits for employees are not covered (i.e. not in effect)."/>

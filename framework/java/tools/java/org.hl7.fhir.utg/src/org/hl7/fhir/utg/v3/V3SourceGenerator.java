@@ -39,12 +39,12 @@ import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Extension;
-import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.ListResource;
 import org.hl7.fhir.r4.model.ListResource.ListEntryComponent;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.StringType;
+import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
@@ -78,14 +78,28 @@ public class V3SourceGenerator extends BaseGenerator {
 	private Map<String, CodeSystem> csByName = new HashMap<String, CodeSystem>();
 	
 	private static final String V3_INITIAL_VERSION = "2.0.0";
+	//private static final String UTG_CON_PROP_PREFIX = "UTG-CONCEPT-PROPERTY:";
 	
-	private static final Map<String, String> DEFINITION_TEXT_PROPERTY_TAGS = new HashMap<String, String>() {
+	private static final Map<String, String> CODE_SYSTEM_DEFINITION_TEXT_PROPERTY_TAGS = new HashMap<String, String>() {
 		private static final long serialVersionUID = 1L;
 		{
-			put("open issue", "openIssue");
-			put("openissue", "openIssue");
-			put("deprecation comment", "deprecationInfo");
-			put("deprecationcomment", "deprecationInfo");
+			/*
+			 *  no longer populating openIssue or deprecationInfo.
+			 *  keeping mechanism in case we need it for something 
+			 *  else in the future.
+			 */
+			//put("open issue", "openIssue");
+			//put("openissue", "openIssue");
+			//put("deprecation comment", "deprecationInfo");
+			//put("deprecationcomment", "deprecationInfo");
+		}
+	};
+	
+	private static final Map<String, String> CONCEPT_DEFINITION_TEXT_PROPERTY_TAGS = new HashMap<String, String>() {
+		private static final long serialVersionUID = 1L;
+		{
+			put("usage notes", "HL7usageNotes");
+			put("usagenotes", "HL7usageNotes");
 		}
 	};
 	
@@ -98,11 +112,31 @@ public class V3SourceGenerator extends BaseGenerator {
 			put("security wg", "sec");
 		}
 	};
+	
+	private static final Map<String, PropertyType> RELATIONSHIP_ATTIBUTES = new HashMap<String, PropertyType>() {
+		private static final long serialVersionUID = 1L;
+		{
+			put("relationshipKind", PropertyType.CODE);
+			put("inverseName", PropertyType.STRING);
+			put("isNavigable", PropertyType.BOOLEAN);
+			put("symmetry", PropertyType.CODE);
+			put("reflexivity", PropertyType.CODE);
+			put("transitivity", PropertyType.CODE);
+		}		
+	};
+
+	private static final Map<String, String> RELATIONSHIP_PROPERTIES_TO_USE = new HashMap<String, String>() {
+		private static final long serialVersionUID = 1L;
+		{
+			put("ClassifiesClassCode", "rim-ClassifiesClassCode");
+		}		
+	};
 
 	public class ConceptDomain {
 		private String name;
 		// private XhtmlNode definition;
 		private String text;
+		private String markdownText;
 		private List<ConceptDomain> children = new LinkedList<ConceptDomain>();
 		public String parent;
 		public String conceptualClass;
@@ -135,7 +169,9 @@ public class V3SourceGenerator extends BaseGenerator {
 			cb.valueSetOID = cbElement.getAttribute("valueSet");
 			cb.bindingRealmName = cbElement.getAttribute("bindingRealmName");
 			cb.codingStrength = cbElement.getAttribute("codingStrength");
-			cb.effectiveDate = cbElement.getAttribute("effectiveDate");
+			//cb.effectiveDate = cbElement.getAttribute("effectiveDate");
+			// Changed effective date of all to 1/1/20 per Ted 
+			cb.effectiveDate = "2020-01-01";
 			if (!contextBindings.containsKey(cdName)) {
 				contextBindings.put(cdName, new LinkedList<ContextBinding>());
 			}
@@ -152,8 +188,8 @@ public class V3SourceGenerator extends BaseGenerator {
 					"text");
 			// cd.definition = new XhtmlParser().parseHtmlNode(xhtml);
 			
-			//cd.text = XMLUtil.htmlToXmlEscapedPlainText(xhtml);
-			cd.text = MarkDownProcessor.htmlToMarkdown(xhtml);
+			cd.text = XMLUtil.htmlToXmlEscapedPlainText(xhtml);
+			cd.markdownText = MarkDownProcessor.htmlToMarkdown(xhtml);
 			
 			Element spec = XMLUtil.getNamedChild(e, "specializesDomain");
 			if (spec != null)
@@ -204,9 +240,18 @@ public class V3SourceGenerator extends BaseGenerator {
 			
 			c.setCode(cd.name);
 			c.setDisplay(cd.name);
-			c.setDefinition(cd.text);
+			c.setDefinition(cd.markdownText);
 
-			Map<String, String> properties = extractAdditionalPropertiesFromText(c.getDefinition());
+			if (cd.name.equalsIgnoreCase("EmploymentStatus")) {
+				System.out.println("stop");
+			}
+			
+			Map<String, String> properties = extractAdditionalPropertiesFromText(cd.text, CONCEPT_DEFINITION_TEXT_PROPERTY_TAGS);
+			for (String propertyName : properties.keySet()) {
+				c.addProperty().setCode(propertyName).setValue(new StringType(properties.get(propertyName)));
+			}
+			
+			properties = extractAdditionalPropertiesFromText(cd.text, CODE_SYSTEM_DEFINITION_TEXT_PROPERTY_TAGS);
 			for (String propertyName : properties.keySet()) {
 				c.addProperty().setCode(propertyName).setValue(new StringType(properties.get(propertyName)));
 			}
@@ -251,11 +296,15 @@ public class V3SourceGenerator extends BaseGenerator {
 					
 					c.addProperty()
 						.setCode(propertyCodePrefix + "-valueSet")
-						.setValue(new StringType(cb.valueSetOID))
-						.addExtension(resext("concept-binding-strength"), new CodeType(cb.codingStrength));
+						.setValue(new StringType(cb.valueSetOID));
 					
-					//c.addProperty().setCode(propertyCodePrefix + "-codingStrength").setValue(new CodeType(cb.codingStrength));
-					c.addProperty().setCode(propertyCodePrefix + "-effectiveDate").setValue(new DateTimeType(cb.effectiveDate));
+					c.addProperty()
+						.setCode(propertyCodePrefix + "-strength")
+						.setValue(new CodeType(cb.codingStrength));
+					
+					c.addProperty()
+						.setCode(propertyCodePrefix + "-effectiveDate")
+						.setValue(new DateTimeType(cb.effectiveDate));
 				}
 			}
 			
@@ -300,6 +349,8 @@ public class V3SourceGenerator extends BaseGenerator {
 				
 				} else {
 					NamingSystem ns = new NamingSystem(cs);
+					ns.addExtension("http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url", new UriType("http://terminology.hl7.org/NamingSystem/" + ns.getId()));
+			    	ns.addExtension("http://terminology.hl7.org/StructureDefinition/ext-namingsystem-version", new StringType("2.0.0"));
 					manifestEntry = ListResourceExt.createNamingSystemListEntry(ns);
 					if (OIDLookup.isDeprecated(oid)) {
 						depNamingSystems.add(ns);
@@ -419,7 +470,8 @@ public class V3SourceGenerator extends BaseGenerator {
 			} else if (child.getNodeName().equals("releasedVersion")) {
 				// NO OP second pass
 			} else if (child.getNodeName().equals("historyItem")) {
-				processHistoryItem(child, cs);
+				// NO OP for history, no longer writing history extension
+				//processHistoryItem(child, cs);
 			} else if (child.getNodeName().equals("annotations")) {
 				processCSAnnotations(child, cs);
 			} else {
@@ -512,17 +564,26 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void processLegalese(Element item, CodeSystem cs) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
+		String licenseTerms = "";
+		String versioningPolicy = "";
 		while (child != null) {
 			if (child.getNodeName().equals("notation")) {
 				notations.add(child.getTextContent());
-				cs.addExtension(csext("legalese"), new StringType(child.getTextContent()));
-			} else if (child.getNodeName().equals("licenseTerms"))
-				cs.setCopyright(child.getTextContent());
-			else if (child.getNodeName().equals("versioningPolicy"))
-				cs.addExtension(resext("versioningPolicy"), new StringType(child.getTextContent()));
-			else
+				//cs.addExtension(csext("legalese"), new StringType(child.getTextContent()));
+			} else if (child.getNodeName().equals("licenseTerms")) {
+				licenseTerms = child.getTextContent();
+				//cs.setCopyright(child.getTextContent());
+			} else if (child.getNodeName().equals("versioningPolicy")) {
+				versioningPolicy = child.getTextContent();
+				//cs.addExtension(resext("versioningPolicy"), new StringType(child.getTextContent()));
+			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
+			}
 			child = XMLUtil.getNextSibling(child);
+		}
+		String copyright = String.join(" ", licenseTerms, versioningPolicy).trim();
+		if (!copyright.isEmpty()) {
+			cs.setCopyright(copyright);
 		}
 	}
 
@@ -544,14 +605,14 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 
 		
-		Extension ext = new Extension().setUrl(csext("contributor"));
+/*		Extension ext = new Extension().setUrl(csext("contributor"));
 		cs.getExtension().add(ext);
 		ext.addExtension("name", new StringType(name));
 		ext.addExtension("role", new StringType(role));
 		if (notes != null) {
 			ext.addExtension("notes", new StringType(notes));
 		}
-
+*/
 		if (!Utilities.existsInList(role, "Publisher", "Sponsor"))
 			throw new Exception("Unprocessed role " + role);
 		if (name.equalsIgnoreCase("(see notes)"))
@@ -608,17 +669,17 @@ public class V3SourceGenerator extends BaseGenerator {
 			cs.setContent(CodeSystemContentMode.COMPLETE);
 	}
 
-	private void processHistoryItem(Element item, CodeSystem cs) throws Exception {
+/*	private void processHistoryItem(Element item, CodeSystem cs) throws Exception {
 		Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/resource-history");
 		cs.getExtension().add(ext);
 		ext.addExtension("date", new DateTimeType(item.getAttribute("dateTime")));
 		ext.addExtension("id", new StringType(item.getAttribute("id")));
 		if (item.hasAttribute("responsiblePersonName"))
 			ext.addExtension("author", new StringType(item.getAttribute("responsiblePersonName")));
-		if (item.hasAttribute("isSubstantiveChange"))
-			ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
-		if (item.hasAttribute("isBackwardCompatibleChange"))
-			ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
+		//if (item.hasAttribute("isSubstantiveChange"))
+		//	ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
+		//if (item.hasAttribute("isBackwardCompatibleChange"))
+		//	ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
 
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -629,7 +690,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			child = XMLUtil.getNextSibling(child);
 		}
 	}
-
+*/
 	private void processSupportedLanguage(Element item, MetadataResource mr) throws Exception {
 		mr.setLanguage(item.getTextContent());
 		Element child = XMLUtil.getFirstChild(item);
@@ -672,7 +733,7 @@ public class V3SourceGenerator extends BaseGenerator {
 				} else {
 					//cs.setDescription(desc);
 					cs.setDescription(MarkDownProcessor.htmlToMarkdown(child));
-					Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(desc);
+					Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(desc, CODE_SYSTEM_DEFINITION_TEXT_PROPERTY_TAGS);
 					for (String propertyName : additionalProperties.keySet()) {
 						cs.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
 					}
@@ -708,7 +769,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		String v = item.getAttribute("deprecationEffectiveVersion");
 		if (Utilities.noString(v))
 			throw new Exception("Element not understood: " + item.getNodeName());
-		cs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
+		// cs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
 		cs.setStatus(PublicationStatus.RETIRED);
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -723,19 +784,43 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 
 	private void processSupportedConceptRelationship(Element item, CodeSystem cs) throws Exception {
-		if ("Specializes".equals(item.getAttribute("name")))
-			return;
-		if ("Generalizes".equals(item.getAttribute("name")))
-			return;
+//		if ("Specializes".equals(item.getAttribute("name")))
+//			return;
+//		if ("Generalizes".equals(item.getAttribute("name")))
+//			return;
+		
 		if (Utilities.existsInList(item.getAttribute("relationshipKind"), "NonDefinitionallyQualifiedBy", "Specializes",
-				"ComponentOf", "Other", "LessThan")) {
-			PropertyComponent pd = cs.addProperty();
-			pd.setCode(item.getAttribute("name"));
-			if (PropertyLookup.V3_PROPERTY_URIS.containsKey(item.getAttribute("name"))) {
-				pd.setUri(PropertyLookup.V3_PROPERTY_URIS.get(item.getAttribute("name")));
+				"ComponentOf", "Other", "LessThan", "Generalizes")) {
+			
+			String propertyName = item.getAttribute("name");
+			if (RELATIONSHIP_PROPERTIES_TO_USE.containsKey(propertyName)) {
+				propertyName = RELATIONSHIP_PROPERTIES_TO_USE.get(propertyName);
 			}
-			pd.setType(PropertyType.CODING);
-			pd.addExtension(csext("relationshipKind"), new CodeType(item.getAttribute("relationshipKind")));
+			String propertyUri = PropertyLookup.getPropertyUri(propertyName);
+			
+			PropertyComponent pd = cs.addProperty()
+					.setCode(propertyName)
+					.setType(PropertyType.CODING);
+			
+			if (propertyUri != null) {
+				pd.setUri(propertyUri);
+			}
+			
+			for (String attributeName : RELATIONSHIP_ATTIBUTES.keySet()) {
+				if (item.hasAttribute(attributeName)) {
+					Type attributeValue;
+					if (RELATIONSHIP_ATTIBUTES.get(attributeName) == PropertyType.CODE) {
+						attributeValue = new CodeType(item.getAttribute(attributeName));
+					} else if (RELATIONSHIP_ATTIBUTES.get(attributeName) == PropertyType.BOOLEAN) {
+						attributeValue = new BooleanType(item.getAttribute(attributeName));
+					} else { 
+						attributeValue = new StringType(item.getAttribute(attributeName));
+					}
+					pd.addExtension("http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-" + attributeName, attributeValue);
+				}
+			}
+			
+			
 			Element child = XMLUtil.getFirstChild(item);
 			while (child != null) {
 				if (child.getNodeName().equals("description"))
@@ -766,7 +851,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		else
 			throw new Exception("unknown type " + type);
 
-		String isMandatory = item.getAttribute("isMandatoryIndicator");
+/*		String isMandatory = item.getAttribute("isMandatoryIndicator");
 		String defaultHandlingCode = item.getAttribute("defaultHandlingCode");
 		String defaultValue = item.getAttribute("defaultValue");
 
@@ -786,7 +871,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			if (!defaultValue.isEmpty())
 				ext.addExtension("defaultValue", new StringType(defaultValue));
 		}
-		
+*/		
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("description"))
@@ -847,19 +932,24 @@ public class V3SourceGenerator extends BaseGenerator {
 
 			Element child = XMLUtil.getFirstChild(item);
 			while (child != null) {
-				if (child.getNodeName().equals("annotations"))
-					processConceptAnnotations(child, cd);
-				else if (child.getNodeName().equals("code")) {
+				if (child.getNodeName().equals("annotations")) {
+					processConceptAnnotations(child, cd, cs);
+				
+				} else if (child.getNodeName().equals("code")) {
 					// no op
-				}
-				else if (child.getNodeName().equals("conceptProperty"))
+				
+				} else if (child.getNodeName().equals("conceptProperty")) {
 					processConceptProperty(child, cd, cs);
-				else if (child.getNodeName().equals("printName"))
+				
+				} else if (child.getNodeName().equals("printName")) {
 					processPrintName(child, cd, cs);
-				else if (child.getNodeName().equals("conceptRelationship"))
+				
+				} else if (child.getNodeName().equals("conceptRelationship")) {
 					processConceptRelationship(child, cd, cs);
-				else
+					
+				} else {
 					throw new Exception("Unprocessed element " + child.getNodeName());
+				}
 
 				child = XMLUtil.getNextSibling(child);
 				
@@ -867,11 +957,11 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 	}
 
-	private void processConceptAnnotations(Element item, ConceptDefinitionComponent cd) throws Exception {
+	private void processConceptAnnotations(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("documentation"))
-				processConceptDocumentation(child, cd);
+				processConceptDocumentation(child, cd, cs);
 			else if (child.getNodeName().equals("appInfo"))
 				processConceptAppInfo(child, cd);
 			else
@@ -880,11 +970,11 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 	}
 
-	private void processConceptDocumentation(Element item, ConceptDefinitionComponent cd) throws Exception {
+	private void processConceptDocumentation(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("definition"))
-				processConceptDefinition(child, cd);
+				processConceptDefinition(child, cd, cs);
 
 			// There does not seem to be a 'description' element at this level. 
 			// Commented out this option, and we'll see if an exception eventually gets thrown.
@@ -910,7 +1000,7 @@ public class V3SourceGenerator extends BaseGenerator {
 	}
 	*/
 
-	private void processConceptDefinition(Element item, ConceptDefinitionComponent cd) throws Exception {
+	private void processConceptDefinition(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
@@ -918,7 +1008,19 @@ public class V3SourceGenerator extends BaseGenerator {
 				//cd.setDefinition(def);
 				cd.setDefinition(MarkDownProcessor.htmlToMarkdown(child));
 				
-				Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(def);
+				Map<String, String> additionalProperties = extractAdditionalPropertiesFromText(def, CONCEPT_DEFINITION_TEXT_PROPERTY_TAGS);
+				Set<String> addedUtgProperties = new HashSet<>();
+				for (String propertyName : additionalProperties.keySet()) {
+					addedUtgProperties.add(propertyName);
+					cd.addProperty()
+						.setCode(propertyName)
+						.setValue(new StringType(additionalProperties.get(propertyName)));
+				}
+				for (String addedPropertyCode : addedUtgProperties) {
+					addUTGConceptProperty(cs, addedPropertyCode);
+				}
+				
+				additionalProperties = extractAdditionalPropertiesFromText(def, CODE_SYSTEM_DEFINITION_TEXT_PROPERTY_TAGS);
 				for (String propertyName : additionalProperties.keySet()) {
 					cd.addExtension(resext(propertyName), new StringType(additionalProperties.get(propertyName)));
 				}
@@ -947,8 +1049,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
-				//cd.addExtension(resext("openIssue"), new StringType(XMLUtil.htmlToXmlEscapedPlainText(child)));
-				cd.addExtension(resext("openIssue"), new StringType(MarkDownProcessor.htmlToMarkdown(child)));
+				//cd.addExtension(resext("openIssue"), new StringType(MarkDownProcessor.htmlToMarkdown(child)));
 			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			}
@@ -960,7 +1061,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		String v = item.getAttribute("deprecationEffectiveVersion");
 		if (Utilities.noString(v))
 			throw new Exception("Element not understood: " + item.getNodeName());
-		cd.addExtension(resext("versionDeprecated"), Factory.newString_(v));
+		// cd.addExtension(resext("versionDeprecated"), Factory.newString_(v));
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
 			if (child.getNodeName().equals("text")) {
@@ -1007,7 +1108,7 @@ public class V3SourceGenerator extends BaseGenerator {
 
 		/*
 		if (!"true".equals(item.getAttribute("preferredForLanguage")))
-			cd.addDesignation().setUse(new Coding().setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("deprecated alias"))
+			cd.addDesignation().setUse(new Coding().setSystem("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra").setCode("deprecated alias"))
 					.setValue(item.getAttribute("text"));
 		else if (Utilities.noString(item.getAttribute("language"))
 				|| item.getAttribute("language").equals(cs.getLanguage()))
@@ -1029,8 +1130,8 @@ public class V3SourceGenerator extends BaseGenerator {
 			cd.setDisplay(printName);
 		} else {
 			Coding use = (isPreferred)? 
-							new Coding().setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("preferredForLanguage") :
-							new Coding().setSystem("http://snomed.info/sct").setCode("synonym");
+							new Coding().setSystem("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra").setCode("preferredForLanguage") :
+							new Coding().setSystem("http://snomed.info/sct").setCode("900000000000013009");
 							
 			cd.addDesignation().setLanguage(language)
 					.setUse(use)
@@ -1048,7 +1149,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			throw new Exception("Unexpected value for attribute status " + item.getAttribute("status"));
 		if (cd.hasCode())
 			// change this to an extension once the build defines the extension to use
-			cd.addDesignation().setUse(new Coding().setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("synonym"))
+			cd.addDesignation().setUse(new Coding().setSystem("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra").setCode("synonym"))
 					.setValue(item.getAttribute("code"));
 		else
 			cd.setCode(item.getAttribute("code"));
@@ -1062,9 +1163,12 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 	}
 
-	private void processConceptRelationship(Element item, ConceptDefinitionComponent cd, CodeSystem cs)
-			throws Exception {
-		if ("Specializes".equals(item.getAttribute("relationshipName"))) {
+	private void processConceptRelationship(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
+		
+		String propertyName = item.getAttribute("relationshipName");
+		String propertyNameToUse = (RELATIONSHIP_PROPERTIES_TO_USE.get(propertyName) == null)? propertyName : RELATIONSHIP_PROPERTIES_TO_USE.get(propertyName); 
+		
+		if ("Specializes".equals(propertyName)) {
 			Element child = XMLUtil.getFirstChild(item);
 			while (child != null) {
 				if (child.getNodeName().equals("targetConcept")) {
@@ -1079,20 +1183,20 @@ public class V3SourceGenerator extends BaseGenerator {
 					throw new Exception("Unprocessed element " + child.getNodeName());
 				child = XMLUtil.getNextSibling(child);
 			}
-		} else if (cs.getProperty(item.getAttribute("relationshipName")) != null) {
-			PropertyComponent pd = cs.getProperty(item.getAttribute("relationshipName"));
+		} else if (cs.getProperty(propertyNameToUse) != null) {
+			PropertyComponent codesystemProperty = cs.getProperty(propertyNameToUse);
 			Element child = XMLUtil.getFirstChild(item);
 			while (child != null) {
 				if (child.getNodeName().equals("targetConcept")) {
-					ConceptPropertyComponent t = cd.addProperty();
-					t.setCode(pd.getCode());
+					ConceptPropertyComponent conceptProperty = cd.addProperty();
+					conceptProperty.setCode(codesystemProperty.getCode());
 					Coding c = new Coding();
 					c.setCode(child.getAttribute("code"));
 					if (Utilities.noString(child.getAttribute("codeSystem")))
 						c.setSystem(cs.getUrl());
 					else
 						c.setUserData("oid", child.getAttribute("codeSystem"));
-					t.setValue(c);
+					conceptProperty.setValue(c);
 				} else
 					throw new Exception("Unprocessed element " + child.getNodeName());
 				child = XMLUtil.getNextSibling(child);
@@ -1169,10 +1273,14 @@ public class V3SourceGenerator extends BaseGenerator {
 		ValueSet vs = new ValueSet();
 		
 		String shortSafeName = StringUtils.left(makeSafeId(item.getAttribute("name")), 61);
+
+		String originalName = item.getAttribute("name").trim();
+		String className = Utilities.makeClassName(originalName);
+		String shortClassName = StringUtils.left(className, 61);
 		
 		vs.setId("v3-" + shortSafeName);
 		vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
-		vs.setName(shortSafeName);
+		vs.setName(shortClassName);
 		vs.setTitle(item.getAttribute("name"));
 		vs.addIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:" + item.getAttribute("id"));
 		vs.setUserData("oid", item.getAttribute("id"));
@@ -1207,7 +1315,8 @@ public class V3SourceGenerator extends BaseGenerator {
 			} else if (child.getNodeName().equals("annotations")) {
 				processVSAnnotations(child, vs);
 			} else if (child.getNodeName().equals("historyItem")) {
-				processHistoryItem(child, vs);
+				// No op - remove history extension
+				//processHistoryItem(child, vs);
 			} else {
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			}
@@ -1243,17 +1352,24 @@ public class V3SourceGenerator extends BaseGenerator {
 
 	private void processLegalese(Element item, ValueSet vs) throws Exception {
 		Element child = XMLUtil.getFirstChild(item);
+		String licenseTerms = "";
+		String versioningPolicy = "";
 		while (child != null) {
 			if (child.getNodeName().equals("notation"))
 				notations.add(child.getTextContent());
 			else if (child.getNodeName().equals("licenseTerms"))
-				vs.setCopyright(child.getTextContent());
+				licenseTerms = child.getTextContent();
 			else if (child.getNodeName().equals("versioningPolicy"))
-				vs.addExtension(resext("versioningPolicy"), new StringType(child.getTextContent()));
+				versioningPolicy = child.getTextContent();
 			else
 				throw new Exception("Unprocessed element " + child.getNodeName());
 			child = XMLUtil.getNextSibling(child);
 		}
+		String copyright = String.join(" ", licenseTerms, versioningPolicy).trim();
+		if (!copyright.isEmpty()) {
+			vs.setCopyright(copyright);
+		}
+		
 	}
 
 	private void processContributor(Element item, ValueSet vs) throws Exception {
@@ -1379,7 +1495,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		String v = item.getAttribute("deprecationEffectiveVersion");
 		if (Utilities.noString(v))
 			throw new Exception("Element not understood: " + item.getNodeName());
-		vs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
+		// vs.addExtension(resext("versionDeprecated"), Factory.newString_(v));
 		vs.setStatus(PublicationStatus.RETIRED);
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -1392,19 +1508,19 @@ public class V3SourceGenerator extends BaseGenerator {
 		}
 	}
 
-	private void processHistoryItem(Element item, ValueSet vs) throws Exception {
+/*	private void processHistoryItem(Element item, ValueSet vs) throws Exception {
 		Extension ext = new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/resource-history");
 		vs.getExtension().add(ext);
 		// ext.addExtension("id", new StringType(item.getAttribute("id")));
-		vs.setVersion(item.getAttribute("id"));
+		//vs.setVersion(item.getAttribute("id"));
 		ext.addExtension("id", new StringType(item.getAttribute("id")));
 		ext.addExtension("date", new DateTimeType(item.getAttribute("dateTime")));
 		if (item.hasAttribute("responsiblePersonName"))
 			ext.addExtension("author", new StringType(item.getAttribute("responsiblePersonName")));
-		if (item.hasAttribute("isSubstantiveChange"))
-			ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
-		if (item.hasAttribute("isBackwardCompatibleChange"))
-			ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
+		// if (item.hasAttribute("isSubstantiveChange"))
+		//	 ext.addExtension("substantive", new BooleanType(item.getAttribute("isSubstantiveChange")));
+		// if (item.hasAttribute("isBackwardCompatibleChange"))
+		//	 ext.addExtension("backwardCompatible", new BooleanType(item.getAttribute("isBackwardCompatibleChange")));
 
 		Element child = XMLUtil.getFirstChild(item);
 		while (child != null) {
@@ -1416,7 +1532,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			child = XMLUtil.getNextSibling(child);
 		}
 	}
-
+*/
 	private void processVersion(Element item, ValueSet vs) throws Exception {
 		// ignore: hl7MaintainedIndicator, hl7ApprovedIndicator
 		
@@ -1446,7 +1562,7 @@ public class V3SourceGenerator extends BaseGenerator {
 			throw new Exception("No name attribute for Associated Concept Property in Value Set " + vs.getName());
 		}
 
-		Extension ext = vs.addExtension().setUrl(vsext("hl7-assocConceptProp"));
+		Extension ext = vs.addExtension().setUrl("http://terminology.hl7.org/StructureDefinition/ext-mif-assocConceptProp");
 		ext.addExtension().setUrl("name").setValue(new StringType(propertyName));
 		if (!propertyValue.isEmpty()) {
 			ext.addExtension().setUrl("value").setValue(new StringType(propertyValue));
@@ -1599,7 +1715,7 @@ public class V3SourceGenerator extends BaseGenerator {
 		return codeElements;
 	}
 
-	private static Map<String, String> extractAdditionalPropertiesFromText(String text) {
+	private static Map<String, String> extractAdditionalPropertiesFromText(String text, Map<String, String> propertyTags) {
 		Map<String, String> propertiesFromText = new HashMap<>();
 		try {
 			if (text != null && !text.isEmpty()) {
@@ -1610,8 +1726,8 @@ public class V3SourceGenerator extends BaseGenerator {
 					int colonIdx = line.indexOf(":");
 					if (colonIdx >= 0) {
 						String tag = line.substring(0, colonIdx).toLowerCase();
-						if (DEFINITION_TEXT_PROPERTY_TAGS.containsKey(tag)) {
-							String propertyName = DEFINITION_TEXT_PROPERTY_TAGS.get(tag);
+						if (propertyTags.containsKey(tag)) {
+							String propertyName = propertyTags.get(tag);
 							String propertyValue = line.substring(colonIdx+1).trim();
 							propertiesFromText.put(propertyName, propertyValue);
 						}
@@ -1645,14 +1761,14 @@ public class V3SourceGenerator extends BaseGenerator {
 			pd.setType(type);
 			pd.setDescription(description);
 
-			Extension ext = new Extension().setUrl(csext("mif-extended-properties"));
+/*			Extension ext = new Extension().setUrl(csext("mif-extended-properties"));
 			pd.getExtension().add(ext);
 			ext.addExtension("isMandatory", new BooleanType(false));
 
 			if (propertyCode.equals("status")) {
 				ext.addExtension("defaultValue", new StringType("active"));
 			}
-			
+*/			
 		}
 	}
 }

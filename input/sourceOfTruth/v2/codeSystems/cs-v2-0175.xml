@@ -44,6 +44,18 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="1827">
     <code value="OM1"/>
     <display value="Observation text master file segments (e.g., Lab)"/>
@@ -181,7 +193,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Leistungskatalog"/>
@@ -270,7 +282,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="&#xC4;rztekatalog"/>
@@ -287,7 +299,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Mitarbeiterkatalog"/>
@@ -304,7 +316,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Klinikkatalog"/>
@@ -333,30 +345,34 @@
     </property>
   </concept>
   <concept id="1851">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="This identifies Universal Service Identifiers that are not approved for a CPT code based on an ICD."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="This identifies Universal Service Identifiers that are not approved for a CPT code based on an ICD."/>
-    </extension>
     <code value="MLCP"/>
     <display value="Medicare Limited Coverage Process"/>
     <definition value="Medicare Limited Coverage Process"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="This identifies Universal Service Identifiers that are not approved for a CPT code based on an ICD."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="This identifies Universal Service Identifiers that are not approved for a CPT code based on an ICD."/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="1852">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="This identifies Universal Service Identifier that are approved for an ICD based on the CPT."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="This identifies Universal Service Identifier that are approved for an ICD based on the CPT."/>
-    </extension>
     <code value="MACP"/>
     <display value="Medicare Approved Coverage Process"/>
     <definition value="Medicare Approved Coverage Process"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="This identifies Universal Service Identifier that are approved for an ICD based on the CPT."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="This identifies Universal Service Identifier that are approved for an ICD based on the CPT."/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>

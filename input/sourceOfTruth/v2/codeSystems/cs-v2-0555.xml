@@ -44,6 +44,18 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="6166">
     <code value="FS"/>
     <display value="Fee for Service"/>
@@ -90,75 +102,85 @@
     </property>
   </concept>
   <concept id="6171">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Payee information not required for this Invoice Type"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Payee information not required for this Invoice Type"/>
-    </extension>
     <code value="IN"/>
     <display value="Information Only"/>
     <definition value="Information Only"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Payee information not required for this Invoice Type"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Payee information not required for this Invoice Type"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="6172">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Invoice without a patient.  E.g. bulk invoicing for Pharmacy for a care facility."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Invoice without a patient.  E.g. bulk invoicing for Pharmacy for a care facility."/>
-    </extension>
     <code value="NP"/>
     <display value="Non Patient"/>
     <definition value="Non Patient"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Invoice without a patient.  E.g. bulk invoicing for Pharmacy for a care facility."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Invoice without a patient.  E.g. bulk invoicing for Pharmacy for a care facility."/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="6173">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Final Invoice"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Final Invoice"/>
-    </extension>
     <code value="FN"/>
     <display value="Final"/>
     <definition value="Final"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Final Invoice"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Final Invoice"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="6174">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Partial Invoice"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Partial Invoice"/>
-    </extension>
     <code value="PA"/>
     <display value="Partial"/>
     <definition value="Partial"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Partial Invoice"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Partial Invoice"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="6175">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Supplemental Invoice"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Supplemental Invoice"/>
-    </extension>
     <code value="SU"/>
     <display value="Supplemental"/>
     <definition value="Supplemental"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Supplemental Invoice"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Supplemental Invoice"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>

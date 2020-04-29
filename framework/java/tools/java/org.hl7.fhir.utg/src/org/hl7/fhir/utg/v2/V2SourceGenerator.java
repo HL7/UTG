@@ -21,7 +21,6 @@ import java.util.Set;
 
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
@@ -43,7 +42,6 @@ import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.utg.BaseGenerator;
 import org.hl7.fhir.utg.OIDLookup;
 import org.hl7.fhir.utg.PropertyLookup;
@@ -458,6 +456,16 @@ public class V2SourceGenerator extends BaseGenerator {
 				throw new Error("TableId wrong length " + tableid);
 		}
 
+		public int getIdValue() {
+			int idValue = 0;
+			try {
+				idValue = Integer.parseInt(id);
+			} catch (Exception e) {
+				// no op
+			}
+			return idValue;
+		}
+		
 		public String getlang(String code) {
 			return langs.get(code);
 		}
@@ -624,6 +632,12 @@ public class V2SourceGenerator extends BaseGenerator {
 					if (oi != null) {
 						oi.setUri("http://terminology.hl7.org/CodeSystem/v2-" + this.id);
 					}
+				}
+			}
+			if (!Utilities.noString(master.vsoid)) {
+				ObjectInfo oi = objects.get(master.vsoid);
+				if (oi != null) {
+					oi.setUri("http://terminology.hl7.org/ValueSet/v2-" + this.id);
 				}
 			}
 		}
@@ -1087,6 +1101,10 @@ public class V2SourceGenerator extends BaseGenerator {
 		// .setDescription("Whether code is considered 'backwards compatible' (whatever
 		// that means)");
 
+		boolean hasConceptComments = false, 
+				hasConceptCommentsAsPub = false,
+				hasUsageNotes = false;
+		
 		for (TableEntry te : tv.entries) {
 			ConceptDefinitionComponent c = cs.addConcept();
 			c.setCode(te.code);
@@ -1097,12 +1115,18 @@ public class V2SourceGenerator extends BaseGenerator {
 			// c.setId(Integer.toString(te.sortNo));
 			c.setId(V2ConceptIdSequence.getNextConceptIdString());
 
-			if (!Utilities.noString(te.comments))
-				ToolingExtensions.addCSConceptComment(c, te.comments);
-			if (!Utilities.noString(te.commentsAsPublished))
-				ToolingExtensions.addCSConceptCommentAsPub(c, te.commentsAsPublished);
-			if (!Utilities.noString(te.usageNotes))
-				ToolingExtensions.addCSConceptUsageNotes(c, te.usageNotes);
+			if (!Utilities.noString(te.comments)) {
+				c.addProperty().setCode("v2-concComment").setValue(new StringType(te.comments));
+				hasConceptComments = true;
+			}
+			if (!Utilities.noString(te.commentsAsPublished)) {
+				c.addProperty().setCode("v2-concCommentAsPub").setValue(new StringType(te.commentsAsPublished));
+				hasConceptCommentsAsPub = true;
+			}
+			if (!Utilities.noString(te.usageNotes)) {
+				c.addProperty().setCode("HL7usageNotes").setValue(new StringType(te.usageNotes));
+				hasUsageNotes = true;
+			}
 
 			// if (te.getFirst() != null)
 			// c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
@@ -1115,9 +1139,21 @@ public class V2SourceGenerator extends BaseGenerator {
 			// BooleanType(te.backwardsCompatible));
 			for (String language : te.langs.keySet()) {
 				c.addDesignation().setLanguage(language).setUse(new Coding()
-						.setSystem("http://terminology.hl7.org/hl7TermMaintInfra").setCode("preferredForLanguage"))
+						.setSystem("http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra").setCode("preferredForLanguage"))
 						.setValue(te.langs.get(language));
 			}
+		}
+
+		if (hasConceptComments) {
+			addUTGConceptProperty(cs, "v2-concComment");
+		}
+
+		if (hasConceptCommentsAsPub) {
+			addUTGConceptProperty(cs, "v2-concCommentAsPub");
+		}
+		
+		if (hasUsageNotes) {
+			addUTGConceptProperty(cs, "HL7usageNotes");
 		}
 
 		ValueSet vs = produceValueSet("Master", cs, t, tv);
@@ -1156,109 +1192,6 @@ public class V2SourceGenerator extends BaseGenerator {
 		}
 	}
 
-	// private void generateVersionCodeSystem(Table t, TableVersion tv, ListResource
-	// csManifest, ListResource vsManifest) throws FileNotFoundException,
-	// IOException {
-	// CodeSystem cs = new CodeSystem();
-	// cs.setId("v2-"+t.id+"-"+tv.version);
-	// cs.setUrl("http://terminology.hl7.org/CodeSystem/"+cs.getId());
-	// knownCS.add(cs.getUrl());
-	// cs.setValueSet("http://terminology.hl7.org/ValueSet/"+cs.getId());
-	//
-	// cs.setVersion(tv.csversion);
-	// cs.setName("V2Table"+t.id+"v"+tv.version);
-	// cs.setTitle("V2 Table: "+t.name);
-	// cs.setStatus(PublicationStatus.ACTIVE);
-	// cs.setExperimental(false);
-	// cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.csoid);
-	// cs.setDateElement(new DateTimeType(currentVersionDate,
-	// TemporalPrecisionEnum.DAY));
-	// cs.setPublisher("HL7, Inc");
-	// cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
-	// if (tv.csoid != null && objects.containsKey(tv.csoid))
-	// cs.setDescription(objects.get(tv.csoid).description);
-	// else if (!Utilities.noString(tv.description))
-	// cs.setDescription(tv.description);
-	// else
-	// cs.setDescription("Underlying Code System for V2 table "+t.id+" ("+t.name+"
-	// "+tv.version+")");
-	// cs.setPurpose("Underlying Code System for V2 table "+t.id+" ("+t.name+",
-	// version "+tv.version+")");
-	// cs.setCopyright("Copyright HL7. Licensed under creative commons public
-	// domain");
-	// if (tv.isCaseInsensitive())
-	// cs.setCaseSensitive(false);
-	// else
-	// cs.setCaseSensitive(true); // not that it matters, since they are all numeric
-	// cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA); // todo - is this
-	// correct
-	// cs.setCompositional(false);
-	// cs.setVersionNeeded(false);
-	// cs.setContent(CodeSystemContentMode.COMPLETE);
-	// if (!Utilities.noString(tv.getSteward()))
-	// cs.getExtension().add(new
-	// Extension().setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg").setValue(new
-	// CodeType(tv.getSteward())));
-	//// if (!Utilities.noString(tv.getAnchor()))
-	//// cs.getExtension().add(new
-	// Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref").setValue(new
-	// UriType("http://hl7.org/v2/"+tv.getAnchor())));
-	//// if (!Utilities.noString(tv.getSection()))
-	//// cs.getExtension().add(new
-	// Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection").setValue(new
-	// StringType(tv.getSection())));
-	// if (tv.getType() > 0)
-	// cs.getExtension().add(new
-	// Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type").setValue(new
-	// CodeType(codeForType(tv.getType()))));
-	// if (tv.isGenerate())
-	// cs.getExtension().add(new
-	// Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate").setValue(new
-	// BooleanType(true)));
-	//
-	// cs.addProperty().setCode("status").setUri("http://terminology.hl7.org/csprop/status").setType(PropertyType.CODE).setDescription("Status
-	// of the concept");
-	// cs.addProperty().setCode("intro").setUri("http://terminology.hl7.org/csprop/intro").setType(PropertyType.CODE).setDescription("Version
-	// of HL7 in which the code was first defined");
-	// cs.addProperty().setCode("deprecated").setUri("http://terminology.hl7.org/csprop/deprecated").setType(PropertyType.CODE).setDescription("Version
-	// of HL7 in which the code was deprecated");
-	// cs.addProperty().setCode("backwardsCompatible").setUri("http://terminology.hl7.org/csprop/backwardsCompatible").setType(PropertyType.BOOLEAN).setDescription("Whether
-	// code is considered 'backwards compatible' (whatever that means)");
-	//
-	// for (TableEntry te : tv.entries) {
-	// ConceptDefinitionComponent c = cs.addConcept();
-	// c.setCode(te.code);
-	// String name = te.display;
-	// c.setDisplay(name);
-	// c.setDefinition(name);
-	// c.setId(Integer.toString(te.sortNo));
-	// if (!Utilities.noString(te.comments))
-	// ToolingExtensions.addCSComment(c, te.comments);
-	// if (te.getFirst() != null)
-	// c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
-	// if (!Utilities.noString(te.getLast()))
-	// c.addProperty().setCode("deprecated").setValue(new CodeType(te.getLast()));
-	// if (!Utilities.noString(te.status))
-	// c.addProperty().setCode("status").setValue(new CodeType(te.status));
-	// if (te.backwardsCompatible)
-	// c.addProperty().setCode("backwardsCompatible").setValue(new
-	// BooleanType(te.backwardsCompatible));
-	// }
-	//
-	// ValueSet vs = produceValueSet("Master", cs, t, tv);
-	// new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new
-	// FileOutputStream(Utilities.path(dest, "v2", "codeSystems", "v"+tv.version,
-	// "cs-"+cs.getId())+".xml"), cs);
-	// new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new
-	// FileOutputStream(Utilities.path(dest, "v2", "valueSets", "v"+tv.version,
-	// "vs-"+cs.getId())+".xml"), vs);
-	//
-	// csManifest.addEntry(ListResourceExt.createCodeSystemListEntry(cs,
-	// (String)null));
-	// vsManifest.addEntry(ListResourceExt.createValueSetListEntry(vs,
-	// (String)null));
-	// }
-
 	private String codeForType(int type) {
 		if (type == 0)
 			return "undefined";
@@ -1290,16 +1223,29 @@ public class V2SourceGenerator extends BaseGenerator {
 		// Set all value set versions to 2.0.0, per Ted
 		vs.setVersion(makeVersionString(0));
 		
-		// TODO 
-		ObjectInfo oi = objects.get(tv.csoid);
-		if (oi != null) {
-			String originalName = oi.display;
-			vs.setName(Utilities.makeClassName(originalName));
-			vs.setTitle(originalName);
+		//ObjectInfo csObjectInfo = objects.get(tv.csoid);
+		ObjectInfo vsObjectInfo = objects.get(tv.vsoid);
+		String defaultDisplay = "V2 Table " + t.id + " Version " + vid;
+		String defaultDescription = "V2 Table " + t.id + " Version " + vid + " (" + t.name + ")";
+		
+		if (vsObjectInfo != null && vsObjectInfo.display != null && !vsObjectInfo.display.isEmpty()) {
+			vs.setName(Utilities.makeClassName(vsObjectInfo.display));
 		} else {
-			vs.setName("V2Table" + t.id + "Version" + vid);
-			vs.setTitle("V2 Table " + t.id + " Version " + vid);
+			vs.setName(Utilities.makeClassName(defaultDisplay));
 		}
+		
+		if (vsObjectInfo != null && vsObjectInfo.display != null && !vsObjectInfo.display.isEmpty()) {
+			vs.setTitle(vsObjectInfo.display);
+		} else {
+			vs.setTitle(defaultDisplay);
+		}
+		
+		if (vsObjectInfo != null && vsObjectInfo.description != null && !vsObjectInfo.description.isEmpty()) {
+			vs.setDescription(vsObjectInfo.getDescription());
+		} else {
+			vs.setDescription(defaultDescription);
+		}
+		
 		vs.setStatus(PublicationStatus.ACTIVE);
 		vs.setExperimental(false);
 		if (tv.vsoid != null)
@@ -1307,8 +1253,6 @@ public class V2SourceGenerator extends BaseGenerator {
 		vs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
 		vs.setPublisher("HL7, Inc");
 		vs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/HL7/UTG");
-		//vs.setDescription("V2 Table " + t.id + " Version " + vid + " (" + t.name + ")");
-		vs.setDescription(tv.getObjectDescription());
 		vs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
 
 		ValueSetComposeComponent vsCompose = vs.getCompose();
@@ -1328,7 +1272,7 @@ public class V2SourceGenerator extends BaseGenerator {
 	public void generateTables(ListResource v2PublishingManifest, ListResource v2RenderingManifest) throws FileNotFoundException, IOException {
 		CodeSystem cs = new CodeSystem();
 		cs.setId("v2-tables");
-		cs.setUrl("http://hl7.org/terminology.hl7.org/CodeSystem/" + cs.getId());
+		cs.setUrl("http://terminology.hl7.org/CodeSystem/" + cs.getId());
 		cs.setName("V2Tables");
 		cs.setTitle("V2 Table List");
 		cs.setStatus(PublicationStatus.ACTIVE);
@@ -1345,93 +1289,37 @@ public class V2SourceGenerator extends BaseGenerator {
 		cs.setVersionNeeded(false);
 		cs.setContent(CodeSystemContentMode.COMPLETE);
 
+		addUTGConceptProperty(cs, "v2-table-oid");
+		addUTGConceptProperty(cs, "v2-cs-oid");
+		addUTGConceptProperty(cs, "v2-cs-uri");
+		addUTGConceptProperty(cs, "v2-vs-oid");
+		addUTGConceptProperty(cs, "v2-vs-uri");
+		addUTGConceptProperty(cs, "v2-table-type", PropertyType.CODE);
+		addUTGConceptProperty(cs, "v2-cs-version", PropertyType.INTEGER);
+		addUTGConceptProperty(cs, "steward", PropertyType.CODE);
+		addUTGConceptProperty(cs, "v2-where-used");
+		addUTGConceptProperty(cs, "v2-binding");
+		addUTGConceptProperty(cs, "v2-version-tbl-introduced");
+		addUTGConceptProperty(cs, "v2-version-csvs-introduced");
+		addUTGConceptProperty(cs, "v2-cld");
+		addUTGConceptProperty(cs, "vocab-domain");
+
 		cs.addProperty()
-				.setCode("table-oid")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("table-oid"))
-				.setType(PropertyType.STRING).setDescription("OID For Table");
-		
-		cs.addProperty()
-				.setCode("csoid")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("csoid"))
-				.setType(PropertyType.STRING)
-				.setDescription("OID For Code System");
-		
-		cs.addProperty()
-				.setCode("csuri")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("csuri"))
-				.setType(PropertyType.STRING)
-				.setDescription("URI For Code System");
-		
-		cs.addProperty()
-				.setCode("vsoid")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("vsoid"))
-				.setType(PropertyType.STRING)
-				.setDescription("OID For Value Set");
-		
-		cs.addProperty()
-				.setCode("v2type")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("v2type"))
-				.setType(PropertyType.CODE)
-				.setDescription("Type of table");
-		
-		cs.addProperty()
-				.setCode("generate")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("generate"))
-				.setType(PropertyType.BOOLEAN)
-				.setDescription("whether to generate table");
-		
-		cs.addProperty()
-				.setCode("version")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("version"))
-				.setType(PropertyType.INTEGER)
-				.setDescription("Business version of table metadata");
-		
-		cs.addProperty()
-				.setCode("structuredefinition-wg")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("structuredefinition-wg"))
-				.setType(PropertyType.CODE)
-				.setDescription("Steward for the table.");
-		
-		cs.addProperty()
-				.setCode("where-used")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("where-used"))
-				.setType(PropertyType.STRING)
-				.setDescription("Where this table is used.");
-		
-		cs.addProperty()
-				.setCode("v2-codes-table-comment")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("v2-codes-table-comment"))
-				.setType(PropertyType.STRING)
-				.setDescription("V2 Codes Table Comment.");
-		
-		cs.addProperty()
-				.setCode("binding")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("binding"))
-				.setType(PropertyType.STRING)
-				.setDescription("Binding.");
-		
-		cs.addProperty()
-				.setCode("version-introduced")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("version-introduced"))
-				.setType(PropertyType.STRING)
-				.setDescription("Version Introduced.");
-		
-		cs.addProperty()
-				.setCode("cld")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("cld"))
-				.setType(PropertyType.STRING)
-				.setDescription("Content Logical Definition.");
-		
-		cs.addProperty()
-				.setCode("vocab-domain")
-				.setUri(PropertyLookup.V2_PROPERTY_URIS.get("vocab-domain"))
-				.setType(PropertyType.STRING)
-				.setDescription("Vocabulary Domain for this table");
+			.setCode("v2-codes-table-comment")
+			.setUri(PropertyLookup.V2_PROPERTY_URIS.get("v2-codes-table-comment"))
+			.setType(PropertyType.STRING)
+			.setDescription("V2 Codes Table Comment.");
 
 		int count = 0;
 		for (String n : sorted(tables.keySet())) {
 			if (!n.equals("0000")) {
 				Table t = tables.get(n);
+				
+				if (t.getIdValue() > 4000) {
+					// Per Ted, do not generate for table IDs over 4000
+					continue;
+				}
+				
 				TableVersion tv = t.master;
 				if (tv != null) {
 					ConceptDefinitionComponent c = cs.addConcept();
@@ -1439,43 +1327,58 @@ public class V2SourceGenerator extends BaseGenerator {
 					count++;
 					c.setDisplay(t.name);
 					c.setDefinition(tv.objectDescription);
-					c.addProperty().setCode("table-oid").setValue(new StringType(t.oid));
+					c.addProperty().setCode("v2-table-oid").setValue(new StringType(t.oid));
+					
 					if (!Utilities.noString(tv.csoid) || t.isV3CsOid()) {
-						c.addProperty().setCode("csoid").setValue(new StringType(tv.csoid));
+						c.addProperty().setCode("v2-cs-oid").setValue(new StringType(tv.csoid));
 						String v3url = OIDLookup.get_v3_to_v2_url_bridge(tv.csoid);
 						if (v3url != null) {
-							c.addProperty().setCode("csuri").setValue(new StringType(v3url));
+							c.addProperty().setCode("v2cs-uri").setValue(new StringType(v3url));
 						} else {
 							ObjectInfo oi = objects.get(tv.csoid);
 							if (oi != null) {
-								c.addProperty().setCode("csuri").setValue(new StringType(oi.uri));
+								c.addProperty().setCode("v2-cs-uri").setValue(new StringType(oi.uri));
 							}
 						}
 					}
-					if (!Utilities.noString(tv.vsoid))
-						c.addProperty().setCode("vsoid").setValue(new StringType(tv.vsoid));
+					if (!Utilities.noString(tv.vsoid)) {
+						c.addProperty().setCode("v2-vs-oid").setValue(new StringType(tv.vsoid));
+						ObjectInfo vsObject = objects.get(tv.vsoid);
+						if (vsObject != null && vsObject.uri != null && !vsObject.uri.isEmpty()) {
+							c.addProperty().setCode("v2-vs-uri").setValue(new StringType(vsObject.uri));
+						}
+
+						c.addProperty().setCode("v2-cld").setValue(new StringType((Utilities.noString(tv.vsExpansion))? "1" : tv.vsExpansion));
+					}
+					
 					if (tv.getType() > 0)
-						c.addProperty().setCode("v2type").setValue(new CodeType(codeForType(tv.getType())));
-					if (tv.isGenerate())
-						c.addProperty().setCode("generate").setValue(new BooleanType(true));
-					c.addProperty().setCode("version").setValue(new IntegerType(10));
+						c.addProperty().setCode("v2-table-type").setValue(new CodeType(codeForType(tv.getType())));
+					
+					c.addProperty().setCode("v2-cs-version").setValue(new IntegerType(10));
 					if (!Utilities.noString(tv.steward))
 						for (String steward : normalizeStewardValue(tv.steward)) {
-							c.addProperty().setCode("structuredefinition-wg").setValue(new CodeType(steward));	
+							c.addProperty().setCode("steward").setValue(new CodeType(steward));	
 						}
 					if (!Utilities.noString(tv.whereUsed))
-						c.addProperty().setCode("where-used").setValue(new StringType(tv.whereUsed));
+						c.addProperty().setCode("v2-where-used").setValue(new StringType(tv.whereUsed));
+					
 					if (!Utilities.noString(tv.v2CodeTableComment))
 						c.addProperty().setCode("v2-codes-table-comment")
 								.setValue(new StringType(tv.v2CodeTableComment));
+					
 					if (!Utilities.noString(tv.binding))
-						c.addProperty().setCode("binding").setValue(new StringType(tv.binding));
-					if (!Utilities.noString(tv.versionIntroduced))
-						c.addProperty().setCode("version-introduced").setValue(new StringType(tv.versionIntroduced));
-					if (!Utilities.noString(tv.versionIntroduced))
-						c.addProperty().setCode("cld").setValue(new StringType(tv.vsExpansion));
-					if (!Utilities.noString(tv.vocabDomain))
-						c.addProperty().setCode("vocab-domain").setValue(new StringType(tv.vocabDomain));
+						c.addProperty().setCode("v2-binding").setValue(new StringType(tv.binding));
+
+					c.addProperty().setCode("v2-version-tbl-introduced").setValue(new StringType(tv.versionIntroduced));
+					c.addProperty().setCode("v2-version-csvs-introduced").setValue(new StringType("2.9"));
+					
+					if (!Utilities.noString(tv.vocabDomain)) {
+						ObjectInfo tableObject = objects.get(tv.vocabDomain);
+						if (tableObject != null) {
+							c.addProperty().setCode("vocab-domain").setValue(new StringType(tableObject.display));
+						}
+					}
+					
 				}
 			}
 		}

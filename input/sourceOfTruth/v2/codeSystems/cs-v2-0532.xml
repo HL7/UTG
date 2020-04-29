@@ -44,6 +44,18 @@
     <description value="Version of HL7 in which the code was deprecated"/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
   <concept id="5638">
     <code value="Y"/>
     <display value="Yes"/>
@@ -51,7 +63,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Ja"/>
@@ -68,7 +80,7 @@
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="Nein"/>
@@ -79,153 +91,167 @@
     </property>
   </concept>
   <concept id="5640">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="No information whatsoever can be inferred from this exceptional value. This is the most general exceptional value. It is also the default exceptional value"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="No information whatsoever can be inferred from this exceptional value. This is the most general exceptional value. It is also the default exceptional value"/>
-    </extension>
     <code value="NI"/>
     <display value="No Information"/>
     <definition value="No Information"/>
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="keine Information"/>
     </designation>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="No information whatsoever can be inferred from this exceptional value. This is the most general exceptional value. It is also the default exceptional value"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="No information whatsoever can be inferred from this exceptional value. This is the most general exceptional value. It is also the default exceptional value"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="5641">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="No proper value is applicable in this context (e.g., last menstrual period for a male)"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="No proper value is applicable in this context (e.g., last menstrual period for a male)"/>
-    </extension>
     <code value="NA"/>
     <display value="not applicable"/>
     <definition value="not applicable"/>
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="nicht anwendbar"/>
     </designation>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="No proper value is applicable in this context (e.g., last menstrual period for a male)"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="No proper value is applicable in this context (e.g., last menstrual period for a male)"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="5642">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="A proper value is applicable, but not known"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="A proper value is applicable, but not known"/>
-    </extension>
     <code value="UNK"/>
     <display value="unknown"/>
     <definition value="unknown"/>
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="unbekannt"/>
     </designation>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="A proper value is applicable, but not known"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A proper value is applicable, but not known"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="5643">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="This information has not been sought (e.g., patient was not asked"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="This information has not been sought (e.g., patient was not asked"/>
-    </extension>
     <code value="NASK"/>
     <display value="not asked"/>
     <definition value="not asked"/>
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="nicht erfragt"/>
     </designation>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="This information has not been sought (e.g., patient was not asked"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="This information has not been sought (e.g., patient was not asked"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="5644">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Information was sought but not found (e.g., patient was asked but didn&#39;t know"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Information was sought but not found (e.g., patient was asked but didn&#39;t know"/>
-    </extension>
     <code value="ASKU"/>
     <display value="asked but unknown"/>
     <definition value="asked but unknown"/>
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="gefragt, aber nicht genannt"/>
     </designation>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Information was sought but not found (e.g., patient was asked but didn&#39;t know"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Information was sought but not found (e.g., patient was asked but didn&#39;t know"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="5645">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Information is not available at this time but it is expected that it will be available later"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Information is not available at this time but it is expected that it will be available later"/>
-    </extension>
     <code value="NAV"/>
     <display value="temporarily unavailable"/>
     <definition value="temporarily unavailable"/>
     <designation>
       <language value="de"/>
       <use>
-        <system value="http://terminology.hl7.org/hl7TermMaintInfra"/>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
         <code value="preferredForLanguage"/>
       </use>
       <value value="tempor&#xE4;r nicht verf&#xFC;gbar"/>
     </designation>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Information is not available at this time but it is expected that it will be available later"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Information is not available at this time but it is expected that it will be available later"/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
     </property>
   </concept>
   <concept id="5646">
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-comments">
-      <valueString value="Obsolete as of v 2.7."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/concept-commentsAsPub">
-      <valueString value="Obsolete as of v 2.7."/>
-    </extension>
     <code value="NP"/>
     <display value="not present"/>
     <definition value="not present"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Obsolete as of v 2.7."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Obsolete as of v 2.7."/>
+    </property>
     <property>
       <code value="status"/>
       <valueCode value="A"/>
