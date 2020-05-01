@@ -72,12 +72,18 @@
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
-  <property>
-    <code value="status"/>
-    <uri value="http://hl7.org/fhir/concept-properties#status"/>
-    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
-    <type value="code"/>
-  </property>
+  <property> 
+    <code value="status"/> 
+    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
+    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
+    <type value="code"/> 
+  </property> 
+  <property> 
+    <code value="deprecationDate"/> 
+    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
+    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
+    <type value="dateTime"/> 
+  </property> 
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
@@ -185,8 +191,12 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="retired"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2011-12-14"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="21049"/>
@@ -197,8 +207,12 @@
       <definition value="**Description:** Since the service class can represent knowledge structures that may be considered a trade or business secret, there is sometimes (though rarely) the need to flag those items as of business level confidentiality. However, no patient related information may ever be of this confidentiality level.&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:* Replced by ActCode.B"/>
       <property>
         <code value="status"/>
-        <valueCode value="retired"/>
+        <valueCode value="deprecated"/>
       </property>
+      <property> 
+        <code value="deprecationDate"/> 
+        <valueDateTime value="2011-12-14"/> 
+      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10235"/>
@@ -210,8 +224,12 @@
       <definition value="**Description:** Only clinicians may see this item, billing and administration persons can not access this item without special permission.&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Deprecated due to updated confidentiality codes under ActCode"/>
       <property>
         <code value="status"/>
-        <valueCode value="retired"/>
+        <valueCode value="deprecated"/>
       </property>
+      <property> 
+        <code value="deprecationDate"/> 
+        <valueDateTime value="2011-12-14"/> 
+      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10231"/>
@@ -223,8 +241,12 @@
       <definition value="**Description:** Access only to individual persons who are mentioned explicitly as actors of this service and whose actor type warrants that access (cf. to actor type code).&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Deprecated due to updated confidentiality codes under ActCode"/>
       <property>
         <code value="status"/>
-        <valueCode value="retired"/>
+        <valueCode value="deprecated"/>
       </property>
+      <property> 
+        <code value="deprecationDate"/> 
+        <valueDateTime value="2011-12-14"/> 
+      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10233"/>
@@ -241,8 +263,12 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="retired"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2011-12-14"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="21050"/>
@@ -253,8 +279,12 @@
       <definition value="**Description:** Alcohol/drug-abuse related item&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.ETH"/>
       <property>
         <code value="status"/>
-        <valueCode value="retired"/>
+        <valueCode value="deprecated"/>
       </property>
+      <property> 
+        <code value="deprecationDate"/> 
+        <valueDateTime value="2011-12-14"/> 
+      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10243"/>
@@ -266,8 +296,12 @@
       <definition value="**Description:** HIV and AIDS related item&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.HIV"/>
       <property>
         <code value="status"/>
-        <valueCode value="retired"/>
+        <valueCode value="deprecated"/>
       </property>
+      <property> 
+        <code value="deprecationDate"/> 
+        <valueDateTime value="2011-12-14"/> 
+      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10241"/>
@@ -279,8 +313,12 @@
       <definition value="**Description:** Psychiatry related item&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.PSY"/>
       <property>
         <code value="status"/>
-        <valueCode value="retired"/>
+        <valueCode value="deprecated"/>
       </property>
+      <property> 
+        <code value="deprecationDate"/> 
+        <valueDateTime value="2011-12-14"/> 
+      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10242"/>
@@ -292,8 +330,12 @@
       <definition value="**Description:** Sexual assault / domestic violence related item&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.SDV"/>
       <property>
         <code value="status"/>
-        <valueCode value="retired"/>
+        <valueCode value="deprecated"/>
       </property>
+      <property> 
+        <code value="deprecationDate"/> 
+        <valueDateTime value="2011-12-14"/> 
+      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10244"/>
@@ -310,8 +352,12 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="retired"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2011-12-14"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="21051"/>
@@ -322,8 +368,12 @@
       <definition value="**Description:** Celebrities are people of public interest (VIP) including employees, whose information require special protection.&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.CEL"/>
       <property>
         <code value="status"/>
-        <valueCode value="retired"/>
+        <valueCode value="deprecated"/>
       </property>
+      <property> 
+        <code value="deprecationDate"/> 
+        <valueDateTime value="2011-12-14"/> 
+      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10239"/>
@@ -335,8 +385,12 @@
       <definition value="**Description:** &#xD;&#xA;&#xD;&#xA;Information for which the patient seeks heightened confidentiality. Sensitive information is not to be shared with family members. Information reported by the patient about family members is sensitive by default. Flag can be set or cleared on patient&#39;s request.&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Deprecated due to updated confidentiality codes under ActCode"/>
       <property>
         <code value="status"/>
-        <valueCode value="retired"/>
+        <valueCode value="deprecated"/>
       </property>
+      <property> 
+        <code value="deprecationDate"/> 
+        <valueDateTime value="2011-12-14"/> 
+      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10237"/>
@@ -348,8 +402,12 @@
       <definition value="**Description:** Information not to be disclosed or discussed with patient except through physician assigned to patient in this case. This is usually a temporary constraint only, example use is a new fatal diagnosis or finding, such as malignancy or HIV.&#xD;&#xA;&#xD;&#xA;*Deprecation Note:*Replced by ActCode.TBOO"/>
       <property>
         <code value="status"/>
-        <valueCode value="retired"/>
+        <valueCode value="deprecated"/>
       </property>
+      <property> 
+        <code value="deprecationDate"/> 
+        <valueDateTime value="2011-12-14"/> 
+      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10238"/>

@@ -78,12 +78,18 @@
     <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
     <type value="boolean"/>
   </property>
-  <property>
-    <code value="status"/>
-    <uri value="http://hl7.org/fhir/concept-properties#status"/>
-    <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
-    <type value="code"/>
-  </property>
+  <property> 
+    <code value="status"/> 
+    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
+    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
+    <type value="code"/> 
+  </property> 
+  <property> 
+    <code value="deprecationDate"/> 
+    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
+    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
+    <type value="dateTime"/> 
+  </property> 
   <property>
     <code value="subsumedBy"/>
     <uri value="http://hl7.org/fhir/concept-properties#parent"/>
@@ -194,8 +200,12 @@
     <definition value="Hold for Medical Review&#xD;&#xA;&#xD;&#xA;*Usage Note:* This code is not intended for use in V3 artifacts. It is included in the code system to maintain alignment with the V2 Table 0078 &quot;Interpretation Codes.&quot;"/>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2016-11-10"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="23790"/>
@@ -241,8 +251,12 @@
     <definition value="Interpretation qualifiers in separate OBX segments&#xD;&#xA;&#xD;&#xA;*Usage Note:* This code is not intended for use in V3 artifacts. It is included in the code system to maintain alignment with the V2 Table 0078 &quot;Interpretation Codes.&quot;"/>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2016-11-10"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="23789"/>
@@ -288,8 +302,12 @@
     <definition value="The patient is considered as carrier based on the testing results. A carrier is an individual who carries an altered form of a gene which can lead to having a child or offspring in future generations with a genetic disorder.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is currently the same string as the print name for this concept and is inconsistent with the conventions being used for the other codes in the coding system, as it is a full word with initial capitalization, rather than an all upper case mnemonic. The recommendation from OO is to deprecate the code &quot;Carrier&quot; and to add &quot;CAR&quot; as the new active code representation for this concept."/>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2013-07-28"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="22647"/>
@@ -407,8 +425,12 @@
     <definition value="A valid result cannot be obtained for the specified component / analyte due to the presence of anti-complementary substances in the sample.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2016-11-10"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="23564"/>
@@ -445,8 +467,12 @@
     <definition value="A result cannot be considered valid for the specified component / analyte or organism due to failure in the quality control testing component.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2016-11-10"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="23565"/>
@@ -462,8 +488,12 @@
     <definition value="A valid result cannot be obtained for the specified organism or cell line due to the presence of cytotoxic substances in the sample or culture.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This code is being deprecated to match the status in V2 Table 0078 &quot;Interpretation Codes."/>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2016-11-10"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="23566"/>
@@ -530,8 +560,12 @@
     <definition value="The patient is considered as carrier based on the testing results. A carrier is an individual who carries an altered form of a gene which can lead to having a child or offspring in future generations with a genetic disorder.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This antimicrobial susceptibility test interpretation concept is recommended by OO to be deprecated as it is no longer recommended for use in susceptibility testing by CLSI (reference CLSI document M100-S22; Vol. 32 No.3; CLSI Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement. Jan 2012)."/>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2013-07-28"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="10222"/>
@@ -615,8 +649,12 @@
     <definition value="The patient is considered as carrier based on the testing results. A carrier is an individual who carries an altered form of a gene which can lead to having a child or offspring in future generations with a genetic disorder.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment:*** This antimicrobial susceptibility test interpretation concept is recommended by OO to be deprecated as it is no longer recommended for use in susceptibility testing by CLSI (reference CLSI document M100-S22; Vol. 32 No.3; CLSI Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Second Informational Supplement. Jan 2012)."/>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2013-07-28"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="10224"/>
@@ -767,8 +805,12 @@
     <definition value="A test result that is significantly higher than the reference (normal) or therapeutic interval, but has not reached the critically high value and might need special attention, as defined by the laboratory or the clinician.&#xD;&#xA;&#xD;&#xA;\[Note: This level is situated between &#39;H&#39; and &#39;HH&#39;.\]&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:* The code &#39;H&gt;&#39; is being deprecated in order to align with the use of the code &#39;HU&#39; for &quot;Very high&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;.&#xD;&#xA;&#xD;&#xA;\[Note: The use of code &#39;H&gt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;HU&#39; instead."/>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2015-03-23"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="23560"/>
@@ -818,8 +860,12 @@
     <definition value="A test result that is significantly lower than the reference (normal) or therapeutic interval, but has not reached the critically low value and might need special attention, as defined by the laboratory or the clinician.&#xD;&#xA;&#xD;&#xA;\[Note: This level is situated between &#39;L&#39; and &#39;LL&#39;.\]&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:* The code &#39;L&lt;&#39; is being deprecated in order to align with the use of the code &#39;LU&#39; for &quot;Very low&quot; in V2 Table 0078 &quot;Interpretation Codes&quot;.&#xD;&#xA;&#xD;&#xA;\[Note: The use of code &#39;L&lt;&#39; is non-preferred, as this code is deprecated and on track to be retired; use code &#39;LU&#39; instead."/>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2015-03-23"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="23561"/>

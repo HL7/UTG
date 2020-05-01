@@ -81,12 +81,18 @@
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
-  <property>
-    <code value="status"/>
-    <uri value="http://hl7.org/fhir/concept-properties#status"/>
-    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
-    <type value="code"/>
-  </property>
+  <property> 
+    <code value="status"/> 
+    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
+    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
+    <type value="code"/> 
+  </property> 
+  <property> 
+    <code value="deprecationDate"/> 
+    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
+    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
+    <type value="dateTime"/> 
+  </property> 
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
@@ -1432,8 +1438,12 @@
     <definition value="The act of putting something away for safe keeping. The &quot;something&quot; may be physical object such as a specimen, or information, such as observations regarding a specimen."/>
     <property>
       <code value="status"/>
-      <valueCode value="retired"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2008-12-20"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="21456"/>
@@ -10545,8 +10555,12 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2018-11-15"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="23324"/>
