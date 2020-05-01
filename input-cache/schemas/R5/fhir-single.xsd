@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Thu, Apr 30, 2020 15:31+0000 for FHIR v4.2.0 
+  Generated on Thu, Apr 30, 2020 23:30+0000 for FHIR v4.2.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.2.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -17608,7 +17608,7 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
         <xs:sequence>
           <xs:element name="type" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Code that specifies the property DeviceDefinitionPropetyCode (Extensible).</xs:documentation>
+              <xs:documentation xml:lang="en">Code that specifies the property being represented. No codes are specified but the MDC codes are an example: https://build.fhir.org/mdc.html.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="valueQuantity" minOccurs="0" maxOccurs="unbounded" type="Quantity">
@@ -17772,6 +17772,11 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
       <xs:enumeration value="self-reported">
         <xs:annotation>
           <xs:documentation xml:lang="en">Self Reported</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="electronic-transmission">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Electronic Transmission</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="unknown">
@@ -18404,13 +18409,11 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
               <xs:documentation xml:lang="en">Indicates how quickly the {{title}} should be addressed with respect to other requests.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:choice minOccurs="1" maxOccurs="1" >
+          <xs:element name="code" minOccurs="1" maxOccurs="1" type="CodeableReference">
             <xs:annotation>
               <xs:documentation xml:lang="en">The details of the device to be used.</xs:documentation>
-            </xs:annotation>
-            <xs:element name="codeReference" type="Reference"/>
-            <xs:element name="codeCodeableConcept" type="CodeableConcept"/>
-          </xs:choice>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="parameter" type="DeviceRequest.Parameter" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">Specific parameters for the ordered item.  For example, the prism value for lenses.</xs:documentation>
