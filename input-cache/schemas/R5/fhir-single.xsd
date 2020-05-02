@@ -47,9 +47,9 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Fri, May 1, 2020 06:46+0000 for FHIR v4.2.0 
+  Generated on Sat, May 2, 2020 08:04+0000 for FHIR v4.4.0 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.2.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.4.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
   <xs:import namespace="http://www.w3.org/1999/xhtml" schemaLocation="fhir-xhtml.xsd"/>
@@ -4330,14 +4330,14 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
           <xs:documentation xml:lang="en">Equivalent</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="broader">
+      <xs:enumeration value="source-is-narrower-than-target">
         <xs:annotation>
-          <xs:documentation xml:lang="en">Broader</xs:documentation>
+          <xs:documentation xml:lang="en">Source Is Narrower Than Target</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="narrower">
+      <xs:enumeration value="source-is-broader-than-target">
         <xs:annotation>
-          <xs:documentation xml:lang="en">Narrower</xs:documentation>
+          <xs:documentation xml:lang="en">Source Is Broader Than Target</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="not-related-to">
@@ -5169,6 +5169,11 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
       <xs:enumeration value="4.2.0">
         <xs:annotation>
           <xs:documentation xml:lang="en">4.2.0</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4.4.0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">4.4.0</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -10991,7 +10996,7 @@ into another (possibly the same) biological entity.</xs:documentation>
           </xs:element>
           <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A formal identifier that is used to identify this summary when it is represented in other formats, or referenced in a specification, model, design or an instance.</xs:documentation>
+              <xs:documentation xml:lang="en">A formal identifier that is used to identify this summary when it is represented in other formats, or referenced in a specification, model, design or an instance. May include DOI, PMID, PMCID, etc.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="relatedIdentifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
@@ -11016,7 +11021,7 @@ into another (possibly the same) biological entity.</xs:documentation>
           </xs:element>
           <xs:element name="journal" type="Citation.Journal" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Variant citation.</xs:documentation>
+              <xs:documentation xml:lang="en">Contains identifiers and classifiers for the journal cited.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="articleTitle" minOccurs="0" maxOccurs="1" type="markdown">
@@ -11062,6 +11067,16 @@ into another (possibly the same) biological entity.</xs:documentation>
           <xs:element name="authorString" type="Citation.AuthorString" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">Used to record a display of the author list without separate coding for each author.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="contributorList" type="Citation.ContributorList" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Personal and collective contributor names.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="articleLanguage" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The language in which the article is published.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="alternativeForm" type="Citation.AlternativeForm" minOccurs="0" maxOccurs="unbounded">
@@ -11193,6 +11208,11 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">Used to express the reason and specific aspect for the variant title, such as language and specific language.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="language" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Used to express the specific language.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="title" minOccurs="1" maxOccurs="1" type="markdown">
             <xs:annotation>
               <xs:documentation xml:lang="en">Full variant title of the article.</xs:documentation>
@@ -11258,7 +11278,12 @@ into another (possibly the same) biological entity.</xs:documentation>
         <xs:sequence>
           <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Used to express the reason and specific aspect for the variant title, such as language and specific language.</xs:documentation>
+              <xs:documentation xml:lang="en">Used to express the reason for the variant abstract, such as language.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="language" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Used to express the specific language.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="abstract" minOccurs="1" maxOccurs="1" type="markdown">
@@ -11335,7 +11360,7 @@ into another (possibly the same) biological entity.</xs:documentation>
           </xs:element>
           <xs:element name="affiliationInfo" type="Citation.AffiliationInfo" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">An individual entity named in the author list.</xs:documentation>
+              <xs:documentation xml:lang="en">Organizational affiliation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="address" minOccurs="0" maxOccurs="unbounded" type="string">
@@ -11409,6 +11434,109 @@ into another (possibly the same) biological entity.</xs:documentation>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="Citation.ContributorList">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="complete" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indicates if the list includes all contributors.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="contributor" type="Citation.Contributor" minOccurs="1" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">An individual entity named in the contributor list.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.Contributor">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="lastName" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Surname or single name.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="foreName" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Remainder of name except for suffix.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="suffix" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Eg 2nd, 3rd, Jr, Sr.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="initials" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Initials for forename.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="collectiveName" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Used for collective or corporate name as a contributor.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Contributor identifier, eg ORCID.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="contribution" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The specific contributions.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="affiliationInfo" type="Citation.AffiliationInfo1" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Organizational affiliation.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="listOrder" minOccurs="0" maxOccurs="1" type="positiveInt">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Used to code order of contributors.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.AffiliationInfo1">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="affiliation" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Display for the organization.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="role" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Role.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Identifier for the organization.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="Citation.AlternativeForm">
     <xs:annotation>
       <xs:documentation xml:lang="en">The Citation.</xs:documentation>
@@ -11421,7 +11549,7 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">Identify the medium/media in which the cited article is published, eg print, electronic or print-electronic.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="language" minOccurs="0" maxOccurs="1" type="code">
+          <xs:element name="language" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Language in which the article is published.</xs:documentation>
            </xs:annotation>
@@ -11504,7 +11632,7 @@ into another (possibly the same) biological entity.</xs:documentation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="medlineSituation" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="medlineState" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Used for status.</xs:documentation>
            </xs:annotation>
@@ -11544,7 +11672,7 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">Subcomponent of certainty.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="publicationStatus" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="publicationState" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Publication Status.</xs:documentation>
            </xs:annotation>
@@ -11565,7 +11693,7 @@ into another (possibly the same) biological entity.</xs:documentation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="pubSituation" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="publicationState" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">PubMed Publication Status.</xs:documentation>
            </xs:annotation>
@@ -11588,17 +11716,17 @@ into another (possibly the same) biological entity.</xs:documentation>
         <xs:sequence>
           <xs:element name="citationReference" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Citation reference.</xs:documentation>
+              <xs:documentation xml:lang="en">Citation Resource for related article.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="citationMarkdown" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Citation string.</xs:documentation>
+              <xs:documentation xml:lang="en">Citation string for related article.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Citation identifier.</xs:documentation>
+              <xs:documentation xml:lang="en">Identifier for related article.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -15063,7 +15191,7 @@ into another (possibly the same) biological entity.</xs:documentation>
           </xs:element>
           <xs:element name="relationship" minOccurs="1" maxOccurs="1" type="ConceptMapRelationship">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The relationship between the source and target concepts. The relationship is read from target to source (e.g. the target is 'broader' than the source).</xs:documentation>
+              <xs:documentation xml:lang="en">The relationship between the source and target concepts. The relationship is read from source to target (e.g. source-is-narrower-than-target).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="comment" minOccurs="0" maxOccurs="1" type="string">
@@ -21025,6 +21153,11 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
               <xs:documentation xml:lang="en">A copyright statement relating to the evidence focus and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the evidence focus.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="citeAs" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Citation for this EvidenceFocus resource.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="characteristic" type="EvidenceFocus.Characteristic" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">Characteristic.</xs:documentation>
@@ -26596,7 +26729,7 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
           </xs:element>
           <xs:element name="fhirVersion" minOccurs="1" maxOccurs="unbounded" type="FHIRVersion">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.2.0. for this version.</xs:documentation>
+              <xs:documentation xml:lang="en">The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.4.0. for this version.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="dependsOn" type="ImplementationGuide.DependsOn" minOccurs="0" maxOccurs="unbounded">
@@ -41776,7 +41909,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="fhirVersion" minOccurs="0" maxOccurs="1" type="FHIRVersion">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.2.0. for this version.</xs:documentation>
+              <xs:documentation xml:lang="en">The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.4.0. for this version.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="mapping" type="StructureDefinition.Mapping" minOccurs="0" maxOccurs="unbounded">
