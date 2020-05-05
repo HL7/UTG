@@ -13,7 +13,7 @@
     This page contains the FHIR code systems that are available for browsing through the HL7 Terminology pages. The docuemnttion here refers specifically to the use of this content in FHIR artifacts.
   </p>
 <p>
-The code system names and their URIs may be used in the <i>system</i> element of the <a href="datatypes.html#Coding">Coding</a> data type.
+The code system names and their URIs may be used in the <i>system</i> element of the <a href="http://hl7.org/fhir/datatypes.html#Coding">Coding</a> data type.
 If a URI is defined here, it SHALL be used in preference to any other identifying mechanisms. If a code system is not listed
 here, the correct URI may be determined by working through the following list, in order:
 </p>
@@ -25,15 +25,15 @@ here, the correct URI may be determined by working through the following list, i
 </ul>
 
 <p>
-See also the <a href="identifier-registry.html">list of known identifier systems</a> that can be used in the <i>system</i> element of the <a href="datatypes.html#Identifier">Identifier</a> data type.
-Additional identifier systems may be registered on the HL7 FHIR registry at <a href="http://hl7.org/fhir/registry">http://hl7.org/fhir/registry <img src="external.png" style="vertical-align: baseline"/></a>.
+See also the <a href="http://hl7.org/fhir/identifier-registry.html">list of known identifier systems</a> that can be used in the <i>system</i> element of the <a href="http://hl7.org/fhir/datatypes.html#Identifier">Identifier</a> data type.
+Additional identifier systems may be registered on the HL7 FHIR registry at <a href="http://hl7.org/fhir/registry">http://hl7.org/fhir/registry</a>.
 </p>
 <p>
 <b>Important Notes:</b>
 </p>
 <ul>
  <li>This list of names is incomplete and subject to change. Some values may be dropped, and others will likely be added in the coming months as HL7 institutes formal processes around URIs in vocabulary</li>
-<li>Note that some of the URNs in this list follow the URN specification in <a href="http://tools.ietf.org/html/rfc5141">RFC 5141 <img src="external.png" style="vertical-align: baseline"/></a> for referring to
+<li>Note that some of the URNs in this list follow the URN specification in <a href="http://tools.ietf.org/html/rfc5141">RFC 5141</a> for referring to
 standards published by ISO, such as urn:iso:std:iso:11073:10101. Where ISO standards define codes with meanings, and there is no entry in the list above,
 and they are not registered in the HL7 OID registry, the default URN for the code system is that defined by the RFC 5141.</li>
 <li>For several of the code systems in this list, multiple systems are given. This means that the variants identified are different code systems, not just variants of the same code system</li>
@@ -45,7 +45,7 @@ Note that the code systems are available as FHIR resources - see the <a href="do
 the External code systems.
 </p>
 <p>
-<b>UMLS Note</b>: The <a href="https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html">UMLS <img src="external.png" style="vertical-align: baseline"/></a> includes many code systems that do
+<b>UMLS Note</b>: The <a href="https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html">UMLS</a> includes many code systems that do
 not have an entry in the table below, or in the HL7 OID registry, or on http://registry.fhir.org. Until these code systems
 are registered, implementers may use the pattern <code>http://www.nlm.nih.gov/research/umls/[SAB]</code>, where [SAB] is the lowercase of
 abbreviation of the code  system as provided by UMLS. e.g. The system for "Multum MediSource Lexicon" would then be
@@ -53,7 +53,10 @@ abbreviation of the code  system as provided by UMLS. e.g. The system for "Multu
 often, when the code system is registered, it will use a different system.
 </p>
 <p>
-<b>Don't see what you're looking for here?</b> See <a href="https://confluence.hl7.org/display/FHIR/Registering+Code+Systems">Registering Code Systems <img src="external.png" style="vertical-align: baseline"/></a> for further advice.
+It has been noted that this UMLS statement above is not completely correct, and the UTG team is awaiting the correction.  Stay tuned.
+</p>
+<p>
+<b>Don't see what you're looking for here?</b> See <a href="https://confluence.hl7.org/display/FHIR/Registering+Code+Systems">Registering Code Systems</a> for further advice.
 </p>
   <ul class="columns-3">
     {% include List-fhir-Rendering-list-name-simple-CodeSystem.xhtml %}

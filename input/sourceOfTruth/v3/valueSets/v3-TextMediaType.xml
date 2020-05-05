@@ -16,18 +16,12 @@
   <description value="For any text"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-extTmp-mediatypes"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-mediatypes"/>
       <filter>
         <property value="concept"/>
-        <op value="is-a"/>
+        <op value="descendent-of"/>
         <value value="text"/>
       </filter>
     </include>
-    <exclude>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-extTmp-mediatypes"/>
-      <concept>
-        <code value="text"/>
-      </concept>
-    </exclude>
   </compose>
 </ValueSet>

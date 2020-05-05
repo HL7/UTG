@@ -82,12 +82,6 @@
     <type value="code"/>
   </property>
   <property>
-    <code value="status"/>
-    <uri value="http://hl7.org/fhir/concept-properties#status"/>
-    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
-    <type value="code"/>
-  </property>
-  <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
     <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
@@ -105,6 +99,18 @@
     <description value="The concept code of a parent concept"/>
     <type value="code"/>
   </property>
+  <property> 
+    <code value="status"/> 
+    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
+    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
+    <type value="code"/> 
+  </property> 
+  <property> 
+    <code value="deprecationDate"/> 
+    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
+    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
+    <type value="dateTime"/> 
+  </property> 
   <concept>
     <code value="_AffiliationRoleType"/>
     <display value="AffiliationRoleType"/>
@@ -1527,8 +1533,12 @@
     <definition value="A contact designated for contact in emergent situations."/>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2008-12-19"/> 
+    </property>   
     <property>
       <code value="internalId"/>
       <valueCode value="12209"/>
@@ -1544,8 +1554,12 @@
     <definition value="Played by an individual who is designated as the next of kin for another individual which scopes the role."/>
     <property>
       <code value="status"/>
-      <valueCode value="active"/>
+      <valueCode value="deprecated"/>
     </property>
+    <property> 
+      <code value="deprecationDate"/> 
+      <valueDateTime value="2008-12-19"/> 
+    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="12208"/>
