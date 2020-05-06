@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Sat, May 2, 2020 08:04+0000 for FHIR v4.4.0 
+  Generated on Wed, May 6, 2020 13:31+0000 for FHIR v4.4.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.4.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -1619,7 +1619,7 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
     <xs:complexContent>
       <xs:extension base="BackboneType">
         <xs:sequence>
-          <xs:element name="country" type="CodeableConcept" minOccurs="1" maxOccurs="1">
+          <xs:element name="country" type="CodeableConcept" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">The country in which the marketing authorisation has been granted shall be specified It should be specified using the ISO 3166 ‑ 1 alpha-2 code elements.</xs:documentation>
             </xs:annotation>
@@ -1634,7 +1634,7 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
               <xs:documentation xml:lang="en">This attribute provides information on the status of the marketing of the medicinal product See ISO/TS 20443 for more information and examples.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="dateRange" type="Period" minOccurs="1" maxOccurs="1">
+          <xs:element name="dateRange" type="Period" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">The date when the Medicinal Product is placed on the market by the Marketing Authorisation Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain.</xs:documentation>
             </xs:annotation>
@@ -6007,7 +6007,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
               <xs:documentation xml:lang="en">The product that this is a pharmaceutical product of.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="administrableDoseForm" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="administrableDoseForm" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">The administrable dose form, after necessary reconstitution.</xs:documentation>
            </xs:annotation>
@@ -32728,7 +32728,7 @@ The primary difference between a medicationusage and a medicationadministration 
               <xs:documentation xml:lang="en">If authorised for use in children.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="productClassification" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+          <xs:element name="classification" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Allows the product to be classified by various systems.</xs:documentation>
            </xs:annotation>
@@ -32903,13 +32903,11 @@ The primary difference between a medicationusage and a medicationadministration 
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:choice minOccurs="1" maxOccurs="1" >
+          <xs:element name="product[x]" minOccurs="1" maxOccurs="1" type="CodeableReference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Reference to another product, e.g. for linking authorised to investigational product.</xs:documentation>
-            </xs:annotation>
-            <xs:element name="productIdentifier" type="Identifier"/>
-            <xs:element name="productReference" type="Reference"/>
-          </xs:choice>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">The type of relationship, for instance branded to generic, product to development product (investigational), parallel import version.</xs:documentation>
