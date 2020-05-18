@@ -1,6 +1,26 @@
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://unitsofmeasure.org",
+  "code" : "min"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "min",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unitsofmeasure.org",
+  "code" : "s"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "s",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unitsofmeasure.org",
   "code" : "l"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
@@ -25,6 +45,26 @@ v: {
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "ml",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unitsofmeasure.org",
+  "code" : "[degF]"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "[degF]",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unitsofmeasure.org",
+  "code" : "Cel"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Cel",
   "severity" : null,
   "error" : ""
 }
@@ -74,6 +114,52 @@ v: {
   "compose" : {
     "include" : [{
       "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "code" : "min",
+        "display" : "Minutes"
+      },
+      {
+        "code" : "s",
+        "display" : "Seconds"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:b5a94282-ed4e-4d82-9757-79bf0d114387",
+    "timestamp" : "2020-05-17T20:14:01.804Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org|2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "Minutes"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "Seconds"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
       "version" : "2..0",
       "concept" : [{
         "code" : "l"
@@ -90,14 +176,10 @@ v: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "text" : {
-    "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 3 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion based on UCUM version 2.0.1</p><p>All codes from system <code>http://unitsofmeasure.org</code></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---unitsofmeasure.org-l\"> </a>l</td><td>(liter)</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---unitsofmeasure.org--pt-us-\"> </a>[pt_us]</td><td>pint</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---unitsofmeasure.org-ml\"> </a>ml</td><td>(milliliter)</td></tr></table></div>"
-  },
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:883dbf6a-ed78-4c5d-9d62-27a64397e1a9",
-    "timestamp" : "2020-05-07T17:33:54.941Z",
+    "identifier" : "urn:uuid:5802c74b-5ba8-4965-82fa-48e427adee2a",
+    "timestamp" : "2020-05-17T20:14:02.335Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -131,6 +213,52 @@ e: {
   "compose" : {
     "include" : [{
       "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "code" : "[degF]",
+        "display" : "Degrees Fahrenheit (note that V2 has erroneously published this for many years without the square brackets)"
+      },
+      {
+        "code" : "Cel",
+        "display" : "Degrees Celsius"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:583aeed2-f0e2-40f4-ae01-024e4692a3de",
+    "timestamp" : "2020-05-17T20:14:02.866Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org|2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "[degF]",
+      "display" : "Degrees Fahrenheit (note that V2 has erroneously published this for many years without the square brackets)"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "Cel",
+      "display" : "Degrees Celsius"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
       "version" : "2.1.0",
       "concept" : [{
         "code" : "[lb_av]"
@@ -152,8 +280,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:4b02a1b5-2a00-41a9-8bb3-f37cf58b9572",
-    "timestamp" : "2020-05-07T17:33:59.316Z",
+    "identifier" : "urn:uuid:b936eed0-a82c-4b6b-8bdd-4322359eed4b",
+    "timestamp" : "2020-05-17T20:14:06.694Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -210,8 +338,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:d545483a-09ab-4d14-8f5a-7c96d8bf21fa",
-    "timestamp" : "2020-05-07T17:34:00.112Z",
+    "identifier" : "urn:uuid:6118c0b0-83eb-4ca5-b47b-cf48795baa30",
+    "timestamp" : "2020-05-17T20:14:07.929Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -266,8 +394,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:6e4c88e8-a24b-4e7b-9811-f5937a2d9dcd",
-    "timestamp" : "2020-05-07T17:34:06.784Z",
+    "identifier" : "urn:uuid:41565316-9825-4970-8dae-a5c36e004ead",
+    "timestamp" : "2020-05-17T20:14:14.132Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -322,8 +450,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:35ee6b36-f38a-462e-85dd-923a972faca9",
-    "timestamp" : "2020-05-07T17:34:34.816Z",
+    "identifier" : "urn:uuid:6aebd2c4-c785-407d-984c-8d8433f099b6",
+    "timestamp" : "2020-05-17T20:14:50.210Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -5339,188 +5467,6 @@ e: {
       "system" : "http://unitsofmeasure.org",
       "code" : "mU/g{protein}",
       "display" : "milli enzyme unit per gram of protein"
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://unitsofmeasure.org",
-  "code" : "min"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "min",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://unitsofmeasure.org",
-  "code" : "s"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "s",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://unitsofmeasure.org",
-  "code" : "[degF]"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "[degF]",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://unitsofmeasure.org",
-  "code" : "Cel"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Cel",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://unitsofmeasure.org",
-      "concept" : [{
-        "code" : "min",
-        "display" : "Minutes"
-      },
-      {
-        "code" : "s",
-        "display" : "Seconds"
-      }]
-    }]
-  }
-}}####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "text" : {
-    "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 2 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion based on UCUM version 2.0.1</p><p>All codes from system <code>http://unitsofmeasure.org</code></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---unitsofmeasure.org-min\"> </a>min</td><td>Minutes</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---unitsofmeasure.org-s\"> </a>s</td><td>Seconds</td></tr></table></div>"
-  },
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:0e4195ea-24c5-440d-86dc-5d80bb491f96",
-    "timestamp" : "2020-05-08T22:41:02.675Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://unitsofmeasure.org|2.0.1"
-    }],
-    "contains" : [{
-      "system" : "http://unitsofmeasure.org",
-      "code" : "min",
-      "display" : "Minutes"
-    },
-    {
-      "system" : "http://unitsofmeasure.org",
-      "code" : "s",
-      "display" : "Seconds"
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://unitsofmeasure.org",
-      "concept" : [{
-        "code" : "[degF]",
-        "display" : "Degrees Fahrenheit"
-      },
-      {
-        "code" : "Cel",
-        "display" : "Degrees Celsius"
-      }]
-    }]
-  }
-}}####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:03b73b21-23fe-4e24-ac4a-98f68945ba65",
-    "timestamp" : "2020-05-08T22:41:03.472Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://unitsofmeasure.org|2.0.1"
-    }],
-    "contains" : [{
-      "system" : "http://unitsofmeasure.org",
-      "code" : "[degF]",
-      "display" : "Degrees Fahrenheit"
-    },
-    {
-      "system" : "http://unitsofmeasure.org",
-      "code" : "Cel",
-      "display" : "Degrees Celsius"
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://unitsofmeasure.org",
-      "concept" : [{
-        "code" : "[degF]",
-        "display" : "Degrees Fahrenheit (note that V2 has erroneously published this for many years without the square brackets)"
-      },
-      {
-        "code" : "Cel",
-        "display" : "Degrees Celsius"
-      }]
-    }]
-  }
-}}####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:7f416453-bd1f-4db1-ae5f-99f6a4056b3e",
-    "timestamp" : "2020-05-09T13:32:01.191Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://unitsofmeasure.org|2.0.1"
-    }],
-    "contains" : [{
-      "system" : "http://unitsofmeasure.org",
-      "code" : "[degF]",
-      "display" : "Degrees Fahrenheit (note that V2 has erroneously published this for many years without the square brackets)"
-    },
-    {
-      "system" : "http://unitsofmeasure.org",
-      "code" : "Cel",
-      "display" : "Degrees Celsius"
     }]
   }
 },
