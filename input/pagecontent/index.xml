@@ -2,25 +2,87 @@
 	<a name="intro"> </a>
 	<h3>Introduction</h3>
 	<p>
-    This is the home page for the full set of all terminology defined and published by HL7, as part of the new UTG process.  These pages contain the HL7 mintained code systems, value sets, concept domains, and V2 Tables that are maintained as part of the unified governance process for Terminology, adopted by HL7 in 2020
-  </p>
+    This is the main entry page for access to the HL7 Terminology. This material comprises the Code Systems and Value Sets which 
+	are cited in HL7 Published artifacts (International Standards and Implemenation Guides) in a convenient browsable form.
+	</p>
 	<p>
-    The Unified Terminology Governance (UTG) project as defined and developed a process which is centralizing HL7 vocabulary artifacts (Code Systems, Value Sets, Concept Maps, etc.) 
-    across all product families (v2, v3/CDA, FHIR).  Among the outcomes of UTG are:
-  </p>
+	As part of the HL7 approach to provide unified governance, and support consistent access to the terminology and vocabulary that 
+	has been published for many years, all of the published Code Systems and Value Sets across all of the main HL7 Product families 
+	is intended to be accessible on these pages.   This includes Version 2, Version 3, CDA (base only), and FHIR.   Note that the full 
+	unification of all of the terminology content of HL7 Code Systems will be an ongoing effort. Included here are also the 
+	Concept Domains and Tables, as well as Concept Maps and Naming Systems defined and published by HL7. There is  an option to download 
+	the terminology along with additional components, and background information. Users may browse and download the HL7 terminology on these 
+	pages.
+	</p>
+	<p>
+	The new HL7 process for governance and maintenance of the vocabulary published here by HL7 is called "UTG"; for more information 
+	on this please see the documentation on the <a href="https://confluence.hl7.org/display/VOC/Unified+Terminology+Governance+Project+%28UTG%29+Page">UTG Project Page</a>. 
+	This process employs a community-wide, consensus-based, continuous process for updates to the terminology. Major changes from pre-UTG HL7 terminology management 
+	process include:
+  	</p>
 	<ol>
-		<li>improvements to internal maintenance and harmonization processes,</li>
-		<li>a single entry point for the user community to access content for browsing and downloading, and</li>
-		<li>guidance for implementers of HL7-curated terminologies.</li>
+		<li>Vocabulary harmonization has transitioned from a static, 3 times per year process to a continuous process managed using JIRA;</li>
+		<li>All HL7 terminology artifacts needed by implementers are now available in one place</li>
+		<li>Older means of identification of versions of V2, V3 and base CDA terminology Value Set and Code System idenfierss have been updated to incorporate a new, base value (see discussion below on Versions);</li>
+		<li>The base Value Set and Code System URLs have been set to http://terminology.hl7.org/CodeSystem/ and http://terminology.hl7.org/ValueSet/ </li>
+	</ol>
+	<p>
+	A number of items have not changed in this new process.  These include:
+	</p>
+	<ol>
+		<li>Value Sets and Code Systems defined as an integral part of the FHIR specification are still managed by the FHIR governance processes;</li>
+		<li>Value Sets and Code Systems defined as part of the C-CDA specification (not in the base) are not are not managed by the C-CDA governance processes;</li>
+		<li>Value Sets and Code Systems which are "ballot bound" (meaning they explicitly mirror balloted model structures) in V2 and V3 continue to be managed through the traditional ballot process (but ballot preparation formerly done in harmonization will take advantage of the new governance process).</li>
 	</ol>
 	<p>
     Platform independent tooling has been developed to support consensus-based authoring and reviewing of proposed changes to 
-    content among worldwide stakeholders.  Note that certain identified terminology artifacts are tightly bound to model structures in HL7, and thus are not subject to a unified consensus change process; these artifacts (primarily code systems, but include some value sets and other objects as well) must be changed and approved through the regular HL7 Standards balloting process.   Copies of these may be found on these pages with the other content for the convenience of the HL7 community.
-  </p>
+    content among worldwide stakeholders.  Note that certain identified terminology artifacts are tightly bound to model structures 
+	in HL7, and thus are not subject to a unified consensus change process; these artifacts (primarily code systems, but include some 
+	lue sets and other objects as well) must be changed and approved through the regular HL7 Standards balloting process.   Copies of 
+	these may be found on these pages with the other content for the convenience of the HL7 community.
+  	</p>
+	<a name="layout"> </a>
+	<h4>Using This Content Layout</h4>
 	<p>
-    See further UTG project details <a href="https://confluence.hl7.org/display/VOC/Unified+Terminology+Governance+Project+%28UTG%29+Page">here</a>
+	The black bar on the top of the pages is the primary navigation tool.  Selecting any of the named items from that bar will navigate 
+	to a page with that content on it.  Each page is in a similar format for easy access to the content.  Each of these pages has a selection 
+	of tabs on the page which group the content in ways that are convenient for access.
+	</p>
+	<ol>
+		<li><em>All Code Systems</em> lists all of the code systems published on these pages.</li>
+		<li><em>CDA</em> lists the code systems (all from V3) that are used in the CDA Base Standard.</li>
+		<li><em>FHIR</em> lists the code systems references by FHIR standards that are rooted at terminology.hl7.org</li>
+		<li><em>V2</em> lists the code systems underlying the Version 2 Tables that list codes.</li>
+		<li><em>V3</em> lists the code systems published in the Version 3 Standards (traditionally in the coremif).</li>
+		<li><em>Unified</em> lists the code systems which are used across all of the HL7 Product Families, and whose coded content has been unified across all uses.</li>
+		<li><em>External</em> lists the code systems which are published by organizations outside of HL7 but are referenced by, and identified in, HL7 Published Stanards.</li>
+		<li><em>Retired</em> lists the code systems which were published by HL7 some time in the past, but are no longer published and have been retired from use.</li>
+	</ol>
+	<a name="utgversioning"> </a>
+    <h3>Identificaton of Versions</h3>
+	<p>
+	THe HL7 Terminology releases carry a 3-part release version identifier, in the format of Major.Minor.Patch (similar to the commonly 
+	used semantic versioning scheme).  For the HL7 Terminology releases, the Major number indicates a new major release, and will be 
+	updated occasionally when significant new content is added or there are substantial layout and formatting changes, or changes are 
+	being released which MAY break some backward compatibility. Upon a new major release, the Major number will be incrementd by one, 
+	and the Minor number and Patch number will both be reset to zero.
+	</p>
+	<p>The Minor number indicates a snapshot of the current build that has been taken and released.   These releases will have internal 
+	conistency, and  will consist of one to many approved changes to the HL7 terminology content.  These releases will occur frequently, 
+	and will be done to support various HL7 needs, and respond to requests of the HL7 community for access to changed content.  Occasionally 
+	a minor release may coincide with other HL7 Standards releases for synchronization purposes. The Patch number will be reset to 
+	zero on a new minor release.
 	</p>
 	<p>
-    Users may browse and download the HL7 terminology using these pages.
-  </p>
+	The Patch number for published releases will usually remain at zero, unless a small errata or technical correction is absolutely required.  
+	This number however will be incremented on the HL7 Terminology ci build page (link to 'current' on the Published Releases page), and will 
+	be incremented with every new commit of changes and rebuild on the continuous integration environment, and thus is important 
+	primarily on the continuous build pages, and helps to indicate the number of committed changes since the last official release.  
+	</p>
+	<a name="changedoc"> </a>
+	<h3>Changes and Enhancements to the HL7 Terminology</h3>
+	<p>
+	In order to request changes to the content on these pages, and to participate in the process, please see the information for participation 
+	and sign-up on the <a href="https://confluence.hl7.org/display/VOC/Vocabulary+Maintenance+at+HL7">HL7 Vocablary Maintenance</a> pages.
+	</p>
 </div>
