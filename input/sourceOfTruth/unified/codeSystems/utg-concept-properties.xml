@@ -1,15 +1,18 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="utg-concept-properties"/>
   <url value="http://terminology.hl7.org/CodeSystem/utg-concept-properties"/>
-  <version value="1.1.0"/>
+  <version value="1.2.0"/>
   <name value="ConceptProperties"/>
   <title value="UTG Specific Concept Properties"/>
   <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2019-08-26T00:00:00.000-04:00"/>
   <publisher value="UTG Project"/>
   <description value="A set of concept properties used by UTG to maintain legacy terminology distribution systems"/>
   <caseSensitive value="true"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
   <content value="complete"/>
   <property>
     <code value="comment"/>
@@ -82,11 +85,11 @@
   </concept>
   <concept>
     <code value="steward"/>
-    <display value="Steward WorkGroup"/>
-    <definition value="steward workgroup for the table"/>
+    <display value="Steward Work Group"/>
+    <definition value="Steward Work Group for the table"/>
     <property>
       <code value="comment"/>
-      <valueString value="used only in v2-tables.xml"/>
+      <valueString value="This is the HL7 Work Group primarily responsible for the content of the artifact"/>
     </property>
   </concept>
   <concept>
@@ -125,7 +128,7 @@
       <valueString value="Used only in v2-tables.xml"/>
     </property>
   </concept>
-    <concept>
+  <concept>
     <code value="v2-version-csvs-introduced"/>
     <display value="version-csvs-introduced"/>
     <definition value="HL7 V2 version when the code system and value set were introduced.   This is either the creation date of the V2 code system or value set objects, or the date when the FHIR or V3 or External code system and/or value set were associated to the table."/>
@@ -167,7 +170,7 @@
     <definition value="Associates a concept domain with th ActClass code that it is intended to be associated with, ie for late binding, informs the IG devloper which code should be populated in ActClass when a value sset for ActCode is being bound."/>
     <property>
       <code value="comment"/>
-      <valueString value="used only in concept domains; in the coremif called 'ConceptualSpaceForClassCode'"/>
+      <valueString value="used only in concept domains; in the coremif called &apos;ConceptualSpaceForClassCode&apos;"/>
     </property>
   </concept>
   <concept>
@@ -176,7 +179,7 @@
     <definition value="One of the types of concept relationships that implements qualifying relationships"/>
     <property>
       <code value="comment"/>
-      <valueString value="This needs reexamination to see how it is represented in UTG and if it correct; in V3 relationships between concepts in the same code system are represented internal to the system, not as a map.  Note that we have an extension for code systems for 'conceptrelationshipkind'"/>
+      <valueString value="This needs reexamination to see how it is represented in UTG and if it correct; in V3 relationships between concepts in the same code system are represented internal to the system, not as a map.  Note that we have an extension for code systems for &apos;conceptrelationshipkind&apos;"/>
     </property>
   </concept>
   <concept>
@@ -402,7 +405,7 @@
   <concept>
     <code value="v3-applies-to"/>
     <display value="appliesTo"/>
-    <definition value="Haven't a clue!"/>
+    <definition value="Haven&apos;t a clue!"/>
     <property>
       <code value="comment"/>
       <valueString value="used only in ObservationMethod, and appears to link types of tests with equipment, manufacturers, reagents, or organisms."/>
@@ -416,7 +419,7 @@
   <concept>
     <code value="v3-how-applies"/>
     <display value="howApplies"/>
-    <definition value="Haven't a clue!"/>
+    <definition value="Haven&apos;t a clue!"/>
     <property>
       <code value="comment"/>
       <valueString value="used only in ObservationMethod, and appears to link types of tests with equipment, manufacturers, reagents, or organisms."/>
@@ -467,7 +470,6 @@
       <valueString value="Current values are v2, v3, cda.  Note the ones for CDA have been added manually."/>
     </property>
   </concept>
-  
   <concept>
     <code value="openIssue"/>
     <display value="Open Issue"/>
@@ -477,8 +479,6 @@
       <valueString value="Currently valued only for the v3 Concept Domains, and reflect open issues to be addressed in various concept domains.  May be used for open issues on particular concepts in code systems later."/>
     </property>
   </concept>
-
-
   <concept>
     <code value="deprecationInfo"/>
     <display value="Deprecation Information"/>
@@ -488,25 +488,21 @@
       <valueString value="Currently valued only for the v3 Concept Domains.   Includes commentary and release IDs when they were deprecated, and possibly replacement information"/>
     </property>
   </concept>
-
   <concept>
     <code value="contextBindingUV-valueSet"/>
     <display value="UV Bound ValueSet"/>
     <definition value="Identifies the Value Set bound to this Concept Domain in the Universal Realm."/>
   </concept>
-
   <concept>
     <code value="contextBindingUV-effectiveDate"/>
     <display value="UV Binding Effective Date"/>
     <definition value="Effective Date of the specified Value Set bound to this Concwpt Domain in the Universal Realm."/>
   </concept>
-
   <concept>
     <code value="contextBindingUV-strength"/>
     <display value="UV Binding Coding Strength"/>
     <definition value="Coding strength for the Universal Realm binding; either CWE or CNE."/>
   </concept>
-
   <concept>
     <code value="contextBindingR1-valueSet"/>
     <display value="R1 Bound ValueSet"/>
@@ -516,81 +512,69 @@
       <valueString value="R1 Bindings have been implemented in at least one Realm, and are offered for general use as they may be valid in other Realms."/>
     </property>
   </concept>
-
   <concept>
     <code value="contextBindingR1-effectiveDate"/>
     <display value="R1 Binding Effective Date"/>
     <definition value="Effective Date of the specified Value Set bound to this Concept Domain in the Representative Realm."/>
   </concept>
-
   <concept>
     <code value="contextBindingR1-strength"/>
     <display value="R1 Binding Coding Strength"/>
     <definition value="Coding strength for the Representatie binding; either CWE or CNE."/>
   </concept>
-
   <concept>
     <code value="contextBindingX1-valueSet"/>
     <display value="X1 Bound ValueSet"/>
     <definition value="Identifies the Value Set bound to this Concept Domain in the Example Realm."/>
-   <property>
+    <property>
       <code value="comment"/>
       <valueString value="X1 Bindings are used solely for published or educational examples, and are known to be incorrect or invalid content for real world systems.  They should not be used in production systems."/>
     </property>
   </concept>
-
   <concept>
     <code value="contextBindingX1-effectiveDate"/>
     <display value="X1 Binding Effective Date"/>
     <definition value="Effective Date of the specified Value Set bound to this Concept Domain in the Example Realm."/>
   </concept>
-
   <concept>
     <code value="contextBindingX1-strength"/>
     <display value="X1 Binding Coding Strength"/>
     <definition value="Coding strength for the Example binding; either CWE or CNE."/>
   </concept>
-
   <concept>
     <code value="contextBindingC1-valueSet"/>
     <display value="C1 Bound ValueSet"/>
     <definition value="Identifies the Value Set bound to this Concept Domain in the Example Realm."/>
-   <property>
+    <property>
       <code value="comment"/>
       <valueString value="C1 Bindings are used solely for provisional or draft bindings, and are intended to be removed or updated at some tiem in the future.  In general, C1 bindings may be incorrect or invalid content for real world systems, or may be subject to change without notice.  They should not be used in production systems."/>
     </property>
   </concept>
-
   <concept>
     <code value="contextBindingC1-effectiveDate"/>
     <display value="C1 Binding Effective Date"/>
     <definition value="Effective Date of the specified Value Set bound to this Concept Domain in the Unclassified Realm."/>
   </concept>
-
   <concept>
     <code value="contextBindingC1-strength"/>
     <display value="C1 Binding Coding Strength"/>
     <definition value="Coding strength for the Example binding; either CWE or CNE."/>
   </concept>
-
   <concept>
     <code value="contextBindingUS-valueSet"/>
     <display value="US Bound ValueSet"/>
     <definition value="Identifies the Value Set bound to this Concept Domain in the US (United States of America) Realm."/>
   </concept>
-
   <concept>
     <code value="contextBindingUS-effectiveDate"/>
     <display value="US Binding Effective Date"/>
     <definition value="Effective Date of the specified Value Set bound to this Concwpt Domain in the US Realm."/>
   </concept>
-
   <concept>
     <code value="contextBindingUS-strength"/>
     <display value="US Binding Coding Strength"/>
     <definition value="Coding strength for the US Realm binding; either CWE or CNE."/>
   </concept>
-
   <concept>
     <code value="rim-assoc-conc-property"/>
     <display value="Assoc Concpt Property"/>
@@ -600,7 +584,6 @@
       <valueString value="Used only in the V3 RIM, and required for Formal Naming.  Also needed for proper operation of RoseTree in display of cormif content."/>
     </property>
   </concept>
-
   <concept>
     <code value="rim-assoc-conc-propname"/>
     <display value="Assoc Concpt Prop Name"/>
@@ -610,7 +593,6 @@
       <valueString value="Used only in the V3 RIM, and required for Formal Naming.  Also needed for proper operation of RoseTree in display of cormif content."/>
     </property>
   </concept>
-
   <concept>
     <code value="rim-assoc-conc-propvalue"/>
     <display value="Assoc Concpt Prop Value"/>
@@ -620,7 +602,6 @@
       <valueString value="Used only in the V3 RIM, and required for Formal Naming.  Also needed for proper operation of RoseTree in display of cormif content."/>
     </property>
   </concept>
-
   <concept>
     <code value="v2-concComment"/>
     <display value="V2 Concept Comment"/>
@@ -630,7 +611,6 @@
       <valueString value="used only in Version 2 code systems concepts"/>
     </property>
   </concept>
-
   <concept>
     <code value="v2-concCommentAsPub"/>
     <display value="V2 Concept Comment As Published"/>
@@ -640,7 +620,6 @@
       <valueString value="used only in Version 2 code systems concepts"/>
     </property>
   </concept>
-
   <concept>
     <code value="HL7usageNotes"/>
     <display value="HL7 Concept Usage Notes"/>
@@ -650,7 +629,6 @@
       <valueString value="used only in the Version 2 code systems concepts"/>
     </property>
   </concept>
-
   <concept>
     <code value="propIsMandatory"/>
     <display value="RIM Property is Mandatory"/>
@@ -660,7 +638,6 @@
       <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
     </property>
   </concept>
-
   <concept>
     <code value="propDefaultValue"/>
     <display value="Default value of RIM Property"/>
@@ -670,7 +647,6 @@
       <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
     </property>
   </concept>
-
   <concept>
     <code value="propDefaultHandling"/>
     <display value="Default handling of RIM Property"/>
@@ -680,7 +656,6 @@
       <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
     </property>
   </concept>
-
   <concept>
     <code value="rim-ClassifiesClassCode"/>
     <display value="Concept Domain that classifies a RIM Class Code"/>
@@ -690,7 +665,6 @@
       <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
     </property>
   </concept>
-
   <concept>
     <code value="ComponentOf"/>
     <display value="Special additional relationship for part relatioships"/>
@@ -700,7 +674,6 @@
       <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
     </property>
   </concept>
-
   <concept>
     <code value="MayBeQualifiedBy"/>
     <display value="Qualifier relationship"/>
@@ -710,7 +683,6 @@
       <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
     </property>
   </concept>
-
   <concept>
     <code value="OwningSubSection"/>
     <display value="Subsection containment relationship"/>
@@ -720,7 +692,6 @@
       <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
     </property>
   </concept>
-
   <concept>
     <code value="OwningSection"/>
     <display value="Section containment relationship"/>
@@ -730,7 +701,6 @@
       <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
     </property>
   </concept>
-
   <concept>
     <code value="OwningAffiliate"/>
     <display value="HL7 Affiliate Owner"/>
@@ -740,7 +710,6 @@
       <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
     </property>
   </concept>
-
   <concept>
     <code value="SmallerThan"/>
     <display value="Smaller Than"/>
@@ -750,6 +719,4 @@
       <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>
     </property>
   </concept>
-
-
 </CodeSystem>
