@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Thu, Jun 4, 2020 17:43+0000 for FHIR v4.4.0 
+  Generated on Sun, Jun 7, 2020 15:23+0000 for FHIR v4.4.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.4.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -21366,7 +21366,12 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
           </xs:element>
           <xs:element name="focus" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A code identifying the kind of content contained within the section. This must be consistent with the section title.</xs:documentation>
+              <xs:documentation xml:lang="en">A code identifying the kind of content contained within the section. This should be consistent with the section title.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="focusReference" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A definitional Resource identifying the kind of content contained within the section. This should be consistent with the section title.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="author" minOccurs="0" maxOccurs="unbounded" type="Reference">
@@ -31244,12 +31249,12 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
   </xs:complexType>
   <xs:element name="Medication" type="Medication">
     <xs:annotation>
-      <xs:documentation xml:lang="en">This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.</xs:documentation>
+      <xs:documentation xml:lang="en">This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Medication">
     <xs:annotation>
-      <xs:documentation xml:lang="en">This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.</xs:documentation>
+      <xs:documentation xml:lang="en">This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -31301,7 +31306,7 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
   </xs:complexType>
   <xs:complexType name="Medication.Ingredient">
     <xs:annotation>
-      <xs:documentation xml:lang="en">This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.</xs:documentation>
+      <xs:documentation xml:lang="en">This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -31330,7 +31335,7 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
   </xs:complexType>
   <xs:complexType name="Medication.Batch">
     <xs:annotation>
-      <xs:documentation xml:lang="en">This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.</xs:documentation>
+      <xs:documentation xml:lang="en">This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -31409,7 +31414,7 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
           </xs:element>
           <xs:element name="basedOn" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A plan that is fulfilled in whole or in part by this MedicationDispense.</xs:documentation>
+              <xs:documentation xml:lang="en">A plan that is fulfilled in whole or in part by this MedicationAdministration.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="partOf" minOccurs="0" maxOccurs="unbounded" type="Reference">
