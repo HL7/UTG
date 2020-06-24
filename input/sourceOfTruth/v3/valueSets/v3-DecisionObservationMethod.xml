@@ -10,7 +10,7 @@
   </identifier>
   <version value="2.0.0"/>
   <name value="DecisionObservationMethod"/>
-  <title value="Decision Observation Method"/>
+  <title value="DecisionObservationMethod"/>
   <status value="active"/>
   <date value="2014-03-26"/>
   <description value="Provides codes for decision methods, initially for assessing the causality of events."/>
@@ -19,10 +19,15 @@
       <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationMethod"/>
       <filter>
         <property value="concept"/>
-<!--  defined as descenent-of, but current no child codes.  Including abstract head code otherwise build will not genereated the value set  -->
-        <op value="descendent-of"/>
+        <op value="is-a"/>
         <value value="_DecisionObservationMethod"/>
       </filter>
     </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationMethod"/>
+      <concept>
+        <code value="_DecisionObservationMethod"/>
+      </concept>
+    </exclude>
   </compose>
 </ValueSet>

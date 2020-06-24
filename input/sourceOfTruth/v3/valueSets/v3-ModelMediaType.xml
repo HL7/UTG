@@ -16,12 +16,18 @@
   <description value="Model media type."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-mediatypes"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-extTmp-mediatypes"/>
       <filter>
         <property value="concept"/>
-        <op value="descendent-of"/>
+        <op value="is-a"/>
         <value value="model"/>
       </filter>
     </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-extTmp-mediatypes"/>
+      <concept>
+        <code value="model"/>
+      </concept>
+    </exclude>
   </compose>
 </ValueSet>

@@ -12,7 +12,7 @@
   <name value="RoleClass"/>
   <title value="RoleClass"/>
   <status value="active"/>
-  <date value="2019-03-20"/>
+  <date value="2019-12-15"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
@@ -72,18 +72,12 @@
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
-  <property> 
-    <code value="status"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
-    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
-    <type value="code"/> 
-  </property> 
-  <property> 
-    <code value="deprecationDate"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
-    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
-    <type value="dateTime"/> 
-  </property> 
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
   <property>
     <code value="Name:Class"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Class"/>
@@ -2566,12 +2560,8 @@
         <definition value="An entity that subsumes the identity of another. Used in the context of merging documented entity instances. Both the player and scoper must have the same classCode.&#xD;&#xA;&#xD;&#xA;The use of this code is **deprecated** in favor of the term SUBY which is its inverse and is more ontologically correct."/>
         <property>
           <code value="status"/>
-          <valueCode value="deprecated"/>
+          <valueCode value="retired"/>
         </property>
-        <property> 
-          <code value="deprecationDate"/> 
-          <valueDateTime value="2011-12-01"/> 
-        </property>    
         <property>
           <code value="internalId"/>
           <valueCode value="16241"/>

@@ -12,7 +12,7 @@
   <name value="ObservationValue"/>
   <title value="ObservationValue"/>
   <status value="active"/>
-  <date value="2019-03-20"/>
+  <date value="2019-12-15"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
@@ -72,18 +72,12 @@
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
-  <property> 
-    <code value="status"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
-    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
-    <type value="code"/> 
-  </property> 
-  <property> 
-    <code value="deprecationDate"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
-    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
-    <type value="dateTime"/> 
-  </property> 
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
@@ -1660,12 +1654,8 @@
     <definition value="Observation values used to assert various populations that a subject falls into."/>
     <property>
       <code value="status"/>
-      <valueCode value="deprecated"/>
+      <valueCode value="active"/>
     </property>
-    <property> 
-      <code value="deprecationDate"/> 
-      <valueDateTime value="2013-07-26"/> 
-    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="23044"/>
@@ -1676,12 +1666,8 @@
       <definition value="Patients who should be removed from the eMeasure population and denominator before determining if numerator criteria are met. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator."/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="active"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2013-07-26"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="23442"/>
@@ -1693,12 +1679,8 @@
       <definition value="Denominator exceptions are those conditions that should remove a patient, procedure or unit of measurement from the denominator only if the numerator criteria are not met. Denominator exceptions allow for adjustment of the calculated score for those providers with higher risk populations. Denominator exceptions are used only in proportion eMeasures. They are not appropriate for ratio or continuous variable eMeasures. Denominator exceptions allow for the exercise of clinical judgment and should be specifically defined where capturing the information in a structured manner fits the clinical workflow. Generic denominator exception reasons used in proportion eMeasures fall into three general categories:&#xD;&#xA;&#xD;&#xA; *  Medical reasons&#xD;&#xA; *  Patient reasons&#xD;&#xA; *  System reasons"/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="active"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2013-07-26"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="23046"/>
@@ -1710,12 +1692,8 @@
       <definition value="It can be the same as the initial patient population or a subset of the initial patient population to further constrain the population for the purpose of the eMeasure. Different measures within an eMeasure set may have different Denominators. Continuous Variable eMeasures do not have a Denominator, but instead define a Measure Population."/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="active"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2013-07-26"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="23045"/>
@@ -1727,12 +1705,8 @@
       <definition value="The initial population refers to all entities to be evaluated by a specific quality measure who share a common set of specified characteristics within a specific measurement set to which a given measure belongs."/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="active"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2013-07-26"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="23528"/>
@@ -1743,12 +1717,8 @@
         <definition value="The initial patient population refers to all patients to be evaluated by a specific quality measure who share a common set of specified characteristics within a specific measurement set to which a given measure belongs. Details often include information based upon specific age groups, diagnoses, diagnostic and procedure codes, and enrollment periods."/>
         <property>
           <code value="status"/>
-          <valueCode value="deprecated"/>
+          <valueCode value="active"/>
         </property>
-        <property> 
-          <code value="deprecationDate"/> 
-          <valueDateTime value="2013-07-26"/> 
-        </property>    
         <property>
           <code value="internalId"/>
           <valueCode value="23047"/>
@@ -1761,12 +1731,8 @@
       <definition value="Measure population is used only in continuous variable eMeasures. It is a narrative description of the eMeasure population. (e.g., all patients seen in the Emergency Department during the measurement period)."/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="active"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2013-07-26"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="23048"/>
@@ -1778,12 +1744,8 @@
       <definition value="Numerators are used in proportion and ratio eMeasures. In proportion measures the numerator criteria are the processes or outcomes expected for each patient, procedure, or other unit of measurement defined in the denominator. In ratio measures the numerator is related, but not directly derived from the denominator (e.g., a numerator listing the number of central line blood stream infections and a denominator indicating the days per thousand of central line usage in a specific time period)."/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="active"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2013-07-26"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="23049"/>
@@ -1795,12 +1757,8 @@
       <definition value="Numerator Exclusions are used only in ratio eMeasures to define instances that should not be included in the numerator data. (e.g., if the number of central line blood stream infections per 1000 catheter days were to exclude infections with a specific bacterium, that bacterium would be listed as a numerator exclusion.)"/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="active"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2013-07-26"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="23443"/>

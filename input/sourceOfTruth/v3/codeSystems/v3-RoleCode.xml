@@ -12,7 +12,7 @@
   <name value="RoleCode"/>
   <title value="RoleCode"/>
   <status value="active"/>
-  <date value="2019-03-20"/>
+  <date value="2019-12-15"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
@@ -82,6 +82,12 @@
     <type value="code"/>
   </property>
   <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
+  <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
     <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
@@ -99,18 +105,6 @@
     <description value="The concept code of a parent concept"/>
     <type value="code"/>
   </property>
-  <property> 
-    <code value="status"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
-    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
-    <type value="code"/> 
-  </property> 
-  <property> 
-    <code value="deprecationDate"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
-    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
-    <type value="dateTime"/> 
-  </property> 
   <concept>
     <code value="_AffiliationRoleType"/>
     <display value="AffiliationRoleType"/>
@@ -1222,6 +1216,23 @@
     </property>
   </concept>
   <concept>
+    <code value="UPGRDER"/>
+    <display value="upgrader"/>
+    <definition value="An individual authorized to raise the classification level of labeled content and provide rationale for doing so as directed by a classification guide."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24124"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_AgentRoleType"/>
+    </property>
+  </concept>
+  <concept>
     <code value="VALIDATOR"/>
     <display value="validator"/>
     <definition value="An entity authorized to validate information for inclusion in a record."/>
@@ -1533,12 +1544,8 @@
     <definition value="A contact designated for contact in emergent situations."/>
     <property>
       <code value="status"/>
-      <valueCode value="deprecated"/>
+      <valueCode value="active"/>
     </property>
-    <property> 
-      <code value="deprecationDate"/> 
-      <valueDateTime value="2008-12-19"/> 
-    </property>   
     <property>
       <code value="internalId"/>
       <valueCode value="12209"/>
@@ -1554,12 +1561,8 @@
     <definition value="Played by an individual who is designated as the next of kin for another individual which scopes the role."/>
     <property>
       <code value="status"/>
-      <valueCode value="deprecated"/>
+      <valueCode value="active"/>
     </property>
-    <property> 
-      <code value="deprecationDate"/> 
-      <valueDateTime value="2008-12-19"/> 
-    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="12208"/>

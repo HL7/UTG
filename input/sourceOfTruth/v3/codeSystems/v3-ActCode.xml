@@ -12,11 +12,7 @@
   <name value="ActCode"/>
   <title value="ActCode"/>
   <status value="active"/>
-  <date value="2019-03-20"/>
-  <publisher value="Health Level 7"/>
-  <contact>
-    <name value="Health Level Seven"/>
-  </contact>
+  <date value="2019-12-15"/>
   <description value="A code specifying the particular kind of Act that the Act-instance represents within its class.&#xD;&#xA;&#xD;&#xA;*Constraints:* The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.&#xD;&#xA;&#xD;&#xA;Conceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.&#xD;&#xA;&#xD;&#xA;Act.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code &quot;potassium&quot; together with and Act.classCode for &quot;laboratory observation&quot; to somehow mean &quot;potassium laboratory observation&quot; and then use the same Act.code for &quot;potassium&quot; together with Act.classCode for &quot;medication&quot; to mean &quot;substitution of potassium&quot;. This mutually modifying use of Act.code and Act.classCode is not permitted."/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
@@ -81,18 +77,12 @@
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
-  <property> 
-    <code value="status"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
-    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
-    <type value="code"/> 
-  </property> 
-  <property> 
-    <code value="deprecationDate"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
-    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
-    <type value="dateTime"/> 
-  </property> 
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
@@ -1438,12 +1428,8 @@
     <definition value="The act of putting something away for safe keeping. The &quot;something&quot; may be physical object such as a specimen, or information, such as observations regarding a specimen."/>
     <property>
       <code value="status"/>
-      <valueCode value="deprecated"/>
+      <valueCode value="retired"/>
     </property>
-    <property> 
-      <code value="deprecationDate"/> 
-      <valueDateTime value="2008-12-20"/> 
-    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="21456"/>
@@ -6639,6 +6625,23 @@
     </property>
   </concept>
   <concept>
+    <code value="PREGNANT"/>
+    <display value="pregnancy information sensitivity"/>
+    <definition value="Policy for handling information about an individual&#39;s current or past pregnancy status, deemed sensitive by the individual or by policy, which may be afforded heightened confidentiality.&#xD;&#xA;&#xD;&#xA;*Usage Note:* &#xD;&#xA;&#xD;&#xA;Information about a patient&#39;s current or past pregnancy status may be considered sensitive in circumstances in which that status could result in discrimination or stigmatization."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24123"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_ActInformationSensitivityPolicy"/>
+    </property>
+  </concept>
+  <concept>
     <code value="SCA"/>
     <display value="sickle cell anemia information sensitivity"/>
     <definition value="Policy for handling sickle cell disease information, which is afforded heightened confidentiality. Information handling protocols are based on organizational policies related to sickle cell disease information, which is deemed sensitive.&#xD;&#xA;&#xD;&#xA;*Usage Note:* If there is a jurisdictional mandate, then the Act valued with this ActCode should be associated with an Act valued with any applicable laws from the ActPrivacyLaw code system."/>
@@ -10555,12 +10558,8 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="deprecated"/>
+      <valueCode value="active"/>
     </property>
-    <property> 
-      <code value="deprecationDate"/> 
-      <valueDateTime value="2018-11-15"/> 
-    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="23324"/>
@@ -11492,7 +11491,7 @@
   <concept>
     <code value="MDHHS-5515"/>
     <display value="Michigan Consent to Share Behavioral Health Information for Care Coordination Purposes"/>
-    <definition value="Michigan&#xE2;&#x20AC;&#x2122;s standard consent form for the sharing of health information specific to behavioral health and substance use treatment in accordance with Public Act 129 of 2014. In Michigan, while providers are not required to use this new standard form (MDHHS-5515), they are required to accept it.&#xD;&#xA;&#xD;&#xA;*Usage Note:* For legislative background, current MDHHS-5515 consent directive form, and provider and patient FAQs see http://www.michigan.gov/mdhhs/0,5885,7-339-71550\_2941\_58005-343686--,00.html"/>
+    <definition value="The State of Michigan standard privacy consent form for sharing of health information specific to behavioral health and substance use treatment in accordance with Public Act 129 of 2014. In Michigan, while providers are not required to use this new standard form (MDHHS-5515), they are required to accept it.&#xD;&#xA;&#xD;&#xA;*Usage Note:* For legislative background, current MDHHS-5515 consent directive form, and provider and patient FAQs see http://www.michigan.gov/mdhhs/0,5885,7-339-71550\_2941\_58005-343686--,00.html"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -11517,23 +11516,6 @@
     <property>
       <code value="internalId"/>
       <valueCode value="23761"/>
-    </property>
-    <property>
-      <code value="subsumedBy"/>
-      <valueCode value="_ActUSPrivacyLaw"/>
-    </property>
-  </concept>
-  <concept>
-    <code value="a) HIPAAConsent"/>
-    <display value="HIPAA Consent"/>
-    <definition value="A code representing U.S. Public Law 104-191 Health Insurance Portability and Accountability Act (HIPAA) Privacy Rule (45 CFR Section 164.522), which stipulates the process by which a covered entity seeks agreement from an individual regarding how it will use and disclose the individual&#39;s protected health information for treatment, payment, and health care operations is termed a &quot;consent.&quot; The Privacy Rule permits, but does not require, a covered entity to voluntarily obtain patient consent for uses and disclosures of protected health information for treatment, payment, and health care operations. Covered entities that do so have complete discretion to design a process that best suits their needs. From https://www.hhs.gov/hipaa/for-professionals/faq/264/what-is-the-difference-between-consent-and-authorization/index.html. The provisions relating to consent are largely contained in Section 164.522 Rights to request privacy protection for protected health information https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-522.pdf.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Used to indicate the legal authority for assigning security labels to governed information. In this case, where collection, access, use, or disclosure of healthcare information is governed by 45 CFR Section 164.522 use &#xE2;&#x20AC;&#x153;HIPAAConsent&#xE2;&#x20AC;? as the security label policy code.&#xD;&#xA;&#xD;&#xA;Since information governed by a 45 CFR Section 164.522 has a level of confidentiality protection that is more stringent than the normal level of protection under HIPAA 45 CFR Section 164.506 Uses and disclosures to carry out treatment, payment, or health care operations https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf, assign the HL7 Confidentiality code &#xE2;&#x20AC;&#x153;R&#xE2;&#x20AC;? (restricted)."/>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="24117"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -11568,6 +11550,23 @@
     <property>
       <code value="internalId"/>
       <valueCode value="24118"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_ActUSPrivacyLaw"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="HIPAAConsent"/>
+    <display value="HIPAA Consent"/>
+    <definition value="A code representing U.S. Public Law 104-191 Health Insurance Portability and Accountability Act (HIPAA) Privacy Rule (45 CFR Section 164.522), which stipulates the process by which a covered entity seeks agreement from an individual regarding how it will use and disclose the individual&#39;s protected health information for treatment, payment, and health care operations is termed a &quot;consent&quot;.&#xD;&#xA;&#xD;&#xA;The Privacy Rule permits, but does not require, a covered entity to voluntarily obtain patient consent for uses and disclosures of protected health information for treatment, payment, and health care operations. Covered entities that do so have complete discretion to design a process that best suits their needs. From https://www.hhs.gov/hipaa/for-professionals/faq/264/what-is-the-difference-between-consent-and-authorization/index.html. The provisions relating to consent are largely contained in Section 164.522 Rights to request privacy protection for protected health information https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-522.pdf.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Used to indicate the legal authority for assigning security labels to governed information. In this case, where collection, access, use, or disclosure of healthcare information is governed by 45 CFR Section 164.522 use &#39;HIPAAConsent&#39; as the security label policy code.&#xD;&#xA;&#xD;&#xA;Since information governed by a 45 CFR Section 164.522 has a level of confidentiality protection that is more stringent than the normal level of protection under HIPAA 45 CFR Section 164.506 Uses and disclosures to carry out treatment, payment, or health care operations https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf, assign the HL7 Confidentiality code &#39;R&#39; (restricted)."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24135"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -11653,6 +11652,23 @@
     <property>
       <code value="internalId"/>
       <valueCode value="23766"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_ActUSPrivacyLaw"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="a) HIPAAConsent"/>
+    <display value="HIPAA Consent"/>
+    <definition value="Code retired in December 2019 and replaced by code HIPAAConsent. Originally entered with copy/paste error in code value.&#xD;&#xA;&#xD;&#xA;A code representing U.S. Public Law 104-191 Health Insurance Portability and Accountability Act (HIPAA) Privacy Rule (45 CFR Section 164.522), which stipulates the process by which a covered entity seeks agreement from an individual regarding how it will use and disclose the individual&#39;s protected health information for treatment, payment, and health care operations is termed a &quot;consent.&quot; The Privacy Rule permits, but does not require, a covered entity to voluntarily obtain patient consent for uses and disclosures of protected health information for treatment, payment, and health care operations. Covered entities that do so have complete discretion to design a process that best suits their needs. From https://www.hhs.gov/hipaa/for-professionals/faq/264/what-is-the-difference-between-consent-and-authorization/index.html. The provisions relating to consent are largely contained in Section 164.522 Rights to request privacy protection for protected health information https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-522.pdf.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Used to indicate the legal authority for assigning security labels to governed information. In this case, where collection, access, use, or disclosure of healthcare information is governed by 45 CFR Section 164.522 use &#xC3;&#xA2;&#xE2;&#x201A;&#xAC;&#xC5;&#x201C;HIPAAConsent&#xC3;&#xA2;&#xE2;&#x201A;&#xAC;? as the security label policy code.&#xD;&#xA;&#xD;&#xA;Since information governed by a 45 CFR Section 164.522 has a level of confidentiality protection that is more stringent than the normal level of protection under HIPAA 45 CFR Section 164.506 Uses and disclosures to carry out treatment, payment, or health care operations https://www.gpo.gov/fdsys/pkg/CFR-2017-title45-vol1/pdf/CFR-2017-title45-vol1-sec164-506.pdf, assign the HL7 Confidentiality code &#xC3;&#xA2;&#xE2;&#x201A;&#xAC;&#xC5;&#x201C;R&#xC3;&#xA2;&#xE2;&#x201A;&#xAC;? (restricted)."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24117"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -18206,6 +18222,23 @@
     </property>
   </concept>
   <concept>
+    <code value="CDSSCOMPT"/>
+    <display value="CDS system compartment"/>
+    <definition value="This compartment code may be used as a field value in an initiator&#39;s clearance to indicate permission for its Clinical Decision Support system (CDSS) to access and use an IT Resource with a security label having the same compartment value in the security category label field.&#xD;&#xA;&#xD;&#xA;This code permits a CDS system to algorithmically process information with this compartment tag for the purpose of alerting an unauthorized end user that masked information is needed to address an emergency or a patient safety issue, such as a contraindicated medication. The alert would advise the end user to &quot;break the glass&quot;, to access the masked information in an accountable manner, or to ask the patient about possibly masked information.&#xD;&#xA;&#xD;&#xA;For example, releasing a list of sensitive medications with this compartment tag means that while the CDS system is permitted to use this list in its contraindication analysis, this sensitive information should not be shared directly with unauthorized end-users or end-user-facing Apps. Based on the results of the CDS system analysis (e.g., warnings about prescriptions) the end-user (e.g., a clinician) may still have the ability to access to the sensitive information by invoking &quot;break-the-glass protocol&quot;.&#xD;&#xA;&#xD;&#xA;*Usage Note:* A security label with the CDS system compartment may be used in conjunction with other security labels, e.g., a label authorizing an end user with adequate clearance to access the same CDS system compartment tagged information. For example, a patient may restrict sharing sensitive information with most care team members except in an emergency or to prevent an adverse event, and may consent to sharing with their sensitive service care team providers, e.g., for mental health or substance abuse."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24132"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="COMPT"/>
+    </property>
+  </concept>
+  <concept>
     <code value="CTCOMPT"/>
     <display value="care team compartment"/>
     <definition value="Care coordination across participants in a care plan requires sharing of a healthcare consumer&#39;s information specific to that workflow. A care team member should only have access to that information while participating in that workflow or for other authorized uses.&#xD;&#xA;&#xD;&#xA;Security Compartment Labels assigned to a consumer&#39;s information use in care coordination workflows should be met or exceeded by the Security Compartment attribute claimed by a participant in a care team member workflow who is requesting access to that information"/>
@@ -18441,7 +18474,7 @@
   </concept>
   <concept>
     <code value="CONTROLLED"/>
-    <display value="(CONTROLLED)"/>
+    <display value="CONTROLLED"/>
     <definition value="A displayed mark, required to be rendered as &quot;CONTROLLED&quot;, indicating that the electronic or hardcopy information is protected at the level of the subset of CUI for which the authorizing law, regulation, or Government-wide policy does not set out specific handling or dissemination controls. Agencies handle CUI Basic according to the uniform set of controls set forth in this part and the CUI Registry. CUI Basic differs from CUI Specified (see definition for CUI Specified), and CUI Basic controls apply whenever CUI Specified ones do not cover the involved CUI. From CUI Glossary https://www.archives.gov/cui/registry/cui-glossary.html.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Mandatory control marking, which must be displayed on the top portion of each rendered or printed page containing controlled information. Should be displayed at the bottom of each rendered or printed page containing controlled information. Must be displayed on each portion of controlled information at the portion level if portions are uncontrolled unclassified information. Based on CUI Marking Handbook https://www.archives.gov/files/cui/20161206-cui-marking-handbook-v1-1.pdf."/>
     <property>
       <code value="status"/>
@@ -18526,7 +18559,7 @@
   </concept>
   <concept>
     <code value="CUIPRVCY"/>
-    <display value="(CUIPRVCY)"/>
+    <display value="CUI//PRVCY"/>
     <definition value="A displayed mark, required to be rendered as &quot;CUI//PRVCY&quot;, indicating that the electronic or hardcopy controlled unclassified basic privacy information is private and must be protected at the level of the subset of CUI for which the authorizing law, regulation, or Government-wide policy does not set out specific handling or dissemination controls. Agencies handle CUI Basic according to the uniform set of controls set forth in this part and the CUI Registry. CUI Basic differs from CUI Specified (see definition for CUI Specified), and CUI Basic controls apply whenever CUI Specified ones do not cover the involved CUI. From CUI Glossary https://www.archives.gov/cui/registry/cui-glossary.html.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Examples of privacy regulation governing CUI Basic marking include 20 CFR 401.100 related to SSA disclosure of personal, program, and non-program information. https://www.govinfo.gov/content/pkg/CFR-2017-title20-vol2/pdf/CFR-2017-title20-vol2-sec401-100.pdf."/>
     <property>
       <code value="status"/>
@@ -18543,7 +18576,7 @@
   </concept>
   <concept>
     <code value="CUIPRVCYP"/>
-    <display value="CUI//PRVCYP"/>
+    <display value="(CUI//PRVCY)"/>
     <definition value="A displayed mark, required to be rendered as &quot;(CUI//PRVCY)&quot;, indicating that a portion of an electronic or hardcopy information is protected at the level of the subset of CUI for which the authorizing law, regulation, or Government-wide policy does not set out specific handling or dissemination controls. Agencies handle CUI Basic according to the uniform set of controls set forth in this part and the CUI Registry. CUI Basic differs from CUI Specified (see definition for CUI Specified), and CUI Basic controls apply whenever CUI Specified ones do not cover the involved CUI. From CUI Glossary https://www.archives.gov/cui/registry/cui-glossary.html.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Examples of privacy regulation governing CUI Basic marking include 20 CFR 401.100 related to SSA disclosure of personal, program, and non-program information. https://www.govinfo.gov/content/pkg/CFR-2017-title20-vol2/pdf/CFR-2017-title20-vol2-sec401-100.pdf."/>
     <property>
       <code value="status"/>
@@ -18560,7 +18593,7 @@
   </concept>
   <concept>
     <code value="CUISP-HLTH"/>
-    <display value="(CUI//SP-HLTH)"/>
+    <display value="CUI//SP-HLTH"/>
     <definition value="A displayed mark, required to be rendered as &quot;CUI//SP-HLTH&quot;, indicating that the electronic or hardcopy information is protected at the level of the subset of CUI in which the authorizing law, regulation, or Government-wide policy contains specific handling controls that it requires or permits agencies to use that differ from those for CUI Basic. The CUI Registry indicates which laws, regulations, and Government-wide policies include such specific requirements. CUI Specified controls may be more stringent than, or may simply differ from, those required by CUI Basic; the distinction is that the underlying authority spells out the controls for CUI Specified information and does not for CUI Basic information. CUI Basic controls apply to those aspects of CUI Specified where the authorizing laws, regulations, and Government-wide policies do not provide specific guidance. From CUI Glossary https://www.archives.gov/cui/registry/cui-glossary.html.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Examples of healthcare regulation governing CUI Specified marking include HIPAA Transaction and Code Sets and references the Congressional requirement that HHS promulgate Privacy, and Security rules https://www.govinfo.gov/content/pkg/USCODE-2016-title42/pdf/USCODE-2016-title42-chap7-subchapXI-partC-sec1320d-2.pdf."/>
     <property>
       <code value="status"/>
@@ -18577,7 +18610,7 @@
   </concept>
   <concept>
     <code value="CUISP-HLTHP"/>
-    <display value="CUI//SP-HLTHP"/>
+    <display value="(CUI//SP-HLTH)"/>
     <definition value="A displayed mark, required to be rendered as &quot;(CUI//SP-HLTH)&quot;, indicating that a portion of an electronic or hardcopy information is protected at the level of the subset of CUI for which the authorizing law, regulation, or Government-wide policy does not set out specific handling or dissemination controls. Agencies handle CUI Basic according to the uniform set of controls set forth in this part and the CUI Registry. CUI Basic differs from CUI Specified (see definition for CUI Specified), and CUI Basic controls apply whenever CUI Specified ones do not cover the involved CUI. From CUI Glossary https://www.archives.gov/cui/registry/cui-glossary.html.&#xD;&#xA;&#xD;&#xA;*Usage Note:* Examples of healthcare regulation governing CUI Specified marking include HIPAA Transaction and Code Sets and references the Congressional requirement that HHS promulgate Privacy, and Security rules https://www.govinfo.gov/content/pkg/USCODE-2016-title42/pdf/USCODE-2016-title42-chap7-subchapXI-partC-sec1320d-2.pdf"/>
     <property>
       <code value="status"/>
@@ -18641,6 +18674,125 @@
     <property>
       <code value="subsumedBy"/>
       <valueCode value="ControlledUnclassifiedInformation"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="CPLYCC"/>
+    <display value="comply with confidentiality code"/>
+    <definition value="Custodian security system must retrieve, evaluate, and comply with the information handling directions of the Confidentiality Code associated with an information target.&#xD;&#xA;&#xD;&#xA;*Usage Note:* CPLYCC may be used as a security label code to inform senders and receivers of information tagged with a Confidentiality Code to comply with applicable level of protection required by the assigned confidentiality code."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23378"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="CPLYPOL"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="CPLYCD"/>
+    <display value="comply with consent directive"/>
+    <definition value="Custodian security system must retrieve, evaluate, and comply with applicable information subject consent directives.&#xD;&#xA;&#xD;&#xA;*Usage Note:* CPLYCD may be used as a security label code to inform senders and receivers of information tagged with an ActCode\_ActPolicyType\_ActConsent code or an ActCode\_ActPolicyType\_ActPrivacyPolicy\_ActConsentDirective code to comply with applicable consent directives."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23379"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="CPLYPOL"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="CPLYCUI"/>
+    <display value="comply with controlled unclassified information policy"/>
+    <definition value="Custodian security system must retrieve, evaluate, and comply with applicable Controlled Unclassified Information (CUI) policies associated with the target information.&#xD;&#xA;&#xD;&#xA;*Usage Note:* In the US, CPLYCUI may be used as a security label code to inform recipients of information designated by a US Federal Agency as Controlled Unclassified Information (CUI) to comply with the applicable laws, regulations, executive orders, and other guidances, such as included in DURSAs, to persist, mark, and enforce required CUI controls&#xD;&#xA;&#xD;&#xA;Background:&#xD;&#xA;&#xD;&#xA;In accordance with US 32 CFR Part 2002 and US Executive Order 13556 Controlled Unclassified Information, US Federal Agencies and their contractors are charged with classifying and marking certain information they create as Controlled Unclassified Information (CUI).&#xD;&#xA;&#xD;&#xA;The following definitions, which are provided for context, are based on terms defined by the CUI Glossary https://www.archives.gov/cui/registry/cui-glossary.html&#xD;&#xA;&#xD;&#xA; *  CUI is defined as &quot;information in any form that the Government creates or possesses, or that an entity creates or possesses for or on behalf of the Government, that a law, regulation, or Government-wide policy requires or permits an agency to handle using safeguarding or dissemination controls.&quot;&#xD;&#xA; *  Designating CUI occurs when an authorized holder, consistent with 32 CFR Part 2002 and the CUI Registry, determines that a specific item of information falls into a CUI category or subcategory.&#xD;&#xA; *  The designating agency is the executive branch agency that designates or approves the designation of a specific item of information as CUI.&#xD;&#xA; *  The authorized holder who designates the CUI must make recipients aware of the information&#39;s CUI status when disseminating that information.&#xD;&#xA; *  &#xE2;&#x20AC;&#xA2; Disseminating occurs when authorized holders provide access, transmit, or transfer CUI to other authorized holders through any means, whether internal or external to the agency.&#xD;&#xA;&#xD;&#xA;Once designated as CUI, US Federal Agencies and their contractors must assign CUI marks as prescribed by the National Archives and Records Administration (NARA) CUI Registry, and display marks as prescribed by the CUI Marking Handbook.&#xD;&#xA;&#xD;&#xA;CUI markings must be displayed on hard copy, on containers, electronic media, and to end users for IT systems.&#xD;&#xA;&#xD;&#xA;When HL7 content is designated as CUI, these computable markings can be interoperably conveyed using HL7 security label CUI tags, and may be included in HL7 text and narrative elements as human readable markings.&#xD;&#xA;&#xD;&#xA;**Impact of CUI markings:**&#xD;&#xA;&#xD;&#xA;CUI Custodians must enforce CUI security controls per applicable CUI policies. Federal agencies and their contractors must adhere to FISMA and NIST SP 800-53 security controls. Custodians, who are not Federal agencies or agency contractors, and are receivers of CUI, must adhere to NIST SP 800-171 security controls and those dictated by the Authorities indicated by the assigned CUI markings.&#xD;&#xA;&#xD;&#xA;For most participants in US healthcare information exchange, including Federal Agencies and their contractors, additional controls are required by HIPAA Security standards for health information US 42 USC 1320d-2(d)(2) https://www.govinfo.gov/content/pkg/USCODE-2016-title42/pdf/USCODE-2016-title42-chap7-subchapXI-partC-sec1320d-2.pdf&#xD;&#xA;&#xD;&#xA;Federal Agencies and their contractors may be the CUI classifier of original CUI content; or a CUI derivative classifier, which reclassifies CUI content that has been aggregated with other CUI or Unclassified Uncontrolled Information (U) or dissembled from a larger CUI content; or declassifiers, depending on the designating agency&#39;s policies.&#xD;&#xA;&#xD;&#xA;Applicable CUI policies include the following and any future applicable updates to policies or laws related to CUI:&#xD;&#xA;&#xD;&#xA; *  Executive Order 13556 https://www.federalregister.gov/articles/2010/11/09/2010-28360/controlled-unclassified-information&#xD;&#xA; *  US 32 CFR Part 2002 https://www.govinfo.gov/content/pkg/CFR-2017-title32-vol6/pdf/CFR-2017-title32-vol6-part2002.pdf&#xD;&#xA; *  NIST SP 800-171 https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171r1.pdf&#xD;&#xA; *  NIST SP 800-171A https://doi.org/10.6028/NIST.SP.800-171A&#xD;&#xA; *  CUI Marking Handbook https://www.archives.gov/files/cui/20161206-cui-marking-handbook-v1-1.pdf&#xD;&#xA; *  CUI Registry - Health Information Category https://www.archives.gov/cui/registry/category-detail/health-info&#xD;&#xA; *  CUI Registry: Limited Dissemination Controls https://www.archives.gov/cui/registry/limited-dissemination&#xD;&#xA; *  CUI Policy and Guidance https://www.archives.gov/cui/registry/policy-guidance"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24131"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="CPLYPOL"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="CPLYJPP"/>
+    <display value="comply with jurisdictional privacy policy"/>
+    <definition value="Custodian security system must retrieve, evaluate, and comply with applicable jurisdictional privacy policies associated with the target information.&#xD;&#xA;&#xD;&#xA;*Usage Note:* CPLYJPP may be used as a security label code to inform senders and receivers of information tagged with an ActCode\_ActPolicyType\_ActPrivacyPolicy\_ActPrivacyLaw code or an ActCode\_ActPolicyType\_ActInformationPolicy.JurisIP code to comply with applicable jurisdictional privacy policy."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23380"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="CPLYPOL"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="CPLYJSP"/>
+    <display value="comply with jurisdictional security policy"/>
+    <definition value="Custodian security system must retrieve, evaluate, and comply with applicable jurisdictional security policies associated with the target information.&#xD;&#xA;&#xD;&#xA;*Usage Note:* CPLYJSP may be used as a security label code to inform senders and receivers of information tagged with an ActCode\_ActPolicyType.SecurityPolicy code to comply with applicable jurisdictional security policy."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24130"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="CPLYPOL"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="CPLYOPP"/>
+    <display value="comply with organizational privacy policy"/>
+    <definition value="Custodian security system must retrieve, evaluate, and comply with applicable organizational privacy policies associated with the target information.&#xD;&#xA;&#xD;&#xA;*Usage Note:* CPLYOPP may be used as a security label code to inform senders and receivers of information tagged with an ActCode\_ActPolicyType\_ActInformationPolicy.OrgIP code to comply with applicable organizational privacy policy."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23381"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="CPLYPOL"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="CPLYOSP"/>
+    <display value="comply with organizational security policy"/>
+    <definition value="Custodian security system must retrieve, evaluate, and comply with the organizational security policies associated with the target information.&#xD;&#xA;&#xD;&#xA;*Usage Note:* CPLYOSP may be used as a security label code to inform senders and receivers of information tagged with an ActCode\_ActPolicyType.SecurityPolicy code to comply with applicable organizational security policy."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23382"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="CPLYPOL"/>
     </property>
   </concept>
   <concept>
@@ -20310,6 +20462,40 @@
     </property>
   </concept>
   <concept>
+    <code value="MDHHS-5515MMHC"/>
+    <display value="Michigan Consent to Share Behavioral Health Information for Care Coordination Purposes-Michigan Mental Health Code"/>
+    <definition value="The State of Michigan standard privacy consent form for sharing of health information specific to behavioral health governed by the Michigan Mental Health Code Act 258 of 1974, which require patient authorization for purposes other than treatment, payment, and coordination of care, in accordance with Public Act 129 of 2014.&#xD;&#xA;&#xD;&#xA;*Usage Note:* For legislative background, current MDHHS-5515 consent directive form, and provider and patient FAQs see http://www.michigan.gov/mdhhs/0,5885,7-339-71550\_2941\_58005-343686--,00.html"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24134"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="MDHHS-5515"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="MDHHS-5515Part2"/>
+    <display value="Michigan Consent to Share Behavioral Health Information for Care Coordination Purposes-US 42 CFR Part 2"/>
+    <definition value="The State of Michigan standard privacy consent form for sharing of health information specific to substance use information governed under US 42 CFR Part 2 in accordance with Public Act 129 of 2014.&#xD;&#xA;&#xD;&#xA;*Usage Note:* For legislative background, current MDHHS-5515 consent directive form, and provider and patient FAQs see http://www.michigan.gov/mdhhs/0,5885,7-339-71550\_2941\_58005-343686--,00.html"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24133"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="MDHHS-5515"/>
+    </property>
+  </concept>
+  <concept>
     <code value="CURMEDLIST"/>
     <display value="current medication list"/>
     <definition value="List of current medications."/>
@@ -20514,94 +20700,9 @@
     </property>
   </concept>
   <concept>
-    <code value="CPLYCC"/>
-    <display value="comply with confidentiality code"/>
-    <definition value="Custodian security system must retrieve, evaluate, and comply with the information handling directions of the Confidentiality Code associated with an information target."/>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="23378"/>
-    </property>
-    <property>
-      <code value="subsumedBy"/>
-      <valueCode value="ObligationPolicy"/>
-    </property>
-  </concept>
-  <concept>
-    <code value="CPLYCD"/>
-    <display value="comply with consent directive"/>
-    <definition value="Custodian security system must retrieve, evaluate, and comply with applicable information subject consent directives."/>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="23379"/>
-    </property>
-    <property>
-      <code value="subsumedBy"/>
-      <valueCode value="ObligationPolicy"/>
-    </property>
-  </concept>
-  <concept>
-    <code value="CPLYJPP"/>
-    <display value="comply with jurisdictional privacy policy"/>
-    <definition value="Custodian security system must retrieve, evaluate, and comply with applicable jurisdictional privacy policies associated with the target information."/>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="23380"/>
-    </property>
-    <property>
-      <code value="subsumedBy"/>
-      <valueCode value="ObligationPolicy"/>
-    </property>
-  </concept>
-  <concept>
-    <code value="CPLYOPP"/>
-    <display value="comply with organizational privacy policy"/>
-    <definition value="Custodian security system must retrieve, evaluate, and comply with applicable organizational privacy policies associated with the target information."/>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="23381"/>
-    </property>
-    <property>
-      <code value="subsumedBy"/>
-      <valueCode value="ObligationPolicy"/>
-    </property>
-  </concept>
-  <concept>
-    <code value="CPLYOSP"/>
-    <display value="comply with organizational security policy"/>
-    <definition value="Custodian security system must retrieve, evaluate, and comply with the organizational security policies associated with the target information."/>
-    <property>
-      <code value="status"/>
-      <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="23382"/>
-    </property>
-    <property>
-      <code value="subsumedBy"/>
-      <valueCode value="ObligationPolicy"/>
-    </property>
-  </concept>
-  <concept>
     <code value="CPLYPOL"/>
     <display value="comply with policy"/>
-    <definition value="Custodian security system must retrieve, evaluate, and comply with applicable policies associated with the target information."/>
+    <definition value="Custodian security system must retrieve, evaluate, and comply with applicable policies associated with the target information.&#xD;&#xA;&#xD;&#xA;*Usage Note:* CPLYPOL may be used as a security label code to inform senders and receivers of the tagged information to comply with applicable policy without specifying the specific policy type(s)."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -21679,6 +21780,23 @@
     <property>
       <code value="subsumedBy"/>
       <valueCode value="PrivacyMark"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="CUIMark"/>
+    <display value="CUI Mark"/>
+    <definition value="An originator must mark, persist, display, and convey computable and renderable Controlled Unclassified Information (CUI) marks as required by policy. A recipient must consume, persist, display, and reconvey CUI marks on information received based on agreements with the originator..&#xD;&#xA;&#xD;&#xA;**Examples:** &#xD;&#xA;&#xD;&#xA; *  As CUI custodians, Federal Agencies and their contractors must mark, persist, display, and convey these marks.&#xD;&#xA; *  All CUI receivers must consume, persist, display, and reconvey CUI markings on information further disclosed&#xD;&#xA;&#xD;&#xA;*Usage Note:* &#xD;&#xA;&#xD;&#xA;In accordance with US 32 CFR Part 2002 and US Executive Order 13556 Controlled Unclassified Information, US Federal Agencies and their contractors are charged with classifying and marking certain information they create as Controlled Unclassified Information (CUI).&#xD;&#xA;&#xD;&#xA;The following definitions, which are provided for context, are based on terms defined by the CUI Glossary https://www.archives.gov/cui/registry/cui-glossary.html&#xD;&#xA;&#xD;&#xA; *  CUI is defined as &quot;information in any form that the Government creates or possesses, or that an entity creates or possesses for or on behalf of the Government, that a law, regulation, or Government-wide policy requires or permits an agency to handle using safeguarding or dissemination controls&quot;&#xD;&#xA; *  Designating CUI occurs when an authorized holder, consistent with US 32 CFR Part 2002 and the CUI Registry, determines that a specific item of information falls into a CUI category or subcategory.&#xD;&#xA; *  The designating agency is the executive branch agency that designates or approves the designation of a specific item of information as CUI.&#xD;&#xA; *  The authorized holder who designates the CUI must make recipients aware of the information&#xE2;&#x20AC;&#x2122;s CUI status when disseminating that information.&#xD;&#xA; *  Disseminating occurs when authorized holders provide access, transmit, or transfer CUI to other authorized holders through any means, whether internal or external to the agency.&#xD;&#xA;&#xD;&#xA;Once designated as CUI, US Federal Agencies and their contractors must assign CUI marks as prescribed by the National Archives and Records Administration (NARA) CUI Registry, and display marks as prescribed by the CUI Marking Handbook.&#xD;&#xA;&#xD;&#xA;CUI markings must be displayed on hard copy, on containers, electronic media, and to end users for IT systems.&#xD;&#xA;&#xD;&#xA;When HL7 content is designated as CUI, these computable markings can be interoperably conveyed using HL7 security label CUI tags, and may be included in HL7 text and narrative elements as human readable markings.&#xD;&#xA;&#xD;&#xA;**Impact of CUI markings:**&#xD;&#xA;&#xD;&#xA;CUI Custodians must enforce CUI security controls per applicable CUI policies. Federal agencies and their contractors must adhere to FISMA and NIST SP 800-53 security controls. Custodians, who are not Federal agencies or agency contractors, and are receivers of CUI, must adhere to NIST SP 800-171 security controls and those dictated by the Authorities indicated by the assigned CUI markings.&#xD;&#xA;&#xD;&#xA;For most participants in US healthcare information exchange, including Federal Agencies and their contractors, additional controls are required by HIPAA Security standards for health information US 42 USC 1320d-2(d)(2) https://www.govinfo.gov/content/pkg/USCODE-2016-title42/pdf/USCODE-2016-title42-chap7-subchapXI-partC-sec1320d-2.pdf&#xD;&#xA;&#xD;&#xA;Federal Agencies and their contractors may be the CUI classifier of original CUI content; or a CUI derivative classifier, which reclassifies CUI content that has been aggregated with other CUI or Unclassified Uncontrolled Information (U) or dissembled from a larger CUI content; or declassifiers, depending on the designating agency&#39;s policies.&#xD;&#xA;&#xD;&#xA;Applicable CUI policies include the following and any future applicable updates to policies or laws related to CUI:&#xD;&#xA;&#xD;&#xA; *  Executive Order 13556 https://www.federalregister.gov/articles/2010/11/09/2010-28360/controlled-unclassified-information&#xD;&#xA; *  US 32 CFR Part 2002 https://www.govinfo.gov/content/pkg/CFR-2017-title32-vol6/pdf/CFR-2017-title32-vol6-part2002.pdf&#xD;&#xA; *  NIST SP 800-171 https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171r1.pdf&#xD;&#xA; *  NIST SP 800-171A https://doi.org/10.6028/NIST.SP.800-171A&#xD;&#xA; *  CUI Marking Handbook https://www.archives.gov/files/cui/20161206-cui-marking-handbook-v1-1.pdf&#xD;&#xA; *  CUI Registry - Health Information Category https://www.archives.gov/cui/registry/category-detail/health-info&#xD;&#xA; *  CUI Registry: Limited Dissemination Controls https://www.archives.gov/cui/registry/limited-dissemination&#xD;&#xA; *  CUI Policy and Guidance https://www.archives.gov/cui/registry/policy-guidance"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24129"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="PRIVMARK"/>
     </property>
   </concept>
   <concept>

@@ -19,9 +19,15 @@
       <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
       <filter>
         <property value="concept"/>
-        <op value="descendent-of"/>
+        <op value="is-a"/>
         <value value="_ServiceDeliveryLocationRoleType"/>
       </filter>
     </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+      <concept>
+        <code value="_ServiceDeliveryLocationRoleType"/>
+      </concept>
+    </exclude>
   </compose>
 </ValueSet>

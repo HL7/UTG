@@ -12,7 +12,7 @@
   <name value="Hl7ApprovalStatus"/>
   <title value="HL7ApprovalStatus"/>
   <status value="active"/>
-  <date value="2019-03-20"/>
+  <date value="2019-12-15"/>
   <publisher value="HL7 International"/>
   <contact>
     <name value="Modeling and Methodology Workgroup"/>
@@ -72,18 +72,12 @@
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
-  <property> 
-    <code value="status"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
-    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
-    <type value="code"/> 
-  </property> 
-  <property> 
-    <code value="deprecationDate"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
-    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
-    <type value="dateTime"/> 
-  </property> 
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="affd"/>
     <display value="affiliate ballot - DSTU"/>
@@ -207,12 +201,8 @@
     <definition value="**Description:** Content prepared by a committee and submitted for internal consideration as an informative standard.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment*** No longer supported as ballot statuses within the HL7 Governance and Operations Manual. Use normative or informative variants instead."/>
     <property>
       <code value="status"/>
-      <valueCode value="deprecated"/>
+      <valueCode value="active"/>
     </property>
-    <property> 
-      <code value="deprecationDate"/> 
-      <valueDateTime value="2010-11-23"/> 
-    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="23117"/>
@@ -224,12 +214,8 @@
     <definition value="**Description:** Content prepared by a committee and submitted for internal consideration as an informative standard.&#xD;&#xA;&#xD;&#xA;***Deprecation Comment*** No longer supported as ballot statuses within the HL7 Governance and Operations Manual. Use normative or informative variants instead."/>
     <property>
       <code value="status"/>
-      <valueCode value="deprecated"/>
+      <valueCode value="active"/>
     </property>
-    <property> 
-      <code value="deprecationDate"/> 
-      <valueDateTime value="2010-11-23"/> 
-    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="23116"/>

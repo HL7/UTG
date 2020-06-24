@@ -12,7 +12,7 @@
   <name value="ActMood"/>
   <title value="ActMood"/>
   <status value="active"/>
-  <date value="2019-03-20"/>
+  <date value="2019-12-15"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
@@ -72,18 +72,12 @@
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
-  <property> 
-    <code value="status"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
-    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
-    <type value="code"/> 
-  </property> 
-  <property> 
-    <code value="deprecationDate"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
-    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
-    <type value="dateTime"/> 
-  </property> 
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
   <property>
     <code value="Name:Class"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Class"/>
@@ -467,12 +461,8 @@
       <definition value="***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion.&#xD;&#xA;&#xD;&#xA;**Definition:** A condition that must be true for the source act to be considered."/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="active"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2010-07-12"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="22042"/>
@@ -487,12 +477,8 @@
         <definition value="***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to &quot;true&quot; and use the desired mood for your criterion.&#xD;&#xA;&#xD;&#xA;**Definition:** A criterion (CRT) that has\_match = an event (EVN)."/>
         <property>
           <code value="status"/>
-          <valueCode value="deprecated"/>
+          <valueCode value="active"/>
         </property>
-        <property> 
-          <code value="deprecationDate"/> 
-          <valueDateTime value="2010-07-12"/> 
-        </property>    
         <property>
           <code value="internalId"/>
           <valueCode value="10203"/>

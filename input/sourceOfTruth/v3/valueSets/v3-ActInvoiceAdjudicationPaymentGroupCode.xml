@@ -19,9 +19,15 @@
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <filter>
         <property value="concept"/>
-        <op value="descendent-of"/>
+        <op value="is-a"/>
         <value value="_ActInvoicePaymentCode"/>
       </filter>
     </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <concept>
+        <code value="_ActInvoicePaymentCode"/>
+      </concept>
+    </exclude>
   </compose>
 </ValueSet>

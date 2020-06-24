@@ -12,7 +12,7 @@
   <name value="Confidentiality"/>
   <title value="Confidentiality"/>
   <status value="active"/>
-  <date value="2019-03-20"/>
+  <date value="2019-12-15"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
@@ -72,18 +72,12 @@
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
-  <property> 
-    <code value="status"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
-    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
-    <type value="code"/> 
-  </property> 
-  <property> 
-    <code value="deprecationDate"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
-    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
-    <type value="dateTime"/> 
-  </property> 
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
@@ -105,7 +99,7 @@
     <concept>
       <code value="L"/>
       <display value="low"/>
-      <definition value="*Definition:* Privacy metadata indicating that the information has been de-identified, and there are mitigating circumstances that prevent re-identification, which minimize risk of harm from unauthorized disclosure. The information requires protection to maintain low sensitivity.&#xD;&#xA;&#xD;&#xA;*Examples:* Includes anonymized, pseudonymized, or non-personally identifiable information such as HIPAA limited data sets.&#xD;&#xA;&#xD;&#xA;*Map:* No clear map to ISO 13606-4 Sensitivity Level (1) Care Management: RECORD\_COMPONENTs that might need to be accessed by a wide range of administrative staff to manage the subject of care&#39;s access to health services.&#xD;&#xA;&#xD;&#xA;*Usage Note:* This metadata indicates the receiver may have an obligation to comply with a data use agreement."/>
+      <definition value="Privacy metadata indicating that a low level of protection is required to safeguard personal and healthcare information, which has been altered in such a way as to minimize the need for confidentiality protections with some residual risks associated with re-linking. The risk of harm to an individual&#39;s reputation and sense of privacy if disclosed without authorization is considered negligible, and mitigations are in place to address reidentification risk.&#xD;&#xA;&#xD;&#xA;*Usage Note:* &#xD;&#xA;&#xD;&#xA;The level of protection afforded anonymized and pseudonymized, and non-personally identifiable information (e.g., a limited data set) is dictated by privacy policies and data use agreements intended to engender trust that health information can be used and disclosed with little or no risk of re-identification.&#xD;&#xA;&#xD;&#xA;**Example:** Personal and healthcare information, which excludes 16 designated categories of direct identifiers in a HIPAA Limited Data Set. This information may be disclosed by HIPAA Covered Entities without patient authorization for a research, public health, and operations purposes if conditions are met, which includes obtaining a signed data use agreement from the recipient. See 45 CFR Section 164.514.&#xD;&#xA;&#xD;&#xA;This metadata indicates that the receiver may have an obligation to comply with a data use agreement with the discloser. The discloser may have obligations to comply with policies dictating the methods for de-identification.&#xD;&#xA;&#xD;&#xA;Confidentiality code total order hierarchy: Low (L) is less protective than *V, R, N,* and *M*, and subsumes *U*."/>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -118,7 +112,7 @@
     <concept>
       <code value="M"/>
       <display value="moderate"/>
-      <definition value="*Definition:* Privacy metadata indicating moderately sensitive information, which presents moderate risk of harm if disclosed without authorization.&#xD;&#xA;&#xD;&#xA;*Examples:* Includes allergies of non-sensitive nature used inform food service; health information a patient authorizes to be used for marketing, released to a bank for a health credit card or savings account; or information in personal health record systems that are not governed under health privacy laws.&#xD;&#xA;&#xD;&#xA;*Map:* Partial Map to ISO 13606-4 Sensitivity Level (2) Clinical Management: Less sensitive RECORD\_COMPONENTs that might need to be accessed by a wider range of personnel not all of whom are actively caring for the patient (e.g. radiology staff).&#xD;&#xA;&#xD;&#xA;*Usage Note:* This metadata indicates that the receiver may be obligated to comply with the receiver&#39;s terms of use or privacy policies."/>
+      <definition value="Privacy metadata indicating the level of protection required to safeguard personal and healthcare information, which if disclosed without authorization, would present a moderate risk of harm to an individual&#39;s reputation and sense of privacy.&#xD;&#xA;&#xD;&#xA;*Usage Note:* The level of protection afforded moderately confidential information is dictated by privacy policies intended to engender trust in a service provider. May include publicly available information in jurisdictions that restrict uses of that information without the consent of the data subject.&#xD;&#xA;&#xD;&#xA;Privacy policies mandating moderate levels of protection, which preempt less protective privacy policies. &quot;Moderate&quot; confidentiality policies differ from and would be preempted by the prevailing privacy policies mandating the normative level of protection for information used in the delivery and management of healthcare.&#xD;&#xA;&#xD;&#xA;Confidentiality code total order hierarchy: Moderate (M) is less protective than *V, R, and N*, and subsumes all other protection levels (i.e., *L* and *U*).&#xD;&#xA;&#xD;&#xA;**Examples:** Includes personal and health information that an individual authorizes to be collected, accessed, used or disclosed to a bank for a health credit card or savings account; to health oversight authorities; to a hospital patient directory; to worker compensation, disability, property and casualty or life insurers; and to personal health record systems, consumer-controlled devices, social media accounts and online Apps; or for marketing purposes"/>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -131,7 +125,7 @@
     <concept>
       <code value="N"/>
       <display value="normal"/>
-      <definition value="*Definition:* Privacy metadata indicating that the information is typical, non-stigmatizing health information, which presents typical risk of harm if disclosed without authorization.&#xD;&#xA;&#xD;&#xA;*Examples:* In the US, this includes what HIPAA identifies as the minimum necessary protected health information (PHI) given a covered purpose of use (treatment, payment, or operations). Includes typical, non-stigmatizing health information disclosed in an application for health, workers compensation, disability, or life insurance.&#xD;&#xA;&#xD;&#xA;*Map:* Partial Map to ISO 13606-4 Sensitivity Level (3) Clinical Care: Default for normal clinical care access (i.e. most clinical staff directly caring for the patient should be able to access nearly all of the EHR). Maps to normal confidentiality for treatment information but not to ancillary care, payment and operations.&#xD;&#xA;&#xD;&#xA;*Usage Note:* This metadata indicates that the receiver may be obligated to comply with applicable jurisdictional privacy law or disclosure authorization."/>
+      <definition value="Privacy metadata indicating the level of protection required to safeguard personal and healthcare information, which if disclosed without authorization, would present a considerable risk of harm to an individual&#39;s reputation and sense of privacy.&#xD;&#xA;&#xD;&#xA;*Usage Note:* The level of protection afforded normatively confidential information is dictated by the prevailing normative privacy policies, which are intended to engender patient trust in their healthcare providers.&#xD;&#xA;&#xD;&#xA;Privacy policies mandating normative levels of protection, which preempt less protective privacy policies when the information is used in the delivery and management of healthcare. May be pre-empted by jurisdictional law (e.g., for public health reporting or emergency treatment).&#xD;&#xA;&#xD;&#xA;Confidentiality code total order hierarchy: Normal (N) is less protective than *V* and *R*, and subsumes all other protection levels (i.e., *M, L, and U*).&#xD;&#xA;&#xD;&#xA;**Map:**Partial Map to ISO 13606-4 Sensitivity Level (3) Clinical Care when purpose of use is treatment: Default for normal clinical care access (i.e., most clinical staff directly caring for the patient should be able to access nearly all of the EHR). Maps to normal confidentiality for treatment information but not to ancillary care, payment and operations.&#xD;&#xA;&#xD;&#xA;**Examples:** &#xD;&#xA;&#xD;&#xA;n the US, this includes what HIPAA identifies as protected health information (PHI) under 45 CFR Section 160.103."/>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -144,7 +138,7 @@
     <concept>
       <code value="R"/>
       <display value="restricted"/>
-      <definition value="Privacy metadata indicating highly sensitive, potentially stigmatizing information, which presents a high risk to the information subject if disclosed without authorization. May be pre-empted by jurisdictional law, e.g., for public health reporting or emergency treatment.&#xD;&#xA;&#xD;&#xA;*Examples:* Includes information that is additionally protected such as sensitive conditions mental health, HIV, substance abuse, domestic violence, child abuse, genetic disease, and reproductive health; or sensitive demographic information such as a patient&#39;s standing as an employee or a celebrity. May be used to indicate proprietary or classified information that is not related to an individual, e.g., secret ingredients in a therapeutic substance; or the name of a manufacturer.&#xD;&#xA;&#xD;&#xA;*Map:* Partial Map to ISO 13606-4 Sensitivity Level (3) Clinical Care: Default for normal clinical care access (i.e. most clinical staff directly caring for the patient should be able to access nearly all of the EHR). Maps to normal confidentiality for treatment information but not to ancillary care, payment and operations..&#xD;&#xA;&#xD;&#xA;*Usage Note:* This metadata indicates that the receiver may be obligated to comply with applicable, prevailing (default) jurisdictional privacy law or disclosure authorization.."/>
+      <definition value="Privacy metadata indicating the level of protection required to safeguard potentially stigmatizing information, which if disclosed without authorization, would present a high risk of harm to an individual&#39;s reputation and sense of privacy.&#xD;&#xA;&#xD;&#xA;*Usage Note:* The level of protection afforded restricted confidential information is dictated by specially protective organizational or jurisdictional privacy policies, including at an authorized individual&#xE2;&#x20AC;&#x2122;s request, intended to engender patient trust in providers of sensitive services.&#xD;&#xA;&#xD;&#xA;Privacy policies mandating additional levels of protection by restricting information access preempt less protective privacy policies when the information is used in the delivery and management of healthcare. May be pre-empted by jurisdictional law (e.g., for public health reporting or emergency treatment).&#xD;&#xA;&#xD;&#xA;Confidentiality code total order hierarchy: Restricted (R) is less protective than *V*, and subsumes all other protection levels (i.e., *N, M, L, and U*).&#xD;&#xA;&#xD;&#xA;**Examples:** &#xD;&#xA;&#xD;&#xA;Includes information that is additionally protected such as sensitive conditions mental health, HIV, substance abuse, domestic violence, child abuse, genetic disease, and reproductive health; or sensitive demographic information such as a patient&#xE2;&#x20AC;&#x2122;s standing as an employee or a celebrity. May be used to indicate proprietary or classified information that is not related to an individual (e.g., secret ingredients in a therapeutic substance; or the name of a manufacturer)."/>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -157,7 +151,7 @@
     <concept>
       <code value="U"/>
       <display value="unrestricted"/>
-      <definition value="*Definition:* Privacy metadata indicating that the information is not classified as sensitive.&#xD;&#xA;&#xD;&#xA;*Examples:* Includes publicly available information, e.g., business name, phone, email or physical address.&#xD;&#xA;&#xD;&#xA;*Usage Note:* This metadata indicates that the receiver has no obligation to consider additional policies when making access control decisions. Note that in some jurisdictions, personally identifiable information must be protected as confidential, so it would not be appropriate to assign a confidentiality code of &quot;unrestricted&quot; to that information even if it is publicly available."/>
+      <definition value="Privacy metadata indicating that no level of protection is required to safeguard personal and healthcare information that has been disclosed by an authorized individual without restrictions on its use.&#xD;&#xA;&#xD;&#xA;**Examples:** Includes publicly available information e.g., business name, phone, email and physical address.&#xD;&#xA;&#xD;&#xA;*Usage Note:* The authorization to collect, access, use, and disclose this information may be stipulated in a contract of adhesion by a data user (e.g., via terms of service or data user privacy policies) in exchange for the data subject&#39;s use of a service.&#xD;&#xA;&#xD;&#xA;This metadata indicates that the receiver has no obligation to consider privacy policies other than its own when making access control decisions.&#xD;&#xA;&#xD;&#xA;This metadata indicates that the receiver has no obligation to consider privacy policies other than its own when making access control decisions.&#xD;&#xA;&#xD;&#xA;Confidentiality code total order hierarchy: Unrestricted (U) is less protective than *V, R, N, M,* and *L*, and is the lowest protection levels."/>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -170,7 +164,7 @@
     <concept>
       <code value="V"/>
       <display value="very restricted"/>
-      <definition value=". Privacy metadata indicating that the information is extremely sensitive and likely stigmatizing health information that presents a very high risk if disclosed without authorization. This information must be kept in the highest confidence.&#xD;&#xA;&#xD;&#xA;*Examples:*  Includes information about a victim of abuse, patient requested information sensitivity, and taboo subjects relating to health status that must be discussed with the patient by an attending provider before sharing with the patient. May also include information held under &#xE2;&#x20AC;&#x153;legal lock&#xE2;&#x20AC;? or attorney-client privilege&#xD;&#xA;&#xD;&#xA;*Map:*  This metadata indicates that the receiver may not disclose this information except as directed by the information custodian, who may be the information subject.&#xD;&#xA;&#xD;&#xA;*Usage Note:*  This metadata indicates that the receiver may not disclose this information except as directed by the information custodian, who may be the information subject."/>
+      <definition value="Privacy metadata indicating the level of protection required under atypical cicumstances to safeguard potentially damaging or harmful information, which if disclosed without authorization, would (1) present an extremely high risk of harm to an individual&#39;s reputation, sense of privacy, and possibly safety; or (2) impact an individual&#39;s or organization&#39;s legal matters.&#xD;&#xA;&#xD;&#xA;*Usage Note:* The level of protection afforded very restricted confidential information is dictated by specially protective privacy or legal policies intended to ensure that under atypical circumstances additional protections limit access to only those with a high &#39;need to know&#39; and the information is kept in highest confidence..&#xD;&#xA;&#xD;&#xA;Privacy and legal policies mandating the highest level of protection by stringently restricting information access, preempt less protective privacy policies when the information is used in the delivery and management of healthcare including legal proceedings related to healthcare. May be pre-empted by jurisdictional law (e.g., for public health reporting or emergency treatment but only under limited circumstances).&#xD;&#xA;&#xD;&#xA;Confidentiality code total order hierarchy: Very Restricted (V) is the highest protection level and subsumes all other protection levels s (i.e., *R, N, M, L, and UI*).&#xD;&#xA;&#xD;&#xA;**Examples:** &#xD;&#xA;&#xD;&#xA;Includes information about a victim of abuse, patient requested information sensitivity, and taboo subjects relating to health status that must be discussed with the patient by an attending provider before sharing with the patient. May also include information held under a legal hold or attorney-client privilege."/>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -191,12 +185,8 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="deprecated"/>
+      <valueCode value="retired"/>
     </property>
-    <property> 
-      <code value="deprecationDate"/> 
-      <valueDateTime value="2011-12-14"/> 
-    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="21049"/>
@@ -207,12 +197,8 @@
       <definition value="**Description:** Since the service class can represent knowledge structures that may be considered a trade or business secret, there is sometimes (though rarely) the need to flag those items as of business level confidentiality. However, no patient related information may ever be of this confidentiality level.&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:* Replced by ActCode.B"/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="retired"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2011-12-14"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10235"/>
@@ -224,12 +210,8 @@
       <definition value="**Description:** Only clinicians may see this item, billing and administration persons can not access this item without special permission.&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Deprecated due to updated confidentiality codes under ActCode"/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="retired"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2011-12-14"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10231"/>
@@ -241,12 +223,8 @@
       <definition value="**Description:** Access only to individual persons who are mentioned explicitly as actors of this service and whose actor type warrants that access (cf. to actor type code).&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Deprecated due to updated confidentiality codes under ActCode"/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="retired"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2011-12-14"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10233"/>
@@ -263,12 +241,8 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="deprecated"/>
+      <valueCode value="retired"/>
     </property>
-    <property> 
-      <code value="deprecationDate"/> 
-      <valueDateTime value="2011-12-14"/> 
-    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="21050"/>
@@ -279,12 +253,8 @@
       <definition value="**Description:** Alcohol/drug-abuse related item&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.ETH"/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="retired"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2011-12-14"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10243"/>
@@ -296,12 +266,8 @@
       <definition value="**Description:** HIV and AIDS related item&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.HIV"/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="retired"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2011-12-14"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10241"/>
@@ -313,12 +279,8 @@
       <definition value="**Description:** Psychiatry related item&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.PSY"/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="retired"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2011-12-14"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10242"/>
@@ -330,12 +292,8 @@
       <definition value="**Description:** Sexual assault / domestic violence related item&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.SDV"/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="retired"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2011-12-14"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10244"/>
@@ -352,12 +310,8 @@
     </property>
     <property>
       <code value="status"/>
-      <valueCode value="deprecated"/>
+      <valueCode value="retired"/>
     </property>
-    <property> 
-      <code value="deprecationDate"/> 
-      <valueDateTime value="2011-12-14"/> 
-    </property>    
     <property>
       <code value="internalId"/>
       <valueCode value="21051"/>
@@ -368,12 +322,8 @@
       <definition value="**Description:** Celebrities are people of public interest (VIP) including employees, whose information require special protection.&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Replced by ActCode.CEL"/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="retired"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2011-12-14"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10239"/>
@@ -385,12 +335,8 @@
       <definition value="**Description:** &#xD;&#xA;&#xD;&#xA;Information for which the patient seeks heightened confidentiality. Sensitive information is not to be shared with family members. Information reported by the patient about family members is sensitive by default. Flag can be set or cleared on patient&#39;s request.&#xD;&#xA;&#xD;&#xA;*Deprecation Comment:*Deprecated due to updated confidentiality codes under ActCode"/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="retired"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2011-12-14"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10237"/>
@@ -402,12 +348,8 @@
       <definition value="**Description:** Information not to be disclosed or discussed with patient except through physician assigned to patient in this case. This is usually a temporary constraint only, example use is a new fatal diagnosis or finding, such as malignancy or HIV.&#xD;&#xA;&#xD;&#xA;*Deprecation Note:*Replced by ActCode.TBOO"/>
       <property>
         <code value="status"/>
-        <valueCode value="deprecated"/>
+        <valueCode value="retired"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2011-12-14"/> 
-      </property>    
       <property>
         <code value="internalId"/>
         <valueCode value="10238"/>

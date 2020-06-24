@@ -16,12 +16,18 @@
   <description value="Audio media type."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/mediatypes"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-extTmp-mediatypes"/>
       <filter>
         <property value="concept"/>
-        <op value="descendent-of"/>
+        <op value="is-a"/>
         <value value="audio"/>
       </filter>
     </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-extTmp-mediatypes"/>
+      <concept>
+        <code value="audio"/>
+      </concept>
+    </exclude>
   </compose>
 </ValueSet>

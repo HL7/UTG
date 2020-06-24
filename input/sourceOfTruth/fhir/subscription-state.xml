@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="subscription-state"/>
+  <meta>
+    <lastUpdated value="2020-06-24T12:45:58.915+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+            
+      <h2>Subscription State</h2>
+            
+      <div>
+              
+        <p>State values for FHIR Subscriptions.</p>
+
+            
+      </div>
+            
+      <p>This code system http://terminology.hl7.org/CodeSystem/subscription-state defines the following codes:</p>
+            
+      <table class="codes">
+              
+        <tr>
+                
+          <td style="white-space:nowrap">
+                  
+            <b>Code</b>
+                
+          </td>
+                
+          <td>
+                  
+            <b>Display</b>
+                
+          </td>
+                
+          <td>
+                  
+            <b>Definition</b>
+                
+          </td>
+              
+        </tr>
+              
+        <tr>
+                
+          <td style="white-space:nowrap">requested
+                  
+            <a name="subscription-state-requested"> </a>
+                
+          </td>
+                
+          <td>Requested</td>
+                
+          <td>The client has requested the subscription, and the server has not yet set it up.</td>
+              
+        </tr>
+              
+        <tr>
+                
+          <td style="white-space:nowrap">active
+                  
+            <a name="subscription-state-active"> </a>
+                
+          </td>
+                
+          <td>Active</td>
+                
+          <td>The subscription is active.</td>
+              
+        </tr>
+              
+        <tr>
+                
+          <td style="white-space:nowrap">error
+                  
+            <a name="subscription-state-error"> </a>
+                
+          </td>
+                
+          <td>Error</td>
+                
+          <td>The server has an error executing the notification.</td>
+              
+        </tr>
+              
+        <tr>
+                
+          <td style="white-space:nowrap">off
+                  
+            <a name="subscription-state-off"> </a>
+                
+          </td>
+                
+          <td>Off</td>
+                
+          <td>Too many errors have occurred or the subscription has expired.</td>
+              
+        </tr>
+            
+      </table>
+          
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/subscription-state"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1522"/>
+  </identifier>
+  <version value="4.4.0"/>
+  <name value="SubscriptionState"/>
+  <title value="Subscription State"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="State values for FHIR Subscriptions."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/subscription-state"/>
+  <content value="complete"/>
+  <concept>
+    <code value="requested"/>
+    <display value="Requested"/>
+    <definition value="The client has requested the subscription, and the server has not yet set it up."/>
+  </concept>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="The subscription is active."/>
+  </concept>
+  <concept>
+    <code value="error"/>
+    <display value="Error"/>
+    <definition value="The server has an error executing the notification."/>
+  </concept>
+  <concept>
+    <code value="off"/>
+    <display value="Off"/>
+    <definition value="Too many errors have occurred or the subscription has expired."/>
+  </concept>
+</CodeSystem>
