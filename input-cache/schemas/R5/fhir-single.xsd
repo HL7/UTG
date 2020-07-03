@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Thu, Jun 25, 2020 14:35+0000 for FHIR v4.4.0 
+  Generated on Thu, Jul 2, 2020 00:59+0000 for FHIR v4.4.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.4.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -3551,7 +3551,7 @@ The type is the Canonical URL of Resource Definition that is the type this refer
               <xs:documentation xml:lang="en">A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="language" type="ExpressionLanguage" minOccurs="1" maxOccurs="1">
+          <xs:element name="language" type="code" minOccurs="1" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">The media type of the language for the expression.</xs:documentation>
             </xs:annotation>
@@ -3569,36 +3569,6 @@ The type is the Canonical URL of Resource Definition that is the type this refer
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="ExpressionLanguage-list">
-    <xs:restriction base="code-primitive">
-      <xs:enumeration value="text/cql">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">CQL</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="text/fhirpath">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">FHIRPath</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="application/x-fhir-query">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">FHIR Query</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="ExpressionLanguage">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">The media type of the expression language.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-       <xs:extension base="Element">
-         <xs:attribute name="value" type="ExpressionLanguage-list" use="optional"/>
-       </xs:extension>
-     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="CodeableReference">
     <xs:annotation>

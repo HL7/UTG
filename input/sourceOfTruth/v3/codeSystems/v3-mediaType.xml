@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="v3-mediatypes"/>
+  <id value="v3-mediaType"/>
   <language value="en"/>
-  <url value="http://terminology.hl7.org/CodeSystem/v3-mediatypes"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-mediaType"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.79"/>
   </identifier>
-  <version value="2.0.0"/>
+  <version value="2.1.0"/>
   <name value="MediaType"/>
   <title value="Media Type"/>
   <status value="active"/>
@@ -17,7 +17,7 @@
   <contact>
     <name value="Health Level Seven"/>
   </contact>
-  <description value="Internet Assigned Numbers Authority (IANA) Mime Media Types. Identifies the type of the encapsulated data and identifies a method to interpret or render the data. The IANA defined domain of media types is established by the Internet standard RFC 2045 \[http://www.ietf.org/rfc/rfc2045.txt\] and 2046 \[http://www.ietf.org/rfc/rfc2046.txt\]. RFC 2046 defines the media type to consist of two parts:&#xD;&#xA;&#xD;&#xA;1.  top level media type, and&#xD;&#xA;2.  media subtype&#xD;&#xA;&#xD;&#xA;However, this HL7 datatypes specification treats the entire media type as one atomic code symbol in the form defined by IANA, i.e., top level type followed by a slash &quot;/&quot; followed by media subtype. Currently defined media types are registered in a database \[http://www.iana.org/assignments/media-types/index.html\] maintained by IANA. Currently several hundred different MIME media types are defined, with the list growing rapidly. In general, all those types defined by the IANA syntax MAY be used. This code system is a substet of all possible media type codes which are used in HL7 Standaards and Implementation Guides.  More information and documentation of this content can be found at Multipurpose Internet Mail Extensions (MIME) Part Four - BCP 13. \[http://tools.ietf.org/html/bcp13\] "/>
+  <description value="Internet Assigned Numbers Authority (IANA) Mime Media Types. Identifies the type of the encapsulated data and identifies a method to interpret or render the data. The IANA defined domain of media types is established by the Internet standard RFC 2045 \[http://www.ietf.org/rfc/rfc2045.txt\] and 2046 \[http://www.ietf.org/rfc/rfc2046.txt\]. RFC 2046 defines the media type to consist of two parts:&#xD;&#xA;&#xD;&#xA;1.  top level media type, and&#xD;&#xA;2.  media subtype&#xD;&#xA;&#xD;&#xA;However, this HL7 datatypes specification treats the entire media type as one atomic code symbol in the form defined by IANA, i.e., top level type followed by a slash &quot;/&quot; followed by media subtype. Currently defined media types are registered in a database \[http://www.iana.org/assignments/media-types/index.html\] maintained by IANA. Currently several hundred different MIME media types are defined, with the list growing rapidly. In general, all those types defined by the IANA MAY be used."/> 
   <hierarchyMeaning value="is-a"/>
   <content value="fragment"/>
   <property>
@@ -464,6 +464,19 @@
       <valueCode value="21089"/>
     </property>
     <concept>
+      <code value="video/mp4"/>
+      <display value="MP4 Video"/>
+      <definition value="Video format by the Motion Picture Experts Group under ISO/IEC 14496"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="24125"/>
+      </property>
+    </concept>
+    <concept>
       <code value="video/mpeg"/>
       <display value="MPEG Video"/>
       <definition value="MPEG is an international standard, widely deployed, highly efficient for high color video; open source code exists; highly interoperable."/>
@@ -477,6 +490,32 @@
       </property>
     </concept>
     <concept>
+      <code value="video/quicktime"/>
+      <display value="QuickTime Video"/>
+      <definition value="Proprietary video format from Apple, Inc."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="24127"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="video/webm"/>
+      <display value="WebM Video"/>
+      <definition value="A royalty-free audiovisual media file format."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="24128"/>
+      </property>
+    </concept>
+    <concept>
       <code value="video/x-avi"/>
       <display value="X-AVI Video"/>
       <definition value="The AVI file format is just a wrapper for many different codecs; it is a source of many interoperability problems."/>
@@ -487,6 +526,19 @@
       <property>
         <code value="internalId"/>
         <valueCode value="14847"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="video/x-ms-wmv"/>
+      <display value="Windows Media Video"/>
+      <definition value="Proprietary video format from Microsoft, Inc."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="24126"/>
       </property>
     </concept>
   </concept>
