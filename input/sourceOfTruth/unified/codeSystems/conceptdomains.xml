@@ -3,6 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="conceptdomains"/>
   <url value="http://terminology.hl7.org/CodeSystem/conceptdomains"/>
+  <version value="2.1.0"/>
   <name value="ConceptDomains"/>
   <title value="Concept Domains"/>
   <status value="active"/>
@@ -26,6 +27,24 @@
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#ConceptualSpaceForClassCode"/>
     <description value="Conceptual Space For ClassCode"/>
     <type value="Coding"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://hl7.org/fhir/concept-properties#deprecated"/>
+    <description value="Date when the concept was deprecated."/>
+    <type value="dateTime"/>
+  </property>
+  <property>
+    <code value="DeprecationInfo"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#DeprecationInfo"/>
+    <description value="Descriptive text about deprecation."/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Status of the domain; retired or deprecated otherwise active."/>
+    <type value="code"/>
   </property>
   <property>
     <code value="HL7usageNotes"/>
@@ -4984,6 +5003,18 @@
         <code value="source"/>
         <valueCode value="v3"/>
       </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="deprecated"/>
+      </property>
+      <property>
+        <code value="DeprecationInfo"/>
+        <valueString value="deprecationEffectiveVersion=866 coremifText=This element was deprecated as of the release indicated."/>
+      </property>
+      <property>
+        <code value="deprecated"/>
+        <valueDateTime value="2009-04-18"/>
+      </property>
     </concept>
   </concept>
   <concept>
@@ -9760,6 +9791,18 @@
         <valueCode value="v3"/>
       </property>
       <property>
+        <code value="status"/>
+        <valueCode value="deprecated"/>
+      </property>
+      <property>
+        <code value="DeprecationInfo"/>
+        <valueString value="deprecationEffectiveVersion=1221 coremifText=This element was deprecated as of the release indicated."/>
+      </property>
+      <property>
+        <code value="deprecated"/>
+        <valueDateTime value="2013-07-26"/>
+      </property>
+      <property>
         <code value="contextBindingR1-valueSet"/>
         <valueString value="2.16.840.1.113883.1.11.20369"/>
       </property>
@@ -12860,6 +12903,20 @@
       <code value="source"/>
       <valueCode value="v3"/>
     </property>
+
+      <property>
+        <code value="status"/>
+        <valueCode value="deprecated"/>
+      </property>
+      <property>
+        <code value="DeprecationInfo"/>
+        <valueString value="deprecationEffectiveVersion=822 coremifText=This element was deprecated as of the release indicated."/>
+      </property>
+      <property>
+        <code value="deprecated"/>
+        <valueDateTime value="2009-02-27"/>
+      </property>
+
     <property>
       <code value="contextBindingUV-valueSet"/>
       <valueString value="2.16.840.1.113883.1.11.19833"/>
