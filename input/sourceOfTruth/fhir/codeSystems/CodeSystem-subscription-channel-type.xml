@@ -46,14 +46,14 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Codes to represent subscription error details"/>
+  <description value="The type of method used to execute a subscription"/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/subscription-channel-type"/>
   <content value="complete"/>
   <concept>
     <code value="rest-hook"/>
     <display value="Rest Hook"/>
-    <definition value="The channel is executed by making a post to the URI. If a payload is included, the URL is interpreted as the service base, and an update (PUT) is made."/>
+		<definition value="The channel is executed by making a POST to the URI with the selected payload and MIME type."/>
   </concept>
   <concept>
     <code value="websocket"/>
@@ -64,11 +64,6 @@
     <code value="email"/>
     <display value="Email"/>
     <definition value="The channel is executed by sending an email to the email addressed in the URI (which must be a mailto:)."/>
-  </concept>
-  <concept>
-    <code value="sms"/>
-    <display value="SMS"/>
-    <definition value="The channel is executed by sending an SMS message to the phone number identified in the URL (tel:)."/>
   </concept>
   <concept>
     <code value="message"/>
