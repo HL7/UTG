@@ -1,61 +1,116 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
-  <p>
-    This page contains documentation and background information about the HL7 Terminology.  The material contained herein has been drawn from the Standards and other documents published by HL7 and the Vocablary WorkGroup.
-  </p>
-  <a name="Documentation"> </a>
-  <h3>Introductory Information</h3>
-  <p>
-    The HL7 Terminology viewable here rendered as web pages represents a new way for HL7 to publish its terminology and vocabulary, which hitherto has been largely contained within various Standards and Guides in the different HL7 Product families. 
-    These web pages represent an attempt to gather all of the information that the HL7 community needs in order to implement systems and interfaces, based on the published HL7 Standards, in one place and eailly accessible. 
-    The information on these pages will be updated frequently as requested and agreed changes and enhancemments are made.
-  </p>
-  <a name="CommonChars"> </a>
-  <h3>Common (Unified) Characteristics</h3>
-  <p>
-    HL7 has adopted a common overall notional architecture for terminology across all of its product families.  This architecture is focussed on representing all terminology in Code Systems and Value Sets. 
-    Work has been done to adapt all related vocabulary and termminology designs across the HL7 product famillies to these common structures.   See the secitons below 
-    for discussions of how this has been done for the different product families.   The common form used by these new designs are based on FHIR CodeSystem and ValueSet resources, and includes 
-    a number of extensions and special properties to correctly capture, in a machine-processable way, all of the older information in the HL7 product family terminology 
-    structures.  This mapping has been done in order to facilitate maintenance and publishing (on these pages) of all of the HL7 Terminology, and to eanble the content to be unified where appropriate 
-    in the future.
-  </p>
-  <a name="ContentOvw"> </a>
-  <h4>Content</h4>
-  <p>
-    The HL7 Terminology consists of Code Systems, Value Sets, Concept Maps, and Naming Systems.  Code Systems and Value Sets are core components of all of the 
-    HL7 product families.  In addition, Naming Systems and Concept Maps are defined within the FHIR specifications.
-  </p>
-  <ul>
-    <li><em>Code Systems</em> are managed collections of concepts.</li>
-    <li><em>Value Sets</em> are managed collections of concept drawn from one or more Code Systems.</li>
-    <li><em>Naming Systems</em> are collections of objects with known identifiers.</li>
-    <li><em>Concept Maps</em> are objects containing relationship information between concepts across code systems</li>
-    <li><em>V3 Concept Domains</em> have been represented in the new HL7 Terminology process and publication as a single Code System of concepts, with each Concept Domain represented as a concept with an extensive set of properties.   These are found in the set of Unified Code Systems.</li>
-    <li><em>V2 Tables</em> have been represented in the new HL7 Terinology process and publication as a single Code System of concepts, with each table being a concept with an extensive set of properties. These are found in the set of Unified Code Systems.</li>
-  </ul>
-  <a name="ExternalDoc"> </a>
-  <h4>External Terminology</h4>
-  <p>
-    There are hundreds of terminologies and code sets used to support Healthcare systems, persistence, and communication in use in the world, maintained and published by many organizations outside of HL7, and across 
-    many many nations.   Virtually all implementations based on HL7 Standards include one or more of these terminologies in the implementation guidance and conformance rules, both those publshed outside of HL7, 
-    and those defined, maintained, and published by HL7.  
-    For the convenience of implementers and users, certain of these have been explicitly identified over the years by the HIT community, and the technical components for their unambiguous identification 
-    and use have been published in the HL7 Standards and Guides.  In addtion, a few of these have had their content encapsulated in the designs of HL7 terminology structues to facilitate their use by the HL7 communinity.  
-    These have been imported to this new publishing form for the convenience of the community, and the terms of compliancit is hoped that it be used in a common way across all of the 
-    HL7 product families that need to reference or use these external terminologies.
-  </p>
-  <a name="UTGdesign"> </a>
-  <h4>Design Details Of The Persisted Terminology Structures</h4>
-  <a name="UTGVersioning"> </a>
-  <h4>Version Control and Display</h4>
-  <a name="UTGIGs"> </a>
-  <h4>A Word About Implementation Guides</h4>
-  <a name="UTGV2Doc"> </a>
-  <h3>HL7 Version 2 Product Family Terminology Representation</h3>
-  <a name="UTGV3Doc"> </a>
-  <h3>HL7 Version 3 Product Family Terminology Representaation</h3>
-  <a name="UTGCDADoc"> </a>
-  <h3>HL7 CDA Product Family Terminology Representation</h3>
-  <a name="UTGFHIRDoc"> </a>
-  <h3>HL7 FHIR Product Family Terminology Representation</h3>
+	<p>
+		This page contains documentation and background information about the HL7 Terminology.  The material contained herein has been drawn from the Standards and other documents published by HL7 and the Vocablary WorkGroup.
+	</p>
+	<a name="Documentation"> </a>
+	<h3>Introductory Information</h3>
+	<p>
+		The HL7 Terminology viewable here rendered as web pages represents a new way for HL7 to publish its terminology and vocabulary, which hitherto has been largely contained within various Standards and Guides in the different HL7 Product families.
+		These web pages represent an attempt to gather all of the information that the HL7 community needs in order to implement systems and interfaces, based on the published HL7 Standards, in one place and eailly accessible.
+		The information on these pages will be updated frequently as requested and agreed changes and enhancemments are made.
+	</p>
+	<a name="TermMaint"> </a>
+	<h3>Terminology Maintenance at HL7</h3>
+	<p>
+		HL7 maintains multiple terminologies. However, ongoing maintenance of these terminologies proved
+		to be resource intensive and quite opaque to much of the community and thus a need for a uniform vocabulary governance process
+		or strategy across all the HL7 terminologies was identified. As FHIR and associated implementation guides became more popular
+		and as HL7 continued to grow, this was identified as an increasing issue. The new Unified Terminology Governance (UTG) process maintains the terminologies that
+		support all of HL7’s focus areas (V2, V3, FHIR, CDA, etc.) in a way that is responsive and improves quality. As well, the process meets
+		the community’s expectations for a more modern, continuous peer-feedback related process.
+	</p>
+	<a name="EducationTrain"> </a>
+	<h4>UTG Education and Training</h4>
+	<p>
+		A set of educational training sessions have been created for the different groups of people using the HL7 Terminology. It is highly recommended
+		that HL7 Terminology users view these sessions based on their use or involvement in the maintenance of the HL7 Terminology.
+	</p>
+	<p>
+		<a href="https://youtu.be/vmZ71_cgYhI">The HL7 Terminology</a> - This session introduces the HL7 terminology publication website and shows how to view and access this published terminology content that is referenced in HL7 standards.
+	</p>
+	<p>
+		<a href="https://youtu.be/iuc6PAsmVxY">Terminology Governance and Publishing at HL7</a> - This session covers the same topics from "The HL7 Terminology" session, as well the publishing process for new releases and the update process for the current content.
+	</p>
+	<p>
+		<a href="https://youtu.be/uqOPa4M4sLU">Reviewing and Voting on HL7 Vocabulary Change Proposals</a> - This session walks HL7
+		Terminology reviewers through the Unified Terminology Governance voting process for vocabulary maintenance at HL7. Reviewers
+		will learn how examine a change proposal and cast a vote. The session will also cover the mechanics behind consensus review,
+		including voter groups, vote weights, the consensus review workflow and possible outcomes for a change proposal.
+	</p>
+	<p>
+		COMING SOON - A series of tutorials for those needing to submit a change proposal are currently being developed.
+	</p>
+	<a name="MoreInfo"> </a>
+	<h4>Additional Information for UTG</h4>
+	<p>
+		For more information on the Unified Terminology Governance (UTG) process, please visit the landing page
+		at <a href="https://confluence.hl7.org/display/VOC/Vocabulary+Maintenance+at+HL7">Vocabulary Maintenance at HL7</a>. This page
+		provides an overview of the process, links to documentation and education materials, and information about participating in consensus review
+		or change proposal submission. Anyone can sign up to be a vocabulary reviewer or change submitter through this page.
+	</p>
+	<p>
+		All documentation and education materials can be located on the <a href="https://confluence.hl7.org/display/VOC/UTG+Tooling+and+Proposal+Documentation">UTG Tooling and Proposal Documentation</a> page.
+	</p>
+	<p>
+		All change requests are managed on HL7 Jira in the <a href="https://jira.hl7.org/projects/UP/">UTG (UP) Jira project</a>.
+	</p>
+	<a name="CommonChars"> </a>
+	<h3>Common (Unified) Characteristics</h3>
+	<p>
+		HL7 has adopted a common overall notional architecture for terminology across all of its product families.  This architecture is focussed on representing all terminology in Code Systems and Value Sets.
+		Work has been done to adapt all related vocabulary and termminology designs across the HL7 product famillies to these common structures.   See the secitons below
+		for discussions of how this has been done for the different product families.   The common form used by these new designs are based on FHIR CodeSystem and ValueSet resources, and includes
+		a number of extensions and special properties to correctly capture, in a machine-processable way, all of the older information in the HL7 product family terminology
+		structures.  This mapping has been done in order to facilitate maintenance and publishing (on these pages) of all of the HL7 Terminology, and to eanble the content to be unified where appropriate
+		in the future.
+	</p>
+	<a name="ContentOvw"> </a>
+	<h4>Content</h4>
+	<p>
+		The HL7 Terminology consists of Code Systems, Value Sets, Concept Maps, and Naming Systems.  Code Systems and Value Sets are core components of all of the
+		HL7 product families.  In addition, Naming Systems and Concept Maps are defined within the FHIR specifications.
+	</p>
+	<ul>
+		<li>
+			<em>Code Systems</em> are managed collections of concepts.</li>
+		<li>
+			<em>Value Sets</em> are managed collections of concept drawn from one or more Code Systems.</li>
+		<li>
+			<em>Naming Systems</em> are collections of objects with known identifiers.</li>
+		<li>
+			<em>Concept Maps</em> are objects containing relationship information between concepts across code systems</li>
+		<li>
+			<em>V3 Concept Domains</em> have been represented in the new HL7 Terminology process and publication as a single Code System of concepts, with each Concept Domain represented as a concept with an extensive set of properties.   These are found in the set of Unified Code Systems.</li>
+		<li>
+			<em>V2 Tables</em> have been represented in the new HL7 Terinology process and publication as a single Code System of concepts, with each table being a concept with an extensive set of properties. These are found in the set of Unified Code Systems.</li>
+	</ul>
+	<a name="ExternalDoc"> </a>
+	<h4>External Terminology</h4>
+	<p>
+		There are hundreds of terminologies and code sets used to support Healthcare systems, persistence, and communication in use in the world, maintained and published by many organizations outside of HL7, and across
+		many many nations.   Virtually all implementations based on HL7 Standards include one or more of these terminologies in the implementation guidance and conformance rules, both those publshed outside of HL7,
+		and those defined, maintained, and published by HL7.
+		For the convenience of implementers and users, certain of these have been explicitly identified over the years by the HIT community, and the technical components for their unambiguous identification
+		and use have been published in the HL7 Standards and Guides.  In addtion, a few of these have had their content encapsulated in the designs of HL7 terminology structues to facilitate their use by the HL7 communinity.
+		These have been imported to this new publishing form for the convenience of the community, and the terms of compliancit is hoped that it be used in a common way across all of the
+		HL7 product families that need to reference or use these external terminologies.
+	</p>
+	<a name="UTGdesign"> </a>
+	<h4>Design Details Of The Persisted Terminology Structures</h4>
+	<a name="UTGVersioning"> </a>
+	<h4>Version Control and Display</h4>
+	<p>
+		The versioning policy has been approved by the Vocabulary Work Group and can be found on the
+		<a href="https://confluence.hl7.org/display/VOC/Documented+Execution+of+UTG+Versioning">Documented Execution of UTG Versioning</a> page.
+	</p>
+	<a name="UTGIGs"> </a>
+	<h4>A Word About Implementation Guides</h4>
+	<a name="UTGV2Doc"> </a>
+	<h3>HL7 Version 2 Product Family Terminology Representation</h3>
+	<a name="UTGV3Doc"> </a>
+	<h3>HL7 Version 3 Product Family Terminology Representation</h3>
+	<a name="UTGCDADoc"> </a>
+	<h3>HL7 CDA Product Family Terminology Representation</h3>
+	<a name="UTGFHIRDoc"> </a>
+	<h3>HL7 FHIR Product Family Terminology Representation</h3>
 </div>
