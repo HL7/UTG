@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Oct 7, 2020 09:34+0000 for FHIR v4.5.0 
+  Generated on Wed, Oct 7, 2020 19:49+0000 for FHIR v4.5.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.5.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -11108,7 +11108,7 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">This element is used to list authors and other contributors, their contact information, specific contributions, and summary statements.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="articleLanguage" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="articleLanguage" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">The language in which the article is published.</xs:documentation>
            </xs:annotation>
@@ -21281,27 +21281,27 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
           </xs:element>
           <xs:element name="synthesisType" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The particular type of synthesis if this is a synthesis summary.</xs:documentation>
+              <xs:documentation xml:lang="en">The method to combine studies.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="studyType" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The type of study that produced this summary.</xs:documentation>
+              <xs:documentation xml:lang="en">The type of study that produced this evidence.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="statistic" minOccurs="0" maxOccurs="unbounded" type="Statistic">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The statistic value(s).</xs:documentation>
+              <xs:documentation xml:lang="en">Values and parameters for a single statistic.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="distribution" minOccurs="0" maxOccurs="unbounded" type="OrderedDistribution">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Ordered distribution.</xs:documentation>
+              <xs:documentation xml:lang="en">An ordered group of statistics.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="certainty" type="Evidence.Certainty" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Level of certainty.</xs:documentation>
+              <xs:documentation xml:lang="en">Assessment of certainty, confidence in the estimates, or quality of the evidence.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -21366,45 +21366,24 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
               <xs:documentation xml:lang="en">Footnotes and/or explanatory notes.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="rating" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Quality or certainty of the Evidence.</xs:documentation>
+              <xs:documentation xml:lang="en">Aspect of certainty being rated.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="certaintySubcomponent" type="Evidence.CertaintySubcomponent" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="rating" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A domain or subdomain of certainty rating.</xs:documentation>
+              <xs:documentation xml:lang="en">Assessment or judgement of the aspect.</xs:documentation>
            </xs:annotation>
           </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Evidence.CertaintySubcomponent">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">This represents statistics, certainty, both the intended and actual population, and evidence variables.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="description" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="rater" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Textual description of certainty subcomponent.</xs:documentation>
+              <xs:documentation xml:lang="en">Individual or group who did the rating.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="note" minOccurs="0" maxOccurs="unbounded" type="Annotation">
+          <xs:element name="subcomponent" type="Evidence.Certainty" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Footnotes and/or explanatory notes.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="type" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Aspect of quality or certainty being rated.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="rating" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Quality or certainty of the aspect.</xs:documentation>
+              <xs:documentation xml:lang="en">A domain or subdomain of certainty.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
