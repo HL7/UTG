@@ -7,7 +7,6 @@ The Implementation Guide contains no examples for this extension
 The Coding provided is not in the value set http://hl7.org/fhir/ValueSet/designation-use, and a code should come from this value set unless it has no suitable code.  (error message = Not in value set http://hl7.org/fhir/ValueSet/designation-use)
 
 # value sets based on external code systems where we do not have access to the content
-WARNING: v2-0910: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0910
 WARNING: v2-notAllCodes-0347: Error from server: Unable to provide support for code system urn:iso:std:iso:3166:-2
 WARNING: v3-ActInjuryCodeCSA: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/csaid
 WARNING: v3-ActProcedureCodeCCI: Error from server: Unable to provide support for code system http://hl7.org/fhir/sid/icd-10-ca
@@ -27,6 +26,8 @@ WARNING: v3-OrganizationIndustryClassNAICS: Error from server: Unable to provide
 WARNING: v3-SCDHEC-GISSpatialAccuracyTiers: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/SCDHEC-GISSpatialAccuracyTiers
 WARNING: v3-USEncounterDischargeDisposition: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
 WARNING: v3-USEncounterReferralSource: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
+WARNING: ValueSet/v3-AgeGroupObservationValue: ValueSet.compose[0].include[0]: Unknown System specified, so Concepts and Filters can''t be checked
+WARNING: ValueSet/v3-KnowledgeSubtopicObservationValue: ValueSet.compose[0].include[0]: Unknown System specified, so Concepts and Filters can''t be checked
 
 # We don't care about any of these - and they create noise
 Validate resource against profile http://hl7.org/fhir/StructureDefinition/Bundle
@@ -42,5 +43,4 @@ Validate resource against profile http://hl7.org/fhir/StructureDefinition/ValueS
 # Yes, it's not in the value set - it's a valid extension
 The Coding provided (http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra#preferredForLanguage) is not in the value set http://hl7.org/fhir/ValueSet/designation-use, and a code should come from this value set unless it has no suitable code (the validator cannot judge what is suitable).  (error message = Not in value set http://hl7.org/fhir/ValueSet/designation-use)
 
-INFORMATION: ImplementationGuide/hl7.terminology: ImplementationGuide.definition.resource[2270].description: The string value contains embedded HTML tags. Note that all inputs should be escaped when rendered to HTML as a matter of course
-INFORMATION: ImplementationGuide/hl7.terminology: ImplementationGuide.definition.resource[3450].description: The string value contains embedded HTML tags. Note that all inputs should be escaped when rendered to HTML as a matter of course
+
