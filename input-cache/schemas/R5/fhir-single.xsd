@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Nov 4, 2020 10:10+0000 for FHIR v4.5.0 
+  Generated on Fri, Nov 6, 2020 00:23+0000 for FHIR v4.5.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.5.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -1791,20 +1791,16 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
     <xs:complexContent>
       <xs:extension base="BackboneType">
         <xs:sequence>
-          <xs:element name="code" type="CodeableConcept" minOccurs="0" maxOccurs="1">
+          <xs:element name="code" type="CodeableConcept" minOccurs="1" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">Description of a component of the method to generate the statistic.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:choice minOccurs="0" maxOccurs="1">
+          <xs:element name="value" type="Quantity" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Further specification of a component of the method to generate the statistic.</xs:documentation>
+              <xs:documentation xml:lang="en">Further specification of the quantified value of the component of the method to generate the statistic.</xs:documentation>
             </xs:annotation>
-           <xs:element name="valueCodeableConcept" type="CodeableConcept"  maxOccurs="1"/>
-           <xs:element name="valueBoolean" type="boolean"  maxOccurs="1"/>
-           <xs:element name="valueQuantity" type="Quantity"  maxOccurs="1"/>
-           <xs:element name="valueRange" type="Range"  maxOccurs="1"/>
-          </xs:choice>
+          </xs:element>
           <xs:element name="variable" type="Statistic.Variable" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">A variable adjusted for in the adjusted analysis.</xs:documentation>
