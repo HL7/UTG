@@ -3,19 +3,6 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="v3-snomed-CT"/>
   <language value="en"/>
-  <!--  Material from coremif that we need to find a place for
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-legalese">
-    <valueString value="Is NOT in UMLS."/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-contributor">
-    <extension url="name">
-      <valueString value="International Health Terminology Standards Development Organisation"/>
-    </extension>
-    <extension url="role">
-      <valueString value="Sponsor"/>
-    </extension>
-  </extension>
-  -->
   <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-properties-mode">
       <valueCode value="not-present"/>
   </extension>
@@ -24,15 +11,20 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.6.96"/>
   </identifier>
-  <version value="3.0.0"/>
-  <name value="SnomedCT"/>
-  <title value="SNOMED Clinical Terms"/>
+  <version value="3.2.0"/>
+  <name value="SNOMED_CT_INT"/>
+  <title value="SNOMED CT International Edition"/>
   <status value="active"/>
-  <date value="2020-10-31"/>
-  <publisher value="IHTSDO"/>
+  <date value="2020-11-03"/>
+  <publisher value="International Health Terminology Standards Development Organisation (IHTSDO) trading as SNOMED International"/>
   <contact>
-    <name value="International Health Terminology Standards Development Organisation"/>
+    <name value="International Health Terminology Standards Development Organisation (IHTSDO) trading as SNOMED International"/>
+    <telecom>
+      <system value="email"/>
+      <value value="info@snomed.org"/>
+    </telecom>
   </contact>
-  <description value="SNOMED CT is a concept-based, scientifically validated terminology that provides a unique and permanent concept identifier that can be included in multiple HL7 data types including CD and CE. The concepts are managed to avoid &quot;semantic drift&quot; so the meaning remains constant. If the concept is found to be ambiguous or the meaning changes, the concept is inactivated but still retained and the identifier is never reused.&#xD;&#xA;&#xD;&#xA;SNOMED CT&#39;s concepts are interrelated hierarchically and using description logic.&#xD;&#xA;&#xD;&#xA;SNOMED CT concepts have a unique &quot;fully-specified name,&quot; a preferred term, and, optionally, synonyms. The descriptions include English, Spanish, and German."/>
+  <description value="SNOMED CT is a core clinical healthcare terminology that contains concepts with unique meanings and formal logic based definitions organized into hierarchies."/>
+  <copyright value="This artefact includes content from SNOMED Clinical Terms (SNOMED CT) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <content value="not-present"/>
 </CodeSystem>
