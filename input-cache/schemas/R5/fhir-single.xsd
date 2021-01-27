@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Fri, Jan 15, 2021 05:54+0000 for FHIR v4.5.0 
+  Generated on Tue, Jan 26, 2021 23:17+0000 for FHIR v4.5.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.5.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -1759,7 +1759,7 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
               <xs:documentation xml:lang="en">Statistic value.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="numberOfEvents" type="integer" minOccurs="0" maxOccurs="1">
+          <xs:element name="numberOfEvents" type="unsignedInt" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">The number of events associated with the statistic.</xs:documentation>
             </xs:annotation>
@@ -1828,17 +1828,17 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
               <xs:documentation xml:lang="en">Footnote or explanatory note about the sample size.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="numberOfStudies" type="integer" minOccurs="0" maxOccurs="1">
+          <xs:element name="numberOfStudies" type="unsignedInt" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">Number of participants in the population.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="numberOfParticipants" type="integer" minOccurs="0" maxOccurs="1">
+          <xs:element name="numberOfParticipants" type="unsignedInt" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">A human-readable string to clarify or explain concepts about the sample size.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="knownDataCount" type="integer" minOccurs="0" maxOccurs="1">
+          <xs:element name="knownDataCount" type="unsignedInt" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">Number of participants with known results for measured variables.</xs:documentation>
             </xs:annotation>
@@ -21184,6 +21184,13 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
               <xs:documentation xml:lang="en">A short, descriptive, user-friendly title for the summary.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:choice minOccurs="0" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Citation Resource or display of suggested citation for this evidence.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="citeAsReference" type="Reference"/>
+            <xs:element name="citeAsMarkdown" type="markdown"/>
+          </xs:choice>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
             <xs:annotation>
               <xs:documentation xml:lang="en">The status of this summary. Enables tracking the life-cycle of the content.</xs:documentation>
@@ -21413,11 +21420,13 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
               <xs:documentation xml:lang="en">A formal identifier that is used to identify things closely related to this EvidenceReport.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="citeAs" minOccurs="0" maxOccurs="1" type="Reference">
+          <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">Citation Resource or display of suggested citation for this report.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
+            </xs:annotation>
+            <xs:element name="citeAsReference" type="Reference"/>
+            <xs:element name="citeAsMarkdown" type="markdown"/>
+          </xs:choice>
           <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Specifies the kind of report, such as grouping of classifiers, search results, or human-compiled expression.</xs:documentation>
