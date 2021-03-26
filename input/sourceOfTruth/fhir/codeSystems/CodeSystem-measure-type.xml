@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="measure-type"/>
   <meta>
@@ -21,9 +22,9 @@
   <version value="0.1.0"/>
   <name value="MeasureType"/>
   <title value="MeasureType"/>
-  <status value="unknown"/>
+  <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-04-09T21:10:28.000-04:00"/>
+  <date value="2020-04-09T21:10:28+00:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -38,8 +39,6 @@
   <description value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/measure-type"/>
-  <compositional value="false"/>
-  <versionNeeded value="false"/>
   <content value="complete"/>
   <concept>
     <code value="process"/>
@@ -54,11 +53,16 @@
   <concept>
     <code value="structure"/>
     <display value="Structure"/>
-    <definition value="A measure that focuses on a health care provider&apos;s capacity, systems, and processes to provide high-quality care."/>
+    <definition value="A measure that focuses on a health care provider&#39;s capacity, systems, and processes to provide high-quality care."/>
   </concept>
   <concept>
     <code value="patient-reported-outcome"/>
     <display value="Patient Reported Outcome"/>
     <definition value="A measure that focuses on patient-reported information such as patient engagement or patient experience measures."/>
+  </concept>
+  <concept>
+    <code value="composite"/>
+    <display value="Composite"/>
+    <definition value="A measure that combines multiple component measures in to a single quality measure."/>
   </concept>
 </CodeSystem>
