@@ -8,7 +8,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.4"/>
   </identifier>
-  <version value="2.1.0"/>
+  <version value="5.0.0"/>
   <name value="ActCode"/>
   <title value="ActCode"/>
   <status value="active"/>
@@ -6771,6 +6771,23 @@
     </property>
   </concept>
   <concept>
+    <code value="IDS"/>
+    <display value="Identifier Sensitivity"/>
+    <definition value="Policy for handling information related to an identifier of an information subject, which will be afforded heightened confidentiality. Usage Note: Such policies may govern the sensitivity of information related to an identifier of an act, such as the identifier of a contract; a role, such as a citizen, a patient, a practitioner, or an organization; or an entity such as a medical device due to potential impact on the privacy, well-being, safety or integrity of an information subject. For example, protection against identity fraud or counterfeit."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24800"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_ActInformationSensitivityPolicy"/>
+    </property>
+  </concept>
+  <concept>
     <code value="SICKLE"/>
     <display value="sickle cell"/>
     <definition value="Types of sensitivity policies that apply to Acts. Act.confidentialityCode is defined in the RIM as &quot;constraints around appropriate disclosure of information about this Act, regardless of mood.&quot;&#xD;&#xA;&#xD;&#xA;*Usage Note:* ActSensitivity codes are used to bind information to an Act.confidentialityCode according to local sensitivity policy so that those confidentiality codes can then govern its handling across enterprises. Internally to a policy domain, however, local policies guide the access control system on how end users in that policy domain are able to use information tagged with these sensitivity values."/>
@@ -11683,6 +11700,57 @@
     <property>
       <code value="subsumedBy"/>
       <valueCode value="_ActUSPrivacyLaw"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="USResearchInformedAssent"/>
+    <display value="Informed Assent for Research"/>
+    <definition value="An informed assertion by a minor who is a candidate research subject, of the individual's willingness to participate in research. Assent means a child's affirmative agreement to participate in a clinical investigation. Mere failure to object should not, absent affirmative agreement, be construed as assent. The minor's assent must be accompanied by parental or guardian consent that the minor participate in a specified research. The assent is not legally binding, however, the accompanying consent is legally binding. Background: In the US, informed assent is governed under 21 CFR Part 50, Subpart D - Additional Safeguards for Children in Clinical Investigations. Available at https://www.law.cornell.edu/cfr/text/21/part-50/subpart-D" />
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="25100"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_ActUSPrivacyConsentDirective"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="USResearchInformedConsent"/>
+    <display value="Informed Consent for Research"/>
+    <definition value="An informed assertion by an adult, or the parent/guardian of a minor who is a candidate research subject, of the individual's willingness to participate in a specified research study. The consent is legally binding. Background: In the US, informed assent is governed under 49 CFR § 11.116 - General Requirements for Informed Consent. Available at https://www.law.cornell.edu/cfr/text/49/11.116" />
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="25101"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_ActUSPrivacyConsentDirective"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="USBroadResearchConsent"/>
+    <display value="Broad Consent for Research"/>
+    <definition value="An informed assertion by an adult, or the parent/guardian of a minor who is a candidate research subject, of the individual's willingness to participate in unspecified research studies, including storage, maintenance, and secondary research use of identifiable biospecimens and data.  If broad consent is obtained, any subsequent storage, maintenance, and secondary research uses of the individual’s identifiable biospecimens and data consistent with the broad consent would not require additional consent, so long as additional conditions are met, including limited review by an IRB. The consent is legally binding. Background: In the US, informed assent is governed under 49 CFR § 11.116 - General Requirements for Informed Consent. Available at https://www.law.cornell.edu/cfr/text/49/11.116" />
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="25102"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_ActUSPrivacyConsentDirective"/>
     </property>
   </concept>
   <concept>
@@ -22974,6 +23042,23 @@
     <property>
       <code value="internalId"/>
       <valueCode value="24047"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="SecurityLabelMark"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="DRAFTMark"/>
+    <display value="Draft Mark"/>
+    <definition value="A displayed mark indicating that the electronic or hard-copy information is still under development and is not yet considered to be ready for normal use."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="24150"/>
     </property>
     <property>
       <code value="subsumedBy"/>
