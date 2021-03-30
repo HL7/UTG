@@ -47,11 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-<<<<<<< HEAD
-  Generated on Fri, Mar 5, 2021 22:30+0000 for FHIR v4.5.0 
-=======
-  Generated on Mon, Mar 8, 2021 08:13+0000 for FHIR v4.5.0 
->>>>>>> 64bf2f314bff30bb63e75b44f6ac087233c52333
+  Generated on Mon, Mar 29, 2021 20:53+0000 for FHIR v4.5.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.5.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -68,7 +64,7 @@
   </xs:simpleType>
   <xs:complexType name="date">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.</xs:documentation>
+      <xs:documentation xml:lang="en">A date or partial date (e.g. just year or year + month). There is no UTC offset. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -87,7 +83,7 @@
   </xs:simpleType>
   <xs:complexType name="dateTime">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.</xs:documentation>
+      <xs:documentation xml:lang="en">A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a UTC offset SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -260,7 +256,7 @@
   <xs:complexType name="instant">
     <xs:annotation>
       <xs:documentation xml:lang="en">An instant in time - known at least to the second</xs:documentation>
-      <xs:documentation xml:lang="en">Note: This is intended for where precisely observed times are required, typically system logs etc., and not human-reported times - for them, see date and dateTime (which can be as precise as instant, but is not required to be) below. Time zone is always required</xs:documentation>
+      <xs:documentation xml:lang="en">Note: This is intended for where precisely observed times are required, typically system logs etc., and not human-reported times - for them, see date and dateTime (which can be as precise as instant, but is not required to be) below. UTC offset is always required</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -1758,6 +1754,11 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
               <xs:documentation xml:lang="en">Type of statistic, eg relative risk.</xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element name="category" type="CodeableConcept" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">When the measured variable is handled categorically, the category element is used to define which category the statistic is reporting.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="quantity" type="Quantity" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">Statistic value.</xs:documentation>
@@ -1765,7 +1766,12 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
           </xs:element>
           <xs:element name="numberOfEvents" type="unsignedInt" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The number of events associated with the statistic.</xs:documentation>
+              <xs:documentation xml:lang="en">The number of events associated with the statistic, where the unit of analysis is different from numberAffected, sampleSize.knownDataCount and sampleSize.numberOfParticipants.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="numberAffected" type="unsignedInt" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The number of participants affected where the unit of analysis is the same as sampleSize.knownDataCount and sampleSize.numberOfParticipants.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="sampleSize" type="Statistic.SampleSize" minOccurs="0" maxOccurs="1">
@@ -4488,7 +4494,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
        </xs:extension>
      </xs:complexContent>
   </xs:complexType>
-  <xs:simpleType name="Event Or Request Resource Types-list">
+  <xs:simpleType name="EventOrRequestResourceTypes-list">
     <xs:restriction base="code-primitive">
       <xs:enumeration value="ChargeItem">
         <xs:annotation>
@@ -4737,14 +4743,14 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="Event Or Request Resource Types">
+  <xs:complexType name="EventOrRequestResourceTypes">
     <xs:annotation>
       <xs:documentation xml:lang="en"></xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
        <xs:extension base="Element">
-         <xs:attribute name="value" type="Event Or Request Resource Types-list" use="optional"/>
+         <xs:attribute name="value" type="EventOrRequestResourceTypes-list" use="optional"/>
        </xs:extension>
      </xs:complexContent>
   </xs:complexType>
@@ -6601,7 +6607,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
               <xs:documentation xml:lang="en">Identification of the specific substance (or pharmaceutical product) considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  If a receiving system is unable to confirm that AllergyIntolerance.reaction.substance falls within the semantic scope of AllergyIntolerance.code, then the receiving system should ignore AllergyIntolerance.reaction.substance.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="manifestation" minOccurs="1" maxOccurs="unbounded" type="CodeableConcept">
+          <xs:element name="manifestation" minOccurs="1" maxOccurs="unbounded" type="CodeableReference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.</xs:documentation>
            </xs:annotation>
@@ -11020,11 +11026,6 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">A formal identifier that is used to identify this citation when it is represented in other formats, or referenced in a specification, model, design or an instance.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="relatedIdentifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A formal identifier that is used to identify things closely related to this citation.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="version" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">The identifier that is used to identify this version of the citation when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.</xs:documentation>
@@ -11105,54 +11106,9 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">A human-readable display of the citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="dateCited" minOccurs="0" maxOccurs="1" type="dateTime">
+          <xs:element name="classification" type="Citation.Classification" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">When the citation was cited.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="variantCitation" type="Citation.VariantCitation" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">An alternative variant of the citation.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="articleTitle" type="Citation.ArticleTitle" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The name of the article.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="webLocation" type="Citation.WebLocation" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Used for any URL for the article cited.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="abstract" type="Citation.Abstract" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Publisher-provided summary of the article.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="contributorship" type="Citation.Contributorship" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">This element is used to list authors and other contributors, their contact information, specific contributions, and summary statements.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="publicationForm" type="Citation.PublicationForm" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">If multiple, used to represent alternative forms of the article that are not separate citations.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="classifier" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Used for many classifiers including PublicationType, CitationSubset, MeshHeading, Chemical.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="keywordList" type="Citation.KeywordList" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A list of words classified as keywords for specific use in search functions.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="relatedArtifact" minOccurs="0" maxOccurs="unbounded" type="RelatedArtifact">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Link or citation to artifact associated with the referenced material.</xs:documentation>
+              <xs:documentation xml:lang="en">The assignment to an organizing scheme.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="note" minOccurs="0" maxOccurs="unbounded" type="Annotation">
@@ -11160,9 +11116,24 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">Used for general notes and annotations not coded elsewhere.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="medline" type="Citation.Medline" minOccurs="0" maxOccurs="1">
+          <xs:element name="currentState" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">These elements are items with values assigned by MEDLINE or PubMed management.</xs:documentation>
+              <xs:documentation xml:lang="en">The status of the citation.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="statusDate" type="Citation.StatusDate" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">An effective date or period for a status of the citation.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="relatesTo" type="Citation.RelatesTo" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Artifact related to the Citation Resource.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="citedArtifact" type="Citation.CitedArtifact" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The article or artifact being described.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -11190,7 +11161,7 @@ into another (possibly the same) biological entity.</xs:documentation>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Citation.VariantCitation">
+  <xs:complexType name="Citation.Classification">
     <xs:annotation>
       <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
     </xs:annotation>
@@ -11199,24 +11170,213 @@ into another (possibly the same) biological entity.</xs:documentation>
         <xs:sequence>
           <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Used to describe the reason for the variant citation, such as version or subpart specification.</xs:documentation>
+              <xs:documentation xml:lang="en">The kind of classifier (e.g. publication type, keyword).</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="value" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="classifier" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Used to describe the specific variation, such as version number or subpart specification.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="baseCitation" minOccurs="0" maxOccurs="1" type="Reference">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Base citation layer.</xs:documentation>
+              <xs:documentation xml:lang="en">The specific classification value.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Citation.ArticleTitle">
+  <xs:complexType name="Citation.StatusDate">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="activity" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Classification of the status.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="actual" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Either occurred or expected.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="period" minOccurs="1" maxOccurs="1" type="Period">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">When the status started and/or ended.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.RelatesTo">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="relationshipType" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">How the Citation resource relates to the target artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="targetClassifier" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The clasification of the related artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:choice minOccurs="1" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The article or artifact that the Citation Resource is related to.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="targetUri" type="uri"/>
+            <xs:element name="targetIdentifier" type="Identifier"/>
+            <xs:element name="targetReference" type="Reference"/>
+            <xs:element name="targetAttachment" type="Attachment"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.CitedArtifact">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A formal identifier that is used to identify this citation when it is represented in other formats, or referenced in a specification, model, design or an instance.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="relatedIdentifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A formal identifier that is used to identify things closely related to this citation.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="dateAccessed" minOccurs="0" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">When the cited artifact was accessed.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="version" type="Citation.Version" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The defined version of the cited artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="currentState" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The status of the cited artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="statusDate" type="Citation.StatusDate1" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">An effective date or period for a status of the cited artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="title" type="Citation.Title" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The title details of the article or artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="abstract" type="Citation.Abstract" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Summary of the article or artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="copyright" minOccurs="0" maxOccurs="1" type="markdown">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Copyright notice for the full article or artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="part" type="Citation.Part" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The component of the article or artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="relatesTo" type="Citation.RelatesTo1" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The artifact related to the cited artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="publicationForm" type="Citation.PublicationForm" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">If multiple, used to represent alternative forms of the article that are not separate citations.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="webLocation" type="Citation.WebLocation" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Used for any URL for the article or artifact cited.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="classification" type="Citation.Classification1" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The assignment to an organizing scheme.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="contributorship" type="Citation.Contributorship" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">This element is used to list authors and other contributors, their contact information, specific contributions, and summary statements.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="note" minOccurs="0" maxOccurs="unbounded" type="Annotation">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Any additional information or content for the article or artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.Version">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="value" minOccurs="1" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The version number or other version identifier.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="baseCitation" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Citation for the main version of the cited artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.StatusDate1">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="activity" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Classification of the status.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="actual" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Either occurred or expected.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="period" minOccurs="1" maxOccurs="1" type="Period">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">When the status started and/or ended.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.Title">
     <xs:annotation>
       <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
     </xs:annotation>
@@ -11225,7 +11385,7 @@ into another (possibly the same) biological entity.</xs:documentation>
         <xs:sequence>
           <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Used to express the reason and specific aspect for any variant title, such as language and specific language.</xs:documentation>
+              <xs:documentation xml:lang="en">Used to express the reason or specific aspect for the title.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="language" minOccurs="0" maxOccurs="1" type="CodeableConcept">
@@ -11235,7 +11395,268 @@ into another (possibly the same) biological entity.</xs:documentation>
           </xs:element>
           <xs:element name="text" minOccurs="1" maxOccurs="1" type="markdown">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Full title of the article.</xs:documentation>
+              <xs:documentation xml:lang="en">The title of the article or artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.Abstract">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Used to express the reason or specific aspect for the abstract.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="language" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Used to express the specific language.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="text" minOccurs="1" maxOccurs="1" type="markdown">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Abstract content.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="copyright" minOccurs="0" maxOccurs="1" type="markdown">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Copyright notice for the abstract.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.Part">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The kind of component.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="value" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The specification of the component.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="baseCitation" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The citation for the full article or artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.RelatesTo1">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="relationshipType" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">How the cited artifact resource relates to the target artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="targetClassifier" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The clasification of the related artifact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:choice minOccurs="1" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The article or artifact that the cited artifact is related to.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="targetUri" type="uri"/>
+            <xs:element name="targetIdentifier" type="Identifier"/>
+            <xs:element name="targetReference" type="Reference"/>
+            <xs:element name="targetAttachment" type="Attachment"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.PublicationForm">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="publishedIn" type="Citation.PublishedIn" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The collection the cited article or artifact is published in.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="periodicRelease" type="Citation.PeriodicRelease" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The specific issue in which the cited article resides.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="articleDate" minOccurs="0" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The date the article was added to the database, or the date the article was released (which may differ from the journal issue publication date).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="lastRevisionDate" minOccurs="0" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The date the article was last revised or updated in the database.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="language" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Language in which this form of the article is published.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="accessionNumber" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Entry number or identifier for inclusion in a database.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="pageString" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Used for full display of pagination.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="firstPage" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Used for isolated representation of first page.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="lastPage" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Used for isolated representation of last page.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="pageCount" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Actual or approximate number of pages or screens.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.PublishedIn">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Kind of container (e.g. Periodical, database, or book).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Journal identifiers include ISSN, ISO Abbreviation and NLMuniqueID; Book identifiers include ISBN.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="title" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Name of the database or title of the book or journal.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Name of the publisher.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="publisherLocation" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Geographic location of the publisher.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="date">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">When the database was first available or when the book was published.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.PeriodicRelease">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="citedMedium" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print&quot;.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="volume" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Volume number of journal in which the article is published.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="issue" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Issue, part or supplement of journal in which the article is published.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="dateOfPublication" type="Citation.DateOfPublication" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Defining the date on which the issue of the journal was published.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.DateOfPublication">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="date" minOccurs="0" maxOccurs="1" type="date">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Date on which the issue of the journal was published.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="year" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Year on which the issue of the journal was published.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="month" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Month on which the issue of the journal was published.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="day" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Day on which the issue of the journal was published.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="season" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Spring, Summer, Fall/Autumn, Winter.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="text" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Text representation of the date of which the issue of the journal was published.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -11263,7 +11684,7 @@ into another (possibly the same) biological entity.</xs:documentation>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Citation.Abstract">
+  <xs:complexType name="Citation.Classification1">
     <xs:annotation>
       <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
     </xs:annotation>
@@ -11272,22 +11693,12 @@ into another (possibly the same) biological entity.</xs:documentation>
         <xs:sequence>
           <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Used to express the reason for an additional or variant abstract, such as language.</xs:documentation>
+              <xs:documentation xml:lang="en">The kind of classifier (e.g. publication type, keyword).</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="language" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="classifier" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Used to express the specific language.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="text" minOccurs="1" maxOccurs="1" type="markdown">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Abstract content.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="copyright" minOccurs="0" maxOccurs="1" type="markdown">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Copyright information for the abstract text.</xs:documentation>
+              <xs:documentation xml:lang="en">The specific classification value.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -11362,19 +11773,24 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">Email or telephone contact methods for the author or contributor.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="contribution" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+          <xs:element name="contributionType" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">This element identifies the specific nature of an individual’s contribution with respect to the cited work.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="notAnAuthor" minOccurs="0" maxOccurs="1" type="boolean">
+          <xs:element name="role" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">False, missing, or empty elements implies authorship.</xs:documentation>
+              <xs:documentation xml:lang="en">The role of the contributor (e.g. author, editor, reviewer).</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="correspondingAuthor" minOccurs="0" maxOccurs="1" type="boolean">
+          <xs:element name="contributionInstance" type="Citation.ContributionInstance" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Indication of which author is the corresponding author for the article cited.</xs:documentation>
+              <xs:documentation xml:lang="en">Contributions with accounting for time or number.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="correspondingContact" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indication of which contributor is the corresponding contributor for the role.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="listOrder" minOccurs="0" maxOccurs="1" type="positiveInt">
@@ -11412,6 +11828,27 @@ into another (possibly the same) biological entity.</xs:documentation>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="Citation.ContributionInstance">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The specific contribution.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="time" minOccurs="0" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The time that the contribution was made.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="Citation.Summary1">
     <xs:annotation>
       <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
@@ -11440,525 +11877,6 @@ into another (possibly the same) biological entity.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Citation.PublicationForm">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="publishingModel" minOccurs="0" maxOccurs="1" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Identify the medium/media in which the cited article is published, eg print, electronic or print-electronic.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="publishedIn" type="Citation.PublishedIn" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The collection the cited article is published in.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="periodicRelease" type="Citation.PeriodicRelease" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The specific issue in which the cited article resides.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="articleDate" minOccurs="0" maxOccurs="1" type="dateTime">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The date the article was added to the database, or the date the article was released (which may differ from the journal issue publication date).</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="revisionDate" minOccurs="0" maxOccurs="1" type="dateTime">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The date the article was last revised or updated in the database.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="language" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Language in which this form of the article is published.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="pageString" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Used for full display of pagination.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="firstPage" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Used for isolated representation of first page.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="lastPage" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Used for isolated representation of last page.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="pageCount" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Actual or approximate number of pages or screens.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Citation.PublishedIn">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Periodical, database, or book.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Journal identifiers include ISSN, ISO Abbreviation and NLMuniqueID; Book identifiers include ISBN.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="title" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Name of the database or title of the book or journal.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="Reference">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Name of the publisher.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="publisherLocation" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Geographic location of the publisher.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="date">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">When the database was first available or when the book was published.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Citation.PeriodicRelease">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="citedMedium" minOccurs="0" maxOccurs="1" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print.&quot;.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="volume" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Volume number of journal in which the article is published.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="issue" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Issue, part or supplement of journal in which the article is published.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="dateOfPublication" type="Citation.DateOfPublication" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Defining the date on which the issue of the journal was published.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Citation.DateOfPublication">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="date" minOccurs="0" maxOccurs="1" type="date">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Date on which the issue of the journal was published.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="year" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Year on which the issue of the journal was published.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="month" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Month on which the issue of the journal was published.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="day" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Day on which the issue of the journal was published.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="season" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Spring, Summer, Fall/Autumn, Winter.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="text" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Text representation of the date of which the issue of the journal was published.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Citation.KeywordList">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="owner" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The entity responsible for the creation or maintenance of this keyword list.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="keyword" type="Citation.Keyword" minOccurs="1" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">For each keyword in the keyword list.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Citation.Keyword">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="majorTopic" minOccurs="0" maxOccurs="1" type="boolean">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Whether or not it is a major topic.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="value" minOccurs="1" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The actual keyword.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Citation.Medline">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="state" minOccurs="0" maxOccurs="1" type="MedlineCitationStatus">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Used for status.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="owner" minOccurs="0" maxOccurs="1" type="MedlineCitationOwner">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Used for owner.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="dateCreated" minOccurs="0" maxOccurs="1" type="date">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Creation date.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="dateCompleted" minOccurs="0" maxOccurs="1" type="date">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Completion date.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="dateRevised" minOccurs="0" maxOccurs="1" type="date">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Revision date.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="dateOnPubMed" type="Citation.DateOnPubMed" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Date of PubMed publication.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="publicationState" minOccurs="0" maxOccurs="1" type="PubMedPubStatus">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Publication Status.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="relatedArticle" type="Citation.RelatedArticle" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Citation details for the related article.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Citation.DateOnPubMed">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="publicationState" minOccurs="0" maxOccurs="1" type="PubMedPubStatus">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">PubMed Publication Status.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">PubMed Publication Date.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Citation.RelatedArticle">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="citationReference" minOccurs="0" maxOccurs="1" type="Reference">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Citation Resource for related article.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="citationMarkdown" minOccurs="0" maxOccurs="1" type="markdown">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Citation string for related article.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Citation identifier for the related article.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="MedlineCitationOwner-list">
-    <xs:restriction base="code-primitive">
-      <xs:enumeration value="NLM">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">NLM</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="NASA">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">NASA</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PIP">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">PIP</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="KIE">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">KIE</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="HSR">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">HSR</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="HMD">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">HMD</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SIS">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SIS</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="NOTNLM">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">NOTNLM</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="MedlineCitationOwner">
-    <xs:annotation>
-      <xs:documentation xml:lang="en"></xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="Element">
-        <xs:attribute name="value" type="MedlineCitationOwner-list" use="optional"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="PubMedPubStatus-list">
-    <xs:restriction base="code-primitive">
-      <xs:enumeration value="received">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">received</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="accepted">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">accepted</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="epublish">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">epublish</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ppublish">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ppublish</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="revised">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">revised</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="aheadofprint">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">aheadofprint</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="retracted">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">retracted</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ecollection">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ecollection</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="pmc">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">pmc</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="pmcr">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">pmcr</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="pubmed">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">pubmed</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="pubmedr">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">pubmedr</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="premedline">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">premedline</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="medline">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">medline</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="medliner">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">medliner</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="entrez">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">entrez</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="pmc-release">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">pmc-release</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="PubMedPubStatus">
-    <xs:annotation>
-      <xs:documentation xml:lang="en"></xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="Element">
-        <xs:attribute name="value" type="PubMedPubStatus-list" use="optional"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="MedlineCitationStatus-list">
-    <xs:restriction base="code-primitive">
-      <xs:enumeration value="Completed">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Completed</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="In-Process">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">In-Process</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PubMed-not-MEDLINE">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">PubMed-not-MEDLINE</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="In-Data-Review">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">In-Data-Review</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Publisher">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Publisher</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MEDLINE">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MEDLINE</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="OLDMEDLINE">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">OLDMEDLINE</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="MedlineCitationStatus">
-    <xs:annotation>
-      <xs:documentation xml:lang="en"></xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="Element">
-        <xs:attribute name="value" type="MedlineCitationStatus-list" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -13702,7 +13620,7 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">The type of relationship between the medicinal product indication or contraindication and another therapy.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="therapy[x]" minOccurs="1" maxOccurs="1" type="CodeableReference">
+          <xs:element name="therapy" minOccurs="1" maxOccurs="1" type="CodeableReference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication.</xs:documentation>
            </xs:annotation>
@@ -14223,6 +14141,16 @@ into another (possibly the same) biological entity.</xs:documentation>
           <xs:documentation xml:lang="en">Generalizes (by Subsumption)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="child-of">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Child Of</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="descendant-leaf">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Descendent Leaf</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="exists">
         <xs:annotation>
           <xs:documentation xml:lang="en">Exists</xs:documentation>
@@ -14553,6 +14481,11 @@ into another (possibly the same) biological entity.</xs:documentation>
           <xs:element name="statusReason" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Captures the reason for the current state of the CommunicationRequest.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="intent" minOccurs="1" maxOccurs="1" type="RequestIntent">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indicates the level of authority/intentionality associated with the CommunicationRequest and where the request fits into the workflow chain.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="category" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
@@ -15234,7 +15167,7 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this concept map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the concept map is stored on different servers.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="identifier" minOccurs="0" maxOccurs="1" type="Identifier">
+          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
               <xs:documentation xml:lang="en">A formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance.</xs:documentation>
            </xs:annotation>
@@ -15334,24 +15267,14 @@ into another (possibly the same) biological entity.</xs:documentation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="source" minOccurs="0" maxOccurs="1" type="uri">
+          <xs:element name="source" minOccurs="0" maxOccurs="1" type="canonical">
             <xs:annotation>
               <xs:documentation xml:lang="en">An absolute URI that identifies the source system where the concepts to be mapped are defined.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="sourceVersion" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The specific version of the code system, as determined by the code system authority.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="target" minOccurs="0" maxOccurs="1" type="uri">
+          <xs:element name="target" minOccurs="0" maxOccurs="1" type="canonical">
             <xs:annotation>
               <xs:documentation xml:lang="en">An absolute URI that identifies the target system that the concepts will be mapped to.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="targetVersion" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The specific version of the code system, as determined by the code system authority.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="element" type="ConceptMap.Element" minOccurs="1" maxOccurs="unbounded">
@@ -15550,7 +15473,7 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="clinicalStatus" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="clinicalStatus" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">The clinical status of the condition.</xs:documentation>
            </xs:annotation>
@@ -15627,7 +15550,7 @@ into another (possibly the same) biological entity.</xs:documentation>
           </xs:element>
           <xs:element name="stage" type="Condition.Stage" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Clinical stage or grade of a condition. May include formal severity assessments.</xs:documentation>
+              <xs:documentation xml:lang="en">A simple summary of the stage such as &quot;Stage 3&quot; or &quot;Early Onset&quot;. The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson disease.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="evidence" type="Condition.Evidence" minOccurs="0" maxOccurs="unbounded">
@@ -18081,6 +18004,41 @@ into another (possibly the same) biological entity.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="EligibilityOutcome-list">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="queued">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Queued</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="complete">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Processing Complete</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="error">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Error</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="partial">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Partial Processing</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="EligibilityOutcome">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"></xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="EligibilityOutcome-list" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -20817,6 +20775,41 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
            </xs:annotation>
           </xs:element>
         </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="EnrollmentOutcome-list">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="queued">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Queued</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="complete">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Processing Complete</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="error">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Error</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="partial">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Partial Processing</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="EnrollmentOutcome">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"></xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="EnrollmentOutcome-list" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -25368,7 +25361,7 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
               <xs:documentation xml:lang="en">Captures the reason for the current status.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="expressedBy" minOccurs="0" maxOccurs="1" type="Reference">
+          <xs:element name="source" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Indicates whose goal this is - patient goal, practitioner goal, etc.</xs:documentation>
            </xs:annotation>
@@ -29417,6 +29410,11 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
               <xs:documentation xml:lang="en">A classification of the ingredient identifying its precise purpose(s) in the drug product. This extends the Ingredient.role to add more detail. Example: Antioxidant, Alkalizing Agent.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="group" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A classification of the ingredient according to where in the physical item it tends to be used, such the outer shell of a tablet, inner body or ink.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="description" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
               <xs:documentation xml:lang="en">A general description of the ingredient, or any supporting text. May be used for an unstructured list of excipients.</xs:documentation>
@@ -29474,31 +29472,41 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="presentation" minOccurs="0" maxOccurs="1" type="Ratio">
+          <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="presentationHighLimit" minOccurs="0" maxOccurs="1" type="Ratio">
+            </xs:annotation>
+            <xs:element name="presentationRatio" type="Ratio"/>
+            <xs:element name="presentationCodeableConcept" type="CodeableConcept"/>
+            <xs:element name="presentationQuantity" type="Quantity"/>
+          </xs:choice>
+          <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">An upper limit for the quantity of substance in the unit of presentation. When there is a range of strengths, this represents the upper limit.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
+            </xs:annotation>
+            <xs:element name="presentationHighLimitRatio" type="Ratio"/>
+            <xs:element name="presentationHighLimitQuantity" type="Quantity"/>
+          </xs:choice>
           <xs:element name="presentationText" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">A textual represention of either the whole of the presentation strength or a part of it - with the rest being in Strength.presentation as a ratio.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="concentration" minOccurs="0" maxOccurs="1" type="Ratio">
+          <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">The strength per unitary volume (or mass).</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="concentrationHighLimit" minOccurs="0" maxOccurs="1" type="Ratio">
+            </xs:annotation>
+            <xs:element name="concentrationRatio" type="Ratio"/>
+            <xs:element name="concentrationCodeableConcept" type="CodeableConcept"/>
+            <xs:element name="concentrationQuantity" type="Quantity"/>
+          </xs:choice>
+          <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">An upper limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the lower limit.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
+            </xs:annotation>
+            <xs:element name="concentrationHighLimitRatio" type="Ratio"/>
+            <xs:element name="concentrationHighLimitQuantity" type="Quantity"/>
+          </xs:choice>
           <xs:element name="concentrationText" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">A textual represention of either the whole of the concentration strength or a part of it - with the rest being in Strength.concentration as a ratio.</xs:documentation>
@@ -29535,16 +29543,20 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
               <xs:documentation xml:lang="en">Relevant reference substance.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="strength" minOccurs="1" maxOccurs="1" type="Ratio">
+          <xs:choice minOccurs="1" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the lower limit.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="strengthHighLimit" minOccurs="0" maxOccurs="1" type="Ratio">
+            </xs:annotation>
+            <xs:element name="strengthRatio" type="Ratio"/>
+            <xs:element name="strengthQuantity" type="Quantity"/>
+          </xs:choice>
+          <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the upper limit.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
+            </xs:annotation>
+            <xs:element name="strengthHighLimitRatio" type="Ratio"/>
+            <xs:element name="strengthHighLimitQuantity" type="Quantity"/>
+          </xs:choice>
           <xs:element name="measurementPoint" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">For when strength is measured at a particular point or distance.</xs:documentation>
@@ -32532,7 +32544,7 @@ description of the substance according to standardised sets of properties.</xs:d
               <xs:documentation xml:lang="en">The actual ingredient - either a substance (simple ingredient) or another medication.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="isActive" minOccurs="0" maxOccurs="1" type="boolean">
+          <xs:element name="isActive" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Indication of whether this ingredient affects the therapeutic action of the drug.</xs:documentation>
            </xs:annotation>
@@ -33118,6 +33130,11 @@ description of the substance according to standardised sets of properties.</xs:d
               <xs:documentation xml:lang="en">Provides additional information to the dispenser, for example, counselling to be provided to the patient.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="doseAdministrationAid" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Provides information about the type of adherence packaging to be supplied for the medication dispense.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -33314,7 +33331,7 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
           </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="MedicationUsageStatusCodes">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A code representing the patient or other source's judgment about the state of the medication used that this usage is about.  Generally, this will be active or completed.</xs:documentation>
+              <xs:documentation xml:lang="en">A code representing the status of recording the medication usage.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="statusReason" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
@@ -33384,9 +33401,9 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
               <xs:documentation xml:lang="en">Indicates how the medication is/was or should be taken by the patient.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="takenAsOrdered" minOccurs="0" maxOccurs="1" type="boolean">
+          <xs:element name="adherence" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Indicates if the medication is being consumed or administered as prescribed.</xs:documentation>
+              <xs:documentation xml:lang="en">Indicates if the medication is being consumed or administered as instructed.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -33395,11 +33412,6 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
   </xs:complexType>
   <xs:simpleType name="MedicationUsageStatusCodes-list">
     <xs:restriction base="code-primitive">
-      <xs:enumeration value="active">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Active</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="completed">
         <xs:annotation>
           <xs:documentation xml:lang="en">Completed</xs:documentation>
@@ -33410,29 +33422,9 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
           <xs:documentation xml:lang="en">Entered in Error</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="intended">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Intended</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="stopped">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Stopped</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="on-hold">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">On Hold</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="unknown">
         <xs:annotation>
           <xs:documentation xml:lang="en">Unknown</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="not-taken">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Not Taken</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -34853,6 +34845,11 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
               <xs:documentation xml:lang="en">A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="title" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A short, descriptive, user-friendly title for the naming system.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
             <xs:annotation>
               <xs:documentation xml:lang="en">The status of this naming system. Enables tracking the life-cycle of the content.</xs:documentation>
@@ -34949,6 +34946,11 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
               <xs:documentation xml:lang="en">Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="authoritative" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indicates whether this identifier ie endorsed by the official owner of the associated naming system.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -34968,6 +34970,11 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
       <xs:enumeration value="uri">
         <xs:annotation>
           <xs:documentation xml:lang="en">URI</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="v2csmnemonic">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">V2CSMNemonic</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="other">
@@ -38918,6 +38925,11 @@ For resource issues, this will be a simple XPath limited to element names, repet
               <xs:documentation xml:lang="en">Manufacturer of this package type. When there are multiple it means these are all possible manufacturers.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="attachedDocument" minOccurs="0" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Additional information or supporting documentation about the packaged product.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="package" type="PackagedProductDefinition.Package" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap (which is not a device or a medication manufactured item).</xs:documentation>
@@ -39622,6 +39634,41 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
            </xs:annotation>
           </xs:element>
         </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="PaymentOutcome-list">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="queued">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Queued</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="complete">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Processing Complete</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="error">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Error</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="partial">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Partial Processing</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PaymentOutcome">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"></xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="PaymentOutcome-list" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -41397,15 +41444,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="definition" minOccurs="0" maxOccurs="1" type="uri">
             <xs:annotation>
-              <xs:documentation xml:lang="en">This element is a URI that refers to an [ElementDefinition](elementdefinition.html) that provides information about this item, including information that might otherwise be included in the instance of the Questionnaire resource. A detailed description of the construction of the URI is shown in Comments, below. If this element is present then the following element values MAY be derived from the Element Definition if the corresponding elements of this Questionnaire resource instance have no value:
-
-* code (ElementDefinition.code) 
-* type (ElementDefinition.type) 
-* required (ElementDefinition.min) 
-* repeats (ElementDefinition.max) 
-* maxLength (ElementDefinition.maxLength) 
-* answerValueSet (ElementDefinition.binding)
-* options (ElementDefinition.binding).</xs:documentation>
+              <xs:documentation xml:lang="en">This element is a URI that refers to an [ElementDefinition](elementdefinition.html) that provides information about this item, including information that might otherwise be included in the instance of the Questionnaire resource. A detailed description of the construction of the URI is shown in [Comments](questionnaire.html#definition), below.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="code" minOccurs="0" maxOccurs="unbounded" type="Coding">
@@ -41418,14 +41457,14 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">A short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="text" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="text" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
               <xs:documentation xml:lang="en">The name of a section, the text of a question or text content for a display item.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="type" minOccurs="1" maxOccurs="1" type="QuestionnaireItemType">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).</xs:documentation>
+              <xs:documentation xml:lang="en">The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, Coding, etc.).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="enableWhen" type="Questionnaire.EnableWhen" minOccurs="0" maxOccurs="unbounded">
@@ -41436,6 +41475,11 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           <xs:element name="enableBehavior" minOccurs="0" maxOccurs="1" type="EnableWhenBehavior">
             <xs:annotation>
               <xs:documentation xml:lang="en">Controls how multiple enableWhen values are interpreted -  whether all or any must be true.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="disabledDisplay" minOccurs="0" maxOccurs="1" type="QuestionnaireItemDisabledDisplay">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indicates if and how items that are disabled (because enableWhen evaluates to 'false') should be displayed.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="required" minOccurs="0" maxOccurs="1" type="boolean">
@@ -41458,14 +41502,19 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">The maximum number of characters that are permitted in the answer to be considered a &quot;valid&quot; QuestionnaireResponse.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="answerConstraint" minOccurs="0" maxOccurs="1" type="QuestionnaireAnswerConstraint">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">For items that have a defined set of allowed answers (via answerOption or answerValueset), indicates whether values *other* than those specified can be selected.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="answerValueSet" minOccurs="0" maxOccurs="1" type="canonical">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A reference to a value set containing a list of codes representing permitted answers for a &quot;choice&quot; or &quot;open-choice&quot; question.</xs:documentation>
+              <xs:documentation xml:lang="en">A reference to a value set containing a list of values representing permitted answers for a question.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="answerOption" type="Questionnaire.AnswerOption" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">One of the permitted answers for a &quot;choice&quot; or &quot;open-choice&quot; question.</xs:documentation>
+              <xs:documentation xml:lang="en">One of the permitted answers for the question.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="initial" type="Questionnaire.Initial" minOccurs="0" maxOccurs="unbounded">
@@ -41501,7 +41550,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:choice minOccurs="1" maxOccurs="1" >
             <xs:annotation>
-              <xs:documentation xml:lang="en">A value that the referenced question is tested using the specified operator in order for the item to be enabled.</xs:documentation>
+              <xs:documentation xml:lang="en">A value that the referenced question is tested using the specified operator in order for the item to be enabled.  If there are multiple answers, a match on any of the answers suffices.  If different behavior is desired (all must match, at least 2 must match, etc.), consider using the enableWhenExpression extension.</xs:documentation>
             </xs:annotation>
             <xs:element name="answerBoolean" type="boolean"/>
             <xs:element name="answerDecimal" type="decimal"/>
@@ -41635,14 +41684,9 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           <xs:documentation xml:lang="en">Url</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="choice">
+      <xs:enumeration value="coding">
         <xs:annotation>
-          <xs:documentation xml:lang="en">Choice</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="open-choice">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Open Choice</xs:documentation>
+          <xs:documentation xml:lang="en">Coding</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="attachment">
@@ -41748,6 +41792,61 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:simpleType name="QuestionnaireAnswerConstraint-list">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="optionsOnly">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Options only</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="optionsOrType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Options or 'type'</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="optionsOrString">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Options or string</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="QuestionnaireAnswerConstraint">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"></xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="QuestionnaireAnswerConstraint-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="QuestionnaireItemDisabledDisplay-list">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="hidden">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Hidden</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="protected">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Protected</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="QuestionnaireItemDisabledDisplay">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"></xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="QuestionnaireItemDisabledDisplay-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:element name="QuestionnaireResponse" type="QuestionnaireResponse">
     <xs:annotation>
       <xs:documentation xml:lang="en">A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.</xs:documentation>
@@ -41849,7 +41948,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="item" type="QuestionnaireResponse.Item" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Questions or sub-groups nested beneath a question or group.</xs:documentation>
+              <xs:documentation xml:lang="en">Sub-questions, sub-groups or display items nested beneath a group.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -41944,7 +42043,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
         <xs:sequence>
           <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Business identifier for the authorization, typically  this is assigned by the authorizing body.</xs:documentation>
+              <xs:documentation xml:lang="en">Business identifier for the authorization, typically this is assigned by the authorizing body.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="subject" minOccurs="0" maxOccurs="1" type="Reference">
@@ -42015,6 +42114,11 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           <xs:element name="regulator" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">The regulatory authority or authorizing body granting the authorization. For example, European Medicines Agency (EMA), Food and Drug Administration (FDA), Health Canada (HC), etc.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="attachedDocument" minOccurs="0" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Additional information or supporting documentation about the authorization.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="case" type="RegulatedAuthorization.Case" minOccurs="0" maxOccurs="1">
@@ -42450,25 +42554,45 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
   </xs:complexType>
   <xs:element name="ResearchStudy" type="ResearchStudy">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.</xs:documentation>
+      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="ResearchStudy">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.</xs:documentation>
+      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances.</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="DomainResource">
         <xs:sequence>
+          <xs:element name="url" minOccurs="0" maxOccurs="1" type="uri">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Canonical identifier for this study resource, represented as a globally unique URI.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
               <xs:documentation xml:lang="en">Identifiers assigned to this research study by the sponsor or other systems.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="version" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Business identifier for the study record.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="name" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Name for this study (computer friendly).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="title" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A short, descriptive user-friendly label for the study.</xs:documentation>
+              <xs:documentation xml:lang="en">A short, descriptive label for the study particularly for compouter use.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="label" type="ResearchStudy.Label" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Additional names for the study.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="protocol" minOccurs="0" maxOccurs="unbounded" type="Reference">
@@ -42481,14 +42605,29 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">A larger research study of which this particular study is a component or step.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="status" minOccurs="1" maxOccurs="1" type="ResearchStudyStatus">
+          <xs:element name="relatesTo" type="ResearchStudy.RelatesTo" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The current state of the study.</xs:documentation>
+              <xs:documentation xml:lang="en">Related artifact and type of relation.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="relatedArtifact" minOccurs="0" maxOccurs="unbounded" type="RelatedArtifact">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Citations, references and other related documents.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Date the resource last changed.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The publication state of the resource (not of the study).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="primaryPurposeType" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The type of study based upon the intent of the study's activities. A classification of the intent of the study.</xs:documentation>
+              <xs:documentation xml:lang="en">The type of study based upon the intent of the study activities. A classification of the intent of the study.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="phase" minOccurs="0" maxOccurs="1" type="CodeableConcept">
@@ -42516,11 +42655,6 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">Contact details to assist a user in learning more about or engaging with the study.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="relatedArtifact" minOccurs="0" maxOccurs="unbounded" type="RelatedArtifact">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Citations, references and other related documents.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="keyword" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Key terms to aid in searching for or filtering the study.</xs:documentation>
@@ -42531,14 +42665,14 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">Indicates a country, state or other region where the study is taking place.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="description" minOccurs="0" maxOccurs="1" type="markdown">
+          <xs:element name="descriptionSummary" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A full description of how the study is being conducted.</xs:documentation>
+              <xs:documentation xml:lang="en">A brief summary of the study description.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="enrollment" minOccurs="0" maxOccurs="unbounded" type="Reference">
+          <xs:element name="description" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Reference to a Group that defines the criteria for and quantity of subjects participating in the study.  E.g. &quot; 200 female Europeans between the ages of 20 and 45 with early onset diabetes&quot;.</xs:documentation>
+              <xs:documentation xml:lang="en">A full description of how the study is being conducted.  For a description of what the study objectives are see ResearchStudy.objective.description.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="period" minOccurs="0" maxOccurs="1" type="Period">
@@ -42561,14 +42695,39 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">A facility in which study activities are conducted.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="reasonStopped" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="note" minOccurs="0" maxOccurs="unbounded" type="Annotation">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Comments made about the study by the performer, subject or other participants.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="classification" type="ResearchStudy.Classification" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Classification for the study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="associatedParty" type="ResearchStudy.AssociatedParty" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Sponsors, collaborators, and other parties.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="currentState" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Current status of the study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="statusDate" type="ResearchStudy.StatusDate" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Status of study with time for that status.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="whyStopped" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">A description and/or code explaining the premature termination of the study.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="note" minOccurs="0" maxOccurs="unbounded" type="Annotation">
+          <xs:element name="recruitment" type="ResearchStudy.Recruitment" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Comments made about the study by the performer, subject or other participants.</xs:documentation>
+              <xs:documentation xml:lang="en">Target or actual group of participants enrolled in study.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="arm" type="ResearchStudy.Arm" minOccurs="0" maxOccurs="unbounded">
@@ -42581,17 +42740,199 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">A goal that the study is aiming to achieve in terms of a scientific question to be answered by the analysis of data collected during the study.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="outcomeMeasure" type="ResearchStudy.OutcomeMeasure" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">An outcome or planned variable to measure during the study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="result" minOccurs="0" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Link to one or more sets of results generated by the study.  Could also link to a research registry holding the results such as ClinicalTrials.gov.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResearchStudy.Label">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Kind of name.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="value" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The name.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResearchStudy.RelatesTo">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="relationshipType" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Describes the relationship of the artefact to the Research Study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="targetClassifier" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Describes the access to the artefact.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:choice minOccurs="0" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Identification of the target artifact.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="targetUri" type="uri"/>
+            <xs:element name="targetIdentifier" type="Identifier"/>
+            <xs:element name="targetAttachment" type="Attachment"/>
+            <xs:element name="targetReference" type="Reference"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResearchStudy.Classification">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Type of classifier.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="classifier" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Value of classifier.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResearchStudy.AssociatedParty">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="name" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Name of associated party.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="role" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Type of association.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="classifier" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Organisational type of association.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="person" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Individual associated with study (use practitionerRole to specify their organisation).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="orgaanization" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Organisation associated with study in role of sponsoring, providing funds etc.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResearchStudy.StatusDate">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="activity" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Label for status or state.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="actual" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Actual if true else anticipated.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="period" minOccurs="1" maxOccurs="1" type="Period">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Date range.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResearchStudy.Recruitment">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="targetNumber" minOccurs="0" maxOccurs="1" type="unsignedInt">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Estimated total number of participants to be enrolled.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="actualNumber" minOccurs="0" maxOccurs="1" type="unsignedInt">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Actual total number of participants enrolled in study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="eligibility" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Inclusion and exclusion criteria.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="actualGroup" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Group of participants who were enrolled in study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="ResearchStudy.Arm">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.</xs:documentation>
+      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Allows the arm for the study and the arm for the subject to be linked easily.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="identifierUri" type="uri"/>
+            <xs:element name="identifierIdentifier" type="Identifier"/>
+          </xs:choice>
           <xs:element name="name" minOccurs="1" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">Unique, human-readable label for this arm of the study.</xs:documentation>
@@ -42602,7 +42943,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">Categorization of study arm, e.g. experimental, active comparator, placebo comparater.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="description" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="description" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
               <xs:documentation xml:lang="en">A succinct description of the path through the study that would be followed by a subject adhering to this arm.</xs:documentation>
            </xs:annotation>
@@ -42613,7 +42954,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
   </xs:complexType>
   <xs:complexType name="ResearchStudy.Objective">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.</xs:documentation>
+      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -42628,77 +42969,43 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">The kind of study objective.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="description" minOccurs="0" maxOccurs="1" type="markdown">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Free text description of the objective of the study.  This is what the study is trying to achieve rather than how it is going to achieve it (see ResearchStudy.description).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:simpleType name="ResearchStudyStatus-list">
-    <xs:restriction base="code-primitive">
-      <xs:enumeration value="active">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Active</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="administratively-completed">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Administratively Completed</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="approved">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Approved</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="closed-to-accrual">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Closed to Accrual</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="closed-to-accrual-and-intervention">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Closed to Accrual and Intervention</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="completed">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Completed</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="disapproved">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Disapproved</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="in-review">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">In Review</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="temporarily-closed-to-accrual">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Temporarily Closed to Accrual</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="temporarily-closed-to-accrual-and-intervention">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Temporarily Closed to Accrual and Intervention</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="withdrawn">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Withdrawn</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="ResearchStudyStatus">
+  <xs:complexType name="ResearchStudy.OutcomeMeasure">
     <xs:annotation>
-      <xs:documentation xml:lang="en"></xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+      <xs:documentation xml:lang="en">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="Element">
-        <xs:attribute name="value" type="ResearchStudyStatus-list" use="optional"/>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="name" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Label for the outcome.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="type" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The parameter or characteristic being assessed as one of the values by which the study is assessed.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="description" minOccurs="0" maxOccurs="1" type="markdown">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Description of the outcome.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="reference" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Structured outcome definition.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -51769,6 +52076,11 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">A value set can also be &quot;expanded&quot;, where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="scope" type="ValueSet.Scope" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Description of the semantic space the Value Set Expansion is intended to cover.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -51838,7 +52150,12 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="valueSet" minOccurs="0" maxOccurs="unbounded" type="canonical">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.</xs:documentation>
+              <xs:documentation xml:lang="en">Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the intersection of the contents of all of the referenced value sets.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="copyright" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A copyright statement for the specific code system asserted by the containing ValueSet.compose.include element's system value (if the associated ValueSet.compose.include.version element is not present); or the code system and version combination (if the associated ValueSet.compose.include.version element is present).</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -52098,6 +52415,32 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
             <xs:element name="valueDateTime" type="dateTime"/>
             <xs:element name="valueDecimal" type="decimal"/>
           </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ValueSet.Scope">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [CodeSystem](codesystem.html) definitions and their use in [coded elements](terminologies.html).</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="focus" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The general focus of the Value Set as it relates to the intended semantic space. This can be the information about clinical relevancy or the statement about the general focus of the Value Set, such as a description of types of messages, payment options, geographic locations, etc.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="inclusionCriteria" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Criteria describing which concepts or codes should be included and why.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="exclusionCriteria" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Criteria describing which concepts or codes should be excluded and why.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
