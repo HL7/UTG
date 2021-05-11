@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="measure-type"/>
   <meta>
-    <lastUpdated value="2020-04-09T21:10:28.568+00:00"/>
+    <lastUpdated value="2021-03-26T11:10:28.568+00:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cqi"/>
@@ -19,12 +19,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1233"/>
   </identifier>
-  <version value="0.1.0"/>
+  <version value="2.0.0"/>
   <name value="MeasureType"/>
   <title value="MeasureType"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-04-09T21:10:28+00:00"/>
+  <date value="2021-03-26T21:10:28+00:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -40,6 +40,12 @@
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/measure-type"/>
   <content value="complete"/>
+   <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="process"/>
     <display value="Process"/>
@@ -64,5 +70,9 @@
     <code value="composite"/>
     <display value="Composite"/>
     <definition value="A measure that combines multiple component measures in to a single quality measure."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
   </concept>
 </CodeSystem>
