@@ -48,10 +48,14 @@
   
 
 <<<<<<< HEAD
+  Generated on Mon, Apr 5, 2021 21:24+0000 for FHIR v4.5.0 
+=======
+<<<<<<< HEAD
   Generated on Wed, Apr 14, 2021 05:30+0000 for FHIR v4.6.0 
 =======
   Generated on Mon, Apr 5, 2021 21:24+0000 for FHIR v4.5.0 
 >>>>>>> 28df1f82aa8a750cdcaecf9a79266082cc7fc5f0
+>>>>>>> 5cbb5a5937ea2ae2098db62ed226821327c28ff0
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.6.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -18952,12 +18956,17 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
           </xs:element>
           <xs:element name="hasPart" type="DeviceDefinition.HasPart" minOccurs="0" maxOccurs="unbounded">
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 5cbb5a5937ea2ae2098db62ed226821327c28ff0
             <xs:annotation>
               <xs:documentation xml:lang="en">A device that is part (for example a component) of the present device.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="packaging" type="DeviceDefinition.Packaging" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
+<<<<<<< HEAD
+=======
 =======
             <xs:annotation>
               <xs:documentation xml:lang="en">A device that is part (for example a component) of the present device.</xs:documentation>
@@ -18966,6 +18975,7 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
           <xs:element name="packaging" type="DeviceDefinition.Packaging" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
 >>>>>>> 28df1f82aa8a750cdcaecf9a79266082cc7fc5f0
+>>>>>>> 5cbb5a5937ea2ae2098db62ed226821327c28ff0
               <xs:documentation xml:lang="en">Information about the packaging of the device, i.e. how the device is packaged.</xs:documentation>
            </xs:annotation>
           </xs:element>
@@ -32140,12 +32150,16 @@ description of the substance according to standardised sets of properties.</xs:d
               <xs:documentation xml:lang="en">The path by which the vaccine product is taken into the body.</xs:documentation>
            </xs:annotation>
           </xs:element>
+<<<<<<< HEAD
+          <xs:element name="ingredient" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
+=======
           <xs:element name="doseQuantity" minOccurs="0" maxOccurs="1" type="Quantity">
             <xs:annotation>
               <xs:documentation xml:lang="en">The quantity of vaccine product that was administered.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="performer" type="Immunization.Performer" minOccurs="0" maxOccurs="unbounded">
+>>>>>>> 5cbb5a5937ea2ae2098db62ed226821327c28ff0
             <xs:annotation>
               <xs:documentation xml:lang="en">Indicates who performed the immunization event.</xs:documentation>
            </xs:annotation>
@@ -32190,7 +32204,16 @@ description of the substance according to standardised sets of properties.</xs:d
               <xs:documentation xml:lang="en">Categorical data indicating that an adverse event is associated in time to an immunization.</xs:documentation>
            </xs:annotation>
           </xs:element>
+<<<<<<< HEAD
+          <xs:element name="package" type="MedicinalProductDefinition.Package" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Package representation for the product.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="administrableProduct" type="MedicinalProductDefinition.AdministrableProduct" minOccurs="0" maxOccurs="unbounded">
+=======
           <xs:element name="protocolApplied" type="Immunization.ProtocolApplied" minOccurs="0" maxOccurs="unbounded">
+>>>>>>> 5cbb5a5937ea2ae2098db62ed226821327c28ff0
             <xs:annotation>
               <xs:documentation xml:lang="en">The protocol (set of recommendations) being followed by the provider who administered the dose.</xs:documentation>
            </xs:annotation>
@@ -32318,6 +32341,37 @@ description of the substance according to standardised sets of properties.</xs:d
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+<<<<<<< HEAD
+  <xs:complexType name="MedicinalProductDefinition.Package">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs).</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A descriptive type for this package, such as box, carton or bottle.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:choice minOccurs="0" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The amount of items, or of substance, in the package.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="sizeQuantity" type="Quantity"/>
+            <xs:element name="sizeInteger" type="integer"/>
+          </xs:choice>
+          <xs:element name="package" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Full package representation for the product.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MedicinalProductDefinition.AdministrableProduct">
+=======
   <xs:simpleType name="ImmunizationStatusCodes-list">
     <xs:restriction base="code-primitive">
       <xs:enumeration value="completed">
@@ -32338,6 +32392,7 @@ description of the substance according to standardised sets of properties.</xs:d
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="ImmunizationStatusCodes">
+>>>>>>> 5cbb5a5937ea2ae2098db62ed226821327c28ff0
     <xs:annotation>
       <xs:documentation xml:lang="en">A set of codes indicating the current status of an Immunization.</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
@@ -33901,9 +33956,17 @@ description of the substance according to standardised sets of properties.</xs:d
           <xs:documentation xml:lang="en">GNU General Public License v1.0 only</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+<<<<<<< HEAD
+      <xs:enumeration value="DeviceUsage">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">DeviceUsage</xs:documentation>
+          <xs:documentation xml:lang="en">DeviceUsage</xs:documentation>
+          <xs:documentation xml:lang="zh">装置使用声明</xs:documentation>
+=======
       <xs:enumeration value="GPL-1.0-or-later">
         <xs:annotation>
           <xs:documentation xml:lang="en">GNU General Public License v1.0 or later</xs:documentation>
+>>>>>>> 5cbb5a5937ea2ae2098db62ed226821327c28ff0
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="GPL-2.0-only">
@@ -48758,6 +48821,10 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
            </xs:annotation>
           </xs:element>
           <xs:element name="party" minOccurs="0" maxOccurs="1" type="Reference">
+<<<<<<< HEAD
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Individual or organization associated with study (use practitionerRole to specify their organisation).</xs:documentation>
+=======
             <xs:annotation>
               <xs:documentation xml:lang="en">Individual or organization associated with study (use practitionerRole to specify their organisation).</xs:documentation>
            </xs:annotation>
@@ -48778,6 +48845,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           <xs:element name="activity" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Label for status or state.</xs:documentation>
+>>>>>>> 5cbb5a5937ea2ae2098db62ed226821327c28ff0
            </xs:annotation>
           </xs:element>
           <xs:element name="actual" minOccurs="0" maxOccurs="1" type="boolean">
