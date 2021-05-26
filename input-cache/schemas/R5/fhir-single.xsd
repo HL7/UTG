@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, May 26, 2021 02:49+0000 for FHIR v4.6.0 
+  Generated on Wed, May 26, 2021 04:38+0000 for FHIR v4.6.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.6.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -38550,7 +38550,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="link" type="Patient.Link" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Link to another patient resource that concerns the same actual patient.</xs:documentation>
+              <xs:documentation xml:lang="en">Link to another patient or RelatedPErson resource that concerns the same actual patient.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -40184,6 +40184,13 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">A contact detail for the practitioner, e.g. a telephone number or an email address.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:choice minOccurs="0" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indicates if the practitioner is deceased or not.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="deceasedBoolean" type="boolean"/>
+            <xs:element name="deceasedDateTime" type="dateTime"/>
+          </xs:choice>
           <xs:element name="address" minOccurs="0" maxOccurs="unbounded" type="Address">
             <xs:annotation>
               <xs:documentation xml:lang="en">Address(es) of the practitioner that are not role specific (typically home address). Work addresses are not typically entered in this property as they are usually role dependent.</xs:documentation>
@@ -40206,7 +40213,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="qualification" type="Practitioner.Qualification" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.</xs:documentation>
+              <xs:documentation xml:lang="en">The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certain locality.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="communication" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
