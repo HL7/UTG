@@ -3,27 +3,63 @@
 <NamingSystem xmlns="http://hl7.org/fhir">
   <id value="MVX"/>
   <extension url="http://hl7.org/fhir/tools/StructureDefinition/extension-title">
-    <valueString value="CDC Vaccine Manufacturer Codes"/>
+    <valueString value="Manufacturers of Vaccines (MVX)"/>
   </extension>
   <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
     <valueUri value="http://terminology.hl7.org/NamingSystem/MVX"/>
   </extension>
   <extension url="http://terminology.hl7.org/StructureDefinition/ext-namingsystem-version">
-    <valueString value="2.1.0"/>
+    <valueString value="3.0.0"/>
   </extension>
   <name value="MVX"/>
   <status value="active"/>
   <kind value="codesystem"/>
-  <date value="2019-03-20T00:00:00-04:00"/>
-  <description value="CDC Vaccine Manufacturer Codes"/>
+  <date value="2021-06-14T00:00:00-00:00"/>
+  <publisher value="CDC, National Centers for Immunization and Respiratory Diseases; Immunization Information System Support Branch - Informatics"/>
+  <contact>
+    <name value="CDC, National Centers for Immunization and Respiratory Diseases; Immunization Information System Support Branch - Informatics; 1600 Clifton Road, Mailstop: E-62, Atlanta, GA 30333"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.cdc.gov/vaccines/programs/iis/index.html"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="iisinfo@cdc.gov"/>
+    </telecom>
+  </contact>
+  <description value="The CDC&#39;s National Center for Immunization and Respiratory Diseases (NCIRD) developed and maintains HL7 Table 0227, Manufacturers of Vaccines (MVX). It includes both active and inactive manufacturers of vaccines in the US. Inactive MVX codes allow transmission of historical immunization records. When MVX code is paired with a CVX (vaccine administered) code, the specific trade named vaccine may be indicated.&#xD;&#xA;&#xD;&#xA;Status indicates if the manufacturer is currently making vaccine for distribution in the United States.&#xD;&#xA;&#xD;&#xA;Last Updated indicates the last time this particular manufacturer code was updated in this table.&#xD;&#xA;&#xD;&#xA;Questions regarding MVX should be directed to the IIS Technical Assistance Team(or use mailing address)."/>
+  <uniqueId>
+    <type value="oid"/>
+    <value value="2.16.840.1.113883.12.227"/>
+    <preferred value="true"/>
+	<period>
+      <start value="2021-06-14T00:00:00-00:00"/>
+    </period>
+	<comment value="This is the OID as specified by the terminology owner, and is considered authoritative."/>
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="http://hl7.org/fhir/sid/mvx"/>
+    <preferred value="true"/>
+	<period>
+      <start value="2021-06-14T00:00:00-00:00"/>
+    </period>
+	<comment value="This is the URL as specified by the terminology owner, and is considered authoritative."/>
+  </uniqueId>
   <uniqueId>
     <type value="oid"/>
     <value value="2.16.840.1.113883.6.60"/>
-    <preferred value="true"/>
+    <preferred value="false"/>
+	<period>
+      <end value="2021-06-14T00:00:00-00:00"/>
+    </period>
   </uniqueId>
   <uniqueId>
     <type value="uri"/>
     <value value="http://terminology.hl7.org/CodeSystem/MVX"/>
-    <preferred value="true"/>
+    <preferred value="false"/>
+	<period>
+      <end value="2021-06-14T00:00:00-00:00"/>
+    </period>
   </uniqueId>
 </NamingSystem>
