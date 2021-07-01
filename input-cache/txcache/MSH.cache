@@ -302,10 +302,16 @@ v: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
+<<<<<<< HEAD
     "identifier" : "urn:uuid:00faaf60-2ee2-4b67-916f-c17b5b820ebb",
     "timestamp" : "2021-06-15T19:30:31.230Z",
+=======
+    "identifier" : "urn:uuid:cb7fa04f-7f77-4499-b275-f8d31968c27e",
+    "timestamp" : "2021-06-21T19:54:02.651Z",
+>>>>>>> 2065f6b3ba70516d0e8def79466de8c3e814ef60
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -313,6 +319,18 @@ e: {
   }
 },
   "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/MSH"
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/MSH"
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : true, "valueSet" :{
