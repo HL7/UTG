@@ -43,8 +43,8 @@ e: {
   "status" : "active",
   "date" : "2014-03-26",
   "expansion" : {
-    "identifier" : "urn:uuid:fffa2b83-9612-4894-918b-150b6bfa6f67",
-    "timestamp" : "2021-08-04T17:20:50.348Z",
+    "identifier" : "urn:uuid:9799321e-cd24-47c6-9bb7-34994a95137b",
+    "timestamp" : "2021-08-27T23:11:52.206Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/v3-RoleClassSubstancePresence"
@@ -52,6 +52,28 @@ e: {
     {
       "name" : "limitedExpansion",
       "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass|3.0.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:**  an association between two Entities where the playing Entity (the part) is a component of the whole (scoper) in the sense of an integral structural component, that is distinct from other parts in the same whole, has a distinct function in the whole, and, as an effect, the full integrity of the whole depends (to some degree) on the presence of this part, even though the part may often be separable from the whole.\r\n\r\n**Discussion:** Part is defined in opposition to (a) ingredient (not separable), (b) content (not a functional component), and (c) member (not functionally distinct from other members)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+      "code" : "PART",
+      "display" : "part"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The molecule or ion that is responsible for the intended pharmacological action of the drug substance, excluding those appended or associated parts of the molecule that make the molecule an ester, salt (including a salt with hydrogen or coordination bonds), or other noncovalent derivative (such as a complex, chelate, or clathrate).\r\n\r\nExamples: heparin-sodium and heparin-potassium have the same active moiety, heparin; the active moiety of morphine-hydrochloride is morphine."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+      "code" : "ACTM",
+      "display" : "active moiety"
     }]
   }
 },
