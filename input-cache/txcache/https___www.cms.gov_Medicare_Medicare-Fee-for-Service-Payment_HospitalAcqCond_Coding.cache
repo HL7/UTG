@@ -1,5 +1,17 @@
 -------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
+{"code" : {
+  "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+  "code" : "1"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "code" : "",
+  "system" : "",
+  "severity" : "error",
+  "error" : "The code system \"https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding\" is not known (encountered paired with code = \"1\"); The code provided (https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding#1) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
     "include" : [{
@@ -13,10 +25,14 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:1cc507aa-affb-4a2e-be28-26ec3e4459cb",
-    "timestamp" : "2021-07-22T15:06:41.895Z",
+    "identifier" : "urn:uuid:11c3b798-cd2b-4bbd-9728-87acf38b0f13",
+    "timestamp" : "2021-09-01T17:38:40.917Z",
     "parameter" : [{
       "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
       "valueBoolean" : true
     }]
   }

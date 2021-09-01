@@ -5,6 +5,8 @@
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Alberta",
+  "code" : "CA-AB",
+  "system" : "urn:iso:std:iso:3166:-2",
   "severity" : null,
   "error" : ""
 }
@@ -15,6 +17,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Michigan",
+  "code" : "US-MI",
+  "system" : "urn:iso:std:iso:3166:-2",
   "severity" : null,
   "error" : ""
 }
@@ -31,14 +35,50 @@ v: {
   }
 }}####
 e: {
+  "error" : "java.lang.NullPointerException"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "concept" : [{
+        "code" : "CA-AB"
+      }]
+    },
+    {
+      "system" : "urn:iso:std:iso:3166:-2",
+      "concept" : [{
+        "code" : "US-MI"
+      }]
+    }]
+  }
+}}####
+e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "id" : "v2-notAllCodes-0347",
   "language" : "en",
+  "url" : "http://terminology.hl7.org/ValueSet/v2-notAllCodes-0347",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.21.224"
+  }],
+  "version" : "2.0.0",
+  "name" : "Hl7VsStateProvince",
+  "title" : "HL7 Value Set for State/Province",
   "status" : "active",
+  "experimental" : false,
+  "date" : "2019-12-01",
   "expansion" : {
-    "identifier" : "urn:uuid:08606ee9-c673-4b0a-b97a-62cbe8e21c40",
-    "timestamp" : "2021-07-22T15:07:01.692Z",
+    "identifier" : "urn:uuid:c57c2329-66fb-4dbd-9de3-14626d5c3a63",
+    "timestamp" : "2021-09-01T17:40:01.542Z",
     "parameter" : [{
+      "name" : "expansion-source",
+      "valueString" : "ValueSet/v2-notAllCodes-0347"
+    },
+    {
       "name" : "limitedExpansion",
       "valueBoolean" : true
     },
@@ -50,44 +90,8 @@ e: {
       "system" : "urn:iso:std:iso:3166:-2",
       "code" : "CA-AB",
       "display" : "Alberta"
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : false, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "urn:iso:std:iso:3166:-2",
-      "concept" : [{
-        "code" : "US-MI"
-      }]
-    }]
-  }
-}}####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "language" : "en",
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:b1e4f381-efe1-4533-9e09-af2e7c262ed9",
-    "timestamp" : "2021-07-22T15:07:02.082Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
     },
     {
-      "name" : "excludeNested",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "version",
-      "valueString" : "urn:iso:std:iso:3166:-2|57"
-    }],
-    "contains" : [{
       "system" : "urn:iso:std:iso:3166:-2",
       "code" : "US-MI",
       "display" : "Michigan"
