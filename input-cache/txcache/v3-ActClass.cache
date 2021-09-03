@@ -28,39 +28,7 @@
   }
 }}####
 e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "id" : "v3-ActClassCompositeOrder",
-  "language" : "en",
-  "text" : {
-    "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\"><p>This value set contains 0 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b> - English (English, en)</td></tr></table></div>"
-  },
-  "url" : "http://terminology.hl7.org/ValueSet/v3-ActClassCompositeOrder",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.1.11.20338"
-  }],
-  "version" : "2.0.0",
-  "name" : "ActClassCompositeOrder",
-  "title" : "ActClassCompositeOrder",
-  "status" : "active",
-  "date" : "2014-03-26",
-  "immutable" : true,
-  "expansion" : {
-    "identifier" : "urn:uuid:5c7207ad-3482-4768-acdc-bf9de84a2b4c",
-    "timestamp" : "2021-08-12T21:08:48.876Z",
-    "parameter" : [{
-      "name" : "expansion-source",
-      "valueString" : "ValueSet/v3-ActClassCompositeOrder"
-    },
-    {
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    }]
-  }
-},
-  "error" : ""
+  "error" : "java.lang.NullPointerException"
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : true, "valueSet" :{
@@ -127,8 +95,8 @@ e: {
   "status" : "active",
   "date" : "2014-03-26",
   "expansion" : {
-    "identifier" : "urn:uuid:561f3c4a-6c4a-4020-a16e-9854da4d6cae",
-    "timestamp" : "2021-08-12T21:08:58.173Z",
+    "identifier" : "urn:uuid:90cd3292-63a9-4266-90ae-7532fe833491",
+    "timestamp" : "2021-09-02T19:43:45.792Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/v3-ActClassProcessStep"
@@ -136,6 +104,19 @@ e: {
     {
       "name" : "limitedExpansion",
       "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/v3-ActClass|3.0.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Transportation is the moving of a payload (people or material) from a location of origin to a destination location. Thus, any transport service has the three target instances of type payload, origin, and destination, besides the targets that are generally used for any service (i.e., performer, device, etc.)"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActClass",
+      "code" : "TRNS",
+      "display" : "transportation"
     }]
   }
 },
