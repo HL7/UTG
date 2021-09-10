@@ -23,3 +23,81 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "concept" : [{
+        "code" : "CA-AB"
+      }]
+    }]
+  }
+}}####
+e: {
+  "error" : "java.lang.NullPointerException"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "concept" : [{
+        "code" : "CA-AB"
+      }]
+    },
+    {
+      "system" : "urn:iso:std:iso:3166:-2",
+      "concept" : [{
+        "code" : "US-MI"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "id" : "v2-notAllCodes-0347",
+  "language" : "en",
+  "url" : "http://terminology.hl7.org/ValueSet/v2-notAllCodes-0347",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.21.224"
+  }],
+  "version" : "2.0.0",
+  "name" : "Hl7VsStateProvince",
+  "title" : "HL7 Value Set for State/Province",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2019-12-01",
+  "expansion" : {
+    "identifier" : "urn:uuid:f4ae6a41-1c71-4c0e-9d0e-cdaad7fe3ad5",
+    "timestamp" : "2021-09-09T18:35:03.089Z",
+    "parameter" : [{
+      "name" : "expansion-source",
+      "valueString" : "ValueSet/v2-notAllCodes-0347"
+    },
+    {
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "urn:iso:std:iso:3166:-2|57"
+    }],
+    "contains" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "code" : "CA-AB",
+      "display" : "Alberta"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166:-2",
+      "code" : "US-MI",
+      "display" : "Michigan"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
