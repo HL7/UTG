@@ -35,50 +35,14 @@ v: {
   }
 }}####
 e: {
-  "error" : "java.lang.NullPointerException"
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "urn:iso:std:iso:3166:-2",
-      "concept" : [{
-        "code" : "CA-AB"
-      }]
-    },
-    {
-      "system" : "urn:iso:std:iso:3166:-2",
-      "concept" : [{
-        "code" : "US-MI"
-      }]
-    }]
-  }
-}}####
-e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "id" : "v2-notAllCodes-0347",
   "language" : "en",
-  "url" : "http://terminology.hl7.org/ValueSet/v2-notAllCodes-0347",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.21.224"
-  }],
-  "version" : "2.0.0",
-  "name" : "Hl7VsStateProvince",
-  "title" : "HL7 Value Set for State/Province",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2019-12-01",
   "expansion" : {
-    "identifier" : "urn:uuid:1c28eef8-ca79-4356-af60-ec424f77836e",
-    "timestamp" : "2021-09-02T13:33:59.333Z",
+    "identifier" : "urn:uuid:39c8b56e-7075-47c4-9ecc-2748206f03c3",
+    "timestamp" : "2021-09-11T03:04:23.421Z",
     "parameter" : [{
-      "name" : "expansion-source",
-      "valueString" : "ValueSet/v2-notAllCodes-0347"
-    },
-    {
       "name" : "limitedExpansion",
       "valueBoolean" : true
     },
@@ -90,8 +54,44 @@ e: {
       "system" : "urn:iso:std:iso:3166:-2",
       "code" : "CA-AB",
       "display" : "Alberta"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "concept" : [{
+        "code" : "US-MI"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:7f821623-1e33-40e2-ab66-ad7a7c1fbb7f",
+    "timestamp" : "2021-09-10T14:05:34.882Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
     },
     {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "urn:iso:std:iso:3166:-2|57"
+    }],
+    "contains" : [{
       "system" : "urn:iso:std:iso:3166:-2",
       "code" : "US-MI",
       "display" : "Michigan"
