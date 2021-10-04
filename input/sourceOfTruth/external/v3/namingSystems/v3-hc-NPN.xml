@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <NamingSystem xmlns="http://hl7.org/fhir">
-  <id value="hc-NPN"/>
+  <id value="v3-hc-npn"/>
   <extension url="http://hl7.org/fhir/tools/StructureDefinition/extension-title">
     <valueString value="Health Canada Natural Product Number"/>
   </extension>
   <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
-    <valueUri value="http://terminology.hl7.org/NamingSystem/hc-NPN"/>
+    <valueUri value="http://terminology.hl7.org/NamingSystem/v3-hc-npn"/>
   </extension>
   <extension url="http://terminology.hl7.org/StructureDefinition/ext-namingsystem-version">
-    <valueString value="2.1.0"/>
+    <valueString value="3.0.0"/>
   </extension>
   <name value="Hc_Npn"/>
   <status value="active"/>
   <kind value="codesystem"/>
-  <date value="2019-03-20T00:00:00-04:00"/>
-  <publisher value="HL7"/>
+  <date value="2021-03-22T00:00:00-04:00"/>
+  <publisher value="Health Canada"/>
   <contact>
     <name value="Health Canada,Health Canada"/>
   </contact>
   <responsible value="HL7"/>
-  <description value="A unique identifier assigned to natural health products that have been issued a product licence by Health Canada. http://www.hc-sc.gc.ca/dhp-mps/prodnatur/applications/licen-prod/lnhpd-bdpsnh-eng.php"/>
+  <description value="Natural Product Number (NPN) is an eight (8) digit numerical code assigned to each natural health product approved to be marketed under the Natural Health Products Regulations. A Homeopathic Medicine Number (DIN-HM) is an eight (8) digit numerical code assigned to each homeopathic medicine approved to be marketed under the Natural Health Products Regulations. &#xD;&#xA;&#xD;&#xA;Further information about this Code System can be found at https://www.canada.ca/en/health-canada/services/drugs-health-products/natural-non-prescription/applications-submissions/product-licensing/licensed-natural-health-products-database.html"/>  
   <uniqueId>
     <type value="oid"/>
     <value value="2.16.840.1.113883.5.1107"/>
@@ -30,5 +30,21 @@
     <type value="uri"/>
     <value value="http://terminology.hl7.org/CodeSystem/v3-hc-npn"/>
     <preferred value="true"/>
+    <comment value="Official canonical URL going forward."/>
+    <period>
+      <start value="2021-03-22"/>
+    </period> 
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="http://hl7.org/fhir/NamingSystem/ca-hc-npn"/>
+    <preferred value="false"/>
+    <comment value="Maintained for backward compatibility."/>     
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="http://hl7.org/fhir/sid/ca-hc-npn"/>
+    <preferred value="false"/>
+    <comment value="Maintained for backward compatibility."/>     
   </uniqueId>
 </NamingSystem>
