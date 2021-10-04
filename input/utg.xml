@@ -2,7 +2,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R5/fhir-single.xsd">
   <id value="hl7.other.uv.utg"/>
   <url value="http://terminology.hl7.org/ImplementationGuide/hl7.other.uv.utg"/>
-  <version value="2.0.3"/>
+  <version value="2.1.30"/>
   <name value="HL7Terminology"/>
   <title value="HL7 Terminology"/>
   <status value="active"/>
@@ -64,16 +64,46 @@
           <generation value="html"/>
         </page>
         <page>
-          <nameUrl value="codesystems-external.html"/>
-          <title value="External Code Systems"/>
-          <generation value="html"/>
-        </page>
-        <page>
           <nameUrl value="codesystems-retired.html"/>
           <title value="Retired Code Systems"/>
           <generation value="html"/>
         </page>
       </page>
+      <page>
+        <nameUrl value="external_terminologies.html"/>
+        <title value="External Terminologies"/>
+        <generation value="html"/>
+        <page>
+          <nameUrl value="external_terminologies_csmr.html"/>
+          <title value="Code System Metadata Records"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="external_terminologies_csti.html"/>
+          <title value="Code System Technical Identifiers"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="external_terminologies_csf.html"/>
+          <title value="Code System Fragments"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="external_terminologies_ccs.html"/>
+          <title value="Complete Code Systems"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="external_terminologies_rc.html"/>
+          <title value="Retired Content"/>
+          <generation value="html"/>
+        </page>
+      </page>
+      <page>
+        <nameUrl value="identifiers.html"/>
+        <title value="Identifier Systems"/>
+        <generation value="html"/>
+      </page>   
       <page>
         <nameUrl value="valuesets.html"/>
         <title value="Value Sets"/>
@@ -117,11 +147,6 @@
         <generation value="html"/>
       </page>
       <page>
-        <nameUrl value="namingsystems.html"/>
-        <title value="Naming Systems"/>
-        <generation value="html"/>
-      </page>
-      <page>
         <nameUrl value="documentation.html"/>
         <title value="Documentation"/>
         <generation value="html"/>
@@ -129,6 +154,11 @@
       <page>
         <nameUrl value="downloads.html"/>
         <title value="Downloads"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="newcsnotify.html"/>
+        <title value="Pending Code Systems"/>
         <generation value="html"/>
       </page>
     </page>
@@ -183,6 +213,12 @@
       <code value="path-resource"/>
       <value value="input\sourceOfTruth\unified\codeSystems"/>
     </parameter>
+
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input\sourceOfTruth\unified\namingSystems"/>
+    </parameter>
+
     <parameter>
       <code value="path-resource"/>
       <value value="input\sourceOfTruth\unified\valueSets"/>
@@ -217,7 +253,7 @@
     </parameter>
     <parameter>
       <code value="releaselabel"/>
-      <value value="UTG Consensus Review Proposal UP-146"/>
+      <value value="Continuous Process Integration (ci build)"/>
     </parameter>
     <parameter>
         <code value="copyrightyear"/>
@@ -226,11 +262,11 @@
     <parameter>
         <code value="apply-contact"/>
         <value value="false"/>
-      </parameter>
-      <parameter>
-        <code value="apply-context"/>
-       <value value="true"/>
-      </parameter>
+    </parameter>
+    <parameter>
+      <code value="apply-context"/>
+      <value value="true"/>
+    </parameter>
       <parameter>
         <code value="apply-copyright"/>
         <value value="true"/>
@@ -271,27 +307,12 @@
 
       <parameter>
         <code value="special-url"/>
-        <value value="http://dicom.nema.org/medical/dicom"/>
+        <value value="http://dicom.nema.org/resources/ontology/DCM"/>
       </parameter>
 
       <parameter>
         <code value="special-url"/>
         <value value="http://www.ncbi.nlm.nih.gov/projects/SNP"/>
-      </parameter>
-
-      <parameter>
-        <code value="special-url"/>
-        <value value="http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-1"/>
-      </parameter>
-
-      <parameter>
-        <code value="special-url"/>
-        <value value="http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-2"/>
-      </parameter>
-
-      <parameter>
-        <code value="special-url"/>
-        <value value="http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-3"/>
       </parameter>
 
       <parameter>
@@ -322,11 +343,6 @@
       <parameter>
         <code value="special-url"/>
         <value value="http://ncithesaurus-stage.nci.nih.gov"/>
-      </parameter>
-
-      <parameter>
-        <code value="special-url"/>
-        <value value="http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-4"/>
       </parameter>
 
       <parameter>
@@ -411,11 +427,6 @@
 
       <parameter>
         <code value="special-url"/>
-        <value value="http://hl7.org/fhir/sid/ca-hc-npn"/>
-      </parameter>
-
-      <parameter>
-        <code value="special-url"/>
         <value value="urn:iso:std:iso:11073:10101"/>
       </parameter>
 
@@ -473,51 +484,66 @@
         <code value="special-url"/>
         <value value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
       </parameter>
+	  
+	  <parameter>
+        <code value="special-url"/>
+        <value value="https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html"/>
+    </parameter>
 
-      <parameter>
-        <code value="special-url"/>
-        <value value="http://terminology.hl7.org/CodeSystem/NCPDP/BrandGenericIndicator"/>
-      </parameter>
-	  
 	  <parameter>
         <code value="special-url"/>
-        <value value="http://terminology.hl7.org/CodeSystem/NCPDP/CompoundCode"/>
-      </parameter>
-	  
-	  <parameter>
-        <code value="special-url"/>
-        <value value="http://terminology.hl7.org/CodeSystem/NCPDP/DispensedAsWrittenOrProductSelectionCode"/>
-      </parameter>
-	  
-	  <parameter>
-        <code value="special-url"/>
-        <value value="http://terminology.hl7.org/CodeSystem/NCPDP/PharmacyType"/>
-      </parameter>
-	  
-	  <parameter>
-        <code value="special-url"/>
-        <value value="http://terminology.hl7.org/CodeSystem/NCPDP/PrescriptionOriginCode"/>
-      </parameter>
-	  
-	  <parameter>
-        <code value="special-url"/>
-        <value value="http://terminology.hl7.org/CodeSystem/NCPDP/ProviderIdentificationNumber"/>
-      </parameter>
-	  
-	  <parameter>
-        <code value="special-url"/>
-        <value value="http://terminology.hl7.org/CodeSystem/NCPDP/RejectCode"/>
-      </parameter>
-	  
-	  <parameter>
-        <code value="special-url"/>
-        <value value="http://uri.hddaccess.com/cs/aprdrg"/>
-      </parameter>
+        <value value="https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets"/>
+    </parameter>
 
-      <parameter>
-        <code value="logging"/>
-        <value value="PROGRESS"/>
+	  <parameter>
+        <code value="special-url"/>
+        <value value="https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set"/>
       </parameter>
+	  
+	  <parameter>
+        <code value="special-url"/>
+        <value value="https://x12.org/codes/remittance-advice-remark-codes"/>
+    </parameter>
+
+    <parameter>
+      <code value="special-url"/>
+      <value value="https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding"/>
+    </parameter>
+	
+	<parameter>
+      <code value="special-url"/>
+      <value value="https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html"/>
+    </parameter>
+
+	<parameter>
+        <code value="special-url"/>
+        <value value="http://uri.hddaccess.com/cs/apdrg"/>
+  </parameter>
+
+	<parameter>
+    <code value="special-url"/>
+    <value value="http://www.ada.org/cdt"/>
+  </parameter>
+
+  <parameter>
+    <code value="special-url"/>
+    <value value="http://imohealth.com/ontology/"/>
+  </parameter>
+
+  <parameter>
+    <code value="special-url"/>
+    <value value="https://nahdo.org/sopt"/>
+  </parameter>
+	
+	<parameter>
+        <code value="special-url"/>
+        <value value="http://terminology.hl7.org/CodeSystem/hc-CCDD"/>
+  </parameter>
+    
+  <parameter>
+     <code value="logging"/>
+    <value value="PROGRESS"/>
+  </parameter>
       
   </definition>
 </ImplementationGuide>
