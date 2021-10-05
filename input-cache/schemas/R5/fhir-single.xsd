@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Mon, Oct 4, 2021 20:25+0000 for FHIR v4.6.0 
+  Generated on Mon, Oct 4, 2021 23:48+0000 for FHIR v4.6.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.6.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -11009,7 +11009,7 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">Who endorsed the Citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="summary" minOccurs="0" maxOccurs="unbounded" type="ContactDetail">
+          <xs:element name="summary" type="Citation.Summary" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">A human-readable display of the citation.</xs:documentation>
            </xs:annotation>
@@ -11042,6 +11042,27 @@ into another (possibly the same) biological entity.</xs:documentation>
           <xs:element name="citedArtifact" type="Citation.CitedArtifact" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">The article or artifact being described.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Citation.Summary">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="style" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Format for display of the citation.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="text" minOccurs="1" maxOccurs="1" type="markdown">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The human-readable display of the citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -11585,7 +11606,7 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">An individual entity named in the author list or contributor list.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="summary" type="Citation.Summary" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="summary" type="Citation.Summary1" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">Used to record a display of the author/contributor list without separate coding for each list member.</xs:documentation>
            </xs:annotation>
@@ -11712,7 +11733,7 @@ into another (possibly the same) biological entity.</xs:documentation>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Citation.Summary">
+  <xs:complexType name="Citation.Summary1">
     <xs:annotation>
       <xs:documentation xml:lang="en">The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</xs:documentation>
     </xs:annotation>
