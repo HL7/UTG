@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Mon, Oct 4, 2021 23:48+0000 for FHIR v4.6.0 
+  Generated on Thu, Oct 7, 2021 20:15+0000 for FHIR v4.6.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.6.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -5892,29 +5892,34 @@ A coverage may only be responsible for specific types of charges, and the sequen
               <xs:documentation xml:lang="en">An identifier for the administrable product.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The status of this administrable product. Enables tracking the life-cycle of the content.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="formOf" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product.</xs:documentation>
+              <xs:documentation xml:lang="en">The medicinal product that this is a prepared administrable form of. This element is not a reference to the item(s) that make up this administrable form (for which see AdministrableProductDefinition.producedFrom). It is medicinal product as a whole, which may have several components (as well as packaging, devices etc.), that are given to the patient in this final administrable form. A single medicinal product may have several different administrable products (e.g. a tablet and a cream), and these could have different administrable forms (e.g. tablet as oral solid, or tablet crushed).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="administrableDoseForm" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The administrable dose form, i.e. the dose form of the final product after necessary reconstitution or processing.</xs:documentation>
+              <xs:documentation xml:lang="en">The dose form of the final product after necessary reconstitution or processing. Contrasts to the manufactured dose form (see ManufacturedItemDefinition). If the manufactured form was 'powder for solution for injection', the administrable dose form could be 'solution for injection' (once mixed with another item having manufactured form 'solvent for solution for injection').</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="unitOfPresentation" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The units of presentation for the administrable product, for example 'tablet'.</xs:documentation>
+              <xs:documentation xml:lang="en">The presentation type in which this item is given to a patient. e.g. for a spray - 'puff' (as in 'contains 100 mcg per puff'), or for a liquid - 'vial' (as in 'contains 5 ml per vial').</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="producedFrom" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients.</xs:documentation>
+              <xs:documentation xml:lang="en">The constituent manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solvent item, to make a consumable solution). Note the items this is produced from are not raw ingredients (see AdministrableProductDefinition.ingredient), but manufactured medication items (ManufacturedItemDefinitions), which may be combined or prepared and transformed for patient use. The constituent items that this administrable form is produced from are all part of the product (for which see AdministrableProductDefinition.formOf).</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="ingredient" minOccurs="0" maxOccurs="unbounded" type="Reference">
+          <xs:element name="ingredient" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The ingredients of this administrable medicinal product. Sometimes it may be appropriate to specify these via the associated manufactured item(s).</xs:documentation>
+              <xs:documentation xml:lang="en">The ingredients of this administrable medicinal product. This is only needed if the ingredients are not specified either using ManufacturedItemDefiniton (via AdministrableProductDefinition.producedFrom) to state which component items are used to make this, or using by incoming references from the Ingredient resource, to state in detail which substances exist within this. This element allows a basic coded ingredient to be used.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="device" minOccurs="0" maxOccurs="1" type="Reference">
@@ -29306,6 +29311,16 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
               <xs:documentation xml:lang="en">The identifier(s) of this Ingredient that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The status of this ingredient. Enables tracking the life-cycle of the content.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="for" minOccurs="0" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The product which this ingredient is a constituent part of.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="role" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">A classification of the ingredient identifying its purpose within the product, e.g. active, inactive.</xs:documentation>
@@ -30864,6 +30879,11 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
               <xs:documentation xml:lang="en">Unique identifier.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The status of this item. Enables tracking the life-cycle of the content.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="manufacturedDoseForm" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Dose form as manufactured and before any transformation into the pharmaceutical product.</xs:documentation>
@@ -30879,9 +30899,9 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
               <xs:documentation xml:lang="en">Manufacturer of the item (Note that this should be named &quot;manufacturer&quot; but it currently causes technical issues).</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="ingredient" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
+          <xs:element name="ingredient" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The ingredients that make up this manufactured item.</xs:documentation>
+              <xs:documentation xml:lang="en">The ingredients of this manufactured item. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="property" type="ManufacturedItemDefinition.Property" minOccurs="0" maxOccurs="unbounded">
@@ -35233,9 +35253,9 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
               <xs:documentation xml:lang="en">Package representation for the product. See also the PackagedProductDefinition resource.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="ingredient" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
+          <xs:element name="ingredient" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by the AdministrableProductDefinition or via the PackagedProductDefinition references above. In cases where those levels of detail are not used, the ingredients may be specified directly here.</xs:documentation>
+              <xs:documentation xml:lang="en">The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource, or indirectly via incoming AdministrableProductDefinition, PackagedProductDefinition or ManufacturedItemDefinition references. In cases where those levels of detail are not used, the ingredients may be specified directly here as codes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="impurity" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
@@ -35250,7 +35270,7 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
           </xs:element>
           <xs:element name="masterFile" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A master file for to the medicinal product (e.g. Pharmacovigilance System Master File).</xs:documentation>
+              <xs:documentation xml:lang="en">A master file for the medicinal product (e.g. Pharmacovigilance System Master File). Drug master files (DMFs) are documents submitted to regulatory agencies to provide confidential detailed information about facilities, processes or articles used in the manufacturing, processing, packaging and storing of drug products.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="contact" type="MedicinalProductDefinition.Contact" minOccurs="0" maxOccurs="unbounded">
@@ -35261,6 +35281,11 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
           <xs:element name="clinicalTrial" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Clinical trials or studies that this product is involved in.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="code" minOccurs="0" maxOccurs="unbounded" type="Coding">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A code that this product is known by, usually within some formal terminology. Products (types of medications) tend to be known by identifiers during development and within regulatory process. However when they are prescribed they tend to be identified by codes. The same product may be have multiple codes, applied to it by multiple organizations.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="name" type="MedicinalProductDefinition.Name" minOccurs="1" maxOccurs="unbounded">
@@ -38926,7 +38951,7 @@ For resource issues, this will be a simple XPath limited to element names, repet
           </xs:element>
           <xs:element name="containedItemQuantity" minOccurs="0" maxOccurs="unbounded" type="Quantity">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribite is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Repeats are not to be used to represent differerent pack sizes (e.g. 20 pack vs 50 pack) - which would be different resource instances. This attribute differs from  containedItem.amount in that it can give a single count of all tablet types in a pack, even when these are different manufactured items.</xs:documentation>
+              <xs:documentation xml:lang="en">A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribute differs from containedItem.amount in that it can give a single aggregated count of all tablet types in a pack, even when these are different manufactured items. For example a pill pack of 21 tablets plus 7 sugar tablets, can be denoted here as '28 tablets'. This attribute is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Each repeat must have different units, so that it is clear what the different sets of counted items are, and it is not intended to allow different counts of similar items (e.g. not '2 tubes and 3 tubes'). Repeats are not to be used to represent different pack sizes (e.g. 20 pack vs. 50 pack) - which would be different instances of this resource.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="description" minOccurs="0" maxOccurs="1" type="markdown">
@@ -39048,7 +39073,7 @@ For resource issues, this will be a simple XPath limited to element names, repet
           </xs:element>
           <xs:element name="package" type="PackagedProductDefinition.Package" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Allows containers within containers.</xs:documentation>
+              <xs:documentation xml:lang="en">Allows containers (and parts of containers) parwithin containers, still a single packaged product.  See also PackagedProductDefinition.package.containedItem.item(PackagedProductDefinition).</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -39090,7 +39115,7 @@ For resource issues, this will be a simple XPath limited to element names, repet
         <xs:sequence>
           <xs:element name="item" minOccurs="1" maxOccurs="1" type="CodeableReference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack.</xs:documentation>
+              <xs:documentation xml:lang="en">The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another whole packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack (for layers within one package, use PackagedProductDefinition.package.package).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="amount" minOccurs="0" maxOccurs="1" type="Quantity">
