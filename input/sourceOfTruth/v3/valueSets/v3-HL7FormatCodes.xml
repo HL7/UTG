@@ -30,6 +30,7 @@
   <immutable value="false"/>
   <copyright value="HL7 http://www.hl7.org"/>
   <compose>
+  <!-- From the IHE value set -->
     <include>
       <system value="http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode"/>
       <filter>
@@ -38,9 +39,17 @@
         <value value="false"/>
       </filter>
     </include>
+
+    <!-- From what is in Grahame's R4  for the code system 
+    <include> 
+      <system value="http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem"/> 
+    </include> 
+-->
+
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/hl7-document-format-codes"/>
     </include>
+    <!-- 
     <include>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <concept>
@@ -48,5 +57,6 @@
         <display value="Key Object Selection Document"/>
       </concept>
     </include>
+    -->
   </compose>
 </ValueSet>
