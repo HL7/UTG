@@ -25062,3 +25062,45 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
+      "filter" : [{
+        "property" : "notSelectable",
+        "op" : "=",
+        "value" : "false"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/hl7-document-format-codes"
+    },
+    {
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "concept" : [{
+        "code" : "1.2.840.10008.5.1.4.1.1.88.59",
+        "display" : "Key Object Selection Document"
+      }]
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: Unable to provide support for code system http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/hl7-document-format-codes"
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: Unable to provide support for code system http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem"
+}
+-------------------------------------------------------------------------------------
