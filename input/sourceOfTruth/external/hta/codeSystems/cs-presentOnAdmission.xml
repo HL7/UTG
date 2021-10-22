@@ -11,10 +11,10 @@
   <title value="CMS Present on Admission (POA) Indicator"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2021-01-07T00:00:00.000-07:00"/>
+  <date value="2021-06-24T00:00:00.000-07:00"/>
   <publisher value="Centers for Medicare &amp; Medicaid Services"/>
   <contact>
-    <name value="Centers for Medicare &amp; Medicaid Services; 7500 Security Boulevard, Baltimore, MD 21244, USA"/>
+    <name value="Centers for Medicare &amp; Medicaid Services; 7500 Security Boulevard, Baltimore, MD 21244,  USA"/>
   </contact>
   <contact>
     <name value="Marilu Hue"/>
@@ -41,6 +41,26 @@
   <caseSensitive value="false"/>
   <compositional value="false"/>
   <versionNeeded value="false"/>
-  <content value="not-present"/>
+  <content value="complete"/>
   <count value="5"/>
+  <concept>
+    <code value="Y"/>
+    <definition value="Diagnosis was present at time of inpatient admission. CMS will pay the CC/MCC DRG for those selected HACs that are coded as &#34;Y&#34; for the POA Indicator."/>
+  </concept>
+  <concept>
+    <code value="N"/>
+    <definition value="Diagnosis was not present at time of inpatient admission. CMS will not pay the CC/MCC DRG for those selected HACs that are coded as &#34;N&#34; for the POA Indicator."/>
+  </concept>
+  <concept>
+    <code value="U"/>
+    <definition value="Documentation insufficient to determine if the condition was present at the time of inpatient admission. CMS will not pay the CC/MCC DRG for those selected HACs that are coded as &#34;U&#34; for the POA Indicator."/>
+  </concept>
+  <concept>
+    <code value="W"/>
+    <definition value="Clinically undetermined.  Provider unable to clinically determine whether the condition was present at the time of inpatient admission. CMS will pay the CC/MCC DRG for those selected HACs that are coded as &#34;W&#34; for the POA Indicator."/>
+  </concept>
+  <concept>
+    <code value="1"/>
+    <definition value="Unreported/Not used.  Exempt from POA reporting.  This code is equivalent to a blank on the UB-04, however; it was determined that blanks are undesirable when submitting this data via the 4010A. CMS will not pay the CC/MCC DRG for those selected HACs that are coded as &#34;1&#34; for the POA Indicator. The “1” POA Indicator should not be applied to any codes on the HAC list.  For a complete list of codes on the POA exempt list, see  the Official Coding Guidelines for ICD-10-CM."/>
+  </concept>
 </CodeSystem>
