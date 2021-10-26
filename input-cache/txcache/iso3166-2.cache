@@ -1,0 +1,99 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:3166:-2",
+  "code" : "CA-AB"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Alberta",
+  "code" : "CA-AB",
+  "system" : "urn:iso:std:iso:3166:-2"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:3166:-2",
+  "code" : "US-MI"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Michigan",
+  "code" : "US-MI",
+  "system" : "urn:iso:std:iso:3166:-2"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "concept" : [{
+        "code" : "CA-AB"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:809918dd-d06b-44ff-8b7f-e2038c4715a5",
+    "timestamp" : "2021-10-26T20:23:30.652Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "urn:iso:std:iso:3166:-2|57"
+    }],
+    "contains" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "code" : "CA-AB",
+      "display" : "Alberta"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "concept" : [{
+        "code" : "US-MI"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:82b115c2-bca5-4bd4-8064-92556d51f7b6",
+    "timestamp" : "2021-10-26T20:23:30.886Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "urn:iso:std:iso:3166:-2|57"
+    }],
+    "contains" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "code" : "US-MI",
+      "display" : "Michigan"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
