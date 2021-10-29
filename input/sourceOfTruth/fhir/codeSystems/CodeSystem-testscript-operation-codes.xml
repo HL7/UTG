@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="testscript-operation-codes"/>
   <meta>
-    <lastUpdated value="2020-04-09T21:10:28.568+00:00"/>
+    <lastUpdated value="2021-10-29T11:29:28.568+04:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -20,7 +20,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1195"/>
   </identifier>
-  <version value="0.1.0"/>
+  <version value="0.2.0"/>
   <name value="TestScriptOperationCode"/>
   <title value="Test script operation code"/>
   <status value="draft"/>
@@ -77,9 +77,19 @@
     <definition value="Conditionally delete one or more resources based on search parameters."/>
   </concept>
   <concept>
-    <code value="history"/>
-    <display value="History"/>
-    <definition value="Retrieve the change history for a particular resource or resource type."/>
+    <code value="history-instance"/>
+    <display value="History Instance"/>
+    <definition value="Retrieve the change history for a particular resource instance."/>
+  </concept>
+  <concept>
+    <code value="history-type"/>
+    <display value="History Type"/>
+    <definition value="Retrieve the change history for a particular resource type."/>
+  </concept>
+  <concept>
+    <code value="history-system"/>
+    <display value="History System"/>
+    <definition value="Retrieve the change history for all resource types."/>
   </concept>
   <concept>
     <code value="create"/>
