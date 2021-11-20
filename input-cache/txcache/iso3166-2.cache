@@ -19,7 +19,7 @@ v: {
   "system" : "urn:iso:std:iso:3166:-2"
 }
 -------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
+{"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
     "include" : [{
@@ -36,10 +36,14 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:b88a68cd-da55-4683-8a84-d4c6c0386ad0",
-    "timestamp" : "2021-11-12T14:37:19.790Z",
+    "identifier" : "urn:uuid:0230955d-7b31-41cc-ada5-28ad7dd9eee3",
+    "timestamp" : "2021-11-12T17:19:05.171Z",
     "parameter" : [{
       "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
       "valueBoolean" : true
     },
     {
@@ -73,8 +77,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:bb1e17ca-dd70-4c6d-a432-c9bd2d3ddb19",
-    "timestamp" : "2021-11-12T14:37:19.946Z",
+    "identifier" : "urn:uuid:6647b419-cf83-4423-902a-a365b2285779",
+    "timestamp" : "2021-11-12T17:19:05.327Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -91,6 +95,43 @@ e: {
       "system" : "urn:iso:std:iso:3166:-2",
       "code" : "US-MI",
       "display" : "Michigan"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "concept" : [{
+        "code" : "CA-AB"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:05ee14ac-2a46-4fad-9727-7f3adbded0a3",
+    "timestamp" : "2021-11-12T17:22:37.389Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "urn:iso:std:iso:3166:-2|57"
+    }],
+    "contains" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "code" : "CA-AB",
+      "display" : "Alberta"
     }]
   }
 },
