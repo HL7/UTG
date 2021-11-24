@@ -19,7 +19,7 @@ v: {
   "system" : "urn:iso:std:iso:3166:-2"
 }
 -------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
+{"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
     "include" : [{
@@ -36,15 +36,19 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:a5026204-8a01-4724-af7c-75cc7aff2c06",
-    "timestamp" : "2021-11-10T22:20:59.230Z",
+    "identifier" : "urn:uuid:6c59bd6c-66d1-4a9b-a5e5-3e39425144d7",
+    "timestamp" : "2021-11-23T04:12:55.228Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
     },
     {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
       "name" : "version",
-      "valueString" : "urn:iso:std:iso:3166:-2|57"
+      "valueUri" : "urn:iso:std:iso:3166:-2|57"
     }],
     "contains" : [{
       "system" : "urn:iso:std:iso:3166:-2",
@@ -73,8 +77,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:c26ea227-55a4-4d7d-b903-253262155375",
-    "timestamp" : "2021-11-10T22:20:59.387Z",
+    "identifier" : "urn:uuid:233a1375-f0eb-418c-b955-89b9ae295f31",
+    "timestamp" : "2021-11-23T04:12:55.385Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -85,12 +89,49 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "urn:iso:std:iso:3166:-2|57"
+      "valueUri" : "urn:iso:std:iso:3166:-2|57"
     }],
     "contains" : [{
       "system" : "urn:iso:std:iso:3166:-2",
       "code" : "US-MI",
       "display" : "Michigan"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "concept" : [{
+        "code" : "CA-AB"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:9273fe85-3ce1-41d1-a58c-2e97fc5e33dd",
+    "timestamp" : "2021-11-23T04:18:12.202Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "urn:iso:std:iso:3166:-2|57"
+    }],
+    "contains" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "code" : "CA-AB",
+      "display" : "Alberta"
     }]
   }
 },
