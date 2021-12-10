@@ -1,4 +1,16 @@
 -------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason"
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: The code system definition for http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason is a example, so this expansion is not permitted unless the expansion parameter \"incomplete-ok\" has a value of \"true\""
+}
+-------------------------------------------------------------------------------------
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -10,18 +22,42 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "id" : "appointment-cancellation-reason",
+  "meta" : {
+    "lastUpdated" : "2020-02-23T18:41:39.109-07:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
+  },
   "language" : "en",
-  "status" : "active",
+  "url" : "http://terminology.hl7.org/ValueSet/appointment-cancellation-reason",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.4.642.3.1381"
+  }],
+  "version" : "0.1.0",
+  "name" : "AppointmentCancellationReason",
+  "title" : "Appointment cancellation reason",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-02-24T12:41:39+11:00",
+  "immutable" : true,
   "expansion" : {
-    "identifier" : "urn:uuid:aae91148-31bd-4431-b4bc-665d9501ed0e",
-    "timestamp" : "2021-10-27T23:49:55.701Z",
+    "identifier" : "urn:uuid:a3f69201-24d4-4039-9e25-a5d59da9b705",
+    "timestamp" : "2021-12-10T03:46:06.636Z",
     "parameter" : [{
+      "name" : "expansion-source",
+      "valueUri" : "ValueSet/appointment-cancellation-reason"
+    },
+    {
       "name" : "limitedExpansion",
       "valueBoolean" : true
     },
     {
+      "name" : "example",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason|4.0.1"
+    },
+    {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason|4.0.1"
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason|4.0.1"
     }],
     "contains" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
