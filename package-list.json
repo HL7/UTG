@@ -1,9 +1,9 @@
-{
+﻿{
   "package-id": "hl7.terminology",
   "title": "HL7 Terminology",
-  "category": "Terminology",
   "canonical": "http://terminology.hl7.org",
-  "introduction": "## The HL7 Terminology\r\n  This is the main entry page for access to the HL7 Terminology. This material comprises the Code Systems and Value Sets which are cited in HL7 Published artifacts (International Standards and Implementation Guides).  These pages also contain Concept Maps and Naming Systems defined and published by HL7, accessible here for the convenience of the implementation community.   There is also an option to download the terminology along with some additional components.\r\n    \r\n  As part of the HL7 approach to provide unified governance and support consistent access to the terminology and vocabulary that has been published for many years, all of the published Code Systems and Value Sets across all of the main HL7 Product families is intended to be accessible on these pages.   This includes Version 2, Version 3, CDA (base only), and FHIR.   Note that the full unification of all of the terminology content of HL7 Code Systems will be an ongoing effort.  \r\n  \r\n  The new HL7 process for governance and maintenance of the vocabulary published by HL7 is called `UTG`; for more information see the documentation on the [UTG Project Page](https://confluence.hl7.org/display/VMAH/Vocabulary+Maintenance+at+HL7). This process employs a community-wide, consensus-based, continuous process for updates to the terminology. Periodically, a snapshot of the terminology (which is verified to be internally consistent) will be taken as a new 'release' of the HL7 Terminology.   All such published releases will be accessible from these pages (see the table below).  \r\n  \r\n  ### Published Releases of HL7 Terminology\r\n  The table below provides a list of the releases of the HL7 Terminology that are available.  The link to '(current)' leads to the frequently updated continuous integration builds page where the most recent approved changes that are not yet in a release may be found.  \r\n  \r\n  #### Versioning\r\n  The HL7 Terminology releases have a 3-part release version identifier, in the format of Major.Minor.Patch.  \r\n  * The Major number indicates a new major release, and will be updated when significant new content is added, or there are substantial layout and formatting changes, or changes are being released which MAY break some backward compatibility.  The Minor number and Patch number will be reset to zero whenever there is a new major release.  \r\n  * The Minor number will be incremented on every release.  These will consist of one to many approved changes to the HL7 vocabulary.   Occasionally, it may coincide with other HL7 Standards releases for synchronization purposes. The Patch number will be reset to zero on a new minor release.  \r\n  * The Patch number for releases will usually remain at zero, unless a small errata or technical correction is absolutely required.  This number will be incremented on the HL7 Terminology Continuous Integration (CI) build page with every new commit of changes and rebuild, and thus is important primarily on the continuous build page at (current).",
+  "introduction": "## The HL7 Terminology\r\n  This is the main entry page for access to the HL7 Terminology. This material comprises the Code Systems and Value Sets which are cited in HL7 Published artifacts (International Standards and Implementation Guides).  These pages also contain Concept Maps and Naming Systems defined and published by HL7, accessible here for the convenience of the implementation community.   There is also an option to download the terminology along with some additional components.\r\n    \r\n  As part of the HL7 approach to provide unified governance and support consistent access to the terminology and vocabulary that has been published for many years, all of the published Code Systems and Value Sets across all of the main HL7 Product families is intended to be accessible on these pages.   This includes Version 2, Version 3, CDA (base only), and FHIR.   Note that the full unification of all of the terminology content of HL7 Code Systems will be an ongoing effort.  \r\n  \r\n  The new HL7 process for governance and maintenance of the vocabulary published by HL7 is called \u0027UTG\u0027; for more information see the documentation on the [UTG Project Page](https://confluence.hl7.org/display/VMAH/Vocabulary+Maintenance+at+HL7). This process employs a community-wide, consensus-based, continuous process for updates to the terminology. Periodically, a snapshot of the terminology (which is verified to be internally consistent) will be taken as a new \u0027release\u0027 of the HL7 Terminology.   All such published releases will be accessible from these pages (see the table below).  \r\n  \r\n  ### Published Releases of HL7 Terminology\r\n  The table below provides a list of the releases of the HL7 Terminology that are available.  The link to \u0027(current)\u0027 leads to the frequently updated continuous integration builds page where the most recent approved changes that are not yet in a release may be found.  \r\n  \r\n  #### Versioning\r\n  The HL7 Terminology releases have a 3-part release version identifier, in the format of Major.Minor.Build.  \r\n  * The Major number indicates a new major release, and will be updated when significant new content is added, or there are substantial layout and formatting changes, or changes are being released which MAY break some backward compatibility.  The Minor number and Build number will be reset to zero whenever there is a new major release.  \r\n  * The Minor number will be incremented on every release.  These will consist of one to many approved changes to the HL7 terminology.   Occasionally, it may coincide with other HL7 Standards releases for synchronization purposes. The Build number will be reset to zero on a new minor release.  \r\n  * The Build number is used to count the number of changes implemented into the ci build. For releases it will almost always remain at zero, unless some errata for a serious issue or a technical correction is absolutely required.  This number will be incremented on the HL7 Terminology Continuous Integration (CI) build page with every new commit of changes and rebuild, and thus is important primarily on the continuous build page, linked below at (current).",
+  "category": "Terminology",
   "list": [
     {
       "version": "current",
@@ -18,23 +18,36 @@
       ]
     },
     {
+      "version": "3.0.0",
+      "desc": "Fourth publication of the HL7 Terminology 39 UTG approved tickets applied.",
+      "path": "http://terminology.hl7.org/3.0.0",
+      "status": "release",
+      "fhirversion": "4.0.1",
+      "sequence": "Publications",
+      "sub-packages": [
+        "hl7.terminology.r3",
+        "hl7.terminology.r4",
+        "hl7.terminology.r5"
+      ],
+      "date": "2021-12-02",
+      "current": true
+    },
+    {
       "version": "2.1.0",
-      "date": "2021-02-25",
       "desc": "Third publication of the HL7 Terminology 19 UTG approved tickets applied.",
       "path": "http://terminology.hl7.org/2.1.0",
       "status": "release",
       "fhirversion": "4.0.1",
       "sequence": "Publications",
-      "current": true,
       "sub-packages": [
         "hl7.terminology.r3",
         "hl7.terminology.r4",
         "hl7.terminology.r5"
-      ]
+      ],
+      "date": "2021-03-06"
     },
     {
       "version": "2.0.0",
-      "date": "2020-11-02",
       "desc": "Second publication of the HL7 Terminology with initial content issues addressed.",
       "path": "http://terminology.hl7.org/2.0.0",
       "status": "release",
@@ -44,7 +57,8 @@
         "hl7.terminology.r3",
         "hl7.terminology.r4",
         "hl7.terminology.r5"
-      ]
+      ],
+      "date": "2020-11-07"
     },
     {
       "version": "1.0.0",
