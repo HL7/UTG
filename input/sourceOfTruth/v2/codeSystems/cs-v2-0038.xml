@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0038"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0038"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.18"/>
+  </identifier>
+  <version value="2.3.0"/>
+  <name value="OrderStatus"/>
+  <title value="orderStatus"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts specifying the status of an order. The purpose of these values are to report the status of an order either upon request (solicited), or when the status changes (unsolicited). The values are not intended to initiate action.  It is assumed that the order status value always reflects the status as it is known to the sending application at the time that a message is sent.  Only the filler can originate these values.  Used in HL7 Version 2.x messaging in the ORC segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0038 (Order status)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0038"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <concept id="721">
+    <code value="A"/>
+    <display value="Some, but not all, results available"/>
+    <definition value="Some, but not all, results available"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="einige, aber nicht alle, Resultate verf&#xFC;gbar"/>
+    </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="722">
+    <code value="CA"/>
+    <display value="Order was canceled"/>
+    <definition value="Order was canceled"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auftrag storniert"/>
+    </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="723">
+    <code value="CM"/>
+    <display value="Order is completed"/>
+    <definition value="Order is completed"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auftrag ausgef&#xFC;hrt"/>
+    </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="724">
+    <code value="DC"/>
+    <display value="Order was discontinued"/>
+    <definition value="Order was discontinued"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Ausf&#xFC;hrung des Auftrags abgebrochen"/>
+    </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="725">
+    <code value="ER"/>
+    <display value="Error, order not found"/>
+    <definition value="Error, order not found"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auftrag nicht gefunden"/>
+    </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="726">
+    <code value="HD"/>
+    <display value="Order is on hold"/>
+    <definition value="Order is on hold"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auftragsbearbeitung ausgesetzt"/>
+    </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="727">
+    <code value="IP"/>
+    <display value="In process, unspecified"/>
+    <definition value="In process, unspecified"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auftrag in Bearbeitung"/>
+    </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="728">
+    <code value="RP"/>
+    <display value="Order has been replaced"/>
+    <definition value="Order has been replaced"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auftrag ist ersetzt worden"/>
+    </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="729">
+    <code value="SC"/>
+    <display value="In process, scheduled"/>
+    <definition value="In process, scheduled"/>
+    <designation>
+      <language value="de"/>
+      <use>
+        <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+        <code value="preferredForLanguage"/>
+      </use>
+      <value value="Auftrag hat Termin oder ist in Ausf&#xFC;hrung"/>
+    </designation>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+</CodeSystem>

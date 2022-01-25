@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-ActExposureLevelCode"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-ActExposureLevelCode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1114"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActExposureLevelCode"/>
+  <title value="ActExposureLevelCode"/>
+  <status value="active"/>
+  <date value="2019-03-20"/>
+  <publisher value="HL7"/>
+  <contact>
+    <name value="PHER"/>
+  </contact>
+  <description value="A qualitative measure of the degree of exposure to the causative agent. This includes concepts such as &quot;low&quot;, &quot;medium&quot; and &quot;high&quot;. This quantifies how the quantity that was available to be administered to the target differs from typical or background levels of the substance."/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Specializes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Generalizes"/>
+    </extension>
+    <code value="Specializes"/>
+    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Generalizes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Specializes"/>
+    </extension>
+    <code value="Generalizes"/>
+    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <code value="internalId"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
+    <type value="code"/>
+  </property>
+  <concept>
+    <code value="_ActExposureLevelCode"/>
+    <display value="ActExposureLevelCode"/>
+    <definition value="A qualitative measure of the degree of exposure to the causative agent. This includes concepts such as &quot;low&quot;, &quot;medium&quot; and &quot;high&quot;. This quantifies how the quantity that was available to be administered to the target differs from typical or background levels of the substance."/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22372"/>
+    </property>
+    <concept>
+      <code value="HIGH"/>
+      <display value="high"/>
+      <definition value="**Description:** Exposure to an agent at a relatively high level above background."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22373"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="LOW"/>
+      <display value="low"/>
+      <definition value="**Description:** Exposure to an agent at a relatively low level above background."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22374"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="MEDIUM"/>
+      <display value="medium"/>
+      <definition value="**Description:** Exposure to an agent at a relatively moderate level above background.A"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="22375"/>
+      </property>
+    </concept>
+  </concept>
+</CodeSystem>

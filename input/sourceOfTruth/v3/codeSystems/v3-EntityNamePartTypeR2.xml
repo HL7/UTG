@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-EntityNamePartTypeR2"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartTypeR2"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1121"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="EntityNamePartTypeR2"/>
+  <title value="EntityNamePartTypeR2"/>
+  <status value="active"/>
+  <date value="2019-03-20"/>
+  <publisher value="HL7"/>
+  <description value="**Description:**Indicates whether the name part is a given name, family name, prefix, suffix, etc."/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Specializes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Generalizes"/>
+    </extension>
+    <code value="Specializes"/>
+    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Generalizes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Specializes"/>
+    </extension>
+    <code value="Generalizes"/>
+    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="NonDefinitionallyQualifiedBy"/>
+    </extension>
+    <code value="MayBeQualifiedBy"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#MayBeQualifiedBy"/>
+    <description value="Relationship points from a concept in EntityNamePartType to a concept in  EntityNamePartQualifier and indicates that the former concept may be qualified by the latter."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <code value="internalId"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
+    <type value="code"/>
+  </property>
+  <concept>
+    <code value="DEL"/>
+    <display value="delimiter"/>
+    <definition value="**Description:**A delimiter has no meaning other than being literally printed in this name representation. A delimiter has no implicit leading and trailing white space."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22786"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="FAM"/>
+    <display value="family"/>
+    <definition value="**Description:**Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="AD"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="BR"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="CL"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="IN"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="MID"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="PFX"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="SP"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22784"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="GIV"/>
+    <display value="given"/>
+    <definition value="**Description:**Given name. Note: don&#39;t call it &quot;first name&quot; since the given names do not always come first."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="AD"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="BR"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="CL"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="IN"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="PFX"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="SFX"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="SP"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22785"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="TITLE"/>
+    <display value="title"/>
+    <definition value="**Description:**Part of the name that is acquired as a title due to academic, legal, employment or nobility status etc.&#xD;&#xA;&#xD;&#xA;**Note:**Title name parts include name parts that come after the name such as qualifications, even if they are not always considered to be titles."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="AC"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="LS"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="NB"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="PFX"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="PR"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="MayBeQualifiedBy"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"/>
+        <code value="SFX"/>
+      </valueCoding>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="22787"/>
+    </property>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-RoleClassDependent"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-RoleClassDependent"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20128"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="RoleClassDependent"/>
+  <title value="RoleClassDependent"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="**Description:** A role played by a person covered under a policy or program based on an association with a subscriber, which is recognized by the policy holder.&#xD;&#xA;&#xD;&#xA;**Note:** The party playing the role of a dependent is not a claimant in the sense conveyed by the RoleClassCoveredParty CLAIM (claimant). However, a dependent may make a claim under a policy, e.g., a dependent under a health insurance policy may become the claimant for coverage under that policy for wellness examines or if injured and there is no liable third party. In the case of a dependent making a claim, a role type code INSCLM (insured claimant) subtypes the class to indicate that the dependent has filed a claim for services covered under the health insurance policy.&#xD;&#xA;&#xD;&#xA;**Example:** The dependent has an association with the subscriber such as a financial dependency or personal relationship such as that of a spouse, or a natural or adopted child. The policy holder may be required by law to recognize certain associations or may have discretion about the associations. For example, a policy holder may dictate the criteria for the dependent status of adult children who are students, such as requiring full time enrollment, or may recognize domestic partners as dependents. Under certain circumstances, the dependent may be under the indirect authority of a responsible party acting as a surrogate for the subscriber, for example, if the subscriber is differently abled or deceased, a guardian ad Lidem or estate executor may be appointed to assume the subscriberaTMs legal standing in the relationship with the dependent."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="DEPEN"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

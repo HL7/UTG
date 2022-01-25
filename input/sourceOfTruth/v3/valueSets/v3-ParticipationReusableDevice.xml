@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ParticipationReusableDevice"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ParticipationReusableDevice"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20096"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ParticipationReusableDevice"/>
+  <title value="ParticipationReusableDevice"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A device that does not change ownership due to the service, i.e., a surgical instrument or tool or an endoscope. The distinction between reuseable and non-reuseable must be made in order to know whether material must be re-stocked."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="RDV"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

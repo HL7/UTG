@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-SecurityAlterationIntegrityObservationType"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-SecurityAlterationIntegrityObservationType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20465"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="SecurityAlterationIntegrityObservationType"/>
+  <title value="SecurityAlterationIntegrityObservationType"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="&lt;pType of security metadata observation made about the alteration integrity of an IT resource (data, information object, service, or system capability), which indicates the mechanism used for authorized transformations of the resource.&lt;/p&gt;"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="SECALTINTOBS"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

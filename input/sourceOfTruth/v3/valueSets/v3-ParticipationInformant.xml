@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ParticipationInformant"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ParticipationInformant"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20086"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ParticipationInformant"/>
+  <title value="ParticipationInformant"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A source of reported information (e.g., a next of kin who answers questions about the patient&#39;s history). For history questions, the patient is logically an informant, yet the informant of history questions is implicitly the subject."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="INF"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

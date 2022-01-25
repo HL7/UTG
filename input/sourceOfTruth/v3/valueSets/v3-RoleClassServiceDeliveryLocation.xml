@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-RoleClassServiceDeliveryLocation"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-RoleClassServiceDeliveryLocation"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.16927"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="RoleClassServiceDeliveryLocation"/>
+  <title value="RoleClassServiceDeliveryLocation"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A role played by a place at which services may be provided."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="SDLOC"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

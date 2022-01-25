@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-RoleClassInvoicePayor"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-RoleClassInvoicePayor"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20157"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="RoleClassInvoicePayor"/>
+  <title value="RoleClassInvoicePayor"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="The role of an organization that undertakes to accept claims invoices, assess the coverage or payments due for those invoices and pay to the designated payees for those invoices. This role may be either the underwriter or a third-party organization authorized by the underwriter. The scoping entity is the organization that underwrites the claimed coverage."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="PAYOR"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

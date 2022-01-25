@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-SecurityTrustMechanismObservationValue"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-SecurityTrustMechanismObservationValue"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20543"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="SecurityTrustMechanismObservationValue"/>
+  <title value="SecurityTrustMechanismObservationValue"/>
+  <status value="active"/>
+  <date value="2014-08-07"/>
+  <description value="Values for security metadata observation made about a complete set of contracts, regulations, or commitments that enable participating actors to rely on certain assertions by other actors to fulfill their information security requirements. \[Kantara Initiative\]"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="TRSTMECOBV"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

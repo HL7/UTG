@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActClassProcessStep"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActClassProcessStep"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20341"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActClassProcessStep"/>
+  <title value="ActClassProcessStep"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <purpose value="**ActCodeProcessStep** \- Property applies to value sets that contain classCode values in structural vocabularies. It identifies by name the Concept Domain(s) that represent(s) the concepts that are sub-types of the concept collection established by the value sets of class codes."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="ACSN"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="CONTREG"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="OBS"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="PROC"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="SPCTRT"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="SPECCOLLECT"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="STORE"/>
+      </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="TRNS"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

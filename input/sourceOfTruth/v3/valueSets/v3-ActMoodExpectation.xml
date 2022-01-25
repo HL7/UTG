@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActMoodExpectation"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActMoodExpectation"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20269"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActMoodExpectation"/>
+  <title value="ActMoodExpectation"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="**Definition:**An act that is considered likely to occur in the future. The essential feature of an act expressed in expectation mood is that it is likely to occur. An expectation may be desirable, undesirable or neutral in effect.&#xD;&#xA;&#xD;&#xA;**Examples:**Prognosis of a condition, Expected date of discharge from hospital, patient will likely need an emergency decompression of the intracranial pressure by morning.&#xD;&#xA;&#xD;&#xA;**Discussion:**INT (intent) reflects a plan for the future, which is a declaration to do something. This contrasts with expectation, which is a prediction that something will happen in the future. GOL (goal) reflects a hope rather than a prediction. RSK (risk) reflects a potential negative event that may or may not be expected to happen."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="EXPEC"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

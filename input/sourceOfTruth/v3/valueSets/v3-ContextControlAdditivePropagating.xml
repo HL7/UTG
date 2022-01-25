@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ContextControlAdditivePropagating"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ContextControlAdditivePropagating"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20032"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ContextControlAdditivePropagating"/>
+  <title value="ContextControlAdditivePropagating"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="The association adds to the existing context associated with the Act, and will propagate to any descendant Acts reached by conducting ActRelationships (see contextControlCode). Examples: If an &#39;Author&#39; Participation were marked as &quot;Additive, Propagating&quot; it means that the author will be added to the set of author participations that have propagated from ancestor Acts, and will itself propagate with the other authors to any child Acts that allow context to be propagated."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ContextControl"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="AP"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

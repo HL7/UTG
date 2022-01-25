@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="financialtaskcode"/>
+  <meta>
+    <lastUpdated value="2020-04-09T21:10:28.568+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://terminology.hl7.org/CodeSystem/financialtaskcode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1390"/>
+  </identifier>
+  <version value="0.1.0"/>
+  <name value="FinancialTaskCodes"/>
+  <title value="Financial Task Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes Financial Task codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/financial-taskcode"/>
+  <content value="complete"/>
+  <concept>
+    <code value="cancel"/>
+    <display value="Cancel"/>
+    <definition value="Cancel or reverse a resource, such as a claim or preauthorization, which is in-process or complete."/>
+  </concept>
+  <concept>
+    <code value="poll"/>
+    <display value="Poll"/>
+    <definition value="Retrieve selected or all queued resources or messages."/>
+  </concept>
+  <concept>
+    <code value="release"/>
+    <display value="Release"/>
+    <definition value="Release any reserved funds or material obligations associated with a resource. For example, any unused but reserved funds or treatment allowance associated with a preauthorization once treatment is complete."/>
+  </concept>
+  <concept>
+    <code value="reprocess"/>
+    <display value="Reprocess"/>
+    <definition value="Indication that the processing of a resource, such as a claim, for some or all of the required work is now being requested."/>
+  </concept>
+  <concept>
+    <code value="status"/>
+    <display value="Status check"/>
+    <definition value="Check on the processing status of a resource such as the adjudication of a claim."/>
+  </concept>
+</CodeSystem>

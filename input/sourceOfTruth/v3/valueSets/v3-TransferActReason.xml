@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-TransferActReason"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-TransferActReason"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.15983"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="TransferActReason"/>
+  <title value="TransferActReason"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="The explanation for why a patient is moved from one location to another within the organization"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_TransferActReason"/>
+      </filter>
+    </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <concept>
+        <code value="_TransferActReason"/>
+      </concept>
+    </exclude>
+  </compose>
+</ValueSet>

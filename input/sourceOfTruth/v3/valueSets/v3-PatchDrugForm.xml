@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-PatchDrugForm"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-PatchDrugForm"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.14499"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="PatchDrugForm"/>
+  <title value="PatchDrugForm"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A drug delivery system that contains an adhesived backing and that permits its ingredients to diffuse from some portion of it (e.g., the backing itself, a reservoir, the adhesive, or some other component) into the body from the external site where it is applied."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="PATCH"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

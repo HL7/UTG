@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-RoleClassOwnedEntity"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-RoleClassOwnedEntity"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20152"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="RoleClassOwnedEntity"/>
+  <title value="RoleClassOwnedEntity"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="An Entity (player) for which someone (scoper) is granted by law the right to call the material (player) his own. This entitles the scoper to make decisions about the disposition of that material."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="OWN"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActTherapyDurationWorkingListCode"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActTherapyDurationWorkingListCode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.19710"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActTherapyDurationWorkingListCode"/>
+  <title value="ActTherapyDurationWorkingListCode"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Codes used to identify different types of &#39;duration-based&#39; working lists. Examples include &quot;Continuous/Chronic&quot;, &quot;Short-Term&quot; and &quot;As-Needed&quot;."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_ActTherapyDurationWorkingListCode"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

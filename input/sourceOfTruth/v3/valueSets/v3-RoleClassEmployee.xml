@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-RoleClassEmployee"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-RoleClassEmployee"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.11569"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="RoleClassEmployee"/>
+  <title value="RoleClassEmployee"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A relationship between a person or organization and a person or organization formed for the purpose of exchanging work for compensation. The purpose of the role is to identify the type of relationship the employee has to the employer, rather than the nature of the work actually performed. (Contrast with AssignedEntity.)"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="EMP"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

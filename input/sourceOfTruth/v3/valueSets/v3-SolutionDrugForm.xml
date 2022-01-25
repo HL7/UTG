@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-SolutionDrugForm"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-SolutionDrugForm"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.14419"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="SolutionDrugForm"/>
+  <title value="SolutionDrugForm"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A liquid preparation that contains one or more chemical substances dissolved, i.e., molecularly dispersed, in a suitable solvent or mixture of mutually miscible solvents."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="SOL"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

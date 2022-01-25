@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActRelationshipModifies"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActRelationshipModifies"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.19992"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActRelationshipModifies"/>
+  <title value="ActRelationshipModifies"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Definition: Used to link a newer version or &#39;snapshot&#39; of a business object (source) to an older version or &#39;snapshot&#39; of the same business object (target).&#xD;&#xA;&#xD;&#xA;*Usage:*The identifier of the Act should be the same for both source and target. If the identifiers are distinct, RPLC should be used instead.&#xD;&#xA;&#xD;&#xA;Name from source to target = &quot;modifiesPrior&quot;&#xD;&#xA;&#xD;&#xA;Name from target to source = &quot;modifiesByNew&quot;"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="MOD"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

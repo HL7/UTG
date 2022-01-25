@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActRelationshipHasSubject"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActRelationshipHasSubject"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20014"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActRelationshipHasSubject"/>
+  <title value="ActRelationshipHasSubject"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Relates an Act to its subject Act that the first Act is primarily concerned with.&#xD;&#xA;&#xD;&#xA;Examples&#xD;&#xA;&#xD;&#xA;1.  The first Act may be a ControlAct manipulating the subject Act&#xD;&#xA;2.  The first act is a region of interest (ROI) that defines a region within the subject Act.&#xD;&#xA;3.  The first act is a reporting or notification Act, that echos the subject Act for a specific new purpose.&#xD;&#xA;&#xD;&#xA;Constraints&#xD;&#xA;&#xD;&#xA;An Act may have multiple subject acts.&#xD;&#xA;&#xD;&#xA;Rationale&#xD;&#xA;&#xD;&#xA;The ActRelationshipType &quot;has subject&quot; is similar to the ParticipationType &quot;subject&quot;, Acts that primarily operate on physical subjects use the Participation, those Acts that primarily operate on other Acts (other information) use the ActRelationship."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="SUBJ"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

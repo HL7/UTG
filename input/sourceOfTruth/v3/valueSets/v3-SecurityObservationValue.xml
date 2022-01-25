@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-SecurityObservationValue"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-SecurityObservationValue"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20469"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="SecurityObservationValue"/>
+  <title value="SecurityObservationValue"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Observation values used to indicate security observation metadata."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_SecurityObservationValue"/>
+      </filter>
+    </include>
+    <include>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-SecurityClassificationObservationValue"/>
+    </include>
+  </compose>
+</ValueSet>

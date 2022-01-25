@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0617"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="inm"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0617"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.375"/>
+  </identifier>
+  <version value="2.1.0"/>
+  <name value="AddressUsage"/>
+  <title value="addressUsage"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts specifying how an address is intended to be used.  Used in HL7 Version 2.x messaging in the XAD segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0617 (Address Usage)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0617"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
+  <concept id="6259">
+    <code value="M"/>
+    <display value="Mailing"/>
+    <definition value="Mailing"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Identifies an address for mail correspondence from a healthcare provider as stipulated by the subject.&#xD;&#xA;For example, under the tenets of certain privacy regulations, it is exclusive to the patient and is typically maintained at the encounter or visit level versus the person level as it only has relevance to the specifics of a given encounter.  This is an exception category of address in that the patient has stipulated that they want all correspondence relevant to a given encounter sent to this address in lieu of any other address on file.  Providers are required to accommodate such requests under HIPAA promulgated regulation.  Note that mailing and legal address may be mutually exclusive as defined below.  (Implementors are reminded that although the privacy regulation requires the provider to honor such requests, it does require the provider to enquire whether the patient has a preferred address other than the one volunteered.)"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Identifies an address for mail correspondence from a healthcare provider as stipulated by the subject.&#xD;&#xA;For example, under the tenets of certain privacy regulations, it is exclusive to the patient and is typically maintained at the encounter or visit level versus the person level as it only has relevance to the specifics of a given encounter.  This is an exception category of address in that the patient has stipulated that they want all correspondence relevant to a given encounter sent to this address in lieu of any other address on file.  Providers are required to accommodate such requests under HIPAA promulgated regulation.  Note that mailing and legal address may be mutually exclusive as defined below.  (Implementors are reminded that although the privacy regulation requires the provider to honor such requests, it does require the provider to enquire whether the patient has a preferred address other than the one volunteered.)"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="6260">
+    <code value="V"/>
+    <display value="Visit"/>
+    <definition value="Visit"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Identifies an address at which the individual is physically located and may be visited."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Identifies an address at which the individual is physically located and may be visited."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="6261">
+    <code value="C"/>
+    <display value="Classification"/>
+    <definition value="Classification"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Identifies an address used for the purpose of demographic classification or searching.  Such addresses frequently contain insufficient information to be used as mailing or visit addresses.  For example, they may only indicate country and postal code, without providing a street address."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Identifies an address used for the purpose of demographic classification or searching.  Such addresses frequently contain insufficient information to be used as mailing or visit addresses.  For example, they may only indicate country and postal code, without providing a street address."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-EntityRisk"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-EntityRisk"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.10405"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="EntityRisk"/>
+  <title value="EntityRisk"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="The vocabulary table for the Entity.riskCode attribute"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-EntityRisk"/>
+      <concept>
+        <code value="AGG"/>
+      </concept>
+      <concept>
+        <code value="BIO"/>
+      </concept>
+      <concept>
+        <code value="COR"/>
+      </concept>
+      <concept>
+        <code value="ESC"/>
+      </concept>
+      <concept>
+        <code value="INJ"/>
+      </concept>
+      <concept>
+        <code value="POI"/>
+      </concept>
+      <concept>
+        <code value="RAD"/>
+      </concept>
+    </include>
+    <include>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-MaterialDangerInfectious"/>
+    </include>
+    <include>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-MaterialDangerInflammable"/>
+    </include>
+  </compose>
+</ValueSet>

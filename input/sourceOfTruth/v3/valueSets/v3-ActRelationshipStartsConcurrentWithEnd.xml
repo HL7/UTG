@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActRelationshipStartsConcurrentWithEnd"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActRelationshipStartsConcurrentWithEnd"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20453"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActRelationshipStartsConcurrentWithEnd"/>
+  <title value="ActRelationshipStartsConcurrentWithEnd"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="The source Act starts when the target act ends (i.e. if we say &quot;ActOne SCWE ActTwo&quot;, it means that ActOne starts when ActTwo ends, therefore ActOne is the source and ActTwo is the target)."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="SCWE"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActRelationshipSplitInclusiveWait"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActRelationshipSplitInclusiveWait"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.19962"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActRelationshipSplitInclusiveWait"/>
+  <title value="ActRelationshipSplitInclusiveWait"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A branch is executed as soon as its associated conditions permit. If the condition is false, the branch may be entered later, when the condition turns true. Inclusive branches are not suppressed and do not suppress other branches. Each waiting branch executes in parallel with the default join code wait (see below)."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipSplit"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="IW"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

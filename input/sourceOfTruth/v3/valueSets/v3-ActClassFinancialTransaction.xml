@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActClassFinancialTransaction"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActClassFinancialTransaction"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20263"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActClassFinancialTransaction"/>
+  <title value="ActClassFinancialTransaction"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A sub-class of Act representing any transaction between two accounts whose value is measured in monetary terms.&#xD;&#xA;&#xD;&#xA;In the &quot;intent&quot; mood, communicates a request for a transaction to be initiated, or communicates a transfer of value between two accounts.&#xD;&#xA;&#xD;&#xA;In the &quot;event&quot; mood, communicates the posting of a transaction to an account."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="XACT"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

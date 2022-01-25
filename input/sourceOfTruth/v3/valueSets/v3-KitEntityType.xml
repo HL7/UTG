@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-KitEntityType"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-KitEntityType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.16145"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="KitEntityType"/>
+  <title value="KitEntityType"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A container for a diverse collection of products intended to be used together for some purpose (e.g. Medicinal kits often contain a syringe, a needle and the injectable medication)."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-EntityCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="KIT"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

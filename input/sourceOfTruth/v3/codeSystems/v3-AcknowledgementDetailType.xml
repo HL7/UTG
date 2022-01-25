@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-AcknowledgementDetailType"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-AcknowledgementDetailType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1082"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="AcknowledgementDetailType"/>
+  <title value="AcknowledgementDetailType"/>
+  <status value="active"/>
+  <date value="2019-03-20"/>
+  <publisher value="HL7 International"/>
+  <contact>
+    <name value="HL7 Modeling &amp; Methodology Work Group"/>
+  </contact>
+  <description value="A code identifying the specific message to be provided.&#xD;&#xA;&#xD;&#xA;*Discussion:* A textual value may be specified as the print name, or for non-coded messages, as the original text.&#xD;&#xA;&#xD;&#xA;*Examples:* &#39;Required attribute xxx is missing&#39;, &#39;System will be unavailable March 19 from 0100 to 0300&#39;"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Specializes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Generalizes"/>
+    </extension>
+    <code value="Specializes"/>
+    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Generalizes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Specializes"/>
+    </extension>
+    <code value="Generalizes"/>
+    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <code value="internalId"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
+  <concept>
+    <code value="E"/>
+    <display value="Error"/>
+    <definition value="**Definition:**An issue which has prevented, or will prevent (unless a management is provided for the issue by the sender), the successful processing of an interaction. Response interactions which include an issue which is an Error are a &#39;rejection&#39;, indicating that the request was not successfully processed.&#xD;&#xA;&#xD;&#xA;**Example:**Unable to find specified patient."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19786"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="I"/>
+    <display value="Information"/>
+    <definition value="**Definition:** The message relates to an issue which has no bearing on the successful processing of the request. Information issues cannot be overridden by specifying a management.&#xD;&#xA;&#xD;&#xA;**Example:** A Patient&#39;s coverage will expire in 5 days."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19788"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="W"/>
+    <display value="Warning"/>
+    <definition value="**Definition:** The message relates to an issue which cannot prevent the successful processing of a request, but which could result in the processing not having the ideal or intended effect. Managing a warning issue is not required for successful processing, but will suppress the warning from being raised.&#xD;&#xA;&#xD;&#xA;**Example:**&#xD;&#xA;&#xD;&#xA;Unexpected additional repetitions of phone number have been ignored."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19787"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="ERR"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="20071"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="INFO"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="20073"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="WARN"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="20072"/>
+    </property>
+  </concept>
+</CodeSystem>

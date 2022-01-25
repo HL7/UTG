@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActClass"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActClass"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.11527"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActClass"/>
+  <title value="ActClass"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A code specifying the major type of Act that this Act-instance represents.&#xD;&#xA;&#xD;&#xA;*Constraints:* The classCode domain is a tightly controlled vocabulary, not an external or user-defined vocabulary.&#xD;&#xA;&#xD;&#xA;Every Act-instance must have a classCode. If the act class is not further specified, the most general Act.classCode (ACT) is used.&#xD;&#xA;&#xD;&#xA;The Act.classCode must be a generalization of the specific Act concept (e.g., as expressed in Act.code), in other words, the Act concepts conveyed in an Act must be specializations of the Act.classCode. Especially, Act.code is not a &quot;modifier&quot; that can alter the meaning of a class code. (See Act.code for contrast.)"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+    </include>
+  </compose>
+</ValueSet>

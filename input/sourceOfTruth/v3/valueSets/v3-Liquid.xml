@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-Liquid"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-Liquid"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.14413"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="Liquid"/>
+  <title value="Liquid"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A state of substance that is an intermediate one entered into as matter goes from solid to gas; liquids are also intermediate in that they have neither the orderliness of a crystal nor the randomness of a gas. (Note: This term should not be used to describe solutions, only pure chemicals in their liquid state.)"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_Liquid"/>
+      </filter>
+    </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+      <concept>
+        <code value="_Liquid"/>
+      </concept>
+    </exclude>
+  </compose>
+</ValueSet>

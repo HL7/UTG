@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActClassFinancialAdjudication"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActClassFinancialAdjudication"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20197"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActClassFinancialAdjudication"/>
+  <title value="ActClassFinancialAdjudication"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A transformation process where a requested invoice is transformed into an agreed invoice. Represents the adjudication processing of an invoice (claim). Adjudication results can be adjudicated as submitted, with adjustments or refused.&#xD;&#xA;&#xD;&#xA;Adjudication results comprise 2 components: the adjudication processing results and a restated (or adjudicated) invoice or claim"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="ADJUD"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

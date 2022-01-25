@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActClassCluster"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActClassCluster"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20204"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActClassCluster"/>
+  <title value="ActClassCluster"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A group of entries within a composition, topic or category that have a logical association with one another.&#xD;&#xA;&#xD;&#xA;The representation of a single observation or action might itself be multi-part. The data might need to be represented as a nested set of values, as a table, list, or as a time series. The Cluster class permits such aggregation within an entry for such compound data.&#xD;&#xA;&#xD;&#xA;Examples include &quot;Haematology investigations&quot; which might include two or more distinct batteries.&#xD;&#xA;&#xD;&#xA;A cluster may contain batteries and/or individual entries"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="CLUSTER"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

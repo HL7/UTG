@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActPatientTransportationModeCode"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActPatientTransportationModeCode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.19733"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActPatientTransportationModeCode"/>
+  <title value="ActPatientTransportationModeCode"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Definition: Characterizes how a patient was or will be transported to the site of a patient encounter.&#xD;&#xA;&#xD;&#xA;*Examples:* Via ambulance, via public transit, on foot."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_ActPatientTransportationModeCode"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

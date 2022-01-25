@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0485"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0485"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.310"/>
+  </identifier>
+  <version value="2.2.0"/>
+  <name value="ExtendedPriorityCodes"/>
+  <title value="extendedPriorityCodes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/"/>
+    </telecom>
+  </contact>
+  <description value="Code system of concepts describing the urgency of a request carried in an order.  Used in HL7 Version 2.x messaging in timing/quantity; in older versions of the Standard was used in the TQ datatype, but in later versions it is used in the TQ1 segment (which replaced the TQ datatype which has been withdrawn)."/>
+  <purpose value="Underlying Master Code System for V2 table 0485 (Extended Priority Codes)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0485"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
+  <concept id="4922">
+    <code value="S"/>
+    <display value="Stat"/>
+    <definition value="Stat"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="With highest priority"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="With highest priority"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="4923">
+    <code value="A"/>
+    <display value="ASAP"/>
+    <definition value="ASAP"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Fill after S orders"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Fill after S orders"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="4924">
+    <code value="R"/>
+    <display value="Routine"/>
+    <definition value="Routine"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Default"/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Default"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="4925">
+    <code value="P"/>
+    <display value="Preop"/>
+    <definition value="Preop"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="4926">
+    <code value="C"/>
+    <display value="Callback"/>
+    <definition value="Callback"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="4927">
+    <code value="T"/>
+    <display value="Timing critical"/>
+    <definition value="Timing critical"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="A request implying that it is critical to come as close as possible to the requested time, e.g., for a trough anti-microbial level."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="A request implying that it is critical to come as close as possible to the requested time, e.g., for a trough anti-microbial level."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="4928">
+    <code value="TS&lt;integer&gt;"/>
+    <display value="Timing critical within &lt;integer&gt; seconds."/>
+    <definition value="Timing critical within &lt;integer&gt; seconds."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Timing critical within &lt;integer&gt; seconds."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="D"/>
+    </property>
+  </concept>
+  <concept id="4929">
+    <code value="TM&lt;integer&gt;"/>
+    <display value="Timing critical within &lt;integer&gt; minutes."/>
+    <definition value="Timing critical within &lt;integer&gt; minutes."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Timing critical within &lt;integer&gt; minutes."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="D"/>
+    </property>
+  </concept>
+  <concept id="4930">
+    <code value="TH&lt;integer&gt;"/>
+    <display value="Timing critical within &lt;integer&gt; hours."/>
+    <definition value="Timing critical within &lt;integer&gt; hours."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Timing critical within &lt;integer&gt; hours."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="D"/>
+    </property>
+  </concept>
+  <concept id="4931">
+    <code value="TD&lt;integer&gt;"/>
+    <display value="Timing critical within &lt;integer&gt; days."/>
+    <definition value="Timing critical within &lt;integer&gt; days."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Timing critical within &lt;integer&gt; days."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="D"/>
+    </property>
+  </concept>
+  <concept id="4932">
+    <code value="TW&lt;integer&gt;"/>
+    <display value="Timing critical within &lt;integer&gt; weeks."/>
+    <definition value="Timing critical within &lt;integer&gt; weeks."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Timing critical within &lt;integer&gt; weeks."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="D"/>
+    </property>
+  </concept>
+  <concept id="4933">
+    <code value="TL&lt;integer&gt;"/>
+    <display value="Timing critical within &lt;integer&gt; months."/>
+    <definition value="Timing critical within &lt;integer&gt; months."/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="This is not a real code, but guidelines how to construct the codes."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Timing critical within &lt;integer&gt; months."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="D"/>
+    </property>
+  </concept>
+  <concept id="4934">
+    <code value="PRN"/>
+    <display value="As needed"/>
+    <definition value="As needed"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+</CodeSystem>

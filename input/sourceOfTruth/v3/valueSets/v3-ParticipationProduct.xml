@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ParticipationProduct"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ParticipationProduct"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20093"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ParticipationProduct"/>
+  <title value="ParticipationProduct"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A material target that is brought forth (produced) in the service (e.g., specimen in a specimen collection, access or drainage in a placement service, medication package in a dispense service). It doesn&#39;t matter whether the material produced had existence prior to the service, or whether it is created in the service (e.g., in supply services the product is taken from a stock)."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="PRD"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

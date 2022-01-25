@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActClassCorrelatedObservationSequences"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActClassCorrelatedObservationSequences"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20230"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActClassCorrelatedObservationSequences"/>
+  <title value="ActClassCorrelatedObservationSequences"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Container for Observation Sequences (Observations whose values are contained in LIST&lt;&gt;&#39;s) having values correlated with each other. Each contained Observation Sequence LIST&lt;&gt; must be the same length. Values in the LIST&lt;&gt;&#39;s are correlated based on index. E.g. the values in position 2 in all the LIST&lt;&gt;&#39;s are correlated. This is analogous to a table where each column is an Observation Sequence with a LIST&lt;&gt; of values, and each row in the table is a correlation between the columns. For example, a 12-lead ECG would contain 13 sequences: one sequence for time, and a sequence for each of the 12 leads."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="OBSCOR"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,4118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-Dentition"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-Dentition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.1080"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="Dentition"/>
+  <title value="Dentition"/>
+  <status value="active"/>
+  <date value="2019-03-20"/>
+  <publisher value="HL7"/>
+  <contact>
+    <name value="Health Level Seven, Inc."/>
+  </contact>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Specializes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Generalizes"/>
+    </extension>
+    <code value="Specializes"/>
+    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Generalizes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Specializes"/>
+    </extension>
+    <code value="Generalizes"/>
+    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <code value="internalId"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="notSelectable"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
+    <code value="ArtificialDentition"/>
+    <display value="Artificial dentition"/>
+    <definition value="Artificial dentition, artificial subsitutes for the natural dentition"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19523"/>
+    </property>
+    <concept>
+      <code value="TID10a"/>
+      <display value="10a"/>
+      <definition value="Maxillary left lateral incisor abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19673"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID10i"/>
+      <display value="10i"/>
+      <definition value="Maxillary left lateral incisor implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19533"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID10p"/>
+      <display value="10p"/>
+      <definition value="Maxillary left lateral incisor prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19596"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID10pd"/>
+      <display value="10pd"/>
+      <definition value="Maxillary left lateral incisor distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19597"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID10pm"/>
+      <display value="10pm"/>
+      <definition value="Maxillary left lateral incisor mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19595"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID11a"/>
+      <display value="11a"/>
+      <definition value="Maxillary left canine abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19674"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID11i"/>
+      <display value="11i"/>
+      <definition value="Maxillary left canine implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19534"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID11p"/>
+      <display value="11p"/>
+      <definition value="Maxillary left canine prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19599"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID11pd"/>
+      <display value="11pd"/>
+      <definition value="Maxillary left canine distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19600"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID11pm"/>
+      <display value="11pm"/>
+      <definition value="Maxillary left canine mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19598"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID12a"/>
+      <display value="12a"/>
+      <definition value="Maxillary left first premolar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19675"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID12i"/>
+      <display value="12i"/>
+      <definition value="Maxillary left first premolar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19535"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID12p"/>
+      <display value="12p"/>
+      <definition value="Maxillary left first premolar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19602"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID12pd"/>
+      <display value="12pd"/>
+      <definition value="Maxillary left first premolar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19603"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID12pm"/>
+      <display value="12pm"/>
+      <definition value="Maxillary left first premolar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19601"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID13a"/>
+      <display value="13a"/>
+      <definition value="Maxillary left second premolar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19676"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID13i"/>
+      <display value="13i"/>
+      <definition value="Maxillary left second premolar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19536"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID13p"/>
+      <display value="13p"/>
+      <definition value="Maxillary left second premolar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19605"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID13pd"/>
+      <display value="13pd"/>
+      <definition value="Maxillary left second premolar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19606"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID13pm"/>
+      <display value="13pm"/>
+      <definition value="Maxillary left second premolar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19604"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID14a"/>
+      <display value="14a"/>
+      <definition value="Maxillary left first molar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19677"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID14i"/>
+      <display value="14i"/>
+      <definition value="Maxillary left first molar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19537"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID14p"/>
+      <display value="14p"/>
+      <definition value="Maxillary left first molar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19608"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID14pd"/>
+      <display value="14pd"/>
+      <definition value="Maxillary left first molar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19609"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID14pm"/>
+      <display value="14pm"/>
+      <definition value="Maxillary left first molar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19607"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID15a"/>
+      <display value="15a"/>
+      <definition value="Maxillary left second molar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19678"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID15i"/>
+      <display value="15i"/>
+      <definition value="Maxillary left second molar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19538"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID15p"/>
+      <display value="15p"/>
+      <definition value="Maxillary left second molar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19611"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID15pd"/>
+      <display value="15pd"/>
+      <definition value="Maxillary left second molar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19612"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID15pm"/>
+      <display value="15pm"/>
+      <definition value="Maxillary left second molar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19610"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID16a"/>
+      <display value="16a"/>
+      <definition value="Maxillary left third molar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19679"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID16i"/>
+      <display value="16i"/>
+      <definition value="Maxillary left third molar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19539"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID16p"/>
+      <display value="16p"/>
+      <definition value="Maxillary left third molar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19614"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID16pd"/>
+      <display value="16pd"/>
+      <definition value="Maxillary left third molar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19615"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID16pm"/>
+      <display value="16pm"/>
+      <definition value="Maxillary left third molar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19613"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17a"/>
+      <display value="17a"/>
+      <definition value="Mandibular left third molar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19680"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17ad"/>
+      <display value="17ad"/>
+      <definition value="Mandibular left third molar abutment distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19682"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17am"/>
+      <display value="17am"/>
+      <definition value="Mandibular left third molar abutment mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19681"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17i"/>
+      <display value="17i"/>
+      <definition value="Mandibular left third molar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19540"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17id"/>
+      <display value="17id"/>
+      <definition value="Mandibular left third molar implant distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19542"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17im"/>
+      <display value="17im"/>
+      <definition value="Mandibular left third molar implant mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19541"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17p"/>
+      <display value="17p"/>
+      <definition value="Mandibular left third molar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19617"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17pd"/>
+      <display value="17pd"/>
+      <definition value="Mandibular left third molar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19616"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17pm"/>
+      <display value="17pm"/>
+      <definition value="Mandibular left third molar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19618"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18a"/>
+      <display value="18a"/>
+      <definition value="Mandibular left second molar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19683"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18ad"/>
+      <display value="18ad"/>
+      <definition value="Mandibular left second molar abutment distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19685"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18am"/>
+      <display value="18am"/>
+      <definition value="Mandibular left second molar abutment mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19684"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18i"/>
+      <display value="18i"/>
+      <definition value="Mandibular left second molar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19543"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18id"/>
+      <display value="18id"/>
+      <definition value="Mandibular left second molar implant distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19545"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18im"/>
+      <display value="18im"/>
+      <definition value="Mandibular left second molar implant mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19544"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18p"/>
+      <display value="18p"/>
+      <definition value="Mandibular left second molar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19620"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18pd"/>
+      <display value="18pd"/>
+      <definition value="Mandibular left second molar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19619"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18pm"/>
+      <display value="18pm"/>
+      <definition value="Mandibular left second molar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19621"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19a"/>
+      <display value="19a"/>
+      <definition value="Mandibular left first molar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19686"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19ad"/>
+      <display value="19ad"/>
+      <definition value="Mandibular left first molar abutment distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19688"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19am"/>
+      <display value="19am"/>
+      <definition value="Mandibular left first molar abutment mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19687"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19i"/>
+      <display value="19i"/>
+      <definition value="Mandibular left first molar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19546"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19id"/>
+      <display value="19id"/>
+      <definition value="Mandibular left first molar implant distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19548"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19im"/>
+      <display value="19im"/>
+      <definition value="Mandibular left first molar implant mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19547"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19p"/>
+      <display value="19p"/>
+      <definition value="Mandibular left first molar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19623"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19pd"/>
+      <display value="19pd"/>
+      <definition value="Mandibular left first molar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19622"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19pm"/>
+      <display value="19pm"/>
+      <definition value="Mandibular left first molar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19624"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID1a"/>
+      <display value="1a"/>
+      <definition value="Maxillary right third molar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19664"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID1i"/>
+      <display value="1i"/>
+      <definition value="Maxillary right third molar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19524"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID1p"/>
+      <display value="1p"/>
+      <definition value="Maxillary right third molar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19569"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID1pd"/>
+      <display value="1pd"/>
+      <definition value="Maxillary right third molar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19568"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID1pm"/>
+      <display value="1pm"/>
+      <definition value="Maxillary right third molar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19570"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID20a"/>
+      <display value="20a"/>
+      <definition value="Mandibular left second premolar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19689"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID20i"/>
+      <display value="20i"/>
+      <definition value="Mandibular left second premolar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19549"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID20p"/>
+      <display value="20p"/>
+      <definition value="Mandibular left second premolar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19626"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID20pd"/>
+      <display value="20pd"/>
+      <definition value="Mandibular left second premolar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19625"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID20pm"/>
+      <display value="20pm"/>
+      <definition value="Mandibular left second premolar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19627"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID21a"/>
+      <display value="21a"/>
+      <definition value="Mandibular left first premolar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19690"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID21i"/>
+      <display value="21i"/>
+      <definition value="Mandibular left first premolar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19550"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID21p"/>
+      <display value="21p"/>
+      <definition value="Mandibular left first premolar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19629"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID21pd"/>
+      <display value="21pd"/>
+      <definition value="Mandibular left first premolar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19628"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID21pm"/>
+      <display value="21pm"/>
+      <definition value="Mandibular left first premolar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19630"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID22a"/>
+      <display value="22a"/>
+      <definition value="Mandibular left canine abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19691"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID22i"/>
+      <display value="22i"/>
+      <definition value="Mandibular left canine implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19551"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID22p"/>
+      <display value="22p"/>
+      <definition value="Mandibular left canine prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19632"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID22pd"/>
+      <display value="22pd"/>
+      <definition value="Mandibular left canine distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19631"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID22pm"/>
+      <display value="22pm"/>
+      <definition value="Mandibular left canine mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19633"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID23a"/>
+      <display value="23a"/>
+      <definition value="Mandibular left lateral incisor abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19692"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID23i"/>
+      <display value="23i"/>
+      <definition value="Mandibular left lateral incisor implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19552"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID23p"/>
+      <display value="23p"/>
+      <definition value="Mandibular left lateral incisor prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19635"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID23pd"/>
+      <display value="23pd"/>
+      <definition value="Mandibular left lateral incisor distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19634"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID23pm"/>
+      <display value="23pm"/>
+      <definition value="Mandibular left lateral incisor mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19636"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID24a"/>
+      <display value="24a"/>
+      <definition value="Mandibular left central incisor abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19693"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID24i"/>
+      <display value="24i"/>
+      <definition value="Mandibular left central incisor implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19553"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID24p"/>
+      <display value="24p"/>
+      <definition value="Mandibular left central incisor prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19638"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID24pd"/>
+      <display value="24pd"/>
+      <definition value="Mandibular left central incisor distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19637"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID24pm"/>
+      <display value="24pm"/>
+      <definition value="Mandibular left central incisor mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19639"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID25a"/>
+      <display value="25a"/>
+      <definition value="Mandibular right central incisor abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19694"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID25i"/>
+      <display value="25i"/>
+      <definition value="Mandibular right central incisor implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19554"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID25p"/>
+      <display value="25p"/>
+      <definition value="Mandibular right central incisor prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19641"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID25pd"/>
+      <display value="25pd"/>
+      <definition value="Mandibular right central incisor distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19642"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID25pm"/>
+      <display value="25pm"/>
+      <definition value="Mandibular right central incisor mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19640"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID26a"/>
+      <display value="26a"/>
+      <definition value="Mandibular right lateral incisor abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19695"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID26i"/>
+      <display value="26i"/>
+      <definition value="Mandibular right lateral incisor implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19555"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID26p"/>
+      <display value="26p"/>
+      <definition value="Mandibular right lateral incisor prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19644"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID26pd"/>
+      <display value="26pd"/>
+      <definition value="Mandibular right lateral incisor distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19645"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID26pm"/>
+      <display value="26pm"/>
+      <definition value="Mandibular right lateral incisor mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19643"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID27a"/>
+      <display value="27a"/>
+      <definition value="Mandibular right canine abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19696"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID27i"/>
+      <display value="27i"/>
+      <definition value="Mandibular right canine implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19556"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID27p"/>
+      <display value="27p"/>
+      <definition value="Mandibular right canine prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19647"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID27pd"/>
+      <display value="27pd"/>
+      <definition value="Mandibular right canine distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19648"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID27pm"/>
+      <display value="27pm"/>
+      <definition value="Mandibular right canine mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19646"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID28a"/>
+      <display value="28a"/>
+      <definition value="Mandibular right first premolar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19697"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID28i"/>
+      <display value="28i"/>
+      <definition value="Mandibular right first premolar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19557"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID28p"/>
+      <display value="28p"/>
+      <definition value="Mandibular right first premolar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19650"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID28pd"/>
+      <display value="28pd"/>
+      <definition value="Mandibular right first premolar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19651"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID28pm"/>
+      <display value="28pm"/>
+      <definition value="Mandibular right first premolar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19649"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID29a"/>
+      <display value="29a"/>
+      <definition value="Mandibular right second premolar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19698"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID29i"/>
+      <display value="29i"/>
+      <definition value="Mandibular right second premolar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19558"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID29p"/>
+      <display value="29p"/>
+      <definition value="Mandibular right second premolar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19653"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID29pd"/>
+      <display value="29pd"/>
+      <definition value="Mandibular right second premolar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19654"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID29pm"/>
+      <display value="29pm"/>
+      <definition value="Mandibular right second premolar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19652"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID2a"/>
+      <display value="2a"/>
+      <definition value="Maxillary right second molar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19665"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID2i"/>
+      <display value="2i"/>
+      <definition value="Maxillary right second molar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19525"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID2p"/>
+      <display value="2p"/>
+      <definition value="Maxillary right second molar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19572"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID2pd"/>
+      <display value="2pd"/>
+      <definition value="Maxillary right second molar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19571"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID2pm"/>
+      <display value="2pm"/>
+      <definition value="Maxillary right second molar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19573"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30a"/>
+      <display value="30a"/>
+      <definition value="Mandibular right first molar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19699"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30ad"/>
+      <display value="30ad"/>
+      <definition value="Mandibular right first molar abutment distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19701"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30am"/>
+      <display value="30am"/>
+      <definition value="Mandibular right first molar abutment mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19700"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30i"/>
+      <display value="30i"/>
+      <definition value="Mandibular right first molar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19559"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30id"/>
+      <display value="30id"/>
+      <definition value="Mandibular right first molar implant distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19561"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30im"/>
+      <display value="30im"/>
+      <definition value="Mandibular right first molar implant mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19560"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30p"/>
+      <display value="30p"/>
+      <definition value="Mandibular right first molar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19656"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30pd"/>
+      <display value="30pd"/>
+      <definition value="Mandibular right first molar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19657"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30pm"/>
+      <display value="30pm"/>
+      <definition value="Mandibular right first molar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19655"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31a"/>
+      <display value="31a"/>
+      <definition value="Mandibular right second molar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19702"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31ad"/>
+      <display value="31ad"/>
+      <definition value="Mandibular right second molar abutment distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19704"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31am"/>
+      <display value="31am"/>
+      <definition value="Mandibular right second molar abutment mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19703"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31i"/>
+      <display value="31i"/>
+      <definition value="Mandibular right second molar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19562"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31id"/>
+      <display value="31id"/>
+      <definition value="Mandibular right second molar implant distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19564"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31im"/>
+      <display value="31im"/>
+      <definition value="Mandibular right second molar implant mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19563"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31p"/>
+      <display value="31p"/>
+      <definition value="Mandibular right second molar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19659"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31pd"/>
+      <display value="31pd"/>
+      <definition value="Mandibular right second molar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19660"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31pm"/>
+      <display value="31pm"/>
+      <definition value="Mandibular right second molar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19658"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32a"/>
+      <display value="32a"/>
+      <definition value="Mandibular right third molar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19705"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32ad"/>
+      <display value="32ad"/>
+      <definition value="Mandibular right third molar abutment distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19707"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32am"/>
+      <display value="32am"/>
+      <definition value="Mandibular right third molar abutment mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19706"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32i"/>
+      <display value="32i"/>
+      <definition value="Mandibular right third molar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19565"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32id"/>
+      <display value="32id"/>
+      <definition value="Mandibular right third molar implant distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19567"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32im"/>
+      <display value="32im"/>
+      <definition value="Mandibular right third molar implant mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19566"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32p"/>
+      <display value="32p"/>
+      <definition value="Mandibular right third molar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19662"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32pd"/>
+      <display value="32pd"/>
+      <definition value="Mandibular right third molar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19663"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32pm"/>
+      <display value="32pm"/>
+      <definition value="Mandibular right third molar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19661"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID3a"/>
+      <display value="3a"/>
+      <definition value="Maxillary right first molar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19666"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID3i"/>
+      <display value="3i"/>
+      <definition value="Maxillary right first molar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19526"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID3p"/>
+      <display value="3p"/>
+      <definition value="Maxillary right first molar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19575"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID3pd"/>
+      <display value="3pd"/>
+      <definition value="Maxillary right first molar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19574"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID3pm"/>
+      <display value="3pm"/>
+      <definition value="Maxillary right first molar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19576"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID4a"/>
+      <display value="4a"/>
+      <definition value="Maxillary right second premolar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19667"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID4i"/>
+      <display value="4i"/>
+      <definition value="Maxillary right second premolar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19527"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID4p"/>
+      <display value="4p"/>
+      <definition value="Maxillary right second premolar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19578"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID4pd"/>
+      <display value="4pd"/>
+      <definition value="Maxillary right second premolar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19577"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID4pm"/>
+      <display value="4pm"/>
+      <definition value="Maxillary right second premolar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19579"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID5a"/>
+      <display value="5a"/>
+      <definition value="Maxillary right first premolar abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19668"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID5i"/>
+      <display value="5i"/>
+      <definition value="Maxillary right first premolar implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19528"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID5p"/>
+      <display value="5p"/>
+      <definition value="Maxillary right first premolar prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19581"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID5pd"/>
+      <display value="5pd"/>
+      <definition value="Maxillary right first premolar distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19580"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID5pm"/>
+      <display value="5pm"/>
+      <definition value="Maxillary right first premolar mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19582"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID6a"/>
+      <display value="6a"/>
+      <definition value="Maxillary right canine abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19669"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID6i"/>
+      <display value="6i"/>
+      <definition value="Maxillary right canine implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19529"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID6p"/>
+      <display value="6p"/>
+      <definition value="Maxillary right canine prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19584"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID6pd"/>
+      <display value="6pd"/>
+      <definition value="Maxillary right canine distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19583"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID6pm"/>
+      <display value="6pm"/>
+      <definition value="Maxillary right canine mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19585"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID7a"/>
+      <display value="7a"/>
+      <definition value="Maxillary right lateral incisor abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19670"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID7i"/>
+      <display value="7i"/>
+      <definition value="Maxillary right lateral incisor implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19530"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID7p"/>
+      <display value="7p"/>
+      <definition value="Maxillary right lateral incisor prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19587"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID7pd"/>
+      <display value="7pd"/>
+      <definition value="Maxillary right lateral incisor distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19586"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID7pm"/>
+      <display value="7pm"/>
+      <definition value="Maxillary right lateral incisor mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19588"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID8a"/>
+      <display value="8a"/>
+      <definition value="Maxillary right central incisor abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19671"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID8i"/>
+      <display value="8i"/>
+      <definition value="Maxillary right central incisor implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19531"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID8p"/>
+      <display value="8p"/>
+      <definition value="Maxillary right central incisor prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19590"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID8pd"/>
+      <display value="8pd"/>
+      <definition value="Maxillary right central incisor distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19589"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID8pm"/>
+      <display value="8pm"/>
+      <definition value="Maxillary right central incisor mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19591"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID9a"/>
+      <display value="9a"/>
+      <definition value="Maxillary left central incisor abutment"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19672"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID9i"/>
+      <display value="9i"/>
+      <definition value="Maxillary left central incisor implant"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19532"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID9p"/>
+      <display value="9p"/>
+      <definition value="Maxillary left central incisor prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19593"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID9pd"/>
+      <display value="9pd"/>
+      <definition value="Maxillary left central incisor distal prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19594"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID9pm"/>
+      <display value="9pm"/>
+      <definition value="Maxillary left central incisor mesial prosthesis"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19592"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="PermanentDentition"/>
+    <display value="Permanent dentition"/>
+    <definition value="Permanent dentition, the natural teeth of adulthood that replace or are added to the deciduous teeth"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19404"/>
+    </property>
+    <concept>
+      <code value="TID1"/>
+      <display value="1"/>
+      <definition value="Maxillary right third molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19405"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID10"/>
+      <display value="10"/>
+      <definition value="Maxillary left lateral incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19414"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID11"/>
+      <display value="11"/>
+      <definition value="Maxillary left canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19415"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID12"/>
+      <display value="12"/>
+      <definition value="Maxillary left first premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19416"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID13"/>
+      <display value="13"/>
+      <definition value="Maxillary left second premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19417"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID14"/>
+      <display value="14"/>
+      <definition value="Maxillary left first molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19418"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID15"/>
+      <display value="15"/>
+      <definition value="Maxillary left second molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19419"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID16"/>
+      <display value="16"/>
+      <definition value="Maxillary left third molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19420"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17"/>
+      <display value="17"/>
+      <definition value="Mandibular left third molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19421"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17d"/>
+      <display value="17d"/>
+      <definition value="Mandibular left third molar distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19423"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17m"/>
+      <display value="17m"/>
+      <definition value="Mandibular left third molar mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19422"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18"/>
+      <display value="18"/>
+      <definition value="Mandibular left second molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19424"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18d"/>
+      <display value="18d"/>
+      <definition value="Mandibular left second molar distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19426"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18m"/>
+      <display value="18m"/>
+      <definition value="Mandibular left second molar mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19425"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19"/>
+      <display value="19"/>
+      <definition value="Mandibular left first molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19427"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19d"/>
+      <display value="19d"/>
+      <definition value="Mandibular left first molar distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19429"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19m"/>
+      <display value="19m"/>
+      <definition value="Mandibular left first molar mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19428"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID2"/>
+      <display value="2"/>
+      <definition value="Maxillary right second molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19406"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID20"/>
+      <display value="20"/>
+      <definition value="Mandibular left second premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19430"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID21"/>
+      <display value="21"/>
+      <definition value="Mandibular left first premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19431"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID22"/>
+      <display value="22"/>
+      <definition value="Mandibular left canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19432"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID23"/>
+      <display value="23"/>
+      <definition value="Mandibular left lateral incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19433"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID24"/>
+      <display value="24"/>
+      <definition value="Mandibular left central incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19434"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID25"/>
+      <display value="25"/>
+      <definition value="Mandibular right central incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19435"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID26"/>
+      <display value="26"/>
+      <definition value="Mandibular right lateral incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19436"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID27"/>
+      <display value="27"/>
+      <definition value="Mandibular right canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19437"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID28"/>
+      <display value="28"/>
+      <definition value="Mandibular right first premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19438"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID29"/>
+      <display value="29"/>
+      <definition value="Mandibular right second premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19439"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID3"/>
+      <display value="3"/>
+      <definition value="Maxillary right first molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19407"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30"/>
+      <display value="30"/>
+      <definition value="Mandibular right first molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19440"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30d"/>
+      <display value="30d"/>
+      <definition value="Mandibular right first molar distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19442"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30m"/>
+      <display value="30m"/>
+      <definition value="Mandibular right first molar mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19441"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31"/>
+      <display value="31"/>
+      <definition value="Mandibular right second molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19443"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31d"/>
+      <display value="31d"/>
+      <definition value="Mandibular right second molar distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19445"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31m"/>
+      <display value="31m"/>
+      <definition value="Mandibular right second molar mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19444"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32"/>
+      <display value="32"/>
+      <definition value="Mandibular right third molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19446"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32d"/>
+      <display value="32d"/>
+      <definition value="Mandibular right third molar distal hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19448"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32m"/>
+      <display value="32m"/>
+      <definition value="Mandibular right third molar mesial hemisection"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19447"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID4"/>
+      <display value="4"/>
+      <definition value="Maxillary right second premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19408"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID5"/>
+      <display value="5"/>
+      <definition value="Maxillary right first premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19409"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID6"/>
+      <display value="6"/>
+      <definition value="Maxillary right canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19410"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID7"/>
+      <display value="7"/>
+      <definition value="Maxillary right lateral incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19411"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID8"/>
+      <display value="8"/>
+      <definition value="Maxillary right central incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19412"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID9"/>
+      <display value="9"/>
+      <definition value="Maxillary left central incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19413"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="PrimaryDentition"/>
+    <display value="Primary dentition"/>
+    <definition value="Primary dentition, the first teeth to errupt and usually replaced with permanent dentition"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19502"/>
+    </property>
+    <concept>
+      <code value="TIDA"/>
+      <display value="A"/>
+      <definition value="Maxillary right second primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19503"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDB"/>
+      <display value="B"/>
+      <definition value="Maxillary right first primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19504"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDC"/>
+      <display value="C"/>
+      <definition value="Maxillary right primary canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19505"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDD"/>
+      <display value="D"/>
+      <definition value="Maxillary right lateral primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19506"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDE"/>
+      <display value="E"/>
+      <definition value="Maxillary right central primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19507"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDF"/>
+      <display value="F"/>
+      <definition value="Maxillary left central primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19508"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDG"/>
+      <display value="G"/>
+      <definition value="Maxillary left lateral primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19509"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDH"/>
+      <display value="H"/>
+      <definition value="Maxillary left primary canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19510"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDI"/>
+      <display value="I"/>
+      <definition value="Maxillary left first primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19511"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDJ"/>
+      <display value="J"/>
+      <definition value="Maxillary left second primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19512"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDK"/>
+      <display value="K"/>
+      <definition value="Mandibular left second primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19513"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDL"/>
+      <display value="L"/>
+      <definition value="Mandibular left first primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19514"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDM"/>
+      <display value="M"/>
+      <definition value="Mandibular left primary canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19515"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDN"/>
+      <display value="N"/>
+      <definition value="Mandibular left lateral primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19516"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDO"/>
+      <display value="O"/>
+      <definition value="Mandibular left central primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19517"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDP"/>
+      <display value="P"/>
+      <definition value="Mandibular right central primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19518"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDQ"/>
+      <display value="Q"/>
+      <definition value="Mandibular right lateral primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19519"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDR"/>
+      <display value="R"/>
+      <definition value="Mandibular right primary canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19520"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDS"/>
+      <display value="S"/>
+      <definition value="Mandibular right first primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19521"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDT"/>
+      <display value="T"/>
+      <definition value="Mandibular right second primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19522"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="SupernumeraryTooth"/>
+    <display value="Supernumerary Tooth"/>
+    <definition value="Supernumerary tooth, any tooth in addition to the normal permanent and primary dentition"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="19449"/>
+    </property>
+    <concept>
+      <code value="TID10s"/>
+      <display value="10s"/>
+      <definition value="Supernumerary maxillary left lateral incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19459"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID11s"/>
+      <display value="11s"/>
+      <definition value="Supernumerary maxillary left canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19460"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID12s"/>
+      <display value="12s"/>
+      <definition value="Supernumerary maxillary left first premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19461"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID13s"/>
+      <display value="13s"/>
+      <definition value="Supernumerary maxillary left second premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19462"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID14s"/>
+      <display value="14s"/>
+      <definition value="Supernumerary maxillary left first molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19463"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID15s"/>
+      <display value="15s"/>
+      <definition value="Supernumerary maxillary left second molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19464"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID16s"/>
+      <display value="16s"/>
+      <definition value="Supernumerary maxillary left third molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19465"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID17s"/>
+      <display value="17s"/>
+      <definition value="Supernumerary mandibular left third molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19466"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID18s"/>
+      <display value="18s"/>
+      <definition value="Supernumerary mandibular left second molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19467"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID19s"/>
+      <display value="19s"/>
+      <definition value="Supernumerary mandibular left first molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19468"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID1s"/>
+      <display value="1s"/>
+      <definition value="Supernumerary maxillary right third molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19450"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID20s"/>
+      <display value="20s"/>
+      <definition value="Supernumerary mandibular left second premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19469"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID21s"/>
+      <display value="21s"/>
+      <definition value="Supernumerary mandibular left first premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19470"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID22s"/>
+      <display value="22s"/>
+      <definition value="Supernumerary mandibular left canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19471"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID23s"/>
+      <display value="23s"/>
+      <definition value="Supernumerary mandibular left lateral incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19472"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID24s"/>
+      <display value="24s"/>
+      <definition value="Supernumerary mandibular left central incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19473"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID25s"/>
+      <display value="25s"/>
+      <definition value="Supernumerary mandibular right central incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19474"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID26s"/>
+      <display value="26s"/>
+      <definition value="Supernumerary mandibular right lateral incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19475"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID27s"/>
+      <display value="27s"/>
+      <definition value="Supernumerary mandibular right canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19476"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID28s"/>
+      <display value="28s"/>
+      <definition value="Supernumerary mandibular right first premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19477"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID29s"/>
+      <display value="29s"/>
+      <definition value="Supernumerary mandibular right second premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19478"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID2s"/>
+      <display value="2s"/>
+      <definition value="Supernumerary maxillary right second molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19451"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID30s"/>
+      <display value="30s"/>
+      <definition value="Supernumerary mandibular right first molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19479"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID31s"/>
+      <display value="31s"/>
+      <definition value="Supernumerary mandibular right second molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19480"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID32s"/>
+      <display value="32s"/>
+      <definition value="Supernumerary mandibular right third molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19481"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID3s"/>
+      <display value="3s"/>
+      <definition value="Supernumerary maxillary right first molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19452"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID4s"/>
+      <display value="4s"/>
+      <definition value="Supernumerary maxillary right second premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19453"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID5s"/>
+      <display value="5s"/>
+      <definition value="Supernumerary maxillary right first premolar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19454"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID6s"/>
+      <display value="6s"/>
+      <definition value="Supernumerary maxillary right canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19455"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID7s"/>
+      <display value="7s"/>
+      <definition value="Supernumerary maxillary right lateral incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19456"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID8s"/>
+      <display value="8s"/>
+      <definition value="Supernumerary maxillary right central incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19457"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TID9s"/>
+      <display value="9s"/>
+      <definition value="Supernumerary maxillary left central incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19458"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDAs"/>
+      <display value="As"/>
+      <definition value="Supernumerary maxillary right second primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19482"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDBs"/>
+      <display value="Bs"/>
+      <definition value="Supernumerary maxillary right first primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19483"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDCs"/>
+      <display value="Cs"/>
+      <definition value="Supernumerary maxillary right primary canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19484"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDDs"/>
+      <display value="Ds"/>
+      <definition value="Supernumerary maxillary right lateral primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19485"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDEs"/>
+      <display value="Es"/>
+      <definition value="Supernumerary maxillary right central primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19486"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDFs"/>
+      <display value="Fs"/>
+      <definition value="Supernumerary maxillary left central primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19487"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDGs"/>
+      <display value="Gs"/>
+      <definition value="Supernumerary maxillary left lateral primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19488"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDHs"/>
+      <display value="Hs"/>
+      <definition value="Supernumerary maxillary left primary canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19489"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDIs"/>
+      <display value="Is"/>
+      <definition value="Supernumerary maxillary left first primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19490"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDJs"/>
+      <display value="Js"/>
+      <definition value="Supernumerary maxillary left second primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19491"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDKs"/>
+      <display value="Ks"/>
+      <definition value="Supernumerary mandibular left second primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19492"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDLs"/>
+      <display value="Ls"/>
+      <definition value="Supernumerary mandibular left first primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19493"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDMs"/>
+      <display value="Ms"/>
+      <definition value="Supernumerary mandibular left primary canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19494"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDNs"/>
+      <display value="Ns"/>
+      <definition value="Supernumerary mandibular left lateral primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19495"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDOs"/>
+      <display value="Os"/>
+      <definition value="Supernumerary mandibular left central primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19496"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDPs"/>
+      <display value="Ps"/>
+      <definition value="Supernumerary mandibular right central primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19497"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDQs"/>
+      <display value="Qs"/>
+      <definition value="Supernumerary mandibular right lateral primary incisor"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19498"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDRs"/>
+      <display value="Rs"/>
+      <definition value="Supernumerary mandibular right primary canine"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19499"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDSs"/>
+      <display value="Ss"/>
+      <definition value="Supernumerary mandibular right first primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19500"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="TIDTs"/>
+      <display value="Ts"/>
+      <definition value="Supernumerary mandibular right second primary molar"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="19501"/>
+      </property>
+    </concept>
+  </concept>
+  <concept>
+    <code value="_ArtificialDentition"/>
+    <display value="ArtificialDentition"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21296"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="_Dentition"/>
+    <display value="Dentition"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21297"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="_PermanentDentition"/>
+    <display value="PermanentDentition"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21298"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="_PrimaryDentition"/>
+    <display value="PrimaryDentition"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21299"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="_SupernumeraryTooth"/>
+    <display value="SupernumeraryTooth"/>
+    <property>
+      <code value="notSelectable"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="retired"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="21300"/>
+    </property>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-xParticipationEntVrf"/>
+  <language value="en"/>
+  <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-assocConceptProp">
+    <extension url="name">
+      <valueString value="Name:Act:participation:Participation"/>
+    </extension>
+    <extension url="value">
+      <valueString value="recorder-validator"/>
+    </extension>
+  </extension>
+  <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-assocConceptProp">
+    <extension url="name">
+      <valueString value="Name:Role:participation:Participation"/>
+    </extension>
+    <extension url="value">
+      <valueString value="recording"/>
+    </extension>
+  </extension>
+  <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-assocConceptProp">
+    <extension url="name">
+      <valueString value="Sort:Act:participation:Participation"/>
+    </extension>
+    <extension url="value">
+      <valueString value="EBB______"/>
+    </extension>
+  </extension>
+  <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-assocConceptProp">
+    <extension url="name">
+      <valueString value="Sort:Role:participation:Participation"/>
+    </extension>
+    <extension url="value">
+      <valueString value="EBB______"/>
+    </extension>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/v3-xParticipationEntVrf"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.19588"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="XParticipationEntVrf"/>
+  <title value="x_ParticipationEntVrf"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A person that contributed to recording or validating the act."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <concept>
+        <code value="ENT"/>
+      </concept>
+      <concept>
+        <code value="VRF"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

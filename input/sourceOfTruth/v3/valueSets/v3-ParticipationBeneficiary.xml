@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ParticipationBeneficiary"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ParticipationBeneficiary"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20067"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ParticipationBeneficiary"/>
+  <title value="ParticipationBeneficiary"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Target on behalf of whom the service happens, but that is not necessarily present in the service. Can occur together with direct target to indicate that a target is both, as in the case where the patient is the indirect beneficiary of a service rendered to a family member, e.g. counseling or given home care instructions. This concept includes a participant, such as a covered party, who derives benefits from a service act covered by a coverage act.&#xD;&#xA;&#xD;&#xA;Note that the semantic role of the intended recipient who benefits from the happening denoted by the verb in the clause. Thus, a patient who has no coverage under a policy or program may be a beneficiary of a health service while not being the beneficiary of coverage for that service."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="BEN"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

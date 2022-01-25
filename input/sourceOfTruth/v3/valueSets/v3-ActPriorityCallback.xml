@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActPriorityCallback"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActPriorityCallback"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.16871"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActPriorityCallback"/>
+  <title value="ActPriorityCallback"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Filler should contact the placer (or target) to schedule the service. (Was &quot;C&quot; in HL7 version 2.3&#39;s TQ-priority component.)"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActPriority"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="CS"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

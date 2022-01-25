@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActDetectedIssueCode"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActDetectedIssueCode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.16124"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActDetectedIssueCode"/>
+  <title value="ActDetectedIssueCode"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Identifies types of detected issues for Act class &quot;ALRT&quot;"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="ISSUE"/>
+      </filter>
+    </include>
+    <include>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActSuppliedItemDetectedIssueCode"/>
+    </include>
+    <include>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActAdministrativeDetectedIssueCode"/>
+    </include>
+  </compose>
+</ValueSet>

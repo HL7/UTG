@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-EntityClass"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-EntityClass"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.41"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="EntityClass"/>
+  <title value="EntityClass"/>
+  <status value="active"/>
+  <date value="2019-03-20"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value="Classifies the Entity class and all of its subclasses. The terminology is hierarchical. At the top is this HL7-defined domain of high-level categories (such as represented by the Entity subclasses). Each of these terms must be harmonized and is specializable. The value sets beneath are drawn from multiple, frequently external, domains that reflect much more fine-grained typing."/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Specializes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Generalizes"/>
+    </extension>
+    <code value="Specializes"/>
+    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Generalizes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Specializes"/>
+    </extension>
+    <code value="Generalizes"/>
+    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <code value="internalId"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="Name:Class"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Class"/>
+    <description value="The formal name for the class clone under this code"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="appliesTo"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-applies-to"/>
+    <description value="Haven&#39;t a clue!"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
+    <type value="code"/>
+  </property>
+  <concept>
+    <code value="ENT"/>
+    <display value="entity"/>
+    <definition value="Corresponds to the Entity class"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="13922"/>
+    </property>
+    <property>
+      <code value="Name:Class"/>
+      <valueCode value="Entity"/>
+    </property>
+    <concept>
+      <code value="HCE"/>
+      <display value="health chart entity"/>
+      <definition value="A health chart included to serve as a document receiving entity in the management of medical records."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="16755"/>
+      </property>
+      <property>
+        <code value="Name:Class"/>
+        <valueCode value="HealthChart"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="LIV"/>
+      <display value="living subject"/>
+      <definition value="Anything that essentially has the property of life, independent of current state (a dead human corpse is still essentially a living subject)."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10884"/>
+      </property>
+      <property>
+        <code value="Name:Class"/>
+        <valueCode value="LivingSubject"/>
+      </property>
+      <concept>
+        <code value="NLIV"/>
+        <display value="non-person living subject"/>
+        <definition value="A subtype of living subject that includes all living things except the species Homo Sapiens."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="11621"/>
+        </property>
+        <property>
+          <code value="Name:Class"/>
+          <valueCode value="NonPersonLivingSubject"/>
+        </property>
+        <concept>
+          <code value="ANM"/>
+          <display value="animal"/>
+          <definition value="A living subject from the animal kingdom."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="10885"/>
+          </property>
+          <property>
+            <code value="Name:Class"/>
+            <valueCode value="Animal"/>
+          </property>
+        </concept>
+        <concept>
+          <code value="MIC"/>
+          <display value="microorganism"/>
+          <definition value="All single celled living organisms including protozoa, bacteria, yeast, viruses, etc."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="14028"/>
+          </property>
+          <property>
+            <code value="Name:Class"/>
+            <valueCode value="Microorganism"/>
+          </property>
+        </concept>
+        <concept>
+          <code value="PLNT"/>
+          <display value="plant"/>
+          <definition value="A living subject from the order of plants."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="10886"/>
+          </property>
+          <property>
+            <code value="Name:Class"/>
+            <valueCode value="Plant"/>
+          </property>
+        </concept>
+      </concept>
+      <concept>
+        <code value="PSN"/>
+        <display value="person"/>
+        <definition value="A living subject of the species homo sapiens."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10887"/>
+        </property>
+        <property>
+          <code value="Name:Class"/>
+          <valueCode value="Person"/>
+        </property>
+      </concept>
+    </concept>
+    <concept>
+      <code value="MAT"/>
+      <display value="material"/>
+      <definition value="Any thing that has extension in space and mass, may be of living or non-living origin."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10883"/>
+      </property>
+      <property>
+        <code value="Name:Class"/>
+        <valueCode value="Material"/>
+      </property>
+      <concept>
+        <code value="CHEM"/>
+        <display value="chemical substance"/>
+        <definition value="A substance that is fully defined by an organic or inorganic chemical formula, includes mixtures of other chemical substances. Refine using, e.g., IUPAC codes."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10888"/>
+        </property>
+        <property>
+          <code value="Name:Class"/>
+          <valueCode value="ChemicalSubstance"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="FOOD"/>
+        <display value="food"/>
+        <definition value="Naturally occurring, processed or manufactured entities that are primarily used as food for humans and animals."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="14027"/>
+        </property>
+        <property>
+          <code value="Name:Class"/>
+          <valueCode value="Food"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="MMAT"/>
+        <display value="manufactured material"/>
+        <definition value="Corresponds to the ManufacturedMaterial class"/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="13934"/>
+        </property>
+        <property>
+          <code value="Name:Class"/>
+          <valueCode value="ManufacturedMaterial"/>
+        </property>
+        <concept>
+          <code value="CONT"/>
+          <display value="container"/>
+          <definition value="A container of other entities."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="11622"/>
+          </property>
+          <property>
+            <code value="Name:Class"/>
+            <valueCode value="Container"/>
+          </property>
+          <concept>
+            <code value="HOLD"/>
+            <display value="holder"/>
+            <definition value="A type of container that can hold other containers or other holders."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="14029"/>
+            </property>
+            <property>
+              <code value="Name:Class"/>
+              <valueCode value="Holder"/>
+            </property>
+          </concept>
+        </concept>
+        <concept>
+          <code value="DEV"/>
+          <display value="device"/>
+          <definition value="A subtype of ManufacturedMaterial used in an activity, without being substantially changed through that activity. The kind of device is identified by the code attribute inherited from Entity.&#xD;&#xA;&#xD;&#xA;*Usage:* This includes durable (reusable) medical equipment as well as disposable equipment."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="11623"/>
+          </property>
+          <property>
+            <code value="Name:Class"/>
+            <valueCode value="Device"/>
+          </property>
+          <concept>
+            <code value="CER"/>
+            <display value="certificate representation"/>
+            <definition value="A physical artifact that stores information about the granting of authorization."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="16098"/>
+            </property>
+            <property>
+              <code value="Name:Class"/>
+              <valueCode value="CertificateRepresentation"/>
+            </property>
+          </concept>
+          <concept>
+            <code value="MODDV"/>
+            <display value="imaging modality"/>
+            <definition value="Class to contain unique attributes of diagnostic imaging equipment."/>
+            <designation>
+              <language value="en"/>
+              <use>
+                <system value="http://snomed.info/sct"/>
+                <code value="900000000000013009"/>
+              </use>
+              <value value="ImagingModalityEntity"/>
+            </designation>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="13939"/>
+            </property>
+            <property>
+              <code value="Name:Class"/>
+              <valueCode value="ModalityDevice"/>
+            </property>
+          </concept>
+        </concept>
+      </concept>
+    </concept>
+    <concept>
+      <code value="ORG"/>
+      <display value="organization"/>
+      <definition value="A social or legal structure formed by human beings."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10889"/>
+      </property>
+      <property>
+        <code value="Name:Class"/>
+        <valueCode value="Organization"/>
+      </property>
+      <concept>
+        <code value="PUB"/>
+        <display value="public institution"/>
+        <definition value="An agency of the people of a state often assuming some authority over a certain matter. Includes government, governmental agencies, associations."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10891"/>
+        </property>
+        <property>
+          <code value="Name:Class"/>
+          <valueCode value="PublicInstitution"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="STATE"/>
+        <display value="state"/>
+        <definition value="A politically organized body of people bonded by territory, culture, or ethnicity, having sovereignty (to a certain extent) granted by other states (enclosing or neighboring states). This includes countries (nations), provinces (e.g., one of the United States of America or a French departement), counties or municipalities. Refine using, e.g., ISO country codes, FIPS-PUB state codes, etc."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="10890"/>
+        </property>
+        <property>
+          <code value="Name:Class"/>
+          <valueCode value="State"/>
+        </property>
+        <concept>
+          <code value="NAT"/>
+          <display value="Nation"/>
+          <definition value="A politically organized body of people bonded by territory and known as a nation."/>
+          <property>
+            <code value="status"/>
+            <valueCode value="active"/>
+          </property>
+          <property>
+            <code value="internalId"/>
+            <valueCode value="20093"/>
+          </property>
+          <property>
+            <code value="Name:Class"/>
+            <valueCode value="Nation"/>
+          </property>
+        </concept>
+      </concept>
+    </concept>
+    <concept>
+      <code value="PLC"/>
+      <display value="place"/>
+      <definition value="A physical place or site with its containing structure. May be natural or man-made. The geographic position of a place may or may not be constant."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="10892"/>
+      </property>
+      <property>
+        <code value="Name:Class"/>
+        <valueCode value="Place"/>
+      </property>
+      <concept>
+        <code value="CITY"/>
+        <display value="city or town"/>
+        <definition value="The territory of a city, town or other municipality."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="16835"/>
+        </property>
+        <property>
+          <code value="Name:Class"/>
+          <valueCode value="City"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="COUNTRY"/>
+        <display value="country"/>
+        <definition value="The territory of a sovereign nation."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="16836"/>
+        </property>
+        <property>
+          <code value="Name:Class"/>
+          <valueCode value="Country"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="COUNTY"/>
+        <display value="county or parish"/>
+        <definition value="The territory of a county, parish or other division of a state or province."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="16837"/>
+        </property>
+        <property>
+          <code value="Name:Class"/>
+          <valueCode value="Parish"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="PROVINCE"/>
+        <display value="state or province"/>
+        <definition value="The territory of a state, province, department or other division of a sovereign country."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="16838"/>
+        </property>
+        <property>
+          <code value="Name:Class"/>
+          <valueCode value="Province"/>
+        </property>
+      </concept>
+    </concept>
+    <concept>
+      <code value="RGRP"/>
+      <display value="group"/>
+      <definition value="A grouping of resources (personnel, material, or places) to be used for scheduling purposes. May be a pool of like-type resources, a team, or combination of personnel, material and places."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="11630"/>
+      </property>
+      <property>
+        <code value="appliesTo"/>
+        <valueString value="Determiner = determined"/>
+      </property>
+      <property>
+        <code value="Name:Class"/>
+        <valueCode value="Group"/>
+      </property>
+    </concept>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActRelationshipHasDebit"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActRelationshipHasDebit"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.19976"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActRelationshipHasDebit"/>
+  <title value="ActRelationshipHasDebit"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A debit relationship ties a financial transaction (target) to an account (source). A debit, once applied (posted), may have either a positive or negative effect on the account balance, depending on the type of account. An asset account debit will increase the account balance. A non-asset account debit will decrease the account balance."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="DEBIT"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

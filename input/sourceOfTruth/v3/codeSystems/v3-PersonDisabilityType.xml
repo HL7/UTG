@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v3-PersonDisabilityType"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/CodeSystem/v3-PersonDisabilityType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.93"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="PersonDisabilityType"/>
+  <title value="PersonDisabilityType"/>
+  <status value="active"/>
+  <date value="2019-03-20"/>
+  <publisher value="Health Level 7"/>
+  <contact>
+    <name value="Health Level Seven"/>
+  </contact>
+  <description value="A code identifying a person&#39;s disability."/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Specializes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Generalizes"/>
+    </extension>
+    <code value="Specializes"/>
+    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
+      <valueCode value="antisymmetric"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
+      <valueCode value="transitive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
+      <valueCode value="irreflexive"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
+      <valueCode value="Generalizes"/>
+    </extension>
+    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
+      <valueString value="Specializes"/>
+    </extension>
+    <code value="Generalizes"/>
+    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+    <type value="Coding"/>
+  </property>
+  <property>
+    <code value="internalId"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
+    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
+    <type value="code"/>
+  </property>
+  <concept>
+    <code value="1"/>
+    <display value="Vision impaired"/>
+    <definition value="Vision impaired"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10182"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="2"/>
+    <display value="Hearing impaired"/>
+    <definition value="Hearing impaired"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10183"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="3"/>
+    <display value="Speech impaired"/>
+    <definition value="Speech impaired"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10184"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="4"/>
+    <display value="Mentally impaired"/>
+    <definition value="Mentally impaired"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10185"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="5"/>
+    <display value="Mobility impaired"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="10186"/>
+    </property>
+    <concept>
+      <code value="CB"/>
+      <display value="Requires crib"/>
+      <definition value="A crib is required to move the person"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="15951"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="CR"/>
+      <display value="Requires crutches"/>
+      <definition value="Person requires crutches to ambulate"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="15947"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="G"/>
+      <display value="Requires gurney"/>
+      <definition value="A gurney is required to move the person"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="15950"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="WC"/>
+      <display value="Requires wheelchair"/>
+      <definition value="Person requires a wheelchair to be ambulatory"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="15949"/>
+      </property>
+    </concept>
+    <concept>
+      <code value="WK"/>
+      <display value="Requires walker"/>
+      <definition value="Person requires a walker to ambulate"/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="15948"/>
+      </property>
+    </concept>
+  </concept>
+</CodeSystem>

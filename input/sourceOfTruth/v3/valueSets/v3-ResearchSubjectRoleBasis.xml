@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ResearchSubjectRoleBasis"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ResearchSubjectRoleBasis"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.19417"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ResearchSubjectRoleBasis"/>
+  <title value="ResearchSubjectRoleBasis"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Specifies the administrative functionality within a formal experimental design for which the ResearchSubject role was established. Examples: screening - role is used for pre-enrollment evaluation portion of the design; enrolled - role is used for subjects admitted to the active treatment portion of the design."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_ResearchSubjectRoleBasis"/>
+      </filter>
+    </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+      <concept>
+        <code value="_ResearchSubjectRoleBasis"/>
+      </concept>
+    </exclude>
+  </compose>
+</ValueSet>

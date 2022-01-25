@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0530"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="inm"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0530"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.346"/>
+  </identifier>
+  <version value="2.1.0"/>
+  <name value="OrganizationAgencyDepartment"/>
+  <title value="organization-Agency-Department"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/"/>
+    </telecom>
+  </contact>
+  <description value="Code system of concepts used to specify the agency or department that assigned the identifier in component 1.  Used in the Performing Person Time Stamp (PPN), Extended Composite ID Number and Name for Persons (XCN) and Extended Composite ID with Check Digit (CX) segments in HL7 Version 2.x messaging."/>
+  <purpose value="Underlying Master Code System for V2 table 0530 (Organization, Agency, Department)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0530"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
+  <concept id="5632">
+    <code value="AE"/>
+    <display value="American Express"/>
+    <definition value="American Express"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="5633">
+    <code value="DEA"/>
+    <display value="Drug Enforcement Agency"/>
+    <definition value="Drug Enforcement Agency"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="The US Drug Enforcement Administration does not solely assign DEA numbers in the United States. Hospitals have the authority to issue DEA numbers to their medical residents. These DEA numbers are based upon the hospital&#x2019;s DEA number, but the authority rests with the hospital on the assignment to the residents. Thus, DEA as an Assigning Authority is necessary in addition to DEA as an Identifier Type."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="The US Drug Enforcement Administration does not solely assign DEA numbers in the United States. Hospitals have the authority to issue DEA numbers to their medical residents. These DEA numbers are based upon the hospital&#x2019;s DEA number, but the authority rests with the hospital on the assignment to the residents. Thus, DEA as an Assigning Authority is necessary in addition to DEA as an Identifier Type."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="5634">
+    <code value="DOD"/>
+    <display value="Department of Defense"/>
+    <definition value="Department of Defense"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="In some countries e.g., the US, more than one department may issue a military identifier. Hence, US is not sufficient as the Assigning Authority."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="In some countries e.g., the US, more than one department may issue a military identifier. Hence, US is not sufficient as the Assigning Authority."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="5635">
+    <code value="MC"/>
+    <display value="Master Card"/>
+    <definition value="Master Card"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="5636">
+    <code value="VA"/>
+    <display value="Veterans Affairs"/>
+    <definition value="Veterans Affairs"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="5637">
+    <code value="VI"/>
+    <display value="Visa"/>
+    <definition value="Visa"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+</CodeSystem>

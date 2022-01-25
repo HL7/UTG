@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActClassCoverage"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActClassCoverage"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20208"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActClassCoverage"/>
+  <title value="ActClassCoverage"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="When used in the EVN mood, this concept means with respect to a covered party:&#xD;&#xA;&#xD;&#xA;1.  A health care insurance policy or plan that is contractually binding between two or more parties; or&#xD;&#xA;2.  A health care program, usually administered by government entities, that provides coverage to persons determined eligible under the terms of the program.&#xD;&#xA;&#xD;&#xA; *  When used in the definition (DEF) mood, COV means potential coverage for a patient who may or may not be a covered party.&#xD;&#xA; *  The concept&#39;s meaning is fully specified by the choice of ActCoverageTypeCode (abstract) ActProgramCode or ActInsurancePolicyCode."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="COV"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

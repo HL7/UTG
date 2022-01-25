@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-SpecimenEntityType"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-SpecimenEntityType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.19464"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="SpecimenEntityType"/>
+  <title value="SpecimenEntityType"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-SpecimenType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_SpecimenEntityType"/>
+      </filter>
+    </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-SpecimenType"/>
+      <concept>
+        <code value="_SpecimenEntityType"/>
+      </concept>
+    </exclude>
+  </compose>
+</ValueSet>

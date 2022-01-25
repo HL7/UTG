@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-AssignedNonPersonLivingSubjectRoleType"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-AssignedNonPersonLivingSubjectRoleType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.19869"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="AssignedNonPersonLivingSubjectRoleType"/>
+  <title value="AssignedNonPersonLivingSubjectRoleType"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="**Description:**A role type that is used to further qualify a non-person subject playing a role where the role class attribute is set to RoleClass AssignedEntity"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_AssignedNonPersonLivingSubjectRoleType"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0370"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0370"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.228"/>
+  </identifier>
+  <version value="2.2.0"/>
+  <name value="ContainerStatus"/>
+  <title value="containerStatus"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined  code system of concepts that identify the status of the unique container in which the specimen resides at the time the transaction was initiated.  Used in the Interaction Specimen Container Detail (SAC) segment in HL7 Version 2.x messaging."/>
+  <purpose value="Underlying Master Code System for V2 table 0370 (Container Status)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0370"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <concept id="3726">
+    <code value="A"/>
+    <display value="Archived"/>
+    <definition value="Archived status is used by one system to inform another that the container was already processed by this system, archived for a longer time period and is re-introduced to the automation system for re-processing."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="3727">
+    <code value="I"/>
+    <display value="Identified"/>
+    <definition value="Identified status is used by one system to inform another that it has received a container. In the exchange between the LAS and LIS the Identified status can be used for reporting of the &quot;In Lab&quot; (Specimen Received) status. In some cases this may not be equal to the first event of sample recognition."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="3728">
+    <code value="L"/>
+    <display value="Left Equipment"/>
+    <definition value="Left Equipment status is used by one system to inform another that the container has been released from that system."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="3729">
+    <code value="M"/>
+    <display value="Missing"/>
+    <definition value="Missing status is used by one system to inform another that the container did not arrive at its next expected location."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="3730">
+    <code value="O"/>
+    <display value="In Process"/>
+    <definition value="In Process status is used by one system to inform another that the specific container is being processed by the equipment. It is useful as a response to a query about Container Status, when the specific step of the process is not relevant."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="3731">
+    <code value="P"/>
+    <display value="In Position"/>
+    <definition value="In Position status is used by one system to inform another that the container is in position for specimen transfer (e.g., container removal from track, pipetting, etc.)."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="3732">
+    <code value="R"/>
+    <display value="Process Completed"/>
+    <definition value="Process Completed status is used by one system to inform another that the processing has been completed, but the container has not been released from that system."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="3733">
+    <code value="U"/>
+    <display value="Unknown"/>
+    <definition value="Unknown status is used by one system to inform another that the container has not been identified."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="3734">
+    <code value="X"/>
+    <display value="Container Unavailable"/>
+    <definition value="Cancelled status is used by one system to inform another that the container is no longer available within the scope of the system (e.g., tube broken or discarded)."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+</CodeSystem>

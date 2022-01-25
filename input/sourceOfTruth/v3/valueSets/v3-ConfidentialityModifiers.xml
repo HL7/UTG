@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ConfidentialityModifiers"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ConfidentialityModifiers"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.10236"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ConfidentialityModifiers"/>
+  <title value="ConfidentialityModifiers"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Modifiers of role based access rights (multiple allowed)&#xD;&#xA;&#xD;&#xA;*Usage Note:* All codes that are referenced by this value set were retired as of the November 2013 Harmonization cycle. Guidance for what to use instead of the v:ConfidentialityModifers leaf concepts: celebrity, sensitive, and taboo: These codes have been revised and are now included under v:ActCode at:&#xD;&#xA;&#xD;&#xA; *  V:ActInformationSensitivityPolicy:2.16.840.1.113883.1.11.20429 - taboo&#xD;&#xA; *  V:InformationSensitivityPolicy:2.16.840.1.113883.1.11.20428 - celebrity/VIP and patient requested sensitivity"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_ConfidentialityModifiers"/>
+      </filter>
+    </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+      <concept>
+        <code value="_ConfidentialityModifiers"/>
+      </concept>
+    </exclude>
+  </compose>
+</ValueSet>

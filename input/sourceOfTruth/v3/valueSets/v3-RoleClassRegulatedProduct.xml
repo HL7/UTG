@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-RoleClassRegulatedProduct"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-RoleClassRegulatedProduct"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20167"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="RoleClassRegulatedProduct"/>
+  <title value="RoleClassRegulatedProduct"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A product regulated by some governmentatl orgnization. The role is played by Material and scoped by Organization.&#xD;&#xA;&#xD;&#xA;Rationale: To support an entity clone used to identify the NDC number for a drug product."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="RGPR"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

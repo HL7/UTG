@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="v2-0472"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/v2-0472"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.18.300"/>
+  </identifier>
+  <version value="2.1.0"/>
+  <name value="TqConjunctionId"/>
+  <title value="tqConjunctionId"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-12-01"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/"/>
+    </telecom>
+  </contact>
+  <description value="HL7-defined code system of concepts specifying that a second timing specification is to follow using the repeat delimiter.  Used in HL7 Version 2.x messaging in the TQ1 segment."/>
+  <purpose value="Underlying Master Code System for V2 table 0472 (TQ Conjunction ID)"/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v2-0472"/>
+  <hierarchyMeaning value="is-a"/>
+  <compositional value="false"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#status"/>
+    <description value="Status of the concept"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-table-deprecated"/>
+    <description value="Version of HL7 in which the code was deprecated"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="v2-concComment"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concComment"/>
+    <description value="V2 Concept Comment"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="v2-concCommentAsPub"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v2-concCommentAsPub"/>
+    <description value="V2 Concept Comment As Published"/>
+    <type value="string"/>
+  </property>
+  <concept id="4869">
+    <code value="S"/>
+    <display value="Synchronous"/>
+    <definition value="Synchronous"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Do the next specification after this one (unless otherwise constrained by the following fields: TQ1-7-start date/time and TQ1-8-end date/time). An &quot;S&quot; specification implies that the second timing sequence follows the first, e.g., when a service request is written to measure blood pressure Q15 minutes for the 1st hour, then every 2 hours for the next day."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Do the next specification after this one (unless otherwise constrained by the following fields: TQ1-7-start date/time and TQ1-8-end date/time). An &quot;S&quot; specification implies that the second timing sequence follows the first, e.g., when a service request is written to measure blood pressure Q15 minutes for the 1st hour, then every 2 hours for the next day."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="4870">
+    <code value="A"/>
+    <display value="Asynchronous"/>
+    <definition value="Asynchronous"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="Do the next specification in parallel with this one (unless otherwise constrained by the following fields: TQ1-7-start date/time and TQ1-8-end date/time).  The conjunction of &quot;A&quot; specifies two parallel instructions, as are sometimes used in medication, e.g., prednisone given at 1 tab on Monday, Wednesday, Friday, and at 1/2 tab on Tuesday, Thursday, Saturday, Sunday."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="Do the next specification in parallel with this one (unless otherwise constrained by the following fields: TQ1-7-start date/time and TQ1-8-end date/time).  The conjunction of &quot;A&quot; specifies two parallel instructions, as are sometimes used in medication, e.g., prednisone given at 1 tab on Monday, Wednesday, Friday, and at 1/2 tab on Tuesday, Thursday, Saturday, Sunday."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+  <concept id="4871">
+    <code value="C"/>
+    <display value="Actuation Time"/>
+    <definition value="Actuation Time"/>
+    <property>
+      <code value="v2-concComment"/>
+      <valueString value="It will be followed by a completion time for the service.  This code allows one to distinguish between the time and priority at which a service should be actuated (e.g., blood should be drawn) and the time and priority at which a service should be completed (e.g., results should be reported)."/>
+    </property>
+    <property>
+      <code value="v2-concCommentAsPub"/>
+      <valueString value="It will be followed by a completion time for the service.  This code allows one to distinguish between the time and priority at which a service should be actuated (e.g., blood should be drawn) and the time and priority at which a service should be completed (e.g., results should be reported)."/>
+    </property>
+    <property>
+      <code value="status"/>
+      <valueCode value="A"/>
+    </property>
+  </concept>
+</CodeSystem>

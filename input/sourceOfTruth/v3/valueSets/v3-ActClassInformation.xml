@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActClassInformation"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActClassInformation"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20221"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActClassInformation"/>
+  <title value="ActClassInformation"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Sender sends payload to addressee as information. Addressee does not have responsibilities beyond serving addressee&#39;s own interest (i.e., read and memorize if you see fit). This is equivalent to an FYI on a memo."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="INFO"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

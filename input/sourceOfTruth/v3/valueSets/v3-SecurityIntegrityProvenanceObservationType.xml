@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-SecurityIntegrityProvenanceObservationType"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-SecurityIntegrityProvenanceObservationType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20466"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="SecurityIntegrityProvenanceObservationType"/>
+  <title value="SecurityIntegrityProvenanceObservationType"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Type of security metadata observation made about the provenance integrity of an IT resource (data, information object, service, or system capability), which indicates the lifecycle completeness or workflow status of an IT resource, such as its creation, modification, suspension, and deletion; locations in which the resource has been collected or archived, from which it may be retrieved, and the history of its distribution and disclosure. Integrity provenance metadata about an IT resource may be used to assess its veracity, reliability, and trustworthiness."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="SECINTPRVOBS"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

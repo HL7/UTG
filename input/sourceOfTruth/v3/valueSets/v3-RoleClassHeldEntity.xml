@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-RoleClassHeldEntity"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-RoleClassHeldEntity"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20138"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="RoleClassHeldEntity"/>
+  <title value="RoleClassHeldEntity"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Entity that is currently in the possession of a holder (scoper), who holds, or uses it, usually based on some agreement with the owner."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="HLD"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

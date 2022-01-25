@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+	<id value="ext-mif-relationship-inverseName"/>
+	<url value="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName"/>
+  <version value="0.0.34"/>
+	<name value="SupportedConceptRelationshipInverseName"/>
+	<title value="MIF concept relationship inverse name"/>
+	<status value="active"/>
+	<description value="Identifies the name of the relationship that references the inverse of the current relationship.  Allows linking a relationship and its derived inverse."/>
+	<fhirVersion value="4.0.1"/>
+	<mapping>
+    <identity value="mif"/>
+    <uri value="urn:hl7-org:v3/mif2"/>
+    <name value="HL7 V3 Model Interchange Format 2"/>
+  </mapping>
+	<kind value="complex-type"/>
+	<abstract value="false"/>
+	<context>
+		<type value="element"/>
+		<expression value="CodeSystem.property"/>
+	</context>
+	<type value="Extension"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+	<derivation value="constraint"/>
+	<differential>
+		<element id="Extension">
+			<path value="Extension"/>
+			<short value="MIF concept relationship inverse name"/>
+			<definition value="Identifies the name of the relationship that references the inverse of the current relationship.  Allows linking a relationship and its derived inverse."/>
+			<max value="1"/>
+		</element>
+		<element id="Extension.extension">
+			<path value="Extension.extension"/>
+			<max value="0"/>
+		</element>
+		<element id="Extension.url">
+			<path value="Extension.url"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<fixedUri value="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName"/>
+		</element>
+		<element id="Extension.value[x]">
+			<path value="Extension.value[x]"/>
+			<type>
+				<code value="string"/>
+			</type>
+      <mapping>
+        <identity value="mif"/>
+        <map value="SupportedConceptRelationship.inverseName"/>
+      </mapping>
+		</element>
+	</differential>
+</StructureDefinition>

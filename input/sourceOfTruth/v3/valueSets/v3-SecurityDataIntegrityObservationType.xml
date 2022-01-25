@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-SecurityDataIntegrityObservationType"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-SecurityDataIntegrityObservationType"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20464"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="SecurityDataIntegrityObservationType"/>
+  <title value="SecurityDataIntegrityObservationType"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Type of security metadata observation made about the data integrity of an IT resource (data, information object, service, or system capability), which indicates the security mechanism used to preserve resource accuracy and consistency. Data integrity is defined by ISO 22600-23.3.21 as: &quot;The property that data has not been altered or destroyed in an unauthorized manner&quot;, and by ISO/IEC 2382-8: The property of data whose accuracy and consistency are preserved regardless of changes made.&quot;"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="SECDATINTOBS"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

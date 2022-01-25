@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ActClassPublicHealthCase2"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ActClassPublicHealthCase2"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20455"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ActClassPublicHealthCase2"/>
+  <title value="ActClassPublicHealthCase2"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="A public health case is a Concern about an observation or event that has a specific significance for public health. The creation of a PublicHealthCase initiates the tracking of the object of concern. The decision to track is related to but somewhat independent of the underlying event or observation."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="HCASE"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

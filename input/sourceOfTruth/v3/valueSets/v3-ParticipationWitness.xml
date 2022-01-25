@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="v3-ParticipationWitness"/>
+  <language value="en"/>
+  <url value="http://terminology.hl7.org/ValueSet/v3-ParticipationWitness"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.1.11.20106"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ParticipationWitness"/>
+  <title value="ParticipationWitness"/>
+  <status value="active"/>
+  <date value="2014-03-26"/>
+  <description value="Only with service events. A person witnessing the action happening without doing anything. A witness is not necessarily aware, much less approves of anything stated in the service event. Example for a witness is students watching an operation or an advanced directive witness."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="WIT"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
