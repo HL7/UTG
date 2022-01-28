@@ -47,7 +47,11 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
+<<<<<<< HEAD
   Generated on Sat, Dec 11, 2021 22:06+0000 for FHIR v4.6.0 
+=======
+  Generated on Fri, Dec 17, 2021 05:56+0000 for FHIR v4.6.0 
+>>>>>>> origin/master
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.6.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -20403,6 +20407,11 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           <xs:element name="udiDeviceIdentifier" type="DeviceDefinition.UdiDeviceIdentifier" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">Unique device identifier (UDI) assigned to device label or package.  Note that the Device may include multiple udiCarriers as it either may include just the udiCarrier for the jurisdiction it is sold, or for multiple jurisdictions it could have been sold.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="partNumber" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The part number or catalog number of the device.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:choice minOccurs="0" maxOccurs="1" >
@@ -46877,62 +46886,11 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">Specified type for the element. This works as a condition on the mapping - use for polymorphic elements.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:choice minOccurs="0" maxOccurs="1" >
+          <xs:element name="defaultValue" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">A value to use if there is no existing value in the source object.</xs:documentation>
-            </xs:annotation>
-            <xs:element name="defaultValueBase64Binary" type="base64Binary"/>
-            <xs:element name="defaultValueBoolean" type="boolean"/>
-            <xs:element name="defaultValueCanonical" type="canonical"/>
-            <xs:element name="defaultValueCode" type="code"/>
-            <xs:element name="defaultValueDate" type="date"/>
-            <xs:element name="defaultValueDateTime" type="dateTime"/>
-            <xs:element name="defaultValueDecimal" type="decimal"/>
-            <xs:element name="defaultValueId" type="id"/>
-            <xs:element name="defaultValueInstant" type="instant"/>
-            <xs:element name="defaultValueInteger" type="integer"/>
-            <xs:element name="defaultValueInteger64" type="integer64"/>
-            <xs:element name="defaultValueMarkdown" type="markdown"/>
-            <xs:element name="defaultValueOid" type="oid"/>
-            <xs:element name="defaultValuePositiveInt" type="positiveInt"/>
-            <xs:element name="defaultValueString" type="string"/>
-            <xs:element name="defaultValueTime" type="time"/>
-            <xs:element name="defaultValueUnsignedInt" type="unsignedInt"/>
-            <xs:element name="defaultValueUri" type="uri"/>
-            <xs:element name="defaultValueUrl" type="url"/>
-            <xs:element name="defaultValueUuid" type="uuid"/>
-            <xs:element name="defaultValueAddress" type="Address"/>
-            <xs:element name="defaultValueAge" type="Age"/>
-            <xs:element name="defaultValueAnnotation" type="Annotation"/>
-            <xs:element name="defaultValueAttachment" type="Attachment"/>
-            <xs:element name="defaultValueCodeableConcept" type="CodeableConcept"/>
-            <xs:element name="defaultValueCoding" type="Coding"/>
-            <xs:element name="defaultValueContactPoint" type="ContactPoint"/>
-            <xs:element name="defaultValueCount" type="Count"/>
-            <xs:element name="defaultValueDistance" type="Distance"/>
-            <xs:element name="defaultValueDuration" type="Duration"/>
-            <xs:element name="defaultValueHumanName" type="HumanName"/>
-            <xs:element name="defaultValueIdentifier" type="Identifier"/>
-            <xs:element name="defaultValueMoney" type="Money"/>
-            <xs:element name="defaultValuePeriod" type="Period"/>
-            <xs:element name="defaultValueQuantity" type="Quantity"/>
-            <xs:element name="defaultValueRange" type="Range"/>
-            <xs:element name="defaultValueRatio" type="Ratio"/>
-            <xs:element name="defaultValueReference" type="Reference"/>
-            <xs:element name="defaultValueSampledData" type="SampledData"/>
-            <xs:element name="defaultValueSignature" type="Signature"/>
-            <xs:element name="defaultValueTiming" type="Timing"/>
-            <xs:element name="defaultValueContactDetail" type="ContactDetail"/>
-            <xs:element name="defaultValueContributor" type="Contributor"/>
-            <xs:element name="defaultValueDataRequirement" type="DataRequirement"/>
-            <xs:element name="defaultValueExpression" type="Expression"/>
-            <xs:element name="defaultValueParameterDefinition" type="ParameterDefinition"/>
-            <xs:element name="defaultValueRelatedArtifact" type="RelatedArtifact"/>
-            <xs:element name="defaultValueTriggerDefinition" type="TriggerDefinition"/>
-            <xs:element name="defaultValueUsageContext" type="UsageContext"/>
-            <xs:element name="defaultValueDosage" type="Dosage"/>
-            <xs:element name="defaultValueMeta" type="Meta"/>
-          </xs:choice>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="element" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">Optional field for this source.</xs:documentation>
@@ -47029,6 +46987,9 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
             <xs:element name="valueBoolean" type="boolean"/>
             <xs:element name="valueInteger" type="integer"/>
             <xs:element name="valueDecimal" type="decimal"/>
+            <xs:element name="valueDate" type="date"/>
+            <xs:element name="valueTime" type="time"/>
+            <xs:element name="valueDateTime" type="dateTime"/>
           </xs:choice>
         </xs:sequence>
       </xs:extension>
