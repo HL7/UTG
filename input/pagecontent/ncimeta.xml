@@ -1,22 +1,11 @@
-<!DOCTYPE HTML>
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
 
+<p>
+		This page describes how to use NCIm with HL7 Standards.
+</p>
 
-[%settitle Using the NCI Metathesaurus with FHIR%]
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-[%file newheader%]
-</head>
-<body>
-[%file newnavbar%]
-
-
-
-<%txheader%>
-
-<h2>Using the NCI Metathesaurus with FHIR</h2>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
-
-<h3>Summary</h3>
+ <a name="Using NCIm with HL7 Standards"></a>
+ 	<h3>Using NCIm with FHIR</h3>
 
 <table class="grid">
  <tr><td>Source</td><td>NCI Metathesaurus <a href="http://cbiit.nci.nih.gov">the NCI Center for Biomedical Informatics and Information Technology (CBIIT) </a></td></tr>
@@ -29,12 +18,12 @@
  <tr><td>Filter Properties</td><td>None are described yet</td></tr>
 </table>
 
-<h3>Version Issues</h3>
+<h4>Version Issues</h4>
 <p>
 There are no staged releases of the NCI metathesaurus, so there is no versioning policy.
 </p>
 
-<h3>Copyright/License Issues</h3>
+<h4>Copyright/License Issues</h4>
 
 <p>
 The NCI metathesaurus is in the public domain, so there are no copyright notices needed 
@@ -42,7 +31,7 @@ in value sets that refer to NCI metathesaurus concepts, and there are no licensi
 requirements limiting use of NCI metathesaurus concepts in instances or systems.
 </p>
 
-<h3>MCI Metathesaurus MySQL Database</h3>
+<h4>MCI Metathesaurus MySQL Database</h4>
 <p>
 Like <a href="rxnorm.html">RxNorm</a>, the RRF files that are the distributed source of the NCI Metathesaurus can be used
 to populate a MySQL database that contains the data. This page provides SQL statements that describe how to implement 
@@ -58,7 +47,7 @@ For example, the correct display name for a CUI is
 </pre>.
 
 <a name="filters"></a>
-<h3>NCI metathesaurus Filter Properties</h3>
+<h4>NCI metathesaurus Filter Properties</h4>
 
 <p>
 This section documents the property filters that can be used with the RxNorm 
@@ -72,7 +61,7 @@ is:
   select RXCUI from RXNCONSO where SAB = 'RXNORM' and TTY &lt;&gt; 'SY' 
 </pre>
 
-<h4>Semantic Type</h4>
+<h5>Semantic Type</h5>
 
 <table class="grid">
  <tr><td>Description</td><td>Allows for selection of a set of CUIs based on their Semantic Type</td></tr>
@@ -83,7 +72,7 @@ is:
  <tr><td>SQL</td><td><pre>and RXCUI in (select RXCUI from RXNSTY where [:column] = :value)</pre></td></tr>
 </table>
 
-<h4>Source</h4>
+<h5>Source</h5>
 
 <table class="grid">
  <tr><td>Description</td><td>Allows for selection of the set of concepts that have mappings to a particular RxNorm source</td></tr>
@@ -93,7 +82,7 @@ is:
  <tr><td>SQL</td><td><pre>and RXCUI in (select RXCUI from RXNconso where SAB = :value)</pre></td></tr>
 </table>
 
-<h4>Term Type</h4>
+<h5>Term Type</h5>
 
 <table class="grid">
  <tr><td>Description</td><td>Allows for selection of a concept based on its designated type</td></tr>
@@ -103,7 +92,7 @@ is:
  <tr><td>SQL</td><td><pre>and TTY = :value</pre></td></tr>
 </table>
 
-<h4>Relationship</h4>
+<h5>Relationship</h5>
 
 <table class="grid">
  <tr><td>Description</td><td>Allows for selection of a concept based on its relationships</td></tr>
@@ -119,7 +108,7 @@ is:
    </td></tr>
 </table>
 
-<h4>Relationship Type</h4>
+<h5>Relationship Type</h5>
 
 <table class="grid">
  <tr><td>Description</td><td>Allows for selection of a concept based on the type of its relationships</td></tr>
@@ -135,13 +124,13 @@ is:
    </td></tr>
 </table>
 
-<h3>Implicit Value Sets</h3>
+<h4>Implicit Value Sets</h4>
 
 <p>
 This section needs investigation
 </p>
 
-<h3>Current NCI Metathesaurus relationship types</h3>
+<h4>Current NCI Metathesaurus relationship types</h4>
 
 <ul>
  <li>3_UTR_of</li>
@@ -1090,7 +1079,4 @@ This section needs investigation
  <li>was_tested_for</li>
 </ul>
 
-[%file newfooter%]
-    
-</body>
-</html>
+</div>

@@ -1,22 +1,11 @@
-<!DOCTYPE HTML>
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
 
+<p>
+		This page describes how to use MED-RT with HL7 Standards.
+</p>
 
-[%settitle Using MED-RT with FHIR%]
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-[%file newheader%]
-</head>
-<body>
-[%file newnavbar%]
-
-
-
-<%txheader%>
-
-<h2>Using MED-RT (Medication Reference Terminology) with FHIR</h2>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 1</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
-
-<h3>Summary</h3>
+ <a name="Using MED-RT with HL7 Standards"></a>
+ 	<h3>Using MED-RT with FHIR</h3>
 
 <table class="grid">
  <tr><td>Source</td><td>Medication Reference Terminology - prepared by <a href="http://www.va.gov/health/">Veterans Health Administration</a>,
@@ -30,7 +19,7 @@
  <tr><td>Filter Properties</td><td>None are described yet.</td></tr>
 </table>
 
-<h3>Usage Notes</h3>
+<h4>Usage Notes</h4>
 <p>
 The MED-RT code system includes relationships between MED-RT concepts and concepts in external code systems, as well as 
 relationships between concepts only in the external code systems. The external code systems that MED-RT references 
@@ -50,19 +39,19 @@ For more information, see the NCI MED-RT
 <a href="https://ncit.nci.nih.gov/ncitbrowser/pages/vocabulary.jsf?dictionary=MED-RT">page</a>.   
 </p>
 
-<h3>Version Issues</h3>
+<h4>Version Issues</h4>
 <p>
 MED-RT is released as part of UMLS.  Therefore, each successive release has the date of the UMLS release as its version.
 </p>
 
-<h3>Copyright/License Issues</h3>
+<h4>Copyright/License Issues</h4>
 
 <p>
 MED-RT has no copyright acknowledgement required.  However, users must adhere to the UMLS license.
 </p>
 
 <a name="filters"></a>
-<h3>Filter Properties</h3>
+<h4>Filter Properties</h4>
 
 
 <p>
@@ -71,7 +60,7 @@ code system in value set composition statements (ValueSet.compose).
 </p>
 
 
-<h4>By Subsumption</h4>
+<h5>By Subsumption</h5>
 
 <table class="grid">
  <tr><td>Description</td><td>Select a set of concepts based on subsumption testing</td></tr>
@@ -81,13 +70,11 @@ code system in value set composition statements (ValueSet.compose).
  <tr><td>Comments</td><td>Includes all concepts that have a transitive is-a relationship with the concept Id provided in the value as an NUI (including the concept itself)</td></tr>
 </table>
 
-<h3>Implicit Value Sets</h3>
+<h4>Implicit Value Sets</h4>
 
 <p>
 No need for implicit value sets identified yet.
 </p>
 
-[%file newfooter%]
 
-</body>
-</html>
+</div>
