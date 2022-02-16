@@ -1,6 +1,6 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#">All Content</a></li>
+    <li class="active"><a href="#">Use with HL7 Standards</a></li>
     <li><a href="external_terminologies_csmr.html">Code System Metadata Records</a></li>
     <li><a href="external_terminologies_csti.html">Code System Identification</a></li>
     <li><a href="external_terminologies_csf.html">Code System Fragments</a></li>
@@ -8,52 +8,202 @@
     <li><a href="external_terminologies_rc.html">Retired Content</a></li>
   </ul>
   <p>
-    External terminologies information defined by HL7 and published in HL7 International Standards
-  </p>
-  <p>
-    The list of external systems here consists of two types of systems maintained by HL7 through the Unified Terminology Governance (UTG) process, 
-    and published by HL7 in the different HL7 product families.  Currently these are information and history tracking for changed primary 
-    technical identifiers (URIs and OIDs) for External Code Systems (published by organizations outside of HL7), and Pending Code 
-    Systems, ie defined planned URIs and names that will be created in THO soon but are not yet present. The information captured 
-    in these resources is persisted and rendered here from underlying NamingSystem resources.
-    Updates and maintenace in UTG is a continuous process, and the content available here is updated frequently.
-  </p>
-  <p>
-    The resources that are defined here are for the convenience of HL7 implementers.  These naming system resources serve the 
-    special purpose of capturing for easy access multiple different identifiers for Code Systems that have been used in the past, as well as those that are currently preferred. 
-    THey are made available here for those that are looking for identifiers that may have been published in the past in HL7 Standards, 
-    but have been superceded since that time.  
-  </p>
-
-  <!-- Code System Metadata Records -->
-  <p>
-  <b>Code System Metadata Records</b><br/>
-  <ul class="columns-3">
-    {% include List-extcsmetadatarecords-Rendering-list-name-simple-CodeSystem.xhtml %}
-  </ul>
-  </p>
-
-  <!-- Code System Identification Records -->
-  <p>
-  <b>Code System Identification Records</b><br/>
-  <ul class="columns-3">
-    {% include List-techids-Rendering-list-name-simple-NamingSystem.xhtml %}
-  </ul>
+    Using external code systems with HL7 Standards.
   </p>
   
-  <!-- Code System Fragments -->
-  <p>
-  <b>Code System Fragments</b>
-  <ul class="columns-3">
-    {% include List-extwcontent-Rendering-list-name-simple-CodeSystem.xhtml %}
-  </ul>
-  </p>
+<table class="grid">
+ <tr>
+   <th>Name</th>
+   <th>Owner / Maintainer</th>
+   <th width="80">URI</th>
+   <th>OID</th>
+   <th>Metadata Record</th>
+   <th>Use with HL7 Standards</th>
+ </tr>
 
-  <!-- Complete Code Systems-->
-  <p>
-  <b>Complete Code Systems</b>
-  <ul class="columns-3">
-    {% include List-extallcontent-Rendering-list-name-simple-CodeSystem.xhtml %}
-  </ul>
-  </p>
+ <!-- NAME -->
+ <!--
+ <tr>
+   <td>NAME</td>
+   <td><a href="http://link">ORGANISATION</a></td>
+   <td>URI</td>
+   <td>OID</td>
+   <td><a href="METADATA_RECORD">Metadata Record</a></td>
+   <td>See <a href="LINK">Using NAME with HL7 Standards</a></td>
+</tr>
+-->
+
+
+ <!-- SNOMED CT -->
+ <tr>
+   <td>SNOMED CT</td>
+   <td><a href="http://snomed.org">IHTSDO / SNOMED International</a></td>
+   <td>http://snomed.info/sct</td>
+   <td>2.16.840.1.113883.6.96</td>
+   <td><a href="CodeSystem-v3-snomed-CT.html">Metadata Record</a></td>
+   <td>See <a href="snomedct.html">Using SNOMED CT with HL7 Standards</a></td>
+ </tr>
+
+
+<!-- RxNorm -->
+ <tr>
+   <td>RxNorm</td>
+   <td><a href="http://www.nlm.nih.gov/">National Library of Medicine (NLM)</a></td>
+   <td>http://www.nlm.nih.gov/research/umls/rxnorm</td>
+   <td>2.16.840.1.113883.6.88</td>
+   <td><a href="CodeSystem-v3-rxNorm.html">Metadata Record</a></td>
+   <td>See <a href="rxnorm.html">Using RxNorm with HL7 Standards</a></td>
+ </tr>
+ 
+ <!-- LOINC -->
+ <tr>
+   <td>Logical Observation Identifiers, Names and Codes (LOINC)</td>
+   <td><a href="https://www.regenstrief.org/">Regenstrief Institute, Inc</a></td>
+   <td>http://loinc.org</td>
+   <td>2.16.840.1.113883.6.1</td>
+   <td><a href="CodeSystem-v3-loinc.html">Metadata Record</a></td>
+   <td>See <a href="loinc.html">Using LOINC with HL7 Standards</a></td>
+ </tr>
+
+ <!-- pCLOCD -->
+ <tr>
+   <td>pan-Canadian LOINC Observation Code Database (pCLOCD)</td>
+   <td><a href="https://www.infoway-inforoute.ca/">Canada Health Infoway</a></td>
+   <td>https://fhir.infoway-inforoute.ca/CodeSystem/pCLOCD</td>
+   <td>2.16.840.1.113883.2.20.5.1</td>
+   <td><a href="CodeSystem-pclocd.html">Metadata Record</a></td>
+   <td>See <a href="pclocd.html">Using pCLOCD with HL7 Standards</a></td>
+ </tr>
+
+<!-- UCUM -->
+ <tr>
+   <td>Unified Code for Units of Measure (UCUM)</td>
+   <td><a href="https://www.regenstrief.org/">Regenstrief Institute, Inc</a></td>
+   <td>http://unitsofmeasure.org</td>
+   <td>2.16.840.1.113883.6.8</td>
+   <td><a href="CodeSystem-v3-ucum.html">Metadata Record</a></td>
+   <td>See <a href="ucum.html">Using UCUM with HL7 Standards</a></td>
+ </tr>
+
+ <!-- NCI Metathersaurus -->
+ <tr>
+   <td>NCI Metathesaurus (NCIm)</td>
+   <td><a href="https://www.cancer.gov">National Cancer Institute</a></td>
+   <td>http://ncimeta.nci.nih.gov</td>
+   <td>2.16.840.1.113883.3.26.1.2</td>
+   <td>No metadata record</td>
+   <td>See <a href="ncim.html">Using NCIm with HL7 Standards</a></td>
+ </tr>
+
+ <!-- CPT -->
+<tr>
+   <td>Current Procedural Terminology (CPT)</td>
+   <td><a href="https://www.ama-assn.org">American Medical Association (AMA)</a></td>
+   <td>http://www.ama-assn.org/go/cpt</td>
+   <td>2.16.840.1.113883.6.12</td>
+   <td><a href="CodeSystem-CPT.html">Metadata Record</a></td>
+   <td>See <a href="cpt.html">Using CPT with HL7 Standards</a></td>
+ </tr>
+
+ 
+ <!-- MED-RT -->
+ <tr>
+   <td>Medication Reference Terminology (MED-RT)</td>
+   <td><a href="http://www.nlm.nih.gov/">National Library of Medicine (NLM)</a></td>
+   <td>http://va.gov/terminology/medrt</td>
+   <td>2.16.840.1.113883.6.345</td>
+   <td><a href="METADATA_RECORD">TBD</a></td>
+   <td>See <a href="medrt.html">Using MED-RT with HL7 Standards</a></td>
+ </tr>
+
+ <!-- UNII -->
+ <tr>
+   <td>Unique Ingredient Identifier (UNII)</td>
+   <td><a href="https://www.fda.gov/">U.S. Food and Drug Administration (FDA)</a></td>
+   <td>http://fdasis.nlm.nih.gov</td>
+   <td>2.16.840.1.113883.4.9</td>
+   <td><a href="METADATA_RECORD">TBD</a></td>
+   <td>See <a href="unii.html">Using UNII with HL7 Standards</a></td>
+ </tr>
+
+ <!-- NDC -->
+ <tr>
+   <td>National Drug Code (NDC)</td>
+   <td><a href="http://link">U.S. Food and Drug Administration (FDA)</a></td>
+   <td>http://hl7.org/fhir/sid/ndc</td>
+   <td>2.16.840.1.113883.6.69</td>
+   <td><a href="CodeSystem-v3-ndc.html">Metadata Record</a></td>
+   <td>See <a href="ndc.html">Using NDC with HL7 Standards</a></td>
+ </tr>
+
+ <!-- CVX -->
+
+ <tr>
+   <td>Vaccine Administered Code Set (CVX)</td>
+   <td><a href="https://www.cdc.gov">Centers for Disease Control and Prevention (CDC)</a></td>
+   <td>http://hl7.org/fhir/sid/cvx</td>
+   <td>2.16.840.1.113883.12.292</td>
+   <td><a href="CodeSystem-CVX.html">Metadata Record</a></td>
+   <td>See <a href="cvx.html">Using CVX with HL7 Standards</a></td>
+ </tr>
+
+
+ <!-- ISO 3166 -->
+ <tr>
+   <td>ISO 3166 Country Codes</td>
+   <td><a href="https://www.iso.org/">International Organization for Standardization (ISO)</a></td>
+   <td>
+    <ul>
+      <li>urn:iso:std:iso:3166: Part 1, Country Codes (2-letter and 3-letter, and numerical codes)</li>
+      <li>urn:iso:std:iso:3166:-2: Part 2, Subdivision (State/Province) Codes</li>
+      <li>urn:iso:std:iso:3166:-3: Part 3, Historical Country Names</li>
+   </ul>
+   </td>
+   <td>
+    <ul>
+      <li>1.0.3166.1.2: Part 1, Country Codes (2-letter and 3-letter, and numerical codes)</li>
+      <li>1.0.3166.1.2.1: Part 1, Country Codes (numerical codes)</li>
+      <li>1.0.3166.1.2.2: Part 1, Country Codes (2-letter codes)</li>
+      <li>1.0.3166.1.2.3: Part 1, Country Codes (3-letter codes)</li>
+      <li>1.0.3166.2: Part 2, Subdivision (State/Province) Codes</li>
+   </ul>
+   </td>
+   <td>
+   <ul>
+    <li><a href="CodeSystem-iso3166-1edition2.html">ISO 3166 Part 1 Country Codes</a></li>
+    <li><a href="CodeSystem-iso3166-1edition2alpha2.html">ISO 3166 Part 1 Country Codes (2-letter codes)</a></li>
+    <li><a href="CodeSystem-iso3166-1edition2alpha3.html">ISO 3166 Part 1 Country Codes (3-letter codes)</a></li>
+    <li><a href="CodeSystem-v3-iso3166-2.html">ISO 3166 Part 2, Subdivision (State/Province) Codes</a></li>
+   </ul>
+   </td>
+   <td>See <a href="iso3166.html">Using ISO 3166 with HL7 Standards</a></td>
+ </tr>
+
+ <!-- ICD -->
+ <tr>
+   <td>International Classification of Diseases (ICD)</td>
+   <td><a href="https://www.who.int/">World Health Organization (WHO)</a></td>
+   <td>Check metadata record</td>
+   <td>Check metadata record</td>
+   <td>
+   <ul>
+    <li><a href="CodeSystem-icd9cm.html">ICD-9CM</a></li>
+    <li><a href="CodeSystem-icd10-CA.html">ICD-10CA</a></li>
+    <li><a href="CodeSystem-icd10CM.html">ICD-10CM</a></li>
+    <li><a href="CodeSystem-icd10PCS.html">ICD-10PCS</a></li>
+   </ul>
+   </td>
+   <td>See <a href="icd.html">Using ICD with HL7 Standards</a></td>
+ </tr>
+
+ <!-- MDC -->
+ <tr>
+   <td>International Organization for Standardization (ISO)</td>
+   <td><a href="http://link">ORGANISATION</a></td>
+   <td>urn:iso:std:iso:11073:10101</td>
+   <td>2.16.840.1.113883.6.24</td>
+   <td><a href="CodeSystem-v3-mdc.html">Metadata Record</a></td>
+   <td>See <a href="LINK">Using MDC with HL7 Standards</a></td>
+ </tr>
+</table>
   </div>
