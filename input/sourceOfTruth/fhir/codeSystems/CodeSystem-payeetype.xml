@@ -20,10 +20,11 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1050"/>
   </identifier>
-  <version value="0.1.0"/>
+  <version value="0.2.0"/>
   <name value="ClaimPayeeTypeCodes"/>
+  <title value="Payee Type Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -31,8 +32,8 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes sample Payee Type codes."/>
-  <copyright value="This is an example set."/>
+  <description value="Codes indicating the type of party to be reimbursed for cost of products and services."/>
+  <copyright value="HL7 Inc."/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/payeetype"/>
   <content value="complete"/>
@@ -45,6 +46,11 @@
     <code value="provider"/>
     <display value="Provider"/>
     <definition value="Any benefit payable will be paid to the provider (Assignment of Benefit)."/>
+  </concept>
+  <concept>
+    <code value="beneficiary"/>
+    <display value="Beneficiary"/>
+    <definition value="The beneficiary (patient) will be reimbursed."/>
   </concept>
   <concept>
     <code value="other"/>
