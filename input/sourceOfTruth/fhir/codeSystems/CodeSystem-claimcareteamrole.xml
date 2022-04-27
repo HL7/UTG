@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="claimcareteamrole"/>
   <meta>
-    <lastUpdated value="2020-04-09T21:10:28.568+00:00"/>
+    <lastUpdated value="2022-04-27T12:21:00.000+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -32,8 +32,8 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes sample Claim Care Team Role codes."/>
-  <copyright value="This is an example set."/>
+  <description value="Claim roles of the care team members providing products and services."/>
+  <copyright value="HL7 Inc."/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/claim-careteamrole"/>
   <content value="complete"/>
@@ -51,6 +51,41 @@
     <code value="supervisor"/>
     <display value="Supervising Provider"/>
     <definition value="Supervising care provider."/>
+  </concept>
+  <concept>
+    <code value="attending"/>
+    <display value="Attending"/>
+    <definition value="The attending care provider."/>
+  </concept>
+    <concept>
+    <code value="referring"/>
+    <display value="Referring"/>
+    <definition value="The referring care provider."/>
+  </concept>
+    <concept>
+    <code value="operating"/>
+    <display value="Operating"/>
+    <definition value="The operating physician."/>
+  </concept>
+    <concept>
+    <code value="otheroperating"/>
+    <display value="Other Operating"/>
+    <definition value="An additional operating physician."/>
+  </concept>
+    <concept>
+    <code value="prescribing"/>
+    <display value="Prescribing provider"/>
+    <definition value="The prescribing provider."/>
+  </concept>
+    <concept>
+    <code value="purchasedservice"/>
+    <display value="Purchased Service"/>
+    <definition value="A service one provider purchases from another and then provides it to the patient, e.g. a diagnostic exam."/>
+  </concept>
+    <concept>
+    <code value="rendering"/>
+    <display value="Rendering provider"/>
+    <definition value="The rendering/performing provider."/>
   </concept>
   <concept>
     <code value="other"/>
