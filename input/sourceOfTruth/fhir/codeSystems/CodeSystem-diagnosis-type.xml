@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="diagnosis-type"/>
   <meta>
-    <lastUpdated value="2022-04-25T04:07:00.000+00:00"/>
+    <lastUpdated value="2022-05-27T04:07:00.000+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -18,18 +18,19 @@
   <url value="http://terminology.hl7.org/CodeSystem/diagnosis-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1167"/>
+    <value value="urn:oid:2.16.840.1.113883.5.155"/>
   </identifier>
-  <version value="0.1.0"/>
+  <version value="1.0.0"/>
   <name value="DiagnosisType"/>
   <title value="Diagnosis Type"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <publisher value="Financial Management"/>
+  <publisher value="HL7 International"/>
   <contact>
+    <name value="HL7 Financial Management WG"/>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://hl7.org/Special/committees/fm/index.cfm"/>
     </telecom>
   </contact>
   <description value="The context of a diagnosis indicating when a condition was observed, a relative ranking, or the basis of determination."/>
@@ -41,11 +42,6 @@
     <code value="admitting"/>
     <display value="Admitting Diagnosis"/>
     <definition value="The diagnosis given as the reason why the patient was admitted to the hospital."/>
-  </concept>
-  <concept>
-    <code value="patientreasonforvisit"/>
-    <display value="Patient Reason for Visit"/>
-    <definition value="A patient&#39;s reason for a healthcare related visit."/>
   </concept>
   <concept>
     <code value="clinical"/>
@@ -102,14 +98,24 @@
     <display value="Retrospective Diagnosis"/>
     <definition value="The labeling of an illness in a specific historical event using modern knowledge, methods and disease classifications."/>
   </concept>
-    <concept>
+  <concept>
+    <code value="self"/>
+    <display value="Self Diagnosis"/>
+    <definition value="A diagnosis determined by the patient."/>
+  </concept>
+  <concept>
     <code value="externalcauseofinjury"/>
     <display value="External Cause of Injury"/>
     <definition value="A diagnosis indicating and external cause of injury."/>
   </concept>
   <concept>
-    <code value="self"/>
-    <display value="Self Diagnosis"/>
-    <definition value="A diagnosis determined by the patient."/>
+    <code value="patientreasonforvisit"/>
+    <display value="Patient Reason for Visit"/>
+    <definition value="The patient&#39;s reason for visit."/>
+  </concept>
+  <concept>
+    <code value="secondary"/>
+    <display value="Secondary Diagnosis"/>
+    <definition value="A diagnosis other than the principal diagnosis."/>
   </concept>
 </CodeSystem>
