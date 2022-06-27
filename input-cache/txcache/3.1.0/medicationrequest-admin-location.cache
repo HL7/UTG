@@ -1,0 +1,62 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:ced50308-5912-4ad0-806e-a9a177c3e01d",
+    "timestamp" : "2022-06-09T19:30:29.104Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location|0.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Includes requests for medications to be administered or consumed in an inpatient or acute care setting"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location",
+      "code" : "inpatient",
+      "display" : "Inpatient"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Includes requests for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location",
+      "code" : "outpatient",
+      "display" : "Outpatient"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Includes requests for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc.)"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location",
+      "code" : "community",
+      "display" : "Community"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

@@ -1,0 +1,71 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/subscription-status-at-event"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:387bca18-2ba7-4c72-88f0-52418cf94959",
+    "timestamp" : "2022-06-09T19:30:56.541Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/subscription-status-at-event|0.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The client has requested the subscription, and the server has not yet set it up."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/subscription-status-at-event",
+      "code" : "requested",
+      "display" : "Requested"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The subscription is active."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/subscription-status-at-event",
+      "code" : "active",
+      "display" : "Active"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The server has an error executing the notification."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/subscription-status-at-event",
+      "code" : "error",
+      "display" : "Error"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Too many errors have occurred or the subscription has expired."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/subscription-status-at-event",
+      "code" : "off",
+      "display" : "Off"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

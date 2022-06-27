@@ -1,0 +1,71 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/audit-event-outcome"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:7ffb0b79-21f3-485b-9961-25097ebb0f17",
+    "timestamp" : "2022-06-09T19:30:24.479Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/audit-event-outcome|0.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The operation completed successfully (whether with warnings or not)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/audit-event-outcome",
+      "code" : "0",
+      "display" : "Success"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The action was not successful due to some kind of minor failure (often equivalent to an HTTP 400 response)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/audit-event-outcome",
+      "code" : "4",
+      "display" : "Minor failure"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/audit-event-outcome",
+      "code" : "8",
+      "display" : "Serious failure"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "An error of such magnitude occurred that the system is no longer available for use (i.e. the system died)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/audit-event-outcome",
+      "code" : "12",
+      "display" : "Major failure"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
