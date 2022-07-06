@@ -1,0 +1,53 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/consentverification"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:0932f52f-062c-4103-b36d-8f0727b1d5de",
+    "timestamp" : "2022-06-30T19:48:06.669Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/consentverification|0.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Verification by Family/RelatedPerson"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/consentverification",
+      "code" : "family",
+      "display" : "FamilyVerified"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Periodic Re-validation of Grantee decision"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/consentverification",
+      "code" : "validation",
+      "display" : "Validation"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
