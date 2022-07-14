@@ -1,26 +1,75 @@
 -------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
+{"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
+    "inactive" : true,
     "include" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/service-type"
     }]
   }
 }}####
 e: {
+  "error" : "Error from server: The code system definition for http://terminology.hl7.org/CodeSystem/service-type is a example, so this expansion is not permitted unless the expansion parameter \"incomplete-ok\" has a value of \"true\""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "url": "http://terminology.hl7.org/ValueSet/service-type", "version": "0.2.0"}####
+e: {
+  "error" : "Error from server: The code system definition for http://terminology.hl7.org/CodeSystem/service-type is a example, so this expansion is not permitted unless the expansion parameter \"incomplete-ok\" has a value of \"true\""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/service-type"
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: The code system definition for http://terminology.hl7.org/CodeSystem/service-type is a example, so this expansion is not permitted unless the expansion parameter \"incomplete-ok\" has a value of \"true\""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "url": "http://terminology.hl7.org/ValueSet/service-type", "version": "0.2.0"}####
+e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "status" : "active",
+  "id" : "service-type",
+  "meta" : {
+    "lastUpdated" : "2020-02-24T12:41:39.109+11:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
+  },
+  "language" : "en",
+  "url" : "http://terminology.hl7.org/ValueSet/service-type",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.4.642.3.518"
+  }],
+  "version" : "0.2.0",
+  "name" : "ServiceType",
+  "title" : "Service type",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2020-02-24T12:41:39+11:00",
+  "immutable" : true,
   "expansion" : {
-    "identifier" : "urn:uuid:a00d5bf3-8618-4c0f-b4db-13732812cd10",
-    "timestamp" : "2021-04-09T15:53:54.884Z",
+    "identifier" : "urn:uuid:77c64864-2834-426a-9016-a5ed8be555f9",
+    "timestamp" : "2022-07-14T19:23:16.243Z",
     "parameter" : [{
+      "name" : "expansion-source",
+      "valueUri" : "ValueSet/service-type"
+    },
+    {
       "name" : "limitedExpansion",
       "valueBoolean" : true
     },
     {
+      "name" : "example",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/service-type|4.0.1"
+    },
+    {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type|4.0.1"
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/service-type|4.0.1"
     }],
     "contains" : [{
       "extension" : [{

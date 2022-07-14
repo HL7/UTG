@@ -1,0 +1,72 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0949",
+      "version" : "2.1.0"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:a0af4959-92d1-4ca2-9dba-61fc5880da73",
+    "timestamp" : "2022-07-14T19:14:54.134Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v2-0949|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Order changed based on cost"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0949",
+      "code" : "CO",
+      "display" : "Cost"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Incorrect specimen type submitted for the requested test"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0949",
+      "code" : "ST",
+      "display" : "Specimen Type"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Provided specimen volume inadequate for testing"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0949",
+      "code" : "SV",
+      "display" : "Specimen Volume"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Requested test not available"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0949",
+      "code" : "UN",
+      "display" : "Unavailable test"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
