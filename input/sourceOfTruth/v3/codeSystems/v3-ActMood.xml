@@ -8,7 +8,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1001"/>
   </identifier>
-  <version value="2.0.0"/>
+  <version value="2.1.0"/>
   <name value="ActMood"/>
   <title value="ActMood"/>
   <status value="active"/>
@@ -18,6 +18,7 @@
     <name value="Health Level Seven"/>
   </contact>
   <description value="OpenIssue: In Ballot 2009May, a strong Negative vote was lodged against several of the concept definitions in the vocabulary used for Act.moodCode. The vote was found &quot;Persuasive With Mod&quot;, with the understanding that M and M would undertake a detailed review of these concept definitions for a future release of the RIM."/>
+  <caseSensitive value="true"/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
@@ -72,18 +73,18 @@
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
-  <property> 
-    <code value="status"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
-    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
-    <type value="code"/> 
-  </property> 
-  <property> 
-    <code value="deprecationDate"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
-    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
-    <type value="dateTime"/> 
-  </property> 
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecationDate"/>
+    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/>
+    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/>
+    <type value="dateTime"/>
+  </property>
   <property>
     <code value="Name:Class"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Class"/>
@@ -381,14 +382,14 @@
           <concept>
             <code value="RMD"/>
             <display value="recommendation"/>
-            <definition value="**Definition:** A suggestion that an act should be performed with an acceptance of some degree of professional responsibility for the resulting act. Not an explicit request. .&#xD;&#xA;&#xD;&#xA;**UsageNotes:** Where there is no clear definition or applicable concept of &quot;professional responsibility&#xE2;&#x20AC;?, RMD becomes indistinguishable from PRP. ."/>
+            <definition value="**Definition:** A suggestion that an act should be performed with an acceptance of some degree of professional responsibility for the resulting act. Not an explicit request. .&#xD;&#xA;&#xD;&#xA;**UsageNotes:** Where there is no clear definition or applicable concept of &quot;professional responsibilityâ€?, RMD becomes indistinguishable from PRP. ."/>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
             </property>
             <property>
               <code value="HL7usageNotes"/>
-              <valueString value="Where there is no clear definition or applicable concept of &quot;professional responsibility&#xE2;&#x20AC;?, RMD becomes indistinguishable from PRP. ."/>
+              <valueString value="Where there is no clear definition or applicable concept of &quot;professional responsibilityâ€?, RMD becomes indistinguishable from PRP. ."/>
             </property>
             <property>
               <code value="internalId"/>
@@ -469,10 +470,10 @@
         <code value="status"/>
         <valueCode value="deprecated"/>
       </property>
-      <property> 
-        <code value="deprecationDate"/> 
-        <valueDateTime value="2010-07-12"/> 
-      </property>    
+      <property>
+        <code value="deprecationDate"/>
+        <valueDateTime value="2010-07-12"/>
+      </property>
       <property>
         <code value="internalId"/>
         <valueCode value="22042"/>
@@ -489,10 +490,10 @@
           <code value="status"/>
           <valueCode value="deprecated"/>
         </property>
-        <property> 
-          <code value="deprecationDate"/> 
-          <valueDateTime value="2010-07-12"/> 
-        </property>    
+        <property>
+          <code value="deprecationDate"/>
+          <valueDateTime value="2010-07-12"/>
+        </property>
         <property>
           <code value="internalId"/>
           <valueCode value="10203"/>
