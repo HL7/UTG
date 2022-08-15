@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<NamingSystem xmlns="http://hl7.org/fhir">
+  <id value="ssn"/>
+  <extension url="http://hl7.org/fhir/tools/StructureDefinition/extension-title">
+    <valueString value="United States Social Security Number"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
+    <valueUri value="http://terminology.hl7.org/NamingSystem/ssn"/>
+  </extension>
+  <extension url="http://terminology.hl7.org/StructureDefinition/ext-namingsystem-version">
+    <valueString value="1.0.0"/>
+  </extension>
+  <name value="SSN"/>
+  <status value="active"/>
+  <kind value="identifier"/>
+  <date value="2022-02-07T00:00:00-00:00"/>
+  <description value="United States Social Security Number (SSN).  Assigned by the U.S. Social Security Administration.  Note: IRS assigned ITINs are often used as drop-ins for social security numbers.  The SSN is represented in resources with dashes removed. See http://www.ssa.gov/."/>
+  <type> 
+    <coding> 
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/> 
+      <code value="SB"/> 
+    </coding> 
+  </type> 
+  <uniqueId>
+    <type value="oid"/>
+    <value value="2.16.840.1.113883.4.1"/>
+    <preferred value="true"/>
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="http://hl7.org/fhir/sid/us-ssn"/>
+    <preferred value="true"/>
+  </uniqueId>
+</NamingSystem>
