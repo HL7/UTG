@@ -1,11 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+<p>This page describes how to use LOINC with HL7 Standards.</p>
+<a name="Using LOINC with FHIR R5"> </a>
+<h3>Using LOINC with FHIR R5</h3>
 
-<p>
-		This page describes how to use LOINC with HL7 Standards.
-</p>
-
- <a name="Using LOINC with HL7 Standards"></a>
- 	<h3>Using LOINC with FHIR</h3>
+<!-- Summary -->
+<a name="Summary"> </a>
 <h4>Summary</h4>
 <table class="grid">
  <tr><td>Source</td><td>LOINC is made available by the <a href="https://www.regenstrief.org/">Regenstrief Institute</a> at <a href="http://loinc.org">http://loinc.org</a></td></tr>
@@ -18,57 +17,42 @@
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
 </table>
 
-
-
+<!-- Copyright Issues -->
+<a name="Copyright Issues"> </a>
 <h4>Copyright Issues</h4>
-
-<p>
-The terms of use for LOINC require that a <a href="license.html#loinc">notice</a> be included with any use of LOINC codes.
-This notice must appear in the <i>copyright</i> element of any value set that includes LOINC codes (either in the code or filter elements, or in an expansion):
-</p>
+<p>The terms of use for LOINC require that a <a href="https://hl7.org/fhir/license.html#loinc">notice</a> be included with any use of LOINC codes. This notice must appear in the <i>copyright</i> element of any value set that includes LOINC codes (either in the code or filter elements, or in an expansion):</p>
 <pre>
-&lt;copyright value=&quot;This material contains content from LOINC (<a href="http://loinc.org">http://loinc.org</a>). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. 
-and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license 
-at <a href="http://loinc.org/license">http://loinc.org/license</a>. LOINC® is a registered United States trademark of Regenstrief Institute, Inc.&quot;/&gt;
+&lt;copyright value=&quot;This material contains content from LOINC (<a href="http://loinc.org">http://loinc.org</a>). 
+Refer to <a href="https://terminology.hl7.org/">terminology.hl7.org</a> for copyright information. 
+LOINC® is available at no cost under the license at <a href="http://loinc.org/license">http://loinc.org/license</a>. LOINC® is a registered United States trademark of Regenstrief Institute, Inc.&quot;/&gt;
 </pre>
-<p>
-Additional copyright statements may also be found in the <i>copyright</i> element. Some LOINC codes have
-3rd party copyright statements. When these codes are included in a value set, they must carry their own
-copyright statement as well.
-</p>
+<p>Additional copyright statements may also be found in the <i>copyright</i> element. Some LOINC codes have 3rd party copyright statements. When these codes are included in a value set, they must carry their own copyright statement as well.</p>
 
+<!-- LOINC FHIR Terminology Server -->
+<a name="LOINC FHIR Terminology Server"> </a>
 <h4>LOINC FHIR Terminology Server</h4>
+<p>Regenstrief Institute provides access to LOINC's terminology content through the HL7® FHIR® API. See the LOINC FHIR Terminology Server <a href="https://loinc.org/fhir/">page</a> for details.</p>
 
-Regenstrief Institute provides access to LOINC's terminology content through the HL7® FHIR® API.  
-See the LOINC FHIR Terminology Server <a href="https://loinc.org/fhir/">page</a> for details.
-
+<!-- Case Sensitivity -->
+<a name="Case Sensitivity"> </a>
 <h4>Case Sensitivity</h4>
-<p>
-For comparison purposes, LOINC codes, displays, and property values are not case sensitive, though implementers SHOULD maintain the correct case when using LOINC codes and property values.
-</p>
+<p>For comparison purposes, LOINC codes, displays, and property values are not case sensitive, though implementers SHOULD maintain the correct case when using LOINC codes and property values.</p>
 
-
+<!-- Use of LOINC PARTS -->
+<a name="Use of LOINC PARTS"> </a>
 <h4>Use of LOINC PARTS</h4>
-<p>
-As described in the <a href="http://loinc.org/downloads/files/LOINCManual.pdf">LOINC Manual</a> section 10.2,
-LOINC Parts are a coded representation of a value for a dimension used to specify a LOINC Term
-which are assigned a non-semantic identifier with a "LP" prefix and a mod-10 check digit. Following
-the LOINC license, these part codes may be used in the following ways:
-</p>
+<p>As described in the <a href="http://loinc.org/downloads/files/LOINCManual.pdf">LOINC Manual</a> section 10.2, LOINC Parts are a coded representation of a value for a dimension used to specify a LOINC Term which are assigned a non-semantic identifier with a "LP" prefix and a mod-10 check digit. Following the LOINC license, these part codes may be used in the following ways:</p>
 <ul>
  <li>In filter properties, as described below</li>
- <li>In <a href="structuredefinition-definitions.html">Structure Definitions</a>, where the structure describes the use of a set of LOINC codes</li>
- <li>In a <a href="conceptmap.html">ConceptMap</a> resource, where mappings between LOINC codes and other codes are being defined</li>
+ <li>In <a href="https://hl7.org/fhir/structuredefinition-definitions.html">Structure Definitions</a>, where the structure describes the use of a set of LOINC codes</li>
+ <li>In a <a href="https://hl7.org/fhir/conceptmap.html">ConceptMap</a> resource, where mappings between LOINC codes and other codes are being defined</li>
 </ul>
-<p>
-Part codes are the same LOINC system (http://loinc.org) and SHALL be represented in uppercase (e.g. LP31755-9).
-</p>
+<p>Part codes are the same LOINC system (http://loinc.org) and SHALL be represented in uppercase (e.g. LP31755-9).</p>
 
+<!-- Use of LOINC Answer Lists -->
+<a name="Use of LOINC Answer Lists"> </a>
 <h4>Use of LOINC Answer Lists</h4>
-<p>
-LOINC also allocates Answer List and Answer String Ids for use in various forms and questionnaires.
-LOINC Answer String IDs are also valid LOINC codes:
-</p>
+<p>LOINC also allocates Answer List and Answer String Ids for use in various forms and questionnaires. LOINC Answer String IDs are also valid LOINC codes:</p>
 <pre>
   &lt;coding&gt;
     &lt;system value=&quot;http://loinc.org&quot;/&gt;
@@ -76,25 +60,17 @@ LOINC Answer String IDs are also valid LOINC codes:
     &lt;display value=&quot;Platelet anisocytosis&quot;/&gt;
   &lt;/coding&gt;
 </pre>
-<p>
-LOINC Answer List Ids are actually value set identifiers. See <a href="#alist">below</a> for how to use these.
-</p>
+<p>LOINC Answer List Ids are actually value set identifiers. See <a href="#LOINC Answer Lists">below</a> for how to use these.</p>
 
-
+<!-- RDF -->
+<a name="RDF"> </a>
 <h4>RDF</h4>
+<p>LOINC uses the namespace http://loinc.org/rdf# as the root for LOINC concepts in the RDF space. This means that when a LOINC code is converted from the system:code pair, where the system is http://loinc.org, to the <a href="https://hl7.org/fhir/rdf.html">RDF ontological form</a>, the representation is http://loinc.org/rdf#[code].</p>
 
-<p>
-LOINC uses the namespace http://loinc.org/rdf# as the root for LOINC concepts in the
-RDF space. This means that when a LOINC code is converted from the system:code pair,
-where the system is http://loinc.org, to the <a href="rdf.html">RDF ontological form</a>,
-the representation is http://loinc.org/rdf#[code].
-</p>
-
-<a name="props"></a>
+<!-- LOINC Properties -->
+<a name="LOINC Properties"> </a>
 <h4>LOINC Properties</h4>
-<p>
-In addition to the <a href="terminology-service.html#standard-props">standard properties</a>, the following LOINC table fields are defined as code system properties when using LOINC in FHIR:
-</p>
+<p>In addition to the <a href="https://hl7.org/fhir/terminology-service.html#standard-props">standard properties</a>, the following LOINC table fields are defined as code system properties when using LOINC in FHIR:</p>
 <table class="grid">
 <tr><td>STATUS</td><td>string</td><td>Status of the term</td></tr>
 <tr><td>COMPONENT</td><td>code</td><td>First major axis-component or analyte: Analyte Name, Analyte sub-class, Challenge</td></tr>
@@ -109,23 +85,15 @@ In addition to the <a href="terminology-service.html#standard-props">standard pr
 <tr><td>ORDER_OBS</td><td>string</td><td>Provides users with an idea of the intended use of the term by categorizing it as an order only, observation only, or both</td></tr>
 <tr><td>DOCUMENT_SECTION</td><td>string</td><td>Classification of whether this LOINC code can be used a full document, a section of a document, or both</td></tr>
 </table>
+<p>Note that when a <a href="https://hl7.org/fhir/codesystem-operation-lookup.html">$lookup</a> operation is performed on a LOINC code, servers SHALL return the version being used (see above) in the <code>version</code> property. Other properties are at the discretion of the server and the client.</p>
 
-<p>
-Note that when a <a href="codesystem-operation-lookup.html">$lookup</a> operation is performed on a LOINC code,
-servers SHALL return the version being used (see above) in the <code>version</code> property.
-Other properties are at the discretion of the server and the client.
-</p>
-
-<a name="filters"></a>
+<!-- LOINC Filters -->
+<a name="LOINC Filters"> </a>
 <h4>LOINC Filters</h4>
+<p>This section documents the property filters that can be used with the LOINC code system in value set composition statements.</p>
 
-<p>
-This section documents the property filters that can be used with the LOINC
-code system in value set composition statements.
-</p>
-
+<a name="LOINC Property filter"> </a>
 <h5>LOINC Property filter</h5>
-
 <table class="grid">
  <tr><td>Description</td><td>Allows the selection of a set of LOINC codes with a common property value (see list above)</td></tr>
  <tr><td>Property Name</td><td>One of the names listed in the "Field Name" column in LOINC Database Structure (Appendix A of the LOINC manual)</td></tr>
@@ -134,8 +102,8 @@ code system in value set composition statements.
  <tr><td>Comments</td><td>The 6 properties COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, and METHOD_TYP are most likely to be useful.</td></tr>
 </table>
 
+<a name="3rd Party Copyright"> </a>
 <h5>3rd Party Copyright</h5>
-
 <table class="grid">
  <tr><td>Description</td><td>Allows for the inclusion or exclusion of LOINC codes that include 3rd party copyright notices</td></tr>
  <tr><td>Property Name</td><td>copyright</td></tr>
@@ -144,8 +112,8 @@ code system in value set composition statements.
  <tr><td>Comments</td><td>LOINC = only codes with a sole copyright by Regenstrief. 3rdParty = only codes with a 3rd party copyright in addition to the one from Regenstrief.</td></tr>
 </table>
 
+<a name="Multi-Axial Hierarchy"> </a>
 <h5>Multi-Axial Hierarchy</h5>
-
 <table class="grid">
  <tr><td>Description</td><td>Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy </td></tr>
  <tr><td>Property Name</td><td>parent | ancestor</td></tr>
@@ -159,34 +127,17 @@ code system in value set composition statements.
 Document.Kind, Document.TypeOfService, Document.Setting, Document.Role, and Document.SubjectMatterDomain
 -->
 
-<a name="implicit"></a>
-<h4>Implicit Value Sets</h4>
+<!-- LOINC Implicit Value Sets -->
+<a name="LOINC Implicit Value Sets"> </a>
+<h4>LOINC Implicit Value Sets</h4>
+<p>Implicit value sets are those whose specification can be predicted based on the grammar of the underlying code system, and the known structure of the URL that refers to them. LOINC defines one set of implicit value sets: By Multi-Axial Hierarchy Entry.</p>
+<p>If any value set resources exist with an identifier that conforms to the URL patterns specified below, the content of the resource must conform to the template provided. Profiles and other value set references are allowed to reference these value sets directly.</p>
+<p>The value set identifier http://loinc.org/vs is a value set that contains all LOINC codes.</p>
 
-<p>
-Implicit value sets are those whose specification can be predicted based on the grammar of the
-underlying code system, and the known structure of the URL that refers to them. LOINC
-defines one set of implicit value sets: By Multi-Axial Hierarchy Entry.
-</p>
-<p>
-If any value set resources exist with an identifier that conforms to the URL patterns specified below,
-the content of the resource must conform to the template provided. Profiles and other value set
-references are allowed to reference these value sets directly.
-</p>
-
-<p>
-The value set identifier http://loinc.org/vs is a value set that contains all LOINC codes.
-</p>
-
-<a name="alist"></a>
-<h5>LOINC Answer List</h5>
-
-<p>
-LOINC defines a set of Answer lists, each of which contains a set of LOINC codes.
-LOINC answer lists are value sets. The value set identifier "http://loinc.org/vs/[id]"
-identifies a value set that contains a set of LOINC codes. For instance, the value
-set identifier http://loinc.org/vs/LL715-4 has the following definition for LOINC 2.52:
-</p>
-<pre class="xml" fragment="ValueSet">
+<a name="LOINC Answer Lists"> </a>
+<h5>LOINC Answer Lists</h5>
+<p>LOINC defines a set of Answer lists, each of which contains a set of LOINC codes. LOINC answer lists are value sets. The value set canonical uri "http://loinc.org/vs/[id]" identifies a value set that contains a set of LOINC codes. For instance, the value set uri http://loinc.org/vs/LL715-4 has the following definition for LOINC 2.52:</p>
+<pre class="xml">
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;text&gt;
     &lt;status value=&quot;generated&quot;/&gt;
@@ -240,11 +191,7 @@ set identifier http://loinc.org/vs/LL715-4 has the following definition for LOIN
   &lt;/compose&gt;
 &lt;/ValueSet&gt;
 </pre>
-
-<p>
-Here is an example of a LOINC Answer list used in a Questionnaire
-question:
-</p>
+<p>Here is an example of a LOINC Answer list used in a Questionnaire question:</p>
 <pre class="xml">
 &lt;item&gt;
   &lt;code&gt;
@@ -259,16 +206,10 @@ question:
 &lt;/item&gt;
 </pre>
 
-
-
+<a name="Multi-Axial Hierarchy Entry"> </a>
 <h5>Multi-Axial Hierarchy Entry</h5>
-
-<p>
-A value set with an identifier of "http://loinc.org/vs/[partcode]" must
-conform to this template, where [partcode] is a part code from the
-multi-axial hierarchy:
-</p>
-<pre class="xml" fragment="ValueSet">
+<p>A value set with an identifier of "http://loinc.org/vs/[partcode]" must conform to this template, where [partcode] is a part code from the multi-axial hierarchy:</p>
+<pre class="xml">
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;text&gt;
     &lt;status value=&quot;generated&quot;/&gt;
@@ -297,16 +238,10 @@ multi-axial hierarchy:
 &lt;/ValueSet&gt;
 </pre>
 
-<a name="dataelements"></a>
+<a name="LOINC and Data Elements"> </a>
 <h5>LOINC and Data Elements</h5>
-
-<p>
-LOINC codes and their properties are describing a data element that can have a value. Functionally, 
-this overlaps with FHIR's notion of a <a href="structuredefinition.html#logical">Logical Data Model</a>.  A
-logical data model can be created for each LOINC code based on it's properties.  The representation of
-each logical model is aligned with LOINC's RDF representation.
-</p>
-<pre fragment="StructureDefinition" class="xml">
+<p>LOINC codes and their properties are describing a data element that can have a value. Functionally, this overlaps with FHIR's notion of a <a href="https://hl7.org/fhir/structuredefinition.html#logical">Logical Data Model</a>.  A logical data model can be created for each LOINC code based on it's properties.  The representation of each logical model is aligned with LOINC's RDF representation.</p>
+<pre class="xml">
 &lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt; 
   &lt;id value=&quot;[LOINC code]&quot;/&gt;
   &lt;url value=&quot;http://loinc.org/owl#[LOINC code]&quot;/&gt;
@@ -339,15 +274,8 @@ each logical model is aligned with LOINC's RDF representation.
   &lt;/differential&gt;
 &lt;/StructureDefinition&gt;
 </pre>
-
-<p>
-The canonical URL <code>http://loinc.org/rdf#[LOINC code]</code> can be used to refer to logical model elements 
-defined by LOINC such as e.g. in <a href="questionnaire.html">Questionnaire.item.definition</a>.
-</p>
-<p>
-The appropriate type is determined by mapping from the LOINC specified SCALE_TYP for v3 to FHIR
-using this table:
-</p>
+<p>The canonical URL <code>http://loinc.org/rdf#[LOINC code]</code> can be used to refer to logical model elements defined by LOINC such as e.g. in <a href="https://hl7.org/fhir/questionnaire-definitions.html#Questionnaire.item.definition">Questionnaire.item.definition</a>.</p>
+<p>The appropriate type is determined by mapping from the LOINC specified SCALE_TYP for v3 to FHIR using this table:</p>
 <table class="grid">
  <tr>
   <td><b>SCALE_TYP</b></td>

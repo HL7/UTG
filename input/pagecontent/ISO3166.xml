@@ -1,11 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+<p>This page describes how to use ISO 3166 with HL7 Standards.</p>
 
-<p>
-		This page describes how to use ISO 3166 with HL7 Standards.
-</p>
+<a name="Using ISO 3166 with FHIR R5"> </a>
+<h3>Using ISO 3166 with FHIR R5</h3>
 
- <a name="Using ISO 3166 with HL7 Standards"></a>
- 	<h3>Using ISO 3166 with FHIR</h3>
+<!-- Summary -->
+<a name="Summary"> </a>
 <h4>Summary</h4>
 <table class="grid">
  <tr><td>Source</td><td><a href="http://www.iso.org/iso/country_codes.htm">ISO 3166 Home Page</a></td></tr>
@@ -33,35 +33,27 @@
  <tr><td>Filter Properties</td><td>Regex on code - see below</td></tr>
 </table>
 
+<!-- Version Issues -->
+<a name="Version Issues"> </a>
 <h4>Version Issues</h4>
-<p>
-A few country codes have been reused (e.g. CS). If a version is needed, simply use the year of publication e.g. 1998.
-</p>
+<p>A few country codes have been reused (e.g. CS). If a version is needed, simply use the year of publication e.g. 1998.</p>
 
+<!-- Copyright/License Issues -->
+<a name="Copyright/License Issues"> </a>
 <h4>Copyright/License Issues</h4>
+<p>ISO Maintains the copyright on the country codes, and controls it's use carefully. For further details, see the <a href="http://www.iso.org/iso/country_codes.htm">ISO 3166 Home Page</a></p>
 
-<p>
-ISO Maintains the copyright on the country codes, and controls it's use carefully. 
-For further details, see the <a href="http://www.iso.org/iso/country_codes.htm">ISO 3166 Home Page</a>
-</p>
 
-<h4>ISO-3166 Filter Properties</h4>
-
-<p>
-The Part 1 Code system identified by the URI <code>urn:iso:std:iso:3166</code> contains 
-3 types of codes for country: 
-</p>
+<!-- ISO 3166 Filter Properties -->
+<a name="ISO 3166 Filter Properties"> </a>
+<h4>ISO 3166 Filter Properties</h4>
+<p>The Part 1 Code system identified by the URI <code>urn:iso:std:iso:3166</code> contains 3 types of codes for country: </p>
 <ul>
   <li>2-letter</li>
   <li>3-letter</li>
   <li>Numeric</li>
 </ul>
-<p>
-In almost all contexts of use, only one of these 3 subsets of codes are used / allowed. 
-Value sets can be defined for these by <a href="valueset-definitions.html#ValueSet.compose.include.concept">enumerating 
-the relevant codes</a>. Alternatively, a regex can be used to define the value set intensionally. 
-For example, this filter specifies only 3 letter codes:
-</p>
+<p>In almost all contexts of use, only one of these 3 subsets of codes are used / allowed. Value sets can be defined for these by <a href="https://hl7.org/fhir/valueset-definitions.html#ValueSet.compose.include.concept">enumerating the relevant codes</a>. Alternatively, a regex can be used to define the value set intensionally. For example, this filter specifies only 3 letter codes:</p>
 <pre>
   "filter" : [{
     "property" : "code", 
@@ -70,21 +62,14 @@ For example, this filter specifies only 3 letter codes:
   }]
 </pre>
 
-
-<h4>Value Sets</h4>
-
-<p>
-This specification defines 3 commonly used value sets for use with ISO 3166 Country Codes:
-</p>
+<!-- ISO 3166 Value Sets -->
+<a name="ISO 3166 Value Sets"> </a>
+<h4>ISO 3166 Value Sets</h4>
+<p>The FHIR specification defines 3 commonly used value sets for use with ISO 3166 Country Codes:</p>
 <ul>
- <li><a href="valueset-iso3166-1-2.html">2 letter Country Codes</a></li>
- <li><a href="valueset-iso3166-1-3.html">3 letter Country Codes</a></li>
- <li><a href="valueset-iso3166-1-N.html">Numerical Country Codes</a></li>
+ <li><a href="https://hl7.org/fhir/valueset-iso3166-1-2.html">2 letter Country Codes</a></li>
+ <li><a href="https://hl7.org/fhir/valueset-iso3166-1-3.html">3 letter Country Codes</a></li>
+ <li><a href="https://hl7.org/fhir/valueset-iso3166-1-N.html">Numerical Country Codes</a></li>
 </ul>
-<p>
-The latter two value sets are defined intensionally in this specification as a 
-consequence of ISO Intellectual Property Restrictions.
-</p>
-
-
+<p>The latter two value sets are defined intensionally in this specification as a consequence of ISO Intellectual Property Restrictions.</p>
 </div>
