@@ -2,9 +2,9 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R5/fhir-single.xsd">
   <id value="hl7.other.uv.utg"/>
   <url value="http://terminology.hl7.org/ImplementationGuide/hl7.other.uv.utg"/>
-  <version value="3.1.12"/>
+  <version value="2.1.17"/>
   <name value="HL7Terminology"/>
-  <title value="HL7 Terminology (THO)"/>
+  <title value="HL7 Terminology"/>
   <status value="active"/>
   <experimental value="false"/>
   <publisher value="HL7 International - Vocabulary Work Group"/>
@@ -64,46 +64,16 @@
           <generation value="html"/>
         </page>
         <page>
+          <nameUrl value="codesystems-external.html"/>
+          <title value="External Code Systems"/>
+          <generation value="html"/>
+        </page>
+        <page>
           <nameUrl value="codesystems-retired.html"/>
           <title value="Retired Code Systems"/>
           <generation value="html"/>
         </page>
       </page>
-      <page>
-        <nameUrl value="external_terminologies.html"/>
-        <title value="External Terminologies"/>
-        <generation value="html"/>
-        <page>
-          <nameUrl value="external_terminologies_csmr.html"/>
-          <title value="Code System Metadata Records"/>
-          <generation value="html"/>
-        </page>
-        <page>
-          <nameUrl value="external_terminologies_csti.html"/>
-          <title value="Code System Technical Identifiers"/>
-          <generation value="html"/>
-        </page>
-        <page>
-          <nameUrl value="external_terminologies_csf.html"/>
-          <title value="Code System Fragments"/>
-          <generation value="html"/>
-        </page>
-        <page>
-          <nameUrl value="external_terminologies_ccs.html"/>
-          <title value="Complete Code Systems"/>
-          <generation value="html"/>
-        </page>
-        <page>
-          <nameUrl value="external_terminologies_rc.html"/>
-          <title value="Retired Content"/>
-          <generation value="html"/>
-        </page>
-      </page>
-      <page>
-        <nameUrl value="identifiers.html"/>
-        <title value="Identifier Systems"/>
-        <generation value="html"/>
-      </page>   
       <page>
         <nameUrl value="valuesets.html"/>
         <title value="Value Sets"/>
@@ -147,6 +117,11 @@
         <generation value="html"/>
       </page>
       <page>
+        <nameUrl value="namingsystems.html"/>
+        <title value="Naming Systems"/>
+        <generation value="html"/>
+      </page>
+      <page>
         <nameUrl value="documentation.html"/>
         <title value="Documentation"/>
         <generation value="html"/>
@@ -154,11 +129,6 @@
       <page>
         <nameUrl value="downloads.html"/>
         <title value="Downloads"/>
-        <generation value="html"/>
-      </page>
-      <page>
-        <nameUrl value="newcsnotify.html"/>
-        <title value="Pending Code Systems"/>
         <generation value="html"/>
       </page>
     </page>
@@ -213,12 +183,6 @@
       <code value="path-resource"/>
       <value value="input\sourceOfTruth\unified\codeSystems"/>
     </parameter>
-
-    <parameter>
-      <code value="path-resource"/>
-      <value value="input\sourceOfTruth\unified\namingSystems"/>
-    </parameter>
-
     <parameter>
       <code value="path-resource"/>
       <value value="input\sourceOfTruth\unified\valueSets"/>
@@ -253,7 +217,7 @@
     </parameter>
     <parameter>
       <code value="releaselabel"/>
-      <value value="Continuous Process Integration  (ci build)"/>
+      <value value="UTG Pro Forma Change Request UP-338"/>
     </parameter>
     <parameter>
         <code value="copyrightyear"/>
@@ -267,58 +231,58 @@
       <code value="apply-context"/>
       <value value="true"/>
     </parameter>
-      <parameter>
-        <code value="apply-copyright"/>
-        <value value="true"/>
-      </parameter>
-      <parameter>
-        <code value="apply-jurisdiction"/>
-        <value value="false"/>
-      </parameter>
-      <parameter>
-        <code value="apply-license"/>
-        <value value="false"/>
-      </parameter>
-      <parameter>
-        <code value="apply-publisher"/>
-        <value value="false"/>
-      </parameter>
-      <parameter>
-        <code value="apply-version"/>
-        <value value="false"/>
-      </parameter>
-      <parameter>
-        <code value="generate-version"/>
-        <value value="r3"/>
-      </parameter>
-      <parameter>
-        <code value="generate-version"/>
-        <value value="r4"/>
-      </parameter>
-      <parameter>
-        <code value="generate-version"/>
-        <value value="r5"/>
-      </parameter>
+    <parameter>
+      <code value="apply-copyright"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-jurisdiction"/>
+      <value value="false"/>
+    </parameter>
+    <parameter>
+      <code value="apply-license"/>
+      <value value="false"/>
+    </parameter>
+    <parameter>
+      <code value="apply-publisher"/>
+      <value value="false"/>
+    </parameter>
+    <parameter>
+      <code value="apply-version"/>
+      <value value="false"/>
+    </parameter>
+    <parameter>
+      <code value="generate-version"/>
+      <value value="r3"/>
+    </parameter>
+    <parameter>
+      <code value="generate-version"/>
+      <value value="r4"/>
+    </parameter>
+    <parameter>
+      <code value="generate-version"/>
+      <value value="r5"/>
+    </parameter>
 
-      <parameter>
-        <code value="special-url"/>
-        <value value="http://www.ada.org/snodent"/>
-      </parameter>
+    <parameter>
+      <code value="special-url"/>
+      <value value="http://www.ada.org/snodent"/>
+    </parameter>
 
-      <parameter>
-        <code value="special-url"/>
-        <value value="http://dicom.nema.org/resources/ontology/DCM"/>
-      </parameter>
+    <parameter>
+      <code value="special-url"/>
+      <value value="http://dicom.nema.org/resources/ontology/DCM"/>
+    </parameter>
 
-      <parameter>
-        <code value="special-url"/>
-        <value value="http://www.ncbi.nlm.nih.gov/projects/SNP"/>
-      </parameter>
+    <parameter>
+      <code value="special-url"/>
+      <value value="http://www.ncbi.nlm.nih.gov/projects/SNP"/>
+    </parameter>
 
-      <parameter>
-        <code value="special-url"/>
-        <value value="http://www.genenames.org"/>
-      </parameter>
+    <parameter>
+      <code value="special-url"/>
+      <value value="http://www.genenames.org"/>
+    </parameter>
 
       <parameter>
         <code value="special-url"/>
@@ -519,7 +483,7 @@
     <code value="special-url"/>
     <value value="http://uri.hddaccess.com/cs/apdrg"/>
   </parameter>
-
+	
 	<parameter>
     <code value="special-url"/>
     <value value="http://www.ada.org/cdt"/>
@@ -527,104 +491,9 @@
 
   <parameter>
     <code value="special-url"/>
-    <value value="http://imohealth.com/ontology/"/>
-  </parameter>
-
-  <parameter>
-    <code value="special-url"/>
     <value value="https://nahdo.org/sopt"/>
   </parameter>
-
-  <parameter>
-    <code value="special-url"/>
-    <value value="https://www.nlm.nih.gov/mesh"/>
-  </parameter>
-	
-  <parameter>
-	<code value="special-url"/>
-	<value value="http://terminology.hl7.org/CodeSystem/hc-CCDD"/>
-  </parameter>
-  
-  <parameter>
-    <code value="special-url"/>
-    <value value="urn:oid:2.16.840.1.113883.6.238"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="http://uri.hddaccess.com/cs/aprdrg"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="http://hl7.org/fhir/NamingSystem/ca-hc-din"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="http://terminology.hl7.org/CodeSystem/cmsrxhcc"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="http://terminology.hl7.org/CodeSystem/cmshcc"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="https://www.ncbi.nlm.nih.gov/gtr"/>
-  </parameter>
-  <parameter>
-        <code value="special-url"/>
-        <value value="https://iscn.karger.com"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="http://radlex.org"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="https://cancerstaging.org"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="http://va.gov/terminology/medrt"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="https://term.omaha.org.cn"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="https://www.nubc.org/CodeSystem/TypeOfBill"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-   <value value="https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/AcuteInpatientPPS/MS-DRG-Classifications-and-Software"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="http://www.ncbi.nlm.nih.gov/clinvar"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="https://www.nubc.org/CodeSystem/PatDischargeStatus"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="https://www.nubc.org/CodeSystem/PointOfOriginNewborn"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="https://www.nubc.org/CodeSystem/PointOfOrigin"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="https://www.nubc.org/CodeSystem/PriorityTypeOfAdmitOrVisit"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="https://www.nubc.org/CodeSystem/RevenueCodes"/>
-  </parameter>
-  <parameter>
-    <code value="special-url"/>
-    <value value="http://human-phenotype-ontology.org"/>
-  </parameter>
+    
   <parameter>
     <code value="logging"/>
     <value value="PROGRESS"/>
