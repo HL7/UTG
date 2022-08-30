@@ -1,0 +1,62 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/subscription-error"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:1082298c-f403-4a1f-a27c-fd3e291f76bb",
+    "timestamp" : "2022-07-22T20:33:30.306Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/subscription-error|0.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "DNS resolution error for client rest-hook endpoint."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/subscription-error",
+      "code" : "dns-resolution-error",
+      "display" : "DNS resolution error"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "No response for client rest-hook endpoint."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/subscription-error",
+      "code" : "no-response",
+      "display" : "No response"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Error response from client rest-hook endpoint. Recommended practice: convey the actual HTTP error in an adjacent Coding or in text"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/subscription-error",
+      "code" : "error-response",
+      "display" : "Error response"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
