@@ -1,0 +1,62 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-CodeSystemType"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:7d15334c-eea1-4f3a-be98-e2afa62412f5",
+    "timestamp" : "2022-06-30T21:01:40.673Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-CodeSystemType|2.0.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Code system is created and maintained by an organization outside of HL7"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-CodeSystemType",
+      "code" : "E",
+      "display" : "External"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Code system is created and updated by an organization outside of HL7, but an internal copy is mainted by HL7 for convenience"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-CodeSystemType",
+      "code" : "EI",
+      "display" : "external-internal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Code system is created and maintained by HL7"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-CodeSystemType",
+      "code" : "I",
+      "display" : "Internal"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

@@ -1,0 +1,62 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/medication-admin-location"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:d4d40cbd-de48-4fc4-9bc5-1a2677ca43b9",
+    "timestamp" : "2022-06-30T20:59:55.938Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/medication-admin-location|0.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Includes administrations in an inpatient or acute care setting"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/medication-admin-location",
+      "code" : "inpatient",
+      "display" : "Inpatient"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Includes administrations in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/medication-admin-location",
+      "code" : "outpatient",
+      "display" : "Outpatient"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Includes administrations by the patient in their home (this would include long term care or nursing homes, hospices, etc.)"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/medication-admin-location",
+      "code" : "community",
+      "display" : "Community"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

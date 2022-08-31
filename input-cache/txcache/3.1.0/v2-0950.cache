@@ -1,0 +1,54 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0950",
+      "version" : "2.1.0"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:36e926e2-85bd-4232-8d72-184ad86310e6",
+    "timestamp" : "2022-06-30T21:00:44.188Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v2-0950|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The order status auto-expires when a specified event occurs"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0950",
+      "code" : "EOE",
+      "display" : "Expiration on event"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The order status is timed and will auto-expire once the prescribed  time interval has passed"
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0950",
+      "code" : "EOT",
+      "display" : "Expiration on time"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
