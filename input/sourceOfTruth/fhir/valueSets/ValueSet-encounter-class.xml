@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="encounter-class"/>
+  <meta>
+    <lastUpdated value="2020-02-24T12:41:39.109+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/encounter-class"/>
+  <version value="1.0.0"/>
+  <name value="EncounterClass"/>
+  <title value="Encounter class"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-02-24T12:41:39+11:00"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines a set of codes that can be used to indicate the class of encounter: a specific code indicating class of service provided."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <concept>
+        <code value="IMP"/>
+        <display value="inpatient encounter"/>
+      </concept>
+      <concept>
+        <!-- outpatient -->
+        <code value="AMB"/>
+        <display value="ambulatory"/>
+      </concept>
+      <concept>
+        <code value="OBSENC"/>
+        <display value="observation encounter"/>
+      </concept>
+      <concept>
+        <code value="EMER"/>
+        <display value="emergency"/>
+      </concept>
+      <concept>
+        <code value="VR"/>
+        <display value="virtual"/>
+      </concept>
+      <concept>
+        <!-- community -->
+        <code value="HH"/>
+        <display value="home health"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
