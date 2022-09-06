@@ -6,8 +6,11 @@ The Implementation Guide contains no examples for this extension
 # Don't error on case-sensitive for now
 CodeSystems SHOULD have a stated value for the caseSensitive element so that users know the status and meaning of the code system clearly
 
-# needs to be fixed infrastructurally
-The Coding provided is not in the value set http://hl7.org/fhir/ValueSet/designation-use, and a code should come from this value set unless it has no suitable code.  (error message = Not in value set http://hl7.org/fhir/ValueSet/designation-use)
+# These value sets are supposed to exist
+Review the All Codes Value Set - incomplete CodeSystems generally should not have an all codes value set specified
+
+# Not HTML tags.
+The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 
 # HL7 code systems that have not (yet) had their hierarchyMeaning element set
 WARNING: CodeSystem/allergyintolerance-clinical: CodeSystem: HL7 Defined CodeSystems SHOULD have a stated value for the hierarchyMeaning element so that users know the status and meaning of the code system clearly
@@ -19,42 +22,17 @@ WARNING: CodeSystem/data-absent-reason: CodeSystem: HL7 Defined CodeSystems SHOU
 WARNING: CodeSystem/goal-achievement: CodeSystem: HL7 Defined CodeSystems SHOULD have a stated value for the hierarchyMeaning element so that users know the status and meaning of the code system clearly
 
 # value sets based on external code systems where we do not have access to the content
-WARNING: v2-notAllCodes-0347: Error from server: Unable to provide support for code system urn:iso:std:iso:3166:-2
-WARNING: v3-ActInjuryCodeCSA: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/csaid
-WARNING: v3-ActProcedureCodeCCI: Error from server: Unable to provide support for code system http://hl7.org/fhir/sid/icd-10-ca
-WARNING: v3-AgeGroupObservationValue: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/MSH
-WARNING: v3-ApplicationMediaType: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/mediatypes
-WARNING: v3-AudioMediaType: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/mediatypes
-WARNING: v3-DiagnosisICD9CM: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/icd9cm
-WARNING: v3-EPSG-GeodeticParameterDataset: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/EPSG-GeodeticParameterDataset
-WARNING: v3-EmploymentStatusUB92: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
-WARNING: v3-HealthcareServiceLocation: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/hsloc
-WARNING: v3-HumanLanguage: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/ietf3066
-WARNING: v3-IndustryClassificationSystem: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/naics
-WARNING: v3-KnowledgeSubtopicObservationValue: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/MSH
-WARNING: v3-AgeGroupObservationValue: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/MSH
-WARNING: v3-ObservationCoordinateAxisType: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/epsg-ca
-WARNING: v3-ObservationCoordinateSystemType: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/epsg-crs
-WARNING: v3-OrganizationIndustryClassNAICS: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/naics
-WARNING: v3-SCDHEC-GISSpatialAccuracyTiers: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/SCDHEC-GISSpatialAccuracyTiers
-WARNING: v3-USEncounterDischargeDisposition: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
-WARNING: v3-USEncounterReferralSource: Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
 WARNING: ValueSet/v3-AgeGroupObservationValue: ValueSet.compose[0].include[0]: Unknown System specified, so Concepts and Filters can''t be checked
 WARNING: ValueSet/v3-KnowledgeSubtopicObservationValue: ValueSet.compose[0].include[0]: Unknown System specified, so Concepts and Filters can''t be checked
 WARNING: ValueSet.where(id = 'v3-HumanLanguage'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/ietf3066
-WARNING: ValueSet.where(id = 'v3-AgeGroupObservationValue'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/MSH
 WARNING: ValueSet.where(id = 'v3-DiagnosisICD9CM'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/icd9cm
 WARNING: ValueSet/v2-0005: ValueSet.compose[0].include[0]: Unknown System specified, so Concepts and Filters can''t be checked
 WARNING: ValueSet.where(id = 'v2-0005'): Error from server: Unable to provide support for code system urn:oid:2.16.840.1.113883.6.238
-WARNING: ValueSet.where(id = 'v2-0292'): Error from server: Unable to provide support for code system http://hl7.org/fhir/sid/cvx
-WARNING: ValueSet.where(id = 'v2-0350'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0350
-WARNING: ValueSet.where(id = 'v2-0351'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0351
-WARNING: ValueSet.where(id = 'v2-0456'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0456
-WARNING: ValueSet.where(id = 'v2-0567'): Error from server: Unable to provide support for code system http://unitsofmeasure.org
-WARNING: ValueSet.where(id = 'v2-0568'): Error from server: Unable to provide support for code system http://unitsofmeasure.org
-WARNING: ValueSet.where(id = 'v2-0895'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0895
-WARNING: ValueSet.where(id = 'v2-0929'): Error from server: Unable to provide support for code system http://unitsofmeasure.org
-WARNING: ValueSet.where(id = 'v2-0930'): Error from server: Unable to provide support for code system http://unitsofmeasure.org
+WARNING: ValueSet.where(id = 'v2-0292'): Error from server: Unable to provide support for code system http://hl7.org/fhir/sid/cvx version 2.ext.0 (known versions = 20210406)
+WARNING: ValueSet.where(id = 'v2-0567'): Error from server: Unable to provide support for code system http://unitsofmeasure.org version 2.1.0 (known versions = 2.0.1)
+WARNING: ValueSet.where(id = 'v2-0568'): Error from server: Unable to provide support for code system http://unitsofmeasure.org version 2.1.0 (known versions = 2.0.1)
+WARNING: ValueSet.where(id = 'v2-0568'): Error from server: Unable to provide support for code system http://unitsofmeasure.org version 2.1.0 (known versions = 2.0.1)
+WARNING: ValueSet.where(id = 'v2-0929'): Error from server: Unable to provide support for code system http://unitsofmeasure.org version 2.1.0 (known versions = 2.0.1)
 WARNING: ValueSet.where(id = 'v2-0963'): Error from server: Unable to provide support for code system http://ncithesaurus-stage.nci.nih.gov
 WARNING: ValueSet.where(id = 'v3-AgeGroupObservationValue'): Error from server: Unable to provide support for code system https://www.nlm.nih.gov/mesh
 WARNING: ValueSet.where(id = 'v3-EPSG-GeodeticParameterDataset'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/EPSG-GeodeticParameterDataset
@@ -70,18 +48,17 @@ WARNING: ValueSet.where(id = 'v3-SCDHEC-GISSpatialAccuracyTiers'): Error from se
 WARNING: ValueSet.where(id = 'v3-USEncounterDischargeDisposition'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
 WARNING: ValueSet.where(id = 'v3-USEncounterReferralSource'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
 
+# value sets based on versions of code systems prior to their inclusion in THO.
+WARNING: ValueSet.where(id = 'v2-0350'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0350 version 2.1.0 (known versions = 2.9)
+WARNING: ValueSet.where(id = 'v2-0351'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0351 version 2.1.0 (known versions = 2.9)
+WARNING: ValueSet.where(id = 'v2-0456'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0456 version 2.1.0 (known versions = 2.9)
+WARNING: ValueSet.where(id = 'v2-0895'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0895 version 2.1.0 (known versions = 2.9)
+
 # We don't care about any of these - and they create noise
 Validate resource against profile http://hl7.org/fhir/StructureDefinition/Bundle
 Validate resource against profile http://hl7.org/fhir/StructureDefinition/CodeSystem
 Validate resource against profile http://hl7.org/fhir/StructureDefinition/List
 Validate resource against profile http://hl7.org/fhir/StructureDefinition/NamingSystem
 Validate resource against profile http://hl7.org/fhir/StructureDefinition/Provenance
-Validate resource against profile http://hl7.org/fhir/StructureDefinition/shareablecodesystem - listed in meta
-Validate resource against profile http://hl7.org/fhir/StructureDefinition/shareablevalueset - listed in meta
 Validate resource against profile http://hl7.org/fhir/StructureDefinition/StructureDefinition
 Validate resource against profile http://hl7.org/fhir/StructureDefinition/ValueSet
-
-# Yes, it's not in the value set - it's a valid extension
-The Coding provided (http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra#preferredForLanguage) is not in the value set http://hl7.org/fhir/ValueSet/designation-use, and a code should come from this value set unless it has no suitable code (the validator cannot judge what is suitable).  (error message = Not in value set http://hl7.org/fhir/ValueSet/designation-use)
-
-
