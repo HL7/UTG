@@ -2,7 +2,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R5/fhir-single.xsd">
   <id value="hl7.other.uv.utg"/>
   <url value="http://terminology.hl7.org/ImplementationGuide/hl7.other.uv.utg"/>
-  <version value="3.0.5"/>
+  <version value="4.0.0"/>
   <name value="HL7Terminology"/>
   <title value="HL7 Terminology (THO)"/>
   <status value="active"/>
@@ -64,6 +64,11 @@
           <generation value="html"/>
         </page>
         <page>
+          <nameUrl value="codesystems-deprecated.html"/>
+          <title value="Deprecated Code Systems"/>
+          <generation value="html"/>
+        </page>
+        <page>
           <nameUrl value="codesystems-retired.html"/>
           <title value="Retired Code Systems"/>
           <generation value="html"/>
@@ -71,8 +76,78 @@
       </page>
       <page>
         <nameUrl value="external_terminologies.html"/>
-        <title value="External Terminologies"/>
+        <title value="External Code Systems"/>
         <generation value="html"/>
+		<page>
+          <nameUrl value="SNOMEDCT.html"/>
+          <title value="Using SNOMED CT with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="RxNorm.html"/>
+          <title value="Using RxNorm with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="LOINC.html"/>
+          <title value="Using LOINC CT with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="pCLOCD.html"/>
+          <title value="Using pCLOCD with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="UCUM.html"/>
+          <title value="Using UCUM with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="CPT.html"/>
+          <title value="Using CPT with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="MEDRT.html"/>
+          <title value="Using MED-RT with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="NDFRT.html"/>
+          <title value="Using NDF-RT with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="UNII.html"/>
+          <title value="Using UNII with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="NDC.html"/>
+          <title value="Using NDC with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="CVX.html"/>
+          <title value="Using CVX with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="ISO3166.html"/>
+          <title value="Using ISO3166 with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="ICD.html"/>
+          <title value="Using ICD with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="MDC.html"/>
+          <title value="Using MDC with HL7 Standards"/>
+          <generation value="html"/>
+        </page>
         <page>
           <nameUrl value="external_terminologies_csmr.html"/>
           <title value="Code System Metadata Records"/>
@@ -91,6 +166,11 @@
         <page>
           <nameUrl value="external_terminologies_ccs.html"/>
           <title value="Complete Code Systems"/>
+          <generation value="html"/>
+        </page>
+        <page>
+          <nameUrl value="external_terminologies_depr.html"/>
+          <title value="Deprecated Code Systems"/>
           <generation value="html"/>
         </page>
         <page>
@@ -133,7 +213,11 @@
           <title value="Unified Value Sets"/>
           <generation value="html"/>
         </page>
-
+		<page>
+          <nameUrl value="valuesets-deprecated.html"/>
+          <title value="Deprecated ValueSets"/>
+          <generation value="html"/>
+        </page>
         <page>
           <nameUrl value="valuesets-retired.html"/>
           <title value="Retired Value Sets"/>
@@ -424,6 +508,11 @@
         <code value="special-url"/>
         <value value="urn:iso:std:iso:3166:-2"/>
       </parameter>
+	  
+	  <parameter>
+        <code value="special-url"/>
+        <value value="urn:iso:std:iso:3166:-3"/>
+      </parameter>
 
       <parameter>
         <code value="special-url"/>
@@ -562,13 +651,96 @@
     <value value="http://terminology.hl7.org/CodeSystem/cmsrxhcc"/>
   </parameter>
   <parameter>
+    <code value="special-url"/>
+    <value value="http://terminology.hl7.org/CodeSystem/cmshcc"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="https://www.ncbi.nlm.nih.gov/gtr"/>
+  </parameter>
+  <parameter>
         <code value="special-url"/>
-        <value value="http://terminology.hl7.org/CodeSystem/cmshcc"/>
+        <value value="https://iscn.karger.com"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="http://radlex.org"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="https://cancerstaging.org"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="http://va.gov/terminology/medrt"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="https://term.omaha.org.cn"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="https://www.nubc.org/CodeSystem/TypeOfBill"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+   <value value="https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/AcuteInpatientPPS/MS-DRG-Classifications-and-Software"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="http://www.ncbi.nlm.nih.gov/clinvar"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="https://x12.org/codes/claim-adjustment-reason-codes"/>
+	  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="https://www.nubc.org/CodeSystem/PatDischargeStatus"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="https://www.nubc.org/CodeSystem/PointOfOriginNewborn"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="https://www.nubc.org/CodeSystem/PointOfOrigin"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="https://www.nubc.org/CodeSystem/PriorityTypeOfAdmitOrVisit"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="https://www.nubc.org/CodeSystem/RevenueCodes"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="http://cap.org/eCC"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/ProspMedicareFeeSvcPmtGen/HIPPSCodes"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="http://www.genenames.org/genegroup"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="http://human-phenotype-ontology.org"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="http://hl7.org/fhir/ndfrt"/>
+  </parameter>
+  <parameter>
+    <code value="special-url"/>
+    <value value="http://fdasis.nlm.nih.gov"/>
   </parameter>
   <parameter>
     <code value="logging"/>
     <value value="PROGRESS"/>
   </parameter>
-      
   </definition>
 </ImplementationGuide>

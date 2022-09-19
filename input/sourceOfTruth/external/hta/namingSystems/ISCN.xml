@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<NamingSystem xmlns="http://hl7.org/fhir">
+  <id value="ISCN"/>
+  <extension url="http://hl7.org/fhir/tools/StructureDefinition/extension-title">
+    <valueString value="International System for Human Cytogenomic Nomenclature (ISCN)"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
+    <valueUri value="http://terminology.hl7.org/NamingSystem/ISCN"/>
+  </extension>
+  <extension url="http://terminology.hl7.org/StructureDefinition/ext-namingsystem-version">
+    <valueString value="1.0.1"/>
+  </extension>
+  <name value="ISCN"/>
+  <status value="active"/>
+  <kind value="codesystem"/>
+  <date value="2022-06-07T00:00:00-00:00"/>
+  <publisher value="S. Karger AG"/>
+  <contact>
+    <name value="S. Karger AG; P.O Box, CH-4009 Basel (Switzerland) Allschwilerstrasse 10, CH-4055 Basel"/>
+    <telecom>
+        <system value="url"/>
+        <value value="https://www.karger.com/"/>
+    </telecom>
+    <telecom>
+        <system value="email"/>
+        <value value="info@signaturegenomics.com"/>
+    </telecom>
+    <telecom>
+        <system value="phone"/>
+        <value value="+41 61 306 11 11"/>
+    </telecom>
+  </contact>
+  <description value="The International System for Human Cytogenetic Nomenclature (ISCN) was created by the International Standing committee on Human Cytogenetic Nomenclature to represent the outcome of cytogenetic tests. ISCN specifies the nomenclature to describe karyotypes, chromosome abnormalities, in situ hybridization, etc. ISCN provides a list of symbols and abbreviated terms in adjunction with a set of rules, which can be used in the description of chromosomes and chromosome abnormalities, such as p for short arm of chromosome, q for long arm of chromosome, cen for centromere, del for deletion, ish for in situ hybridization, and plus sign (+) for gain, etc.&#13;&#10;&#13;&#10;A LOINC code is created to represent &quot;chromosome analysis results in ISCN expression&quot;. In HL7 v2 messages, this LOINC code is used in OBX-3 with a coded result (CWE data type) that will be sent in OBX-5. The value of the coded result is an ISCN expression, and ISCN will be the code system for the coded result."/>
+  <uniqueId>
+    <type value="oid"/>
+    <value value="2.16.840.1.113883.6.299"/>
+    <preferred value="true"/>
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="https://iscn.karger.com"/>
+    <preferred value="true"/>
+    <comment value="Official canonical URL going forward."/>
+    <period>
+      <start value="2021-01-27"/>
+    </period>
+  </uniqueId>
+</NamingSystem>
