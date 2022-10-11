@@ -8,7 +8,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.110"/>
   </identifier>
-  <version value="2.0.0"/>
+  <version value="3.1.0"/>
   <name value="RoleClass"/>
   <title value="RoleClass"/>
   <status value="active"/>
@@ -18,6 +18,7 @@
     <name value="Health Level Seven"/>
   </contact>
   <description value="Codes for the Role class hierarchy. The values in this hierarchy, represent a Role which is an association or relationship between two entities - the entity that plays the role and the entity that scopes the role. Roles names are derived from the name of the playing entity in that role.&#xD;&#xA;&#xD;&#xA;The role hierarchy stems from three core concepts, or abstract domains:&#xD;&#xA;&#xD;&#xA; *  **RoleClassOntological** is an abstract domain that collects roles in which the playing entity is defined or specified by the scoping entity.&#xD;&#xA; *  **RoleClassPartitive** collects roles in which the playing entity is in some sense a &quot;part&quot; of the scoping entity.&#xD;&#xA; *  **RoleClassAssociative** collects all of the remaining forms of association between the playing entity and the scoping entity. This set of roles is further partitioned between:&#xD;&#xA;    &#xD;&#xA;     *  **RoleClassPassive** which are roles in which the playing entity is used, known, treated, handled, built, or destroyed, etc. under the auspices of the scoping entity. The playing entity is passive in these roles in that the role exists without an agreement from the playing entity.&#xD;&#xA;     *  **RoleClassMutualRelationship** which are relationships based on mutual behavior of the two entities. The basis of these relationship may be formal agreements or they may be *de facto* behavior. Thus, this sub-domain is further divided into:&#xD;&#xA;        &#xD;&#xA;         *  **RoleClassRelationshipFormal** in which the relationship is formally defined, frequently by a contract or agreement.&#xD;&#xA;         *  **Personal relationship** which inks two people in a personal relationship.&#xD;&#xA;&#xD;&#xA;The hierarchy discussed above is represented In the current vocabulary tables as a set of abstract domains, with the exception of the &quot;Personal relationship&quot; which is a leaf concept.&#xD;&#xA;&#xD;&#xA;*OpenIssue:* Description copied from Concept Domain of same name. Must be verified."/>
+  <caseSensitive value="true"/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
@@ -72,18 +73,18 @@
     <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
-  <property> 
-    <code value="status"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#status"/> 
-    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/> 
-    <type value="code"/> 
-  </property> 
-  <property> 
-    <code value="deprecationDate"/> 
-    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/> 
-    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/> 
-    <type value="dateTime"/> 
-  </property> 
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="deprecationDate"/>
+    <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/>
+    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/>
+    <type value="dateTime"/>
+  </property>
   <property>
     <code value="Name:Class"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Class"/>
@@ -218,6 +219,18 @@
         <code value="Sort:Entity:scopedRole:Role"/>
         <valueCode value="AA_______"/>
       </property>
+      <property>
+        <code value="Name:Entity:playedRole:Role"/>
+        <valueString value="as&amp;"/>
+      </property>
+      <property>
+        <code value="Name:Entity:scopedRole:Role"/>
+        <valueString value="&amp;"/>
+      </property>
+      <property>
+        <code value="Name:Participation:role:Role"/>
+        <valueString value="&amp;"/>
+      </property>
       <concept>
         <code value="_RoleClassMutualRelationship"/>
         <display value="RoleClassMutualRelationship"/>
@@ -253,6 +266,18 @@
         <property>
           <code value="Sort:Entity:scopedRole:Role"/>
           <valueCode value="AAA______"/>
+        </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
         </property>
         <concept>
           <code value="_RoleClassRelationshipFormal"/>
@@ -290,6 +315,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AAAA_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
           <concept>
             <code value="AFFL"/>
             <display value="affiliate"/>
@@ -321,6 +358,18 @@
             <property>
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAR____"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
           </concept>
           <concept>
@@ -355,6 +404,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAD____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
             <concept>
               <code value="ASSIGNED"/>
               <display value="assigned entity"/>
@@ -386,6 +447,18 @@
               <property>
                 <code value="Sort:Entity:scopedRole:Role"/>
                 <valueCode value="AAAADA___"/>
+              </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
               </property>
               <concept>
                 <code value="COMPAR"/>
@@ -419,6 +492,18 @@
                   <code value="Sort:Entity:scopedRole:Role"/>
                   <valueCode value="AAAADAC__"/>
                 </property>
+                <property>
+                  <code value="Name:Entity:playedRole:Role"/>
+                  <valueString value="as&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Entity:scopedRole:Role"/>
+                  <valueString value="&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Participation:role:Role"/>
+                  <valueString value="&amp;"/>
+                </property>
               </concept>
               <concept>
                 <code value="SGNOFF"/>
@@ -451,6 +536,18 @@
                 <property>
                   <code value="Sort:Entity:scopedRole:Role"/>
                   <valueCode value="AAAADAB__"/>
+                </property>
+                <property>
+                  <code value="Name:Entity:playedRole:Role"/>
+                  <valueString value="as&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Entity:scopedRole:Role"/>
+                  <valueString value="&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Participation:role:Role"/>
+                  <valueString value="&amp;"/>
                 </property>
               </concept>
             </concept>
@@ -486,6 +583,18 @@
                 <code value="Sort:Entity:scopedRole:Role"/>
                 <valueCode value="AAAADAA__"/>
               </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
+              </property>
               <concept>
                 <code value="ECON"/>
                 <display value="emergency contact"/>
@@ -517,6 +626,18 @@
                 <property>
                   <code value="Sort:Entity:scopedRole:Role"/>
                   <valueCode value="AAAADAAB_"/>
+                </property>
+                <property>
+                  <code value="Name:Entity:playedRole:Role"/>
+                  <valueString value="as&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Entity:scopedRole:Role"/>
+                  <valueString value="&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Participation:role:Role"/>
+                  <valueString value="&amp;"/>
                 </property>
               </concept>
               <concept>
@@ -550,6 +671,18 @@
                 <property>
                   <code value="Sort:Entity:scopedRole:Role"/>
                   <valueCode value="AAAADAAA_"/>
+                </property>
+                <property>
+                  <code value="Name:Entity:playedRole:Role"/>
+                  <valueString value="as&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Entity:scopedRole:Role"/>
+                  <valueString value="&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Participation:role:Role"/>
+                  <valueString value="&amp;"/>
                 </property>
               </concept>
             </concept>
@@ -585,6 +718,18 @@
                 <code value="Sort:Entity:scopedRole:Role"/>
                 <valueCode value="AAAADB___"/>
               </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
+              </property>
             </concept>
           </concept>
           <concept>
@@ -619,6 +764,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAF____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
           </concept>
           <concept>
             <code value="COVPTY"/>
@@ -652,6 +809,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAI____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
             <concept>
               <code value="CLAIM"/>
               <display value="claimant"/>
@@ -667,6 +836,18 @@
               <property>
                 <code value="Name:Class"/>
                 <valueCode value="claimant"/>
+              </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
               </property>
             </concept>
             <concept>
@@ -685,6 +866,18 @@
                 <code value="Name:Class"/>
                 <valueCode value="namedInsured"/>
               </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
+              </property>
               <concept>
                 <code value="DEPEN"/>
                 <display value="dependent"/>
@@ -700,6 +893,18 @@
                 <property>
                   <code value="Name:Class"/>
                   <valueCode value="dependent"/>
+                </property>
+                <property>
+                  <code value="Name:Entity:playedRole:Role"/>
+                  <valueString value="as&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Entity:scopedRole:Role"/>
+                  <valueString value="&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Participation:role:Role"/>
+                  <valueString value="&amp;"/>
                 </property>
               </concept>
               <concept>
@@ -718,6 +923,18 @@
                   <code value="Name:Class"/>
                   <valueCode value="individual"/>
                 </property>
+                <property>
+                  <code value="Name:Entity:playedRole:Role"/>
+                  <valueString value="as&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Entity:scopedRole:Role"/>
+                  <valueString value="&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Participation:role:Role"/>
+                  <valueString value="&amp;"/>
+                </property>
               </concept>
               <concept>
                 <code value="SUBSCR"/>
@@ -734,6 +951,18 @@
                 <property>
                   <code value="Name:Class"/>
                   <valueCode value="subscriber"/>
+                </property>
+                <property>
+                  <code value="Name:Entity:playedRole:Role"/>
+                  <valueString value="as&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Entity:scopedRole:Role"/>
+                  <valueString value="&amp;"/>
+                </property>
+                <property>
+                  <code value="Name:Participation:role:Role"/>
+                  <valueString value="&amp;"/>
                 </property>
               </concept>
             </concept>
@@ -752,6 +981,18 @@
               <property>
                 <code value="Name:Class"/>
                 <valueCode value="programEligible"/>
+              </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
               </property>
             </concept>
           </concept>
@@ -787,6 +1028,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAH____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
           </concept>
           <concept>
             <code value="CRSPNSR"/>
@@ -819,6 +1072,18 @@
             <property>
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAG____"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
           </concept>
           <concept>
@@ -853,6 +1118,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAE____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
             <concept>
               <code value="MIL"/>
               <display value="military person"/>
@@ -884,6 +1161,18 @@
               <property>
                 <code value="Sort:Entity:scopedRole:Role"/>
                 <valueCode value="AAAAEA___"/>
+              </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
               </property>
             </concept>
           </concept>
@@ -927,6 +1216,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAJ____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
           </concept>
           <concept>
             <code value="INVSBJ"/>
@@ -960,6 +1261,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAB____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
             <concept>
               <code value="CASEBJ"/>
               <display value="Case Subject"/>
@@ -991,6 +1304,18 @@
               <property>
                 <code value="Sort:Entity:scopedRole:Role"/>
                 <valueCode value="AAAABA___"/>
+              </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
               </property>
             </concept>
             <concept>
@@ -1024,6 +1349,18 @@
               <property>
                 <code value="Sort:Entity:scopedRole:Role"/>
                 <valueCode value="AAAABB___"/>
+              </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
               </property>
             </concept>
           </concept>
@@ -1059,6 +1396,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAC____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
             <concept>
               <code value="NOT"/>
               <display value="notary public"/>
@@ -1089,6 +1438,18 @@
               <property>
                 <code value="Sort:Entity:scopedRole:Role"/>
                 <valueCode value="AAAACB___"/>
+              </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
               </property>
             </concept>
             <concept>
@@ -1122,6 +1483,18 @@
               <property>
                 <code value="Sort:Entity:scopedRole:Role"/>
                 <valueCode value="AAAACA___"/>
+              </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
               </property>
             </concept>
           </concept>
@@ -1157,6 +1530,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAA____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
           </concept>
           <concept>
             <code value="PAYEE"/>
@@ -1189,6 +1574,18 @@
             <property>
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAK____"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
           </concept>
           <concept>
@@ -1223,6 +1620,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAL____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
           </concept>
           <concept>
             <code value="POLHOLD"/>
@@ -1255,6 +1664,18 @@
             <property>
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAM____"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
           </concept>
           <concept>
@@ -1289,6 +1710,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAP____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
           </concept>
           <concept>
             <code value="SPNSR"/>
@@ -1321,6 +1754,18 @@
             <property>
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAN____"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
           </concept>
           <concept>
@@ -1355,6 +1800,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAQ____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
           </concept>
           <concept>
             <code value="UNDWRT"/>
@@ -1387,6 +1844,18 @@
             <property>
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAAAO____"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
           </concept>
         </concept>
@@ -1422,6 +1891,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AAAC_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
         <concept>
           <code value="PRS"/>
@@ -1455,6 +1936,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AAAB_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
         <concept>
           <code value="SELF"/>
@@ -1467,6 +1960,18 @@
           <property>
             <code value="internalId"/>
             <valueCode value="21437"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
       </concept>
@@ -1506,6 +2011,18 @@
           <code value="Sort:Entity:scopedRole:Role"/>
           <valueCode value="AAB______"/>
         </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
+        </property>
         <concept>
           <code value="ACCESS"/>
           <display value="access"/>
@@ -1537,6 +2054,18 @@
           <property>
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABM_____"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
         <concept>
@@ -1571,6 +2100,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AAB______"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
           <concept>
             <code value="CONC"/>
             <display value="connection"/>
@@ -1602,6 +2143,18 @@
             <property>
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AAB______"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
             <concept>
               <code value="BOND"/>
@@ -1635,6 +2188,18 @@
                 <code value="Sort:Entity:scopedRole:Role"/>
                 <valueCode value="AAB______"/>
               </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
+              </property>
             </concept>
             <concept>
               <code value="CONY"/>
@@ -1667,6 +2232,18 @@
               <property>
                 <code value="Sort:Entity:scopedRole:Role"/>
                 <valueCode value="AAB______"/>
+              </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
               </property>
             </concept>
           </concept>
@@ -1703,6 +2280,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABO_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
         <concept>
           <code value="BIRTHPL"/>
@@ -1736,6 +2325,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABL_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
         <concept>
           <code value="DEATHPLC"/>
@@ -1752,6 +2353,18 @@
           <property>
             <code value="Name:Class"/>
             <valueCode value="placeOfDeath"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
         <concept>
@@ -1786,6 +2399,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABB_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
           <concept>
             <code value="RET"/>
             <display value="retailed material"/>
@@ -1817,6 +2442,18 @@
             <property>
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AABBA____"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
           </concept>
         </concept>
@@ -1852,6 +2489,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABI_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
           <concept>
             <code value="SDLOC"/>
             <display value="service delivery location"/>
@@ -1883,6 +2532,18 @@
             <property>
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AABJ_____"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
             <concept>
               <code value="DSDLOC"/>
@@ -1924,6 +2585,18 @@
                 <code value="Sort:Entity:scopedRole:Role"/>
                 <valueCode value="AABJB____"/>
               </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
+              </property>
             </concept>
             <concept>
               <code value="ISDLOC"/>
@@ -1956,6 +2629,18 @@
               <property>
                 <code value="Sort:Entity:scopedRole:Role"/>
                 <valueCode value="AABJA____"/>
+              </property>
+              <property>
+                <code value="Name:Entity:playedRole:Role"/>
+                <valueString value="as&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Entity:scopedRole:Role"/>
+                <valueString value="&amp;"/>
+              </property>
+              <property>
+                <code value="Name:Participation:role:Role"/>
+                <valueString value="&amp;"/>
               </property>
             </concept>
           </concept>
@@ -1992,6 +2677,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABN_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
         <concept>
           <code value="HLD"/>
@@ -2024,6 +2721,18 @@
           <property>
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABC_____"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
         <concept>
@@ -2058,6 +2767,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABI_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
         <concept>
           <code value="IDENT"/>
@@ -2090,6 +2811,18 @@
           <property>
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABA_____"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
         <concept>
@@ -2124,6 +2857,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABD_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
           <concept>
             <code value="THER"/>
             <display value="therapeutic agent"/>
@@ -2155,6 +2900,18 @@
             <property>
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="AABDA____"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
           </concept>
         </concept>
@@ -2190,6 +2947,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABE_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
         <concept>
           <code value="OWN"/>
@@ -2222,6 +2991,18 @@
           <property>
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABF_____"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
         <concept>
@@ -2256,6 +3037,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABH_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
         <concept>
           <code value="TERR"/>
@@ -2289,6 +3082,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABK_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
         <concept>
           <code value="USED"/>
@@ -2305,6 +3110,18 @@
           <property>
             <code value="Name:Class"/>
             <valueCode value="usedEntity"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
         <concept>
@@ -2338,6 +3155,18 @@
           <property>
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="AABG_____"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
       </concept>
@@ -2378,6 +3207,18 @@
         <code value="Sort:Entity:scopedRole:Role"/>
         <valueCode value="AC_______"/>
       </property>
+      <property>
+        <code value="Name:Entity:playedRole:Role"/>
+        <valueString value="as&amp;"/>
+      </property>
+      <property>
+        <code value="Name:Entity:scopedRole:Role"/>
+        <valueString value="&amp;"/>
+      </property>
+      <property>
+        <code value="Name:Participation:role:Role"/>
+        <valueString value="&amp;"/>
+      </property>
       <concept>
         <code value="EQUIV"/>
         <display value="equivalent entity"/>
@@ -2393,6 +3234,18 @@
         <property>
           <code value="Name:Class"/>
           <valueCode value="equivalentEntity"/>
+        </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
         </property>
         <concept>
           <code value="SAME"/>
@@ -2426,6 +3279,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="ACE______"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
         <concept>
           <code value="SUBY"/>
@@ -2458,6 +3323,18 @@
           <property>
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="ACD______"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
       </concept>
@@ -2493,6 +3370,18 @@
           <code value="Sort:Entity:scopedRole:Role"/>
           <valueCode value="ACA______"/>
         </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
+        </property>
         <concept>
           <code value="GRIC"/>
           <display value="has generic"/>
@@ -2524,6 +3413,18 @@
           <property>
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="ACAA_____"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
       </concept>
@@ -2559,6 +3460,18 @@
           <code value="Sort:Entity:scopedRole:Role"/>
           <valueCode value="ACB______"/>
         </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
+        </property>
       </concept>
       <concept>
         <code value="SUBS"/>
@@ -2568,13 +3481,25 @@
           <code value="status"/>
           <valueCode value="deprecated"/>
         </property>
-        <property> 
-          <code value="deprecationDate"/> 
-          <valueDateTime value="2011-12-01"/> 
-        </property>    
+        <property>
+          <code value="deprecationDate"/>
+          <valueDateTime value="2011-12-01"/>
+        </property>
         <property>
           <code value="internalId"/>
           <valueCode value="16241"/>
+        </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
         </property>
       </concept>
     </concept>
@@ -2614,6 +3539,18 @@
         <code value="Sort:Entity:scopedRole:Role"/>
         <valueCode value="AB_______"/>
       </property>
+      <property>
+        <code value="Name:Entity:playedRole:Role"/>
+        <valueString value="as&amp;"/>
+      </property>
+      <property>
+        <code value="Name:Entity:scopedRole:Role"/>
+        <valueString value="&amp;"/>
+      </property>
+      <property>
+        <code value="Name:Participation:role:Role"/>
+        <valueString value="&amp;"/>
+      </property>
       <concept>
         <code value="CONT"/>
         <display value="content"/>
@@ -2646,6 +3583,18 @@
           <code value="Sort:Entity:scopedRole:Role"/>
           <valueCode value="ABB______"/>
         </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
+        </property>
       </concept>
       <concept>
         <code value="EXPAGTCAR"/>
@@ -2663,6 +3612,18 @@
           <code value="Name:Class"/>
           <valueCode value="exposureAgentCarrier"/>
         </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
+        </property>
         <concept>
           <code value="EXPVECTOR"/>
           <display value="exposure vector"/>
@@ -2678,6 +3639,18 @@
           <property>
             <code value="Name:Class"/>
             <valueCode value="exposureVector"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
         <concept>
@@ -2695,6 +3668,18 @@
           <property>
             <code value="Name:Class"/>
             <valueCode value="fomite"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
       </concept>
@@ -2730,6 +3715,18 @@
           <code value="Sort:Entity:scopedRole:Role"/>
           <valueCode value="ABD______"/>
         </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
+        </property>
         <concept>
           <code value="ACTI"/>
           <display value="active ingredient"/>
@@ -2762,6 +3759,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="ABDA_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
           <concept>
             <code value="ACTIB"/>
             <display value="active ingredient - basis of strength"/>
@@ -2777,6 +3786,18 @@
             <property>
               <code value="Name:Class"/>
               <valueCode value="activeIngredientBasisOfStrength"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
           </concept>
           <concept>
@@ -2795,6 +3816,18 @@
               <code value="Name:Class"/>
               <valueCode value="activeIngredientMoietyIsBasisOfStrength"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
           </concept>
           <concept>
             <code value="ACTIR"/>
@@ -2811,6 +3844,18 @@
             <property>
               <code value="Name:Class"/>
               <valueCode value="activeIngredientReferenceSubstanceIsBasisOfStrength"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
           </concept>
         </concept>
@@ -2829,6 +3874,18 @@
           <property>
             <code value="Name:Class"/>
             <valueCode value="adjuvant"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
         <concept>
@@ -2863,6 +3920,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="ABDE_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
         <concept>
           <code value="BASE"/>
@@ -2895,6 +3964,18 @@
           <property>
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="ABDC_____"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
         <concept>
@@ -2929,6 +4010,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="ABDF_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
         <concept>
           <code value="IACT"/>
@@ -2961,6 +4054,18 @@
           <property>
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="ABDD_____"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
           <concept>
             <code value="COLR"/>
@@ -3001,6 +4106,18 @@
             <property>
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="ABDDC____"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
           </concept>
           <concept>
@@ -3043,6 +4160,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="ABDDD____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
           </concept>
           <concept>
             <code value="PRSV"/>
@@ -3075,6 +4204,18 @@
             <property>
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="ABDDA____"/>
+            </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
             </property>
           </concept>
           <concept>
@@ -3109,6 +4250,18 @@
               <code value="Sort:Entity:scopedRole:Role"/>
               <valueCode value="ABDDB____"/>
             </property>
+            <property>
+              <code value="Name:Entity:playedRole:Role"/>
+              <valueString value="as&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Entity:scopedRole:Role"/>
+              <valueString value="&amp;"/>
+            </property>
+            <property>
+              <code value="Name:Participation:role:Role"/>
+              <valueString value="&amp;"/>
+            </property>
           </concept>
         </concept>
         <concept>
@@ -3126,6 +4279,18 @@
           <property>
             <code value="Name:Class"/>
             <valueCode value="mechanicalIngredient"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
       </concept>
@@ -3161,6 +4326,18 @@
           <code value="Sort:Entity:scopedRole:Role"/>
           <valueCode value="ABE______"/>
         </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
+        </property>
         <concept>
           <code value="STOR"/>
           <display value="stored entity"/>
@@ -3192,6 +4369,18 @@
           <property>
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="ABEA_____"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
       </concept>
@@ -3227,6 +4416,18 @@
           <code value="Sort:Entity:scopedRole:Role"/>
           <valueCode value="ABF______"/>
         </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
+        </property>
       </concept>
       <concept>
         <code value="PART"/>
@@ -3260,6 +4461,18 @@
           <code value="Sort:Entity:scopedRole:Role"/>
           <valueCode value="ABC______"/>
         </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
+        </property>
         <concept>
           <code value="ACTM"/>
           <display value="active moiety"/>
@@ -3291,6 +4504,18 @@
           <property>
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="ABDB_____"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
       </concept>
@@ -3326,6 +4551,18 @@
           <code value="Sort:Entity:scopedRole:Role"/>
           <valueCode value="ABA______"/>
         </property>
+        <property>
+          <code value="Name:Entity:playedRole:Role"/>
+          <valueString value="as&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Entity:scopedRole:Role"/>
+          <valueString value="&amp;"/>
+        </property>
+        <property>
+          <code value="Name:Participation:role:Role"/>
+          <valueString value="&amp;"/>
+        </property>
         <concept>
           <code value="ALQT"/>
           <display value="aliquot"/>
@@ -3357,6 +4594,18 @@
           <property>
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="ABAA_____"/>
+          </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
           </property>
         </concept>
         <concept>
@@ -3391,6 +4640,18 @@
             <code value="Sort:Entity:scopedRole:Role"/>
             <valueCode value="ABAB_____"/>
           </property>
+          <property>
+            <code value="Name:Entity:playedRole:Role"/>
+            <valueString value="as&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Entity:scopedRole:Role"/>
+            <valueString value="&amp;"/>
+          </property>
+          <property>
+            <code value="Name:Participation:role:Role"/>
+            <valueString value="&amp;"/>
+          </property>
         </concept>
       </concept>
     </concept>
@@ -3407,6 +4668,18 @@
       <code value="internalId"/>
       <valueCode value="11560"/>
     </property>
+    <property>
+      <code value="Name:Entity:playedRole:Role"/>
+      <valueString value="as&amp;"/>
+    </property>
+    <property>
+      <code value="Name:Entity:scopedRole:Role"/>
+      <valueString value="&amp;"/>
+    </property>
+    <property>
+      <code value="Name:Participation:role:Role"/>
+      <valueString value="&amp;"/>
+    </property>
   </concept>
   <concept>
     <code value="CRED"/>
@@ -3420,6 +4693,18 @@
       <code value="internalId"/>
       <valueCode value="16930"/>
     </property>
+    <property>
+      <code value="Name:Entity:playedRole:Role"/>
+      <valueString value="as&amp;"/>
+    </property>
+    <property>
+      <code value="Name:Entity:scopedRole:Role"/>
+      <valueString value="&amp;"/>
+    </property>
+    <property>
+      <code value="Name:Participation:role:Role"/>
+      <valueString value="&amp;"/>
+    </property>
   </concept>
   <concept>
     <code value="NURPRAC"/>
@@ -3431,6 +4716,18 @@
     <property>
       <code value="internalId"/>
       <valueCode value="11574"/>
+    </property>
+    <property>
+      <code value="Name:Entity:playedRole:Role"/>
+      <valueString value="as&amp;"/>
+    </property>
+    <property>
+      <code value="Name:Entity:scopedRole:Role"/>
+      <valueString value="&amp;"/>
+    </property>
+    <property>
+      <code value="Name:Participation:role:Role"/>
+      <valueString value="&amp;"/>
     </property>
   </concept>
   <concept>
@@ -3444,6 +4741,18 @@
       <code value="internalId"/>
       <valueCode value="11573"/>
     </property>
+    <property>
+      <code value="Name:Entity:playedRole:Role"/>
+      <valueString value="as&amp;"/>
+    </property>
+    <property>
+      <code value="Name:Entity:scopedRole:Role"/>
+      <valueString value="&amp;"/>
+    </property>
+    <property>
+      <code value="Name:Participation:role:Role"/>
+      <valueString value="&amp;"/>
+    </property>
   </concept>
   <concept>
     <code value="PA"/>
@@ -3456,6 +4765,18 @@
       <code value="internalId"/>
       <valueCode value="11575"/>
     </property>
+    <property>
+      <code value="Name:Entity:playedRole:Role"/>
+      <valueString value="as&amp;"/>
+    </property>
+    <property>
+      <code value="Name:Entity:scopedRole:Role"/>
+      <valueString value="&amp;"/>
+    </property>
+    <property>
+      <code value="Name:Participation:role:Role"/>
+      <valueString value="&amp;"/>
+    </property>
   </concept>
   <concept>
     <code value="PHYS"/>
@@ -3467,6 +4788,18 @@
     <property>
       <code value="internalId"/>
       <valueCode value="11572"/>
+    </property>
+    <property>
+      <code value="Name:Entity:playedRole:Role"/>
+      <valueString value="as&amp;"/>
+    </property>
+    <property>
+      <code value="Name:Entity:scopedRole:Role"/>
+      <valueString value="&amp;"/>
+    </property>
+    <property>
+      <code value="Name:Participation:role:Role"/>
+      <valueString value="&amp;"/>
     </property>
   </concept>
 </CodeSystem>

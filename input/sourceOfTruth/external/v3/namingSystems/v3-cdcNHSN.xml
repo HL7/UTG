@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <NamingSystem xmlns="http://hl7.org/fhir">
-  <id value="cdcNHSN"/>
+  <id value="CDCNHSN"/>
   <extension url="http://hl7.org/fhir/tools/StructureDefinition/extension-title">
-    <valueString value="CDC - National Healthcare Safety Network (NHSN) code system"/>
+    <valueString value="NHSN Surveillance System Codes"/>
   </extension>
   <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
-    <valueUri value="http://terminology.hl7.org/NamingSystem/cdcNHSN"/>
+    <valueUri value="http://terminology.hl7.org/NamingSystem/CDCNHSN"/>
   </extension>
   <extension url="http://terminology.hl7.org/StructureDefinition/ext-namingsystem-version">
-    <valueString value="2.0.1"/>
+    <valueString value="3.0.0"/>
   </extension>
-  <name value="CdcNHSN"/>
+  <name value="CDCNHSN"/>
   <status value="active"/>
   <kind value="codesystem"/>
-  <date value="2019-03-20T00:00:00-04:00"/>
-  <publisher value="HL7"/>
+  <date value="2021-03-24T00:00:00-00:00"/>
+  <publisher value="U.S. Centers for Disease Control and Prevention (CDC), National Healthcare Safety Network (NHSN)"/>
   <contact>
-    <name value="Centers for Disease Control and Prevention - National Healthcare Safety Networ,Centers for Disease C"/>
+    <name value="U.S. Centers for Disease Control and Prevention (CDC), National Healthcare Safety Network (NHSN)"/>
+	<telecom>
+      <system value="email"/>
+      <value value="nhsncda@cdc.gov"/>
+    </telecom>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.cdc.gov/nhsn"/>
+    </telecom>
   </contact>
-  <responsible value="HL7"/>
-  <description value="CDC - National Healthcare Safety Network (NHSN) code system - A set of patient safety and healthcare personnel safety vocabulary concepts and associated identifiers maintained as a code system by the CDC&#39;s National Healthcare Safety Network. CDC NHSN is planning to use these code system concepts in the HAI implementation guide. These concepts would be submitted for the HL7 Ballot (Dec 2008). CDC NHSN can provide complete list of concepts, identifiers and extended attributes for this code system."/>
+  <responsible value="U.S. Centers for Disease Control and Prevention (CDC), National Healthcare Safety Network (NHSN)"/>
+  <description value="A set of healthcare surveillance vocabulary concepts and associated identifiers intended solely for data submissions to the National Healthcare Safety Network (NHSN). Other uses are not recommended.&#xD;&#xA;&#xD;&#xA;The CDCNHSN code system is highly specialized to meet the needs of NHSN surveillance reporting, is undergoing changes, and is not recommended for creating value sets to be used outside of NHSN."/>
   <uniqueId>
     <type value="oid"/>
     <value value="2.16.840.1.113883.6.277"/>
@@ -28,7 +36,18 @@
   </uniqueId>
   <uniqueId>
     <type value="uri"/>
-    <value value="http://terminology.hl7.org/CodeSystem/cdcNHSN"/>
+    <value value="https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html"/>
     <preferred value="true"/>
+	<period>
+      <start value="2021-03-24T00:00:00-00:00"/>
+    </period>
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="http://terminology.hl7.org/CodeSystem/cdcNHSN"/>
+    <preferred value="false"/>
+	<period>
+      <end value="2021-03-24T00:00:00-00:00"/>
+    </period>
   </uniqueId>
 </NamingSystem>

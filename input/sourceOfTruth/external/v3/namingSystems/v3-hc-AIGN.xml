@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <NamingSystem xmlns="http://hl7.org/fhir">
-  <id value="v3-hc-AIGN"/>
-  <extension url="http://terminology.hl7.org/StructureDefinition/ext-namingsystem-title">
+  <id value="v3-hc-aign"/>
+  <extension url="http://hl7.org/fhir/tools/StructureDefinition/extension-title">
     <valueString value="Active Ingredient Group Number"/>
   </extension>
   <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
-    <valueUri value="http://terminology.hl7.org/NamingSystem/v3-hc-AIGN"/>
+    <valueUri value="http://terminology.hl7.org/NamingSystem/v3-hc-aign"/>
   </extension>
   <extension url="http://terminology.hl7.org/StructureDefinition/ext-namingsystem-version">
-    <valueString value="2.0.0"/>
+    <valueString value="3.0.0"/>
   </extension>
   <name value="HcAIGN"/>
   <status value="active"/>
   <kind value="codesystem"/>
-  <date value="2019-03-20T00:00:00-04:00"/>
-  <publisher value="HL7 Canada"/>
+  <date value="2021-03-22T00:00:00-04:00"/>
+  <publisher value="Health Canada"/>
   <contact>
     <name value="Health Canada"/>
   </contact>
   <responsible value="HL7 Canada"/>
-  <description value="**Description:** Codes for particular collections of active ingredients combined at specific strengths. http://www.hc-sc.gc.ca/dhp-mps/prodpharma/databasdon/index\_e.html"/>
+  <description value="The AIG number is a 10 digit number that identifies products that have the same active ingredient(s) and ingredient strength(s). The AIG is comprised of three portions: &#xD;&#xA;&#xD;&#xA; *  the first portion (2 digits) identifies the number of active ingredients&#xD;&#xA; *  the second portion(5 digits) identifies the unique groups of active ingredients(s);&#xD;&#xA; *  the last portion (3 digits) identifies the active ingredient group strength. The strength group has a tolerance of -2% to +10%.&#xD;&#xA; &#xD;&#xA;&#xD;&#xA;Further information about this Code System can be found at https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/terminology.html"/>
   <uniqueId>
     <type value="oid"/>
     <value value="2.16.840.1.113883.5.1106"/>
@@ -28,7 +28,17 @@
   </uniqueId>
   <uniqueId>
     <type value="uri"/>
-    <value value="http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-4"/>
+    <value value="http://terminology.hl7.org/CodeSystem/v3-hc-aign"/>
     <preferred value="true"/>
+    <comment value="Official canonical URL going forward."/>
+    <period>
+      <start value="2021-03-22"/>
+    </period> 
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="http://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database-4"/>
+    <preferred value="false"/>
+    <comment value="Maintained for backward compatibility."/>     
   </uniqueId>
 </NamingSystem>

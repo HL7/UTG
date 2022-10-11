@@ -8,16 +8,17 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1064"/>
   </identifier>
-  <version value="2.0.0"/>
+  <version value="3.1.0"/>
   <name value="ParticipationMode"/>
   <title value="ParticipationMode"/>
   <status value="active"/>
-  <date value="2019-03-20"/>
+  <date value="2021-08-10"/>
   <publisher value="Health Level 7"/>
   <contact>
     <name value="Health Level Seven"/>
   </contact>
   <description value="A set of codes specifying the modality by which the Entity playing the Role is participating in the Act.&#xD;&#xA;&#xD;&#xA;*Examples:* Physically present, over the telephone, written communication.&#xD;&#xA;&#xD;&#xA;*Rationale:* Particularly for author (originator) participants this is used to specify whether the information represented by the act was initially provided verbally, (hand-)written, or electronically.&#xD;&#xA;&#xD;&#xA;*Open Issue:* There needs to be a reexamination of the hierarchies as there seems to be some muddling between ELECTRONIC and other concepts that involve electronic communication that are in other hierarchies."/>
+  <caseSensitive value="true"/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
@@ -271,6 +272,58 @@
         <code value="internalId"/>
         <valueCode value="16551"/>
       </property>
+    </concept>
+    <concept>
+      <code value="MSGWRIT"/>
+      <display value="messaging"/>
+      <definition value="Participation by messaging typically from a mobile phone or mobile device through a cellular network or Internet. Includes secured or unsecured messaging transmission and includes online chat. Also includes submission of photos or other images."/>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="internalId"/>
+        <valueCode value="116551"/>
+      </property>
+      <concept>
+        <code value="SMSWRIT"/>
+        <display value="SMS message"/>
+        <definition value="Participation by text or diagrams transmitted by an SMS message."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="116552"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="MMSWRIT"/>
+        <display value="MMS message"/>
+        <definition value="Participation by text or diagrams transmitted by an MMS message."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="116553"/>
+        </property>
+      </concept>
+      <concept>
+        <code value="APPWRIT"/>
+        <display value="messaging app"/>
+        <definition value="Participation by text or diagrams transmitted over an online app, e.g. Facebook Messenger, WhatsApp, or similar web app."/>
+        <property>
+          <code value="status"/>
+          <valueCode value="active"/>
+        </property>
+        <property>
+          <code value="internalId"/>
+          <valueCode value="116554"/>
+        </property>
+      </concept>
     </concept>
   </concept>
 </CodeSystem>

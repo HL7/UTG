@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<NamingSystem xmlns="http://hl7.org/fhir">
+  <id value="uri"/>
+  <extension url="http://hl7.org/fhir/tools/StructureDefinition/extension-title">
+    <valueString value="Uniform Resource Identifier (URI)"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
+    <valueUri value="http://terminology.hl7.org/NamingSystem/uri"/>
+  </extension>
+  <extension url="http://terminology.hl7.org/StructureDefinition/ext-namingsystem-version">
+    <valueString value="1.0.0"/>
+  </extension>
+  <name value="URI"/>
+  <status value="active"/>
+  <kind value="identifier"/>
+  <date value="2022-02-07T00:00:00-00:00"/>
+  <description value="As defined by RFC 3986 (http://www.ietf.org/rfc/rfc3986.txt)(with many schemes defined in many RFCs). For OIDs and UUIDs, use the URN form (urn:oid:(note: lowercase) and urn:uuid:). See http://www.ietf.org/rfc/rfc3001.txt and http://www.ietf.org/rfc/rfc4122.txt &#13;&#10;&#13;&#10;This oid is used as an identifier II.root to indicate the the extension is an absolute URI (technically, an IRI). Typically, this is used for OIDs and GUIDs. Note that when this OID is used with OIDs and GUIDs, the II.extension should start with urn:oid or urn:uuid: &#13;&#10;&#13;&#10;Note that this OID is created to aid with interconversion between CDA and FHIR - FHIR uses urn:ietf:rfc:3986 as equivalent to this OID. URIs as identifiers appear more commonly in FHIR.&#13;&#10;&#13;&#10;This OID may also be used in CD.codeSystem."/>
+  <uniqueId>
+    <type value="oid"/>
+    <value value="2.16.840.1.113883.4.873"/>
+    <preferred value="true"/>
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="urn:ietf:rfc:3986"/>
+    <preferred value="true"/>
+  </uniqueId>
+</NamingSystem>
