@@ -3,9 +3,6 @@
 # to be investigated
 The Implementation Guide contains no examples for this extension
 
-# Don't error on case-sensitive for now
-CodeSystems SHOULD have a stated value for the caseSensitive element so that users know the status and meaning of the code system clearly
-
 # These value sets are supposed to exist
 Review the All Codes Value Set - incomplete CodeSystems generally should not have an all codes value set specified
 
@@ -47,6 +44,21 @@ WARNING: ValueSet.where(id = 'v3-OrganizationIndustryClassNAICS'): Error from se
 WARNING: ValueSet.where(id = 'v3-SCDHEC-GISSpatialAccuracyTiers'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/SCDHEC-GISSpatialAccuracyTiers
 WARNING: ValueSet.where(id = 'v3-USEncounterDischargeDisposition'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
 WARNING: ValueSet.where(id = 'v3-USEncounterReferralSource'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
+WARNING: ValueSet/v3-AgeGroupObservationValue: ValueSet.compose[0].include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters cant be checked
+WARNING: ValueSet/v3-KnowledgeSubtopicObservationValue: ValueSet.compose[0].include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters cant be checked
+
+# this is intended behavior
+WARNING: CodeSystem/ICD-10DualCoding: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: CodeSystem/ICD-9DualCoding: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: NamingSystem/ICD-10DualCoding: NamingSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: NamingSystem/ICD-9DualCoding: NamingSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: CodeSystem/v3-ActRelationshipSubset: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at '<n'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: CodeSystem/v3-ActRelationshipSubset: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at '<n'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: ValueSet/v2-0005: ValueSet.compose[0].include[0]: Unknown System 'urn:oid:2.16.840.1.113883.6.238' specified, so Concepts and Filters cant be checked
+WARNING: CodeSystem/v3-styleType: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at '<n'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: ValueSet/v3-ActClassDocumentBody: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at 'A '. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: ValueSet/v3-ActUncertainty: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at 'A '. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: ValueSet/v3-SecurityAlterationIntegrityObservationType: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at '<p'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 
 # value sets based on versions of code systems prior to their inclusion in THO.
 WARNING: ValueSet.where(id = 'v2-0350'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0350 version 2.1.0 (known versions = 2.9)
