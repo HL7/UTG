@@ -1,0 +1,2106 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "version" : "2.1.0",
+      "concept" : [{
+        "code" : "INT"
+      },
+      {
+        "code" : "APT"
+      },
+      {
+        "code" : "ARQ"
+      },
+      {
+        "code" : "PRMS"
+      },
+      {
+        "code" : "PRP"
+      },
+      {
+        "code" : "RQO"
+      },
+      {
+        "code" : "EVN"
+      },
+      {
+        "code" : "EVN.CRT"
+      },
+      {
+        "code" : "EXPEC"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:4c451bd8-9167-4c06-ae30-6ed332c0c726",
+    "timestamp" : "2022-10-17T21:36:21.686Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An intention or plan for an act.\r\n\r\n**>UsageNotes:** The final outcome of the intent, the act that is intended to occur, is always an event. However the final outcome may be reached indirectly via steps through other intents, such as promise, permission request, or an appointment that may lead to an actual event to occur. Alternatively, the intended act may never occur."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "INT",
+      "display" : "intent"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that has been scheduled to be performed at a specific place and time."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "APT",
+      "display" : "appointment"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for the appointment scheduling request/fulfillment cycle. An appointment request is fulfilled only and completely by an appointment (APT), i.e., all that the appointment request intends is to create an appointment *(the actual act may well not happen if that is the professional decision during the appointment)*."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "ARQ",
+      "display" : "appointment request"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A commitment to perform an act (may be either solicited or unsolicited). The committer becomes responsible to the other party for executing the act, and, as a consequence, the other party may rely on the first party to perform or cause to perform the act.\r\n\r\n**UsageNotes:** Commitments may be retracted or cancelled."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRMS",
+      "display" : "promise"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A suggestion that an act might be performed. Not an explicit request, and professional responsibility may or may not be present."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRP",
+      "display" : "proposal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to \"true\" and use the desired mood for your criterion.\r\n\r\n**Definition:** A criterion (CRT) that has\\_match = an event (EVN)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN.CRT",
+      "display" : "event criterion"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that is considered to have some noteworthy likelihood of occurring in the future (has\\_match = event).\r\n\r\n**Examples:**Prognosis of a condition, Expected date of discharge from hospital, patient will likely need an emergency decompression of the intracranial pressure by morning.\r\n\r\n**UsageNotes:**INT (intent) reflects a plan for the future, which is a declaration to do something. This contrasts with expectation, which is a prediction that something will happen in the future. GOL (goal) reflects a hope rather than a prediction. RSK (risk) reflects a potential negative event that may or may not be expected to happen."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EXPEC",
+      "display" : "expectation"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "DEF"
+      },
+      {
+        "code" : "EVN"
+      },
+      {
+        "code" : "RQO"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:4f3b8e55-5aff-40cc-ac08-6794a84d5dbb",
+    "timestamp" : "2022-10-17T21:36:48.514Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A definition of a kind of act that can occur .\r\n\r\n**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be \"retired\" in the future in favor of the more general ActMood.CRT."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "DEF",
+      "display" : "definition"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "EVN"
+      },
+      {
+        "code" : "PRMS"
+      },
+      {
+        "code" : "PRP"
+      },
+      {
+        "code" : "RQO"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:657ddbba-cc81-47a4-b438-238eab111df9",
+    "timestamp" : "2022-10-17T21:36:58.389Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A commitment to perform an act (may be either solicited or unsolicited). The committer becomes responsible to the other party for executing the act, and, as a consequence, the other party may rely on the first party to perform or cause to perform the act.\r\n\r\n**UsageNotes:** Commitments may be retracted or cancelled."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRMS",
+      "display" : "promise"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A suggestion that an act might be performed. Not an explicit request, and professional responsibility may or may not be present."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRP",
+      "display" : "proposal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "EVN"
+      },
+      {
+        "code" : "PRMS"
+      },
+      {
+        "code" : "RQO"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:aa05a1cc-8fcf-4896-8cb1-aa9ae7276586",
+    "timestamp" : "2022-10-17T21:38:15.514Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A commitment to perform an act (may be either solicited or unsolicited). The committer becomes responsible to the other party for executing the act, and, as a consequence, the other party may rely on the first party to perform or cause to perform the act.\r\n\r\n**UsageNotes:** Commitments may be retracted or cancelled."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRMS",
+      "display" : "promise"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "EVN"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:18e18a0f-60a0-47dd-8f7e-f3e00f39ad2e",
+    "timestamp" : "2022-10-17T21:38:17.623Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "CRT"
+      },
+      {
+        "code" : "DEF"
+      },
+      {
+        "code" : "EVN"
+      },
+      {
+        "code" : "EVN.CRT"
+      },
+      {
+        "code" : "INT"
+      },
+      {
+        "code" : "RQO"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:3af41fa6-7a58-4e38-abe8-feacb4b0efbb",
+    "timestamp" : "2022-10-17T21:38:34.498Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to \"true\" and use the desired mood for your criterion.\r\n\r\n**Definition:** A condition that must be true for the source act to be considered."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "CRT",
+      "display" : "criterion"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A definition of a kind of act that can occur .\r\n\r\n**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be \"retired\" in the future in favor of the more general ActMood.CRT."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "DEF",
+      "display" : "definition"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to \"true\" and use the desired mood for your criterion.\r\n\r\n**Definition:** A criterion (CRT) that has\\_match = an event (EVN)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN.CRT",
+      "display" : "event criterion"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An intention or plan for an act.\r\n\r\n**>UsageNotes:** The final outcome of the intent, the act that is intended to occur, is always an event. However the final outcome may be reached indirectly via steps through other intents, such as promise, permission request, or an appointment that may lead to an actual event to occur. Alternatively, the intended act may never occur."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "INT",
+      "display" : "intent"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "DEF"
+      },
+      {
+        "code" : "EVN"
+      },
+      {
+        "code" : "INT"
+      },
+      {
+        "code" : "PRMS"
+      },
+      {
+        "code" : "PRP"
+      },
+      {
+        "code" : "RQO"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:ad242920-16eb-4b59-9128-8433438564d6",
+    "timestamp" : "2022-10-17T21:38:46.482Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A definition of a kind of act that can occur .\r\n\r\n**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be \"retired\" in the future in favor of the more general ActMood.CRT."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "DEF",
+      "display" : "definition"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An intention or plan for an act.\r\n\r\n**>UsageNotes:** The final outcome of the intent, the act that is intended to occur, is always an event. However the final outcome may be reached indirectly via steps through other intents, such as promise, permission request, or an appointment that may lead to an actual event to occur. Alternatively, the intended act may never occur."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "INT",
+      "display" : "intent"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A commitment to perform an act (may be either solicited or unsolicited). The committer becomes responsible to the other party for executing the act, and, as a consequence, the other party may rely on the first party to perform or cause to perform the act.\r\n\r\n**UsageNotes:** Commitments may be retracted or cancelled."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRMS",
+      "display" : "promise"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A suggestion that an act might be performed. Not an explicit request, and professional responsibility may or may not be present."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRP",
+      "display" : "proposal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "CRT"
+      },
+      {
+        "code" : "DEF"
+      },
+      {
+        "code" : "EVN"
+      },
+      {
+        "code" : "EVN.CRT"
+      },
+      {
+        "code" : "RSK"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:66bec5f8-67e0-4bc6-81bd-7f0476ae7d43",
+    "timestamp" : "2022-10-17T21:39:17.467Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to \"true\" and use the desired mood for your criterion.\r\n\r\n**Definition:** A condition that must be true for the source act to be considered."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "CRT",
+      "display" : "criterion"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A definition of a kind of act that can occur .\r\n\r\n**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be \"retired\" in the future in favor of the more general ActMood.CRT."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "DEF",
+      "display" : "definition"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to \"true\" and use the desired mood for your criterion.\r\n\r\n**Definition:** A criterion (CRT) that has\\_match = an event (EVN)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN.CRT",
+      "display" : "event criterion"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:**An act that may occur in the future and which is regarded as undesirable\r\n\r\n**Examples:**Increased risk of DVT, at risk for sub-acute bacterial endocarditis.\r\n\r\n**UsageNotes:**Note: An observation in RSK mood expresses the undesirable act, and not the underlying risk factor. A risk factor that is present (e.g. obesity, smoking, etc) should be expressed in event mood. INT (intent) reflects a plan for the future, which is a declaration to do something. This contrasts with RSK (risk), which is the potential that something negative will occur that may or may not ever happen. GOL (goal) reflects a hope to achieve something. EXPEC (expectation) is the prediction of a positive or negative event. This contrasts with RSK (risk), which is the potential that something negative will occur that may or may not ever happen, and may not be expected to happen."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RSK",
+      "display" : "risk"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "APT"
+      },
+      {
+        "code" : "ARQ"
+      },
+      {
+        "code" : "DEF"
+      },
+      {
+        "code" : "EVN"
+      },
+      {
+        "code" : "INT"
+      },
+      {
+        "code" : "PRMS"
+      },
+      {
+        "code" : "PRP"
+      },
+      {
+        "code" : "RQO"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:8911991b-cc13-4c75-84dc-67366240562b",
+    "timestamp" : "2022-10-17T21:39:32.404Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that has been scheduled to be performed at a specific place and time."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "APT",
+      "display" : "appointment"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for the appointment scheduling request/fulfillment cycle. An appointment request is fulfilled only and completely by an appointment (APT), i.e., all that the appointment request intends is to create an appointment *(the actual act may well not happen if that is the professional decision during the appointment)*."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "ARQ",
+      "display" : "appointment request"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A definition of a kind of act that can occur .\r\n\r\n**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be \"retired\" in the future in favor of the more general ActMood.CRT."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "DEF",
+      "display" : "definition"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An intention or plan for an act.\r\n\r\n**>UsageNotes:** The final outcome of the intent, the act that is intended to occur, is always an event. However the final outcome may be reached indirectly via steps through other intents, such as promise, permission request, or an appointment that may lead to an actual event to occur. Alternatively, the intended act may never occur."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "INT",
+      "display" : "intent"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A commitment to perform an act (may be either solicited or unsolicited). The committer becomes responsible to the other party for executing the act, and, as a consequence, the other party may rely on the first party to perform or cause to perform the act.\r\n\r\n**UsageNotes:** Commitments may be retracted or cancelled."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRMS",
+      "display" : "promise"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A suggestion that an act might be performed. Not an explicit request, and professional responsibility may or may not be present."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRP",
+      "display" : "proposal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "CRT"
+      },
+      {
+        "code" : "DEF"
+      },
+      {
+        "code" : "EVN"
+      },
+      {
+        "code" : "EVN.CRT"
+      },
+      {
+        "code" : "INT"
+      },
+      {
+        "code" : "PRMS"
+      },
+      {
+        "code" : "PRP"
+      },
+      {
+        "code" : "RQO"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:813d04bf-8bab-4ee6-9e32-80a874aa85a8",
+    "timestamp" : "2022-10-17T21:40:10.420Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to \"true\" and use the desired mood for your criterion.\r\n\r\n**Definition:** A condition that must be true for the source act to be considered."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "CRT",
+      "display" : "criterion"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A definition of a kind of act that can occur .\r\n\r\n**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be \"retired\" in the future in favor of the more general ActMood.CRT."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "DEF",
+      "display" : "definition"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to \"true\" and use the desired mood for your criterion.\r\n\r\n**Definition:** A criterion (CRT) that has\\_match = an event (EVN)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN.CRT",
+      "display" : "event criterion"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An intention or plan for an act.\r\n\r\n**>UsageNotes:** The final outcome of the intent, the act that is intended to occur, is always an event. However the final outcome may be reached indirectly via steps through other intents, such as promise, permission request, or an appointment that may lead to an actual event to occur. Alternatively, the intended act may never occur."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "INT",
+      "display" : "intent"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A commitment to perform an act (may be either solicited or unsolicited). The committer becomes responsible to the other party for executing the act, and, as a consequence, the other party may rely on the first party to perform or cause to perform the act.\r\n\r\n**UsageNotes:** Commitments may be retracted or cancelled."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRMS",
+      "display" : "promise"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A suggestion that an act might be performed. Not an explicit request, and professional responsibility may or may not be present."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRP",
+      "display" : "proposal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "APT"
+      },
+      {
+        "code" : "ARQ"
+      },
+      {
+        "code" : "DEF"
+      },
+      {
+        "code" : "EVN"
+      },
+      {
+        "code" : "GOL"
+      },
+      {
+        "code" : "INT"
+      },
+      {
+        "code" : "PRMS"
+      },
+      {
+        "code" : "PRP"
+      },
+      {
+        "code" : "RQO"
+      },
+      {
+        "code" : "RSK"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:6ef2373f-d3bb-485f-9343-e21413cf6a25",
+    "timestamp" : "2022-10-17T21:41:22.811Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that has been scheduled to be performed at a specific place and time."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "APT",
+      "display" : "appointment"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for the appointment scheduling request/fulfillment cycle. An appointment request is fulfilled only and completely by an appointment (APT), i.e., all that the appointment request intends is to create an appointment *(the actual act may well not happen if that is the professional decision during the appointment)*."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "ARQ",
+      "display" : "appointment request"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A definition of a kind of act that can occur .\r\n\r\n**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be \"retired\" in the future in favor of the more general ActMood.CRT."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "DEF",
+      "display" : "definition"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An expectation that is considered to be desirable to occur in the future\r\n\r\n**Examples:**Target weight below 80Kg, Stop smoking, Regain ability to walk, goal is to administer thrombolytics to candidate patients presenting with acute myocardial infarction.\r\n\r\n**UsageNotes:** INT (intent) reflects a plan for the future, which is a declaration to do something. This contrasts with goal which doesn't represent an intention to act, merely a hope for an eventual result. A goal is distinct from the intended actions to reach that goal. \"I will reduce the dose of drug x to 20mg\" is an intent. \"I hope to be able to get the patient to the point where I can reduce the dose of drug x to 20mg\" is a goal. EXPEC (expectation) reflects a prediction rather than a hope. RSK (risk) reflects a potential negative event rather than a hope."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "GOL",
+      "display" : "Goal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An intention or plan for an act.\r\n\r\n**>UsageNotes:** The final outcome of the intent, the act that is intended to occur, is always an event. However the final outcome may be reached indirectly via steps through other intents, such as promise, permission request, or an appointment that may lead to an actual event to occur. Alternatively, the intended act may never occur."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "INT",
+      "display" : "intent"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A commitment to perform an act (may be either solicited or unsolicited). The committer becomes responsible to the other party for executing the act, and, as a consequence, the other party may rely on the first party to perform or cause to perform the act.\r\n\r\n**UsageNotes:** Commitments may be retracted or cancelled."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRMS",
+      "display" : "promise"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A suggestion that an act might be performed. Not an explicit request, and professional responsibility may or may not be present."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRP",
+      "display" : "proposal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:**An act that may occur in the future and which is regarded as undesirable\r\n\r\n**Examples:**Increased risk of DVT, at risk for sub-acute bacterial endocarditis.\r\n\r\n**UsageNotes:**Note: An observation in RSK mood expresses the undesirable act, and not the underlying risk factor. A risk factor that is present (e.g. obesity, smoking, etc) should be expressed in event mood. INT (intent) reflects a plan for the future, which is a declaration to do something. This contrasts with RSK (risk), which is the potential that something negative will occur that may or may not ever happen. GOL (goal) reflects a hope to achieve something. EXPEC (expectation) is the prediction of a positive or negative event. This contrasts with RSK (risk), which is the potential that something negative will occur that may or may not ever happen, and may not be expected to happen."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RSK",
+      "display" : "risk"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "APT"
+      },
+      {
+        "code" : "ARQ"
+      },
+      {
+        "code" : "DEF"
+      },
+      {
+        "code" : "EVN"
+      },
+      {
+        "code" : "INT"
+      },
+      {
+        "code" : "PRMS"
+      },
+      {
+        "code" : "PRP"
+      },
+      {
+        "code" : "RQO"
+      },
+      {
+        "code" : "RSK"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:73184a4b-b379-4fab-b3bc-013c2d61274e",
+    "timestamp" : "2022-10-17T21:42:07.576Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that has been scheduled to be performed at a specific place and time."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "APT",
+      "display" : "appointment"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for the appointment scheduling request/fulfillment cycle. An appointment request is fulfilled only and completely by an appointment (APT), i.e., all that the appointment request intends is to create an appointment *(the actual act may well not happen if that is the professional decision during the appointment)*."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "ARQ",
+      "display" : "appointment request"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A definition of a kind of act that can occur .\r\n\r\n**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be \"retired\" in the future in favor of the more general ActMood.CRT."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "DEF",
+      "display" : "definition"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An intention or plan for an act.\r\n\r\n**>UsageNotes:** The final outcome of the intent, the act that is intended to occur, is always an event. However the final outcome may be reached indirectly via steps through other intents, such as promise, permission request, or an appointment that may lead to an actual event to occur. Alternatively, the intended act may never occur."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "INT",
+      "display" : "intent"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A commitment to perform an act (may be either solicited or unsolicited). The committer becomes responsible to the other party for executing the act, and, as a consequence, the other party may rely on the first party to perform or cause to perform the act.\r\n\r\n**UsageNotes:** Commitments may be retracted or cancelled."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRMS",
+      "display" : "promise"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A suggestion that an act might be performed. Not an explicit request, and professional responsibility may or may not be present."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRP",
+      "display" : "proposal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:**An act that may occur in the future and which is regarded as undesirable\r\n\r\n**Examples:**Increased risk of DVT, at risk for sub-acute bacterial endocarditis.\r\n\r\n**UsageNotes:**Note: An observation in RSK mood expresses the undesirable act, and not the underlying risk factor. A risk factor that is present (e.g. obesity, smoking, etc) should be expressed in event mood. INT (intent) reflects a plan for the future, which is a declaration to do something. This contrasts with RSK (risk), which is the potential that something negative will occur that may or may not ever happen. GOL (goal) reflects a hope to achieve something. EXPEC (expectation) is the prediction of a positive or negative event. This contrasts with RSK (risk), which is the potential that something negative will occur that may or may not ever happen, and may not be expected to happen."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RSK",
+      "display" : "risk"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "DEF"
+      },
+      {
+        "code" : "EVN"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:ebb83b4a-a613-4785-b334-3d837934955c",
+    "timestamp" : "2022-10-17T21:44:30.748Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A definition of a kind of act that can occur .\r\n\r\n**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be \"retired\" in the future in favor of the more general ActMood.CRT."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "DEF",
+      "display" : "definition"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "APT"
+      },
+      {
+        "code" : "ARQ"
+      },
+      {
+        "code" : "CRT"
+      },
+      {
+        "code" : "DEF"
+      },
+      {
+        "code" : "EVN"
+      },
+      {
+        "code" : "EVN.CRT"
+      },
+      {
+        "code" : "GOL"
+      },
+      {
+        "code" : "INT"
+      },
+      {
+        "code" : "PRMS"
+      },
+      {
+        "code" : "PRP"
+      },
+      {
+        "code" : "RQO"
+      },
+      {
+        "code" : "RSK"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:47c7efee-76f6-4440-b036-b4537511ebca",
+    "timestamp" : "2022-10-17T21:46:36.357Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that has been scheduled to be performed at a specific place and time."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "APT",
+      "display" : "appointment"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for the appointment scheduling request/fulfillment cycle. An appointment request is fulfilled only and completely by an appointment (APT), i.e., all that the appointment request intends is to create an appointment *(the actual act may well not happen if that is the professional decision during the appointment)*."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "ARQ",
+      "display" : "appointment request"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to \"true\" and use the desired mood for your criterion.\r\n\r\n**Definition:** A condition that must be true for the source act to be considered."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "CRT",
+      "display" : "criterion"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A definition of a kind of act that can occur .\r\n\r\n**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be \"retired\" in the future in favor of the more general ActMood.CRT."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "DEF",
+      "display" : "definition"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to \"true\" and use the desired mood for your criterion.\r\n\r\n**Definition:** A criterion (CRT) that has\\_match = an event (EVN)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN.CRT",
+      "display" : "event criterion"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An expectation that is considered to be desirable to occur in the future\r\n\r\n**Examples:**Target weight below 80Kg, Stop smoking, Regain ability to walk, goal is to administer thrombolytics to candidate patients presenting with acute myocardial infarction.\r\n\r\n**UsageNotes:** INT (intent) reflects a plan for the future, which is a declaration to do something. This contrasts with goal which doesn't represent an intention to act, merely a hope for an eventual result. A goal is distinct from the intended actions to reach that goal. \"I will reduce the dose of drug x to 20mg\" is an intent. \"I hope to be able to get the patient to the point where I can reduce the dose of drug x to 20mg\" is a goal. EXPEC (expectation) reflects a prediction rather than a hope. RSK (risk) reflects a potential negative event rather than a hope."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "GOL",
+      "display" : "Goal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An intention or plan for an act.\r\n\r\n**>UsageNotes:** The final outcome of the intent, the act that is intended to occur, is always an event. However the final outcome may be reached indirectly via steps through other intents, such as promise, permission request, or an appointment that may lead to an actual event to occur. Alternatively, the intended act may never occur."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "INT",
+      "display" : "intent"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A commitment to perform an act (may be either solicited or unsolicited). The committer becomes responsible to the other party for executing the act, and, as a consequence, the other party may rely on the first party to perform or cause to perform the act.\r\n\r\n**UsageNotes:** Commitments may be retracted or cancelled."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRMS",
+      "display" : "promise"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A suggestion that an act might be performed. Not an explicit request, and professional responsibility may or may not be present."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRP",
+      "display" : "proposal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:**An act that may occur in the future and which is regarded as undesirable\r\n\r\n**Examples:**Increased risk of DVT, at risk for sub-acute bacterial endocarditis.\r\n\r\n**UsageNotes:**Note: An observation in RSK mood expresses the undesirable act, and not the underlying risk factor. A risk factor that is present (e.g. obesity, smoking, etc) should be expressed in event mood. INT (intent) reflects a plan for the future, which is a declaration to do something. This contrasts with RSK (risk), which is the potential that something negative will occur that may or may not ever happen. GOL (goal) reflects a hope to achieve something. EXPEC (expectation) is the prediction of a positive or negative event. This contrasts with RSK (risk), which is the potential that something negative will occur that may or may not ever happen, and may not be expected to happen."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RSK",
+      "display" : "risk"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "DEF"
+      },
+      {
+        "code" : "EVN"
+      },
+      {
+        "code" : "PRMS"
+      },
+      {
+        "code" : "PRP"
+      },
+      {
+        "code" : "RQO"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:24c449c9-37f7-4fb4-a909-e4867bbf39b1",
+    "timestamp" : "2022-10-17T21:46:41.404Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A definition of a kind of act that can occur .\r\n\r\n**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be \"retired\" in the future in favor of the more general ActMood.CRT."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "DEF",
+      "display" : "definition"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A commitment to perform an act (may be either solicited or unsolicited). The committer becomes responsible to the other party for executing the act, and, as a consequence, the other party may rely on the first party to perform or cause to perform the act.\r\n\r\n**UsageNotes:** Commitments may be retracted or cancelled."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRMS",
+      "display" : "promise"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A suggestion that an act might be performed. Not an explicit request, and professional responsibility may or may not be present."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRP",
+      "display" : "proposal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "EVN"
+      },
+      {
+        "code" : "RQO"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:57671dd2-fedf-49f2-8ff8-9b44263cbbed",
+    "timestamp" : "2022-10-17T21:46:50.904Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "APT"
+      },
+      {
+        "code" : "ARQ"
+      },
+      {
+        "code" : "CRT"
+      },
+      {
+        "code" : "DEF"
+      },
+      {
+        "code" : "EVN"
+      },
+      {
+        "code" : "EVN.CRT"
+      },
+      {
+        "code" : "INT"
+      },
+      {
+        "code" : "PRMS"
+      },
+      {
+        "code" : "PRP"
+      },
+      {
+        "code" : "RQO"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:29b1cfe9-b7eb-43b7-b39c-3546f5605ece",
+    "timestamp" : "2022-10-17T21:47:04.185Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that has been scheduled to be performed at a specific place and time."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "APT",
+      "display" : "appointment"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for the appointment scheduling request/fulfillment cycle. An appointment request is fulfilled only and completely by an appointment (APT), i.e., all that the appointment request intends is to create an appointment *(the actual act may well not happen if that is the professional decision during the appointment)*."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "ARQ",
+      "display" : "appointment request"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to \"true\" and use the desired mood for your criterion.\r\n\r\n**Definition:** A condition that must be true for the source act to be considered."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "CRT",
+      "display" : "criterion"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A definition of a kind of act that can occur .\r\n\r\n**OpenIssue:** The semantic constructs embodied in DEF and CRT moods seem indistinguishable, and their uses can readily be determined by the context in which these are used. Therefore, this OpenIssue has been created to declare that it is likely that ActMood.DEF will be \"retired\" in the future in favor of the more general ActMood.CRT."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "DEF",
+      "display" : "definition"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that actually happens (may be an ongoing act or a documentation of a past act)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN",
+      "display" : "event (occurrence)"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "***Deprecation Comment:*** This concept This codes should no longer be used. Instead, set attribute Act.isCriterionInd to \"true\" and use the desired mood for your criterion.\r\n\r\n**Definition:** A criterion (CRT) that has\\_match = an event (EVN)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "EVN.CRT",
+      "display" : "event criterion"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An intention or plan for an act.\r\n\r\n**>UsageNotes:** The final outcome of the intent, the act that is intended to occur, is always an event. However the final outcome may be reached indirectly via steps through other intents, such as promise, permission request, or an appointment that may lead to an actual event to occur. Alternatively, the intended act may never occur."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "INT",
+      "display" : "intent"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A commitment to perform an act (may be either solicited or unsolicited). The committer becomes responsible to the other party for executing the act, and, as a consequence, the other party may rely on the first party to perform or cause to perform the act.\r\n\r\n**UsageNotes:** Commitments may be retracted or cancelled."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRMS",
+      "display" : "promise"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A suggestion that an act might be performed. Not an explicit request, and professional responsibility may or may not be present."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRP",
+      "display" : "proposal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "APT"
+      },
+      {
+        "code" : "ARQ"
+      },
+      {
+        "code" : "PRP"
+      },
+      {
+        "code" : "RQO"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:2e368d21-3fa7-4e22-b035-8e3e941a02cd",
+    "timestamp" : "2022-10-17T21:47:23.404Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that has been scheduled to be performed at a specific place and time."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "APT",
+      "display" : "appointment"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for the appointment scheduling request/fulfillment cycle. An appointment request is fulfilled only and completely by an appointment (APT), i.e., all that the appointment request intends is to create an appointment *(the actual act may well not happen if that is the professional decision during the appointment)*."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "ARQ",
+      "display" : "appointment request"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A suggestion that an act might be performed. Not an explicit request, and professional responsibility may or may not be present."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRP",
+      "display" : "proposal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "PERM"
+      },
+      {
+        "code" : "PERMRQ"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:c2eda312-0cde-4af1-bb0f-864650f42e41",
+    "timestamp" : "2022-10-17T21:47:46.357Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A kind of act that defines a permission that has been granted."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PERM",
+      "display" : "permission"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request for a permission to perform the act. Typically a payer (or possibly a supervisor) is being requested to give permission to perform the act. As opposed to the RQO, the requestee is not asked to perform or cause to perform the act but only to give the permission."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PERMRQ",
+      "display" : "permission request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "_ActMoodPredicate"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:d20c72d4-c784-4c8e-a3b2-55e4b864da9e",
+    "timestamp" : "2022-10-17T21:48:52.717Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** An act that expresses condition statements for other acts."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "_ActMoodPredicate",
+      "display" : "ActMoodPredicate"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "PRMS"
+      },
+      {
+        "code" : "RQO"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:48346007-eae8-4fe1-b6c5-4c86ff2ade86",
+    "timestamp" : "2022-10-17T21:49:13.795Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A commitment to perform an act (may be either solicited or unsolicited). The committer becomes responsible to the other party for executing the act, and, as a consequence, the other party may rely on the first party to perform or cause to perform the act.\r\n\r\n**UsageNotes:** Commitments may be retracted or cancelled."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "PRMS",
+      "display" : "promise"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Definition:** A request act that is specialized for an event request/fulfillment cycle.\r\n\r\n**UsageNotes:** The fulfillment cycle may involve intermediary fulfilling acts in moods such as PRMS, APT, or even another RQO before being fulfilled by the final event.\r\n\r\n**UsageNotes:** The concepts of a \"request\" and an \"order\" are viewed as different, because there is an implication of a mandate associated with order. In practice, however, this distinction has no general functional value in the inter-operation of health care computing. \"Orders\" are commonly refused for a variety of clinical and business reasons, and the notion of a \"request\" obligates the recipient (the fulfiller) to respond to the sender (the author). Indeed, in many regions, including Australia and Europe, the common term used is \"request.\"\r\n\r\nThus, the concept embodies both notions, as there is no useful distinction to be made. If a mandate is to be associated with a request, this will be embodied in the \"local\" business rules applied to the transactions. Should HL7 desire to provide a distinction between these in the future, the individual concepts could be added as specializations of this concept.\r\n\r\nThe critical distinction here, is the difference between this concept and an \"intent\", of which it is a specialization. An intent involves decisions by a single party, the author. A request, however, involves decisions by two parties, the author and the fulfiller, with an obligation on the part of the fulfiller to respond to the request indicating that the fulfiller will indeed fulfill the request."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "RQO",
+      "display" : "request"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "concept" : [{
+        "code" : "_ActMoodCompletionTrack"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:fccd042f-0c53-4ee4-a2c5-6b3a378532ec",
+    "timestamp" : "2022-10-17T21:49:26.842Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-ActMood|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "These are moods describing activities as they progress in the business cycle, from defined, through planned and ordered to completed."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActMood",
+      "code" : "_ActMoodCompletionTrack",
+      "display" : "ActMoodCompletionTrack"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
