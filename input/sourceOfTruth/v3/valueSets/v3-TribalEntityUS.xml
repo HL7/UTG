@@ -17,13 +17,17 @@
   <description value="INDIAN ENTITIES RECOGNIZED AND ELIGIBLE TO RECEIVE SERVICES FROM THE UNITED STATES BUREAU OF INDIAN AFFAIRS"/>
   <compose>
     <include>
-      <valueSet value="http://terminology.hl7.org/ValueSet/v3-NativeEntityAlaska"/>
-    </include>
-    <include>
-      <valueSet value="http://terminology.hl7.org/ValueSet/v3-NativeEntityContiguous"/>
-    </include>
-    <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-TribalEntityUS"/>
     </include>
+	<exclude>
+      <system
+              value="http://terminology.hl7.org/CodeSystem/v3-TribalEntityUS"/>
+      <concept>
+        <code value="_NativeEntityContiguous"/>
+      </concept>
+      <concept>
+        <code value="_NativeEntityAlaska"/>
+      </concept>
+    </exclude>
   </compose>
 </ValueSet>
