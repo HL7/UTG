@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NamingSystem xmlns="http://hl7.org/fhir">
+  <id value="MONDO"/>
+  <extension url="http://hl7.org/fhir/tools/StructureDefinition/extension-title">
+    <valueString value="Medication Reference Terminology (MED-RT)"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
+    <valueUri value="http://terminology.hl7.org/NamingSystem/MONDO"/>
+  </extension>
+  <extension url="http://terminology.hl7.org/StructureDefinition/ext-namingsystem-version">
+    <valueString value="1.0.0"/>
+  </extension>
+  <name value="MONDO"/>
+  <status value="active"/>
+  <kind value="codesystem"/>
+  <date value="2022-11-18T00:00:00-00:00"/>
+  <publisher value="The Monarch Initiative"/>
+  <contact>
+    <name value="The Monarch Initiative; Nicole Vasilevsky"/>
+    <telecom>
+        <system value="url"/>
+        <value value="http://monarchinitiatve.org/"/>
+    </telecom>
+    <telecom>
+        <system value="email"/>
+        <value value="nicole@tislab.org"/>
+    </telecom>
+  </contact>
+  <responsible value="The Monarch Initiative; Nicole Vasilevsky"/>
+  <description value="The Mondo Disease Ontology is a semi-automatically constructed ontology that merges in multiple disease resources to yield a coherent merged ontology that contains cross-species disease terminology.&#13;&#10;&#13;&#10;Numerous sources for disease definitions and data models currently exist, which include HPO, OMIM, SNOMED CT, ICD, PhenoDB, MedDRA, MedGen, ORDO, DO, GARD, etc; however, these sources partially overlap and sometimes conflict, making it difficult to know definitively how they relate to each other. This has resulted in a proliferation of mappings between disease entries in different resources; however mappings are problematic: collectively, they are expensive to create and maintain. Most importantly, the mappings lack completeness, accuracy, and precision; as a result, mapping calls are often inconsistent between resources. The UMLS provides intermediate concepts through which other resources can be mapped, but these mappings suffer from the same challenges: they are not guaranteed to be one-to-one, especially in areas with evolving disease concepts such as rare disease.&#13;&#10;&#13;&#10;In order to address the lack of a unified disease terminology that provides precise equivalences between disease concepts, we created Mondo, which provides a logic-based structure for unifying multiple disease resources.&#13;&#10;&#13;&#10;Mondo’s development is coordinated with the Human Phenotype Ontology (HPO), which describes the individual phenotypic features that constitute a disease. Like the HPO, Mondo provides a hierarchical structure which can be used for classification or “rolling up” diseases to higher level groupings. It provides mappings to other disease resources, but in contrast to other mappings between ontologies, we precisely annotate each mapping using strict semantics, so that we know when two disease names or identifiers are equivalent or one-to-one, in contrast to simply being closely related.&#13;&#10;&#13;&#10;For more information, see [https://mondo.monarchinitiative.org/](https://mondo.monarchinitiative.org/)"/>
+  <uniqueId>
+    <type value="oid"/>
+    <value value="2.16.840.1.113883.3.9216"/>
+    <preferred value="true"/>
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="http://purl.obolibrary.org/obo/mondo.owl"/>
+    <preferred value="true"/>
+	<comment value="This is the URL as specified by the terminology owner, and is considered authoritative."/>
+    <period>
+      <start value="2022-09-22"/>
+    </period>
+  </uniqueId>
+</NamingSystem>
