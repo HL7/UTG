@@ -1,0 +1,46 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+      "concept" : [{
+        "code" : "1"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:eb9c8e71-aa74-4763-9eec-a846dc92d00c",
+    "timestamp" : "2022-11-22T22:13:21.083Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding|07/14/2020"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Unreported/Not used.  Exempt from POA reporting.  This code is equivalent to a blank on the UB-04, however; it was determined that blanks are undesirable when submitting this data via the 4010A. CMS will not pay the CC/MCC DRG for those selected HACs that are coded as \"1\" for the POA Indicator. The “1” POA Indicator should not be applied to any codes on the HAC list.  For a complete list of codes on the POA exempt list, see  the Official Coding Guidelines for ICD-10-CM."
+      }],
+      "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+      "code" : "1"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Tue, Sep 6, 2022 12:14+0000 for FHIR v5.0.0-cibuild 
+  Generated on Tue, Nov 22, 2022 21:15+0000 for FHIR v5.0.0-cibuild 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="5.0.0-cibuild">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -1259,7 +1259,7 @@
        </xs:extension>
      </xs:complexContent>
   </xs:complexType>
-  <xs:simpleType name="ResourceTypesEnum">
+  <xs:simpleType name="ResourceTypeEnum">
     <xs:restriction base="code-primitive">
       <xs:enumeration value="Account">
         <xs:annotation>
@@ -2033,14 +2033,14 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="ResourceTypes">
+  <xs:complexType name="ResourceType">
     <xs:annotation>
       <xs:documentation xml:lang="en"></xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
        <xs:extension base="Element">
-         <xs:attribute name="value" type="ResourceTypesEnum" use="optional"/>
+         <xs:attribute name="value" type="ResourceTypeEnum" use="optional"/>
        </xs:extension>
      </xs:complexContent>
   </xs:complexType>
@@ -2476,1196 +2476,6 @@
     <xs:complexContent>
        <xs:extension base="Element">
          <xs:attribute name="value" type="ParticipantResourceTypesEnum" use="optional"/>
-       </xs:extension>
-     </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="ElementDefinitionTypesEnum">
-    <xs:restriction base="code-primitive">
-      <xs:enumeration value="http://hl7.org/fhirpath/System.String">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">String</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="http://hl7.org/fhirpath/System.Boolean">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Boolean</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="http://hl7.org/fhirpath/System.Date">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Date</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="http://hl7.org/fhirpath/System.DateTime">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DateTime</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="http://hl7.org/fhirpath/System.Decimal">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Decimal</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="http://hl7.org/fhirpath/System.Integer">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Integer</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="http://hl7.org/fhirpath/System.Time">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Time</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Base">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Base</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Element">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Element</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="BackboneElement">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">BackboneElement</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DataType">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DataType</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Address">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Address</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Annotation">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Annotation</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Attachment">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Attachment</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Availability">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Availability</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="BackboneType">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">BackboneType</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Dosage">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Dosage</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ElementDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ElementDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MarketingStatus">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MarketingStatus</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Population">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Population</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ProductShelfLife">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ProductShelfLife</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Timing">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Timing</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CodeableConcept">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">CodeableConcept</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CodeableReference">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">CodeableReference</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Coding">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Coding</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ContactDetail">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ContactDetail</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ContactPoint">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ContactPoint</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Contributor">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Contributor</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DataRequirement">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DataRequirement</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Expression">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Expression</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ExtendedContactDetail">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ExtendedContactDetail</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Extension">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Extension</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="HumanName">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">HumanName</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Identifier">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Identifier</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Meta">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Meta</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MonetaryComponent">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MonetaryComponent</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Money">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Money</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Narrative">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Narrative</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ParameterDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ParameterDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Period">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Period</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PrimitiveType">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">PrimitiveType</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="base64Binary">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">base64Binary</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="boolean">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">boolean</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="date">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">date</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="dateTime">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">dateTime</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="decimal">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">decimal</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="instant">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">instant</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="integer">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">integer</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="positiveInt">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">positiveInt</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="unsignedInt">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">unsignedInt</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="integer64">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">integer64</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="string">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">string</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="code">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">code</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="id">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">id</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="markdown">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">markdown</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="time">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">time</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="uri">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">uri</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="canonical">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">canonical</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="oid">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">oid</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="url">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">url</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="uuid">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">uuid</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Quantity">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Quantity</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Age">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Age</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Count">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Count</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Distance">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Distance</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Duration">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Duration</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Range">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Range</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Ratio">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Ratio</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="RatioRange">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">RatioRange</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Reference">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Reference</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="RelatedArtifact">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">RelatedArtifact</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SampledData">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SampledData</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Signature">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Signature</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="TriggerDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">TriggerDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="UsageContext">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">UsageContext</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="VirtualServiceDetail">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">VirtualServiceDetail</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="xhtml">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">xhtml</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Resource">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Resource</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Binary">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Binary</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Bundle">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Bundle</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DomainResource">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DomainResource</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Account">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Account</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ActivityDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ActivityDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ActorDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ActorDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="AdministrableProductDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">AdministrableProductDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="AdverseEvent">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">AdverseEvent</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="AllergyIntolerance">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">AllergyIntolerance</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Appointment">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Appointment</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="AppointmentResponse">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">AppointmentResponse</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ArtifactAssessment">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ArtifactAssessment</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="AuditEvent">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">AuditEvent</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Basic">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Basic</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="BiologicallyDerivedProduct">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">BiologicallyDerivedProduct</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="BodyStructure">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">BodyStructure</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CanonicalResource">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">CanonicalResource</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CapabilityStatement">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">CapabilityStatement</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CarePlan">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">CarePlan</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CareTeam">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">CareTeam</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ChargeItem">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ChargeItem</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ChargeItemDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ChargeItemDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Citation">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Citation</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Claim">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Claim</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ClaimResponse">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ClaimResponse</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ClinicalImpression">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ClinicalImpression</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ClinicalUseDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ClinicalUseDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CodeSystem">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">CodeSystem</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Communication">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Communication</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CommunicationRequest">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">CommunicationRequest</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CompartmentDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">CompartmentDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Composition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Composition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ConceptMap">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ConceptMap</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Condition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Condition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ConditionDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ConditionDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Consent">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Consent</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Contract">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Contract</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Coverage">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Coverage</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CoverageEligibilityRequest">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">CoverageEligibilityRequest</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CoverageEligibilityResponse">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">CoverageEligibilityResponse</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DetectedIssue">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DetectedIssue</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Device">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Device</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DeviceDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DeviceDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DeviceDispense">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DeviceDispense</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DeviceMetric">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DeviceMetric</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DeviceRequest">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DeviceRequest</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DeviceUsage">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DeviceUsage</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DiagnosticReport">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DiagnosticReport</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DocumentManifest">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DocumentManifest</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DocumentReference">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">DocumentReference</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Encounter">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Encounter</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Endpoint">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Endpoint</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="EnrollmentRequest">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">EnrollmentRequest</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="EnrollmentResponse">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">EnrollmentResponse</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="EpisodeOfCare">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">EpisodeOfCare</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="EventDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">EventDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Evidence">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Evidence</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="EvidenceReport">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">EvidenceReport</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="EvidenceVariable">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">EvidenceVariable</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ExampleScenario">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ExampleScenario</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ExplanationOfBenefit">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ExplanationOfBenefit</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="FamilyMemberHistory">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">FamilyMemberHistory</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Flag">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Flag</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="FormularyItem">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">FormularyItem</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="GenomicStudy">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">GenomicStudy</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Goal">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Goal</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="GraphDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">GraphDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Group">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Group</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="GuidanceResponse">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">GuidanceResponse</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="HealthcareService">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">HealthcareService</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ImagingSelection">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ImagingSelection</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ImagingStudy">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ImagingStudy</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Immunization">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Immunization</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ImmunizationEvaluation">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ImmunizationEvaluation</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ImmunizationRecommendation">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ImmunizationRecommendation</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ImplementationGuide">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ImplementationGuide</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Ingredient">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Ingredient</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="InsurancePlan">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">InsurancePlan</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="InventoryReport">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">InventoryReport</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Invoice">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Invoice</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Library">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Library</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Linkage">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Linkage</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="List">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">List</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Location">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Location</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ManufacturedItemDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ManufacturedItemDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Measure">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Measure</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MeasureReport">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MeasureReport</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Medication">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Medication</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MedicationAdministration">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MedicationAdministration</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MedicationDispense">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MedicationDispense</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MedicationKnowledge">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MedicationKnowledge</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MedicationRequest">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MedicationRequest</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MedicationUsage">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MedicationUsage</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MedicinalProductDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MedicinalProductDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MessageDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MessageDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MessageHeader">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MessageHeader</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MetadataResource">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MetadataResource</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MolecularSequence">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">MolecularSequence</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="NamingSystem">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">NamingSystem</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="NutritionIntake">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">NutritionIntake</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="NutritionOrder">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">NutritionOrder</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="NutritionProduct">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">NutritionProduct</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Observation">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Observation</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ObservationDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ObservationDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="OperationDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">OperationDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="OperationOutcome">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">OperationOutcome</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Organization">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Organization</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="OrganizationAffiliation">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">OrganizationAffiliation</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PackagedProductDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">PackagedProductDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Patient">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Patient</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PaymentNotice">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">PaymentNotice</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PaymentReconciliation">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">PaymentReconciliation</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Permission">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Permission</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Person">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Person</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PlanDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">PlanDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Practitioner">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Practitioner</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PractitionerRole">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">PractitionerRole</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Procedure">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Procedure</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Provenance">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Provenance</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Questionnaire">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Questionnaire</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="QuestionnaireResponse">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">QuestionnaireResponse</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="RegulatedAuthorization">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">RegulatedAuthorization</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="RelatedPerson">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">RelatedPerson</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="RequestOrchestration">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">RequestOrchestration</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Requirements">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Requirements</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ResearchStudy">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ResearchStudy</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ResearchSubject">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ResearchSubject</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="RiskAssessment">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">RiskAssessment</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Schedule">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Schedule</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SearchParameter">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SearchParameter</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ServiceRequest">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ServiceRequest</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Slot">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Slot</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Specimen">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Specimen</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SpecimenDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SpecimenDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="StructureDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">StructureDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="StructureMap">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">StructureMap</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Subscription">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Subscription</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SubscriptionStatus">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SubscriptionStatus</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SubscriptionTopic">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SubscriptionTopic</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Substance">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Substance</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SubstanceDefinition">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SubstanceDefinition</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SubstanceNucleicAcid">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SubstanceNucleicAcid</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SubstancePolymer">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SubstancePolymer</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SubstanceProtein">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SubstanceProtein</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SubstanceReferenceInformation">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SubstanceReferenceInformation</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SubstanceSourceMaterial">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SubstanceSourceMaterial</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SupplyDelivery">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SupplyDelivery</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SupplyRequest">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">SupplyRequest</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Task">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Task</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="TerminologyCapabilities">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">TerminologyCapabilities</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="TestReport">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">TestReport</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="TestScript">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">TestScript</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Transport">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Transport</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ValueSet">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">ValueSet</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="VerificationResult">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">VerificationResult</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="VisionPrescription">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">VisionPrescription</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Parameters">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Parameters</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="ElementDefinitionTypes">
-    <xs:annotation>
-      <xs:documentation xml:lang="en"></xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-       <xs:extension base="Element">
-         <xs:attribute name="value" type="ElementDefinitionTypesEnum" use="optional"/>
        </xs:extension>
      </xs:complexContent>
   </xs:complexType>
@@ -6091,9 +4901,9 @@
           <xs:documentation xml:lang="en">5.0.0-snapshot2</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="5.0.0-snapshot3">
+      <xs:enumeration value="5.0.0-ballot">
         <xs:annotation>
-          <xs:documentation xml:lang="en">5.0.0-snapshot3</xs:documentation>
+          <xs:documentation xml:lang="en">5.0.0-ballot</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -6136,6 +4946,573 @@
     <xs:complexContent>
        <xs:extension base="Element">
          <xs:attribute name="value" type="NoteTypeEnum" use="optional"/>
+       </xs:extension>
+     </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="OperationOutcomeCodesEnum">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="DELETE_MULTIPLE_MATCHES">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Error: Multiple matches exist for the conditional delete</xs:documentation>
+          <xs:documentation xml:lang="nl">Fout: er is meer dan één resultaat voor de conditionele delete</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_AUTH_REQUIRED">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">You must authenticate before you can use this service</xs:documentation>
+          <xs:documentation xml:lang="it">Autenticazione richiesta prima di usare questo servizio</xs:documentation>
+          <xs:documentation xml:lang="pl">Wymagana autentykacja przed użyciem tego serwisu</xs:documentation>
+          <xs:documentation xml:lang="fr">Vous devez être authentifié avant de pouvoir utiliser ce service</xs:documentation>
+          <xs:documentation xml:lang="nl">U moet zich authenticeren voor gebruik van deze service</xs:documentation>
+          <xs:documentation xml:lang="zh">使用此服务前需认证</xs:documentation>
+          <xs:documentation xml:lang="es">Debe autenticarse antes de poder usar este servicio</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_BAD_FORMAT">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Bad Syntax: &quot;%s&quot; must be a %s'</xs:documentation>
+          <xs:documentation xml:lang="ru">Неверный синтакс: &quot;%s&quot; должен быть %s</xs:documentation>
+          <xs:documentation xml:lang="it">Sintassi Errata: &quot;%s&quot; deve essere un %s'</xs:documentation>
+          <xs:documentation xml:lang="pl">Błąd składni: &quot;%s&quot; powinno być %s'</xs:documentation>
+          <xs:documentation xml:lang="fr">Erreur de Syntaxe : &quot;%s&quot; doit être un %s</xs:documentation>
+          <xs:documentation xml:lang="nl">Verkeerde syntax: &quot;%s&quot; moet een %s zijn</xs:documentation>
+          <xs:documentation xml:lang="zh">句法错误: &quot;%s&quot; 必须是一个 %s'</xs:documentation>
+          <xs:documentation xml:lang="es">Sintaxis Incorrecta: &quot;%s&quot; debe de ser un %s'</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_BAD_SYNTAX">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Bad Syntax in %s</xs:documentation>
+          <xs:documentation xml:lang="ru">Неверный синтакс: %s</xs:documentation>
+          <xs:documentation xml:lang="it">Sintassi errata in %s</xs:documentation>
+          <xs:documentation xml:lang="pl">Błąd składni w %s</xs:documentation>
+          <xs:documentation xml:lang="fr">Erreur de Syntaxe dans %s</xs:documentation>
+          <xs:documentation xml:lang="nl">Verkeerde syntax in %s</xs:documentation>
+          <xs:documentation xml:lang="zh">%s 中句法错误</xs:documentation>
+          <xs:documentation xml:lang="es">Sintaxis Incorrecta en %s</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_CANT_PARSE_CONTENT">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Unable to parse feed (entry content type = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="it">Impossibile effettuare il parsing del feed (tipo del contenuto della entry = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="pl">Błąd parsowania (typ zawartości wejściowej = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="fr">Impossible d'analyser le flux (type de contenu de l'entrée = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="nl">Kan feed niet verwerken (contenttype inhoud = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="zh">无法解析feed (条目的内容类型 = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="es">No se pudo parsear el feed (el tipo de contenido de la entry = &quot;%s&quot;)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_CANT_PARSE_ROOT">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Unable to parse feed (root element name = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="ru">Не удалось разобрать данные (корневой элемент = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="it">Impossibile effettuare il parsing del feed (nome elemento root = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="pl">Błąd parsowania (nazwa elementu root = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="fr">Impossible d'analyser le flux (nom de l'élément racine = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="nl">Kan feed niet verwerken (rootelementnaam = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="zh">无法解析feed (根元素名 = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="es">No se pudo parsear el feed (nombre del elemento raiz = &quot;%s&quot;)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_CREATED">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">New resource created</xs:documentation>
+          <xs:documentation xml:lang="nl">Nieuwe resource gemaakt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_DATE_FORMAT">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The Date value %s is not in the correct format (Xml Date Format required)</xs:documentation>
+          <xs:documentation xml:lang="ru">Значение Date %s в неверном формате (требуется Xml Date формат)</xs:documentation>
+          <xs:documentation xml:lang="it">Il valore %s per la data non è nel formato corretto (richiesto il Formato Data Xml)</xs:documentation>
+          <xs:documentation xml:lang="pl">Niepoprawny format wartości daty %s (wymagany format XML)</xs:documentation>
+          <xs:documentation xml:lang="fr">Le format de la date %s est incorrect (format Date Xml attendu)</xs:documentation>
+          <xs:documentation xml:lang="nl">De Datum-waarde %s heeft niet de juiste structuur (Xml Date vereist)</xs:documentation>
+          <xs:documentation xml:lang="zh">日期的值 %s 格式不正确 (要求是Xml Date格式)</xs:documentation>
+          <xs:documentation xml:lang="es">El valor de la fecha %s no está en el formato correcto (se requiere un formato de fecha Xml)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_DELETED">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">This resource has been deleted</xs:documentation>
+          <xs:documentation xml:lang="ru">Данный ресурс был удалён</xs:documentation>
+          <xs:documentation xml:lang="it">Questa risorsa è stata cancellata</xs:documentation>
+          <xs:documentation xml:lang="pl">Ten zasób został usunięty</xs:documentation>
+          <xs:documentation xml:lang="fr">La ressource a été supprimée</xs:documentation>
+          <xs:documentation xml:lang="nl">Deze resource is verwijderd</xs:documentation>
+          <xs:documentation xml:lang="zh">该资源已删除</xs:documentation>
+          <xs:documentation xml:lang="es">Este recurso ha sido borrado</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_DELETED_DONE">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Resource deleted</xs:documentation>
+          <xs:documentation xml:lang="ru">Ресурс удалён</xs:documentation>
+          <xs:documentation xml:lang="it">Risorsa cancellata</xs:documentation>
+          <xs:documentation xml:lang="pl">Zasób usunięto</xs:documentation>
+          <xs:documentation xml:lang="fr">Ressource supprimée</xs:documentation>
+          <xs:documentation xml:lang="nl">Resource verwijderd</xs:documentation>
+          <xs:documentation xml:lang="zh">资源已删除</xs:documentation>
+          <xs:documentation xml:lang="es">Recurso borrado</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_DELETED_ID">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The resource &quot;%s&quot; has been deleted</xs:documentation>
+          <xs:documentation xml:lang="ru">Ресурс &quot;%s&quot; был удалён</xs:documentation>
+          <xs:documentation xml:lang="it">La risorsa &quot;%s&quot; è stata eliminata</xs:documentation>
+          <xs:documentation xml:lang="pl">Zasób &quot;%s&quot; został usunięty</xs:documentation>
+          <xs:documentation xml:lang="fr">La ressource &quot;%s&quot; a été supprimée</xs:documentation>
+          <xs:documentation xml:lang="nl">De resource &quot;%s&quot; is verwijderd</xs:documentation>
+          <xs:documentation xml:lang="zh">资源 &quot;%s&quot; 已被删除</xs:documentation>
+          <xs:documentation xml:lang="es">El recurso &quot;%s&quot; ha sido borrado</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_DUPLICATE_ID">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Duplicate Id %s for resource type %s</xs:documentation>
+          <xs:documentation xml:lang="ru">Дублирующий Id %s для типа ресурса %s</xs:documentation>
+          <xs:documentation xml:lang="it">Id %s duplicato per il tipo di risorsa %s</xs:documentation>
+          <xs:documentation xml:lang="pl">Zdublowany identyfikator %s dla zasobu typu %s</xs:documentation>
+          <xs:documentation xml:lang="fr">Id %s en double pour le type de ressource %s</xs:documentation>
+          <xs:documentation xml:lang="nl">Duplicaat-id %s voor resourcetype %s</xs:documentation>
+          <xs:documentation xml:lang="zh">ID %s 重复（资源类型 %s）</xs:documentation>
+          <xs:documentation xml:lang="es">Id %s duplicada para el recurso de tipo %s</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_ERROR_PARSING">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Error parsing resource Xml (%s)</xs:documentation>
+          <xs:documentation xml:lang="ru">Ошибка синтаксического разбора ресурса Xml (%s)</xs:documentation>
+          <xs:documentation xml:lang="it">Errore nel parsing della risorsa Xml (%s)</xs:documentation>
+          <xs:documentation xml:lang="pl">Błąd w trakcie parsowania zasobu XML (%s)</xs:documentation>
+          <xs:documentation xml:lang="fr">Erreur d'analyse de la ressource Xml (%s)</xs:documentation>
+          <xs:documentation xml:lang="nl">Fout in verwerking resource Xml (%s)</xs:documentation>
+          <xs:documentation xml:lang="zh">解析资源Xml时出错 (%s)</xs:documentation>
+          <xs:documentation xml:lang="es">Error parseando el recurso Xml (%s)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_ID_INVALID">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Id &quot;%s&quot; has an invalid character &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="ru">Id &quot;%s&quot; содержит недопустимые символы &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="it">L''Id &quot;%s&quot; ha un carattere non valido: &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="pl">Identyfikator &quot;%s&quot; zawiera niepoprawny znak &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="fr">Id &quot;%s&quot; possède un caractère invalide &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="nl">Id &quot;%s&quot; heeft een ongeldig teken &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="zh">ID &quot;%s&quot; 带有非法字符: &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="es">El Id &quot;%s&quot; contiene el caracter inválido &quot;%s&quot;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_ID_TOO_LONG">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Id &quot;%s&quot; too long (length limit 36)</xs:documentation>
+          <xs:documentation xml:lang="ru">Недопустимая длина Id &quot;%s&quot; (ограничение 36)</xs:documentation>
+          <xs:documentation xml:lang="it">Id &quot;%s&quot; troppo lunga (limite di lunghezza: 36)</xs:documentation>
+          <xs:documentation xml:lang="pl">Identyfikator &quot;%s&quot; jest zbyt długi (limit długości 36)</xs:documentation>
+          <xs:documentation xml:lang="fr">Id &quot;%s&quot; trop long (la longueur limite est 36)</xs:documentation>
+          <xs:documentation xml:lang="nl">Id &quot;%s&quot; te lang (max lengte 36)</xs:documentation>
+          <xs:documentation xml:lang="zh">Id &quot;%s&quot; 过长 (长度限制: 36)</xs:documentation>
+          <xs:documentation xml:lang="es">El Id &quot;%s&quot; es demasiado largo (limite de longitud: 36)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_INVALID_ID">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Id not accepted</xs:documentation>
+          <xs:documentation xml:lang="ru">Id не принято</xs:documentation>
+          <xs:documentation xml:lang="it">Id non accettato</xs:documentation>
+          <xs:documentation xml:lang="pl">Identyfikator nie zaakceptowany</xs:documentation>
+          <xs:documentation xml:lang="fr">Id non accepté</xs:documentation>
+          <xs:documentation xml:lang="nl">Id niet geaccepteerd</xs:documentation>
+          <xs:documentation xml:lang="zh">Id不被接受</xs:documentation>
+          <xs:documentation xml:lang="es">Id no aceptada</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_JSON_OBJECT">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Json Source for a resource should start with an object</xs:documentation>
+          <xs:documentation xml:lang="ru">Json Source для ресурса должен начинаться с объекта</xs:documentation>
+          <xs:documentation xml:lang="it">Il sorgente Json di una risorsa dovrebbe iniziare con un oggetto</xs:documentation>
+          <xs:documentation xml:lang="pl">Źródło json dla zasobu powinno rozpoczynać się od obiektu</xs:documentation>
+          <xs:documentation xml:lang="fr">La source Json pour une ressource doit commencer par un objet</xs:documentation>
+          <xs:documentation xml:lang="nl">Json Source van een resource moeten beginnen met een object</xs:documentation>
+          <xs:documentation xml:lang="zh">资源的Json源应以一个object开始</xs:documentation>
+          <xs:documentation xml:lang="es">La fuente Json para un recurso debería empezar con un objeto</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_LOCAL_FAIL">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Unable to resolve local reference to resource %s</xs:documentation>
+          <xs:documentation xml:lang="ru">Невозможно определить локальную ссылку на ресурс %s</xs:documentation>
+          <xs:documentation xml:lang="it">Impossibile risolvere il riferimento locale alla risorsa %s</xs:documentation>
+          <xs:documentation xml:lang="pl">Zasób wskazywany przez loklaną referencję %s nie został odnaleziony</xs:documentation>
+          <xs:documentation xml:lang="fr">Impossible de résourdre la référence locale à la ressource %s</xs:documentation>
+          <xs:documentation xml:lang="nl">De resource met lokale referentie %s is niet gevonden</xs:documentation>
+          <xs:documentation xml:lang="zh">无法解析对资源 %s 的本地引用</xs:documentation>
+          <xs:documentation xml:lang="es">Imposible resolver la referencia al recurso %s</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_NO_EXIST">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Resource Id &quot;%s&quot; does not exist</xs:documentation>
+          <xs:documentation xml:lang="ru">Ресурс Id &quot;%s&quot; не существует</xs:documentation>
+          <xs:documentation xml:lang="it">La risorsa con Id &quot;%s&quot; non esiste</xs:documentation>
+          <xs:documentation xml:lang="pl">Zasób o identyfikatorze &quot;%s&quot; nie istnieje</xs:documentation>
+          <xs:documentation xml:lang="fr">La ressource avec l'Id &quot;%s&quot; n'existe pas</xs:documentation>
+          <xs:documentation xml:lang="nl">Resource-id &quot;%s&quot; bestaat niet</xs:documentation>
+          <xs:documentation xml:lang="zh">资源Id &quot;%s&quot;不存在</xs:documentation>
+          <xs:documentation xml:lang="es">El recurso con Id &quot;%s&quot; no existe</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_NO_MATCH">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">No Resource found matching the query &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="it">Nessuna Risorsa soddisfa la query &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="nl">Geen resource gevonden met query &quot;%s&quot;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_NO_MODULE">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">No module could be found to handle the request &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="ru">Модуль для обработки запроса &quot;%s&quot; не найден</xs:documentation>
+          <xs:documentation xml:lang="it">Impossibile trovare un modulo per gestire la richiesta &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="pl">Nie można odnaleźć modułu, aby obsłużyć żądanie &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="fr">Aucun module disponible pour traiter la requête &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="nl">Er kon geen module worden gevonden om verzoek &quot;%s&quot; te verwerken</xs:documentation>
+          <xs:documentation xml:lang="zh">无法找到处理请求&quot;%s&quot;的模块</xs:documentation>
+          <xs:documentation xml:lang="es">No se encontró un modulo que gestione la petición &quot;%s&quot;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_NO_SUMMARY">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">No Summary for this resource</xs:documentation>
+          <xs:documentation xml:lang="ru">Отсутствует Summary для данного ресурса</xs:documentation>
+          <xs:documentation xml:lang="it">Nessun riepilogo per questa risorsa</xs:documentation>
+          <xs:documentation xml:lang="pl">Brak podsumowania (Summary) dla tego zasobu</xs:documentation>
+          <xs:documentation xml:lang="fr">Aucun résumé disponible pour cette ressource</xs:documentation>
+          <xs:documentation xml:lang="nl">Geen samenvatting voor deze resource</xs:documentation>
+          <xs:documentation xml:lang="zh">该资源无summary</xs:documentation>
+          <xs:documentation xml:lang="es">No existe un resumen para este recurso</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_OP_NOT_ALLOWED">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Operation %s not allowed for resource %s (due to local configuration)</xs:documentation>
+          <xs:documentation xml:lang="ru">Операция %s недопустима для ресурса %s (по причине локальной конфигурации)</xs:documentation>
+          <xs:documentation xml:lang="it">Operazione %s non consentita per la risorsa %s (a causa di configurazioni locali)</xs:documentation>
+          <xs:documentation xml:lang="pl">Niedozwolona operacja %s dla zasobu %s (ze względu na lokalną konfigurację)</xs:documentation>
+          <xs:documentation xml:lang="fr">L'opération %s n'est pas permise pour la ressource %s (à cause de la configuration locale)</xs:documentation>
+          <xs:documentation xml:lang="nl">Bewerking %s niet toegestaan voor resource %s (vanwege lokale configuratie)</xs:documentation>
+          <xs:documentation xml:lang="zh">操作 %s 不允许，对于资源 %s (由于本地配置)</xs:documentation>
+          <xs:documentation xml:lang="es">Operación %s no permitida para el recurso %s (debido a la configuración local)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_PARAM_CHAINED">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Unknown chained parameter name &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="ru">Неизвестое вложенное наименование параметра &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="it">Nome di parametro concatenato sconosciuto: &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="pl">Nieznana nazwa parametru powiązanego &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="fr">Nom du paramètre chainé inconnu : &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="nl">Onbekende geschakelde parameternaam &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="zh">未知的链式参数名: &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="es">Nombre de parametro encadenado desconocido: &quot;%s&quot;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_PARAM_INVALID">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Parameter &quot;%s&quot; content is invalid</xs:documentation>
+          <xs:documentation xml:lang="it">Il contenuto del Parametro &quot;%s&quot; non è valido</xs:documentation>
+          <xs:documentation xml:lang="nl">Waarde van parameter &quot;%s&quot; is ongeldig</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_PARAM_MODIFIER_INVALID">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Parameter &quot;%s&quot; modifier is invalid</xs:documentation>
+          <xs:documentation xml:lang="nl">Modifier van parameter &quot;%s&quot; is ongeldig</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_PARAM_NO_REPEAT">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Parameter &quot;%s&quot; is not allowed to repeat</xs:documentation>
+          <xs:documentation xml:lang="ru">Параметр &quot;%s&quot; не может быть повторён</xs:documentation>
+          <xs:documentation xml:lang="it">Non � consentito ripetere il parametro &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="pl">Parametr &quot;%s&quot; nie może zostać powtórzony</xs:documentation>
+          <xs:documentation xml:lang="fr">Le paramètre &quot;%s&quot; ne peut pas être répété</xs:documentation>
+          <xs:documentation xml:lang="nl">Parameter &quot;%s&quot; mag niet herhalen</xs:documentation>
+          <xs:documentation xml:lang="zh">参数&quot;%s&quot;不可重复</xs:documentation>
+          <xs:documentation xml:lang="es">No se permite la repetición del parámetro &quot;%s&quot;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_PARAM_UNKNOWN">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Parameter &quot;%s&quot; not understood</xs:documentation>
+          <xs:documentation xml:lang="ru">Параметр &quot;%s&quot; не понят</xs:documentation>
+          <xs:documentation xml:lang="it">Parametro &quot;%s&quot; non riconosciuto</xs:documentation>
+          <xs:documentation xml:lang="pl">Niezrozumiały parametr &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="fr">Paramètre &quot;%s&quot; non reconnu</xs:documentation>
+          <xs:documentation xml:lang="nl">Parameter &quot;%s&quot; onbekend</xs:documentation>
+          <xs:documentation xml:lang="zh">无法理解参数&quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="es">Parámetro &quot;%s&quot; no reconocido</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_REMOTE_FAIL">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Unable to resolve local reference to resource %s</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_RESOURCE_EXAMPLE_PROTECTED">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Resources with identity &quot;example&quot; cannot be deleted (for testing/training purposes)</xs:documentation>
+          <xs:documentation xml:lang="ru">Ресурс с идентификатором &quot;example&quot; не может быть удалён (для случаев тестирования/обучения)</xs:documentation>
+          <xs:documentation xml:lang="it">Le Risorse aventi l'identità &quot;example&quot; non possono essere cancellate (per finalità di test/formazione)</xs:documentation>
+          <xs:documentation xml:lang="pl">Zasoby oznaczone jako &quot;example&quot; nie mogą zostać usunięte (dla celów testów/szkoleń)</xs:documentation>
+          <xs:documentation xml:lang="fr">Les ressources ayant l'identité &quot;example&quot; ne peuvent pas être supprimées (utilisées pour les tests/formations)</xs:documentation>
+          <xs:documentation xml:lang="nl">Resources met identiteit &quot;voorbeeld&quot; kunnen niet worden verwijderd (ten behoeve van testen/training)</xs:documentation>
+          <xs:documentation xml:lang="zh">以&quot;example&quot; 为ID的资源不能被删除 (用于测试/培训)</xs:documentation>
+          <xs:documentation xml:lang="es">Recursos con la identidad &quot;example&quot; no pueden ser borrados (son usados para pruebas/entrenamiento)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_RESOURCE_ID_FAIL">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">unable to allocate resource id</xs:documentation>
+          <xs:documentation xml:lang="ru">невозможно выделить идентификатор ресурса</xs:documentation>
+          <xs:documentation xml:lang="it">impossibile allocare l''id della risorsa</xs:documentation>
+          <xs:documentation xml:lang="pl">nie można nadać identyfikatora zasobu</xs:documentation>
+          <xs:documentation xml:lang="fr">impossible d'allouer l'id de la ressource</xs:documentation>
+          <xs:documentation xml:lang="nl">kan geen resource-id reserveren</xs:documentation>
+          <xs:documentation xml:lang="zh">无法分配资源ID</xs:documentation>
+          <xs:documentation xml:lang="es">imposible encontrar el id del recurso</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_RESOURCE_ID_MISMATCH">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Resource Id Mismatch</xs:documentation>
+          <xs:documentation xml:lang="fr">Problème de correspondance d'Id de la Ressource</xs:documentation>
+          <xs:documentation xml:lang="nl">Resource ID's komen niet overeen</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_RESOURCE_ID_MISSING">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Resource Id Missing</xs:documentation>
+          <xs:documentation xml:lang="it">Id della Risorsa mancante</xs:documentation>
+          <xs:documentation xml:lang="fr">Id de la Ressource manquante</xs:documentation>
+          <xs:documentation xml:lang="nl">Resource ID ontbreekt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_RESOURCE_NOT_ALLOWED">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Not allowed to submit a resource for this operation</xs:documentation>
+          <xs:documentation xml:lang="ru">Для данной операции отправка ресурса недопустима</xs:documentation>
+          <xs:documentation xml:lang="it">Non è consentito sottomettere una risorsa per questa operazione</xs:documentation>
+          <xs:documentation xml:lang="pl">Nie można zgłosić zasobu dla tej operacji</xs:documentation>
+          <xs:documentation xml:lang="fr">Non autorisé à soumettre une ressource pour cette opération</xs:documentation>
+          <xs:documentation xml:lang="nl">Niet toegestaan om een resource in te dienen voor deze bewerking</xs:documentation>
+          <xs:documentation xml:lang="zh">该操作不允许提交资源</xs:documentation>
+          <xs:documentation xml:lang="es">No se permite el envío de un recurso para esta operación</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_RESOURCE_REQUIRED">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A resource is required</xs:documentation>
+          <xs:documentation xml:lang="ru">Требуется ресурс</xs:documentation>
+          <xs:documentation xml:lang="it">E'' richiesta una risorsa</xs:documentation>
+          <xs:documentation xml:lang="pl">Zasób jest wymagany</xs:documentation>
+          <xs:documentation xml:lang="fr">Une ressource est requise</xs:documentation>
+          <xs:documentation xml:lang="nl">Een resource is verplicht</xs:documentation>
+          <xs:documentation xml:lang="zh">必须提供一个资源</xs:documentation>
+          <xs:documentation xml:lang="es">Se requiere un recurso</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_RESOURCE_TYPE_MISMATCH">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Resource Type Mismatch</xs:documentation>
+          <xs:documentation xml:lang="ru">Несоответствие типа ресурса</xs:documentation>
+          <xs:documentation xml:lang="it">Tipo Risorsa non corrispondente</xs:documentation>
+          <xs:documentation xml:lang="pl">Niepoprawny typ zasobu</xs:documentation>
+          <xs:documentation xml:lang="fr">Type de ressource incorrect</xs:documentation>
+          <xs:documentation xml:lang="nl">Verkeerd resourcetype</xs:documentation>
+          <xs:documentation xml:lang="zh">资源类型不匹配</xs:documentation>
+          <xs:documentation xml:lang="es">Los Tipos de los recursos no coinciden</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_SORT_UNKNOWN">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Unknown sort parameter name &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="ru">Неизвестное имя параметра сортировки &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="it">Nome del parametro di ordinamento &quot;%s&quot; non riconosciuto</xs:documentation>
+          <xs:documentation xml:lang="pl">Nieznany parametr sortowania &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="fr">Nom du paramètre de tri inconnu &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="nl">Onbekende parameternaam &quot;%s&quot; voor sortering</xs:documentation>
+          <xs:documentation xml:lang="zh">未知的排序参数名称&quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="es">Nombre del parámetro de ordenación &quot;%s&quot; desconocido</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_TRANSACTION_DUPLICATE_ID">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Duplicate Identifier in transaction: %s</xs:documentation>
+          <xs:documentation xml:lang="ru">Дублирующий идентификатор в транзакции: %s</xs:documentation>
+          <xs:documentation xml:lang="pl">Zdublowany identyfikator w transakcji: %s</xs:documentation>
+          <xs:documentation xml:lang="fr">Identifiant en double dans la transaction : %s</xs:documentation>
+          <xs:documentation xml:lang="nl">Dubbele identificatie in transactie: %s</xs:documentation>
+          <xs:documentation xml:lang="zh">事务中存在重复Id: %s</xs:documentation>
+          <xs:documentation xml:lang="es">Identificador duplicado en la transacción: %s</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_TRANSACTION_MISSING_ID">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Missing Identifier in transaction - an entry.id must be provided</xs:documentation>
+          <xs:documentation xml:lang="ru">Отсутствует идентификатор в транзакции - требуется entry.id</xs:documentation>
+          <xs:documentation xml:lang="pl">Brak identyfikatora w transakcji - należy podać entry.id</xs:documentation>
+          <xs:documentation xml:lang="fr">Identifiant manquant dans la transaction - un élément entry.id doit être fourni</xs:documentation>
+          <xs:documentation xml:lang="nl">Ontbrekende identificatie in transactie - entry.id is verplicht</xs:documentation>
+          <xs:documentation xml:lang="zh">事务中缺少Id - 必须提供一个entry.id</xs:documentation>
+          <xs:documentation xml:lang="es">Identificador de la transacción no encontrado - se debe proporcionar un entry.id</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_UNHANDLED_NODE_TYPE">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Unhandled xml node type &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="ru">Не обработанный xml узел &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="it">Tipo di nodo Xml non gestito &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="pl">Nieobsługiwany typ węzła XML &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="fr">Type de noeud xml &quot;%s&quot; non traité</xs:documentation>
+          <xs:documentation xml:lang="nl">Kan xml nodetype &quot;%s&quot; niet verwerken</xs:documentation>
+          <xs:documentation xml:lang="zh">未处理的XML节点类型&quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="es">Tipo de nodo Xml no soportado &quot;%s&quot;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_UNKNOWN_CONTENT">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Unknown Content (%s) at %s</xs:documentation>
+          <xs:documentation xml:lang="ru">Неизвестный контент (%s) в %s</xs:documentation>
+          <xs:documentation xml:lang="it">Contenuto Sconosciuto (%s) at %s</xs:documentation>
+          <xs:documentation xml:lang="pl">Nieznana zawartość (%s) dla %s</xs:documentation>
+          <xs:documentation xml:lang="fr">Contenu inconnu (%s) à %s</xs:documentation>
+          <xs:documentation xml:lang="nl">Onbekende content (%s) at %s</xs:documentation>
+          <xs:documentation xml:lang="zh">未知内容 (%s) 位于 %s</xs:documentation>
+          <xs:documentation xml:lang="es">Contenido desconocido (%s) en %s</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_UNKNOWN_OPERATION">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">unknown FHIR http operation</xs:documentation>
+          <xs:documentation xml:lang="ru">неизвестная операция FHIR http</xs:documentation>
+          <xs:documentation xml:lang="it">operazione http FHIR sconosciuta</xs:documentation>
+          <xs:documentation xml:lang="pl">nieznana operacja FHIR http</xs:documentation>
+          <xs:documentation xml:lang="fr">operation http FHIR inconnue</xs:documentation>
+          <xs:documentation xml:lang="nl">onbekende FHIR http operation</xs:documentation>
+          <xs:documentation xml:lang="zh">未知的FHIR HTTP操作</xs:documentation>
+          <xs:documentation xml:lang="es">Operación http FHIR desconocida</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_UNKNOWN_TYPE">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Resource Type &quot;%s&quot; not recognised</xs:documentation>
+          <xs:documentation xml:lang="ru">Тип ресурса &quot;%s&quot; не распознан</xs:documentation>
+          <xs:documentation xml:lang="it">Tipo di Risorsa &quot;%s&quot; non riconosciuto</xs:documentation>
+          <xs:documentation xml:lang="pl">Nie rozpoznany typ zasobu: &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="fr">Type de ressource &quot;%s&quot; non reconnu</xs:documentation>
+          <xs:documentation xml:lang="nl">Resourcetype &quot;%s&quot; niet herkend</xs:documentation>
+          <xs:documentation xml:lang="zh">资源类型&quot;%s&quot;未识别</xs:documentation>
+          <xs:documentation xml:lang="es">Tipo de Recurso &quot;%s&quot; no reconocido</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_UPDATED">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">existing resource updated</xs:documentation>
+          <xs:documentation xml:lang="ru">существующий ресурс обновлён</xs:documentation>
+          <xs:documentation xml:lang="it">risorsa esistente aggiornata</xs:documentation>
+          <xs:documentation xml:lang="pl">uaktualniono istniejący zasób</xs:documentation>
+          <xs:documentation xml:lang="fr">ressource existante mise à jour</xs:documentation>
+          <xs:documentation xml:lang="nl">bestaande resource updated</xs:documentation>
+          <xs:documentation xml:lang="zh">已有资源被更新</xs:documentation>
+          <xs:documentation xml:lang="es">Recurso existente actualizado</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_VERSION_AWARE">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Version aware updates are required for this resource</xs:documentation>
+          <xs:documentation xml:lang="ru">Для данного ресурса необходимы обновления с учётом версии</xs:documentation>
+          <xs:documentation xml:lang="it">Questa risorsa richiede aggiornamenti per versione</xs:documentation>
+          <xs:documentation xml:lang="pl">Uaktualnienia zakładające wersjonowanie są wymagane dla tego zasobu</xs:documentation>
+          <xs:documentation xml:lang="fr">Des mises à jour en relation avec la version sont requises pour cette ressource</xs:documentation>
+          <xs:documentation xml:lang="nl">Versie-bewuste updates zijn vereist voor deze resource</xs:documentation>
+          <xs:documentation xml:lang="zh">该资源的更新必须针对版本</xs:documentation>
+          <xs:documentation xml:lang="es">Este recurso requiere actualizaciones en base a versiones</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_VERSION_AWARE_CONFLICT">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Update Conflict (server current version = &quot;%s&quot;, client version referenced = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="ru">Конфликт обновления (текущая версия сервера = &quot;%s&quot;, указанная версия клиента = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="it">Conflitto nell''aggiornamento (attuale = &quot;%s&quot;, quotato = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="pl">Konflikt podczas uaktualnienia (obecna wersja na serwerze = &quot;%s&quot;, wersja wskazana przez klienta = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="fr">Conflit de mise à jour (version courante du serveur = &quot;%s&quot;, version référencée du client = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="nl">Updateconflict (huidige serverversie = &quot;%s&quot;, opgegeven clientversie = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="zh">更新冲突 (服务器当前版本 = &quot;%s&quot;, 客户端引用的版本 = &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="es">Conflicto de actualizaciones (versión actual del servidor = &quot;%s&quot;, versión del cliente referenciada = &quot;%s&quot;)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_VERSION_AWARE_URL">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Version specific URL not recognised</xs:documentation>
+          <xs:documentation xml:lang="ru">URL для указанной версии не распознан</xs:documentation>
+          <xs:documentation xml:lang="it">URL specifico alla versione non riconosciuto</xs:documentation>
+          <xs:documentation xml:lang="pl">Nie rozpoznany URL specyficzny dla wersji</xs:documentation>
+          <xs:documentation xml:lang="fr">URL spécifique à une version non reconnue</xs:documentation>
+          <xs:documentation xml:lang="nl">Versie-specifieke URL niet herkend</xs:documentation>
+          <xs:documentation xml:lang="zh">未识别特定版本的URL</xs:documentation>
+          <xs:documentation xml:lang="es">URL especifica de la versión no reconocida</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MSG_WRONG_NS">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">This does not appear to be a FHIR element or resource (wrong namespace &quot;%s&quot;)</xs:documentation>
+          <xs:documentation xml:lang="nl">Dit lijkt geen FHIR element of resource te zijn (verkeerde namespace &quot;%s&quot;)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SEARCH_MULTIPLE">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Error: Multiple matches exist for %s search parameters &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="ru">Ошибка: множественные совпадения для %s с параметрами поиска &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="it">Errore: Trovate corrispondenze multiple per %s parametri di ricerca &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="pl">Błąd: Istnieją wielokrotne dopasowania dla %s parametrów wyszukiwania &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="fr">Erreur : Plusieurs correspondances existent pour ce paramètre de recherche %s</xs:documentation>
+          <xs:documentation xml:lang="nl">Fout: er is meer dan één resultaat voor %s zoekparameters &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="zh">错误: 对于 %s 搜索的参数 &quot;%s&quot;存在多个匹配</xs:documentation>
+          <xs:documentation xml:lang="es">Error: Multiples ocurrencias existen para %s parametros de búsqueda &quot;%s&quot;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SEARCH_NONE">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Error: no processable search found for %s search parameters &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="ru">Ошибка: обрабатываемых результатов поиска для %s с параметрами поиска &quot;%s&quot; не найдено</xs:documentation>
+          <xs:documentation xml:lang="it">Errore: non è stato trovato alcun parametro di ricerca processabile per %s parametri di ricerca &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="pl">Błąd: Niewykonalne wyszukiwanie dla %s parametrów wyszukiwania &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="fr">Erreur : aucune recherche trouvée pour les paramètres %s &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="nl">Fout: geen verwerkbare zoekactie gevonden voor %s zoekparameters &quot;%s&quot;</xs:documentation>
+          <xs:documentation xml:lang="zh">错误: 对%s搜索参数&quot;%s&quot;未找到可处理的搜索</xs:documentation>
+          <xs:documentation xml:lang="es">Error: no se encontro una búsqueda apropiada para %s parametros de búsqueda &quot;%s&quot;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UPDATE_MULTIPLE_MATCHES">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Error: Multiple matches exist for the conditional update</xs:documentation>
+          <xs:documentation xml:lang="nl">Fout: er is meer dan één resultaat voor de conditionele update</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="OperationOutcomeCodes">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"></xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+       <xs:extension base="Element">
+         <xs:attribute name="value" type="OperationOutcomeCodesEnum" use="optional"/>
        </xs:extension>
      </xs:complexContent>
   </xs:complexType>
@@ -20797,12 +20174,12 @@ A coverage may only be responsible for specific types of charges, and the sequen
   </xs:complexType>
   <xs:element name="AdverseEvent" type="AdverseEvent">
     <xs:annotation>
-      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
+      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="AdverseEvent">
     <xs:annotation>
-      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
+      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -20861,7 +20238,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
               <xs:documentation xml:lang="en">The date on which the existence of the AdverseEvent was first recorded.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="resultingCondition" minOccurs="0" maxOccurs="unbounded" type="Reference">
+          <xs:element name="resultingEffect" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Information about the condition that occurred as a result of the adverse event, such as hives due to the exposure to a substance (for example, a drug or a chemical) or a broken leg as a result of the fall.</xs:documentation>
            </xs:annotation>
@@ -20937,7 +20314,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
   </xs:complexType>
   <xs:complexType name="AdverseEvent.Participant">
     <xs:annotation>
-      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
+      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -20958,7 +20335,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
   </xs:complexType>
   <xs:complexType name="AdverseEvent.SuspectEntity">
     <xs:annotation>
-      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
+      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -20981,7 +20358,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
   </xs:complexType>
   <xs:complexType name="AdverseEvent.Causality">
     <xs:annotation>
-      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
+      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -21007,7 +20384,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
   </xs:complexType>
   <xs:complexType name="AdverseEvent.ContributingFactor">
     <xs:annotation>
-      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
+      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -21025,7 +20402,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
   </xs:complexType>
   <xs:complexType name="AdverseEvent.PreventiveAction">
     <xs:annotation>
-      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
+      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -21043,7 +20420,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
   </xs:complexType>
   <xs:complexType name="AdverseEvent.MitigatingAction">
     <xs:annotation>
-      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
+      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -21061,7 +20438,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
   </xs:complexType>
   <xs:complexType name="AdverseEvent.SupportingInfo">
     <xs:annotation>
-      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
+      <xs:documentation xml:lang="en">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -21165,7 +20542,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
               <xs:documentation xml:lang="en">Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).  The verification status pertains to the allergy or intolerance, itself, not to any specific AllergyIntolerance attribute.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="type" minOccurs="0" maxOccurs="1" type="AllergyIntoleranceType">
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Identification of the underlying physiological mechanism for the reaction risk.</xs:documentation>
            </xs:annotation>
@@ -21328,31 +20705,6 @@ A coverage may only be responsible for specific types of charges, and the sequen
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:attribute name="value" type="AllergyIntoleranceCriticalityEnum" use="optional"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="AllergyIntoleranceTypeEnum">
-    <xs:restriction base="code-primitive">
-      <xs:enumeration value="allergy">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Allergy</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="intolerance">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Intolerance</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="AllergyIntoleranceType">
-    <xs:annotation>
-      <xs:documentation xml:lang="en"></xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="Element">
-        <xs:attribute name="value" type="AllergyIntoleranceTypeEnum" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -24294,7 +23646,7 @@ of the resource representation.</xs:documentation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="type" minOccurs="1" maxOccurs="1" type="ResourceTypes">
+          <xs:element name="type" minOccurs="1" maxOccurs="1" type="ResourceType">
             <xs:annotation>
               <xs:documentation xml:lang="en">A type of resource exposed via the restful interface.</xs:documentation>
            </xs:annotation>
@@ -24951,7 +24303,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="basedOn" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A care plan that is fulfilled in whole or in part by this care plan.</xs:documentation>
+              <xs:documentation xml:lang="en">A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this care plan.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="replaces" minOccurs="0" maxOccurs="unbounded" type="Reference">
@@ -28818,6 +28170,11 @@ of the resource representation.</xs:documentation>
               <xs:documentation xml:lang="en">The population group to which this applies.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="library" minOccurs="0" maxOccurs="unbounded" type="canonical">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Logic used by the clinical use definition.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="undesirableEffect" type="ClinicalUseDefinition.UndesirableEffect" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">Describe the possible undesirable effects (negative outcomes) from the use of the medicinal product as treatment.</xs:documentation>
@@ -28857,6 +28214,11 @@ of the resource representation.</xs:documentation>
           <xs:element name="indication" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">The indication which this is a contraidication for.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="applicability" minOccurs="0" maxOccurs="1" type="Expression">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="otherTherapy" type="ClinicalUseDefinition.OtherTherapy" minOccurs="0" maxOccurs="unbounded">
@@ -28926,6 +28288,11 @@ of the resource representation.</xs:documentation>
           <xs:element name="undesirableEffect" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">An unwanted side effect or negative outcome that may happen if you use the drug (or other subject of this resource) for this indication.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="applicability" minOccurs="0" maxOccurs="1" type="Expression">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="otherTherapy" type="ClinicalUseDefinition.OtherTherapy" minOccurs="0" maxOccurs="unbounded">
@@ -30027,7 +29394,7 @@ of the resource representation.</xs:documentation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="code" minOccurs="1" maxOccurs="1" type="ResourceTypes">
+          <xs:element name="code" minOccurs="1" maxOccurs="1" type="ResourceType">
             <xs:annotation>
               <xs:documentation xml:lang="en">The name of a resource supported by the server.</xs:documentation>
            </xs:annotation>
@@ -31307,9 +30674,14 @@ of the resource representation.</xs:documentation>
               <xs:documentation xml:lang="en">The patient/healthcare practitioner or group of persons to whom this consent applies.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="dateTime" minOccurs="0" maxOccurs="1" type="dateTime">
+          <xs:element name="date" minOccurs="0" maxOccurs="1" type="date">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Date and time the consent instance was agreed to.</xs:documentation>
+              <xs:documentation xml:lang="en">Date the consent instance was agreed to.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="period" minOccurs="0" maxOccurs="1" type="Period">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Effective period for this Consent Resource and all provisions unless specified in that provision.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="grantor" minOccurs="0" maxOccurs="unbounded" type="Reference">
@@ -31437,22 +30809,22 @@ of the resource representation.</xs:documentation>
         <xs:sequence>
           <xs:element name="type" minOccurs="0" maxOccurs="1" type="ConsentProvisionType">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules.</xs:documentation>
+              <xs:documentation xml:lang="en">Action  to take - permit or deny - when the provision conditions are met.  Not permitted in root provision, required in all nested provisions.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="period" minOccurs="0" maxOccurs="1" type="Period">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The timeframe in this rule is valid.</xs:documentation>
+              <xs:documentation xml:lang="en">Timeframe for this provision.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="actor" type="Consent.Actor" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. 'admitting officers').</xs:documentation>
+              <xs:documentation xml:lang="en">Who or what is controlled by this provision. Use group to identify a set of actors by some property they share (e.g. 'admitting officers').</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="action" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Actions controlled by this Rule.</xs:documentation>
+              <xs:documentation xml:lang="en">Actions controlled by this provision.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="securityLabel" minOccurs="0" maxOccurs="unbounded" type="Coding">
@@ -31462,27 +30834,27 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="purpose" minOccurs="0" maxOccurs="unbounded" type="Coding">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The context of the activities a user is taking - why the user is accessing the data - that are controlled by this rule.</xs:documentation>
+              <xs:documentation xml:lang="en">The context of the activities a user is taking - why the user is accessing the data - that are controlled by this provision.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="class" minOccurs="0" maxOccurs="unbounded" type="Coding">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The class of information covered by this rule. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to.</xs:documentation>
+              <xs:documentation xml:lang="en">The class of information covered by this provision. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="code" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">If this code is found in an instance, then the rule applies.</xs:documentation>
+              <xs:documentation xml:lang="en">If this code is found in an instance, then the provision applies.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="dataPeriod" minOccurs="0" maxOccurs="1" type="Period">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Clinical or Operational Relevant period of time that bounds the data controlled by this rule.</xs:documentation>
+              <xs:documentation xml:lang="en">Clinical or Operational Relevant period of time that bounds the data controlled by this provision.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="data" type="Consent.Data" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The resources controlled by this rule if specific resources are referenced.</xs:documentation>
+              <xs:documentation xml:lang="en">The resources controlled by this provision if specific resources are referenced.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="expression" minOccurs="0" maxOccurs="1" type="Expression">
@@ -31492,7 +30864,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="provision" type="Consent.Provision" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Rules which provide exceptions to the base rule or subrules.</xs:documentation>
+              <xs:documentation xml:lang="en">Provisions which provide exceptions to the base provision or subprovisions.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -40298,6 +39670,11 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">The date (and possibly time) when the family member history was recorded or last updated.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="participant" type="FamilyMemberHistory.Participant" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indicates who or what participated in the activities related to the family member history and how they were involved.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="name" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">This will either be a name or a description; e.g. &quot;Aunt Susan&quot;, &quot;my cousin with the red hair&quot;.</xs:documentation>
@@ -40362,6 +39739,27 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           <xs:element name="procedure" type="FamilyMemberHistory.Procedure" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">The significant Procedures (or procedure) that the family member had. This is a repeating section to allow a system to represent more than one procedure per resource, though there is nothing stopping multiple resources - one per procedure.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FamilyMemberHistory.Participant">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Significant health conditions for a person related to the patient relevant in the context of care for the patient.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="function" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Distinguishes the type of involvement of the actor in the activities related to the family member history.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="actor" minOccurs="1" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indicates who or what participated in the activities related to the family member history.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -40519,7 +39917,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="subject" minOccurs="1" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The patient, location, group, organization, or practitioner etc. this is about record this flag is associated with.</xs:documentation>
+              <xs:documentation xml:lang="en">The patient, related person, location, group, organization, or practitioner etc. this is about record this flag is associated with.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="period" minOccurs="0" maxOccurs="1" type="Period">
@@ -41196,7 +40594,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">Explanation of why this graph definition is needed and why it has been designed as it has.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="start" minOccurs="1" maxOccurs="1" type="ResourceTypes">
+          <xs:element name="start" minOccurs="1" maxOccurs="1" type="ResourceType">
             <xs:annotation>
               <xs:documentation xml:lang="en">The type of FHIR resource at which instances of this graph start.</xs:documentation>
            </xs:annotation>
@@ -43162,7 +42560,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="type" minOccurs="1" maxOccurs="1" type="ResourceTypes">
+          <xs:element name="type" minOccurs="1" maxOccurs="1" type="ResourceType">
             <xs:annotation>
               <xs:documentation xml:lang="en">The type of resource that all instances must conform to.</xs:documentation>
            </xs:annotation>
@@ -48982,7 +48380,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="status" minOccurs="1" maxOccurs="1" type="medicationrequestStatus">
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="MedicationrequestStatus">
             <xs:annotation>
               <xs:documentation xml:lang="en">A code specifying the current state of the order.  Generally, this will be active or completed state.</xs:documentation>
            </xs:annotation>
@@ -48997,7 +48395,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">The date (and perhaps time) when the status was changed.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="intent" minOccurs="1" maxOccurs="1" type="medicationRequestIntent">
+          <xs:element name="intent" minOccurs="1" maxOccurs="1" type="MedicationRequestIntent">
             <xs:annotation>
               <xs:documentation xml:lang="en">Whether the request is a proposal, plan, or an original order.</xs:documentation>
            </xs:annotation>
@@ -49247,7 +48645,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:simpleType name="medicationrequestStatusEnum">
+  <xs:simpleType name="MedicationrequestStatusEnum">
     <xs:restriction base="code-primitive">
       <xs:enumeration value="active">
         <xs:annotation>
@@ -49296,18 +48694,18 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="medicationrequestStatus">
+  <xs:complexType name="MedicationrequestStatus">
     <xs:annotation>
       <xs:documentation xml:lang="en"></xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
-        <xs:attribute name="value" type="medicationrequestStatusEnum" use="optional"/>
+        <xs:attribute name="value" type="MedicationrequestStatusEnum" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:simpleType name="medicationRequestIntentEnum">
+  <xs:simpleType name="MedicationRequestIntentEnum">
     <xs:restriction base="code-primitive">
       <xs:enumeration value="proposal">
         <xs:annotation>
@@ -49351,14 +48749,14 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="medicationRequestIntent">
+  <xs:complexType name="MedicationRequestIntent">
     <xs:annotation>
       <xs:documentation xml:lang="en"></xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
-        <xs:attribute name="value" type="medicationRequestIntentEnum" use="optional"/>
+        <xs:attribute name="value" type="MedicationRequestIntentEnum" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -49990,7 +49388,7 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
               <xs:documentation xml:lang="en">Identifies the resource (or resources) that are being addressed by the event.  For example, the Encounter for an admit message or two Account records for a merge.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="responseRequired" minOccurs="0" maxOccurs="1" type="messageheaderResponseRequest">
+          <xs:element name="responseRequired" minOccurs="0" maxOccurs="1" type="MessageheaderResponseRequest">
             <xs:annotation>
               <xs:documentation xml:lang="en">Declare at a message definition level whether a response is required or only upon error or success, or never.</xs:documentation>
            </xs:annotation>
@@ -50016,7 +49414,7 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="code" minOccurs="1" maxOccurs="1" type="ResourceTypes">
+          <xs:element name="code" minOccurs="1" maxOccurs="1" type="ResourceType">
             <xs:annotation>
               <xs:documentation xml:lang="en">The kind of resource that must be the focus for this message.</xs:documentation>
            </xs:annotation>
@@ -50091,7 +49489,7 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:simpleType name="messageheaderResponseRequestEnum">
+  <xs:simpleType name="MessageheaderResponseRequestEnum">
     <xs:restriction base="code-primitive">
       <xs:enumeration value="always">
         <xs:annotation>
@@ -50115,14 +49513,14 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="messageheaderResponseRequest">
+  <xs:complexType name="MessageheaderResponseRequest">
     <xs:annotation>
       <xs:documentation xml:lang="en"></xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
-        <xs:attribute name="value" type="messageheaderResponseRequestEnum" use="optional"/>
+        <xs:attribute name="value" type="MessageheaderResponseRequestEnum" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -50276,7 +49674,7 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
         <xs:sequence>
           <xs:element name="identifier" minOccurs="1" maxOccurs="1" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The MessageHeader.id of the message to which this message is a response.</xs:documentation>
+              <xs:documentation xml:lang="en">The Bundle.identifier of the message to which this message is a response.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="code" minOccurs="1" maxOccurs="1" type="ResponseType">
@@ -52138,7 +51536,7 @@ Reflex | Repeat | Re-run.</xs:documentation>
               <xs:documentation xml:lang="en">The date (and optionally time) when the ObservationDefinition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the ObservationDefinition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="Reference">
+          <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">Helps establish the &quot;authority/credibility&quot; of the ObservationDefinition. May also allow for contact.</xs:documentation>
            </xs:annotation>
@@ -52630,7 +52028,7 @@ Reflex | Repeat | Re-run.</xs:documentation>
               <xs:documentation xml:lang="en">Indicates that this operation definition is a constraining profile on the base.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="resource" minOccurs="0" maxOccurs="unbounded" type="ResourceTypes">
+          <xs:element name="resource" minOccurs="0" maxOccurs="unbounded" type="ResourceType">
             <xs:annotation>
               <xs:documentation xml:lang="en">The types on which this operation can be executed.</xs:documentation>
            </xs:annotation>
@@ -53468,6 +52866,11 @@ For resource issues, this will be a simple XPath limited to element names, repet
               <xs:documentation xml:lang="en">The physical type of the container of the items.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="componentPart" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Is this a part of the packaging (e.g. a cap or bottle stopper), rather than the packaging itself (e.g. a bottle or vial). The latter type are designed be a container, but the former are not.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="quantity" minOccurs="0" maxOccurs="1" type="integer">
             <xs:annotation>
               <xs:documentation xml:lang="en">The quantity of packaging items contained at this layer of the package. This does not relate to the number of contained items but relates solely to the number of packaging items. When looking at the outermost layer it is always 1. If there are two boxes within, at the next layer it would be 2.</xs:documentation>
@@ -53505,7 +52908,7 @@ For resource issues, this will be a simple XPath limited to element names, repet
           </xs:element>
           <xs:element name="packaging" type="PackagedProductDefinition.Packaging" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Allows containers (and parts of containers) parwithin containers, still a single packaged product.  See also PackagedProductDefinition.packaging.containedItem.item(PackagedProductDefinition).</xs:documentation>
+              <xs:documentation xml:lang="en">Allows containers (and parts of containers) within containers, still as a part of a single packaged product. See also PackagedProductDefinition.packaging.containedItem.item(PackagedProductDefinition).</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -55905,14 +55308,9 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">This could be a histology result, pathology report, surgical report, etc.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="complication" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+          <xs:element name="complication" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="complicationDetail" minOccurs="0" maxOccurs="unbounded" type="Reference">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Any complications that occurred during the procedure, or in the immediate post-performance period.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="followUp" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
@@ -56237,7 +55635,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">A Boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="subjectType" minOccurs="0" maxOccurs="unbounded" type="ResourceTypes">
+          <xs:element name="subjectType" minOccurs="0" maxOccurs="unbounded" type="ResourceType">
             <xs:annotation>
               <xs:documentation xml:lang="en">The types of subjects that can be the subject of responses created for the questionnaire.</xs:documentation>
            </xs:annotation>
@@ -57570,12 +56968,12 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
   </xs:complexType>
   <xs:element name="Requirements" type="Requirements">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Describes an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays.</xs:documentation>
+      <xs:documentation xml:lang="en">A set of requirements - a list of features or behaviors of designed systems that are necessary to achieve organizational or regulatory goals.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Requirements">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Describes an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays.</xs:documentation>
+      <xs:documentation xml:lang="en">A set of requirements - a list of features or behaviors of designed systems that are necessary to achieve organizational or regulatory goals.</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -57673,7 +57071,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="statement" type="Requirements.Statement" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A statement of requirements.</xs:documentation>
+              <xs:documentation xml:lang="en">The actual statement of requirement, in markdown format.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -57682,7 +57080,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
   </xs:complexType>
   <xs:complexType name="Requirements.Statement">
     <xs:annotation>
-      <xs:documentation xml:lang="en">Describes an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays.</xs:documentation>
+      <xs:documentation xml:lang="en">A set of requirements - a list of features or behaviors of designed systems that are necessary to achieve organizational or regulatory goals.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -57697,7 +57095,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">A short human usable label for this statement.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="conformance" minOccurs="0" maxOccurs="1" type="ConformanceExpectation">
+          <xs:element name="conformance" minOccurs="0" maxOccurs="unbounded" type="ConformanceExpectation">
             <xs:annotation>
               <xs:documentation xml:lang="en">A short human usable label for this statement.</xs:documentation>
            </xs:annotation>
@@ -58628,11 +58026,6 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">A FHIRPath expression that returns a set of elements for the search parameter.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="xpath" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">An XPath expression that returns a set of elements for the search parameter.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="processingMode" minOccurs="0" maxOccurs="1" type="SearchProcessingModeType">
             <xs:annotation>
               <xs:documentation xml:lang="en">How the search parameter relates to the set of elements returned by evaluating the expression query.</xs:documentation>
@@ -58643,7 +58036,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">FHIRPath expression that defines/sets a complex constraint for when this SearchParameter is applicable.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="target" minOccurs="0" maxOccurs="unbounded" type="ResourceTypes">
+          <xs:element name="target" minOccurs="0" maxOccurs="unbounded" type="ResourceType">
             <xs:annotation>
               <xs:documentation xml:lang="en">Types of resource (if a resource is referenced).</xs:documentation>
            </xs:annotation>
@@ -59522,7 +58915,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">For draft definitions, indicates the date of initial creation. For active definitions, represents the date of activation. For withdrawn definitions, indicates the date of withdrawal.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="Reference">
+          <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">Helps establish the &quot;authority/credibility&quot; of the SpecimenDefinition. May also allow for contact.</xs:documentation>
            </xs:annotation>
@@ -60850,6 +60243,11 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">The time for the server to turn the subscription off.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="managingEntity" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Entity with authorization to make subsequent revisions to the Subscription and also determines what data the subscription is authorized to disclose.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="reason" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">A description of why this subscription is defined.</xs:documentation>
@@ -61635,7 +61033,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="molecularWeight" type="SubstanceDefinition.MolecularWeight" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The molecular weight or weight range (for proteins, polymers or nucleic acids).</xs:documentation>
+              <xs:documentation xml:lang="en">The average mass of a molecule of a compound compared to 1/12 the mass of carbon 12 and calculated as the sum of the atomic weights of the constituent atoms.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="structure" type="SubstanceDefinition.Structure" minOccurs="0" maxOccurs="1">
@@ -61806,7 +61204,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="molecularFormula" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Molecular formula of this substance, typically using the Hill system.</xs:documentation>
+              <xs:documentation xml:lang="en">An expression which states the number and type of atoms present in a molecule of a substance.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="molecularFormulaByMoiety" minOccurs="0" maxOccurs="1" type="string">
@@ -65659,16 +65057,6 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">Principal physical location where this transport is performed.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="reasonCode" minOccurs="0" maxOccurs="1" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A description or code indicating why this transport needs to be performed.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="reasonReference" minOccurs="0" maxOccurs="1" type="Reference">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A resource reference indicating why this transport needs to be performed.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="insurance" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Transport.</xs:documentation>
@@ -65707,6 +65095,16 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           <xs:element name="currentLocation" minOccurs="1" maxOccurs="1" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">The current location for the entity to be transported.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="reasonCode" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A description or code indicating why this transport needs to be performed.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="reasonReference" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A resource reference indicating why this transport needs to be performed.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="history" minOccurs="0" maxOccurs="1" type="Reference">
