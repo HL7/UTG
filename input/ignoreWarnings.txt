@@ -39,6 +39,9 @@ WARNING: ValueSet.where(id = 'v3-OrganizationIndustryClassNAICS'): Error from se
 WARNING: ValueSet.where(id = 'v3-SCDHEC-GISSpatialAccuracyTiers'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/SCDHEC-GISSpatialAccuracyTiers
 WARNING: ValueSet.where(id = 'v3-USEncounterDischargeDisposition'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
 WARNING: ValueSet.where(id = 'v3-USEncounterReferralSource'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
+WARNING: ValueSet/v3-AgeGroupObservationValue: ValueSet.compose[0].include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters can't be checked (Details: Local Error: Resolved system https://www.nlm.nih.gov/mesh (v3.0.1), but the definition is not complete. Server Error: The code system 'https://www.nlm.nih.gov/mesh' is not known (encountered paired with code = 'D009273'); The code provided (https://www.nlm.nih.gov/mesh#D009273) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4))
+WARNING: ValueSet/v3-KnowledgeSubtopicObservationValue: ValueSet.compose[0].include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters can't be checked (Details: Code System URI 'https://www.nlm.nih.gov/mesh' is unknown so the code cannot be validated)
+WARNING: ValueSet/v2-0005: ValueSet.compose[0].include[0]: Unknown System 'urn:oid:2.16.840.1.113883.6.238' specified, so Concepts and Filters can't be checked (Details: Local Error: Resolved system urn:oid:2.16.840.1.113883.6.238 (v3.0.1), but the definition is not complete. Server Error: The code system 'urn:oid:2.16.840.1.113883.6.238' is not known (encountered paired with code = '1002-5'); The code provided (urn:oid:2.16.840.1.113883.6.238#1002-5) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4))
 
 # this is intended behavior
 WARNING: CodeSystem/ICD-10DualCoding: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
@@ -50,11 +53,6 @@ WARNING: CodeSystem/v3-styleType: CodeSystem.description: The markdown contains 
 WARNING: ValueSet/v3-ActClassDocumentBody: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at 'A '. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: ValueSet/v3-ActUncertainty: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at 'A '. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: ValueSet/v3-SecurityAlterationIntegrityObservationType: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at '<p'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
-
-
-# issue with logo link in THO license page. Will investigate after release 4.1.0 to see if can be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/tho-license-v1_0.html#/html/body/div/div/div/div/div/div/ul/li/a at Line 172, column 48: The link 'icon-pack.zip' for "null logo" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/tho-license-v1_0.html#/html/body/div/div/div/div/div/div/ul/li/a at Line 174, column 21: The link 'icon-pack.zip' for "null logo" cannot be resolved
 
 # warnings that apply to normal IGs but not to THO
 WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
