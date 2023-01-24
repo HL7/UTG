@@ -8,10 +8,11 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.4"/>
   </identifier>
-  <version value="6.1.0"/>
+  <version value="8.0.0"/>
   <name value="ActCode"/>
   <title value="ActCode"/>
   <status value="active"/>
+  <experimental value="false"/>
   <date value="2019-12-15"/>
   <publisher value="Health Level 7"/>
   <contact>
@@ -20287,7 +20288,7 @@
     <concept>
       <code value="CAREGAP"/>
       <display value="Caregap"/>
-      <definition value="Identifies the type of detected issues is care gap"/>
+      <definition value="Identifies the type of detected issue is a care gap"/>
       <property>
         <code value="internalId"/>
         <valueString value="120911"/>
@@ -20301,6 +20302,23 @@
         <valueString value="_ClinicalActionDetectedIssueCode"/>
       </property>
     </concept>
+    <concept>
+      <code value="CODINGGAP"/>
+      <display value="Codinggap"/>
+      <definition value="Identifies the type of detected issue is a risk adjustment coding gap"/>
+      <property>
+        <code value="internalId"/>
+        <valueString value="1120911"/>
+      </property>
+      <property>
+        <code value="status"/>
+        <valueCode value="active"/>
+      </property>
+      <property>
+        <code value="subsumedBy"/>
+        <valueString value="_ClinicalActionDetectedIssueCode"/>
+      </property>
+    </concept>    
   </concept>
   <concept>
     <code value="JurisCUI"/>
@@ -21065,6 +21083,23 @@
     <property>
       <code value="internalId"/>
       <valueCode value="23753"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="ObligationPolicy"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="PROCESSINLINELABEL"/>
+    <display value="process inline security label"/>
+    <definition value="Custodian security system must take note that the data object contains inline security labels and process them."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="internalId"/>
+      <valueCode value="23850"/>
     </property>
     <property>
       <code value="subsumedBy"/>

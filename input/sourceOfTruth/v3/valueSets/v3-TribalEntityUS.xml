@@ -8,21 +8,26 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.1.11.11631"/>
   </identifier>
-  <version value="2.0.0"/>
+  <version value="3.0.0"/>
   <name value="TribalEntityUS"/>
   <title value="TribalEntityUS"/>
   <status value="active"/>
+  <experimental value="false"/>
   <date value="2014-03-26"/>
   <description value="INDIAN ENTITIES RECOGNIZED AND ELIGIBLE TO RECEIVE SERVICES FROM THE UNITED STATES BUREAU OF INDIAN AFFAIRS"/>
   <compose>
     <include>
-      <valueSet value="http://terminology.hl7.org/ValueSet/v3-NativeEntityAlaska"/>
-    </include>
-    <include>
-      <valueSet value="http://terminology.hl7.org/ValueSet/v3-NativeEntityContiguous"/>
-    </include>
-    <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-TribalEntityUS"/>
     </include>
+	<exclude>
+      <system
+              value="http://terminology.hl7.org/CodeSystem/v3-TribalEntityUS"/>
+      <concept>
+        <code value="_NativeEntityContiguous"/>
+      </concept>
+      <concept>
+        <code value="_NativeEntityAlaska"/>
+      </concept>
+    </exclude>
   </compose>
 </ValueSet>

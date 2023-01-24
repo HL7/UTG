@@ -1,0 +1,96 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+<p>This page describes how to use UCUM with HL7 Standards.</p>
+
+<a name="Using UCUM with FHIR R5"> </a>
+<h3>Using UCUM with FHIR R5</h3>
+
+<!-- Summary -->
+<a name="Summary"> </a>
+<h4>Summary</h4>
+<table class="grid">
+ <tr><td>Source</td><td>UCUM is made available by the <a href="https://www.regenstrief.org/">Regenstrief Institute, Inc</a> and The UCUM Organization at <a href="http://unitsofmeasure.org">http://unitsofmeasure.org</a></td></tr>
+ <tr><td>System</td><td>The URI <a href="http://unitsofmeasure.org">http://unitsofmeasure.org</a> identifies UCUM codes</td></tr>
+ <tr><td>Version</td><td>Where a version is used, it should be the standard UCUM version e.g. 1.9. There is no need to use version in the <a href="https://hl7.org/fhir/datatypes.html#Coding">Coding</a> data type, only in <a href="https://hl7.org/fhir/valueset.html">Value sets</a> that use UCUM codes</td></tr>
+ <tr><td>Code</td><td>Valid expressions using the case sensitive symbols</td></tr>
+ <tr><td>Display</td><td>There is no defined display; the UCUM code is used directly for the display</td></tr>
+ <tr><td>Inactive</td><td>A few codes in UCUM are marked as deprecated (e.g. ppb, pptr)</td></tr>
+ <tr><td>Subsumption</td><td>No Subsumption relationships are defined by UCUM</td></tr>
+ <tr><td>Filter Properties</td><td>Two filter properties are defined as described below</td></tr>
+</table>
+
+<!-- Copyright -->
+<a name="Copyright"> </a>
+<h4>Copyright</h4>
+<p>UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN.  All rights reserved. See <a class="wiki" href="http://unitsofmeasure.org/trac//wiki/TermsOfUse">TermsOfUse</a> for details.</p>
+
+<!-- UCUM Expressions -->
+<a name="UCUM Expressions"> </a>
+<h4>UCUM Expressions</h4>
+<p>UCUM is inherently a compositional code system; almost all UCUM codes are expressions composed using the UCUM expression syntax. Many servers, however, do not implement full support for the syntax, and rely on a large library of pre-built valid UCUM codes (FHIR includes a <a href="https://hl7.org/fhir/valueset-ucum-common.html">common UCUM codes value set</a> for this purpose).</p>
+<p>UCUM is a compositional code system. If a server does not support the full grammar, it should document that in its <a href="https://hl7.org/fhir/terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version.compositional">Terminology Capabilities Statement</a>.</p>
+<p>Curly braces {} in the code element are discouraged. Curly braces provide additional descriptive text in the code expression but do not contribute to the meaning of the code.</p>
+
+<!-- UCUM Filter Properties -->
+<a name="UCUM Filter Properties"> </a>
+<h4>UCUM Filter Properties</h4>
+<p>
+This section documents the property filters that can be used with the UCUM code system in value set composition statements.
+</p>
+<a name="Property filter"> </a>
+<h5>Property filter</h5>
+<table class="grid">
+ <tr><td>Description</td><td>Restricts the expression to a describe a particular UCUM base property</td></tr>
+ <tr><td>Property Name</td><td>property</td></tr>
+ <tr><td>Operations Allowed</td><td>=</td></tr>
+ <tr><td>Values Allowed</td><td>[string name of property]</td></tr>
+ <tr><td>Comments</td><td>Restricts expressions to any expression that is comparable to a base unit with a matching property value. Note: this does not match the property on units, only base units</td></tr>
+</table>
+<a name="Canonical Filter"> </a>
+<h5>Canonical Filter</h5>
+<table class="grid">
+ <tr><td>Description</td><td>Allows for any expression that is comparable to the named unit</td></tr>
+ <tr><td>Property Name</td><td>canonical</td></tr>
+ <tr><td>Operations Allowed</td><td>= / in</td></tr>
+ <tr><td>Values Allowed</td><td>UCUM expression</td></tr>
+ <tr><td>Comments</td><td>This allows any expression that is comparable to the given unit(s)</td></tr>
+</table>
+
+<!-- UCUM Implicit Value Sets -->
+<a name="UCUM Implicit Value Sets"> </a>
+<h4>UCUM Implicit Value Sets</h4>
+<p>Implicit value sets are those whose specification can be predicted based on the grammar of the underlying code system, and the known structure of the URL that refers to them. There is one set of implicit value sets defined for UCUM: By Canonical Value.</p>
+<p>If any value set resources exist with an identifier that conforms to the URL patterns specified below, the content of the resource must conform to the template provided. Profiles and other value set references are allowed to reference these value sets directly.</p>
+<p>The value set identifier http://unitsofmeasure.org/vs is a value set that contains all UCUM codes.</p>
+
+<a name="UCUM Comparable Value Set"> </a>
+<h5>UCUM Comparable Value Set</h5>
+<p>A value set with an identifier of "http://unitsofmeasure.org/vs/[expression]" must conform to this template, where [expression] is a valid UCUM expression:</p>
+<pre>
+&lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      [some html that identifies that this value set 
+      includes all UCUM expressions that are comparable to the provided expression]
+    &lt;/div&gt;
+  &lt;/text&gt;
+  &lt;identifier value=&quot;http://unitsofmeasure.org/vs/[expression]&quot;/&gt;
+  &lt;version value=&quot;[optional - but recommended - UCUM version]&quot;/&gt;
+  &lt;name value=&quot;Ucum Expressions comparable to [expression]&quot;/&gt;
+  &lt;description value=&quot;Ucum Expressions comparable to [expression]&quot;/&gt;
+  &lt;status value=&quot;active&quot;/&gt;
+  &lt;date value=&quot;[optional date of UCUM release]&quot;/&gt;
+  &lt;compose&gt;
+    &lt;include&gt;
+      &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+      &lt;filter&gt;
+        &lt;property value=&quot;comparable&quot;/&gt;
+        &lt;op value=&quot;=&quot;/&gt;
+        &lt;value value=&quot;[expression]&quot;/&gt;
+      &lt;/filter&gt;
+    &lt;/include&gt;
+  &lt;/compose&gt;
+&lt;/ValueSet&gt;
+</pre>
+
+</div>

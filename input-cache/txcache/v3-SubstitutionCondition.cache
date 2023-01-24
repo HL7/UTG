@@ -1,0 +1,105 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-SubstitutionCondition",
+      "concept" : [{
+        "code" : "NOSUB"
+      },
+      {
+        "code" : "UNCOND"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:3a9e0de7-5e73-40c1-92fe-8ed45c9c348d",
+    "timestamp" : "2022-11-22T22:14:57.739Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-SubstitutionCondition|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Substitution is not permitted."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-SubstitutionCondition",
+      "code" : "NOSUB",
+      "display" : "No substitution"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "No conditions are required."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-SubstitutionCondition",
+      "code" : "UNCOND",
+      "display" : "Unconditional"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-SubstitutionCondition",
+      "concept" : [{
+        "code" : "_Conditional"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:b72c9d67-ddae-4b66-b21f-2eefa2c6affe",
+    "timestamp" : "2022-11-22T22:23:54.302Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-SubstitutionCondition|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Some conditions may be attached to an allowable substitution. An allowable substitution is based on a match to any other attributes that may be specified."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-SubstitutionCondition",
+      "code" : "_Conditional",
+      "display" : "Conditional"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
