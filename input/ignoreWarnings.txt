@@ -19,11 +19,8 @@ WARNING: CodeSystem/data-absent-reason: CodeSystem: HL7 Defined CodeSystems SHOU
 WARNING: CodeSystem/goal-achievement: CodeSystem: HL7 Defined CodeSystems SHOULD have a stated value for the hierarchyMeaning element so that users know the status and meaning of the code system clearly
 
 # value sets based on external code systems where we do not have access to the content
-WARNING: ValueSet/v3-AgeGroupObservationValue: ValueSet.compose[0].include[0]: Unknown System specified, so Concepts and Filters can''t be checked
-WARNING: ValueSet/v3-KnowledgeSubtopicObservationValue: ValueSet.compose[0].include[0]: Unknown System specified, so Concepts and Filters can''t be checked
 WARNING: ValueSet.where(id = 'v3-HumanLanguage'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/ietf3066
 WARNING: ValueSet.where(id = 'v3-DiagnosisICD9CM'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/icd9cm
-WARNING: ValueSet/v2-0005: ValueSet.compose[0].include[0]: Unknown System specified, so Concepts and Filters can''t be checked
 WARNING: ValueSet.where(id = 'v2-0005'): Error from server: Unable to provide support for code system urn:oid:2.16.840.1.113883.6.238
 WARNING: ValueSet.where(id = 'v2-0292'): Error from server: Unable to provide support for code system http://hl7.org/fhir/sid/cvx version 2.ext.0 (known versions = 20210406)
 WARNING: ValueSet.where(id = 'v2-0567'): Error from server: Unable to provide support for code system http://unitsofmeasure.org version 2.1.0 (known versions = 2.0.1)
@@ -42,8 +39,9 @@ WARNING: ValueSet.where(id = 'v3-OrganizationIndustryClassNAICS'): Error from se
 WARNING: ValueSet.where(id = 'v3-SCDHEC-GISSpatialAccuracyTiers'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/SCDHEC-GISSpatialAccuracyTiers
 WARNING: ValueSet.where(id = 'v3-USEncounterDischargeDisposition'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
 WARNING: ValueSet.where(id = 'v3-USEncounterReferralSource'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
-WARNING: ValueSet/v3-AgeGroupObservationValue: ValueSet.compose[0].include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters cant be checked
-WARNING: ValueSet/v3-KnowledgeSubtopicObservationValue: ValueSet.compose[0].include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters cant be checked
+WARNING: ValueSet/v3-AgeGroupObservationValue: ValueSet.compose[0].include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters can't be checked (Details: Local Error: Resolved system https://www.nlm.nih.gov/mesh (v3.0.1), but the definition is not complete. Server Error: The code system 'https://www.nlm.nih.gov/mesh' is not known (encountered paired with code = 'D009273'); The code provided (https://www.nlm.nih.gov/mesh#D009273) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4))
+WARNING: ValueSet/v3-KnowledgeSubtopicObservationValue: ValueSet.compose[0].include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters can't be checked (Details: Code System URI 'https://www.nlm.nih.gov/mesh' is unknown so the code cannot be validated)
+WARNING: ValueSet/v2-0005: ValueSet.compose[0].include[0]: Unknown System 'urn:oid:2.16.840.1.113883.6.238' specified, so Concepts and Filters can't be checked (Details: Local Error: Resolved system urn:oid:2.16.840.1.113883.6.238 (v3.0.1), but the definition is not complete. Server Error: The code system 'urn:oid:2.16.840.1.113883.6.238' is not known (encountered paired with code = '1002-5'); The code provided (urn:oid:2.16.840.1.113883.6.238#1002-5) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4))
 
 # this is intended behavior
 WARNING: CodeSystem/ICD-10DualCoding: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
@@ -51,37 +49,15 @@ WARNING: CodeSystem/ICD-9DualCoding: CodeSystem.description: The markdown contai
 WARNING: NamingSystem/ICD-10DualCoding: NamingSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: NamingSystem/ICD-9DualCoding: NamingSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: CodeSystem/v3-ActRelationshipSubset: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at '<n'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
-WARNING: ValueSet/v2-0005: ValueSet.compose[0].include[0]: Unknown System 'urn:oid:2.16.840.1.113883.6.238' specified, so Concepts and Filters cant be checked
 WARNING: CodeSystem/v3-styleType: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at '<n'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: ValueSet/v3-ActClassDocumentBody: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at 'A '. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: ValueSet/v3-ActUncertainty: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at 'A '. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: ValueSet/v3-SecurityAlterationIntegrityObservationType: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at '<p'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 
-# broken links in v2 tables code system. Will be resolved at a later date
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 242, column 52219: The link 'http://terminology.hl7.org/CodeSystem/v2-0112' for "http://terminology.hl7.org/CodeSystem/v2-0112" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 242, column 52366: The link 'http://terminology.hl7.org/ValueSet/v2-0112' for "http://terminology.hl7.org/ValueSet/v2-0112" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 245, column 293: The link 'http://terminology.hl7.org/CodeSystem/v2-0141' for "http://terminology.hl7.org/CodeSystem/v2-0141" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 245, column 439: The link 'http://terminology.hl7.org/ValueSet/v2-0141' for "http://terminology.hl7.org/ValueSet/v2-0141" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 245, column 71147: The link 'http://terminology.hl7.org/CodeSystem/v2-0259' for "http://terminology.hl7.org/CodeSystem/v2-0259" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 245, column 71294: The link 'http://terminology.hl7.org/ValueSet/v2-0259' for "http://terminology.hl7.org/ValueSet/v2-0259" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 246, column 31913: The link 'http://terminology.hl7.org/ValueSet/v2-0347' for "http://terminology.hl7.org/ValueSet/v2-0347" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 246, column 72584: The link 'http://terminology.hl7.org/CodeSystem/v2-0411' for "http://terminology.hl7.org/CodeSystem/v2-0411" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 246, column 72731: The link 'http://terminology.hl7.org/ValueSet/v2-0411' for "http://terminology.hl7.org/ValueSet/v2-0411" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 246, column 105154: The link 'http://terminology.hl7.org/CodeSystem/v2-0467' for "http://terminology.hl7.org/CodeSystem/v2-0467" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 246, column 105301: The link 'http://terminology.hl7.org/ValueSet/v2-0467' for "http://terminology.hl7.org/ValueSet/v2-0467" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 246, column 158538: The link 'http://terminology.hl7.org/ValueSet/v2-0552' for "http://terminology.hl7.org/ValueSet/v2-0552" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 246, column 159108: The link 'http://terminology.hl7.org/ValueSet/v2-0552' for "http://terminology.hl7.org/ValueSet/v2-0552" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 246, column 208944: The link 'http://terminology.hl7.org/CodeSystem/v2-0913' for "http://terminology.hl7.org/CodeSystem/v2-0913" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/CodeSystem-v2-tables.html#/html/body/div/div/div/div/div/div/table/tr/td/a at Line 249, column 2613: The link 'http://terminology.hl7.org/CodeSystem/v2-0962' for "http://terminology.hl7.org/CodeSystem/v2-0962" cannot be resolved
-
-# issue with logo link in THO license page. Will investigate after release 4.1.0 to see if can be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/tho-license-v1_0.html#/html/body/div/div/div/div/div/div/ul/li/a at Line 172, column 48: The link 'icon-pack.zip' for "null logo" cannot be resolved
-ERROR: /scratch/ig-build-temp-WYHZSE/repo/output/tho-license-v1_0.html#/html/body/div/div/div/div/div/div/ul/li/a at Line 174, column 21: The link 'icon-pack.zip' for "null logo" cannot be resolved
-
 # warnings that apply to normal IGs but not to THO
 WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
-WARNING: 2: The HTML fragment 'cross-version-analysis.xhtml' is not included anywhere in the produced implementation guide
-WARNING: 3: The HTML fragment 'dependency-table.xhtml' is not included anywhere in the produced implementation guide
+WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
+WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
 
 # Codesystem v2-0338 has the code.  Will hopefully deal with in the future.
@@ -92,12 +68,3 @@ WARNING: ValueSet.where(id = 'v2-0350'): Error from server: Unable to provide su
 WARNING: ValueSet.where(id = 'v2-0351'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0351 version 2.1.0 (known versions = 2.9)
 WARNING: ValueSet.where(id = 'v2-0456'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0456 version 2.1.0 (known versions = 2.9)
 WARNING: ValueSet.where(id = 'v2-0895'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0895 version 2.1.0 (known versions = 2.9)
-
-# We don't care about any of these - and they create noise
-Validate resource against profile http://hl7.org/fhir/StructureDefinition/Bundle
-Validate resource against profile http://hl7.org/fhir/StructureDefinition/CodeSystem
-Validate resource against profile http://hl7.org/fhir/StructureDefinition/List
-Validate resource against profile http://hl7.org/fhir/StructureDefinition/NamingSystem
-Validate resource against profile http://hl7.org/fhir/StructureDefinition/Provenance
-Validate resource against profile http://hl7.org/fhir/StructureDefinition/StructureDefinition
-Validate resource against profile http://hl7.org/fhir/StructureDefinition/ValueSet
