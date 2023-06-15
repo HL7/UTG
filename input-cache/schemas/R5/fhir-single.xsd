@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Dec 14, 2022 00:14+0000 for FHIR v5.0.0-cibuild 
+  Generated on Tue, Nov 22, 2022 21:15+0000 for FHIR v5.0.0-cibuild 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="5.0.0-cibuild">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -17187,24 +17187,9 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
               <xs:documentation xml:lang="en">Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="mustHaveValue" type="boolean" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Specifies for a primitive data type that the value of the data type cannot be replaced by an extension.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="valueAlternatives" type="canonical" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Specifies a list of extensions that can appear in place of a primitive value.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
           <xs:element name="mustSupport" type="boolean" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">If true, implementations that produce or consume resources SHALL provide &quot;support&quot; for the element in some meaningful way. Note that this is being phased out and replaced by obligations (see below).  If false, the element may be ignored and not supported. If false, whether to populate or use the data element in any way is at the discretion of the implementation.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="obligation" type="ElementDefinition.Obligation" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Documents obligations that apply to applications implementing this element. The obligations relate to application behaviour, not the content of the element itself in the resource instances that contain this element.</xs:documentation>
+              <xs:documentation xml:lang="en">If true, implementations that produce or consume resources SHALL provide &quot;support&quot; for the element in some meaningful way.  If false, the element may be ignored and not supported. If false, whether to populate or use the data element in any way is at the discretion of the implementation.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="isModifier" type="boolean" minOccurs="0" maxOccurs="1">
@@ -17274,56 +17259,14 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
               <xs:documentation xml:lang="en">A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met.</xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element name="xpath" type="string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">An XPath expression of constraint that can be executed to see if this constraint is met.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
           <xs:element name="source" type="canonical" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">A reference to the original source of the constraint, for traceability purposes.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="ElementDefinition.Obligation">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">Captures constraints on each element within the resource, profile, or extension.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneType">
-        <xs:sequence>
-          <xs:element name="code" type="Coding" minOccurs="1" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Codes, potentially combination code, that describe the obligations that apply to implementing applications.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="actor" type="canonical" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Actor(s) to which the obligation applies.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="documentation" type="markdown" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Human readable documentation of the purpose or application of the obligation.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="usage" type="UsageContext" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Qualifies the usage of the obligation. Typically obligations are qualified by jurisdiction, but they may also be qualified by gender, workflow status, clinical domain etc. The information to decide whether a usege context applies is usually outside the resource, determined by context, and this might present challenges for validation tooling.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="filter" type="string" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A FHIRPath expression that restricts to the obligation to one of a set of repeats.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="filterDocumentation" type="string" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Documents the FHIRPath expression for the benefit of users who are not familiar with FHIRPath.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="process" type="uri" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A process that the obligation applies to. This might a canonical URL for an OperationDefinition, or some other reference.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -17555,53 +17498,6 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
           <xs:element name="valueSet" type="canonical" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">Refers to the value set that identifies the set of codes the binding refers to.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="additional" type="ElementDefinition.Additional" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Additional bindings that help applications implementing this element. Additional bindings do not replace the main binding but provide more information and/or context.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="ElementDefinition.Additional">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">Captures constraints on each element within the resource, profile, or extension.</xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneType">
-        <xs:sequence>
-          <xs:element name="purpose" type="code" minOccurs="1" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The use of this additional binding.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="valueSet" type="canonical" minOccurs="1" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The valueSet that is being bound for the purpose.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="documentation" type="markdown" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Documentation of the purpose of use of the bindingproviding additional information about how it is intended to be used.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="shortDoco" type="string" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Concise documentation - for summary tables.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="usage" type="UsageContext" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Qualifies the usage of the binding. Typically bindings are qualified by jurisdiction, but they may also be qualified by gender, workflow status, clinical domain etc. The information to decide whether a usege context applies is usually outside the resource, determined by context, and this might present challenges for validation tooling.</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="any" type="boolean" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Whether the binding applies to all repeats, or just to any one of them. This is only relevant for elements that can repeat.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -19521,7 +19417,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
           </xs:choice>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the activity definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the activity definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -19988,7 +19884,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the actor definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the actor definition changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the actor definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the actor definition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -22473,7 +22369,7 @@ into another (possibly the same) biological entity.</xs:documentation>
           </xs:element>
           <xs:element name="fullUrl" minOccurs="0" maxOccurs="1" type="uri">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The Absolute URL for the resource. Except for transactions and batches, each entry in a Bundle must have a fullUrl. The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. Even when not required, fullUrl MAY be set to a urn:uuid to allow referencing entries in a transaction. The fullUrl can be an arbitrary URI and is not limited to urn:uuid, urn:oid, http, and https. The fullUrl element SHALL have a value except when: 
+              <xs:documentation xml:lang="en">The Absolute URL for the resource.  The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. Even when not required, fullUrl MAY be set to a urn:uuid to allow referencing entries in a transaction. The fullUrl can be an arbitrary URI and is not limited to urn:uuid, urn:oid, http, and https. The fullUrl element SHALL have a value except when: 
 * invoking a create
 * invoking or responding to an operation where the body is not a single identified resource
 * invoking or returning the results of a search or history operation.</xs:documentation>
@@ -23502,7 +23398,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="1" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the capability statement was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the capability statement changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the capability statement was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the capability statement changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -25279,7 +25175,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the charge item definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the charge item definition changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the charge item definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the charge item definition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -25413,27 +25309,27 @@ of the resource representation.</xs:documentation>
         <xs:sequence>
           <xs:element name="url" minOccurs="0" maxOccurs="1" type="uri">
             <xs:annotation>
-              <xs:documentation xml:lang="en">An absolute URI that is used to identify this citation record when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers.</xs:documentation>
+              <xs:documentation xml:lang="en">An absolute URI that is used to identify this citation when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A formal identifier that is used to identify this citation record when it is represented in other formats, or referenced in a specification, model, design or an instance.</xs:documentation>
+              <xs:documentation xml:lang="en">A formal identifier that is used to identify this citation when it is represented in other formats, or referenced in a specification, model, design or an instance.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="version" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The identifier that is used to identify this version of the citation record when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation record author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.</xs:documentation>
+              <xs:documentation xml:lang="en">The identifier that is used to identify this version of the citation when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="name" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A natural language name identifying the citation record. This name should be usable as an identifier for the module by machine processing applications such as code generation.</xs:documentation>
+              <xs:documentation xml:lang="en">A natural language name identifying the citation. This name should be usable as an identifier for the module by machine processing applications such as code generation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="title" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A short, descriptive, user-friendly title for the citation record.</xs:documentation>
+              <xs:documentation xml:lang="en">A short, descriptive, user-friendly title for the citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
@@ -25443,17 +25339,17 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="experimental" minOccurs="0" maxOccurs="1" type="boolean">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A Boolean value to indicate that this citation record is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.</xs:documentation>
+              <xs:documentation xml:lang="en">A Boolean value to indicate that this citation is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date (and optionally time) when the citation record was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the citation record changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the citation was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the citation changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The name of the organization or individual that published the citation record.</xs:documentation>
+              <xs:documentation xml:lang="en">The name of the organization or individual that published the citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="contact" minOccurs="0" maxOccurs="unbounded" type="ContactDetail">
@@ -25468,12 +25364,12 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="useContext" minOccurs="0" maxOccurs="unbounded" type="UsageContext">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate citation record instances.</xs:documentation>
+              <xs:documentation xml:lang="en">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate citation instances.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="jurisdiction" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A legal or geographic region in which the citation record is intended to be used.</xs:documentation>
+              <xs:documentation xml:lang="en">A legal or geographic region in which the citation is intended to be used.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="purpose" minOccurs="0" maxOccurs="1" type="markdown">
@@ -25483,7 +25379,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="copyright" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Use and/or publishing restrictions for the citation record, not for the cited artifact.</xs:documentation>
+              <xs:documentation xml:lang="en">Use and/or publishing restrictions for the Citation, not for the cited artifact.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="approvalDate" minOccurs="0" maxOccurs="1" type="date">
@@ -25498,32 +25394,32 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="effectivePeriod" minOccurs="0" maxOccurs="1" type="Period">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The period during which the citation record content was or is planned to be in active use.</xs:documentation>
+              <xs:documentation xml:lang="en">The period during which the citation content was or is planned to be in active use.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="author" minOccurs="0" maxOccurs="unbounded" type="ContactDetail">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Who authored or created the citation record.</xs:documentation>
+              <xs:documentation xml:lang="en">Who authored the Citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="editor" minOccurs="0" maxOccurs="unbounded" type="ContactDetail">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Who edited or revised the citation record.</xs:documentation>
+              <xs:documentation xml:lang="en">Who edited the Citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="reviewer" minOccurs="0" maxOccurs="unbounded" type="ContactDetail">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Who reviewed the citation record.</xs:documentation>
+              <xs:documentation xml:lang="en">Who reviewed the Citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="endorser" minOccurs="0" maxOccurs="unbounded" type="ContactDetail">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Who endorsed the citation record.</xs:documentation>
+              <xs:documentation xml:lang="en">Who endorsed the Citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="summary" type="Citation.Summary" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A human-readable display of key concepts to represent the citation.</xs:documentation>
+              <xs:documentation xml:lang="en">A human-readable display of the citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="classification" type="Citation.Classification" minOccurs="0" maxOccurs="unbounded">
@@ -25538,17 +25434,17 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="currentState" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The status of the citation record.</xs:documentation>
+              <xs:documentation xml:lang="en">The status of the citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="statusDate" type="Citation.StatusDate" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The state or status of the citation record paired with an effective date or period for that state.</xs:documentation>
+              <xs:documentation xml:lang="en">An effective date or period for a status of the citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="relatedArtifact" minOccurs="0" maxOccurs="unbounded" type="RelatedArtifact">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Artifact related to the citation record.</xs:documentation>
+              <xs:documentation xml:lang="en">Artifact related to the Citation Resource.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="citedArtifact" type="Citation.CitedArtifact" minOccurs="0" maxOccurs="1">
@@ -25569,12 +25465,12 @@ of the resource representation.</xs:documentation>
         <xs:sequence>
           <xs:element name="style" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Format for display of the citation summary.</xs:documentation>
+              <xs:documentation xml:lang="en">Format for display of the citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="text" minOccurs="1" maxOccurs="1" type="markdown">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The human-readable display of the citation summary.</xs:documentation>
+              <xs:documentation xml:lang="en">The human-readable display of the citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -25611,12 +25507,12 @@ of the resource representation.</xs:documentation>
         <xs:sequence>
           <xs:element name="activity" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The state or status of the citation record (that will be paired with the period).</xs:documentation>
+              <xs:documentation xml:lang="en">Classification of the status.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="actual" minOccurs="0" maxOccurs="1" type="boolean">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Whether the status date is actual (has occurred) or expected (estimated or anticipated).</xs:documentation>
+              <xs:documentation xml:lang="en">Either occurred or expected.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="period" minOccurs="1" maxOccurs="1" type="Period">
@@ -25637,12 +25533,12 @@ of the resource representation.</xs:documentation>
         <xs:sequence>
           <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A formal identifier that is used to identify the cited artifact when it is represented in other formats, or referenced in a specification, model, design or an instance.</xs:documentation>
+              <xs:documentation xml:lang="en">A formal identifier that is used to identify this citation when it is represented in other formats, or referenced in a specification, model, design or an instance.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="relatedIdentifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A formal identifier that is used to identify things closely related to the cited artifact.</xs:documentation>
+              <xs:documentation xml:lang="en">A formal identifier that is used to identify things closely related to this citation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="dateAccessed" minOccurs="0" maxOccurs="1" type="dateTime">
@@ -25662,7 +25558,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="statusDate" type="Citation.StatusDate1" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">An effective date or period, historical or future, actual or expected, for a status of the cited artifact.</xs:documentation>
+              <xs:documentation xml:lang="en">An effective date or period for a status of the cited artifact.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="title" type="Citation.Title" minOccurs="0" maxOccurs="unbounded">
@@ -25672,7 +25568,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="abstract" type="Citation.Abstract" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The abstract may be used to convey article-contained abstracts, externally-created abstracts, or other descriptive summaries.</xs:documentation>
+              <xs:documentation xml:lang="en">Summary of the article or artifact.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="part" type="Citation.Part" minOccurs="0" maxOccurs="1">
@@ -25744,7 +25640,7 @@ of the resource representation.</xs:documentation>
         <xs:sequence>
           <xs:element name="activity" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A definition of the status associated with a date or period.</xs:documentation>
+              <xs:documentation xml:lang="en">Classification of the status.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="actual" minOccurs="0" maxOccurs="1" type="boolean">
@@ -25770,12 +25666,12 @@ of the resource representation.</xs:documentation>
         <xs:sequence>
           <xs:element name="type" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Used to express the reason for or classification of the title.</xs:documentation>
+              <xs:documentation xml:lang="en">Used to express the reason or specific aspect for the title.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="language" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Used to express the specific language of the title.</xs:documentation>
+              <xs:documentation xml:lang="en">Used to express the specific language.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="text" minOccurs="1" maxOccurs="1" type="markdown">
@@ -25796,12 +25692,12 @@ of the resource representation.</xs:documentation>
         <xs:sequence>
           <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Used to express the reason for or classification of the abstract.</xs:documentation>
+              <xs:documentation xml:lang="en">Used to express the reason or specific aspect for the abstract.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="language" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Used to express the specific language of the abstract.</xs:documentation>
+              <xs:documentation xml:lang="en">Used to express the specific language.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="text" minOccurs="1" maxOccurs="1" type="markdown">
@@ -25863,7 +25759,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="label" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A short label that can be used to reference the related artifact from elsewhere in the containing artifact, such as a footnote index.</xs:documentation>
+              <xs:documentation xml:lang="en">A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="display" minOccurs="0" maxOccurs="1" type="string">
@@ -25878,7 +25774,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="document" minOccurs="0" maxOccurs="1" type="Attachment">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The document being referenced, represented as an attachment. Do not use this element if using the resource element to provide the canonical to the related artifact.</xs:documentation>
+              <xs:documentation xml:lang="en">The document being referenced, represented as an attachment. This is exclusive with the resource element.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="resource" minOccurs="0" maxOccurs="1" type="canonical">
@@ -28599,7 +28495,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the code system was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the code system changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the code system was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the code system changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -29444,7 +29340,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the compartment definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the compartment definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -29942,7 +29838,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the concept map was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the concept map was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -30476,7 +30372,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the condition definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the condition definition changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the condition definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the condition definition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -30913,7 +30809,7 @@ of the resource representation.</xs:documentation>
         <xs:sequence>
           <xs:element name="type" minOccurs="0" maxOccurs="1" type="ConsentProvisionType">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Action  to take - permit or deny - when the provision conditions are met.</xs:documentation>
+              <xs:documentation xml:lang="en">Action  to take - permit or deny - when the provision conditions are met.  Not permitted in root provision, required in all nested provisions.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="period" minOccurs="0" maxOccurs="1" type="Period">
@@ -30941,14 +30837,9 @@ of the resource representation.</xs:documentation>
               <xs:documentation xml:lang="en">The context of the activities a user is taking - why the user is accessing the data - that are controlled by this provision.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="documentType" minOccurs="0" maxOccurs="unbounded" type="Coding">
+          <xs:element name="class" minOccurs="0" maxOccurs="unbounded" type="Coding">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The documentType(s) covered by this provision. The type can be a CDA document, or some other type that indicates what sort of information the consent relates to.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="resourceType" minOccurs="0" maxOccurs="unbounded" type="Coding">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The resourceType(s) covered by this provision. The type can be a FHIR resource type or a profile on a type that indicates what information the consent relates to.</xs:documentation>
+              <xs:documentation xml:lang="en">The class of information covered by this provision. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="code" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
@@ -31337,7 +31228,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="publicationDate" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date (and optionally time) when the contract was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the contract changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date (and optionally time) when the contract was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the contract changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publicationStatus" minOccurs="1" maxOccurs="1" type="ContractResourcePublicationStatusCodes">
@@ -35451,11 +35342,6 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">Other business identifiers associated with the document, including version independent identifiers.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="version" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">An explicitly assigned identifer of a variation of the content in the DocumentReference.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="basedOn" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">A procedure that is fulfilled in whole or in part by the creation of this media.</xs:documentation>
@@ -35662,7 +35548,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="EncounterStatus">
             <xs:annotation>
-              <xs:documentation xml:lang="en">planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown.</xs:documentation>
+              <xs:documentation xml:lang="en">planned | in-progress | onhold | discharged | completed | cancelled | discontinued | entered-in-error | unknown.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="statusHistory" type="Encounter.StatusHistory" minOccurs="0" maxOccurs="unbounded">
@@ -35803,7 +35689,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
         <xs:sequence>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="EncounterStatus">
             <xs:annotation>
-              <xs:documentation xml:lang="en">planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown.</xs:documentation>
+              <xs:documentation xml:lang="en">planned | in-progress | onhold | discharged | completed | cancelled | discontinued | entered-in-error | unknown.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="period" minOccurs="1" maxOccurs="1" type="Period">
@@ -36022,7 +35908,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           <xs:documentation xml:lang="en">In Progress</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="on-hold">
+      <xs:enumeration value="onhold">
         <xs:annotation>
           <xs:documentation xml:lang="en">On Hold</xs:documentation>
         </xs:annotation>
@@ -36572,7 +36458,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:choice>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the event definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the event definition changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the event definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the event definition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -36726,7 +36612,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the summary was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the summary changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the summary was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the summary changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="useContext" minOccurs="0" maxOccurs="unbounded" type="UsageContext">
@@ -37554,7 +37440,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the evidence variable was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the evidence variable changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the evidence variable was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the evidence variable changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -37961,7 +37847,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the example scenario was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the example scenario was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -38122,11 +38008,6 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           <xs:element name="key" minOccurs="1" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">A unique string within the instance that is used to reference the version of the instance.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="title" minOccurs="1" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A short descriptive label the version to be used in tables or diagrams.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="description" minOccurs="0" maxOccurs="1" type="markdown">
@@ -40680,7 +40561,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the graph definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the graph definition changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the graph definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the graph definition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -40713,50 +40594,19 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">Explanation of why this graph definition is needed and why it has been designed as it has.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="start" minOccurs="0" maxOccurs="1" type="id">
+          <xs:element name="start" minOccurs="1" maxOccurs="1" type="ResourceType">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The Node at which instances of this graph start. If there is no nominated start, the graph can start at any of the nodes.</xs:documentation>
+              <xs:documentation xml:lang="en">The type of FHIR resource at which instances of this graph start.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="node" type="GraphDefinition.Node" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="profile" minOccurs="0" maxOccurs="1" type="canonical">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Potential target for the link.</xs:documentation>
+              <xs:documentation xml:lang="en">The profile that describes the use of the base resource.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="link" type="GraphDefinition.Link" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">Links this graph makes rules about.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="GraphDefinition.Node">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="nodeId" minOccurs="1" maxOccurs="1" type="id">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Internal ID of node - target for link references.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="description" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Information about why this node is of interest in this graph definition.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="type" minOccurs="1" maxOccurs="1" type="AllResourceTypes">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Type of resource this link refers to.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="profile" minOccurs="0" maxOccurs="1" type="canonical">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Profile for the target resource.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -40770,9 +40620,14 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="description" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="path" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Information about why this link is of interest in this graph definition.</xs:documentation>
+              <xs:documentation xml:lang="en">A FHIRPath expression that identifies one of FHIR References to other resources.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="sliceName" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Which slice (if profiled).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="min" minOccurs="0" maxOccurs="1" type="integer">
@@ -40785,24 +40640,30 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">Maximum occurrences for this link.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="sourceId" minOccurs="1" maxOccurs="1" type="id">
+          <xs:element name="description" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The source node for this link.</xs:documentation>
+              <xs:documentation xml:lang="en">Information about why this link is of interest in this graph definition.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="path" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="target" type="GraphDefinition.Target" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A FHIRPath expression that identifies one of FHIR References to other resources.</xs:documentation>
+              <xs:documentation xml:lang="en">Potential target for the link.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="sliceName" minOccurs="0" maxOccurs="1" type="string">
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GraphDefinition.Target">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="1" maxOccurs="1" type="AllResourceTypes">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Which slice (if profiled).</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="targetId" minOccurs="1" maxOccurs="1" type="id">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The target node for this link.</xs:documentation>
+              <xs:documentation xml:lang="en">Type of resource this link refers to.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="params" minOccurs="0" maxOccurs="1" type="string">
@@ -40810,9 +40671,19 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">A set of parameters to look up.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="profile" minOccurs="0" maxOccurs="1" type="canonical">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Profile for the target resource.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="compartment" type="GraphDefinition.Compartment" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">Compartment Consistency Rules.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="link" type="GraphDefinition.Link" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Additional links from target resource.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -40831,14 +40702,14 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">Defines how the compartment rule is used - whether it it is used to test whether resources are subject to the rule, or whether it is a rule that must be followed.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="rule" minOccurs="1" maxOccurs="1" type="GraphCompartmentRule">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">identical | matching | different | no-rule | custom.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="code" minOccurs="1" maxOccurs="1" type="CompartmentType">
             <xs:annotation>
               <xs:documentation xml:lang="en">Identifies the compartment.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="rule" minOccurs="1" maxOccurs="1" type="GraphCompartmentRule">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">identical | matching | different | no-rule | custom.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="expression" minOccurs="0" maxOccurs="1" type="string">
@@ -40857,14 +40728,14 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
   </xs:complexType>
   <xs:simpleType name="GraphCompartmentUseEnum">
     <xs:restriction base="code-primitive">
-      <xs:enumeration value="where">
+      <xs:enumeration value="condition">
         <xs:annotation>
-          <xs:documentation xml:lang="en">Where</xs:documentation>
+          <xs:documentation xml:lang="en">Condition</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="requires">
+      <xs:enumeration value="requirement">
         <xs:annotation>
-          <xs:documentation xml:lang="en">requires</xs:documentation>
+          <xs:documentation xml:lang="en">Requirement</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -42574,7 +42445,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the implementation guide was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -45743,7 +45614,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:choice>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the library was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the library was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -46376,7 +46247,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="amount" minOccurs="0" maxOccurs="unbounded" type="Quantity">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The measurable amount of total quantity of all substances in the component, expressable in different ways (e.g. by mass or volume).</xs:documentation>
+              <xs:documentation xml:lang="en">The measurable amount of substance in this component, expressable in different ways (e.g. by mass or volume).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="constituent" type="ManufacturedItemDefinition.Constituent" minOccurs="0" maxOccurs="unbounded">
@@ -46407,12 +46278,12 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
         <xs:sequence>
           <xs:element name="amount" minOccurs="0" maxOccurs="unbounded" type="Quantity">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The measurable amount of the substance, expressable in different ways (e.g. by mass or volume).</xs:documentation>
+              <xs:documentation xml:lang="en">The measurable amount of this constituent in this component, expressable in different ways (e.g. by mass or volume).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="location" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The physical location of the constituent/ingredient within the component. Example – if the component is the bead in the capsule, then the location would be where the ingredient resides within the product part – intragranular, extra-granular, etc.</xs:documentation>
+              <xs:documentation xml:lang="en">The type of location of the constituent within this component e.g. intragranular, blend.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="function" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
@@ -46420,9 +46291,9 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">The function of this constituent within the component e.g. binder.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="hasIngredient" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
+          <xs:element name="locationForIngredient" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The ingredient that is the constituent of the given component.</xs:documentation>
+              <xs:documentation xml:lang="en">An ingredient that this component is the location for in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -46496,7 +46367,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the measure was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the measure changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the measure was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the measure changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -49452,7 +49323,7 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
           </xs:element>
           <xs:element name="date" minOccurs="1" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the message definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the message definition changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the message definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the message definition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -50163,7 +50034,7 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
           </xs:element>
           <xs:element name="date" minOccurs="1" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the naming system was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the naming system changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the naming system was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the naming system changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -51662,7 +51533,7 @@ Reflex | Repeat | Re-run.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date (and optionally time) when the ObservationDefinition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the ObservationDefinition changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date (and optionally time) when the ObservationDefinition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the ObservationDefinition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -52094,7 +51965,7 @@ Reflex | Repeat | Re-run.</xs:documentation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the operation definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the operation definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -52928,6 +52799,11 @@ For resource issues, this will be a simple XPath limited to element names, repet
               <xs:documentation xml:lang="en">Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="characteristic" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Allows the key features to be recorded, such as &quot;hospital pack&quot;, &quot;nurse prescribable&quot;, &quot;calendar pack&quot;.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="copackagedIndicator" minOccurs="0" maxOccurs="1" type="boolean">
             <xs:annotation>
               <xs:documentation xml:lang="en">Identifies if the package contains different items, such as when a drug product is supplied with another item e.g. a diluent or adjuvant.</xs:documentation>
@@ -52946,11 +52822,6 @@ For resource issues, this will be a simple XPath limited to element names, repet
           <xs:element name="packaging" type="PackagedProductDefinition.Packaging" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation xml:lang="en">A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap (which is not a device or a medication manufactured item).</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="characteristic" type="PackagedProductDefinition.Property" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Allows the key features to be recorded, such as &quot;hospital pack&quot;, &quot;nurse prescribable&quot;, &quot;calendar pack&quot;.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -54296,7 +54167,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:choice>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the plan definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the plan definition changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the plan definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the plan definition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -55771,7 +55642,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the questionnaire was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the questionnaire was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -55857,7 +55728,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="definition" minOccurs="0" maxOccurs="1" type="uri">
             <xs:annotation>
-              <xs:documentation xml:lang="en">This element is a URI that refers to an [ElementDefinition](elementdefinition.html) or to an [ObservationDefinition](observationdefinition.html) that provides information about this item, including information that might otherwise be included in the instance of the Questionnaire resource. A detailed description of the construction of the URI is shown in [Comments](questionnaire.html#definition), below.</xs:documentation>
+              <xs:documentation xml:lang="en">This element is a URI that refers to an [ElementDefinition](elementdefinition.html) that provides information about this item, including information that might otherwise be included in the instance of the Questionnaire resource. A detailed description of the construction of the URI is shown in [Comments](questionnaire.html#definition), below.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="code" minOccurs="0" maxOccurs="unbounded" type="Coding">
@@ -57229,11 +57100,6 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">A short human usable label for this statement.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="conditionality" minOccurs="0" maxOccurs="1" type="boolean">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">This boolean flag is set to true of the text of the requirement is conditional on something e.g. it includes lanauage like 'if x then y'. This conditionality flag is introduced for purposes of filtering and colour highlighting etc.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="requirement" minOccurs="1" maxOccurs="1" type="markdown">
             <xs:annotation>
               <xs:documentation xml:lang="en">The actual requirement for human consumption.</xs:documentation>
@@ -57242,11 +57108,6 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           <xs:element name="derivedFrom" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">Another statement on one of the requirements that this requirement clarifies or restricts.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="parent" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">A larger requirement that this requirement helps to refine and enable.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="satisfiedBy" minOccurs="0" maxOccurs="unbounded" type="url">
@@ -57358,12 +57219,12 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="relatedArtifact" minOccurs="0" maxOccurs="unbounded" type="RelatedArtifact">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Citations, references, URLs and other related documents.  When using relatedArtifact to share URLs, the relatedArtifact.type will often be set to one of &quot;documentation&quot; or &quot;supported-with&quot; and the URL value will often be in relatedArtifact.document.url but another possible location is relatedArtifact.resource when it is a canonical URL.</xs:documentation>
+              <xs:documentation xml:lang="en">Citations, references and other related documents.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date (and optionally time) when the ResearchStudy Resource was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the ResearchStudy Resource changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date (and optionally time) when the ResearchStudy Resource was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the ResearchStudy Resource changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
@@ -57386,7 +57247,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="focus" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
+          <xs:element name="focus" type="ResearchStudy.Focus" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about.</xs:documentation>
            </xs:annotation>
@@ -57458,7 +57319,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="comparisonGroup" type="ResearchStudy.ComparisonGroup" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Describes an expected event or sequence of events for one of the subjects of a study. E.g. for a living subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up. E.g. for a stability study: {store sample from lot A at 25 degrees for 1 month}, {store sample from lot A at 40 degrees for 1 month}.</xs:documentation>
+              <xs:documentation xml:lang="en">Describes an expected sequence of events for one of the participants of a study.  E.g. Exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="objective" type="ResearchStudy.Objective" minOccurs="0" maxOccurs="unbounded">
@@ -57468,12 +57329,17 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="outcomeMeasure" type="ResearchStudy.OutcomeMeasure" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">An &quot;outcome measure&quot;, &quot;endpoint&quot;, &quot;effect measure&quot; or &quot;measure of effect&quot; is a specific measurement or observation used to quantify the effect of experimental variables on the participants in a study, or for observational studies, to describe patterns of diseases or traits or associations with exposures, risk factors or treatment.</xs:documentation>
+              <xs:documentation xml:lang="en">An outcome or planned variable to measure during the study.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="result" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Link to one or more sets of results generated by the study.  Could also link to a research registry holding the results such as ClinicalTrials.gov.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="webLocation" type="ResearchStudy.WebLocation" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A general storage or archive location for the study.  This may contain an assortment of content which is not specified in advance.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -57495,6 +57361,32 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           <xs:element name="value" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">The name.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResearchStudy.Focus">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="productCode" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Identification of product under study.  This may be any combination of code and/or name.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="focusType" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indicates whether the focus is a medication, a device, a procedure, a specific factor or some other intervention or characteristic.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="factor" minOccurs="0" maxOccurs="1" type="markdown">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A factor corresponds to an independent variable manipulated by the experimentalist with the intention to affect biological systems in a way that can be measured by an assay.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -57601,11 +57493,13 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+          <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">Allows the comparisonGroup for the study and the comparisonGroup for the subject to be linked easily.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
+            </xs:annotation>
+            <xs:element name="identifierUri" type="uri"/>
+            <xs:element name="identifierIdentifier" type="Identifier"/>
+          </xs:choice>
           <xs:element name="name" minOccurs="1" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">Unique, human-readable label for this comparisonGroup of the study.</xs:documentation>
@@ -57686,6 +57580,27 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           <xs:element name="reference" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Structured outcome definition.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResearchStudy.WebLocation">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="classifier" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Describes the nature of the location being specified.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="url" minOccurs="1" maxOccurs="1" type="uri">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The location address.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -58058,7 +57973,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the search parameter was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the search parameter was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -59324,7 +59239,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the structure definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the structure definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -59404,7 +59319,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="type" minOccurs="1" maxOccurs="1" type="uri">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. &quot;string&quot; is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models, where they are required.</xs:documentation>
+              <xs:documentation xml:lang="en">The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. &quot;string&quot; is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="baseDefinition" minOccurs="0" maxOccurs="1" type="canonical">
@@ -59662,7 +59577,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the structure map was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure map changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the structure map was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure map changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -61106,11 +61021,6 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">Moiety, for structural modifications.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="characterization" type="SubstanceDefinition.Characterization" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">General specifications for this substance.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="property" type="SubstanceDefinition.Property" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">General specifications for this substance.</xs:documentation>
@@ -61223,37 +61133,6 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="SubstanceDefinition.Characterization">
-    <xs:annotation>
-      <xs:documentation xml:lang="en">The detailed description of a substance, typically at a level beyond what is used for prescribing.</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="BackboneElement">
-        <xs:sequence>
-          <xs:element name="technique" minOccurs="0" maxOccurs="1" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The method used to elucidate the characterization of the drug substance. Example: HPLC.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="form" minOccurs="0" maxOccurs="1" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The specific chemical entity of the substance being characterized, to distinguish for example salt or base.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="description" minOccurs="0" maxOccurs="1" type="markdown">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Narrative text, data, tables about the characterization.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="file" minOccurs="0" maxOccurs="unbounded" type="Attachment">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">An image or data file that characterizes this substance.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
   <xs:complexType name="SubstanceDefinition.Property">
     <xs:annotation>
       <xs:documentation xml:lang="en">The detailed description of a substance, typically at a level beyond what is used for prescribing.</xs:documentation>
@@ -61340,7 +61219,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="technique" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The method used to elucidate the structure of the drug substance. Examples: X-ray, NMR, Peptide mapping, Ligand binding assay.</xs:documentation>
+              <xs:documentation xml:lang="en">The method used to elucidate the structure or characterization of the drug substance. Examples: X-ray, HPLC, NMR, Peptide mapping, Ligand binding assay.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="sourceDocument" minOccurs="0" maxOccurs="unbounded" type="Reference">
@@ -61350,7 +61229,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="representation" type="SubstanceDefinition.Representation" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A depiction of the structure of the substance.</xs:documentation>
+              <xs:documentation xml:lang="en">A depiction of the structure or characterization of the substance.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -61371,7 +61250,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="representation" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The structural representation as a text string in a standard format.</xs:documentation>
+              <xs:documentation xml:lang="en">The structural representation or characterization as a text string in a standard format.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="format" minOccurs="0" maxOccurs="1" type="CodeableConcept">
@@ -61381,7 +61260,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="document" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">An attached file with the structural representation e.g. a molecular structure graphic of the substance, a JCAMP or AnIML file.</xs:documentation>
+              <xs:documentation xml:lang="en">An attached file with the structural representation or characterization e.g. a molecular structure graphic of the substance, a JCAMP or AnIML file.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -62543,7 +62422,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="receiver" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Identifies the individual or organization that received the delivery.</xs:documentation>
+              <xs:documentation xml:lang="en">Identifies the person or organization that received the delivery.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -62610,12 +62489,12 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
   </xs:complexType>
   <xs:element name="SupplyRequest" type="SupplyRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A record of a request to deliver a medication, substance or device used in the healthcare setting to a particular destination for a particular person or organization.</xs:documentation>
+      <xs:documentation xml:lang="en">A record of a request for a medication, substance or device used in the healthcare setting.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="SupplyRequest">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A record of a request to deliver a medication, substance or device used in the healthcare setting to a particular destination for a particular person or organization.</xs:documentation>
+      <xs:documentation xml:lang="en">A record of a request for a medication, substance or device used in the healthcare setting.</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -62644,11 +62523,6 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           <xs:element name="priority" minOccurs="0" maxOccurs="1" type="RequestPriority">
             <xs:annotation>
               <xs:documentation xml:lang="en">Indicates how quickly this SupplyRequest should be addressed with respect to other requests.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="deliverFor" minOccurs="0" maxOccurs="1" type="Reference">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The patient to whom the supply will be given or for whom they will be used.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="item" minOccurs="1" maxOccurs="1" type="CodeableReference">
@@ -62710,7 +62584,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
   </xs:complexType>
   <xs:complexType name="SupplyRequest.Parameter">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A record of a request to deliver a medication, substance or device used in the healthcare setting to a particular destination for a particular person or organization.</xs:documentation>
+      <xs:documentation xml:lang="en">A record of a request for a medication, substance or device used in the healthcare setting.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -63321,7 +63195,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="date" minOccurs="1" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the terminology capabilities was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the terminology capabilities changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the terminology capabilities was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the terminology capabilities changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -64151,7 +64025,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date  (and optionally time) when the test script was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test script changes.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the test script was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test script changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -64219,7 +64093,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="profile" minOccurs="0" maxOccurs="unbounded" type="canonical">
+          <xs:element name="profile" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Reference to the profile to be used for validation.</xs:documentation>
            </xs:annotation>
@@ -64265,11 +64139,6 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">The type of origin profile the test system supports.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="url" minOccurs="0" maxOccurs="1" type="url">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The explicit url path of the origin server used in this test script.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -64289,11 +64158,6 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           <xs:element name="profile" minOccurs="1" maxOccurs="1" type="Coding">
             <xs:annotation>
               <xs:documentation xml:lang="en">The type of destination profile the test system supports.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="url" minOccurs="0" maxOccurs="1" type="url">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The explicit url path of the destination server used in this test script.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
