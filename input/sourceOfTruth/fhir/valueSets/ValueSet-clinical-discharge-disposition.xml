@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="clinical-discharge-disposition"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <url value="http://terminology.hl7.org/ValueSet/clinical-discharge-disposition"/>
+  <identifier>
+  	<use value="old"/>
+    <value value="http://hl7.org/fhir/us/qicore/ValueSet/clinical-discharge-disposition"/>
+ </identifier>
+  <version value="1.0.0"/>
+  <name value="ClinicalDischargeDisposition"/>
+  <title value="Clinical Discharge Disposition"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2022-07-04"/>
+  <publisher value="Health Level Seven, Inc. - CQI WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/special/committees/CQI"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines a set of codes that can be used to where the patient left the hospital. Note that this value set explicitly removes 'oth' (Other) to allow the binding strength to be extensible and therefore allow the exchange of additional concepts without requiring mapping to 'oth.'"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/discharge-disposition"/>
+	  <concept>
+		<code value="home"/>
+	  </concept>
+	  <concept>
+		<code value="alt-home"/>
+	  </concept>
+	  <concept>
+		<code value="other-hcf"/>
+	  </concept>
+	  <concept>
+		<code value="hosp"/>
+	  </concept>
+	  <concept>
+		<code value="long"/>
+	  </concept>
+	  <concept>
+		<code value="aadvice"/>
+	  </concept>
+	  <concept>
+		<code value="exp"/>
+	  </concept>
+	  <concept>
+		<code value="psy"/>
+	  </concept>
+	  <concept>
+		<code value="rehab"/>
+	  </concept>
+	  <concept>
+		<code value="snf"/>
+	  </concept>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,53 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+<p>This page describes how to use CPT with HL7 Standards.</p>
+
+<a name="Using CPT with FHIR R5"> </a>
+<h3>Using CPT with FHIR R5</h3>
+
+<!-- SUMMARY -->
+<a name="Summary"> </a>
+<h4>Summary</h4>
+<table class="grid">
+ <tr><td>Source</td><td>CPT is made managed by the <a href="http://www.ama-assn.org/ama">American Medical Association</a></td></tr>
+ <tr><td>System</td><td>The URI <a href="http://www.ama-assn.org/go/cpt">http://www.ama-assn.org/go/cpt</a> identifies the CPT code system</td></tr>
+ <tr><td>Version</td><td>Where a version is appropriate, use the year of release e.g. 2014</td></tr>
+ <tr><td>Code</td><td>"Code" in the CPT tables (a 5-character code)</td></tr>
+ <tr><td>Display</td><td>The correct display for a CPT code is one of the descriptions associated with the code. There are multiple description options that vary by length and target audience, including: long descriptions, medium descriptions, short descriptions, consumer friendly descriptors and clinician descriptors.</td></tr>
+ <tr><td>Inactive</td><td>For CPT Link ontology licensees, inactive codes are listed in the History folder in the “Deleted_DTK_pipe” and “Deleted_DTK_tab” files.<br/>For CPT flat file licensees, codes that exist in the flat file are active and codes that are not present are inactive. Deletions/changes between the previous release year and current release year are displayed in the “Appendix B” PDF.</td></tr>
+ <tr><td>Subsumption</td><td>No Subsumption relationships are defined by CPT</td></tr>
+ <tr><td>Filter Properties</td><td>None defined</td></tr>
+</table>
+
+<!-- Version Issues -->
+<a name="Version Issues"> </a>
+<h4>Version Issues</h4>
+<p>A new code-year of CPT is released by the end of August each year for use the subsequent calendar year. CPT versions are identified simply by the year of their release e.g. <code>2020</code>. For example, the CPT 2020 codes are released at the end of August 2019 and intended for use during the 2020 calendar year.</p>
+
+<!-- Example Usage -->
+<a name="Example Usage"> </a>
+<h4>Example Usage</h4>
+<pre class="xml" fragment="Coding">
+  &lt;coding&gt;
+    &lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
+    &lt;version value=&quot;2019&quot;/&gt;
+    &lt;code value=&quot;31502&quot;/&gt;
+    &lt;display value=&quot;Tracheotomy tube change prior to establishment of fistula tract&quot;/&gt;
+  &lt;/coding&gt;
+</pre>
+
+<!-- Copyright/License Issues -->
+<a name="Copyright/License Issues"> </a>
+<h4>Copyright/License Issues</h4>
+<p>CPT is a registered trademark of the American Medical Association. The AMA holds the copyright for the CPT coding system and a license is required for use.</p>
+<p>When Value Sets include CPT codes, the copyright element should include the text  "CPT © Copyright 2019 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.". The year in the copyright element should be adjusted to reflect the release year(s) being used.</p>
+
+<!-- CPT Filter Properties -->
+<a name="CPT Filter Properties"> </a>
+<h4>CPT Filter Properties</h4>
+<p>No filter properties have been defined at this time.</p>
+
+<!-- CPT Implicit Value Sets -->
+<a name="CPT Implicit Value Sets"> </a>
+<h4>CPT Implicit Value Sets</h4>
+<p>The value set URL http://hl7.org/fhir/ValueSet/cpt-all is a value set that includes all CPT codes.</p>
+</div>
