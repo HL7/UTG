@@ -2395,6 +2395,69 @@
                  }
               ]
            }
+        },
+	{
+"fullUrl": "http://terminology.hl7.org/fhir/Provenance/consentscope-cs-3-1-15",
+   "resource": {
+        "resourceType": "Provenance",
+            "id": "hx1c-consentscope-cs-3-1-15",
+            "target": [
+               {
+                 "reference": "CodeSystem/consentscope"
+               }
+            ],
+            "occurredPeriod": {
+              "end": "2023-06-19"
+            },
+            "recorded": "2023-06-19T23:52:36-06:00",
+               "reason": [
+                  {
+                   "coding":  [
+                      {
+                         "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+                         "code": "METAMGT"
+                       }
+                    ],
+                    "text": "Re add the code ADR to the Consent Scope code system; up-255"
+                  }
+               ],
+             "activity": {
+                "coding": [
+                   {
+                    "system":  "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+                    "code": "UPDATE"
+                   }
+                ]
+             },
+             "agent": [
+                 {
+                 "type":   {
+                    "coding": [
+                       {
+                         "system":  "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                         "code": "author"
+                       }
+                    ]
+                  },
+                  "who": {
+                     "display":  "David Pyke"
+                   }
+                 },
+                 {
+                   "type":   {
+                      "coding": [
+                         {
+                          "system":  "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                          "code": "custodian"
+                         }
+                      ]
+                    },
+                    "who": {
+                      "display":  "CBCP"
+                    }
+                 }
+              ]
+           }
         }
     ]
 }
