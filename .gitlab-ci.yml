@@ -21,13 +21,14 @@ build-job:
     - ruby -v
     - jekyll -v
     - echo "End of dependency validation"
+    - echo "...Starting build process..."
+    - echo $CI_COMMIT_BRANCH
+# cp line explicitly copies the jar encapsulated in Docker image; _updatePublisher pulls a new one. Comment/Uncomment these lines for desired execution/testing.
 #    - cp /utgbuild/publisher.jar ../.
     - /bin/bash _updatePublisher.sh -y | tee /tmp/updatePublisher.log
-# Uncomment this to reactivate build
+# _genonce will run an actual build; simulatebuild accordingly simulates. Comment/Uncomment these lines for desired execution/testing.
     - /bin/bash _genonce.sh | tee /tmp/buildrun.log
 #    - python3 /utgbuild/simulatebuild.py | tee /tmp/buildrun.log
-# Modify line 2
-    - echo $CI_COMMIT_BRANCH
     - python3 /utgbuild/processresults.py $CI_COMMIT_BRANCH | tee /tmp/message.log
     - echo "UTG Build complete with Tee and email"
 
