@@ -24,10 +24,10 @@ build-job:
 #    - cp /utgbuild/publisher.jar ../.
     - /bin/bash _updatePublisher.sh -y | tee /tmp/updatePublisher.log
 # Uncomment this to reactivate build
-#    - /bin/bash _genonce.sh | tee /tmp/buildrun.log 
+    - /bin/bash _genonce.sh | tee /tmp/buildrun.log
+#    - python3 /utgbuild/simulatebuild.py | tee /tmp/buildrun.log
 # Modify line 2
     - echo $CI_COMMIT_BRANCH
-    - python3 /utgbuild/simulatebuild.py | tee /tmp/buildrun.log
     - python3 /utgbuild/processresults.py $CI_COMMIT_BRANCH | tee /tmp/message.log
     - echo "UTG Build complete with Tee and email"
 
