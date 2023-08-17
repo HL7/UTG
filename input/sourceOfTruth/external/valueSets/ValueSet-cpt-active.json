@@ -1,0 +1,48 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "cpt-active",
+  "url" : "http://hl7.org/fhir/ValueSet/cpt-active",
+  "version" : "2023",
+  "name" : "AmaCPTActiveCodes",
+  "title" : "AMA CPTActiveCodes",
+  "status" : "active",
+  "date" : "2023-08-05T16:43:13+10:00",
+  "publisher" : "HL7 (FHIR Project)",
+  "copyright" : "HL7. Creative Commons 1.0.",
+  "contact" : [{
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://hl7.org/fhir"
+    },
+    {
+      "system" : "email",
+      "value" : "fhir@lists.hl7.org"
+    }]
+  }],
+  "description" : "All codes in CPT that represent procedure codes (e.g. for Procedure.code).",
+  "immutable" : true,
+  "compose" : {
+    "include" : [{
+      // plain codes (no modifiers)
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "copyright" : "CPT © Copyright 2019 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
+      "filter" : [{
+        "property" : "modified",
+        "op" : "=",
+        "value" : "false"
+      },{
+        "property" : "modifier",
+        "op" : "=",
+        "value" : "false"
+      }] 
+    },{
+      // codes with modifiers (grammar enforces rules)
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "filter" : [{
+        "property" : "modified",
+        "op" : "=",
+        "value" : "true"
+      }] 
+    }]
+  }
+}
