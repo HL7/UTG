@@ -11,11 +11,14 @@
  <tr><td>Source</td><td>CPT is made managed by the <a href="http://www.ama-assn.org/ama">American Medical Association</a></td></tr>
  <tr><td>System</td><td>The URI <a href="http://www.ama-assn.org/go/cpt">http://www.ama-assn.org/go/cpt</a> identifies the CPT code system</td></tr>
  <tr><td>Version</td><td>Where a version is appropriate, use the year of release e.g. 2014</td></tr>
- <tr><td>Code</td><td>"Code" in the CPT tables (a 5-character code)</td></tr>
- <tr><td>Display</td><td>The correct display for a CPT code is one of the descriptions associated with the code. There are multiple description options that vary by length and target audience, including: long descriptions, medium descriptions, short descriptions, consumer friendly descriptors and clinician descriptors.</td></tr>
+ <tr><td>Code</td><td>"Code" in the CPT tables (a 5-character code), a modifier code (2 characters), or an expression with modifiers (see below)</td></tr>
+ <tr><td>Display</td><td>The correct display for a CPT code is one of the descriptions associated with the code. 
+ There are multiple description options that vary by length and target audience, including: long descriptions, medium descriptions, short descriptions, consumer friendly descriptors and clinician descriptors.
+ The long mixed-case description is the preferred general purpose display as the others are not fully descriptive. There is no
+ defined display for CPT expressions</td></tr>
  <tr><td>Inactive</td><td>For CPT Link ontology licensees, inactive codes are listed in the History folder in the “Deleted_DTK_pipe” and “Deleted_DTK_tab” files.<br/>For CPT flat file licensees, codes that exist in the flat file are active and codes that are not present are inactive. Deletions/changes between the previous release year and current release year are displayed in the “Appendix B” PDF.</td></tr>
  <tr><td>Subsumption</td><td>No Subsumption relationships are defined by CPT</td></tr>
- <tr><td>Filter Properties</td><td>None defined</td></tr>
+ <tr><td>Filter Properties</td><td>There are several defined - see below</td></tr>
 </table>
 
 <!-- Version Issues -->
@@ -36,18 +39,249 @@
 </pre>
 
 <!-- Copyright/License Issues -->
-<a name="Copyright/License Issues"> </a>
+<a name="CopyrightLicenseIssues"> </a>
 <h4>Copyright/License Issues</h4>
 <p>CPT is a registered trademark of the American Medical Association. The AMA holds the copyright for the CPT coding system and a license is required for use.</p>
 <p>When Value Sets include CPT codes, the copyright element should include the text  "CPT © Copyright 2019 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.". The year in the copyright element should be adjusted to reflect the release year(s) being used.</p>
 
+<p>
+Note that due to the copyright and licensing rules around CPT, HL7 does not distribute a 
+pre-built CodeSystem for CPT. If implementers would find a CPT code system useful, they 
+may build one using the HL7 Java validator. See <a href="http://confluence/link/to/provide">HL7 Confluence</a> for details.
+</p>
+
+<a name="ModifierSyntax"> </a>
+<h4>Modifier Syntax</h4>
+<p>
+CPT defines a series of 2 letter modifier codes that provide additional information about the main CPT code.
+Some contexts of use of CPT codes separate the base code and the modifier codes into separate fields (e.g. claiming)
+while other contexts of use expect that the modifiers will be combined with the main code (e.g. Procedure.code).
+When the modifiers are combined in a single field, modifiers are appended to the main code in any order using 
+<code>:</code> as a separater (per established X12 usage):
+</p>
+<pre class="xml" fragment="Coding">
+  &lt;coding&gt;
+    &lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
+    &lt;version value=&quot;2019&quot;/&gt;
+    &lt;code value=&quot;21899:63&quot;/&gt;
+  &lt;/coding&gt;
+</pre>
+<p>
+Note that the combination of base code and modifiers must be done according to the rules defined in
+the CPT documentation.
+</p>
+
+<a name="CPTConceptProperties"> </a>
+<h4>CPT Concept Properties</h4>
+<p>This specification defines three properties that all CPT concepts have:</p>
+<table class="grid">
+  <tr>
+    <th>Name</th>
+    <th>Cardinality</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>modifier</td>
+    <td>1..1</td>
+    <td>boolean</td>
+    <td>True if the code is a 2 letter modifer code, and false otherwise. This property 
+     is defined to make it easy to define modifier only value sets (see value sets below)</td>
+  </tr>
+  <tr>
+    <td>modified</td>
+    <td>1..1</td>
+    <td>boolean</td>
+    <td>Whether the code is an expression - i.e. whether it includes modifiers using the modifier syntax described above.
+    All of the base codes defined in the CPT distribution have modified = false. This fairly trivial property is 
+    defined so it can be used in the filters below</td>
+  </tr>
+  <tr>
+    <td>kind</td>
+    <td>0..*</td>
+    <td>code</td>
+    <td>
+     The kind of CPT code. The values may be one of:
+     <ul>
+      <li><code>code</code>: A normal CPT code</li>
+      <li><code>cat-1</code>: CPT Level I Modifiers</li>
+      <li><code>cat-2</code>: A Category II code or modifier</li>
+      <li><code>physical-status</code>: Anesthesia Physical Status Modifiers</li>
+      <li><code>general</code>: A general modifier</li>
+      <li><code>hcpcs</code>: Level II (HCPCS/National) Modifiers</li>
+      <li><code>orthopox</code>: An orthopox labelled code</li>
+      <li><code>metadata</code>: A kind of code or designation</li>
+     </ul>
+     All predefined concepts have a type. Concepts defined by an expression do not have a kind.
+     Note that some concepts have more than one kind: some general modifiers are cat-1 modifiers, but not all are, and orthopox codes are also normal CPT codes.
+    </td>
+  </tr>
+</table>
+
 <!-- CPT Filter Properties -->
-<a name="CPT Filter Properties"> </a>
+<a name="CPTFilterProperties"> </a>
 <h4>CPT Filter Properties</h4>
-<p>No filter properties have been defined at this time.</p>
+<p>This specification defines four filters that may be used with the CPT code system.</p>
+<table class="grid">
+  <tr>
+    <th>Name</th>
+    <th>Operation(s)</th>
+    <th>Value(s)</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>modifier</td>
+    <td>=</td>
+    <td>true or false</td>
+    <td>Whether the code is a modifier or not (based on the modifier property). Typically, 
+    a value set would use <code>modifier=false</code> to specify base codes only, for example 
+    in <code>Claim.item.detail.productOrService</code>, while <code>modifier=true</code> woudl be used 
+    to specify modifier codes, for example in <code>Claim.item.detail.modifier</code> </td>
+  </tr>
+  <tr>
+    <td>kind</td>
+    <td>=/in</td>
+    <td>a kind from the list above, or a comma seperated list of kinds</td>
+    <td>Select a kind of code from the list above</td>
+  </tr>
+  <tr>
+    <td>modified</td>
+    <td>=</td>
+    <td>true or false</td>
+    <td>Whether an expression is allowed or not. A typical use of this would be with <code>Procedure.code</code>,
+      a value set would specify two includes: <code>kind in code,cat-2</code> and <code>modified=true</code>, to indicate
+      that CPT codes might be a base CPT code or an expression.  
+    </td>
+  </tr>
+  <tr>
+    <td>code</td>
+    <td>in</td>
+    <td>a series of ranges seperated by commas</td>
+    <td>Ranges may be a single code, or a range of codes e.g. <code>20100-69990, 92920, 92926-92928</code></td>
+  </tr>
+  
+</table>  
 
 <!-- CPT Implicit Value Sets -->
-<a name="CPT Implicit Value Sets"> </a>
+<a name="CPTImplicitValueSets"> </a>
 <h4>CPT Implicit Value Sets</h4>
-<p>The value set URL http://hl7.org/fhir/ValueSet/cpt-all is a value set that includes all CPT codes.</p>
+
+<p>There are no general implicit value set formula defined for CPT, 
+but there are four predefined value sets that implementers may find 
+generally useful:
+</p>
+
+<table class="grid">
+ <tr>
+  <th>url</th>
+  <th>Compose</th>
+ </tr>
+
+ <tr>
+  <td>
+  <code>http://hl7.org/fhir/ValueSet/cpt-all</code>:<br/>
+  a value set that includes all CPT codes (including internal metadata)
+  </td>
+  <td>
+<pre>
+"compose" : {
+    "include" : [{
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "copyright" : "CPT © Copyright 2019 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association."
+    }]
+  }
+</pre>
+<br/>
+Note that the include level copyright is an R5 feature. IN previous versions of FHIR, the copyright must go in ValueSet.copyright.
+  </td>
+ </tr>
+
+ <tr>
+  <td>
+  <code>http://hl7.org/fhir/ValueSet/cpt-base</code>:<br/>
+  All codes in CPT that represent procedure codes (no modifiers allowed - e.g. for Claim.item.productOrService)
+  </td>
+  <td>
+<pre>
+  "compose" : {
+    "include" : [{
+      // plain codes (no modifiers)
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "copyright" : "CPT © Copyright 2019 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
+      "filter" : [{
+        "property" : "modified",
+        "op" : "=",
+        "value" : "false"
+      },{
+        "property" : "modifier",
+        "op" : "=",
+        "value" : "false"
+      }] 
+    }]
+  }
+</pre>
+  </td>
+ </tr>
+
+ <tr>
+  <td>
+  <code>http://hl7.org/fhir/ValueSet/cpt-modifiers</code>:<br/>
+  CPT modifiers (e.g. for Claim.item.modifier)
+  </td>
+  <td>
+<pre>
+  "compose" : {
+    "include" : [{
+      // only modifiers
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "copyright" : "CPT © Copyright 2019 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
+      "filter" : [{
+        "property" : "modifier",
+        "op" : "=",
+        "value" : "true"
+      }] 
+    }]
+  }
+</pre>
+  </td>
+
+ <tr>
+  <td>
+  <code>http://hl7.org/fhir/ValueSet/cpt-active</code>:<br/>
+  All codes in CPT that represent procedure codes (e.g. for Procedure.code).
+  </td>
+  <td>
+<pre>
+  "compose" : {
+    "include" : [{
+      // plain codes (no modifiers)
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "copyright" : "CPT © Copyright 2019 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
+      "filter" : [{
+        "property" : "modified",
+        "op" : "=",
+        "value" : "false"
+      },{
+        "property" : "modifier",
+        "op" : "=",
+        "value" : "false"
+      }] 
+    },{
+      // codes with modifiers (grammar enforces rules)
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "filter" : [{
+        "property" : "modified",
+        "op" : "=",
+        "value" : "true"
+      }] 
+    }]
+  }
+</pre>
+  </td>
+ </tr>
+
+ </tr>
+
+</table>
+<p>The value set URL  is .</p>
 </div>
