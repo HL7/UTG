@@ -24,7 +24,7 @@
 <!-- Version Issues -->
 <a name="Version Issues"> </a>
 <h4>Version Issues</h4>
-<p>A new code-year of CPT is released by the end of August each year for use the subsequent calendar year. CPT versions are identified simply by the year of their release e.g. <code>2020</code>. For example, the CPT 2020 codes are released at the end of August 2019 and intended for use during the 2020 calendar year.</p>
+<p>A new code-year of CPT is released by the end of August each year for use the subsequent calendar year. CPT versions are identified simply by the year of their release e.g. <code>2020</code>. For example, the CPT 2020 codes are released at the end of August 2023 and intended for use during the 2020 calendar year.</p>
 
 <!-- Example Usage -->
 <a name="Example Usage"> </a>
@@ -32,7 +32,7 @@
 <pre class="xml" fragment="Coding">
   &lt;coding&gt;
     &lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
-    &lt;version value=&quot;2019&quot;/&gt;
+    &lt;version value=&quot;2023&quot;/&gt;
     &lt;code value=&quot;31502&quot;/&gt;
     &lt;display value=&quot;Tracheotomy tube change prior to establishment of fistula tract&quot;/&gt;
   &lt;/coding&gt;
@@ -42,13 +42,29 @@
 <a name="CopyrightLicenseIssues"> </a>
 <h4>Copyright/License Issues</h4>
 <p>CPT is a registered trademark of the American Medical Association. The AMA holds the copyright for the CPT coding system and a license is required for use.</p>
-<p>When Value Sets include CPT codes, the copyright element should include the text  "CPT © Copyright 2019 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.". The year in the copyright element should be adjusted to reflect the release year(s) being used.</p>
+<p>When Value Sets include CPT codes, the <code>ValueSet.compose.include.copyright</code> element should have the text 
+"CPT © Copyright 2023 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.". 
+The year in the copyright element should be adjusted to reflect the release year(s) being used.</p>
 
 <p>
 Note that due to the copyright and licensing rules around CPT, HL7 does not distribute a 
 pre-built CodeSystem for CPT. If implementers would find a CPT code system useful, they 
 may build one using the HL7 Java validator. See <a href="http://confluence/link/to/provide">HL7 Confluence</a> for details.
 </p>
+
+<a name="r4"> </a>
+<h3>Using CPT with earlier versions of FHIR</h3>
+<p>
+This page documents the correct usage of CPT with R5, but the concepts apply to all versions of 
+FHIR. Earlier versions of FHIR contained a 'Using CPT with HL7 FHIR RX page' (e.g. <a href="http://hl7.org/fhir/R4/cpt.html">R4</a>).
+This page should be understood to replace those earlier pages. Note that this pages defines additional valid codes, properties,
+filters and the expression syntax which add facilities not previously described, but do not otherwise invalidate the advice 
+in those earlier pages. 
+</p>
+<p>
+With regard to version, the copyright phrase above SHOULD be included in the <code>ValueSet.copyright</code> 
+statement for any value set that includes CPT codes.
+</p>   
 
 <a name="ModifierSyntax"> </a>
 <h4>Modifier Syntax</h4>
@@ -62,7 +78,7 @@ When the modifiers are combined in a single field, modifiers are appended to the
 <pre class="xml" fragment="Coding">
   &lt;coding&gt;
     &lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
-    &lt;version value=&quot;2019&quot;/&gt;
+    &lt;version value=&quot;2023&quot;/&gt;
     &lt;code value=&quot;21899:63&quot;/&gt;
   &lt;/coding&gt;
 </pre>
@@ -113,19 +129,30 @@ Notes:
       <li><code>physical-status</code>: Anesthesia Physical Status Modifiers</li>
       <li><code>general</code>: A general modifier</li>
       <li><code>hcpcs</code>: Level II (HCPCS/National) Modifiers</li>
-      <li><code>orthopox</code>: An orthopox labelled code</li>
       <li><code>metadata</code>: A kind of code or designation</li>
      </ul>
      All predefined concepts have a type. Concepts defined by an expression do not have a kind.
      Note that some concepts have more than one kind: some general modifiers are cat-1 modifiers, but not all are, and orthopox codes are also normal CPT codes.
     </td>
   </tr>
+  <tr>
+    <td>orthopox</td>
+    <td>0..1</td>
+    <td>boolean</td>
+    <td>Whether code is one of the Pathology and Laboratory and Immunization Code(s) for Orthopoxvirus. This code might be used in some value set filters</td>
+  </tr>
+  <tr>
+    <td>telemedicine</td>
+    <td>0..1</td>
+    <td>boolean</td>
+    <td>Whether code is one of the Pathology and Laboratory and Immunization Code(s) for telemedicine. This code might be used in some value set filters, and is defined for use internally by terminology servers when validating expressions for modifier 95</td>
+  </tr>
 </table>
 
 <!-- CPT Filter Properties -->
 <a name="CPTFilterProperties"> </a>
 <h4>CPT Filter Properties</h4>
-<p>This specification defines four filters that may be used with the CPT code system.</p>
+<p>This specification defines six filters that may be used with the CPT code system.</p>
 <table class="grid">
   <tr>
     <th>Name</th>
@@ -163,6 +190,18 @@ Notes:
     <td>a series of ranges seperated by commas</td>
     <td>Ranges may be a single code, or a range of codes e.g. <code>20100-69990, 92920, 92926-92928</code></td>
   </tr>
+  <tr>
+    <td>telemedicine</td>
+    <td>=</td>
+    <td>true or false</td>
+    <td>Select or unselect codes that are appropriate for use with the telemedicine modifier 95</td>
+  </tr>
+  <tr>
+    <td>orthopox</td>
+    <td>=</td>
+    <td>true or false</td>
+    <td>Select or unselect codes that are marked as orthopox codes</td>
+  </tr>
   
 </table>  
 
@@ -191,7 +230,7 @@ generally useful:
 "compose" : {
     "include" : [{
       "system" : "http://www.ama-assn.org/go/cpt",
-      "copyright" : "CPT © Copyright 2019 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association."
+      "copyright" : "CPT © Copyright 2023 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association."
     }]
   }
 </pre>
@@ -211,7 +250,7 @@ Note that the include level copyright is an R5 feature. IN previous versions of 
     "include" : [{
       // plain codes (no modifiers)
       "system" : "http://www.ama-assn.org/go/cpt",
-      "copyright" : "CPT © Copyright 2019 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
+      "copyright" : "CPT © Copyright 2023 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
       "filter" : [{
         "property" : "modified",
         "op" : "=",
@@ -238,7 +277,7 @@ Note that the include level copyright is an R5 feature. IN previous versions of 
     "include" : [{
       // only modifiers
       "system" : "http://www.ama-assn.org/go/cpt",
-      "copyright" : "CPT © Copyright 2019 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
+      "copyright" : "CPT © Copyright 2023 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
       "filter" : [{
         "property" : "modifier",
         "op" : "=",
@@ -260,7 +299,7 @@ Note that the include level copyright is an R5 feature. IN previous versions of 
     "include" : [{
       // plain codes (no modifiers)
       "system" : "http://www.ama-assn.org/go/cpt",
-      "copyright" : "CPT © Copyright 2019 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
+      "copyright" : "CPT © Copyright 2023 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
       "filter" : [{
         "property" : "modified",
         "op" : "=",
@@ -287,5 +326,5 @@ Note that the include level copyright is an R5 feature. IN previous versions of 
  </tr>
 
 </table>
-<p>The value set URL  is .</p>
+
 </div>
