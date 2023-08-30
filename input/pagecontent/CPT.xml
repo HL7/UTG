@@ -24,7 +24,7 @@
 <!-- Version Issues -->
 <a name="Version Issues"> </a>
 <h4>Version Issues</h4>
-<p>A new code-year of CPT is released by the end of August each year for use the subsequent calendar year. CPT versions are identified simply by the year of their release e.g. <code>2024</code>. For example, the CPT 2024 codes are released at the end of August 2023 and intended for use during the 2024 calendar year.</p>
+<p>A new code-year of CPT is released by the end of August each year for use the subsequent calendar year. CPT versions are identified by the year of their intended use e.g. <code>2020</code>. For example, the CPT 2020 codes are released at the end of August 2019 and intended for use during the 2020 calendar year.</p>
 
 <!-- Example Usage -->
 <a name="Example Usage"> </a>
@@ -114,7 +114,7 @@ Notes:
     <td>
      The kind of CPT code. The values may be one of:
      <ul>
-      <li><code>code</code>: A normal CPT code</li>
+      <li><code>code</code>: A base CPT code</li>
       <li><code>cat-1</code>: CPT Level I Modifiers</li>
       <li><code>cat-2</code>: A Category II code or modifier</li>
       <li><code>physical-status</code>: Anesthesia Physical Status Modifiers</li>
@@ -214,7 +214,7 @@ generally useful:
  <tr>
   <td>
   <code>http://hl7.org/fhir/ValueSet/cpt-all</code>:<br/>
-  a value set that includes all CPT codes (including internal metadata)
+  a value set that includes all CPT codes (including base codes, modifiers and internal metadata)
   </td>
   <td>
 <pre>
@@ -282,8 +282,8 @@ Note that the include level copyright is an R5 feature. IN previous versions of 
 
  <tr>
   <td>
-  <code>http://hl7.org/fhir/ValueSet/cpt-active</code>:<br/>
-  All codes in CPT that represent procedure codes (e.g. for Procedure.code).
+  <code>http://hl7.org/fhir/ValueSet/cpt-usable</code>:<br/>
+  All codes in CPT codes (no modifiers) that represent procedure codes (e.g. for Procedure.code).
   </td>
   <td>
 <pre>
