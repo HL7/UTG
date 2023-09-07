@@ -1,0 +1,59 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-EntityDeterminer",
+      "concept" : [{
+        "code" : "INSTANCE"
+      },
+      {
+        "code" : "KIND"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:0c14255a-d33c-4200-89eb-887af924a9cc",
+    "timestamp" : "2022-12-08T21:19:46.915Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-EntityDeterminer|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Description:**A determiner that specifies that the Entity object represents a particular physical thing (as opposed to a universal, kind, or class of physical thing).\r\n\r\n**Discussion:** It does not matter whether an INSTANCE still exists as a whole at the point in time (or process) when we mention it, for example, a drug product lot is an INSTANCE even though it has been portioned out for retail purpose."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-EntityDeterminer",
+      "code" : "INSTANCE",
+      "display" : "specific"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Description:**A determiner that specifies that the Entity object represents a universal, kind or class of physical thing (as opposed to a particular thing)."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-EntityDeterminer",
+      "code" : "KIND",
+      "display" : "described"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

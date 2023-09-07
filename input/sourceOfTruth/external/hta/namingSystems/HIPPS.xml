@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<NamingSystem xmlns="http://hl7.org/fhir">
+  <id value="HIPPS"/>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.title">
+    <valueString value="Health Insurance Prospective Payment System (HIPPS)"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
+    <valueUri value="http://terminology.hl7.org/NamingSystem/HIPPS"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.version">
+    <valueString value="1.0.0"/>
+  </extension>
+  <name value="HIPPS"/>
+  <status value="active"/>
+  <kind value="codesystem"/>
+  <date value="2022-05-25T00:00:00-00:00"/>
+  <publisher value="U.S. Centers for Medicare &#38; Medicaid Services (CMS)"/>
+  <contact>
+    <name value="U.S. Centers for Medicare &#38; Medicaid Services (CMS)"/>
+	<telecom>
+		<system value="email"/>
+		<value value="HIPPS@cms.hhs.gov"/>
+	</telecom>
+	<telecom>
+		<system value="url"/>
+		<value value="https://www.cms.gov/"/>
+	</telecom>
+  </contact>
+  <responsible value="U.S. Centers for Medicare &#38; Medicaid Services (CMS)"/>
+  <description value="&quot;Health Insurance Prospective Payment System (HIPPS) rate codes represent specific sets of patient characteristics (or case-mix groups) health insurers use to make payment determinations under several prospective payment systems. Case-mix groups are developed based on research into utilization patterns among various provider types. For the payment systems that use HIPPS codes, clinical assessment data is the basic input. A standard patient assessment instrument is interpreted by case-mix grouping software algorithms, which assign the case mix group. For payment purposes, at least one HIPPS code is defined to represent each case-mix group. These HIPPS codes are reported on claims to insurers.&#13;&#10;&#13;&#10;Institutional providers use HIPPS codes on claims in association with special revenue codes. One revenue code is defined for each prospective payment system that requires HIPPS codes. HIPPS codes are placed in data element SV202 on the electronic 837 institutional claims transaction, using an HP qualifier, or in Form Locator (FL) 44 (&quot;HCPCS/rate&quot;) on a paper UB-04 claims form. The associated revenue code is placed in data element SV201 or in FL 42. In certain circumstances, multiple HIPPS codes may appear on separate lines of a single claim.&quot;&#13;&#10;&#13;&#10;&quot;HIPPS codes are alpha-numeric codes of five digits. Each code contains intelligence, with certain positions of the code indicating the case mix group itself, and other positions providing additional information. The additional information varies among HIPPS codes pertaining to different payment systems, but often provides information about the clinical assessment used to arrive at the code. Which positions of the code carry the case mix group information may also vary by payment systems.&quot;&#13;&#10;&#13;&#10;&quot;Under the Health Insurance Portability and Accountability Act (HIPAA) rules for transactions and code sets, HIPPS codes are defined as a non-medical code set. Therefore, these codes are effective by transaction date.&#13;&#10;&#13;&#10;Effective From Dates: HIPPS codes are valid under HIPAA on transactions on or after this date. Since all HIPPS codes to date have been initially created for Original Medicare payment systems, this is also date of service the codes begin to be payable by Medicare. While it is valid under HIPAA rules that a claim for dates of service before this date could be submitted on a transaction after this date, CMS is not aware of a business need for a provider to do so. The code would not be payable by any insurer and no Grouper software would be available to produce a code for those dates.&#13;&#10;&#13;&#10;Effective Through Dates: HIPPS codes are no longer valid under HIPAA on transactions on or after this date. This date may vary from the date a code ceases to be payable by Medicare, since other payers may continue to use older HIPPS codes after Medicare transitions to a new payment system. Since CMS, as the HIPPS code set maintainer, may not have complete information about other payers’ uses of these codes, codes may remain effective under HIPAA long after they cease to be payable on Medicare claims. To reflect this, a separate column on the HIPPS Code Master List indicates the Medicare Payment Though Date.&quot;"/>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/ProspMedicareFeeSvcPmtGen/HIPPSCodes"/>
+    <preferred value="true"/>
+	<comment value="This is the URL endorsed by the HTA and is considered authoritative."/>
+	<period>
+      <start value="2020-02-08"/>
+    </period>
+  </uniqueId>
+</NamingSystem>
