@@ -9,9 +9,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="draft"/>
-  </extension>
+ 
+ 
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
@@ -20,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1108"/>
   </identifier>
-  <version value="0.1.0"/>
+  <version value="1.0.0"/>
   <name value="LocationType"/>
   <title value="Location type"/>
   <status value="draft"/>
@@ -32,7 +31,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This example value set defines a set of codes that can be used to indicate the physical form of the Location."/>
+  <description value="This example value set defines a set of codes that can be used to indicate the physical form of the Location.&#xD;&#xD;This includes several 'non physical' codes which are still considered a location."/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/location-physical-type"/>
   <content value="complete"/>
@@ -105,5 +104,10 @@
     <code value="jdn"/>
     <display value="Jurisdiction"/>
     <definition value="A wide scope that covers a conceptual domain, such as a Nation (Country wide community or Federal Government - e.g. Ministry of Health),  Province or State (community or Government), Business (throughout the enterprise), Nation with a business scope of an agency (e.g. CDC, FDA etc.) or a Business segment (UK Pharmacy), not just an physical boundary"/>
+  </concept>
+  <concept>
+    <code value="vi"/>
+    <display value="Virtual"/>
+    <definition value="A location that is virtual in nature, such as a conference call or virtual meeting space"/>
   </concept>
 </CodeSystem>

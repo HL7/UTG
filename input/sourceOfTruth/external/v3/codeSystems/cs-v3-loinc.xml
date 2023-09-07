@@ -11,16 +11,32 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.6.1"/>
   </identifier>
-  <version value="3.0.0"/>
+  <identifier>
+    <use value="official"/>
+    <system value="urn:ietf:rfc:3987"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203" />
+        <code value="iri-stem" />
+      </coding>
+    </type>
+    <value value="http://loinc.org/rdf/"/>
+    <assigner>
+      <display value="LOINC as per User Guide S12.7.2 at https://loinc.org/kb/users-guide/recommendations-for-best-practices-in-using-and-mapping-to-loinc/#using-uris-to-identify-loinc-artifacts, retrieved 2022-11-22"/>
+    </assigner>
+  </identifier>
+  <version value="3.1.0"/>
   <name value="LOINC"/>
   <title value="Logical Observation Identifiers, Names and Codes (LOINC)"/>
   <status value="active"/>
-  <date value="2020-11-03"/>
+  <experimental value="false"/>
+  <date value="2022-11-22"/>
   <publisher value="LOINC and Health Data Standards, Regenstrief Institute, Inc."/>
   <contact>
     <name value="LOINC and Health Data Standards, Regenstrief Institute, Inc."/>
   </contact>
   <description value="LOINC provides a set of universal names and ID codes for identifying laboratory and clinical test results.1,2 LOINC facilitates the exchange and pooling of results, such as blood hemoglobin, serum potassium, or vital signs, for clinical care, outcomes management, and research. LOINC's universal identifiers (names and codes) can be used in the context of order and observation exchanges between information systems that use syntax standards such as HL73, CEN TC251, ISO TC215, ASTM4, and DICOM. Specifically, the identifier can be used as the coded value for an observation in any other standard that uses the observation/observation value paradigm, whether messages, documents, application programming interface (API), etc. For example, LOINC codes are used widely in the OBX segment Observation Identifier field (OBX-3) of an ORU HL7 (HL7 version 2.x or ASTM 1238-9410) message that may be sent between a Clinical Laboratory Information Management Systems (LIMS) and Electronic Health Record Systems (EHR).5, 6 In this way, LOINC codes provide universal identifiers that allow the exchange of clinical data between heterogeneous computing environments."/>
   <copyright value="Per the LOINC License &quot;Permission is hereby granted in perpetuity, without payment of license fees or royalties, to use, copy, or distribute the Licensed Materials for any commercial or non-commercial purpose, subject to the following terms and conditions&quot; Please also note that some content (for example some of the assessment scale content) within LOINC is subject to copyright from third parties and is present in LOINC with permission or under the applicable terms of use from the third party.  Some included third party content requires attribution specific to a particular LOINC code or codes. Such third party content is identified in the LOINC Table and LOINC Table Core by the applicable copyright notice stored in the EXTERNAL_COPYRIGHT_NOTICE field. For further information and for details of how implementers should manage use of third party content (including license obligations) please see https://loinc.org/kb/license/"/>
+  <caseSensitive value="true"/>
   <content value="not-present"/>
 </CodeSystem>

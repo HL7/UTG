@@ -9,9 +9,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
+ 
+ 
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
   </extension>
@@ -20,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1420"/>
   </identifier>
-  <version value="0.1.0"/>
+  <version value="1.0.0"/>
   <name value="EncounterSubjectStatus"/>
   <title value="Encounter subject status"/>
   <status value="draft"/>
@@ -39,17 +38,26 @@
   <concept>
     <code value="arrived"/>
     <display value="Arrived"/>
+    <definition value="The subject has arrived at the physical or virtual location and is ready to receive care."/>
   </concept>
   <concept>
     <code value="triaged"/>
     <display value="Triaged"/>
+    <definition value="The subject has been seen triaged by staff and is waiting for further care."/>
+  </concept>
+  <concept>
+    <code value="receiving-care"/>
+    <display value="Receiving Care"/>
+    <definition value="The subject is present and commenced receiving care.  This can include periods of waiting between care."/>
   </concept>
   <concept>
     <code value="on-leave"/>
     <display value="On Leave"/>
+    <definition value="The subject has left the physical or virtual location, but is expected to return and resume care as part of this encounter."/>
   </concept>
   <concept>
     <code value="departed"/>
     <display value="Departed"/>
+    <definition value="The subject has left the physical or virtual location, and is not expected to return as part of this encounter."/>
   </concept>
 </CodeSystem>

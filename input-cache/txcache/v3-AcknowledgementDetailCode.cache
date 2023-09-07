@@ -1,0 +1,141 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-AcknowledgementDetailCode",
+      "concept" : [{
+        "code" : "INTERR"
+      },
+      {
+        "code" : "NOSTORE"
+      },
+      {
+        "code" : "RTEDEST"
+      },
+      {
+        "code" : "RTUDEST"
+      },
+      {
+        "code" : "RTWDEST"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:83c47e21-e0a5-4e0d-aab1-c43c7c2609ce",
+    "timestamp" : "2022-12-08T21:27:09.478Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-AcknowledgementDetailCode|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "An internal software component (database, application, queue mechanism, etc.) has failed, leading to inability to process the message."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-AcknowledgementDetailCode",
+      "code" : "INTERR",
+      "display" : "Internal system error"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Rejection:** The message can't be stored by the receiver due to an unspecified internal application issue. The message was neither processed nor stored by the receiving application."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-AcknowledgementDetailCode",
+      "code" : "NOSTORE",
+      "display" : "No storage space for message."
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Error:** The destination of this message is known to the receiving application. Messages have been successfully routed to that destination in the past. The link to the destination application or an intermediate application is unavailable."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-AcknowledgementDetailCode",
+      "code" : "RTEDEST",
+      "display" : "Message routing error, destination unreachable."
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The destination of this message is unknown to the receiving application. The receiving application in the message does not match the application which received the message. The message was neither routed, processed nor stored by the receiving application."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-AcknowledgementDetailCode",
+      "code" : "RTUDEST",
+      "display" : "Error: Message routing error, unknown destination."
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "**Warning:** The destination of this message is known to the receiving application. Messages have been successfully routed to that destination in the past. The link to the destination application or an intermediate application is (temporarily) unavailable. The receiving application will forward the message as soon as the destination can be reached again."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-AcknowledgementDetailCode",
+      "code" : "RTWDEST",
+      "display" : "Message routing warning, destination unreachable."
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-AcknowledgementDetailCode",
+      "concept" : [{
+        "code" : "_AcknowledgementDetailNotSupportedCode"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:bd80e48c-cb92-426a-8f19-121092f31f81",
+    "timestamp" : "2022-12-08T21:27:09.728Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-AcknowledgementDetailCode|2.1.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Refelects rejections because elements of the communication are not supported in the current context."
+      }],
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-AcknowledgementDetailCode",
+      "code" : "_AcknowledgementDetailNotSupportedCode",
+      "display" : "AcknowledgementDetailNotSupportedCode"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
