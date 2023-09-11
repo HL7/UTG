@@ -37,7 +37,8 @@ WARNING: ValueSet.where(id = 'v3-OrganizationIndustryClassNAICS'): Error from se
 WARNING: ValueSet.where(id = 'v3-SCDHEC-GISSpatialAccuracyTiers'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/SCDHEC-GISSpatialAccuracyTiers
 WARNING: ValueSet.where(id = 'v3-USEncounterDischargeDisposition'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
 WARNING: ValueSet.where(id = 'v3-USEncounterReferralSource'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
-WARNING: ValueSet/v3-KnowledgeSubtopicObservationValue: ValueSet.compose[0].include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters can't be checked (Details: Code System URI 'https://www.nlm.nih.gov/mesh' is unknown so the code cannot be validated)
+WARNING: ValueSet/v3-AgeGroupObservationValue: ValueSet.compose.include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters can't be checked (Details: The CodeSystem https://www.nlm.nih.gov/mesh is unknown (from Tx-Server))
+WARNING: ValueSet/v3-KnowledgeSubtopicObservationValue: ValueSet.compose.include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters can't be checked (Details: Code System URI 'https://www.nlm.nih.gov/mesh' is unknown so the code cannot be validated)
 
 # this is intended behavior
 WARNING: CodeSystem/ICD-10DualCoding: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
@@ -54,11 +55,20 @@ WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-v
 WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
 
-# Codesystem v2-0338 has the code.  Will hopefully deal with in the future.
-WARNING: ValueSet/v2-0338: ValueSet.compose[0].include[0].concept[4]: The code L&I is not valid in the system http://terminology.hl7.org/CodeSystem/v2-0203 version 2.7.0
-
 # value sets based on versions of code systems prior to their inclusion in THO.
 WARNING: ValueSet.where(id = 'v2-0350'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0350 version 2.1.0 (known versions = 2.9)
 WARNING: ValueSet.where(id = 'v2-0351'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0351 version 2.1.0 (known versions = 2.9)
 WARNING: ValueSet.where(id = 'v2-0456'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0456 version 2.1.0 (known versions = 2.9)
 WARNING: ValueSet.where(id = 'v2-0895'): Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0895 version 2.1.0 (known versions = 2.9)
+
+# expected issues with large value sets
+INFORMATION: ValueSet/snomed-intl-gps: ValueSet.compose.include[0]: The value set include has too many codes to validate (26,157)
+INFORMATION: ValueSet/snomed-intl-gps: ValueSet.compose.include[0]: This SNOMED-CT based include has some concepts with semantic tags (FSN terms) and some without (preferred terms) - check that this is what is intended
+WARNING: ValueSet.where(id = 'snomed-intl-gps'): Error from server: Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/900000000000207008/version/20200731 (known versions = http://snomed.info/sct/32506021000036107/version/20220731,http://snomed.info/sct/11000146104/version/20230331,http://snomed.info/sct/83821000000107/version/20230412,http://snomed.info/sct/731000124108/version/20230301,http://snomed.info/sct/554471000005108/version/20210930,http://snomed.info/sct/45991000052106/version/20210531,http://snomed.info/sct/2011000195101/version/20230607,http://snomed.info/sct/20611000087101/version/20220930,http://snomed.info/sct/900000000000207008/version/20230731,http://snomed.info/sct/900000000000207008/version/20230131,http://snomed.info/sct/11000172109/version/20221115)
+
+# concept domain code system uses some deprecated properties
+INFORMATION: CodeSystem/conceptdomains: CodeSystem.concept[6].concept[11].concept[0].property[1].value.ofType(Coding): The code 'EVN.CRT' is valid but is deprecated
+INFORMATION: CodeSystem/conceptdomains: CodeSystem.concept[6].concept[11].concept[1].property[1].value.ofType(Coding): The code 'EVN.CRT' is valid but is deprecated
+INFORMATION: CodeSystem/conceptdomains: CodeSystem.concept[6].concept[11].concept[2].property[1].value.ofType(Coding): The code 'EVN.CRT' is valid but is deprecated
+INFORMATION: CodeSystem/conceptdomains: CodeSystem.concept[6].concept[11].concept[2].concept[0].property[1].value.ofType(Coding): The code 'EVN.CRT' is valid but is deprecated
+
