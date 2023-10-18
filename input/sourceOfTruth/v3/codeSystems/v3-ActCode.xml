@@ -16,7 +16,14 @@
   <date value="2023-05-30"/>
   <publisher value="Health Level Seven International"/>
   <contact>
-    <name value="Health Level Seven"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
   </contact>
   <description value="A code specifying the particular kind of Act that the Act-instance represents within its class.&#xD;&#xA;&#xD;&#xA;*Constraints:* The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. The coding system will depend on the class of Act, such as LOINC for observations, etc.&#xD;&#xA;&#xD;&#xA;Conceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.&#xD;&#xA;&#xD;&#xA;Act.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. For a negative example, it is not appropriate to use an Act.code &quot;potassium&quot; together with and Act.classCode for &quot;laboratory observation&quot; to somehow mean &quot;potassium laboratory observation&quot; and then use the same Act.code for &quot;potassium&quot; together with Act.classCode for &quot;medication&quot; to mean &quot;substitution of potassium&quot;. This mutually modifying use of Act.code and Act.classCode is not permitted."/>
   <caseSensitive value="true"/>
@@ -43,7 +50,17 @@
       <valueString value="Generalizes"/>
     </extension>
     <code value="Specializes"/>
-    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+    <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
     <type value="Coding"/>
   </property>
   <property>
@@ -66,7 +83,17 @@
       <valueString value="Specializes"/>
     </extension>
     <code value="Generalizes"/>
-    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+    <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Inverse of Specializes.  Only included as a derived relationship."/>
     <type value="Coding"/>
   </property>
   <property>
@@ -75,49 +102,129 @@
     </extension>
     <code value="rim-ClassifiesClassCode"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-ClassifiesClassCode"/>
-    <description value="The child code is a classification of the particular class group identified by the &#39;classCode&#39; in a RIM class as the parent code.  Used only in RIM backbone classes to link the code and classCode values."/>
+    <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="The child code is a classification of the particular class group identified by the &#39;classCode&#39; in a RIM class as the parent code.  Used only in RIM backbone classes to link the code and classCode values."/>
     <type value="Coding"/>
   </property>
   <property>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
-    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+    <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
-    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/>
+    <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/>
     <type value="code"/>
   </property>
   <property>
     <code value="deprecationDate"/>
     <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/>
-    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/>
+    <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/>
     <type value="dateTime"/>
   </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
-    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+    <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
     <type value="boolean"/>
   </property>
   <property>
     <code value="HL7usageNotes"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
-    <description value="HL7 Concept Usage Notes"/>
+    <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="HL7 Concept Usage Notes"/>
     <type value="string"/>
   </property>
   <property>
     <code value="synonymCode"/>
     <uri value="http://hl7.org/fhir/concept-properties#synonym"/>
-    <description value="An additional concept code that was also attributed to a concept"/>
+    <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="An additional concept code that was also attributed to a concept"/>
     <type value="code"/>
   </property>
   <property>
     <code value="subsumedBy"/>
     <uri value="http://hl7.org/fhir/concept-properties#parent"/>
-    <description value="The concept code of a parent concept"/>
+    <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="The concept code of a parent concept"/>
     <type value="code"/>
   </property>
   <concept>
