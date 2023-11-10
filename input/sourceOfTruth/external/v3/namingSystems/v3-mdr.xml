@@ -2,25 +2,29 @@
 
 <NamingSystem xmlns="http://hl7.org/fhir">
   <id value="mdr"/>
-  <extension url="http://hl7.org/fhir/tools/StructureDefinition/extension-title">
-    <valueString value="MedDRA"/>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.title">
+    <valueString value="Medical Dictionary for Regulatory Activities"/>
   </extension>
   <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
     <valueUri value="http://terminology.hl7.org/NamingSystem/mdr"/>
   </extension>
-  <extension url="http://terminology.hl7.org/StructureDefinition/ext-namingsystem-version">
-    <valueString value="2.1.0"/>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.version">
+    <valueString value="3.0.0"/>
   </extension>
-  <name value="Mdr"/>
+  <name value="MedDRA"/>
   <status value="active"/>
   <kind value="codesystem"/>
-  <date value="2019-03-20T00:00:00-04:00"/>
-  <publisher value="ICH"/>
+  <date value="2023-06-15T00:00:00-04:00"/>
+  <publisher value="MedDRA Maintenance and Support Services Organization (MedDRA MSSO); Mr. Patrick Revelle; MSSO Director"/>
   <contact>
-    <name value="MedDRA MSSO/ Northrop Grumman,MedDRA MSSO/ Northrop Grumman"/>
+    <name value="International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)"/>
+	<telecom>
+		<system value="url"/>
+		<value value="https://www.ich.org/page/contact"/>
+	</telecom>
   </contact>
-  <responsible value="ICH"/>
-  <description value="MedDRA is a five-level hierarchy of terms. MedDRA was developed as an ICH initiative and is maintained and distributed by the MedDRA Maintenance and Support Services Organization (MSSO).&#xD;&#xA;&#xD;&#xA;Versions - Versions are released twice per year and are identified by 2 numbers separated by a decimal point (e.g., 7.0, 7.1, 8.0, and 8.1).&#xD;&#xA;&#xD;&#xA;.0 releases may contain changes to the hierarchy.&#xD;&#xA;&#xD;&#xA;.1 releases will only contain additions, moves, and modifications of medical concept terms (Preferred Terms) and coding level terms (Lowest Level Terms).&#xD;&#xA;&#xD;&#xA;Concepts - Concepts are represented by a MedDRA code and a MedDRA term name. The MedDRA code is an eight digit numeric code. MedDRA codes are unique and are never reused. The MedDRA term name is a 100 character alphanumeric field used to describe the concept or term.&#xD;&#xA;&#xD;&#xA;Hierarchies - MedDRA is structured as a five level hierarchy. System Organ Classes (SOCs) are the broadest terms (e.g., Cardiac disorders, Investigations). The lowest level of the terminology is the Lowest Level Term (LLT) level. There are 26 SOCs and over 60,000 LLTs"/>
+  <responsible value="MedDRA Maintenance and Support Services Organization (MedDRA MSSO)"/>
+  <description value="MedDRA is a multilingual standardised international medical terminology which can be used for regulatory communication and evaluation of data pertaining to medicinal products for human use.  MedDRA is designed for use in the registration, documentation and safety monitoring of medicinal products through all phases of the development cycle (i.e., from clinical trials to post-marketing surveillance).#13;&#10;&#13;&#10;MedDRA is structured as a five level hierarchy. System Organ Classes (SOCs) are the broadest terms (e.g., Cardiac disorders, Investigations). The lowest level of the terminology is the Lowest Level Term (LLT) level."/>
   <uniqueId>
     <type value="oid"/>
     <value value="2.16.840.1.113883.6.163"/>
@@ -28,7 +32,12 @@
   </uniqueId>
   <uniqueId>
     <type value="uri"/>
-    <value value="http://terminology.hl7.org/CodeSystem/mdr"/>
+    <value value="https://www.meddra.org"/>
     <preferred value="true"/>
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="http://terminology.hl7.org/CodeSystem/mdr"/>
+    <preferred value="false"/>
   </uniqueId>
 </NamingSystem>
