@@ -50,16 +50,6 @@
       <valueString value="Generalizes"/>
     </extension>
     <code value="Specializes"/>
-    <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="hq@HL7.org"/>
-    </telecom>
-  </contact>
   <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
     <type value="Coding"/>
   </property>
@@ -83,64 +73,24 @@
       <valueString value="Specializes"/>
     </extension>
     <code value="Generalizes"/>
-    <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="hq@HL7.org"/>
-    </telecom>
-  </contact>
   <description value="Inverse of Specializes.  Only included as a derived relationship."/>
     <type value="Coding"/>
   </property>
   <property>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
-    <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="hq@HL7.org"/>
-    </telecom>
-  </contact>
   <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
-    <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="hq@HL7.org"/>
-    </telecom>
-  </contact>
   <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
   <property>
     <code value="conductible"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-conductible"/>
-    <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="hq@HL7.org"/>
-    </telecom>
-  </contact>
   <description value="If true, indicates that ActRelationships or Participations of the specified type (and any specializations thereof) will normally conduct. For more usage information, refer to the Core Principles specification."/>
     <type value="boolean"/>
   </property>
@@ -211,48 +161,18 @@
   <property>
     <code value="isDocumentCharacteristic"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-document-characteristic"/>
-    <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="hq@HL7.org"/>
-    </telecom>
-  </contact>
   <description value="If true, indicates that the Act attribute or association (as represented by a typeCode for eaither ActRelationship or Pareticipation is a descriptor of the document (record) represented by the act object. If false, indicates the property is a descriptor of the action itself, actual, intended, or potential.  Applies to interpretation of attributes and associations with respect to changes in the value of Act.actionNegationInd and Act.moodCode. (See descriptions of these attributes for further discussion.) For example, in an order, the id attribute [isDocumentCharacteristic = true] is an identifier of the record of the order, not an identifier of the intended event.  On the other hand, the code attribute [isDocumentCharacteristic = false] describes a characteristic of the intended event."/>
     <type value="boolean"/>
   </property>
   <property>
     <code value="HL7usageNotes"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
-    <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="hq@HL7.org"/>
-    </telecom>
-  </contact>
   <description value="HL7 Concept Usage Notes"/>
     <type value="string"/>
   </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
-    <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="hq@HL7.org"/>
-    </telecom>
-  </contact>
   <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
     <type value="boolean"/>
   </property>
