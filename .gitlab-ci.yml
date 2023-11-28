@@ -31,11 +31,9 @@ build-job:
 #    - python3 /utgbuild/simulatebuild.py | tee /tmp/buildrun.log
     - python3 /utgbuild/processresults.py $CI_COMMIT_BRANCH | tee /tmp/message.log
     - echo "UTG Build complete with Tee and email"
-    - cp /builds/hl7/UTG/output/full-ig.zip /website/.
-    - unzip /website/full-ig.zip
-#  artifacts:
-#    paths:
-#      - /builds/hl7/UTG/output/full-ig.zip
+  artifacts:
+    paths:
+      - /builds/hl7/UTG/output/full-ig.zip
 
 lint-job:
   tags:
