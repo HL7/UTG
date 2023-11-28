@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="adverse-event-clinical-research-grades"/>
+
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+
+  <url value="http://terminology.hl7.org/ValueSet/adverse-event-clinical-research-grades"/>
+
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/> 
+    <value value="urn:oid:"/>
+  </identifier>
+
+  <version value="1.0.0"/>
+  <name value="AdverseEventClinicalResearchGrades"/>
+  <title value="Adverse Event Clinical Research Grades"/>
+  
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2023-07-28T19:27:19+00:00"/>
+  <publisher
+             value="HL7 International - Biomedical Research and Regulation, Vulcan AdverseEvent groups"/>
+  <contact>
+    <name value="Biomedical Research and Regulation WG"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/Special/committees/rcrim"/>
+    </telecom>
+  </contact>
+  <description value="Value set of grades used in Adverse Event Clinical Research, especially in Oncology clinical trials"/>
+
+  <compose>
+    <include>
+      <system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
+      <concept>
+        <code value="C41338"/>
+        <display value="Mild Adverse Event"/>
+		<designation>
+			<value value="Grade 1 Mild Adverse Event"/>
+		</designation>
+      </concept>
+	  <concept>
+        <code value="C41339"/>
+        <display value="Moderate Adverse Event"/>
+		<designation>
+			<value value="Grade 2 Moderate Adverse Event"/>
+		</designation>
+      </concept>
+	  <concept>
+        <code value="C41340"/>
+        <display value="Severe Adverse Event"/>
+		<designation>
+			<value value="Grade 3 Severe Adverse Event"/>
+		</designation>
+      </concept>
+	  <concept>
+        <code value="C41337"/>
+        <display value="Life Threatening or Disabling Adverse Event"/>
+		<designation>
+			<value value="Grade 4 Life Threatening or Disabling Adverse Event"/>
+		</designation>
+      </concept>
+      <concept>
+        <code value="C48275"/>
+        <display value="Death Related to Adverse Event"/>
+		<designation>
+			<value value="Grade 5 Death Related to Adverse Event"/>
+		</designation>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
