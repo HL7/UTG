@@ -2,27 +2,28 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="adverse-event-clinical-research-seriousness-criteria"/>
-  <text>
-    <status value="extensions"/>
-    <div xmlns="http://www.w3.org/1999/xhtml"><p>This value set includes codes based on the following rules:</p><ul><li>Include these codes as defined in <a href="CodeSystem-fda-add-seriousness-criteria-cs.html"><code>http://hl7.org/fhir/uv/ae-research-ig/CodeSystem/fda-add-seriousness-criteria-cs</code></a><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href="CodeSystem-fda-add-seriousness-criteria-cs.html#fda-add-seriousness-criteria-cs-requiresPreventImpairment">requiresPreventImpairment</a></td><td>Required Intervention to Prevent Permanent Impairment or Damage (Devices)</td><td>Report if you believe that medical or surgical intervention was necessary to preclude permanent impairment of a body function, or prevent permanent damage to a body structure, either situation suspected to be due to the use of a medical product</td></tr></table></li><li>Include these codes as defined in <a href="http://terminology.hl7.org/5.0.0/CodeSystem-v3-nciThesaurus.html"><code>http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl</code></a><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td>C48275</td><td>Results In Death</td></tr><tr><td>C84266</td><td>Is Life Threatening</td></tr><tr><td>C83052</td><td>Requires Inpatient Hospitalization</td></tr><tr><td>C11338</td><td>Results In Persistent Or Significant Disability</td></tr><tr><td>C83117</td><td>Congenital Anomaly or Birth Defect</td></tr><tr><td>C82521</td><td>Other Medically Important Condition</td></tr></table></li></ul></div>
-  </text>
-  <extension
-             url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="informative">
-      <extension
-                 url="http://hl7.org/fhir/StructureDefinition/structuredefinition-conformance-derivedFrom">
-        <valueCanonical
-                        value="http://hl7.org/fhir/uv/ae-research-ig/ImplementationGuide/hl7.fhir.uv.ae-research-ig"/>
-      </extension>
-    </valueCode>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
   </extension>
-  <url
-       value="http://hl7.org/fhir/uv/ae-research-ig/ValueSet/adverse-event-seriousness-criteria-vs"/>
-  <version value="1.0.0-ballot"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+
+  <url value="http://terminology.hl7.org/ValueSet/adverse-event-seriousness-criteria-vs"/>
+
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/> 
+    <value value="urn:oid:"/>
+  </identifier>
+
+  <version value="1.0.0"/>
   <name value="AdverseEventCRSerCrit"/>
   <title value="Adverse Event Clinical Research Seriousness Criteria"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <date value="2023-07-28T19:27:19+00:00"/>
   <publisher
              value="HL7 International - Biomedical Research and Regulation, Vulcan AdverseEvent groups"/>
