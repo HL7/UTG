@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="adverse-event-clinical-research-causality-relatedness"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+
+  <url value="http://terminology.hl7.org/ValueSet/adverse-event-clinical-research-causality-relatedness"/>
+
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/> 
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.842"/>
+  </identifier>
+
+  <version value="1.0.0"/>
+  <name value="AdverseEventClinicalResearchCausalityRelatedness"/>
+  <title value="Adverse Event Clinical Research Causality Relatedness"/>
+
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2023-07-28T19:27:19+00:00"/>
+  <publisher
+             value="HL7 International - Biomedical Research and Regulation, Vulcan AdverseEvent groups"/>
+  <contact>
+    <name value="Biomedical Research and Regulation WG"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/Special/committees/rcrim"/>
+    </telecom>
+  </contact>
+  <description value="Value set for stating if a suspected entity is Not Related, Unlikely Related, Possibly Related, or Related to the cause of the adverse event. Using NCI codes. The values originate with ICH. For information on ICH see https://admin.ich.org/sites/default/files/inline-files/OID_Information_Paper_1.pdf from the INTERNATIONAL CONFERENCE ON HARMONISATION OF TECHNICAL REQUIREMENTS FOR REGISTRATION OF PHARMACEUTICALS FOR HUMAN USE (ICH) document ICH E2B(R3), the Electronic Transmission of Individual Case Safety Reports (ICSRs) Implementation Guide Data Elements and Message Specification, and ICH M8, the Electronic Common Technical Document"/>
+  <compose>
+    <include>
+      <system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
+      <concept>
+        <code value="C53256"/>
+        <display value="Not Related"/>
+      </concept>
+      <concept>
+        <code value="C53257"/>
+        <display value="Unlikely Related"/>
+      </concept>
+      <concept>
+        <code value="C53258"/>
+        <display value="Possibly Related"/>
+      </concept>
+      <concept>
+        <code value="C53260"/>
+        <display value="Related"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
