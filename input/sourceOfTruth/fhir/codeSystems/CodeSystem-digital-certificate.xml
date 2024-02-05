@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="digital-certificate"/>
+  <meta>
+    <lastUpdated value="2020-04-09T21:10:28.568+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+ 
+ 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/digital-certificate"/>
+ 
+  <version value="1.0.0"/>
+  <name value="Digital Certificate"/>
+  <title value="Digital Certificate"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="Health Level Seven International"/>
+  
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+
+  <description value="This code system defines a set of codes that can be used to choose digital certification."/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/digital-certificate"/>
+  <content value="complete"/>
+
+  <concept>
+    <code value="signing"/>
+    <display value="Signing"/>
+    <definition value="A certificate issued for the purpose of digitally signing information to confirm the author and guarantee that the content has not been altered or corrupted since it was signed by use of a cryptographic hash."/>
+  </concept>
+  <concept>
+    <code value="encrypt"/>
+    <display value="Encryption"/>
+    <definition value="A certificate containing a public key that can encrypt or decrypt electronic messages, files, documents, or data transmissions, or establish or exchange a session key for these same purposes."/>
+  </concept>
+  <concept>
+    <code value="auth"/>
+    <display value="Authentication"/>
+    <definition value="A certificate which can be used to obtain assurance of the accuracy of the claimed identity of an entity."/>
+  </concept>
+
+</CodeSystem>
