@@ -8,19 +8,27 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.6"/>
   </identifier>
-  <version value="3.1.1"/>
+  <version value="4.0.0"/>
   <name value="ActClass"/>
   <title value="ActClass"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2019-03-20"/>
-  <publisher value="Health Level 7"/>
+  <publisher value="Health Level Seven International"/>
   <contact>
-    <name value="Health Level Seven"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
   </contact>
   <description value="A code specifying the major type of Act that this Act-instance represents.&#xD;&#xA;&#xD;&#xA;*Constraints:* The classCode domain is a tightly controlled vocabulary, not an external or user-defined vocabulary.&#xD;&#xA;&#xD;&#xA;Every Act-instance must have a classCode. If the act class is not further specified, the most general Act.classCode (ACT) is used.&#xD;&#xA;&#xD;&#xA;The Act.classCode must be a generalization of the specific Act concept (e.g., as expressed in Act.code), in other words, the Act concepts conveyed in an Act must be specializations of the Act.classCode. Especially, Act.code is not a &quot;modifier&quot; that can alter the meaning of a class code. (See Act.code for contrast.)"/>
   <caseSensitive value="true"/>
   <hierarchyMeaning value="is-a"/>
+  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
   <content value="complete"/>
   <property>
     <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
@@ -42,7 +50,7 @@
       <valueString value="Generalizes"/>
     </extension>
     <code value="Specializes"/>
-    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+  <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
     <type value="Coding"/>
   </property>
   <property>
@@ -65,7 +73,7 @@
       <valueString value="Specializes"/>
     </extension>
     <code value="Generalizes"/>
-    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+  <description value="Inverse of Specializes.  Only included as a derived relationship."/>
     <type value="Coding"/>
   </property>
   <property>
@@ -77,13 +85,13 @@
   <property>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
-    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/>
+  <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/>
     <type value="code"/>
   </property>
   <property>
     <code value="deprecationDate"/>
     <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/>
-    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/>
+  <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/>
     <type value="dateTime"/>
   </property>
   <property>

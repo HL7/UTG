@@ -8,14 +8,26 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.1.11.20013"/>
   </identifier>
-  <version value="2.0.0"/>
+  <version value="3.0.0"/>
   <name value="ActRelationshipHasBoundedSupport"/>
   <title value="ActRelationshipHasBoundedSupport"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2014-03-26"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
   <description value="A specialization of &quot;has support&quot; (SPRT), used to relate a secondary observation to a Region of Interest on a multidimensional observation, if the ROI specifies the true boundaries of the secondary observation as opposed to only marking the approximate area. For example, if the start and end of an ST elevation episode is visible in an EKG, this relation would indicate the ROI bounds the &quot;ST elevation&quot; observation -- the ROI defines the true beginning and ending of the episode. Conversely, if a ROI simply contains ST elevation, but it does not define the bounds (start and end) of the episode, the more general &quot;has support&quot; relation is used. Likewise, if a ROI on an image defines the true bounds of a &quot;1st degree burn&quot;, the relation &quot;has bounded support&quot; is used; but if the ROI only points to the approximate area of the burn, the general &quot;has support&quot; relation is used."/>
   <immutable value="true"/>
+  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType"/>

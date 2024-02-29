@@ -8,19 +8,27 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1099"/>
   </identifier>
-  <version value="2.1.0"/>
+  <version value="3.0.0"/>
   <name value="ActRelationshipSubset"/>
   <title value="ActRelationshipSubset"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2019-03-20"/>
-  <publisher value="HL7"/>
+  <publisher value="Health Level Seven International"/>
   <contact>
-    <name value="Health Level Seven"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
   </contact>
   <description value="&lt;ns1:p&gt;Used to indicate that the target of the relationship will be a filtered subset of the total related set of targets.&lt;/ns1:p&gt;&lt;ns1:p&gt;Used when there is a need to limit the number of components to the first, the last, the next, the total, the average or some other filtered or calculated subset.&lt;/ns1:p&gt;"/>
   <caseSensitive value="true"/>
   <hierarchyMeaning value="is-a"/>
+  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
   <content value="complete"/>
   <property>
     <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
@@ -42,7 +50,7 @@
       <valueString value="Generalizes"/>
     </extension>
     <code value="Specializes"/>
-    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+  <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
     <type value="Coding"/>
   </property>
   <property>
@@ -65,25 +73,25 @@
       <valueString value="Specializes"/>
     </extension>
     <code value="Generalizes"/>
-    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+  <description value="Inverse of Specializes.  Only included as a derived relationship."/>
     <type value="Coding"/>
   </property>
   <property>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
-    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+  <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
-    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+  <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
     <type value="boolean"/>
   </property>
   <property>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
-    <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
+  <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
     <type value="code"/>
   </property>
   <concept>
