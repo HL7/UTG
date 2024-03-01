@@ -5610,6 +5610,7 @@
            }
         },
 	{
+<<<<<<< HEAD
 "fullUrl": "http://terminology.hl7.org/fhir/Provenance/ucum-common-vs-5-4-1",
    "resource": {
         "resourceType": "Provenance",
@@ -5623,6 +5624,69 @@
               "end": "2023-12-20"
             },
             "recorded": "2023-12-20T13:08:13.69-07:00",
+				"reason": [
+                  {
+                   "coding":  [
+                      {
+                         "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+                         "code": "METAMGT"
+                       }
+                    ],
+					"text": "ucum-common and ucum-units should be migrated to HL7 Terminology (THO); up-481"
+				 }
+               ],
+             "activity": {
+                "coding": [
+                   {
+                    "system":  "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+                    "code": "CREATE"
+                   }
+                ]
+             },
+             "agent": [
+                 {
+                 "type":   {
+                    "coding": [
+                       {
+                         "system":  "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                         "code": "author"
+                       }
+                    ]
+                  },
+                  "who": {
+                     "display":  "Marc Duteau"
+                   }
+                 },
+                 {
+                   "type":   {
+                      "coding": [
+                         {
+                          "system":  "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                          "code": "custodian"
+                         }
+                      ]
+                    },
+                    "who": {
+                      "display":  "TI"
+                    }
+                 }
+              ]
+           }
+        },
+		{
+"fullUrl": "http://terminology.hl7.org/fhir/Provenance/ucum-units-vs-5-4-1",
+   "resource": {
+        "resourceType": "Provenance",
+            "id": "hx1c-ucum-units-vs-5-4-1",
+            "target": [
+               {
+                 "reference": "ValueSet/ucum-units"
+               }
+            ],
+            "occurredPeriod": {
+              "end": "2023-12-20"
+            },
+            "recorded": "2023-12-20T13:08:19.79-07:00",
                "reason": [
                   {
                    "coding":  [
@@ -5671,21 +5735,21 @@
                  }
               ]
            }
-        },
-	{
-"fullUrl": "http://terminology.hl7.org/fhir/Provenance/ucum-units-vs-5-4-1",
+        }
+		{
+"fullUrl": "http://terminology.hl7.org/fhir/Provenance/hx1c-organization-type-cs-5-4-1",
    "resource": {
         "resourceType": "Provenance",
-            "id": "hx1c-ucum-units-vs-5-4-1",
+            "id": "hx1c-organization-type-cs-5-4-1",
             "target": [
                {
-                 "reference": "ValueSet/ucum-units"
+                 "reference": "CodeSystem/organization-type"
                }
             ],
             "occurredPeriod": {
-              "end": "2023-12-20"
+              "end": "2024-02-29"
             },
-            "recorded": "2023-12-20T13:08:19.79-07:00",
+            "recorded": "2024-02-29T10:40:52.48-07:00",
                "reason": [
                   {
                    "coding":  [
@@ -5694,14 +5758,14 @@
                          "code": "METAMGT"
                        }
                     ],
-                    "text": "ucum-common and ucum-units should be migrated to HL7 Terminology (THO); up-481"
+                    "text": "Include additional concepts in Organization Types; up-516"
                   }
                ],
              "activity": {
                 "coding": [
                    {
                     "system":  "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
-                    "code": "CREATE"
+                    "code": "UPDATE"
                    }
                 ]
              },
@@ -5716,7 +5780,70 @@
                     ]
                   },
                   "who": {
-                     "display":  "Marc Duteau"
+                     "display":  "Josh Mandel"
+                   }
+                 },
+                 {
+                   "type":   {
+                      "coding": [
+                         {
+                          "system":  "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                          "code": "custodian"
+                         }
+                      ]
+                    },
+                    "who": {
+                      "display":  "PA"
+                    }
+                 }
+              ]
+           }
+        },
+		{
+"fullUrl": "http://terminology.hl7.org/fhir/Provenance/hx1c-cs-service-referral-method-5-4-2",
+   "resource": {
+        "resourceType": "Provenance",
+            "id": "hx1c-cs-service-referral-method-5-4-2",
+            "target": [
+               {
+                 "reference": "CodeSystem/service-referral-method"
+               }
+            ],
+            "occurredPeriod": {
+              "end": "2024-02-29"
+            },
+            "recorded": "2024-02-29T13:17:42.35-07:00",
+               "reason": [
+                  {
+                   "coding":  [
+                      {
+                         "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+                         "code": "METAMGT"
+                       }
+                    ],
+                    "text": "Addition to FHIR spec: ReferralMethod; up-449"
+                  }
+               ],
+             "activity": {
+                "coding": [
+                   {
+                    "system":  "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+                    "code": "UPDATE"
+                   }
+                ]
+             },
+             "agent": [
+                 {
+                 "type":   {
+                    "coding": [
+                       {
+                         "system":  "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                         "code": "author"
+                       }
+                    ]
+                  },
+                  "who": {
+                     "display":  "Carmen Tao"
                    }
                  },
                  {
