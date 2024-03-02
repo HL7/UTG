@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="measure-population"/>
   <meta>
@@ -8,8 +7,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cqi"/>
   </extension>
- 
- 
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
   </extension>
@@ -18,24 +15,25 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1231"/>
   </identifier>
-  <version value="0.2.0"/>
+  <version value="1.0.0"/>
   <name value="MeasurePopulationType"/>
   <title value="MeasurePopulationType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-04-09T21:10:28+00:00"/>
-  <publisher value="HL7 (FHIR Project)"/>
+  <publisher value="Health Level Seven International"/>
+  
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://hl7.org"/>
     </telecom>
     <telecom>
       <system value="email"/>
-      <value value="fhir@lists.hl7.org"/>
+      <value value="hq@HL7.org"/>
     </telecom>
   </contact>
-  <description value="The type of population."/>
+  <description value="The type of population."/>  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/measure-population"/>
   <content value="complete"/>
@@ -47,7 +45,7 @@
   <concept>
     <code value="numerator"/>
     <display value="Numerator"/>
-    <definition value="Numerator criteria define the patients, subjects, or events that should be included in the upper portion of a fraction used to calculate a rate, proportion, or ratio. Also called the measure focus, it is the target process, condition, event, or outcome. Numerator criteria are the processes or outcomes expected for each patient, subject, or event defined in the denominator. A numerator statement describes the clinical action that satisfies the conditions of the measure."/>
+    <definition value="The numerator statement describes the process, condition, event, or outcome that satisfies the measure’s focus or intent. The numerator statement includes parameters such as: &#xD;&#xA; *the Event or events that will satisfy the numerator inclusion criteria &#xD;&#xA; *the Performance period or time interval in which the numerator event must occur, if it is different from that used for identifying the denominator. &#xD;&#xA;&#xD;&#xA; Source: https://mmshub.cms.gov/measure-lifecycle/measure-specification/develop-specification/numerator"/>
   </concept>
   <concept>
     <code value="numerator-exclusion"/>
