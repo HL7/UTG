@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="adverse-event-clinical-research-grades"/>
+
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+
+  <url value="http://terminology.hl7.org/ValueSet/adverse-event-clinical-research-grades"/>
+
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/> 
+    <value value="urn:oid:2.16.840.1.113883.11.21027"/>
+  </identifier>
+
+  <version value="1.0.0"/>
+  <name value="AdverseEventClinicalResearchGrades"/>
+  <title value="Adverse Event Clinical Research Grades"/>
+  
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2023-07-28T19:27:19+00:00"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Value set of grades used in Adverse Event Clinical Research, especially in Oncology clinical trials"/>
+  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  
+  <compose>
+    <include>
+      <system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
+      <concept>
+        <code value="C41338"/>
+        <display value="Grade 1 Mild Adverse Event"/>
+      </concept>
+	  <concept>
+        <code value="C41339"/>
+        <display value="Grade 2 Moderate Adverse Event"/>
+      </concept>
+	  <concept>
+        <code value="C41340"/>
+        <display value="Grade 3 Severe Adverse Event"/>
+      </concept>
+	  <concept>
+        <code value="C41337"/>
+        <display value="Grade 4 Life Threatening or Disabling Adverse Event"/>
+      </concept>
+      <concept>
+        <code value="C48275"/>
+        <display value="Grade 5 Death Related to Adverse Event"/>
+      </concept>
+    </include>
+  </compose>
+
+</ValueSet>
