@@ -7309,6 +7309,69 @@
                  }
               ]
            }
+        },
+		{
+"fullUrl": "http://terminology.hl7.org/fhir/Provenance/hx1c-jurisdiction-vs-5-4-15",
+   "resource": {
+        "resourceType": "Provenance",
+            "id": "hx1c-jurisdiction-vs-5-4-15",
+            "target": [
+               {
+                 "reference": "ValueSet/jurisdiction"
+               }
+            ],
+            "occurredPeriod": {
+              "end": "2024-03-02"
+            },
+            "recorded": "2024-03-02T23:12:36.42-07:00",
+               "reason": [
+                  {
+                   "coding":  [
+                      {
+                         "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+                         "code": "METAMGT"
+                       }
+                    ],
+                    "text": "Migrate the Jurisdiction value set from FHIR core to THO; up-521"
+                  }
+               ],
+             "activity": {
+                "coding": [
+                   {
+                    "system":  "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+                    "code": "UPDATE"
+                   }
+                ]
+             },
+             "agent": [
+                 {
+                 "type":   {
+                    "coding": [
+                       {
+                         "system":  "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                         "code": "author"
+                       }
+                    ]
+                  },
+                  "who": {
+                     "display":  "Reuven Daniels"
+                   }
+                 },
+                 {
+                   "type":   {
+                      "coding": [
+                         {
+                          "system":  "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                          "code": "custodian"
+                         }
+                      ]
+                    },
+                    "who": {
+                      "display":  "TI"
+                    }
+                 }
+              ]
+           }
         }
     ]
 }
