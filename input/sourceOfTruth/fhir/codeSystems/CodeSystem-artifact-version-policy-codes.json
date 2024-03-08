@@ -1,0 +1,57 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "artifact-version-policy-codes",
+  "extension": [
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+        "valueCode": "cds"
+    },
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode": "trial-use"
+    },
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+        "valueInteger": 1
+    }
+],
+"url": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
+  "name": "ArtifactVersionPolicyCodes",
+  "title": "Artifact Version Policy Codes",
+  "status": "active",
+  "version": "1.0.0",
+  "experimental": false,
+  "date": "2024-02-16",
+  "publisher": "HL7 International",
+  "contact" : [
+    {
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://hl7.org"
+        },
+        {
+          "system" : "email",
+          "value" : "hq@HL7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The versioning policy of an artifact (metadata, strict)",
+  "copyright": "This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license",
+  "caseSensitive": true,
+  "valueSet": "http://terminology.hl7.org/ValueSet/artifact-version-policy",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "metadata",
+      "display": "Metadata",
+      "definition": "A versioning policy that allows non-substantive changes to the metadata elements of an artifact without requiring a change to the value of the version element."
+    },
+    {
+      "code": "strict",
+      "display": "Strict",
+      "definition": "A versioning policy that indicates that any change to the content of an artifact, including non-substantive and metadata changes, requires a change to the value of the version element of the artifact."
+    }
+  ]
+}
