@@ -107,7 +107,7 @@ used in filters.</p>
 <tr><td>STATUS</td> <td>string</td> <td>Status of the term. Within LOINC, codes with STATUS=DEPRECATED are considered inactive. Current values: ACTIVE, TRIAL, DISCOURAGED, and DEPRECATED</td> <td>STATUS in LOINC.csv, Status in PART.csv</td></tr>
 <tr><td>CLASSTYPE</td> <td>string</td> <td>1=Laboratory class; 2=Clinical class; 3=Claims attachments; 4=Surveys</td> <td>CLASSTYPE in LOINC.csv</td></tr>
 <tr><td>FORMULA</td> <td>string</td> <td>Contains the formula in human readable form, for calculating the value of any measure that is based on an algebraic or other formula except those for which the component expresses the formula. So Sodium/creatinine does not need a formula, but Free T3 index does.</td> <td>FORMULA in LOINC.csv</td></tr>
-<tr><td>EXMPL_ANSWERS</td> <td>string</td> <td>For some tests and measurements, we have supplied examples of valid answers, such as ‚Äú1:64‚Äù, ‚Äúnegative @ 1:16‚Äù, or ‚Äú55‚Äù.</td> <td>EXMPL_ANSWERS in LOINC.csv</td></tr>
+<tr><td>EXMPL_ANSWERS</td> <td>string</td> <td>For some tests and measurements, we have supplied examples of valid answers, such as '1:64', 'negative @ 1:16', or '55'.</td> <td>EXMPL_ANSWERS in LOINC.csv</td></tr>
 <tr><td>SURVEY_QUEST_TEXT</td> <td>string</td> <td>Verbatim question from the survey instrument</td> <td>SURVEY_QUEST_TEXT in LOINC.csv</td></tr>
 <tr><td>SURVEY_QUEST_SRC</td> <td>string</td> <td>Exact name of the survey instrument and the item/question number</td> <td>SURVEY_QUEST_SRC in LOINC.csv</td></tr>
 <tr><td>UNITSREQUIRED</td> <td>string</td> <td>Y/N field that indicates that units are required when this LOINC is included as an OBX segment in a HIPAA attachment</td> <td>UNITSREQUIRED in LOINC.csv</td></tr>
@@ -178,8 +178,8 @@ used in filters.</p>
 Notes about this table:
 </p>
 <ul>
- <li>The information about the source of the property in the LOINC distribution is provided to help implementers, but is just advisory, not prescriptive or normative, and subject to ongoing change as the LOINC distribuition is maintained.</li>
- <li>For legacy reasons, the property names in this table do not have consistent name, case etc, but they are correct and the correct name and case SHALL be used</li>
+ <li>The information about the source of the property in the LOINC distribution is provided to help implementers, but is just advisory, not prescriptive or normative, and subject to ongoing change as the LOINC distribution is maintained.</li>
+ <li>For legacy reasons, the property names in this table do not have consistent name, case etc., but they are correct and the correct name and case SHALL be used</li>
  <li>Note that when a <a href="https://hl7.org/fhir/codesystem-operation-lookup.html">$lookup</a> operation is performed on a LOINC code, servers SHALL return the version being used (see above) in the <code>version</code> property. Other properties are at the discretion of the server and the client.</li>
 </ul>
 
@@ -203,7 +203,7 @@ Notes about this table:
 <ul>
  <li>LOINC provides translations of these designations to many languages. Due to the way the LOINC translations work, part codes may have multiple Display Names which are considered synonyms.</li>
  <li>The information about the source of the property in the LOINC distribution is provided to help implementers, but is just advisory, not prescriptive or normative, and subject to ongoing change as the LOINC distribuition is maintained.</li>
- <li>For legacy reasons, the property names in this table do not have consistent name, case etc, but they are correct and the correct name and case SHALL be used</li>
+ <li>For legacy reasons, the property names in this table do not have consistent name, case etc., but they are correct and the correct name and case SHALL be used</li>
 </ul>
 
 <!-- LOINC Filters -->
@@ -241,13 +241,13 @@ Notes about this table:
 <h5>Component Hierarchy #1</h5>
 </td></tr>
  <tr><td>Description</td> <td>Allows for the selection of a set of codes base on their appearance in the LOINC component hierarchy </td></tr>
- <tr><td>Property Name</td> <td>ancestor | descendent </td></tr>
+ <tr><td>Property Name</td> <td>ancestor | descendant </td></tr>
  <tr><td>Operations Allowed</td> <td>= / in</td></tr>
  <tr><td>Values Allowed</td> <td>Part Code (or, for "in", multiple part codes separated by commas)</td></tr>
  <tr><td>Comments</td> <td>the "parent" filter selects immediate parents only. For example, the code "44022-2" has the parent "LP52960-9". 
   Ancestor includes parents transitively, e.g. "LP52960-9" eventually has a parent "LP31755-9", so the code "44022-2" is in the set of codes that have ancestor=LP31755-9.
   <br/>
-  Note that because of the way LOINC is defined, the ancestors / descendents of a LOINC concept (derived from the PATH_TO_ROOT in the component hierarchy) 
+  Note that because of the way LOINC is defined, the ancestors / descendants of a LOINC concept (derived from the PATH_TO_ROOT in the component hierarchy) 
   may not match exactly the list that could be calculated from the explicit parent/child properties.
   </td></tr>
 
@@ -260,7 +260,7 @@ Notes about this table:
  <tr><td>Property Name</td> <td>concept </td></tr>
  <tr><td>Operations Allowed</td> <td>is</td></tr>
  <tr><td>Values Allowed</td> <td>Part Code (or, for "in", multiple part codes separated by commas)</td></tr>
- <tr><td>Comments</td> <td>A different to references the descendents list.</td></tr>
+ <tr><td>Comments</td> <td>A different to references the descendants list.</td></tr>
 </table>
 
 
