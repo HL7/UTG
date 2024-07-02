@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="organization-type"/>
   <meta>
@@ -19,19 +18,24 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1128"/>
   </identifier>
-  <version value="0.1.0"/>
+  <version value="2.0.0"/>
   <name value="OrganizationType"/>
   <title value="Organization type"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <publisher value="FHIR Project team"/>
+  <publisher value="Health Level Seven International"/>
+  
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
     </telecom>
   </contact>
-  <description value="This example value set defines a set of codes that can be used to indicate a type of organization."/>
+  <description value="This example value set defines a set of codes that can be used to indicate a type of organization."/>  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/organization-type"/>
   <content value="complete"/>
@@ -94,5 +98,30 @@
     <code value="other"/>
     <display value="Other"/>
     <definition value="Other type of organization not already specified."/>
+  </concept>
+  <concept>
+    <code value="laboratory"/>
+    <display value="Laboratory"/>
+    <definition value="An organization that conducts medical tests."/>
+  </concept>
+  <concept>
+    <code value="imaging"/>
+    <display value="Imaging Center"/>
+    <definition value="An organization specialized in providing diagnostic imaging services."/>
+  </concept>
+  <concept>
+    <code value="pharmacy"/>
+    <display value="Pharmacy"/>
+    <definition value="An organization focused on dispensing medications and offering pharmaceutical care."/>
+  </concept>
+  <concept>
+    <code value="health-information-network"/>
+    <display value="Health Information Network"/>
+    <definition value="An organization focused on enabling the exchange and integration of health information among healthcare entities."/>
+  </concept>
+  <concept>
+    <code value="health-data-aggregator"/>
+    <display value="Health Data Aggregator"/>
+    <definition value="An organization focused on compiling health-related data from various sources."/>
   </concept>
 </CodeSystem>

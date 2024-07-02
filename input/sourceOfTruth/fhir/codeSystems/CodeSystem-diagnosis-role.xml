@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="diagnosis-role"/>
   <meta>
@@ -14,29 +13,37 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1054"/>
   </identifier>
-  <version value="0.1.1"/>
+  <version value="1.1.0"/>
   <name value="DiagnosisRole"/>
   <title value="Diagnosis Role"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <publisher value="FHIR Project team"/>
+  <publisher value="Health Level Seven International"/>
+  
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
     </telecom>
   </contact>
   <description value="This value set defines a set of codes that can be used to express the role of a diagnosis on the Encounter or EpisodeOfCare record."/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/diagnosis-role"/>
   <content value="complete"/>
   <concept>
     <code value="AD"/>
     <display value="Admission diagnosis"/>
+    <definition value="The diagnoses documented for administrative purposes as the basis for a hospital or other institutional admission"/>
   </concept>
   <concept>
     <code value="DD"/>
     <display value="Discharge diagnosis"/>
+    <definition value="The diagnoses documented for administrative purposes at the time of hospital or other institutional discharge"/>
   </concept>
   <concept>
     <code value="CC"/>
@@ -57,5 +64,6 @@
   <concept>
     <code value="billing"/>
     <display value="Billing"/>
+    <definition value="The diagnosis documented for billing purposes"/>
   </concept>
 </CodeSystem>

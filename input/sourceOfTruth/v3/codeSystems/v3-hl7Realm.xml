@@ -8,19 +8,27 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1124"/>
   </identifier>
-  <version value="2.1.0"/>
+  <version value="3.0.0"/>
   <name value="Hl7Realm"/>
   <title value="HL7Realm"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2019-03-20"/>
-  <publisher value="HL7"/>
+  <publisher value="Health Level Seven International"/>
   <contact>
-    <name value="Health Level Seven, Inc."/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
   </contact>
   <description value="**Description:** Coded concepts representing Binding Realms (used for Context Binding of terminology in HL7 models) and/or Namespace Realms (used to help ensure unique identification of HL7 artifacts). This code system is partitioned into three sections: Affiliate realms, Binding realms and Namespace realms. All affiliate realm codes may automatically be used as both binding realms and namespace realms. Furthermore, affiliate realms are the only realms that have authority over the creation of binding realms. (Note that &#39;affiliate&#39; includes the idea of both international affiliates and the HL7 International organization.) All other codes must be associated with an owning affiliate realm and must appear as a specialization of \_BindingRealm or \_NamespaceRealm. For affiliates whose concepts align with nations, the country codes from ISO 3166-1 2-character alpha are used for the code when possible so these codes should not be used for other realm types. It is recommended that binding realm and namespace codes submitted by affiliates use the realm code as a prefix to avoid possible collisions with ISO codes. However, tooling does not currently support namepace realm codes greater than 2 characters.&#xD;&#xA;&#xD;&#xA;*Open Issue:* The name of the concept property &quot;owningAffiliate&quot; should be changed to better reflect that the property value is the human readable name of the organizational entity that manages the Realm identified by the Realm Code.&#xD;&#xA;&#xD;&#xA;*Open Issue:* In spite of the inability of tooling to process codes longer than 2 characters, there is at least one realm codes (&#39;SOA&#39;) that was added that is 3 characters in length."/>
   <caseSensitive value="true"/>
   <hierarchyMeaning value="is-a"/>
+  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <content value="complete"/>
   <property>
     <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
@@ -42,7 +50,7 @@
       <valueString value="Generalizes"/>
     </extension>
     <code value="Specializes"/>
-    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+  <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
     <type value="Coding"/>
   </property>
   <property>
@@ -65,7 +73,7 @@
       <valueString value="Specializes"/>
     </extension>
     <code value="Generalizes"/>
-    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+  <description value="Inverse of Specializes.  Only included as a derived relationship."/>
     <type value="Coding"/>
   </property>
   <property>
@@ -80,25 +88,25 @@
   <property>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
-    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+  <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
-    <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
+  <description value="Designation of a concept&#39;s state.  Normally is not populated unless the state is retired.."/>
     <type value="code"/>
   </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
-    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+  <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
     <type value="boolean"/>
   </property>
   <property>
     <code value="subsumedBy"/>
     <uri value="http://hl7.org/fhir/concept-properties#parent"/>
-    <description value="The concept code of a parent concept"/>
+  <description value="The concept code of a parent concept"/>
     <type value="code"/>
   </property>
   <concept>
