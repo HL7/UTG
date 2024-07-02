@@ -62,13 +62,19 @@ WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in 
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
+This element does not match any known slice defined in the profile http://hl7.org/fhir/StructureDefinition/shareablecodesystem|5.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+
+# expected behaviour
+The value set references CodeSystem 'http://www.ada.org/snodent' which has status 'fragment'
+
+# This will be set to active later
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/provenance-participant-type|1.0.0
 
 # expected issues with large value sets
 INFORMATION: ValueSet/snomed-intl-gps: ValueSet.compose.include[0]: The value set include has too many codes to validate (26,157)
 
+# this is THO
+Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
 
-# concept domain code system uses some deprecated properties
-INFORMATION: CodeSystem/conceptdomains: CodeSystem.concept[6].concept[11].concept[0].property[1].value.ofType(Coding): The code 'EVN.CRT' is valid but is deprecated
-INFORMATION: CodeSystem/conceptdomains: CodeSystem.concept[6].concept[11].concept[1].property[1].value.ofType(Coding): The code 'EVN.CRT' is valid but is deprecated
-INFORMATION: CodeSystem/conceptdomains: CodeSystem.concept[6].concept[11].concept[2].property[1].value.ofType(Coding): The code 'EVN.CRT' is valid but is deprecated
-INFORMATION: CodeSystem/conceptdomains: CodeSystem.concept[6].concept[11].concept[2].concept[0].property[1].value.ofType(Coding): The code 'EVN.CRT' is valid but is deprecated
+# known issue with jurisdiction
+Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
