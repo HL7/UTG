@@ -18,12 +18,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1131"/>
   </identifier>
-  <version value="1.0.0"/>
+  <version value="1.1.0"/>
   <name value="ProvenanceParticipantType"/>
   <title value="Provenance participant type"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2023-05-12T10:00:00+10:00"/>
+  <date value="2024-02-16T10:00:00+10:00"/>
   <publisher value="Health Level Seven International"/>
   
   <contact>
@@ -36,7 +36,8 @@
       <value value="hq@HL7.org"/>
     </telecom>
   </contact>
-  <description value="The type of participation a provenance participant."/>  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <description value="These codes define the type of participation by an agent in a provenance activity. An agent is something that bears the responsibility identified by the type of participation in the activity taking place, for the existence of an entity, or for another agent's activity. An Agent may be An agent, device, system, organization, group, care-team, or other identifiable thing."/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/provenance-agent-type"/>
   <hierarchyMeaning value="is-a"/>
@@ -44,37 +45,41 @@
   <concept>
     <code value="enterer"/>
     <display value="Enterer"/>
-    <definition value="A person entering the data into the originating system"/>
+    <definition value="An agent entering the data into the originating system, such as a scribe or transcriptionist."/>
   </concept>
   <concept>
     <code value="performer"/>
     <display value="Performer"/>
-    <definition value="A person, animal, organization or device that who actually and principally carries out the activity"/>
+    <definition value="An agent that who actually and principally carries out the activity"/>
   </concept>
   <concept>
     <code value="author"/>
     <display value="Author"/>
-    <definition value="A party that originates the resource and therefore has responsibility for the information given in the resource and ownership of this resource"/>
-  </concept>
+    <definition value="An agent that originates, or significant changes to, the entity and therefore has responsibility for the information given in the entity"/>
+    <concept>
+      <code value="editor"/>
+      <display value="Editor"/>
+      <definition value="An agent that alters the entity to change, correct, or enhance the original"/>
+    </concept>  </concept>
   <concept>
     <code value="verifier"/>
     <display value="Verifier"/>
-    <definition value="A person who verifies the correctness and appropriateness of activity"/>
+    <definition value="An agent who verifies the correctness and appropriateness of activity"/>
     <concept>
       <code value="legal"/>
       <display value="Legal Authenticator"/>
-      <definition value="The person authenticated the content and accepted legal responsibility for its content"/>
+      <definition value="An agent authenticated the content and accepted legal responsibility for its content"/>
     </concept>
   </concept>
   <concept>
     <code value="attester"/>
     <display value="Attester"/>
-    <definition value="A verifier who attests to the accuracy of the resource"/>
+    <definition value="An agent (verifier) who attests to the accuracy of the entity"/>
   </concept>
   <concept>
     <code value="informant"/>
     <display value="Informant"/>
-    <definition value="A person who reported information that contributed to the resource"/>
+    <definition value="An agent who reported information that contributed to the entity"/>
   </concept>
   <concept>
     <code value="custodian"/>
@@ -84,11 +89,16 @@
   <concept>
     <code value="assembler"/>
     <display value="Assembler"/>
-    <definition value="A device that operates independently of an author on custodian&#39;s algorithms for data extraction of existing information for purpose of generating a new artifact."/>
+    <definition value="A device that operates independently of an author using algorithms for data extraction of existing information for purpose of generating a new entity."/>
+    <concept>
+      <code value="transformer"/>
+      <display value="Transformer"/>
+      <definition value="A device that operates independently of an author using algorithms for data extraction and transformation of existing information for purpose of generating a new entity."/>
+    </concept>
   </concept>
   <concept>
     <code value="composer"/>
     <display value="Composer"/>
-    <definition value="A device used by an author to record new information, which may also be used by the author to select existing information for aggregation with newly recorded information for the purpose of generating a new artifact."/>
+    <definition value="A device used by an author to record new information, which may also be used by the author to select existing information for aggregation with newly recorded information for the purpose of generating a new entity."/>
   </concept>
 </CodeSystem>
