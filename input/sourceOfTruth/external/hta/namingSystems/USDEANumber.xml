@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<NamingSystem xmlns="http://hl7.org/fhir">
+  <id value="USDEANumber"/>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.title">
+    <valueString value="United States Drug Enforcement Agency (DEA) Number"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
+    <valueUri value="http://terminology.hl7.org/NamingSystem/USDEANumber"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.version">
+    <valueString value="1.0.0"/>
+  </extension>
+  <name value="USDEANumber"/>
+  <status value="active"/>
+  <kind value="identifier"/>
+  <date value="2024-06-03T00:00:00-00:00"/>
+  <contact>
+    <name value="U.S. Department of Justice; Drug Enforcement Administration; DEA Office of Diversion Control; 8701 Morrissette Drive, Springfield, VA 22152"/>
+	<telecom>
+		<system value="url"/>
+		<value value="https://www.deadiversion.usdoj.gov/index.html"/>
+	</telecom>
+  </contact>
+  <description value="	
+A DEA number is a number assigned to a health care provider (such as a medical practitioner, dentist, or veterinarian) by the U.S. Drug Enforcement Administration allowing them to write prescriptions for controlled substances. Legally, the DEA number is solely to be used for tracking controlled substance prescribers and prescriptions. It is often used by the industry, however, as a general &quot;prescriber number&quot;.&#13;&#10;&#13;&#10;A single person may have multiple DEA numbers.  In particular, a prescriber who practices in multiple states or jurisdictions must have a DEA-issued number specific to each state or jurisdiction.&#13;&#10;&#13;&#10;A DEA number can be structurally validated:&#13;&#10;&#13;&#10;1. Add together the first, third, and fifth digits.&#13;&#10;&#13;&#10;2. Add together the second, fourth, and sixth digits. Multiply the sum by 2.&#13;&#10;&#13;&#10;3. Add together the totals from Step 1 and Step 2.&#13;&#10;&#13;&#10;4. Verify that the last digit of the result of Step 3 matches the check digit of the DEA number.&#13;&#10;&#13;&#10;This validates that the number is a valid DEA number, but does not confirm that the DEA number is active or assigned to the person presenting it."/>
+  <uniqueId>
+    <type value="oid"/>
+    <value value="2.16.840.1.113883.4.814"/>
+    <preferred value="true"/>
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="http://terminology.hl7.org/NamingSystem/USDEANumber"/>
+    <preferred value="true"/>
+	<period>
+      <start value="2024-06-03"/>
+    </period>
+  </uniqueId>
+</NamingSystem>
