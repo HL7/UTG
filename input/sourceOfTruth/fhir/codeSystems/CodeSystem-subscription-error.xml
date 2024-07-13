@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="subscription-error"/>
@@ -54,4 +55,63 @@
     <display value="Error response"/>
     <definition value="Error response from client rest-hook endpoint. Recommended practice: convey the actual HTTP error in an adjacent Coding or in text"/>
   </concept>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="subscription-error"/>
+  <meta>
+    <lastUpdated value="2024-04-24T00:00:00+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+ 
+ 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/subscription-error"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1438"/>
+  </identifier>
+  <version value="1.0.1"/>
+  <name value="SubscriptionErrorCodes"/>
+  <title value="Subscription Error Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="Health Level Seven International"/>
+  
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Codes to represent subscription error details"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/subscription-error"/>
+  <content value="complete"/>
+  <concept>
+    <code value="dns-resolution-error"/>
+    <display value="DNS resolution error"/>
+    <definition value="DNS resolution error for client rest-hook endpoint."/>
+  </concept>
+  <concept>
+    <code value="no-response"/>
+    <display value="No response"/>
+    <definition value="No response for client rest-hook endpoint."/>
+  </concept>
+  <concept>
+    <code value="error-response"/>
+    <display value="Error response"/>
+    <definition value="Error response from client rest-hook endpoint. Recommended practice: convey the actual HTTP error in an adjacent Coding or in text"/>
+  </concept>
+>>>>>>> remotes/GitLab/UP-548-Change-Status-of-Code-Systems-and-Value-Sets-referenced-by-FHIR-core-or-the-Extensions-Pack-to-Active
 </CodeSystem>

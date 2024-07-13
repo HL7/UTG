@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="adverse-event-causality-assess"/>
@@ -69,4 +70,78 @@
     <display value="Unassessable/Unclassifiable"/>
     <definition value="i) Report suggesting an adverse reaction; ii) Cannot be judged because information is insufficient or contradictory; or iii) Data cannot be supplemented or verified."/>
   </concept>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="adverse-event-causality-assess"/>
+  <meta>
+    <lastUpdated value="2024-04-24T00:00:00+00:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+ 
+ 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/adverse-event-causality-assess"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1254"/>
+  </identifier>
+  <version value="1.0.1"/>
+  <name value="AdverseEventCausalityAssessment"/>
+  <title value="AdverseEventCausalityAssessment"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2024-04-24T00:00:00+00:00"/>
+  <publisher value="Health Level Seven International"/>
+  
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Codes for the assessment of whether the entity caused the event."/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/adverse-event-causality-assess"/>
+  <content value="complete"/>
+  <concept>
+    <code value="certain"/>
+    <display value="Certain"/>
+    <definition value="i) Event or laboratory test abnormality, with plausible time relationship to drug intake; ii) Cannot be explained by disease or other drugs; iii) Response to withdrawal plausible (pharmacologically, pathologically); iv) Event definitive pharmacologically or phenomenologically (i.e. an objective and specific medical disorder or a recognized pharmacological phenomenon); or v) Re-challenge satisfactory, if necessary."/>
+  </concept>
+  <concept>
+    <code value="probably-likely"/>
+    <display value="Probably/Likely"/>
+    <definition value="i) Event or laboratory test abnormality, with reasonable time relationship to drug intake; ii) Unlikely to be attributed to disease or other drugs; iii) Response to withdrawal clinically reasonable; or iv) Re-challenge not required."/>
+  </concept>
+  <concept>
+    <code value="possible"/>
+    <display value="Possible"/>
+    <definition value="i) Event or laboratory test abnormality, with reasonable time relationship to drug intake; ii) Could also be explained by disease or other drugs; or iii) Information on drug withdrawal may be lacking or unclear."/>
+  </concept>
+  <concept>
+    <code value="unlikely"/>
+    <display value="Unlikely"/>
+    <definition value="i) Event or laboratory test abnormality, with a time to drug intake that makes a relationship improbable (but not impossible); or ii) Disease or other drugs provide plausible explanations."/>
+  </concept>
+  <concept>
+    <code value="conditional-classified"/>
+    <display value="Conditional/Classified"/>
+    <definition value="i) Event or laboratory test abnormality; ii) More data for proper assessment needed; or iii) Additional data under examination."/>
+  </concept>
+  <concept>
+    <code value="unassessable-unclassifiable"/>
+    <display value="Unassessable/Unclassifiable"/>
+    <definition value="i) Report suggesting an adverse reaction; ii) Cannot be judged because information is insufficient or contradictory; or iii) Data cannot be supplemented or verified."/>
+  </concept>
+>>>>>>> remotes/GitLab/UP-548-Change-Status-of-Code-Systems-and-Value-Sets-referenced-by-FHIR-core-or-the-Extensions-Pack-to-Active
 </CodeSystem>
