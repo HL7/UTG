@@ -41,12 +41,6 @@ WARNING: CodeSystem/data-absent-reason: CodeSystem: HL7 Defined CodeSystems SHOU
 WARNING: CodeSystem/goal-achievement: CodeSystem: HL7 Defined CodeSystems SHOULD have a stated value for the hierarchyMeaning element so that users know the status and meaning of the code system clearly
 Constraint failed: csd-2: 'If there is an explicit hierarchy, a hierarchyMeaning should be provided' (defined in http://hl7.org/fhir/StructureDefinition/CodeSystem)
 
-Error from http://tx.fhir.org/r5: Unable to provide support for code system https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://ncithesaurus-stage.nci.nih.gov version 2.0.0
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://hl7.org/fhir/sid/cvx version 2.ext.0 (known versions = 20231214)
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/900000000000207008/version/20200731 (known versions = http://snomed.info/sct/827022005/version/20221130,http://snomed.info/sct/731000124108/version/20230901,http://snomed.info/sct/83821000000107/version/20230412,http://snomed.info/sct/20611000087101/version/20220930,http://snomed.info/sct/32506021000036107/version/20230731,http://snomed.info/sct/900000000000207008/version/20230131,http://snomed.info/sct/2011000195101/version/20230607,http://snomed.info/sct/11000172109/version/20231115,http://snomed.info/sct/11000146104/version/20230331,http://snomed.info/sct/554471000005108/version/20210930,http://snomed.info/sct/900000000000207008/version/20240201,http://snomed.info/sct/45991000052106/version/20231130,http://snomed.info/sct/45991000052106/version/20220531,http://snomed.info/sct/900000000000207008/version/20230731)
-
 # this is intended behavior
 WARNING: CodeSystem/ICD-10DualCoding: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: CodeSystem/ICD-9DualCoding: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
@@ -95,11 +89,11 @@ Error from http://tx.fhir.org/r5: Unable to provide support for code system http
 Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/epsg-ca
 Error from http://tx.fhir.org/r5: Unable to provide support for code system https://www.nlm.nih.gov/mesh
 Error from http://tx.fhir.org/r5: Unable to provide support for code system https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html
-A definition for CodeSystem 'https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html' could not be found, so the code cannot be validated
+%A definition for CodeSystem 'https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html' could not be found, so the code cannot be validated%
 Error from http://tx.fhir.org/r5: Unable to provide support for code system http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets
 Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/EPSG-GeodeticParameterDataset 
 Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/icd9cm
-A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated
+%A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated%
 The code 'D009273' is not valid in the system https://www.nlm.nih.gov/mesh (Unable to evaluate based on code system with status = not-present)
 Error from http://tx.fhir.org/r5: Unable to provide support for code system http://ncithesaurus-stage.nci.nih.gov version 2.0.0
 Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0895 version 2.0.0
@@ -108,11 +102,19 @@ Error from http://tx.fhir.org/r5: Unable to provide support for code system http
 Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0350 version 2.0.0
 Error from http://tx.fhir.org/r5: Unable to provide support for code system http://hl7.org/fhir/sid/cvx version 2.ext.0 (known versions = 20231214)
 Error from http://tx.fhir.org/r5: Unable to provide support for code system urn:oid:2.16.840.1.113883.6.238
-A definition for CodeSystem 'urn:oid:2.16.840.1.113883.6.238' could not be found, so the code cannot be validated
+%A definition for CodeSystem 'urn:oid:2.16.840.1.113883.6.238' could not be found, so the code cannot be validated%
 The code '1002-5' is not valid in the system urn:oid:2.16.840.1.113883.6.238 (Unable to evaluate based on code system with status = not-present)
+%Error from http://tx.fhir.org/r5: Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/900000000000207008/version/20200731%
 
 # This code should have remained in the code system for backwards compatibility.  These value sets should have new stewards though.
-The value provided ('att') was not found in the value set 'hl7 workgroup value set' (http://hl7.org/fhir/ValueSet/hl7-work-group|5.1.0), and a code is required from this value set (error message = The System URI could not be determined for the code 'att' in the ValueSet 'http://hl7.org/fhir/ValueSet/hl7-work-group|5.1.0'; The provided code '#att' was not found in the value set 'http://hl7.org/fhir/ValueSet/hl7-work-group|5.1.0')
+%The value provided ('att') was not found in the value set 'hl7 workgroup value set' (http://hl7.org/fhir/ValueSet/hl7-work-group|5.1.0)%
 
 # True, but these are retired code systems so we'll ignore it
 When a CodeSystem has content = 'complete', it doesnt make sense for there to be no concepts defined
+
+# Undefined properties will be dealt with later
+The property 'Name:role:scoper:Entity' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
+The property 'v2cs-uri' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
+The property 'status' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
+Unknown CodeSystem Property 'http://hl7.org/fhir/concept-properties#deprecated'. If you are creating your own property, do not create it in the HL7 namespace
+	The property 'inactive' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
