@@ -1,0 +1,51 @@
+{
+  "resourceType": "ValueSet",
+  "id": "artifact-version-policy",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "extension": [
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+        "valueCode": "cds"
+    },
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode": "trial-use"
+    },
+    {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+        "valueInteger": 1
+    }
+],
+"url": "http://terminology.hl7.org/ValueSet/artifact-version-policy",
+  "name": "ArtifactVersionPolicy",
+  "title": "Artifact Version Policy",
+  "status": "active",
+  "version": "1.0.0",
+  "experimental": false,
+  "date": "2024-02-16",
+  "publisher" : "Health Level Seven International",
+  "copyright" : "This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html.",
+  "contact" : [{
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://hl7.org/fhir"
+    },
+    {
+      "system" : "email",
+      "value" : "fhir@lists.hl7.org"
+    }]
+  }],
+  "description": "The versioning policy of an artifact or set of artifacts (metadata or strict)",
+  "immutable": true,
+  "compose": {
+    "include": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes"
+      }
+    ]
+  }
+}

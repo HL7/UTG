@@ -26,11 +26,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:f7432b17-9a0e-4262-bc2e-9eec6cf43d78",
-    "timestamp" : "2022-12-08T21:30:08.666Z",
+    "identifier" : "urn:uuid:39b04feb-6b68-48d7-8dcd-543b78ff3b6c",
+    "timestamp" : "2023-06-02T19:34:43.176Z",
+    "total" : 5,
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -44,46 +44,26 @@ e: {
       "valueUri" : "http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion|2.1.0"
     }],
     "contains" : [{
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "A completion status in which a document has been signed manually or electronically by one or more individuals who attest to its accuracy. No explicit determination is made that the assigned individual has performed the authentication. While the standard allows multiple instances of authentication, it would be typical to have a single instance of authentication, usually by the assigned individual."
-      }],
       "system" : "http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion",
       "code" : "AU",
       "display" : "authenticated"
     },
     {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "A completion status in which information has been orally recorded but not yet transcribed."
-      }],
       "system" : "http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion",
       "code" : "DI",
       "display" : "dictated"
     },
     {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "A completion status in which document content, other than dictation, has been received but has not been translated into the final electronic format. Examples include paper documents, whether hand-written or typewritten, and intermediate electronic forms, such as voice to text."
-      }],
       "system" : "http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion",
       "code" : "DO",
       "display" : "documented"
     },
     {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "A completion status in which a document has been signed manually or electronically by the individual who is legally responsible for that document. This is the most mature state in the workflow progression."
-      }],
       "system" : "http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion",
       "code" : "LA",
       "display" : "legally authenticated"
     },
     {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "A completion status where the document is complete and there is no expectation that the document will be signed."
-      }],
       "system" : "http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion",
       "code" : "UC",
       "display" : "unsigned completed document"
