@@ -38,7 +38,8 @@ build-job:
     - echo "......Processing the results......"
     - python3 /utgbuild/processresults.py $CI_COMMIT_BRANCH | tee /tmp/message.log
     - echo "......Publishing the build to internal Nginx server......"
-    - unzip -d /website/$WEBPUBLISH /builds/hl7/UTG/output/full-ig.zip 
+    - unzip -d /website/$WEBPUBLISH /builds/hl7/UTG/output/full-ig.zip
+    - cp /builds/hl7/UTG/output/qa.html /website/$WEBPUBLISH/site/qa.html
     - echo "...UTG Build complete..."
   artifacts:
     paths:

@@ -10,17 +10,17 @@
  
  
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="4"/>
   </extension>
   <url value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1232"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="MeasureScoring"/>
-  <title value="MeasureScoring"/>
-  <status value="draft"/>
+  <title value="Measure Scoring"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2021-03-26T11:10:28+00:00"/>
   <publisher value="Health Level Seven International"/>
@@ -35,33 +35,38 @@
       <value value="hq@HL7.org"/>
     </telecom>
   </contact>
-  <description value="The scoring type of the measure."/>  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <description value="The scoring type of the measure."/>  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/measure-scoring"/>
   <content value="complete"/>
   <concept>
+    <code value="attestation"/>
+    <display value="Attestation"/>
+    <definition value="The measure is an attestation, meaning that the reporter of the measure is attesting the measure score. This is typically used for true/false attestations, but can be used for other types of measure scores as well. The key distinction is that the measure is not computably represented (i.e. as a calculation or aggregation performed on some data in the reporting system), but rather is a simple attestation made by the measure reporter."/>
+  </concept>
+  <concept>
     <code value="proportion"/>
     <display value="Proportion"/>
-    <definition value="The measure score is defined using a proportion."/>
+    <definition value="The measure is a proportion scoring measure, defined as the result of a fraction (number of events in the numerator divided by the number of events in the denominator). Proportion measures typically define an initial population, then denominator and numerator inclusion and exclusion criteria."/>
   </concept>
   <concept>
     <code value="ratio"/>
     <display value="Ratio"/>
-    <definition value="The measure score is defined using a ratio."/>
+    <definition value="The measure is a ratio scoring measure, defined as the result of a ratio calculation. This is similar to a proportion scoring, with the exception that the numerator and denominator may be drawn from different initial populations. Ratio measures typically define initial population(s) and then numerator and denominator inclusion and exclusion criteria."/>
   </concept>
   <concept>
     <code value="continuous-variable"/>
     <display value="Continuous Variable"/>
-    <definition value="The score is defined by a calculation of some quantity."/>
+    <definition value="The measure is a continuous variable scoring measure, defined by a measure observation calculation performed for each member of the population. Continuous variable measures typically define an initial population, then measure population inclusion and exclusion criteria, as well as a measure observation."/>
   </concept>
   <concept>
     <code value="cohort"/>
     <display value="Cohort"/>
-    <definition value="The measure is a cohort definition."/>
+    <definition value="The measure is a cohort definition, meaning the measure is simply the definition of a population, and the score is a count of the members of that population. Cohort measures typically define only an initial population to determine membership."/>
   </concept>
   <concept>
     <code value="composite"/>
     <display value="Composite"/>
-    <definition value="The measure score combines multiple component measures in to a single quality measure score."/>
+    <definition value="The measure score combines multiple component measures into a single measure score. Composite measures are typically defined by referencing other measures, and use the Composite Scoring code system to define possible composite scoring methods."/>
   </concept>
 </CodeSystem>
