@@ -2,15 +2,9 @@
 
 <NamingSystem xmlns="http://hl7.org/fhir">
   <id value="v3-loinc"/>
-  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.title">
-    <valueString value="Logical Observation Identifier Names and Codes (LOINC)"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
-    <valueUri value="http://terminology.hl7.org/NamingSystem/v3-loinc"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.version">
-    <valueString value="3.1.0"/>
-  </extension>
+  <title value="Logical Observation Identifier Names and Codes (LOINC)"/>
+<url value="http://terminology.hl7.org/NamingSystem/v3-loinc"/>
+  <version value="3.1.1"/>
   <name value="LOINC"/>
   <status value="active"/>
   <kind value="codesystem"/>
@@ -32,10 +26,9 @@
     <preferred value="true"/>
   </uniqueId>
   <uniqueId>
-    <type value="other"/>
-    <comment value="This uniqueId should have a type of 'iri-stem', which we will change once https://jira.hl7.org/browse/FHIR-39604 has been merged."/>
+    <type value="iri-stem"/>
     <value value="http://loinc.org/rdf/"/>
     <preferred value="false"/>
-    <authoritative value="true"/>
+	<authoritative value="true"/>
   </uniqueId>
 </NamingSystem>

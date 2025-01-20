@@ -8,19 +8,27 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1001"/>
   </identifier>
-  <version value="2.1.0"/>
+  <version value="3.0.0"/>
   <name value="ActMood"/>
   <title value="ActMood"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2019-03-20"/>
-  <publisher value="Health Level 7"/>
+  <date value="2023-05-30"/>
+  <publisher value="Health Level Seven International"/>
   <contact>
-    <name value="Health Level Seven"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
   </contact>
   <description value="OpenIssue: In Ballot 2009May, a strong Negative vote was lodged against several of the concept definitions in the vocabulary used for Act.moodCode. The vote was found &quot;Persuasive With Mod&quot;, with the understanding that M and M would undertake a detailed review of these concept definitions for a future release of the RIM."/>
   <caseSensitive value="true"/>
   <hierarchyMeaning value="is-a"/>
+  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <content value="complete"/>
   <property>
     <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
@@ -42,7 +50,7 @@
       <valueString value="Generalizes"/>
     </extension>
     <code value="Specializes"/>
-    <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
+  <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
     <type value="Coding"/>
   </property>
   <property>
@@ -65,49 +73,49 @@
       <valueString value="Specializes"/>
     </extension>
     <code value="Generalizes"/>
-    <description value="Inverse of Specializes.  Only included as a derived relationship."/>
+  <description value="Inverse of Specializes.  Only included as a derived relationship."/>
     <type value="Coding"/>
   </property>
   <property>
     <code value="internalId"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
-    <description value="The internal identifier for the concept in the HL7 Access database repository."/>
+  <description value="The internal identifier for the concept in the HL7 Access database repository."/>
     <type value="code"/>
   </property>
   <property>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
-    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/>
+  <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/>
     <type value="code"/>
   </property>
   <property>
     <code value="deprecationDate"/>
     <uri value="http://hl7.org/fhir/concept-properties#deprecationDate"/>
-    <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/>
+  <description value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged."/>
     <type value="dateTime"/>
   </property>
   <property>
     <code value="Name:Class"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-Class"/>
-    <description value="The formal name for the class clone under this code"/>
+  <description value="The formal name for the class clone under this code"/>
     <type value="code"/>
   </property>
   <property>
     <code value="notSelectable"/>
     <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
-    <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
+  <description value="Indicates that the code is abstract - only intended to be used as a selector for other concepts"/>
     <type value="boolean"/>
   </property>
   <property>
     <code value="synonymCode"/>
     <uri value="http://hl7.org/fhir/concept-properties#synonym"/>
-    <description value="An additional concept code that was also attributed to a concept"/>
+  <description value="An additional concept code that was also attributed to a concept"/>
     <type value="code"/>
   </property>
   <property>
     <code value="HL7usageNotes"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#HL7usageNotes"/>
-    <description value="HL7 Concept Usage Notes"/>
+  <description value="HL7 Concept Usage Notes"/>
     <type value="string"/>
   </property>
   <concept>
@@ -383,14 +391,14 @@
           <concept>
             <code value="RMD"/>
             <display value="recommendation"/>
-            <definition value="**Definition:** A suggestion that an act should be performed with an acceptance of some degree of professional responsibility for the resulting act. Not an explicit request. .&#xD;&#xA;&#xD;&#xA;**UsageNotes:** Where there is no clear definition or applicable concept of &quot;professional responsibilityâ€?, RMD becomes indistinguishable from PRP. ."/>
+            <definition value="**Definition:** A suggestion that an act should be performed with an acceptance of some degree of professional responsibility for the resulting act. Not an explicit request. .&#xD;&#xA;&#xD;&#xA;**UsageNotes:** Where there is no clear definition or applicable concept of &quot;professional responsibility&quot;, RMD becomes indistinguishable from PRP. ."/>
             <property>
               <code value="status"/>
               <valueCode value="active"/>
             </property>
             <property>
               <code value="HL7usageNotes"/>
-              <valueString value="Where there is no clear definition or applicable concept of &quot;professional responsibilityâ€?, RMD becomes indistinguishable from PRP. ."/>
+              <valueString value="Where there is no clear definition or applicable concept of &quot;professional responsibility&quot;, RMD becomes indistinguishable from PRP. ."/>
             </property>
             <property>
               <code value="internalId"/>

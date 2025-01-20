@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="cdshooks-indicator"/> 
+  <meta> 
+    <lastUpdated value="2023-02-07T06:31:57.154+00:00"/> 
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/> 
+  </meta> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/> 
+  </extension> 
+  <url value="http://terminology.hl7.org/CodeSystem/cdshooks-indicator"/> 
+  <version value="2.0.0"/> 
+  <name value="CDSHooksIndicator"/> 
+  <title value="CDS Hooks Indicator"/> 
+  <status value="draft"/> 
+  <experimental value="false"/> 
+  <publisher value="Health Level Seven International"/> 
+   
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="This codesystem captures the indicator codes defined by the CDS Hooks specification.
+   The indicator is included as an element of the cards in a CDS Hooks response and
+   conveys the urgency and/or importance of the information in each card. See [Card
+   Attributes](https://cds-hooks.hl7.org/1.0/#card-attributes) in the CDS Hooks specification
+   for more information. Note - the CodeSystem is transitioning from the Vocabulary Work Group to Clinical Decision Support (CDS) Work Group."/> 
+  <jurisdiction> 
+    <coding> 
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/> 
+      <code value="001"/> 
+      <display value="World"/> 
+    </coding> 
+  </jurisdiction>   <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <caseSensitive value="true"/> 
+  <content value="complete"/> 
+  <concept> 
+    <code value="info"/> 
+    <display value="Information"/> 
+    <definition value="The response is informational and indicates that it contains additional information
+     or relevant guidance that may be of interest"/> 
+  </concept> 
+  <concept> 
+    <code value="warning"/> 
+    <display value="Warning"/> 
+    <definition value="The response is a warning and indicates that it contains urgent or highly relevant
+     information that should be considered"/> 
+  </concept> 
+  <concept> 
+    <code value="critical"/> 
+    <display value="Critical"/> 
+    <definition value="The response is critical and indicates that it contains information or activities
+     that have high urgency and importance that should be immediately addressed"/> 
+  </concept> 
+</CodeSystem>
