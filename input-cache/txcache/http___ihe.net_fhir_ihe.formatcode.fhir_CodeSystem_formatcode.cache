@@ -1568,3 +1568,38 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
+      "filter" : [{
+        "property" : "notSelectable",
+        "op" : "=",
+        "value" : "false"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:2417d398-7151-4901-95bf-219a80141296",
+    "timestamp" : "2023-05-18T11:59:07.610Z",
+    "total" : 0,
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

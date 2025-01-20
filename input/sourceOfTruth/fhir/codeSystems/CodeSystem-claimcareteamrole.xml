@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="claimcareteamrole"/>
   <meta>
-    <lastUpdated value="2020-04-09T21:10:28.568+00:00"/>
+    <lastUpdated value="2024-04-24T00:00:00+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -19,20 +18,26 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1165"/>
   </identifier>
-  <version value="0.1.0"/>
+  <version value="1.0.1"/>
   <name value="ClaimCareTeamRoleCodes"/>
   <title value="Claim Care Team Role Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <publisher value="Financial Management"/>
+  <publisher value="Health Level Seven International"/>
+  
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
     </telecom>
   </contact>
-  <description value="This value set includes sample Claim Care Team Role codes."/>
-  <copyright value="This is an example set."/>
+  <description value="Claim roles of the care team members providing products and services."/>
+  
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/claim-careteamrole"/>
   <content value="complete"/>
@@ -50,6 +55,41 @@
     <code value="supervisor"/>
     <display value="Supervising Provider"/>
     <definition value="Supervising care provider."/>
+  </concept>
+  <concept>
+    <code value="attending"/>
+    <display value="Attending"/>
+    <definition value="The attending physician."/>
+  </concept>
+    <concept>
+    <code value="referring"/>
+    <display value="Referring"/>
+    <definition value="The referring provider."/>
+  </concept>
+    <concept>
+    <code value="operating"/>
+    <display value="Operating"/>
+    <definition value="The operating physician."/>
+  </concept>
+    <concept>
+    <code value="otheroperating"/>
+    <display value="Other Operating"/>
+    <definition value="The other operating physician."/>
+  </concept>
+    <concept>
+    <code value="prescribing"/>
+    <display value="Prescribing provider"/>
+    <definition value="The prescribing provider."/>
+  </concept>
+    <concept>
+    <code value="purchasedservice"/>
+    <display value="Purchased Service"/>
+    <definition value="The provider from which a service was purchased by another provider."/>
+  </concept>
+    <concept>
+    <code value="rendering"/>
+    <display value="Rendering provider"/>
+    <definition value="The rendering/performing provider."/>
   </concept>
   <concept>
     <code value="other"/>

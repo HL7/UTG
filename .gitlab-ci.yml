@@ -1,0 +1,68 @@
+default:
+  image: 
+    name: localhost:5000/hl7/utgbuild:1.2.0
+    pull_policy: if-not-present
+
+build-job:
+  tags:
+    - UTG
+  rules:
+    - if: '$TRIGERRED_JOB == "BUILD"'
+    - if: '$CI_PIPELINE_SOURCE == "api"'
+#      when: manual
+  script:
+    - echo "Building a UTG set"
+    - cd ${CI_PROJECT_DIR}
+    - ls -ltr
+    - echo "Verifying software versions"
+    - cat /etc/*release
+    - java -version
+    - javac -version
+    - ruby -v
+    - jekyll -v
+    - echo "End of dependency validation"
+    - echo "...Starting build process..."
+    - echo $CI_COMMIT_BRANCH
+    - echo "......Removing previous published build, if one exists......"
+    - export WEBPUBLISH=$(echo $CI_COMMIT_BRANCH | sed -nE 's/^(UP-[0-9]*).*$/\1/p')
+    - echo $WEBPUBLISH
+    - rm -rf /website/$WEBPUBLISH    
+# cp line explicitly copies the jar encapsulated in Docker image; _updatePublisher pulls a new one. Comment/Uncomment these lines for desired execution/testing.
+#    - cp /utgbuild/publisher.jar ../.
+    - echo "......Retrieving a fresh copy of the publisher......"
+    - /bin/bash _updatePublisher.sh -y | tee /tmp/updatePublisher.log
+# _genonce will run an actual build; simulatebuild accordingly simulates. Comment/Uncomment these lines for desired execution/testing.
+    - echo "......Beginning the build proper......"
+    - /bin/bash _genonce.sh | tee /tmp/buildrun.log
+#    - python3 /utgbuild/simulatebuild.py | tee /tmp/buildrun.log
+    - echo "......Processing the results......"
+    - python3 /utgbuild/processresults.py $CI_COMMIT_BRANCH | tee /tmp/message.log
+    - echo "......Publishing the build to internal Nginx server......"
+    - unzip -d /website/$WEBPUBLISH /builds/hl7/UTG/output/full-ig.zip
+    - cp /builds/hl7/UTG/output/qa.html /website/$WEBPUBLISH/site/qa.html
+    - echo "...UTG Build complete..."
+  artifacts:
+    paths:
+      - /builds/hl7/UTG/output/full-ig.zip
+
+lint-job:
+  tags:
+    - UTG
+  rules:
+    - if: '$TRIGERRED_JOB == "LINT"'
+    - if: '$CI_PIPELINE_SOURCE == "api"'
+  script:
+    - echo "Linting code... This will take about 3 seconds."
+    - sleep 3
+    - echo "No lint issues found."
+
+#test-job:
+#  tags:
+#    - UTG
+#  rules:
+#   - if: '$TRIGERRED_JOB == "TEST"'
+#   - if: '$CI_PIPELINE_SOURCE == "api"'
+#  script:
+#   - echo "Testing code... This will take about 3 seconds."
+#    - sleep 3
+#   - echo "No testing issues found."
