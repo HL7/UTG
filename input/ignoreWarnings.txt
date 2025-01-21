@@ -117,11 +117,16 @@ The property 'Name:role:scoper:Entity' has no definition in CodeSystem.property.
 The property 'v2cs-uri' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
 The property 'status' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
 Unknown CodeSystem Property 'http://hl7.org/fhir/concept-properties#deprecated'. If you are creating your own property, do not create it in the HL7 namespace
-	The property 'inactive' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
+The property 'inactive' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
 	
-	# Edge case where this makes sense
-	%The value set references CodeSystem 'http://terminology.hl7.org/CodeSystem/triggerEventID' which has status 'fragment%
+# Edge case where this makes sense
+%The value set references CodeSystem 'http://terminology.hl7.org/CodeSystem/triggerEventID' which has status 'fragment%
 	
-	# These aren't HL7 published
-	ERROR: CodeSystem/NDFRT: CodeSystem: When HL7 is publishing a resource, the owning committee must be stated using the http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension
-	ERROR: CodeSystem/ca-hc-din: CodeSystem: When HL7 is publishing a resource, the owning committee must be stated using the http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension
+# These aren't HL7 published
+ERROR: CodeSystem/NDFRT: CodeSystem: When HL7 is publishing a resource, the owning committee must be stated using the http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension
+ERROR: CodeSystem/ca-hc-din: CodeSystem: When HL7 is publishing a resource, the owning committee must be stated using the http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension
+
+#Property issue to solve before next release
+CODESYSTEM_PROPERTY_BAD_INTERNAL_REFERENCE
+CODESYSTEM_PROPERTY_UNDEFINED
+CODESYSTEM_PROPERTY_CODE_DEFAULT_WARNING
