@@ -7,11 +7,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1063"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="ObservationValue"/>
   <title value="ObservationValue"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2020-12-10T00:00:00.000-07:00"/>
+  <date value="2024-02-28T00:00:00.000-07:00"/>
   <publisher value="Health Level Seven International"/>
   <contact>
     <telecom>
@@ -28,7 +29,7 @@
   <hierarchyMeaning value="is-a"/>
   <compositional value="false"/>
   <versionNeeded value="false"/>
-  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <content value="complete"/>
   <property>
     <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
@@ -1586,7 +1587,7 @@
       </property>
       <concept>
         <code value="INTERM-OM"/>
-        <display value="intermediate clinical outcome measure"/>
+        <display value="intermediate outcome measure type"/>
         <definition value="A measure that evaluates the change over time of a physiologic state observable that is associated with a specific long-term health outcome."/>
         <property>
           <code value="status"/>
@@ -1599,7 +1600,7 @@
       </concept>
       <concept>
         <code value="PRO-PM"/>
-        <display value="patient reported outcome performance measure"/>
+        <display value="patient reported outcome measure type"/>
         <definition value="A measure that is a comparison of patient reported outcomes for a single or multiple patients collected via an instrument specifically designed to obtain input directly from patients."/>
         <property>
           <code value="status"/>
@@ -2400,6 +2401,32 @@
             <property>
               <code value="internalId"/>
               <valueCode value="23525"/>
+            </property>
+          </concept>
+          <concept>
+            <code value="AIAST"/>
+            <display value="Artificial Intelligence asserted"/>
+            <definition value="Security provenance metadata observation value used to indicate that an IT resource (data, or information object) was asserted by a Artificial Intelligence (e.g. Clinical Decision Support, Machine Learning, Algorithm)."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="123525"/>
+            </property>
+          </concept>
+          <concept>
+            <code value="DICTAST"/>
+            <display value="Dictation asserted"/>
+            <definition value="Security provenance metadata observation value used to indicate that an IT resource (data, or information object) was asserted by a Dictation algorithm transforming human communications (e.g. speech)."/>
+            <property>
+              <code value="status"/>
+              <valueCode value="active"/>
+            </property>
+            <property>
+              <code value="internalId"/>
+              <valueCode value="223525"/>
             </property>
           </concept>
         </concept>

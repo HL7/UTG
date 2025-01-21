@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="measure-population"/>
   <meta>
@@ -8,17 +8,17 @@
     <valueCode value="cqi"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="4"/>
   </extension>
   <url value="http://terminology.hl7.org/CodeSystem/measure-population"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1231"/>
   </identifier>
-  <version value="1.0.0"/>
+  <version value="2.0.0"/>
   <name value="MeasurePopulationType"/>
-  <title value="MeasurePopulationType"/>
-  <status value="draft"/>
+  <title value="Measure Population Type"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2020-04-09T21:10:28+00:00"/>
   <publisher value="Health Level Seven International"/>
@@ -33,7 +33,7 @@
       <value value="hq@HL7.org"/>
     </telecom>
   </contact>
-  <description value="The type of population."/>  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <description value="The type of population."/>  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/measure-population"/>
   <content value="complete"/>
@@ -45,7 +45,7 @@
   <concept>
     <code value="numerator"/>
     <display value="Numerator"/>
-    <definition value="The numerator statement describes the process, condition, event, or outcome that satisfies the measure’s focus or intent. The numerator statement includes parameters such as: &#xD;&#xA; *the Event or events that will satisfy the numerator inclusion criteria &#xD;&#xA; *the Performance period or time interval in which the numerator event must occur, if it is different from that used for identifying the denominator. &#xD;&#xA;&#xD;&#xA; Source: https://mmshub.cms.gov/measure-lifecycle/measure-specification/develop-specification/numerator"/>
+    <definition value="The numerator inclusion statement describes the process, condition, event, or outcome that satisfies the measure’s focus or intent. The numerator inclusion statement includes parameters such as: &#xD;&#xA;&#xD;&#xA; * the Event or events that will satisfy the numerator inclusion criteria &#xD;&#xA; * the Performance period or time interval in which the numerator event must occur, if it is different from that used for identifying the denominator. &#xD;&#xA;&#xD;&#xA; Note that this code is used to identify the starting inclusion criteria for the numerator. The final calculated numerator must be determined by considering all relevant criteria for the scoring type, including numerator inclusion and exclusion criteria. &#xD;&#xA;&#xD;&#xA; Source: https://mmshub.cms.gov/measure-lifecycle/measure-specification/develop-specification/numerator"/>
   </concept>
   <concept>
     <code value="numerator-exclusion"/>
@@ -55,7 +55,7 @@
   <concept>
     <code value="denominator"/>
     <display value="Denominator"/>
-    <definition value="Denominator criteria define the patients, subjects, or events that should be included in the lower portion of a fraction used to calculate a rate, proportion, or ratio. The denominator can be the same as the initial population, or a subset of the initial population to further constrain the population for the purpose of the measure."/>
+    <definition value="Denominator inclusion criteria define the patients, subjects, or events that should be included in the lower portion of a fraction used to calculate a rate, proportion, or ratio. &#xD;&#xA;&#xD;&#xA; Note that this code is used to identify the starting inclusion criteria for the denominator. The final calculated denominator must be determined by considering all relevant criteria for the scoring type, including denominator inclusion, exclusion, and exception criteria. The final calculated denominator can be the same as the initial population, or a subset of the initial population to further constrain the population for the purpose of the measure."/>
   </concept>
   <concept>
     <code value="denominator-exclusion"/>
@@ -70,7 +70,7 @@
   <concept>
     <code value="measure-population"/>
     <display value="Measure Population"/>
-    <definition value="Measure population criteria define the patients, subjects, or events for which the individual observation for the measure should be taken. Measure populations are used for continuous variable measures rather than numerator and denominator criteria."/>
+    <definition value="Measure population inclusion criteria define the patients, subjects, or events for which the measure observation should be taken. Measure populations are used for continuous variable measures rather than numerator and denominator criteria. &#xD;&#xA;&#xD;&#xA; Note that this code is used to identify the starting inclusion criteria for the measure population. The final calculated measure population must be determined by considering all relevant criteria for the scoring type, including measure population inclusion and exclusion criteria."/>
   </concept>
   <concept>
     <code value="measure-population-exclusion"/>
