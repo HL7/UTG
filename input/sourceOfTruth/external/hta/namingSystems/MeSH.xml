@@ -2,15 +2,9 @@
 
 <NamingSystem xmlns="http://hl7.org/fhir">
   <id value="MeSH"/>
-  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.title">
-    <valueString value="Medical Subject Headings"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
-    <valueUri value="http://terminology.hl7.org/NamingSystem/MeSH"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.version">
-    <valueString value="3.0.0"/>
-  </extension>
+  <title value="Medical Subject Headings"/>
+  <url value="http://terminology.hl7.org/NamingSystem/MeSH"/>
+  <version value="3.0.0"/>
   <name value="MeSH"/>
   <status value="active"/>
   <kind value="codesystem"/>
@@ -50,5 +44,12 @@
 	<period>
       <end value="2021-06-29T00:00:00-04:00"/>
     </period>
+  </uniqueId>
+  <uniqueId>
+    <type value="iri-stem"/>
+    <value value="http://id.nlm.nih.gov/mesh/"/>
+    <preferred value="false"/>
+    <authoritative value="true"/>
+    <comment value="MeSH as per https://hhs.github.io/meshrdf/versioning-policy as retrieved on 2024-Jan-24"/>
   </uniqueId>
 </NamingSystem>
