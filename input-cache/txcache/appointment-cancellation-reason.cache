@@ -1,4 +1,22 @@
 -------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason"
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: The code system definition for http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason is a example, so this expansion is not permitted unless the expansion parameter \"incomplete-ok\" has a value of \"true\""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "url": "http://terminology.hl7.org/ValueSet/appointment-cancellation-reason", "version": "0.1.0"}####
+e: {
+  "error" : "Error from server: The code system definition for http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason is a example, so this expansion is not permitted unless the expansion parameter \"incomplete-ok\" has a value of \"true\""
+}
+-------------------------------------------------------------------------------------
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -16,12 +34,10 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "id" : "appointment-cancellation-reason",
   "meta" : {
     "lastUpdated" : "2020-02-24T12:41:39.109+11:00",
     "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
   },
-  "language" : "en",
   "url" : "http://terminology.hl7.org/ValueSet/appointment-cancellation-reason",
   "identifier" : [{
     "system" : "urn:ietf:rfc:3986",
@@ -35,15 +51,16 @@ e: {
   "date" : "2020-02-24T12:41:39+11:00",
   "immutable" : true,
   "expansion" : {
-    "identifier" : "urn:uuid:169ec7f8-67c3-4fe7-9766-8a102141c678",
-    "timestamp" : "2022-12-08T21:53:55.070Z",
+    "identifier" : "urn:uuid:ed4c2b69-f521-4728-979c-1299359d00d3",
+    "timestamp" : "2023-06-02T20:36:27.173Z",
+    "total" : 32,
     "parameter" : [{
-      "name" : "expansion-source",
-      "valueUri" : "ValueSet/appointment-cancellation-reason"
-    },
-    {
       "name" : "limitedExpansion",
       "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : false
     },
     {
       "name" : "example",
@@ -56,97 +73,97 @@ e: {
     "contains" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
       "code" : "pat",
-      "display" : "Patient"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "pat-crs",
-      "display" : "Patient: Canceled via automated reminder system"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "pat-cpp",
-      "display" : "Patient: Canceled via Patient Portal"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "pat-dec",
-      "display" : "Patient: Deceased"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "pat-fb",
-      "display" : "Patient: Feeling Better"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "pat-lt",
-      "display" : "Patient: Lack of Transportation"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "pat-mt",
-      "display" : "Patient: Member Terminated"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "pat-mv",
-      "display" : "Patient: Moved"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "pat-preg",
-      "display" : "Patient: Pregnant"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "pat-swl",
-      "display" : "Patient: Scheduled from Wait List"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "pat-ucp",
-      "display" : "Patient: Unhappy/Changed Provider"
+      "display" : "Patient",
+      "contains" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "pat-crs",
+        "display" : "Patient: Canceled via automated reminder system"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "pat-cpp",
+        "display" : "Patient: Canceled via Patient Portal"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "pat-dec",
+        "display" : "Patient: Deceased"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "pat-fb",
+        "display" : "Patient: Feeling Better"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "pat-lt",
+        "display" : "Patient: Lack of Transportation"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "pat-mt",
+        "display" : "Patient: Member Terminated"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "pat-mv",
+        "display" : "Patient: Moved"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "pat-preg",
+        "display" : "Patient: Pregnant"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "pat-swl",
+        "display" : "Patient: Scheduled from Wait List"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "pat-ucp",
+        "display" : "Patient: Unhappy/Changed Provider"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
       "code" : "prov",
-      "display" : "Provider"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "prov-pers",
-      "display" : "Provider: Personal"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "prov-dch",
-      "display" : "Provider: Discharged"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "prov-edu",
-      "display" : "Provider: Edu/Meeting"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "prov-hosp",
-      "display" : "Provider: Hospitalized"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "prov-labs",
-      "display" : "Provider: Labs Out of Acceptable Range"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "prov-mri",
-      "display" : "Provider: MRI Screening Form Marked Do Not Proceed"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "prov-onc",
-      "display" : "Provider: Oncology Treatment Plan Changes"
+      "display" : "Provider",
+      "contains" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "prov-pers",
+        "display" : "Provider: Personal"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "prov-dch",
+        "display" : "Provider: Discharged"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "prov-edu",
+        "display" : "Provider: Edu/Meeting"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "prov-hosp",
+        "display" : "Provider: Hospitalized"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "prov-labs",
+        "display" : "Provider: Labs Out of Acceptable Range"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "prov-mri",
+        "display" : "Provider: MRI Screening Form Marked Do Not Proceed"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "prov-onc",
+        "display" : "Provider: Oncology Treatment Plan Changes"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
@@ -161,57 +178,57 @@ e: {
     {
       "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
       "code" : "other",
-      "display" : "Other"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "oth-cms",
-      "display" : "Other: CMS Therapy Cap Service Not Authorized"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "oth-err",
-      "display" : "Other: Error"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "oth-fin",
-      "display" : "Other: Financial"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "oth-iv",
-      "display" : "Other: Improper IV Access/Infiltrate IV"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "oth-int",
-      "display" : "Other: No Interpreter Available"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "oth-mu",
-      "display" : "Other: Prep/Med/Results Unavailable"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "oth-room",
-      "display" : "Other: Room/Resource Maintenance"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "oth-oerr",
-      "display" : "Other: Schedule Order Error"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "oth-swie",
-      "display" : "Other: Silent Walk In Error"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-      "code" : "oth-weath",
-      "display" : "Other: Weather"
+      "display" : "Other",
+      "contains" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "oth-cms",
+        "display" : "Other: CMS Therapy Cap Service Not Authorized"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "oth-err",
+        "display" : "Other: Error"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "oth-fin",
+        "display" : "Other: Financial"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "oth-iv",
+        "display" : "Other: Improper IV Access/Infiltrate IV"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "oth-int",
+        "display" : "Other: No Interpreter Available"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "oth-mu",
+        "display" : "Other: Prep/Med/Results Unavailable"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "oth-room",
+        "display" : "Other: Room/Resource Maintenance"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "oth-oerr",
+        "display" : "Other: Schedule Order Error"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "oth-swie",
+        "display" : "Other: Silent Walk In Error"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code" : "oth-weath",
+        "display" : "Other: Weather"
+      }]
     }]
   }
 },

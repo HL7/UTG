@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="accepting-patients"/>
+  <meta>
+    <lastUpdated value="2020-04-09T21:10:28.568+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+ 
+ 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/accepting-patients"/>
+ 
+  <version value="1.0.0"/>
+  <name value="AcceptingPatients"/>
+  <title value="Accepting Patients"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="Health Level Seven International"/>
+  
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+
+  <description value="This code system defines a set of codes that can be used to indicate a practice is accepting new patients."/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/accepting-patients"/>
+  <content value="complete"/>
+
+  <concept>
+    <code value="nopt"/>
+    <display value="Not Accepting"/>
+    <definition value="Not accepting patients"/>
+  </concept>
+   <concept>
+    <code value="newpt"/>
+    <display value="Accepting new and existing patients"/>
+    <definition value="Accepting new and existing patients"/>
+  </concept>
+  <concept>
+    <code value="existptonly"/>
+    <display value="Accepting existing patients only"/>
+    <definition value="Accepting existing patients only"/>
+  </concept>
+  <concept>
+    <code value="existptfam"/>
+    <display value="Accepting existing patients and their families only"/>
+    <definition value="Accepting existing patients and members of their families only"/>
+  </concept>
+
+</CodeSystem>
