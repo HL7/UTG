@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="organization-affiliation-role-for-hie"/>
+  <meta>
+    <lastUpdated value="2020-04-09T21:10:28.568+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+ 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/organization-affiliation-role-for-hie"/>
+ 
+  <version value="1.0.0"/>
+  <name value="OrganizationAffiliationRoleForHie"/>
+  <title value="Organization Affiliation Role for HIE"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="Health Level Seven International"/>
+  
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+
+  <description value="This code system defines a set of codes that can be used to indicate an organization affiliation role for HIE."/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/organization-affiliation-role-for-hie"/>
+  <content value="complete"/>
+  
+  <concept>
+    <code value="HieInitiator"/>
+    <display value="HIE Initiator"/>
+    <definition value="Indicate that the organization referenced in .participatingOrganization is a member of the network led by the organization mentioned in .organization. It has both the permission and the intention to request data from other members of the network. In this context, OrganizationAffiliation.endpoint refers to the endpoint utilized by .participatingOrganization to make requests to the Initiating Gateway, acting under the authority of .organization."/>
+  </concept>
+  <concept>
+    <code value="HieResponder"/>
+    <display value="HIE Responder"/>
+    <definition value="Indicate that the organization linked in .participatingOrganization is a member of the network overseen by the organization in .organization. It possesses an Endpoint capable of receiving requests from other network members that maintain an HIEInitiator relationship with the network's governing organization. In this context, OrganizationAffiliation.endpoint includes endpoints utilized by other network members to transmit requests to .participatingOrganization. This Endpoint may also serve Initiating and Responding gateways operated by .organization."/>
+  </concept>
+  <concept>
+    <code value="PartnerConnectivity"/>
+    <display value="Partner Connectivity"/>
+    <definition value="Indicate that .participatingOrganization should be able to directly contact .organization via .Endpoint. It does not assert the availability of connectivity for any organizations other than those two directly linked through the OrganizationAffiliation Resource. It's important to note that many document-sharing networks might opt to distribute the information required to establish these connections out of band, rather than through the directory."/>
+  </concept>
+  <concept>
+    <code value="DocShareFederateInt"/>
+    <display value="Document Sharing Federated Internal"/>
+    <definition value="Indicate that documents from .participatingOrganization are accessible to organizations within the network through communication with the network's Initiating Gateway, which is operated by .organization. In this context, 'within the network' refers to organizations that maintain an HIEInitiator relationship with .organization. This code is analogous to the DocShare-federate code in mCSD (Mobile Care Services Directory), but its scope is confined to organizations internal to the network."/>
+  </concept>
+  <concept>
+    <code value="DocShareFederateExt"/>
+    <display value="Document Sharing Federated External"/>
+    <definition value="Indicate that documents from .participatingOrganization are accessible to organizations outside the network through communication with the network's Responding Gateway, operated by .organization. Here, 'outside the network' refers to organizations that do not have a child relationship with .organization, yet possess upper-level network or peer connectivity with that organization. This code is analogous to the DocShare-federate code in mCSD (Mobile Care Services Directory), but its scope is restricted to organizations external to the network."/>
+  </concept>
+</CodeSystem>
