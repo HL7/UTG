@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="NIOSHWorkClassificationODH"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/NIOSHWorkClassificationODH"/>
+  <version value="1.0.0"/>
+  <name value="NIOSHWorkClassificationODH"/>
+  <title value="NIOSH Work Classification (ODH)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+	<publisher value="Health Level Seven International"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org"/>
+		</telecom>
+		<telecom>
+			<system value="email"/>
+			<value value="hq@HL7.org"/>
+		</telecom>
+	</contact>
+  <description value="A characterization of the arrangement between an employer and a person for a current work situation or volunteer position, such as 'paid work, self-employed' or 'voluntary work in disaster/emergency response', as reported by the person."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+	  <concept>
+	    <code value="452121000124102"/>
+	    <display value="Paid work in United States armed forces (finding)"/>
+	  </concept>
+	  <concept>
+	    <code value="452131000124104"/>
+	    <display value="Paid work in United States federal government (finding)"/>
+	  </concept>
+	  <concept>
+	    <code value="452491000124108"/>
+	    <display value="Paid work in local government (finding)"/>
+	  </concept>
+	  <concept>
+	    <code value="452141000124109"/>
+	    <display value="Paid work not self-employed (finding)"/>
+	  </concept>
+	  <concept>
+	    <code value="452101000124107"/>
+	    <display value="Self-employed paid work (finding)"/>
+	  </concept>
+	  <concept>
+	    <code value="452501000124100"/>
+	    <display value="Paid work in state government (finding)"/>
+	  </concept>
+	  <concept>
+	    <code value="452151000124106"/>
+	    <display value="Unpaid work not self-employed (finding)"/>
+	  </concept>
+	  <concept>
+	    <code value="452111000124105"/>
+	    <display value="Self-employed unpaid work (finding)"/>
+	  </concept>
+	  <concept>
+	    <code value="160772005"/>
+		<display value="Voluntary worker (person)"/>
+	  </concept>
+    </include>
+	<include>
+	  <system value="https://phinvads.cdc.gov/vads/ViewCodeSystem.action?id=2.16.840.1.114222.4.5.340"/>
+	  <concept>
+	    <code value="VWDR"/>
+		<display value="Voluntary Disaster Response/First Responder"/>
+	  </concept>
+	</include>
+  </compose>
+</ValueSet>

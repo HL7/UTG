@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="NIOSHHouseholdMemberRoletypeODH"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/NIOSHHouseholdMemberRoletypeODH"/>
+  <version value="1.0.0"/>
+  <name value="NIOSHHouseholdMemberRoletypeODH"/>
+  <title value="NIOSH Household Member Roletype (ODH)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+	<publisher value="Health Level Seven International"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org"/>
+		</telecom>
+		<telecom>
+			<system value="email"/>
+			<value value="hq@HL7.org"/>
+		</telecom>
+	</contact>
+  <description value="The relationship of a person sharing the same home, when recording their ODH in the minor's record. A subset of HL7 V3 Code System RoleCode."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+	  <concept>
+	    <code value="FAMMEMB"/>
+	    <display value="family member"/>
+	  </concept>
+	  <concept>
+	    <code value="FTH"/>
+	    <display value="father"/>
+	  </concept>
+	  <concept>
+	    <code value="MTH"/>
+	    <display value="mother"/>
+	  </concept>
+	  <concept>
+	    <code value="ROOM"/>
+	    <display value="roommate"/>
+	  </concept>
+	  <concept>
+	    <code value="SIB"/>
+	    <display value="sibling"/>
+	  </concept>
+	</include>
+  </compose>
+</ValueSet>

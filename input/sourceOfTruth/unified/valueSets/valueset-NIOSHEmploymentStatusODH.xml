@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="NIOSHEmploymentStatusODH"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/NIOSHEmploymentStatusODH"/>
+  <version value="1.0.0"/>
+  <name value="NIOSHEmploymentStatusODH"/>
+  <title value="NIOSH Employment Status (ODH)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+	<publisher value="Health Level Seven International"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org"/>
+		</telecom>
+		<telecom>
+			<system value="email"/>
+			<value value="hq@HL7.org"/>
+		</telecom>
+	</contact>
+  <description value="A person's self-reported relationship to working for pay, family earnings, or training (e.g. having one or more jobs, searching for work, etc.)."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+	  <concept>
+		<code value="224363007"/>
+		<display value="Employed (finding)"/>
+	  </concept>
+	  <concept>
+		<code value="741062008"/>
+		<display value="Not in labor force (finding)"/>
+	  </concept>
+	  <concept>
+		<code value="73438004"/>
+		<display value="Unemployed (finding)"/>
+	  </concept>
+    </include>
+  </compose>
+</ValueSet>

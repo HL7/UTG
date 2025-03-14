@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="NIOSHIndustryODH"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/NIOSHIndustryODH"/>
+  <version value="1.0.0"/>
+  <name value="NIOSHIndustryODH"/>
+  <title value="NIOSH Industry (ODH)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+	<publisher value="Health Level Seven International"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org"/>
+		</telecom>
+		<telecom>
+			<system value="email"/>
+			<value value="hq@HL7.org"/>
+		</telecom>
+	</contact>
+  <description value="Concepts from the NIOSH Occupational Data for Health (ODH) code system that support the classification of industries."/>
+  <compose>
+    <include>
+      <system value="https://phinvads.cdc.gov/vads/ViewCodeSystem.action?id=2.16.840.1.114222.4.5.340"/>
+      <filter>
+        <property value="concept"/>
+        <op value="descendant-of"/>
+        <value value="_NAICS"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

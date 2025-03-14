@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="NIOSHWorkScheduleODH"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/NIOSHWorkScheduleODH"/>
+  <version value="1.0.0"/>
+  <name value="NIOSHWorkScheduleODH"/>
+  <title value="NIOSH Work Schedule (ODH)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+	<publisher value="Health Level Seven International"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org"/>
+		</telecom>
+		<telecom>
+			<system value="email"/>
+			<value value="hq@HL7.org"/>
+		</telecom>
+	</contact>
+  <description value="The typical arrangement of working hours for a person's job, as reported by the person."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+	  <concept>
+	    <code value="452471000124107"/>
+	    <display value="Day shift worker (finding)"/>
+	  </concept>
+	  <concept>
+	    <code value="452461000124100"/>
+	    <display value="Evening shift worker (finding)"/>
+	  </concept>
+	  <concept>
+	    <code value="276066008"/>
+	    <display value="Night shift worker (finding)"/>
+	  </concept>
+	  <concept>
+	    <code value="456971000124104"/>
+	    <display value="Rotating shift worker with nights (finding)"/>
+	  </concept>
+	  <concept>
+	    <code value="456981000124101"/>
+	    <display value="Rotating shift worker without nights (finding)"/>
+	  </concept>
+    </include>
+	<include>
+	  <system value="https://phinvads.cdc.gov/vads/ViewCodeSystem.action?id=2.16.840.1.114222.4.5.340"/>
+      <filter>
+        <property value="concept"/>
+        <op value="descendant-of"/>
+        <value value="_WorkSchedule"/>
+      </filter>
+	</include>
+  </compose>
+</ValueSet>
