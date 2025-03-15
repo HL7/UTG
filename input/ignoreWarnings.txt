@@ -29,6 +29,7 @@ The markdown contains content that appears to be an embedded HTML tag starting a
 
 # Can't be helped
 The value set expansion is too large, and only a subset has been displayed
+The value set include has too many codes to validate (0), so each individual code has not been checked
 
 # HL7 code systems that have not (yet) had their hierarchyMeaning element set
 WARNING: CodeSystem/allergyintolerance-clinical: CodeSystem: HL7 Defined CodeSystems SHOULD have a stated value for the hierarchyMeaning element so that users know the status and meaning of the code system clearly
@@ -40,39 +41,6 @@ WARNING: CodeSystem/data-absent-reason: CodeSystem: HL7 Defined CodeSystems SHOU
 WARNING: CodeSystem/goal-achievement: CodeSystem: HL7 Defined CodeSystems SHOULD have a stated value for the hierarchyMeaning element so that users know the status and meaning of the code system clearly
 Constraint failed: csd-2: 'If there is an explicit hierarchy, a hierarchyMeaning should be provided' (defined in http://hl7.org/fhir/StructureDefinition/CodeSystem)
 
-# value sets based on external code systems where we do not have access to the content
-WARNING: ValueSet.where(id = 'v2-0963'): Error from server: Unable to provide support for code system http://ncithesaurus-stage.nci.nih.gov
-WARNING: ValueSet.where(id = 'snomed-intl-gps'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/900000000000207008/version/20200731 (known versions = http://snomed.info/sct/827022005/version/20221130,http://snomed.info/sct/731000124108/version/20230901,http://snomed.info/sct/83821000000107/version/20230412,http://snomed.info/sct/20611000087101/version/20220930,http://snomed.info/sct/32506021000036107/version/20230731,http://snomed.info/sct/900000000000207008/version/20230901,http://snomed.info/sct/900000000000207008/version/20230131,http://snomed.info/sct/2011000195101/version/20230607,http://snomed.info/sct/11000172109/version/20221115,http://snomed.info/sct/11000146104/version/20230331,http://snomed.info/sct/554471000005108/version/20210930,http://snomed.info/sct/45991000052106/version/20210531,http://snomed.info/sct/900000000000207008/version/20230731)
-WARNING: ValueSet/v2-0005: ValueSet.compose.include[0]: Unknown System 'urn:oid:2.16.840.1.113883.6.238' specified, so Concepts and Filters can't be checked (Details: Resolved system urn:oid:2.16.840.1.113883.6.238 (v3.0.1), but the definition is not complete)
-WARNING: ValueSet.where(id = 'v2-0005'): Error from http://tx.fhir.org/r4: Unable to provide support for code system urn:oid:2.16.840.1.113883.6.238
-WARNING: ValueSet.where(id = 'v2-0292'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://hl7.org/fhir/sid/cvx version 2.ext.0 (known versions = 20210406)
-WARNING: ValueSet.where(id = 'v2-0350'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0350 version 2.0.0 (known versions = 2.9)
-WARNING: ValueSet.where(id = 'v2-0351'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0351 version 2.0.0 (known versions = 2.9)
-WARNING: ValueSet.where(id = 'v2-0456'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0456 version 2.0.0 (known versions = 2.9)
-WARNING: ValueSet.where(id = 'v2-0895'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0895 version 2.0.0 (known versions = 2.9)
-WARNING: ValueSet/v3-AgeGroupObservationValue: ValueSet.compose.include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters can't be checked (Details: Resolved system https://www.nlm.nih.gov/mesh (v3.0.1), but the definition is not complete)
-WARNING: ValueSet.where(id = 'v3-AgeGroupObservationValue'): Error from http://tx.fhir.org/r4: Unable to provide support for code system https://www.nlm.nih.gov/mesh
-WARNING: ValueSet.where(id = 'v3-DiagnosisICD9CM'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/icd9cm
-WARNING: ValueSet.where(id = 'v3-EPSG-GeodeticParameterDataset'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/EPSG-GeodeticParameterDataset
-WARNING: ValueSet.where(id = 'v3-EmploymentStatusUB92'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
-WARNING: ValueSet.where(id = 'v3-HealthCareCommonProcedureCodingSystem'): Error from http://tx.fhir.org/r4: Unable to provide support for code system 
-WARNING: ValueSet.where(id = 'v3-HealthcareServiceLocation'): Error from http://tx.fhir.org/r4: Unable to provide support for code system 
-WARNING: ValueSet.where(id = 'v3-HumanLanguage'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/ietf3066
-WARNING: ValueSet.where(id = 'v3-IndustryClassificationSystem'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/naics
-WARNING: ValueSet/v3-KnowledgeSubtopicObservationValue: ValueSet.compose.include[0]: Unknown System 'https://www.nlm.nih.gov/mesh' specified, so Concepts and Filters can't be checked (Details: Resolved system https://www.nlm.nih.gov/mesh (v3.0.1), but the definition is not complete)
-WARNING: ValueSet.where(id = 'v3-KnowledgeSubtopicObservationValue'): Error from http://tx.fhir.org/r4: Unable to provide support for code system https://www.nlm.nih.gov/mesh
-WARNING: ValueSet.where(id = 'v3-ObservationCoordinateAxisType'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/epsg-ca
-WARNING: ValueSet.where(id = 'v3-ObservationCoordinateSystemType'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/epsg-crs
-WARNING: ValueSet.where(id = 'v3-OrganizationIndustryClassNAICS'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/naics
-WARNING: ValueSet.where(id = 'v3-SCDHEC-GISSpatialAccuracyTiers'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/SCDHEC-GISSpatialAccuracyTiers
-WARNING: ValueSet.where(id = 'v3-USEncounterDischargeDisposition'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
-WARNING: ValueSet.where(id = 'v3-USEncounterReferralSource'): Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
-Error from http://tx.fhir.org/r4: Unable to provide support for code system https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set
-Error from http://tx.fhir.org/r4: Unable to provide support for code system http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets
-Error from http://tx.fhir.org/r4: Unable to provide support for code system http://ncithesaurus-stage.nci.nih.gov version 2.0.0
-Error from http://tx.fhir.org/r4: Unable to provide support for code system http://hl7.org/fhir/sid/cvx version 2.ext.0 (known versions = 20231214)
-Error from http://tx.fhir.org/r4: Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/900000000000207008/version/20200731 (known versions = http://snomed.info/sct/827022005/version/20221130,http://snomed.info/sct/731000124108/version/20230901,http://snomed.info/sct/83821000000107/version/20230412,http://snomed.info/sct/20611000087101/version/20220930,http://snomed.info/sct/32506021000036107/version/20230731,http://snomed.info/sct/900000000000207008/version/20230131,http://snomed.info/sct/2011000195101/version/20230607,http://snomed.info/sct/11000172109/version/20231115,http://snomed.info/sct/11000146104/version/20230331,http://snomed.info/sct/554471000005108/version/20210930,http://snomed.info/sct/900000000000207008/version/20240201,http://snomed.info/sct/45991000052106/version/20231130,http://snomed.info/sct/45991000052106/version/20220531,http://snomed.info/sct/900000000000207008/version/20230731)
-
 # this is intended behavior
 WARNING: CodeSystem/ICD-10DualCoding: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: CodeSystem/ICD-9DualCoding: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
@@ -81,11 +49,9 @@ WARNING: NamingSystem/ICD-9DualCoding: NamingSystem.description: The markdown co
 WARNING: ValueSet/v3-ActClassDocumentBody: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at 'A '. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: ValueSet/v3-ActUncertainty: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at 'A '. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: ValueSet/v3-SecurityAlterationIntegrityObservationType: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at '<p'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
-INFORMATION: ValueSet/snomed-intl-gps: ValueSet.compose.include[0]: This SNOMED-CT based include has some concepts with semantic tags (FSN terms) and some without (preferred terms) - check that this is what is intended  (examples for FSN: [Anxiety disorder of childhood OR adolescence (disorder), Parathyroid structure (body structure), Ferrous (59-Fe) sulfate (substance), Chronic pharyngitis (disorder), Cyanocobalamin (57-Co) (substance)] and examples for no FSN: [Plaque (morphologic abnormality), Non-Hodgkin lymphoma, no International Classification of Diseases for Oncology subtype (morphologic abnormality), Malignant melanoma, no International Classification of Diseases for Oncology subtype (morphologic abnormality), Hemangioma, no International Classification of Diseases for Oncology subtype (morphologic abnormality), Sarcoma, no International Classification of Diseases for Oncology subtype (morphologic abnormality)])
 
 # warnings that apply to normal IGs but not to THO
 WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
-WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
 This element does not match any known slice defined in the profile http://hl7.org/fhir/StructureDefinition/shareablecodesystem|5.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
@@ -93,9 +59,7 @@ This element does not match any known slice defined in the profile http://hl7.or
 # expected behaviour
 The value set references CodeSystem 'http://www.ada.org/snodent' which has status 'fragment'
 The value set references CodeSystem 'http://terminology.hl7.org/CodeSystem/v3-mediaType' which has status 'fragment'
-The value set references CodeSystem 'http://terminology.hl7.org/CodeSystem/triggerEventID' which has status 'fragment
 Unable to evaluate based on code system with status = not-present
-The value set include has too many codes to validate (26,157), so each individual code has not been checked
 The value set references CodeSystem 'http://terminology.hl7.org/CodeSystem/insurance-plan-type' which has status 'fragment'
 The URL 'urn:iso:std:iso:3166:-2' has already been used by ISO3166Part2 in /scratch/repo/input/sourceOfTruth/external/hta/codeSystems/cs-ISO3166Part2
 The URL 'http://hl7.org/fhir/sid/icd-9-cm' has already been used by ICD-9CM-diagnosiscodes in /scratch/repo/input/sourceOfTruth/external/v3/codeSystems/cs-v3-ICD-9CM-diagnosiscodes
@@ -111,11 +75,59 @@ Most code systems defined in HL7 IGs will need to move to THO later during the p
 # known issue with jurisdiction
 Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
 
-#Will investigate before 6.1.0 release
-The html source has duplicate anchor Ids
-
 # Will deal with properties in a future release
 This property has only a code ('Specializes') and not a URI, so it has no clearly defined meaning in the terminology ecosystem
 This property has only a code ('Generalizes') and not a URI, so it has no clearly defined meaning in the terminology ecosystem
 The code 'EVN.CRT' is valid but is deprecated
 This property has only a code ('abstract') and not a URI, so it has no clearly defined meaning in the terminology ecosystem
+
+# Code systems not in tx.fhir.org
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/SCDHEC-GISSpatialAccuracyTiers
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/naics
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/epsg-crs
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/epsg-ca
+Error from http://tx.fhir.org/r5: Unable to provide support for code system https://www.nlm.nih.gov/mesh
+Error from http://tx.fhir.org/r5: Unable to provide support for code system https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html
+%A definition for CodeSystem 'https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html' could not be found, so the code cannot be validated%
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/EPSG-GeodeticParameterDataset 
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/icd9cm
+%A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated%
+The code 'D009273' is not valid in the system https://www.nlm.nih.gov/mesh (Unable to evaluate based on code system with status = not-present)
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://ncithesaurus-stage.nci.nih.gov version 2.0.0
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0895 version 2.0.0
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0456 version 2.0.0
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0351 version 2.0.0
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0350 version 2.0.0
+Error from http://tx.fhir.org/r5: Unable to provide support for code system http://hl7.org/fhir/sid/cvx version 2.ext.0 (known versions = 20231214)
+Error from http://tx.fhir.org/r5: Unable to provide support for code system urn:oid:2.16.840.1.113883.6.238
+%A definition for CodeSystem 'urn:oid:2.16.840.1.113883.6.238' could not be found, so the code cannot be validated%
+The code '1002-5' is not valid in the system urn:oid:2.16.840.1.113883.6.238 (Unable to evaluate based on code system with status = not-present)
+%Error from http://tx.fhir.org/r5: Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/900000000000207008/version/20200731%
+
+# This code should have remained in the code system for backwards compatibility.  These value sets should have new stewards though.
+%The value provided ('att') was not found in the value set 'hl7 workgroup value set' (http://hl7.org/fhir/ValueSet/hl7-work-group|5.1.0)%
+
+# True, but these are retired code systems so we'll ignore it
+When a CodeSystem has content = 'complete', it doesnt make sense for there to be no concepts defined
+
+# Undefined properties will be dealt with later
+The property 'Name:role:scoper:Entity' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
+The property 'v2cs-uri' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
+The property 'status' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
+Unknown CodeSystem Property 'http://hl7.org/fhir/concept-properties#deprecated'. If you are creating your own property, do not create it in the HL7 namespace
+The property 'inactive' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
+	
+# Edge case where this makes sense
+%The value set references CodeSystem 'http://terminology.hl7.org/CodeSystem/triggerEventID' which has status 'fragment%
+	
+# These aren't HL7 published
+ERROR: CodeSystem/NDFRT: CodeSystem: When HL7 is publishing a resource, the owning committee must be stated using the http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension
+ERROR: CodeSystem/ca-hc-din: CodeSystem: When HL7 is publishing a resource, the owning committee must be stated using the http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension
+
+#Property issue to solve before next release
+CODESYSTEM_PROPERTY_BAD_INTERNAL_REFERENCE
+CODESYSTEM_PROPERTY_UNDEFINED
+CODESYSTEM_PROPERTY_CODE_DEFAULT_WARNING
+CODESYSTEM_PROPERTY_URI_INVALID
