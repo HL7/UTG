@@ -2,7 +2,7 @@
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
-    "inactive" : true,
+    "inactive" : false,
     "include" : [{
       "system" : "urn:iso:std:iso:3166:-2",
       "concept" : [{
@@ -12,20 +12,34 @@
   }
 }}####
 e: {
+  "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:8e70aa3f-6416-42c9-bb40-0f2799be69f9",
-    "timestamp" : "2022-12-08T21:18:25.915Z",
+    "identifier" : "urn:uuid:02782874-404c-4921-8e01-f26dcec0bcbe",
+    "timestamp" : "2025-01-22T07:25:47.354Z",
+    "total" : 1,
+    "offset" : 0,
     "parameter" : [{
-      "name" : "limitedExpansion",
+      "name" : "excludeNested",
       "valueBoolean" : true
     },
     {
-      "name" : "excludeNested",
-      "valueBoolean" : true
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "warning-draft",
+      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
+    },
+    {
+      "name" : "used-codesystem",
+      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
     },
     {
       "name" : "version",
@@ -44,7 +58,7 @@ e: {
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
-    "inactive" : true,
+    "inactive" : false,
     "include" : [{
       "system" : "urn:iso:std:iso:3166:-2",
       "concept" : [{
@@ -54,20 +68,34 @@ e: {
   }
 }}####
 e: {
+  "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:8186ecda-d59a-459b-bfaf-6a2f58bf44a6",
-    "timestamp" : "2022-12-08T21:18:26.071Z",
+    "identifier" : "urn:uuid:e9a86957-48eb-47ab-abe0-f9da24b316bf",
+    "timestamp" : "2025-01-22T07:25:47.653Z",
+    "total" : 1,
+    "offset" : 0,
     "parameter" : [{
-      "name" : "limitedExpansion",
+      "name" : "excludeNested",
       "valueBoolean" : true
     },
     {
-      "name" : "excludeNested",
-      "valueBoolean" : true
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "warning-draft",
+      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
+    },
+    {
+      "name" : "used-codesystem",
+      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
     },
     {
       "name" : "version",
@@ -86,59 +114,85 @@ e: {
 {"code" : {
   "system" : "urn:iso:std:iso:3166:-2",
   "code" : "CA-AB"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
 v: {
   "display" : "Alberta",
   "code" : "CA-AB",
-  "system" : "urn:iso:std:iso:3166:-2"
+  "system" : "urn:iso:std:iso:3166:-2",
+  "version" : "2021",
+  "server" : "http://tx.fhir.org/r5",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "MSG_DRAFT"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r5"
+    }],
+    "severity" : "information",
+    "code" : "business-rule",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "status-check"
+      }],
+      "text" : "Reference to draft CodeSystem urn:iso:std:iso:3166:-2|2021 from fhir.tx.support.r4#0.27.0"
+    }
+  }]
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:iso:std:iso:3166:-2",
   "code" : "US-MI"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
 v: {
   "display" : "Michigan",
   "code" : "US-MI",
-  "system" : "urn:iso:std:iso:3166:-2"
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "inactive" : true,
-    "include" : [{
-      "system" : "urn:iso:std:iso:3166:-2",
-      "concept" : [{
-        "code" : "CA-AB"
-      }]
-    }]
-  }
-}}####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "language" : "en",
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:6c52d62a-7de5-4328-8c86-81a49e195df4",
-    "timestamp" : "2022-12-08T21:54:46.477Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
+  "system" : "urn:iso:std:iso:3166:-2",
+  "version" : "2021",
+  "server" : "http://tx.fhir.org/r5",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "MSG_DRAFT"
     },
     {
-      "name" : "version",
-      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r5"
     }],
-    "contains" : [{
-      "system" : "urn:iso:std:iso:3166:-2",
-      "code" : "CA-AB",
-      "display" : "Alberta"
-    }]
-  }
-},
-  "error" : ""
+    "severity" : "information",
+    "code" : "business-rule",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "status-check"
+      }],
+      "text" : "Reference to draft CodeSystem urn:iso:std:iso:3166:-2|2021 from fhir.tx.support.r4#0.27.0"
+    }
+  }]
+}
+
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
@@ -151,24 +205,34 @@ e: {
   }
 }}####
 e: {
+  "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
-      "valueBoolean" : true
-    }],
-    "identifier" : "urn:uuid:85c0f868-fe64-4fad-a342-a190b3f6e655",
-    "timestamp" : "2022-12-08T21:57:00.711Z",
+    "identifier" : "urn:uuid:1414d247-2c79-4ae5-a75f-1c6fd2b1dcda",
+    "timestamp" : "2025-01-22T07:54:49.056Z",
+    "total" : 5099,
+    "offset" : 0,
     "parameter" : [{
-      "name" : "limitedExpansion",
+      "name" : "excludeNested",
       "valueBoolean" : true
     },
     {
-      "name" : "excludeNested",
-      "valueBoolean" : true
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "warning-draft",
+      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
+    },
+    {
+      "name" : "used-codesystem",
+      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
     },
     {
       "name" : "version",
@@ -5173,6 +5237,118 @@ e: {
       "system" : "urn:iso:std:iso:3166:-2",
       "code" : "CZ-514",
       "display" : "Semily"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "concept" : [{
+        "code" : "CA-AB"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.fhir.org,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:bc9c6da1-a8d3-4a78-a250-ec00fb16876e",
+    "timestamp" : "2025-01-22T07:58:16.654Z",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "warning-draft",
+      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
+    },
+    {
+      "name" : "used-codesystem",
+      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
+    }],
+    "contains" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "code" : "CA-AB",
+      "display" : "Alberta"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "concept" : [{
+        "code" : "US-MI"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.fhir.org,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:49271c9f-dd56-4138-acd5-c2b8541964ee",
+    "timestamp" : "2025-01-22T07:58:16.958Z",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "warning-draft",
+      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
+    },
+    {
+      "name" : "used-codesystem",
+      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "urn:iso:std:iso:3166:-2|2021"
+    }],
+    "contains" : [{
+      "system" : "urn:iso:std:iso:3166:-2",
+      "code" : "US-MI",
+      "display" : "Michigan"
     }]
   }
 },
