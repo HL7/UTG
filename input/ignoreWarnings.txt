@@ -1,22 +1,11 @@
 == Suppressed Messages ==
-# 01 need to investigate these mesh codes
-The code 'Q000506' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'Q000633' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'Q000494' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'Q000493' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'Q000627' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'D011379' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'Q000628' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'Q000175' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'Q000209' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'Q000145' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'D004347' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'Q000009' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'Q000744' is not valid in the system https://www.nlm.nih.gov/mesh (A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated)
-The code 'Q000008' is not valid in the system https://www.nlm.nih.gov/mesh (Unable to evaluate based on code system with status = not-present)
+# 01 Should be fixed at a later date via UTG process
+CODESYSTEM_CONCEPT_NO_DEFINITION
+CODESYSTEM_CONCEPT_NO_DISPLAY
 
 # 02 to be investigated
 The Implementation Guide contains no examples for this extension
+TYPE_SPECIFIC_CHECKS_DT_CANONICAL_MULTIPLE_POSSIBLE_VERSIONS
 
 # 03 These value sets are supposed to exist
 Review the All Codes Value Set - incomplete CodeSystems generally should not have an all codes value set specified
@@ -29,7 +18,7 @@ The markdown contains content that appears to be an embedded HTML tag starting a
 
 # 05 Can't be helped
 The value set expansion is too large, and only a subset has been displayed
-The value set include has too many codes to validate (0), so each individual code has not been checked
+VALUESET_INC_TOO_MANY_CODES
 
 # 06 HL7 code systems that have not (yet) had their hierarchyMeaning element set
 WARNING: CodeSystem/allergyintolerance-clinical: CodeSystem: HL7 Defined CodeSystems SHOULD have a stated value for the hierarchyMeaning element so that users know the status and meaning of the code system clearly
@@ -54,16 +43,14 @@ WARNING: ValueSet/v3-SecurityAlterationIntegrityObservationType: ValueSet.descri
 WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
 WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
 This element does not match any known slice defined in the profile http://hl7.org/fhir/StructureDefinition/shareablecodesystem|5.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide
+The IG is not for the international realm, and it uses SNOMED CT, so it should fix the SCT edition in the expansion parameters
 
 # 08 expected behaviour
 The value set references CodeSystem 'http://www.ada.org/snodent' which has status 'fragment'
 The value set references CodeSystem 'http://terminology.hl7.org/CodeSystem/v3-mediaType' which has status 'fragment'
 Unable to evaluate based on code system with status = not-present
 The value set references CodeSystem 'http://terminology.hl7.org/CodeSystem/insurance-plan-type' which has status 'fragment'
-The URL 'urn:iso:std:iso:3166:-2' has already been used by ISO3166Part2 in /scratch/repo/input/sourceOfTruth/external/hta/codeSystems/cs-ISO3166Part2
-The URL 'http://hl7.org/fhir/sid/icd-9-cm' has already been used by ICD-9CM-diagnosiscodes in /scratch/repo/input/sourceOfTruth/external/v3/codeSystems/cs-v3-ICD-9CM-diagnosiscodes
-The URL 'http://hl7.org/fhir/sid/icd-9-cm' is also used by ICD-9CM-procedurecodes in /scratch/repo/input/sourceOfTruth/external/v3/codeSystems/cs-v3-ICD-9CM-procedurecodes
-The URL 'urn:iso:std:iso:3166:-2' is also used by v3-iso3166-2 in /scratch/repo/input/sourceOfTruth/external/v3/codeSystems/cs-v3-iso3166-2
 
 # 09 need to figure out what's up with the slicing stuff at a later date
 This element does not match any known slice defined in the profile http://hl7.org/fhir/StructureDefinition/shareablevalueset|5.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
@@ -73,6 +60,7 @@ Most code systems defined in HL7 IGs will need to move to THO later during the p
 
 # 11 known issue with jurisdiction
 Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
+VALUESET_UNKNOWN_FILTER_PROPERTY_NO_CS
 
 # 12 Will deal with properties in a future release
 This property has only a code ('Specializes') and not a URI, so it has no clearly defined meaning in the terminology ecosystem
@@ -106,7 +94,7 @@ The code '1002-5' is not valid in the system urn:oid:2.16.840.1.113883.6.238 (Un
 %Error from http://tx.fhir.org/r5: Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/900000000000207008/version/20200731%
 
 # 14 This code should have remained in the code system for backwards compatibility.  These value sets should have new stewards though.
-%The value provided ('att') was not found in the value set 'hl7 workgroup value set' (http://hl7.org/fhir/ValueSet/hl7-work-group|5.1.0)%
+Terminology_TX_NoValid_16
 
 # 15 True, but these are retired code systems so we'll ignore it
 When a CodeSystem has content = 'complete', it doesnt make sense for there to be no concepts defined
@@ -136,3 +124,9 @@ Hyperlink 'http://terminology.hl7.org/CodeSystem/v2-%
 The link 'http://terminology.hl7.org/CodeSystem/v2-%
 Hyperlink 'http://terminology.hl7.org/ValueSet/v2-%
 The link 'http://terminology.hl7.org/ValueSet/v2-%
+
+# 21 Will fix with a pro forma UTG ticket in next release
+MSG_DEPENDS_ON_RETIRED
+
+# 22 Will create a ticket to fix this code system
+Type_Specific_Checks_DT_Code_WS
