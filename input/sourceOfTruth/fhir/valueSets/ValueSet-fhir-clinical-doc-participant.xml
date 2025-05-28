@@ -1,9 +1,5 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="fhir-clinical-doc-participant"/>
-  <text>
-    <status value="extensions"/>
-    <div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet clinical-doc-participant-vs</b></p><a name="clinical-doc-participant-vs"> </a><a name="hcclinical-doc-participant-vs"> </a><a name="clinical-doc-participant-vs-en-US"> </a><p>This value set includes codes based on the following rules:</p><ul><li>Include all codes defined in <a href="http://terminology.hl7.org/6.2.0/CodeSystem-v3-ParticipationType.html"><code>http://terminology.hl7.org/CodeSystem/v3-ParticipationType</code></a></li></ul><p>This value set excludes codes based on the following rules:</p><ul><li>Exclude these codes as defined in <a href="http://terminology.hl7.org/6.2.0/CodeSystem-v3-ParticipationType.html"><code>http://terminology.hl7.org/CodeSystem/v3-ParticipationType</code></a><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href="http://terminology.hl7.org/6.2.0/CodeSystem-v3-ParticipationType.html#v3-ParticipationType-AUT">AUT</a></td><td>author (originator)</td><td>**Definition:** A party that originates the Act and therefore has responsibility for the information given in the Act and ownership of this Act.<br/><br/>**Example:** the report writer, the person writing the act definition, the guideline author, the placer of an order, the EKG cart (device) creating a report etc. Every Act should have an author. Authorship is regardless of mood always actual authorship.<br/><br/>Examples of such policies might include:<br/><br/> *  The author and anyone they explicitly delegate may update the report;<br/> *  All administrators within the same clinic may cancel and reschedule appointments created by other administrators within that clinic;<br/><br/>A party that is neither an author nor a party who is extended authorship maintenance rights by policy, may only amend, reverse, override, replace, or follow up in other ways on this Act, whereby the Act remains intact and is linked to another Act authored by that other party.</td></tr><tr><td><a href="http://terminology.hl7.org/6.2.0/CodeSystem-v3-ParticipationType.html#v3-ParticipationType-AUTHEN">AUTHEN</a></td><td>authenticator</td><td>A verifier who attests to the accuracy of an act, but who does not have privileges to legally authenticate the act. An example would be a resident physician who sees a patient and dictates a note, then later signs it. Their signature constitutes an authentication.</td></tr><tr><td><a href="http://terminology.hl7.org/6.2.0/CodeSystem-v3-ParticipationType.html#v3-ParticipationType-CST">CST</a></td><td>custodian</td><td>An entity (person, organization or device) that is in charge of maintaining the information of this act (e.g., who maintains the report or the master service catalog item, etc.).</td></tr><tr><td><a href="http://terminology.hl7.org/6.2.0/CodeSystem-v3-ParticipationType.html#v3-ParticipationType-LA">LA</a></td><td>legal authenticator</td><td>A verifier who legally authenticates the accuracy of an act. An example would be a staff physician who sees a patient and dictates a note, then later signs it. Their signature constitutes a legal authentication.</td></tr><tr><td><a href="http://terminology.hl7.org/6.2.0/CodeSystem-v3-ParticipationType.html#v3-ParticipationType-RCT">RCT</a></td><td>record target</td><td>The record target indicates whose medical record holds the documentation of this act. This is especially important when the subject of a service is not the patient himself.</td></tr><tr><td><a href="http://terminology.hl7.org/6.2.0/CodeSystem-v3-ParticipationType.html#v3-ParticipationType-SBJ">SBJ</a></td><td>subject</td><td>The principle target on which the action happens.<br/><br/>*Examples:* The patient in physical examination, a specimen in a lab observation. May also be a patient's family member (teaching) or a device or room (cleaning, disinfecting, housekeeping).<br/><br/>*UsageNotes:* Not all direct targets are subjects. Consumables and devices used as tools for an act are not subjects. However, a device may be a subject of a maintenance action.</td></tr></table></li></ul></div>
-  </text>
   <extension
              url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sd"/>
@@ -36,16 +32,13 @@
       <display value="World"/>
     </coding>
   </jurisdiction>
-  <copyright
-             value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
   <compose>
     <include>
-      <system
-              value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
     </include>
     <exclude>
-      <system
-              value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
       <concept>
         <code value="AUT"/>
         <display value="author (originator)"/>
