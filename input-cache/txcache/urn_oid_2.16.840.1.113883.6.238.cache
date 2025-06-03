@@ -2,7 +2,7 @@
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
-    "inactive" : true,
+    "inactive" : false,
     "include" : [{
       "system" : "urn:oid:2.16.840.1.113883.6.238",
       "concept" : [{
@@ -33,7 +33,28 @@
   }
 }}####
 e: {
-  "error" : "Error from server: Unable to provide support for code system urn:oid:2.16.840.1.113883.6.238"
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r5: Unable to provide support for code system urn:oid:2.16.840.1.113883.6.238"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:2.16.840.1.113883.6.238",
+  "code" : "1002-5"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "exampleOK":"true", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "Unable to evaluate based on code system with status = not-present",
+  "class" : "UNKNOWN",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : true, "valueSet" :{
@@ -70,11 +91,13 @@ e: {
   }
 }}####
 e: {
-  "error" : "Error from server: Unable to provide support for code system urn:oid:2.16.840.1.113883.6.238"
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r5: Unable to provide support for code system urn:oid:2.16.840.1.113883.6.238"
 }
 -------------------------------------------------------------------------------------
-{"hierarchical" : true, "url": "http://terminology.hl7.org/ValueSet/v2-0005", "version": "3.0.0"}####
+{"hierarchical" : true, "url": "http://terminology.hl7.org/ValueSet/v2-0005", "version": "4.0.0"}####
 e: {
-  "error" : "Error from server: Unable to provide support for code system urn:oid:2.16.840.1.113883.6.238"
+  "from-server" : true,
+  "error" : "Error from http://tx.fhir.org/r5: Unable to provide support for code system urn:oid:2.16.840.1.113883.6.238"
 }
 -------------------------------------------------------------------------------------
