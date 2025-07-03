@@ -1,47 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="research-subject-milestone"/>
-  <meta>
-    <lastUpdated value="2024-04-24T00:00:00+00:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="brr"/>
-  </extension>
- 
- 
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
-  </extension>
   <url value="http://terminology.hl7.org/ValueSet/research-subject-milestone"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
-  </identifier>
-  <version value="1.0.1"/>
-  <name value="ResearchSubjectMilestone"/>
-  <title value="ResearchSubjectMilestone"/>
+  <version value="1.0"/>
+  <name value="ResearchSubjectMilestoneValueSet"/>
+  <title value="Research Subject Milestone Value Set"/>
   <status value="active"/>
-  <experimental value="false"/>
-  <date value="2024-04-24T00:00:00+00:00"/>
-  <publisher value="Health Level Seven International"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="hq@HL7.org"/>
-    </telecom>
-  </contact>
-  <description value="Indicates the progression of a study subject through the study milestones."/>
-  <immutable value="true"/>
-  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <date value="2025-05-22"/>
+  <publisher value="BRR"/>
+  <description value="A terminology codelist relevant to protocol-specified, point-in-time events during a study."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/research-subject-milestone"/>
+      <system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
+      <concept>
+        <code value="C186210"/>
+        <display value="Declined to Continue Into Next Trial Element"/>
+        <definition value="An indication that the subject has declined to continue into a subsequent trial Element."/>
+      </concept>
+      <concept>
+        <code value="C176358"/>
+        <display value="Declined To Continue Into Survival Follow-Up"/>
+        <definition value="An indication that the subject has declined to continue into the survival follow-up phase of the trial."/>
+      </concept>
+      <concept>
+        <code value="C164344"/>
+        <display value="Did Not Meet Eligibility Criteria"/>
+        <definition value="The subject has not fulfilled the criteria needed to enter or continue in the study."/>
+      </concept>
+      <concept>
+        <code value="C132447"/>
+        <display value="Eligibility Criteria Met By Subject"/>
+        <definition value="The subject has fulfilled the criteria needed to enter or continue in the study."/>
+      </concept>
+      <concept>
+        <code value="C161418"/>
+        <display value="Informed Assent"/>
+        <definition value="Assent given by a minor or adult who is unable to give informed consent on their own behalf, to participate in a clinical trial. Assent must be accompanied by consent from a parent or legal guardian for full participation in the study."/>
+      </concept>
+      <concept>
+        <code value="C16735"/>
+        <display value="Informed Consent"/>
+        <definition value="A process that provides the subject with explanations that will help in making decisions about whether to begin or continue participating in a study, after having achieved an understanding of the potential risks and benefits. Informed consent is an ongoing, interactive process rather than a one-time information session."/>
+      </concept>
+      <concept>
+        <code value="C202445"/>
+        <display value="Informed Consent Declined For Protocol-Specified Activity"/>
+        <definition value="Additional consent denied by a subject or parent/guardian for participation in a specific protocol-specified study activity, but does not indicate denial of consent for general participation in a clinical trial."/>
+      </concept>
+      <concept>
+        <code value="C202444"/>
+        <display value="Informed Consent Obtained For Protocol-Specified Activity"/>
+        <definition value="Additional consent given by a subject or parent/guardian for participation in a specific protocol-specified study activity."/>
+      </concept>
+      <concept>
+        <code value="C186211"/>
+        <display value="Opted to Continue Into Next Trial Element"/>
+        <definition value="An indication that the subject has opted to continue into a subsequent trial Element."/>
+      </concept>
+      <concept>
+        <code value="C186212"/>
+        <display value="Re-randomized"/>
+        <definition value="Participants are re-assigned by chance to arms of a clinical trial."/>
+      </concept>
+      <concept>
+        <code value="C161417"/>
+        <display value="Subject Entered Into Trial"/>
+        <definition value="The subject has met eligibility criteria and is enrolled in the study. The subject may or may not subsequently be randomized."/>
+      </concept>
+      <concept>
+        <code value="C114209"/>
+        <display value="Subject is Randomized"/>
+        <definition value="Participants are assigned to arms of a clinical trial by chance."/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
+
