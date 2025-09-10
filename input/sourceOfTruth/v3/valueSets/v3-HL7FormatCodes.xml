@@ -55,9 +55,12 @@
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-HL7DocumentFormatCodes"/>
     </include>
-    <!-- IHE XDS-I uses the DICOM SOP Class code for FormatCode so this is needed in the valueSet -->
+    <!-- IHE XDS-I uses the DICOM SOP Class code for FormatCode so this is needed in the valueSet 
+The defined in system `http://dicom.nema.org/resources/ontology/DCMUID`, as defined in CP-2453
+https://dicom.nema.org/medical/dicom/current/output/chtml/part06/chapter_A.html
+    -->
     <include>
-      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+      <system value="http://dicom.nema.org/resources/ontology/DCMUID"/>
       <concept>
         <code value="1.2.840.10008.5.1.4.1.1.88.59"/>
         <display value="Key Object Selection Document"/>
