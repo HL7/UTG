@@ -12,16 +12,16 @@
     },
     {
         "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-        "valueInteger": 1
+        "valueInteger": 3
     }
 ],
 "url": "http://terminology.hl7.org/CodeSystem/artifact-version-policy-codes",
   "name": "ArtifactVersionPolicyCodes",
   "title": "Artifact Version Policy Codes",
   "status": "active",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "experimental": false,
-  "date": "2024-02-16",
+  "date": "2025-10-13",
   "publisher": "HL7 International",
   "contact" : [
     {
@@ -37,7 +37,7 @@
       ]
     }
   ],
-  "description": "The versioning policy of an artifact (metadata, strict)",
+  "description": "The versioning policy of an artifact (metadata, strict, loose, package)",
   "copyright": "This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html",
   "caseSensitive": true,
   "valueSet": "http://terminology.hl7.org/ValueSet/artifact-version-policy",
@@ -52,6 +52,16 @@
       "code": "strict",
       "display": "Strict",
       "definition": "A versioning policy that indicates that any change to the content of an artifact, including non-substantive and metadata changes, requires a change to the value of the version element of the artifact."
-    }
+    },
+    {
+      "code" : "loose",
+      "display" : "Loose",
+      "definition" : "A versioning policy that indicates that only breaking changes require a change to the value of the version element of the artifact."
+    },
+    {
+      "code" : "package",
+      "display" : "Package",
+      "definition" : "A versioning policy that indicates that version of the artifact is managed as the version of the package in which the artifact appears. This is a common versioning policy often used when artifacts are published as part of an implementation guide, and is important to consider as it indicates that there may be version changes _without_ corresponding changes in the content of a particular artifact. For example, if an implementation guide includes questionnaires, new versions of that implementation guide may include new questionnaires, but not change existing ones, and in this case, with package-managed versions, the existing questionnaires that had no actual changes would still be published with a new version."
+    }  
   ]
 }
