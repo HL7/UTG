@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="imagingselection-referencetype"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="ii"/>
+  </extension>
+  <version value="0.1.0"/>
+  <name value="ImagingSelectionReferenceType"/>
+  <title value="Imaging Selection Reference Type"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2025-10-14T09:32:53+00:00"/>
+  <publisher value="HL7 International / Imaging Integration"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="HL7 International / Imaging Integration"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The type of image reference specified by an imaging selection."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <compose>
+    <include>
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+      <concept>
+        <code value="111030"/>
+        <display value="Image Region"/>
+      </concept>
+      <concept>
+        <code value="111200"/>
+        <display value="Illustration of ROI"/>
+      </concept>
+      <concept>
+        <code value="111191"/>
+        <display value="Referenced Segment"/>
+      </concept>
+      <concept>
+        <code value="121214"/>
+        <display value="Referenced Segmentation Frame"/>
+      </concept>
+      <concept>
+        <code value="121231"/>
+        <display value="Volume Surface"/>
+      </concept>
+      <concept>
+        <code value="121232"/>
+        <display value="Source series for segmentation"/>
+      </concept>
+      <concept>
+        <code value="121233"/>
+        <display value="Source image for segmentation"/>
+      </concept>
+      <concept>
+        <code value="126100"/>
+        <display value="Real World Value Map used for measurement"/>
+      </concept>
+      <concept>
+        <code value="130401"/>
+        <display value="Visual explanation"/>
+      </concept>
+      <concept>
+        <code value="130488"/>
+        <display value="Region in Space"/>
+      </concept>
+      <concept>
+        <code value="130489"/>
+        <display value="Referenced Region of Interest Identifier"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
