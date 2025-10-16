@@ -1,0 +1,103 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="cdshooks-card-type"/>
+  <url value="http://hl7.org/fhir/us/davinci-crd/CodeSystem/temp"/>
+  <name value="CDSHooksCardType"/>
+  <title value="CDS Hooks Card Types"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <description value="Codes defining types of cards that can potentially be returned by a decision support service.  The initial set of codes is biased towards those related to insurance coverage, but all types of response types are acceptable in the code system."/>
+  <caseSensitive value="true"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+    <concept>
+      <code value="coverage-info"/>
+      <display value="Coverage Information"/>
+      <definition
+                  value="Information related to the patient's coverage, including whether a service is covered, requires prior authorization, is approved without seeking prior authorization, and/or requires additional documentation or data collection"/>
+      <concept>
+        <code value="unsolicited-determ"/>
+        <display value="Unsolicited Determination"/>
+        <definition
+                    value="An unsolicited approval of the service as having prior authorization requirements met without a formal submission of a prior authorization request"/>
+      </concept>
+    </concept>
+    <concept>
+      <code value="claim"/>
+      <display value="Claim"/>
+      <definition
+                  value="Information about what steps need to be taken to submit a claim for the service"/>
+    </concept>
+    <concept>
+      <code value="insurance"/>
+      <display value="Insurance"/>
+      <definition
+                  value="Allows a provider to update the patient's coverage information with additional details from the payer (e.g. expiry date, coverage extensions)"/>
+    </concept>
+    <concept>
+      <code value="limits"/>
+      <display value="Limits"/>
+      <definition
+                  value="Messages warning about the patient approaching or exceeding their limits for a particular type of coverage or expiry date for coverage in general"/>
+    </concept>
+    <concept>
+      <code value="network"/>
+      <display value="Network"/>
+      <definition
+                  value="Providing information about in-network providers that could deliver the order (or in-network alternatives for an order directed out-of-network)"/>
+    </concept>
+    <concept>
+      <code value="appropriate-use"/>
+      <display value="Appropriate Use"/>
+      <definition
+                  value="Guidance on whether appropriate-use documentation is needed"/>
+    </concept>
+    <concept>
+      <code value="cost"/>
+      <display value="Cost"/>
+      <definition
+                  value="What is the anticipated cost to the patient based on their coverage"/>
+    </concept>
+    <concept>
+      <code value="therapy-alternatives-opt"/>
+      <display value="Optional Therapy Alternatives"/>
+      <definition
+                  value="Are there alternative therapies that have better coverage and/or are lower-cost for the patient"/>
+    </concept>
+    <concept>
+      <code value="therapy-alternatives-req"/>
+      <display value="Required Therapy Alternatives"/>
+      <definition
+                  value="Are there alternative therapies that must be tried first prior to coverage being available for the proposed therapy"/>
+    </concept>
+    <concept>
+      <code value="clinical-reminder"/>
+      <display value="Clinical Reminder"/>
+      <definition
+                  value="Reminders that a patient is due for certain screening or other therapy (based on payer recorded date of last intervention)"/>
+    </concept>
+    <concept>
+      <code value="duplicate-therapy"/>
+      <display value="Duplicate Therapy"/>
+      <definition
+                  value="Notice that the proposed intervention has already recently occurred with a different provider when that information isn't already available in the provider system"/>
+    </concept>
+    <concept>
+      <code value="contraindication"/>
+      <display value="Contraindication"/>
+      <definition
+                  value="Notice that the proposed intervention may be contraindicated based on information the payer has in their record that the provider doesn't have in theirs"/>
+    </concept>
+    <concept>
+      <code value="guideline"/>
+      <display value="Guideline"/>
+      <definition
+                  value="Indication that there is a guideline available for the proposed therapy (with an option to view)"/>
+    </concept>
+    <concept>
+      <code value="off-guideline"/>
+      <display value="Off Guideline"/>
+      <definition
+                  value="Notice that the proposed therapy may be contrary to best-practice guidelines, typically with an option to view the relevant guideline"/>
+    </concept>
+  </concept>
+</CodeSystem>
