@@ -35,7 +35,11 @@
    <td style="min-width: 200px; border-bottom: none;"><b>Responsible Organizations</b></td>
    <td style="min-width: 140px; border-bottom: none;">Observational Health Data Sciences and Informatics (OHDSI)</td>
    <td>Roles</td>
-   <td><ul><li>Code System Owner</li></ul></td>
+   <td><ul>
+       <li>Code System Owner</li>
+       <li>Code System Maintainer (Steward)</li>
+       <li>Code System Publisher</li>
+   </ul></td>
 </tr>
 <tr>
   <td style="border-top: none; border-bottom: none;"></td>
@@ -113,10 +117,32 @@
 </tr>
  <tr>
     <td style="border-top: none;"><!-- Code System Information --></td>
-    <td>Additional information</td>
+    <td>Description</td>
     <td colspan="2">
         <div>
-          —
+          Standardized Vocabularies are an integral part of the OMOP CDM. The Standardized Vocabularies contain all of the code sets, terminologies, vocabularies, nomenclatures, lexicons, thesauri, ontologies, taxonomies, classifications, abstractions, and other such data that are needed for:
+
+* Generation of the transformed (i.e., standardized) data from the raw source dataset into the OMOP CDM,
+
+* Searching, querying and extraction of the transformed data, and browsing and navigating the hierarchies of classes and abstractions inherent in the transformed data, and
+
+* Interpreting the meanings of the data.
+
+This asset is available for free to anyone and can be [downloaded](https://athena.ohdsi.org/vocabulary/list) from the Atena download page in a delimited file format.
+
+To manage the change of content, but to allow users to use and refer to a defined set of vocabularies, the whole resource is issued in releases. Major changes to the OMOP Vocabulary is released twice yearly in February and August. Instead of a major / minor version scheme, the releases of the Standardized Vocabularies component of the OMOP Vocabulary are tagged with the release date. Version label is based on the version of the CDM its aligned-to, plus a suffix appended incremented based on release date, for example: â€œv5.0 31-MAY-23.â€ At this time prior versions of the OMOP Vocabulary are not publicly available. Each release is accompanied by a [standard release note](https://github.com/OHDSI/Vocabulary-v5.0/releases), containing information about:
+
+* Domain changes
+
+* Newly added concepts grouped by vocabulary_id and domain
+
+* Standard concept changes
+
+* Newly added concepts and their standard concept status
+
+* Changes of concept mapping status grouped by target domain
+
+Additional details about the OMOP Vocabulary release notes can be found [here](https://github.com/OHDSI/Vocabulary-v5.0/wiki/Releases)
         </div>
     </td>
  </tr>

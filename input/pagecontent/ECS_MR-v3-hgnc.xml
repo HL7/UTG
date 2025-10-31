@@ -35,7 +35,11 @@
    <td style="min-width: 200px; border-bottom: none;"><b>Responsible Organizations</b></td>
    <td style="min-width: 140px; border-bottom: none;">Human Genome Organization (HUGO)</td>
    <td>Roles</td>
-   <td><ul><li>Code System Owner</li></ul></td>
+   <td><ul>
+       <li>Code System Owner</li>
+       <li>Code System Maintainer (Steward)</li>
+       <li>Code System Publisher</li>
+   </ul></td>
 </tr>
 <tr>
   <td style="border-top: none; border-bottom: none;"></td>
@@ -113,10 +117,28 @@
 </tr>
  <tr>
     <td style="border-top: none;"><!-- Code System Information --></td>
-    <td>Additional information</td>
+    <td>Description</td>
     <td colspan="2">
         <div>
-          —
+          &quot;The HGNC is responsible for approving unique symbols and names for human loci, including protein coding genes, ncRNA genes and pseudogenes, to allow unambiguous scientific communication.&quot;
+
+The HGNC gene table carries gene IDs, gene symbols and full gene names. Guidance from HGNC confirms that gene symbols are not unique across species and have been known to change in some instances. Thus the commonly used gene symbols should be encoded in FHIR as &quot;displays&quot; with the corresponding IDs (beginning with &quot;HGNC:&quot;) as the &quot;codes&quot;.
+
+&quot;For each known human gene we approve a gene name and symbol (short-form abbreviation). All approved symbols are stored in the HGNC database,[www.genenames.org](https://www.genenames.org/tools/search), a curated online repository of HGNC-approved gene nomenclature, gene groups and associated resources including links to genomic, proteomic and phenotypic information. Each symbol is unique and we ensure that each gene is only given one approved gene symbol. It is necessary to provide a unique symbol for each gene so that we and others can talk about them, and this also facilitates electronic data retrieval from publications and databases.&quot;
+
+HGNC also provides an index on gene families/groups. GeneGroup IDs do not begin with &quot;HGNC:&quot;, so care must be made to ensure alignment of concepts when viewing an HGNC ID from an older system that may be referring to the GeneID and not a gene group. For example, 588 refers to the HLA gene family, but HGNC:588 identifies the ATG12 gene. To provide clarity for systems that do not distinguish codes from genes and gene families, use &quot;http://www.genenames.org&quot; for genes and &quot;http://www.genenames.org/genegroup&quot; for gene families as code system URIs.
+
+For more information on HGNC Gene Groups, see [https://terminology.hl7.org/CodeSystem-HGNCGeneGroup.html](https://terminology.hl7.org/CodeSystem-HGNCGeneGroup.html).
+
+Historically, HGNC gene symbols were used with the HL7 coded data type. For example, in the HL7 messages specified according to the HL7 V2 Clinical Genomics Fully LOINC-Qualified Genetic Variation Model Implementation Guide, HGNC gene symbols were used as the observation values for gene identifiers. For example, OBX 1 CWE 48018-6^Gene identifier^ BRCA1^HGNC. Please note that gene symbols may be present in legacy systems, but GeneID should be used to exchange HGNC gene information in current implementations.
+
+HGNC is a free database for the public.
+
+Versioning Information: The version of the HGNC database is reported using the last updated date. The last updated date is posted on the main HGNC Search screen in the format like &quot;2024-07-25&quot;.
+
+Current, monthly and quarterly HGNC dataset files are published.
+
+Please see https://www.genenames.org/ for more info.
         </div>
     </td>
  </tr>

@@ -35,7 +35,11 @@
    <td style="min-width: 200px; border-bottom: none;"><b>Responsible Organizations</b></td>
    <td style="min-width: 140px; border-bottom: none;">S. Karger AG</td>
    <td>Roles</td>
-   <td><ul><li>Code System Owner</li></ul></td>
+   <td><ul>
+       <li>Code System Owner</li>
+       <li>Code System Maintainer (Steward)</li>
+       <li>Code System Publisher</li>
+   </ul></td>
 </tr>
 <tr>
   <td style="border-top: none; border-bottom: none;"></td>
@@ -113,10 +117,12 @@
 </tr>
  <tr>
     <td style="border-top: none;"><!-- Code System Information --></td>
-    <td>Additional information</td>
+    <td>Description</td>
     <td colspan="2">
         <div>
-          —
+          The International System for Human Cytogenetic Nomenclature (ISCN) was created by the International Standing committee on Human Cytogenetic Nomenclature to represent the outcome of cytogenetic tests. ISCN specifies the nomenclature to describe karyotypes, chromosome abnormalities, in situ hybridization, etc. ISCN provides a list of symbols and abbreviated terms in adjunction with a set of rules, which can be used in the description of chromosomes and chromosome abnormalities, such as p for short arm of chromosome, q for long arm of chromosome, cen for centromere, del for deletion, ish for in situ hybridization, and plus sign (+) for gain, etc.
+
+A LOINC code is created to represent &quot;chromosome analysis results in ISCN expression&quot;. In HL7 v2 messages, this LOINC code is used in OBX-3 with a coded result (CWE data type) that will be sent in OBX-5. The value of the coded result is an ISCN expression, and ISCN will be the code system for the coded result.
         </div>
     </td>
  </tr>
