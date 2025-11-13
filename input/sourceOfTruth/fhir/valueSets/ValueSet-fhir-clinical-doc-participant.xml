@@ -1,0 +1,68 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="fhir-clinical-doc-participant"/>
+  <extension
+             url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sd"/>
+  </extension>
+  <url
+       value="http://terminology.hl7.org/ValueSet/fhir-clinical-doc-participant"/>
+  <version value="1.0.0"/>
+  <name value="FHIRClinicalDocParticipantVs"/>
+  <title value="FHIR Clinical Document Participant Types Value set"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2025-04-04T20:14:47+00:00"/>
+  <publisher value="HL7 International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+      <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description
+               value="FHIR Clinical Document Participant Types. Author, Authenticator, Custodian, Legal Authenticator, Record Target and Subject are found in distinct, named fields in FHIR. Thus, these types are excluded."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+    </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <concept>
+        <code value="AUT"/>
+        <display value="author (originator)"/>
+      </concept>
+      <concept>
+        <code value="AUTHEN"/>
+        <display value="authenticator"/>
+      </concept>
+      <concept>
+        <code value="CST"/>
+        <display value="custodian"/>
+      </concept>
+      <concept>
+        <code value="LA"/>
+        <display value="legal authenticator"/>
+      </concept>
+      <concept>
+        <code value="RCT"/>
+        <display value="record target"/>
+      </concept>
+      <concept>
+        <code value="SBJ"/>
+        <display value="subject"/>
+      </concept>
+    </exclude>
+  </compose>
+</ValueSet>

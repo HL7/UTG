@@ -18,7 +18,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1104"/>
   </identifier>
-  <version value="1.0.1"/>
+  <version value="2.0.0"/>
   <name value="ImmunizationRecommendationStatusCodes"/>
   <title value="Immunization Recommendation Status Codes"/>
   <status value="active"/>
@@ -40,10 +40,16 @@
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/immunization-recommendation-status"/>
   <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="due"/>
     <display value="Due"/>
-    <definition value="The patient is due for their next vaccination."/>
+    <definition value="The patient is due (or will be due) for their next vaccination. Details on when the administration should be given can be conveyed by  proposed dates in the recommendation."/>
   </concept>
   <concept>
     <code value="overdue"/>
@@ -61,8 +67,22 @@
     <definition value="The patient is contraindicated for futher doses."/>
   </concept>
   <concept>
+    <code value="seriescomplete"/>
+    <display value="Series Complete"/>
+    <definition value="The patient is fully protected and no further doses are recommended."/>
+  </concept>
+  <concept>
+    <code value="agedout"/>
+    <display value="Aged Out"/>
+    <definition value="The patient has aged out of further doses in the recommended series."/>
+  </concept>
+  <concept>
     <code value="complete"/>
     <display value="Complete"/>
     <definition value="The patient is fully protected and no further doses are recommended."/>
+    <property>
+        <code value="status"/>
+        <valueCode value="retired"/>
+    </property>
   </concept>
 </CodeSystem>

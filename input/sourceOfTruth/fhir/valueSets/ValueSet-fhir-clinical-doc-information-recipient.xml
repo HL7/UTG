@@ -1,0 +1,54 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="fhir-clinical-doc-information-recipient"/>
+  <extension
+             url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sd"/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/fhir-clinical-doc-information-recipient"/>
+  <version value="1.0.0"/>
+  <name value="FHIRClinicalDocInformationRecipientVs"/>
+  <title value="FHIR Clinical Document Information Recipients Participant Types"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2025-04-04T20:14:47+00:00"/>
+  <publisher value="HL7 International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+      <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description
+               value="Subset of codes from v3-ParticipationType for use as Clinical Document Participant Type codes, which are specifically CDA information recipients."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
+  <copyright
+             value="Used by permission of HL7 International, all rights reserved Creative Commons License"/>
+  <compose>
+    <include>
+      <system
+              value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <concept>
+        <code value="IRCP"/>
+        <display value="information recipient"/>
+      </concept>
+      <concept>
+        <code value="PRCP"/>
+        <display value="primary information recipient"/>
+      </concept>
+      <concept>
+        <code value="TRC"/>
+        <display value="tracker"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

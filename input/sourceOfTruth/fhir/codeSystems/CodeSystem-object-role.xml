@@ -2,7 +2,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="object-role"/>
   <meta>
-    <lastUpdated value="2024-04-24T00:00:00+00:00"/>
+    <lastUpdated value="2025-05-13T00:00:00+00:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>
@@ -17,12 +17,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1135"/>
   </identifier>
-  <version value="1.0.1"/>
+  <version value="1.1.0"/>
   <name value="AuditEventEntityRole"/>
   <title value="AuditEventEntityRole"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2024-04-24T00:00:00+00:00"/>
+  <date value="2025-05-13T00:00:00+00:00"/>
   <publisher value="Health Level Seven International"/>
   
   <contact>
@@ -159,5 +159,15 @@
     <code value="24"/>
     <display value="Query"/>
     <definition value="The contents of a query.  This is used to capture the contents of any kind of query.  For security surveillance purposes knowing the queries being made is very important."/>
+  </concept>
+  <concept>
+    <code value="25"/>
+    <display value="Data Source"/>
+    <definition value="The source or origin of data, when there is no other matching role available"/>
+  </concept>
+  <concept>
+    <code value="26"/>
+    <display value="Processing Element"/>
+    <definition value="A data processing element that creates, analyzes, modifies, or manipulates data as part of this event."/>
   </concept>
 </CodeSystem>
