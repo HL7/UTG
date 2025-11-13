@@ -60,13 +60,8 @@ Most code systems defined in HL7 IGs will need to move to THO later during the p
 
 # 11 known issue with jurisdiction
 Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
-VALUESET_UNKNOWN_FILTER_PROPERTY_NO_CS
 
 # 12 Will deal with properties in a future release
-This property has only a code ('Specializes') and not a URI, so it has no clearly defined meaning in the terminology ecosystem
-This property has only a code ('Generalizes') and not a URI, so it has no clearly defined meaning in the terminology ecosystem
-The code 'EVN.CRT' is valid but is deprecated
-This property has only a code ('abstract') and not a URI, so it has no clearly defined meaning in the terminology ecosystem
 
 # 13 Code systems not in tx.fhir.org
 Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
@@ -93,18 +88,15 @@ Error from http://tx.fhir.org/r5: Unable to provide support for code system urn:
 The code '1002-5' is not valid in the system urn:oid:2.16.840.1.113883.6.238 (Unable to evaluate based on code system with status = not-present)
 %Error from http://tx.fhir.org/r5: Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/900000000000207008/version/20200731%
 
-# 14 This code should have remained in the code system for backwards compatibility.  These value sets should have new stewards though.
+# 14 This code should have remained in the code system for backwards compatibility.  These 
 Terminology_TX_NoValid_16
+The System URI could not be determined for the code 'att' in the ValueSet 'http://hl7.org/fhir/ValueSet/hl7-work-group|5.2.0'
 
 # 15 True, but these are retired code systems so we'll ignore it
 When a CodeSystem has content = 'complete', it doesnt make sense for there to be no concepts defined
 
-# 16 Undefined properties will be dealt with later
-The property 'Name:role:scoper:Entity' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
-The property 'v2cs-uri' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
-The property 'status' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
-Unknown CodeSystem Property 'http://hl7.org/fhir/concept-properties#deprecated'. If you are creating your own property, do not create it in the HL7 namespace
-The property 'inactive' has no definition in CodeSystem.property. Many terminology tools won't know what to do with it
+# 16 guide-parameter-code needs to be used but is experimental in the core spec
+Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
 	
 # 17 Edge case where this makes sense
 %The value set references CodeSystem 'http://terminology.hl7.org/CodeSystem/triggerEventID' which has status 'fragment%
@@ -114,12 +106,6 @@ ERROR: CodeSystem/NDFRT: CodeSystem: When HL7 is publishing a resource, the owni
 ERROR: CodeSystem/ca-hc-din: CodeSystem: When HL7 is publishing a resource, the owning committee must be stated using the http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension
 
 # 19 Property issue to solve before next release
-CODESYSTEM_PROPERTY_BAD_INTERNAL_REFERENCE
-CODESYSTEM_PROPERTY_UNDEFINED
-CODESYSTEM_PROPERTY_CODE_DEFAULT_WARNING
-CODESYSTEM_PROPERTY_URI_INVALID
-CODESYSTEM_PROPERTY_BAD_HL7_URI
-CODESYSTEM_PROPERTY_URI_UNKNOWN
 
 # 21 Will fix with a pro forma UTG ticket in next release
 MSG_DEPENDS_ON_RETIRED
