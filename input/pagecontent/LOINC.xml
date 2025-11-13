@@ -65,7 +65,9 @@ LOINC® is available at no cost under the license at <a href="http://loinc.org/l
 <!-- RDF -->
 <a name="RDF"> </a>
 <h4>RDF</h4>
-<p>LOINC uses the namespace http://loinc.org/rdf# as the root for LOINC concepts in the RDF space. This means that when a LOINC code is converted from the system:code pair, where the system is http://loinc.org, to the <a href="https://hl7.org/fhir/rdf.html">RDF ontological form</a>, the representation is http://loinc.org/rdf#[code].</p>
+<p>LOINC uses the namespace <code>http://loinc.org/rdf/</code> as the root for LOINC concepts in the RDF space. This means that when a LOINC code is converted from the system:code pair, where the system is <code>http://loinc.org</code>, to the <a href="https://hl7.org/fhir/rdf.html">RDF ontological form</a>, the representation is <code>http://loinc.org/rdf/[code]</code>.
+More information about <a href="https://loinc.org/kb/users-guide/recommendations-for-best-practices-in-using-and-mapping-to-loinc/#using-uris-to-identify-loinc-artifacts">using URIs to identify LOINC artifacts</a> is available on the LOINC website.
+</p>
 
 <!-- LOINC Properties -->
 <a name="LOINC Properties"> </a>
@@ -274,7 +276,7 @@ Document.Kind, Document.TypeOfService, Document.Setting, Document.Role, and Docu
   &lt;/differential&gt;
 &lt;/StructureDefinition&gt;
 </pre>
-<p>The canonical URL <code>http://loinc.org/rdf#[LOINC code]</code> can be used to refer to logical model elements defined by LOINC such as e.g. in <a href="https://hl7.org/fhir/questionnaire-definitions.html#Questionnaire.item.definition">Questionnaire.item.definition</a>.</p>
+<p>The canonical URL <code>http://loinc.org/rdf/[LOINC code]</code> can be used to refer to logical model elements defined by LOINC such as e.g. in <a href="https://hl7.org/fhir/questionnaire-definitions.html#Questionnaire.item.definition">Questionnaire.item.definition</a>.</p>
 <p>The appropriate type is determined by mapping from the LOINC specified SCALE_TYP for v3 to FHIR using this table:</p>
 <table class="grid">
  <tr>
