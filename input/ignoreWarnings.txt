@@ -13,8 +13,6 @@ Review the All Codes Value Set - incomplete CodeSystems generally should not hav
 # 04 Not HTML tags.
 The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 The markdown contains content that appears to be an embedded HTML tag starting at '<p'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
-The markdown contains content that appears to be an embedded HTML tag starting at 'A '. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
-The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 
 # 05 Can't be helped
 The value set expansion is too large, and only a subset has been displayed
@@ -31,62 +29,32 @@ WARNING: CodeSystem/goal-achievement: CodeSystem: HL7 Defined CodeSystems SHOULD
 Constraint failed: csd-2: 'If there is an explicit hierarchy, a hierarchyMeaning should be provided' (defined in http://hl7.org/fhir/StructureDefinition/CodeSystem)
 
 # 07 this is intended behavior
-WARNING: CodeSystem/ICD-10DualCoding: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
-WARNING: CodeSystem/ICD-9DualCoding: CodeSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
-WARNING: NamingSystem/ICD-10DualCoding: NamingSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
-WARNING: NamingSystem/ICD-9DualCoding: NamingSystem.description: The markdown contains content that appears to be an embedded HTML tag starting at 'IC'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
-WARNING: ValueSet/v3-ActClassDocumentBody: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at 'A '. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
-WARNING: ValueSet/v3-ActUncertainty: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at 'A '. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: ValueSet/v3-SecurityAlterationIntegrityObservationType: ValueSet.description: The markdown contains content that appears to be an embedded HTML tag starting at '<p'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 
-# 07 warnings that apply to normal IGs but not to THO
+# 08 warnings that apply to normal IGs but not to THO
 WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
 WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
 This element does not match any known slice defined in the profile http://hl7.org/fhir/StructureDefinition/shareablecodesystem|5.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide
-The IG is not for the international realm, and it uses SNOMED CT, so it should fix the SCT edition in the expansion parameters
 
-# 08 expected behaviour
+# 09 expected behaviour
 The value set references CodeSystem 'http://www.ada.org/snodent' which has status 'fragment'
 The value set references CodeSystem 'http://terminology.hl7.org/CodeSystem/v3-mediaType' which has status 'fragment'
 Unable to evaluate based on code system with status = not-present
 The value set references CodeSystem 'http://terminology.hl7.org/CodeSystem/insurance-plan-type' which has status 'fragment'
+The value set references CodeSystem 'http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl' which has status 'fragment'
 
-# 09 need to figure out what's up with the slicing stuff at a later date
+# 10 need to figure out what's up with the slicing stuff at a later date
 This element does not match any known slice defined in the profile http://hl7.org/fhir/StructureDefinition/shareablevalueset|5.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
-
-# 10 this is THO
-Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
 
 # 11 known issue with jurisdiction
 Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
 
-# 12 Will deal with properties in a future release
+# 12 Many of these are intentional.  Will unsuppress and check the rest after this release
+CODESYSTEM_PROPERTY_CODE_DEFAULT_WARNING
 
-# 13 Code systems not in tx.fhir.org
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/nubc-UB92
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/SCDHEC-GISSpatialAccuracyTiers
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/naics
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/epsg-crs
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/epsg-ca
-Error from http://tx.fhir.org/r5: Unable to provide support for code system https://www.nlm.nih.gov/mesh
-Error from http://tx.fhir.org/r5: Unable to provide support for code system https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html
-%A definition for CodeSystem 'https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html' could not be found, so the code cannot be validated%
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/EPSG-GeodeticParameterDataset 
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/icd9cm
-%A definition for CodeSystem 'https://www.nlm.nih.gov/mesh' could not be found, so the code cannot be validated%
-The code 'D009273' is not valid in the system https://www.nlm.nih.gov/mesh (Unable to evaluate based on code system with status = not-present)
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://ncithesaurus-stage.nci.nih.gov version 2.0.0
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0895 version 2.0.0
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0456 version 2.0.0
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0351 version 2.0.0
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0350 version 2.0.0
-Error from http://tx.fhir.org/r5: Unable to provide support for code system http://hl7.org/fhir/sid/cvx version 2.ext.0 (known versions = 20231214)
-Error from http://tx.fhir.org/r5: Unable to provide support for code system urn:oid:2.16.840.1.113883.6.238
-%A definition for CodeSystem 'urn:oid:2.16.840.1.113883.6.238' could not be found, so the code cannot be validated%
-The code '1002-5' is not valid in the system urn:oid:2.16.840.1.113883.6.238 (Unable to evaluate based on code system with status = not-present)
-%Error from http://tx.fhir.org/r5: Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/900000000000207008/version/20200731%
+# 13 Will fix in next release
+CODESYSTEM_PROPERTY_UNDEFINED
 
 # 14 This code should have remained in the code system for backwards compatibility.  These 
 Terminology_TX_NoValid_16
@@ -100,18 +68,24 @@ Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.
 	
 # 17 Edge case where this makes sense
 %The value set references CodeSystem 'http://terminology.hl7.org/CodeSystem/triggerEventID' which has status 'fragment%
+
+# 18 Will define property later
+CODESYSTEM_PROPERTY_UNKNOWN_CODE
+CODESYSTEM_PROPERTY_URI_UNKNOWN
+
+# 19 markdown warnings
+TYPE_SPECIFIC_CHECKS_DT_MARKDOWN_HTML
+
+#20 Will consider dealing with deprecated and inactive concepts in includes at a later date
+DEPRECATED_CONCEPT_FOUND
+INACTIVE_CONCEPT_FOUND
 	
-# 18 These aren't HL7 published
-ERROR: CodeSystem/NDFRT: CodeSystem: When HL7 is publishing a resource, the owning committee must be stated using the http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension
-ERROR: CodeSystem/ca-hc-din: CodeSystem: When HL7 is publishing a resource, the owning committee must be stated using the http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension
-
-# 19 Property issue to solve before next release
-
 # 21 Will fix with a pro forma UTG ticket in next release
 MSG_DEPENDS_ON_RETIRED
 
-# 22 Will create a ticket to fix this code system
-Type_Specific_Checks_DT_Code_WS
+# 22 Draft code systems will be dealth with later
+MSG_DRAFT
+VALIDATION_VAL_STATUS_INCONSISTENT_HINT
 
 # 23 Need to investigate further.  URLS do resolve
 REFERENCE_REF_REL_UNSOLVEABLE
@@ -119,18 +93,22 @@ REFERENCE_REF_REL_UNSOLVEABLE
 # 24 intended behaviour
 The markdown contains content that appears to be an embedded HTML tag starting at '<e'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 
-# 25 These are retired value sets built off of retired/inactive concepts
-WARNING: ValueSet/v3-ActClassConditionNode: ValueSet.compose.include[0].filter[0]: The code for the filter 'concept' is inactive ('CNOD')
-WARNING: ValueSet/v3-ActClassLeftLateralDecubitus: ValueSet.compose.include[0].filter[0]: The code for the filter 'concept' is inactive ('LLD')
-WARNING: ValueSet/v3-ActClassProne: ValueSet.compose.include[0].filter[0]: The code for the filter 'concept' is inactive ('PRN')
-WARNING: ValueSet/v3-ActClassReverseTrendelenburg: ValueSet.compose.include[0].filter[0]: The code for the filter 'concept' is inactive ('RTRD')
-WARNING: ValueSet/v3-ActClassRightLateralDecubitus: ValueSet.compose.include[0].filter[0]: The code for the filter 'concept' is inactive ('RLD')
-WARNING: ValueSet/v3-ActClassSemiFowlers: ValueSet.compose.include[0].filter[0]: The code for the filter 'concept' is inactive ('SFWL')
-WARNING: ValueSet/v3-ActClassSitting: ValueSet.compose.include[0].filter[0]: The code for the filter 'concept' is inactive ('SIT')
-WARNING: ValueSet/v3-ActClassStanding: ValueSet.compose.include[0].filter[0]: The code for the filter 'concept' is inactive ('STN')
-WARNING: ValueSet/v3-ActClassSubjectBodyPosition: ValueSet.compose.include[0].filter[0]: The code for the filter 'concept' is inactive ('_SubjectBodyPosition')
-WARNING: ValueSet/v3-ActClassSupine: ValueSet.compose.include[0].filter[0]: The code for the filter 'concept' is inactive ('SUP')
-WARNING: ValueSet/v3-ActClassTrendelenburg: ValueSet.compose.include[0].filter[0]: The code for the filter 'concept' is inactive ('TRD')
+# 25 need to resolve property later
+Type_Specific_Checks_DT_URL_Resolve
 
-#26 The internalID property will be removed at a later date.  Suppressing for now.
+# 26 The internalID property will be removed at a later date.  Suppressing for now.
 CODESYSTEM_PROPERTY_BAD_INTERNAL_REFERENCE
+
+# 27 Will resolve bad filters later
+VALUESET_BAD_FILTER_VALUE_VALID_CODE
+VALUESET_BAD_FILTER_VALUE_VALID_CODE_INACTIVE
+
+# 28 Will deal with incorrect displays later
+VALUESET_CODE_CONCEPT_HINT
+
+# 29 This is the correct identifier
+It is not valid to refer to a CodeSystem by an identifier like this 'urn:oid:2.16.840.1.113883.6.238' - use 'http://terminology.hl7.org/CodeSystem/v2-0005'
+
+# 30 nothing can be done about this for now
+VALUESET_INC_CS_NO_SUPPORT
+VALUESET_UNKNOWN_FILTER_PROPERTY_NO_CS
