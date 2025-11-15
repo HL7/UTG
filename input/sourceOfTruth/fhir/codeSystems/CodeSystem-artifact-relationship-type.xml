@@ -6,7 +6,7 @@
     <lastUpdated value="2023-03-26T15:21:02.749+11:00"/> 
   </meta> 
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/> 
+    <valueCode value="sd"/> 
   </extension> 
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/> 
@@ -19,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/> 
     <value value="urn:oid:2.16.840.1.113883.4.642.4.100"/> 
   </identifier> 
-  <version value="1.0.0"/> 
+  <version value="2.0.0"/> 
   <name value="ArtifactRelationshipType"/> 
   <title value="Artifact Relationship Type"/> 
   <status value="active"/> 
@@ -225,17 +225,14 @@
   <concept> 
     <code value="supports"/> 
     <display value="Supports"/> 
-    <definition value="This artifact provides additional support for the target artifact. The type of
-     support  is not documentation as it does not describe, explain, or instruct regarding
-     the target artifact."/> 
+    <definition value="This artifact provides documentation or other support for the target artifact. This could
+     include additional instructions on usage as well as additional information on clinical
+     context or appropriateness."/>
   </concept> 
   <concept> 
     <code value="supported-with"/> 
     <display value="Supported With"/> 
-    <definition value="The target artifact contains additional information related to the knowledge artifact
-     but is not documentation as the additional information does not describe, explain,
-     or instruct regarding the knowledge artifact content or application. This could
-     include an associated dataset."/> 
+    <definition value="The target artifact contains additional information related to the knowledge artifact. This may include an associated dataset or additional information that describes, explains, or instructs regarding the knowledge artifact content or its application."/> 
   </concept> 
   <concept> 
     <code value="transforms"/> 
