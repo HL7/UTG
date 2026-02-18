@@ -19,9 +19,9 @@
   "name": "ArtifactVersionPolicyCodes",
   "title": "Artifact Version Policy Codes",
   "status": "active",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "experimental": false,
-  "date": "2025-10-13",
+  "date": "2026-02-18",
   "publisher": "HL7 International",
   "contact" : [
     {
@@ -46,17 +46,17 @@
     {
       "code": "metadata",
       "display": "Metadata",
-      "definition": "A versioning policy that allows non-substantive changes to the metadata elements of an artifact without requiring a change to the value of the version element."
+      "definition": "A versioning policy that allows non-substantive changes to the metadata elements of an artifact without requiring a change to the value of the version element. Metadata elements are defined as elements that characterize information about the artifact (e.g. description, publisher, useContext, jurisdiction, approvalDate, etc) as defined by the MetadataResource pattern (including elements inherited by the CanonicalResource pattern), except for identity elements (i.e. url, version, and name). Content that makes use of the metadata versioning policy SHOULD still update the date element when metadata content changes. Repositories that host content using metadata versioning SHOULD use cache control headers to ensure downstream systems are aware of the possibility of changes to the artifact."
     },
     {
       "code": "strict",
       "display": "Strict",
-      "definition": "A versioning policy that indicates that any change to the content of an artifact, including non-substantive and metadata changes, requires a change to the value of the version element of the artifact."
+      "definition": "A versioning policy that indicates that any change to the content of an artifact, including non-substantive and metadata changes, requires a change to the value of the version element, with the exception of the `id` and `meta` elements (consistent with FHIR signature requirements) as well as the `status` (to allow for active content to be marked retired), and `lastReviewDate` (to allow for last review date to be communicated) elements. Repositories that host content using strict versioning SHOULD use cache control headers to ensure downstream systems are aware of the possibility of changes to the artifact."
     },
     {
       "code" : "loose",
       "display" : "Loose",
-      "definition" : "A versioning policy that indicates that only breaking changes require a change to the value of the version element of the artifact."
+      "definition" : "A versioning policy that indicates that only breaking changes require a change to the value of the version element of the artifact. Content that makes use of the loose versioning policy SHOULD update the date element when content changes. Repositories that host content using loose versioning SHOULD use cache control headers to ensure downstream systems are aware of the possibility of changes to the artifact."
     },
     {
       "code" : "package",
