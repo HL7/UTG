@@ -1,21 +1,25 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
 <p>This page describes how to use LOINC with HL7 Standards.</p>
-<a name="Using LOINC with FHIR R5"> </a>
-<h3>Using LOINC with FHIR R5</h3>
+<a name="UsingLOINCwithFHIR"> </a>
+<h3>Using LOINC with FHIR</h3>
 
 <!-- Summary -->
 <a name="Summary"> </a>
 <h4>Summary</h4>
 <table class="grid">
- <tr><td>Source</td><td>LOINC is made available by the <a href="https://www.regenstrief.org/">Regenstrief Institute</a> at <a href="http://loinc.org">http://loinc.org</a></td></tr>
- <tr><td>System</td><td>The URI <a href="http://loinc.org">http://loinc.org</a> identifies LOINC codes</td></tr>
- <tr><td>Version</td><td>Where a version is used, it should be the standard LOINC version e.g. 2.48</td></tr>
- <tr><td>Code</td><td>The LOINC Code Identifier e.g. 21176-3. LOINC codes are not case sensitive. In addition, LOINC part codes and LOINC answer string ids can be used where appropriate</td></tr>
- <tr><td>Display</td><td>Use either the SHORTNAME or LONG_COMMON_NAME field for the display</td></tr>
- <tr><td>Inactive</td><td>Codes with Property STATUS = DEPRECATED are considered inactive for use in ValueSet.compose.inactive</td></tr>
- <tr><td>Subsumption</td><td>LOINC defines the Multi-Axial Hierarchy, which is the basis for subsumption logic in LOINC</td></tr>
- <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
+ <tr><td>Source</td> <td>LOINC is made available by the <a href="https://www.regenstrief.org/">Regenstrief Institute</a> at <a href="http://loinc.org">http://loinc.org</a></td></tr>
+ <tr><td>System</td> <td>The URI <a href="http://loinc.org">http://loinc.org</a> identifies LOINC codes</td></tr>
+ <tr><td>Version</td> <td>Where a version is used, it should be the standard LOINC version e.g. 2.48</td></tr>
+ <tr><td>Code</td> <td>The LOINC Code Identifier e.g. 21176-3. LOINC codes are not case sensitive. In addition, LOINC part codes and LOINC answer string ids can be used where appropriate</td></tr>
+ <tr><td>Display</td> <td>Use either the SHORTNAME or LONG_COMMON_NAME field for the display</td></tr>
+ <tr><td>Inactive</td> <td>Codes with Property STATUS = DEPRECATED are considered inactive for use in ValueSet.compose.inactive</td></tr>
+ <tr><td>Subsumption</td> <td>LOINC defines the Component Hierarchy and Document Ontology, which are the bases for subsumption logic in LOINC</td></tr>
+ <tr><td>Filter Properties</td> <td>Several properties are defined as described below</td></tr>
 </table>
+<p>
+This page is maintained by HL7 in association with the LOINC team at Regenstrief and is the authoritative source for how 
+LOINC is used with FHIR.
+</p>
 
 <!-- Copyright Issues -->
 <a name="Copyright Issues"> </a>
@@ -32,17 +36,28 @@ LOINC® is available at no cost under the license at <a href="http://loinc.org/l
 <a name="LOINC FHIR Terminology Server"> </a>
 <h4>LOINC FHIR Terminology Server</h4>
 <p>Regenstrief Institute provides access to LOINC's terminology content through the HL7® FHIR® API. See the LOINC FHIR Terminology Server <a href="https://loinc.org/fhir/">page</a> for details.</p>
+<p>
+Note that the FHIR server at <a href="https://fhir.loinc.org/">fhir.loinc.org</a> is a work in progress; where the service does not agree with the content on this page, implementers should consider
+this as a problem with the LOINC service that is planned to be reconciled with this page.
+</p>
 
 <!-- Case Sensitivity -->
 <a name="Case Sensitivity"> </a>
 <h4>Case Sensitivity</h4>
-<p>For comparison purposes, LOINC codes, displays, and property values are not case sensitive, though implementers SHOULD maintain the correct case when using LOINC codes and property values.</p>
+<p>
+LOINC codes, property names, filter names and designation types are considered case sensitive. For comparison purposes (e.g. when executing a filter), 
+LOINC displays, and property values are not case sensitive, though implementers SHOULD maintain the correct case when using LOINC codes and property values.
+</p>
 
 <!-- Use of LOINC PARTS -->
 <a name="Use of LOINC PARTS"> </a>
 <h4>Use of LOINC PARTS</h4>
-<p>As described in the <a href="http://loinc.org/downloads/files/LOINCManual.pdf">LOINC Manual</a> section 10.2, LOINC Parts are a coded representation of a value for a dimension used to specify a LOINC Term which are assigned a non-semantic identifier with a "LP" prefix and a mod-10 check digit. Following the LOINC license, these part codes may be used in the following ways:</p>
+<p>As described in the <a href="https://loinc.org/kb/users-guide/additional-content-in-the-loinc-distribution/">LOINC Manual</a> section 9.3, 
+LOINC Parts are a coded representation of a value for a dimension used to specify a LOINC Term which are assigned a non-semantic identifier 
+with a "LP" prefix and a mod-10 check digit. Following the LOINC license, these part codes may be used in the following ways:</p>
 <ul>
+ <li>As a parameter to $lookup or $validate - part codes are considered valid LOINC codes in the terminology infrastructure</li>
+ <li>In the response to a $lookup on a LOINC code</li>
  <li>In filter properties, as described below</li>
  <li>In <a href="https://hl7.org/fhir/structuredefinition-definitions.html">Structure Definitions</a>, where the structure describes the use of a set of LOINC codes</li>
  <li>In a <a href="https://hl7.org/fhir/conceptmap.html">ConceptMap</a> resource, where mappings between LOINC codes and other codes are being defined</li>
@@ -52,7 +67,9 @@ LOINC® is available at no cost under the license at <a href="http://loinc.org/l
 <!-- Use of LOINC Answer Lists -->
 <a name="Use of LOINC Answer Lists"> </a>
 <h4>Use of LOINC Answer Lists</h4>
-<p>LOINC also allocates Answer List and Answer String Ids for use in various forms and questionnaires. LOINC Answer String IDs are also valid LOINC codes:</p>
+<p>As described in the <a href="https://loinc.org/kb/users-guide/additional-content-in-the-loinc-distribution/">LOINC Manual</a> section 9.2, 
+LOINC also defines Answer Lists for use in various forms and questionnaires. Both the list of Answers and the individual answers have String Ids. 
+LOINC Answer String IDs are also valid LOINC codes:</p>
 <pre>
   &lt;coding&gt;
     &lt;system value=&quot;http://loinc.org&quot;/&gt;
@@ -60,7 +77,7 @@ LOINC® is available at no cost under the license at <a href="http://loinc.org/l
     &lt;display value=&quot;Platelet anisocytosis&quot;/&gt;
   &lt;/coding&gt;
 </pre>
-<p>LOINC Answer List Ids are actually value set identifiers. See <a href="#LOINC Answer Lists">below</a> for how to use these.</p>
+<p>LOINC Answer List Ids are associated with implicit value set identifiers. See <a href="#LOINC Answer Lists">below</a> for how to use these.</p>
 
 <!-- RDF -->
 <a name="RDF"> </a>
@@ -70,123 +87,267 @@ LOINC® is available at no cost under the license at <a href="http://loinc.org/l
 <!-- LOINC Properties -->
 <a name="LOINC Properties"> </a>
 <h4>LOINC Properties</h4>
-<p>In addition to the <a href="https://hl7.org/fhir/terminology-service.html#standard-props">standard properties</a>, the following LOINC table fields are defined as code system properties when using LOINC in FHIR:</p>
+<p>The following code system properties are defined when using LOINC in FHIR. These properties are found in $lookup responses, and can also be 
+used in filters.</p>
+
 <table class="grid">
-<tr><td>STATUS</td><td>string</td><td>Status of the term</td></tr>
-<tr><td>COMPONENT</td><td>code</td><td>First major axis-component or analyte: Analyte Name, Analyte sub-class, Challenge</td></tr>
-<tr><td>PROPERTY</td><td>code</td><td>Second major axis-property observed: Kind of Property (also called kind of quantity)</td></tr>
-<tr><td>TIME_ASPCT</td><td>code</td><td>Third major axis-timing of the measurement: Time Aspect (Point or moment in time vs. time interval)</td></tr>
-<tr><td>SYSTEM</td><td>code</td><td>Fourth major axis-type of specimen or system: System (Sample) Type</td></tr>
-<tr><td>SCALE_TYP</td><td>code</td><td>Fifth major axis-scale of measurement: Type of Scale</td></tr>
-<tr><td>METHOD_TYP</td><td>code</td><td>Sixth major axis-method of measurement: Type of Method</td></tr>
-<tr><td>CLASS</td><td>string</td><td>An arbitrary classification of the terms for grouping related observations together</td></tr>
-<tr><td>CONSUMER_NAME</td><td>string</td><td>An experimental (beta) consumer friendly name for this item. The intent is to provide a test name that health care consumers will recognize; it will be similar to the names that might appear on a lab report</td></tr>
-<tr><td>CLASSTYPE</td><td>string</td><td>1=Laboratory class; 2=Clinical class; 3=Claims attachments; 4=Surveys</td></tr>
-<tr><td>ORDER_OBS</td><td>string</td><td>Provides users with an idea of the intended use of the term by categorizing it as an order only, observation only, or both</td></tr>
-<tr><td>DOCUMENT_SECTION</td><td>string</td><td>Classification of whether this LOINC code can be used a full document, a section of a document, or both</td></tr>
+<tr><td>Code</td> <td>Type</td> <td>Description</td> <td>Source in Distribution</td></tr>
+<tr><td>parent</td> <td>code</td> <td>A parent code in the Component Hierarchy by System</td> <td>from IMMEDIATE_PARENT in ComponentHierarchyBySystem</td></tr>
+<tr><td>child</td> <td>code</td> <td>A child code in the Component Hierarchy by System</td> <td>inferred from IMMEDIATE_PARENT in ComponentHierarchyBySystem</td></tr>
+<tr><td>COMPONENT</td> <td>code</td> <td>First major axis-component or analyte: Analyte Name, Analyte sub-class, Challenge</td> <td>PartTypeName = "COMPONENT" in LoincPartLink_Primary</td></tr>
+<tr><td>PROPERTY</td> <td>code</td> <td>Second major axis-property observed: Kind of Property (also called kind of quantity)</td> <td>PartTypeName = "PROPERTY" in LoincPartLink_Primary</td></tr>
+<tr><td>TIME_ASPCT</td> <td>code</td> <td>Third major axis-timing of the measurement: Time Aspect (Point or moment in time vs. time interval)</td> <td>PartTypeName = "TIME" in LoincPartLink_Primary</td></tr>
+<tr><td>SYSTEM</td> <td>code</td> <td>Fourth major axis-type of specimen or system: System (Sample) Type</td> <td>PartTypeName = "SYSTEM" in LoincPartLink_Primary</td></tr>
+<tr><td>SCALE_TYP</td> <td>code</td> <td>Fifth major axis-scale of measurement: Type of Scale</td> <td>PartTypeName = "SCALE" in LoincPartLink_Primary</td></tr>
+<tr><td>METHOD_TYP</td> <td>code</td> <td>Sixth major axis-method of measurement: Type of Method</td> <td>PartTypeName = "METHOD" in LoincPartLink_Primary</td></tr>
+<tr><td>CLASS</td> <td>code</td> <td>An arbitrary classification of terms for grouping related observations together</td> <td>"CLASS" in LOINC.csv, with "class." prepended</td></tr>
+<tr><td>VersionLastChanged</td> <td>string</td> <td>The LOINC version number in which the record has last changed. For new records, this field contains the same value as the VersionFirstReleased property.</td> <td>VersionLastChanged in LOINC.CSV</td></tr>
+<tr><td>CHNG_TYPE</td> <td>string</td> <td>DEL = delete (deprecate); ADD = add; PANEL = addition or removal of child elements or change in the conditionality of child elements in the panel or in sub-panels contained by the panel; NAM = change to Analyte/Component (field #2); MAJ = change to name field other than #2 (#3 - #7); MIN = change to field other than name; UND = undelete</td> <td>CHNG_TYPE in LOINC.csv</td></tr>
+<tr><td>DefinitionDescription</td> <td>string</td> <td>Narrative text that describes the LOINC term taken as a whole (i.e., taking all of the parts of the term together) or relays information specific to the term, such as the context in which the term was requested or its clinical utility.</td> <td>DefinitionDescription in LOINC.csv</td></tr>
+<tr><td>STATUS</td> <td>string</td> <td>Status of the term. Within LOINC, codes with STATUS=DEPRECATED are considered inactive. Current values: ACTIVE, TRIAL, DISCOURAGED, and DEPRECATED</td> <td>STATUS in LOINC.csv, Status in PART.csv</td></tr>
+<tr><td>CLASSTYPE</td> <td>string</td> <td>1=Laboratory class; 2=Clinical class; 3=Claims attachments; 4=Surveys</td> <td>CLASSTYPE in LOINC.csv</td></tr>
+<tr><td>FORMULA</td> <td>string</td> <td>Contains the formula in human readable form, for calculating the value of any measure that is based on an algebraic or other formula except those for which the component expresses the formula. So Sodium/creatinine does not need a formula, but Free T3 index does.</td> <td>FORMULA in LOINC.csv</td></tr>
+<tr><td>EXMPL_ANSWERS</td> <td>string</td> <td>For some tests and measurements, we have supplied examples of valid answers, such as '1:64', 'negative @ 1:16', or '55'.</td> <td>EXMPL_ANSWERS in LOINC.csv</td></tr>
+<tr><td>SURVEY_QUEST_TEXT</td> <td>string</td> <td>Verbatim question from the survey instrument</td> <td>SURVEY_QUEST_TEXT in LOINC.csv</td></tr>
+<tr><td>SURVEY_QUEST_SRC</td> <td>string</td> <td>Exact name of the survey instrument and the item/question number</td> <td>SURVEY_QUEST_SRC in LOINC.csv</td></tr>
+<tr><td>UNITSREQUIRED</td> <td>string</td> <td>Y/N field that indicates that units are required when this LOINC is included as an OBX segment in a HIPAA attachment</td> <td>UNITSREQUIRED in LOINC.csv</td></tr>
+<tr><td>ORDER_OBS</td> <td>string</td> <td>Provides users with an idea of the intended use of the term by categorizing it as an order only, observation only, or both</td> <td>ORDER_OBS in LOINC.csv</td></tr>
+<tr><td>HL7_FIELD_SUBFIELD_ID</td> <td>string</td> <td>A value in this field means that the content should be delivered in the named field/subfield of the HL7 message. When NULL, the data for this data element should be sent in an OBX segment with this LOINC code stored in OBX-3 and with the value in the OBX-5.</td> <td>HL7_FIELD_SUBFIELD_ID in LOINC.csv</td></tr>
+<tr><td>EXTERNAL_COPYRIGHT_NOTICE</td> <td>string</td> <td>External copyright holders copyright notice for this LOINC code</td> <td>EXTERNAL_COPYRIGHT_NOTICE in LOINC.csv</td></tr>
+<tr><td>EXAMPLE_UNITS</td> <td>string</td> <td>This field is populated with a combination of submitters units and units that people have sent us. Its purpose is to show users representative, but not necessarily recommended, units in which data could be sent for this term.</td> <td>EXAMPLE_UNITS in LOINC.csv</td></tr>
+<tr><td>EXAMPLE_UCUM_UNITS</td> <td>string</td> <td>The Unified Code for Units of Measure (UCUM) is a code system intended to include all units of measures being contemporarily used in international science, engineering, and business. (www.unitsofmeasure.org) This field contains example units of measures for this term expressed as UCUM units.</td> <td>EXAMPLE_UCUM_UNITS in LOINC.csv</td></tr>
+<tr><td>STATUS_REASON</td> <td>string</td> <td>Classification of the reason for concept status. This field will be Null for ACTIVE concepts</td> <td>STATUS_REASON in LOINC.csv</td></tr>
+<tr><td>STATUS_TEXT</td> <td>string</td> <td>Explanation of concept status in narrative text. This field will be Null for ACTIVE concepts, and optionally populated for terms in other status.</td> <td>STATUS_TEXT in LOINC.csv</td></tr>
+<tr><td>CHANGE_REASON_PUBLIC</td> <td>string</td> <td>Detailed explanation about special changes to the term over time.</td> <td>CHANGE_REASON_PUBLIC in LOINC.csv</td></tr>
+<tr><td>COMMON_TEST_RANK</td> <td>string</td> <td>Ranking of approximately 2000 common tests performed by laboratories in USA.</td> <td>COMMON_TEST_RANK in LOINC.csv</td></tr>
+<tr><td>COMMON_ORDER_RANK</td> <td>string</td> <td>Ranking of approximately 300 common orders performed by laboratories in USA.</td> <td>COMMON_ORDER_RANK in LOINC.csv</td></tr>
+<tr><td>HL7_ATTACHMENT_STRUCTURE</td> <td>string</td> <td>This property is populated in collaboration with the HL7 Payer-Provider Exchange (PIE) Work Group (previously called Attachments Work Group) as described in the HL7 Attachment Specification: Supplement to Consolidated CDA Templated Guide.</td> <td>HL7_ATTACHMENT_STRUCTURE in LOINC.csv</td></tr>
+<tr><td>EXTERNAL_COPYRIGHT_LINK</td> <td>string</td> <td>For terms that have a third party copyright, this field is populated with the COPYRIGHT_ID from the Source Organization table (see below). It links an external copyright statement to a term.</td> <td>EXTERNAL_COPYRIGHT_LINK in LOINC.csv</td></tr>
+<tr><td>PanelType</td> <td>string</td> <td>For LOINC terms that are panels, this attribute classifies them as a 'Convenience group', 'Organizer', or 'Panel'</td> <td>PanelType in LOINC.csv</td></tr>
+<tr><td>AskAtOrderEntry</td> <td>string</td> <td>A multi-valued, semicolon delimited list of LOINC codes that represent optional Ask at Order Entry (AOE) observations for a clinical observation or laboratory test. A LOINC term in this field may represent a single AOE observation or a panel containing several AOE observations.</td> <td>AskAtOrderEntry in LOINC.csv</td></tr>
+<tr><td>AssociatedObservations</td> <td>string</td> <td>A multi-valued, semicolon delimited list of LOINC codes that represent optional associated observation(s) for a clinical observation or laboratory test. A LOINC term in this field may represent a single associated observation or panel containing several associated observations.</td> <td>AssociatedObservations in LOINC.csv</td></tr>
+<tr><td>VersionFirstReleased</td> <td>string</td> <td>This is the LOINC version number in which this LOINC term was first published.</td> <td>VersionFirstReleased in LOINC.csv in LOINC.csv</td></tr>
+<tr><td>ValidHL7AttachmentRequest</td> <td>string</td> <td>A value of Y in this field indicates that this LOINC code can be sent by a payer as part of an HL7 Attachment request for additional information.</td> <td>ValidHL7AttachmentRequest in LOINC.csv</td></tr>
+<tr><td>answer-list</td> <td>code</td> <td>An answer list associated with this LOINC code (if there are matching answer lists defined).</td> <td>inferred from LoincAnswerListLink.csv</td></tr>
+<tr><td>MAP_TO</td> <td>code</td> <td>A replacement term that is to be used in place of the deprecated or discouraged term.</td> <td>??</td></tr>
+<tr><td>analyte</td> <td>code</td> <td>First sub-part of the Component, i.e., the part of the Component before the first carat</td> <td>derived from PartTypeName = "COMPONENT" in LoincPartLink_Primary</td></tr>
+<tr><td>analyte-core</td> <td>code</td> <td>The primary part of the analyte without the suffix</td> <td>derived from PartTypeName = "COMPONENT" in LoincPartLink_Primary</td></tr>
+<tr><td>analyte-suffix</td> <td>code</td> <td>The suffix part of the analyte, if present, e.g., Ab or DNA</td> <td>derived from PartTypeName = "COMPONENT" in LoincPartLink_Primary. Or PartTypeName = "SUFFIX" in LoincPartLink_Primary?</td></tr>
+<tr><td>analyte-numerator</td> <td>code</td> <td>The numerator part of the analyte, i.e., everything before the slash in analytes that contain a divisor</td> <td>derived from PartTypeName = "COMPONENT" in LoincPartLink_Primary</td></tr>
+<tr><td>analyte-divisor</td> <td>code</td> <td>The divisor part of the analyte, if present, i.e., after the slash and before the first carat</td> <td>derived from PartTypeName = "COMPONENT" in LoincPartLink_Primary. Or PartTypeName = "DIVISORS" in LoincPartLink_Primary?</td></tr>
+<tr><td>analyte-divisor-suffix</td> <td>code</td> <td>The suffix part of the divisor, if present</td> <td>derived from PartTypeName = "COMPONENT" in LoincPartLink_Primary</td></tr>
+<tr><td>challenge</td> <td>code</td> <td>Second sub-part of the Component, i.e., after the first carat</td> <td>derived from PartTypeName = "COMPONENT" in LoincPartLink_Primary</td></tr>
+<tr><td>adjustment</td> <td>code</td> <td>Third sub-part of the Component, i.e., after the second carat</td> <td>derived from PartTypeName = "COMPONENT" in LoincPartLink_Primary</td></tr>
+<tr><td>count</td> <td>code</td> <td>Fourth sub-part of the Component, i.e., after the third carat</td> <td>derived from PartTypeName = "COMPONENT" in LoincPartLink_Primary</td></tr>
+<tr><td>time-core</td> <td>code</td> <td>The primary part of the Time</td> <td>derived from PartTypeName = "TIME" in LoincPartLink_Primary</td></tr>
+<tr><td>time-modifier</td> <td>code</td> <td>The modifier of the Time value, such as mean or max</td> <td>derived from PartTypeName = "TIME" in LoincPartLink_Primary</td></tr>
+<tr><td>system-core</td> <td>code</td> <td>The primary part of the System, i.e., without the super system</td> <td>derived from PartTypeName = "SYSTEM" in LoincPartLink_Primary</td></tr>
+<tr><td>super-system</td> <td>code</td> <td>The super system part of the System, if present. The super system represents the source of the specimen when the source is someone or something other than the patient whose chart the result will be stored in. For example, fetus is the super system for measurements done on obstetric ultrasounds, because the fetus is being measured and that measurement is being recorded in the patient's (mother's) chart.</td> <td>derived from PartTypeName = "SYSTEM" in LoincPartLink_Primary</td></tr>
+<tr><td>analyte-gene</td> <td>code</td> <td>The specific gene represented in the analyte</td> <td>PartTypeName = "GENE" in LoincPartLink_Primary</td></tr>
+<tr><td>category</td> <td>code</td> <td>A single LOINC term can be assigned one or more categories based on both programmatic and manual tagging. Category properties also utilize LOINC Class Parts.</td> <td>??</td></tr>
+<tr><td>search</td> <td>code</td> <td>Synonyms, fragments, and other Parts that are linked to a term to enable more encompassing search results.</td> <td>??</td></tr>
+<tr><td>rad-modality-modality-type</td> <td>code</td> <td>Modality is used to represent the device used to acquire imaging information.</td> <td>PartTypeName = "Rad.Modality.Modality Type" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-modality-modality-subtype</td> <td>code</td> <td>Modality subtype may be optionally included to signify a particularly common or evocative configuration of the modality.</td> <td>PartTypeName = "Rad.Modality.Modality Subtype" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-anatomic-location-region-imaged</td> <td>code</td> <td>The Anatomic Location Region Imaged attribute is used in two ways: as a coarse-grained descriptor of the area imaged and a grouper for finding related imaging exams; or, it is used just as a grouper.</td> <td>PartTypeName = "Rad.Anatomic Location.Region Imaged" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-anatomic-location-imaging-focus</td> <td>code</td> <td>The Anatomic Location Imaging Focus is a more fine-grained descriptor of the specific target structure of an imaging exam. In many areas, the focus should be a specific organ.</td> <td>PartTypeName = "Rad.Anatomic Location.Imaging Focus" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-anatomic-location-laterality-presence</td> <td>code</td> <td>Radiology Exams that require laterality to be specified in order to be performed are signified with an Anatomic Location Laterality Presence attribute set to 'True'</td> <td>PartTypeName = "Rad.Anatomic Location.Laterality.Presence" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-anatomic-location-laterality</td> <td>code</td> <td>Radiology exam Laterality is specified as one of: Left, Right, Bilateral, Unilateral, Unspecified</td> <td>PartTypeName = "Rad.Anatomic Location.Laterality" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-view-aggregation</td> <td>code</td> <td>Aggregation describes the extent of the imaging performed, whether in quantitative terms (e.g., '3 or more views') or subjective terms (e.g., 'complete').</td> <td>PartTypeName = "Rad.View.Aggregation" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-view-view-type</td> <td>code</td> <td>View type names specific views, such as 'lateral' or 'AP'.</td> <td>PartTypeName = "Rad.View.View Type" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-maneuver-maneuver-type</td> <td>code</td> <td>Maneuver type indicates an action taken with the goal of elucidating or testing a dynamic aspect of the anatomy.</td> <td>PartTypeName = "Rad.Maneuver.Maneuver Type" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-timing</td> <td>code</td> <td>The Timing/Existence property used in conjunction with pharmaceutical and maneuver properties. It specifies whether or not the imaging occurs in the presence of the administered pharmaceutical or a maneuver designed to test some dynamic aspect of anatomy or physiology .</td> <td>PartTypeName = "Rad.Timing" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-pharmaceutical-substance-given</td> <td>code</td> <td>The Pharmaceutical Substance Given specifies administered contrast agents, radiopharmaceuticals, medications, or other clinically important agents and challenges during the imaging procedure.</td> <td>PartTypeName = "Rad.Pharmaceutical.Substance Given" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-pharmaceutical-route</td> <td>code</td> <td>Route specifies the route of administration of the pharmaceutical.</td> <td>PartTypeName = "Rad.Pharmaceutical.Route" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-reason-for-exam</td> <td>code</td> <td>Reason for exam is used to describe a clinical indication or a purpose for the study.</td> <td>PartTypeName = "Rad.Reason for Exam" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-guidance-for-presence</td> <td>code</td> <td>Guidance for.Presence indicates when a procedure is guided by imaging.</td> <td>PartTypeName = "Rad.Guidance for.Presence" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-guidance-for-approach</td> <td>code</td> <td>Guidance for.Approach refers to the primary route of access used, such as percutaneous, transcatheter, or transhepatic.</td> <td>PartTypeName = "Rad.Guidance for.Approach" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-guidance-for-action</td> <td>code</td> <td>Guidance for.Action indicates the intervention performed, such as biopsy, aspiration, or ablation.</td> <td>PartTypeName = "Rad.Guidance for.Action" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-guidance-for-object</td> <td>code</td> <td>Guidance for.Object specifies the target of the action, such as mass, abscess or cyst.</td> <td>PartTypeName = "Rad.Guidance for.Object" in LoincPartLink_Primary</td></tr>
+<tr><td>rad-subject</td> <td>code</td> <td>Subject is intended for use when there is a need to distinguish between the patient associated with an imaging study, and the target of the study.</td> <td>PartTypeName = "Rad.Subject" in LoincPartLink_Primary</td></tr>
+<tr><td>document-kind</td> <td>code</td> <td>Characterizes the general structure of the document at a macro level.</td> <td>PartTypeName = "Document.Kind" in LoincPartLink_Primary</td></tr>
+<tr><td>document-role</td> <td>code</td> <td>Characterizes the training or professional level of the author of the document, but does not break down to specialty or subspecialty.</td> <td>PartTypeName = "Document.Role" in LoincPartLink_Primary</td></tr>
+<tr><td>document-setting</td> <td>code</td> <td>Setting is a modest extension of CMS‚Äôs coarse definition of care settings, such as outpatient, hospital, etc. Setting is not equivalent to location, which typically has more locally defined meanings.</td> <td>PartTypeName = "Document.Setting" in LoincPartLink_Primary</td></tr>
+<tr><td>document-subject-matter-domain</td> <td>code</td> <td>Characterizes the clinical domain that is the subject of the document. For example, Internal Medicine, Neurology, Physical Therapy, etc.</td> <td>PartTypeName = "Document.SubjectMatterDomain" in LoincPartLink_Primary</td></tr>
+<tr><td>document-type-of-service</td> <td>code</td> <td>Characterizes the kind of service or activity provided to/for the patient (or other subject of the service) that is described in the document.</td> <td>PartTypeName = "Document.TypeOfService" in LoincPartLink_Primary</td></tr>
+<tr><td>answers-for</td> <td>code</td> <td>A LOINC Code for which this answer list is used.</td> <td>inferred from LoincAnswerListLink.csv</td></tr>
+<tr><td>answer</td> <td>code</td> <td>An answer in this answer-list. Note that order matters for this property</td> <td>inferred from AnswerList.csv</td></tr>
+<tr><td>answer-list</td> <td>code</td> <td>An answer list that this answer is part of </td> <td>inferred from AnswerList.csv</td></tr>
 </table>
-<p>Note that when a <a href="https://hl7.org/fhir/codesystem-operation-lookup.html">$lookup</a> operation is performed on a LOINC code, servers SHALL return the version being used (see above) in the <code>version</code> property. Other properties are at the discretion of the server and the client.</p>
+
+<p>
+Notes about this table:
+</p>
+<ul>
+ <li>The information about the source of the property in the LOINC distribution is provided to help implementers, but is just advisory, not prescriptive or normative, and subject to ongoing change as the LOINC distribution is maintained.</li>
+ <li>For legacy reasons, the property names in this table do not have consistent name, case etc., but they are correct and the correct name and case SHALL be used</li>
+ <li>Note that when a <a href="https://hl7.org/fhir/codesystem-operation-lookup.html">$lookup</a> operation is performed on a LOINC code, servers SHALL return the version being used (see above) in the <code>version</code> property. Other properties are at the discretion of the server and the client.</li>
+</ul>
+
+<p>
+In addition, LOINC defines the following designation types:
+</p>
+
+<table class="grid">
+<tr><td>Code</td> <td>Type</td> <td>Description</td> <td>Source in Distribution</td></tr>
+<tr><td>FullySpecifiedName</td> <td>code</td> <td>Calculated from the names of the part codes for the six axes: COMPONENT:PROPERTY:TIME_ASPCT:SYSTEM:SCALE_TYP:METHOD_TYP</td> <td>calculated</td></tr>
+<tr><td>CONSUMER_NAME</td> <td>string</td> <td>An experimental (beta) consumer friendly name for this item. The intent is to provide a test name that health care consumers will recognize.</td> <td>from ConsumerName.csv</td></tr>
+<tr><td>RELATEDNAMES2</td> <td>string</td> <td>This designation was introduced in version 2.05. It contains synonyms for each of the parts of the fully specified LOINC name (component, property, time, system, scale, method).</td> <td>RELATEDNAMES2 in LOINC.csv</td></tr>
+<tr><td>SHORTNAME</td> <td>string</td> <td>Introduced in version 2.07, this field contains the short form of the LOINC name and is created via a table-driven algorithmic process. The short name often includes abbreviations and acronyms.</td> <td>SHORTNAME in LOINC.csv</td></tr>
+<tr><td>LONG_COMMON_NAME</td> <td>string</td> <td>This designation contains the LOINC name in a more readable format than the fully specified name. The long common names have been created via a tabledriven algorithmic process. Most abbreviations and acronyms that are used in the LOINC database have been fully spelled out in English.</td> <td>LONG_COMMON_NAME in LOINC.csv</td></tr>
+<tr><td>DisplayName</td> <td>string</td> <td>A name that is more 'clinician-friendly' compared to the current LOINC Short Name, Long Common Name, and Fully Specified Name. It is created algorithmically from the manually crafted display text for each Part and is generally more concise than the Long Common Name.</td> <td>DisplayName in LOINC.csv</td></tr>
+</table>
+
+<p>
+Notes about this table:
+</p>
+<ul>
+ <li>LOINC provides translations of these designations to many languages. Due to the way the LOINC translations work, part codes may have multiple Display Names which are considered synonyms.</li>
+ <li>The information about the source of the property in the LOINC distribution is provided to help implementers, but is just advisory, not prescriptive or normative, and subject to ongoing change as the LOINC distribuition is maintained.</li>
+ <li>For legacy reasons, the property names in this table do not have consistent name, case etc., but they are correct and the correct name and case SHALL be used</li>
+</ul>
 
 <!-- LOINC Filters -->
 <a name="LOINC Filters"> </a>
 <h4>LOINC Filters</h4>
 <p>This section documents the property filters that can be used with the LOINC code system in value set composition statements.</p>
 
+<table class="grid">
+<tr><td colspan="2">
 <a name="LOINC Property filter"> </a>
 <h5>LOINC Property filter</h5>
-<table class="grid">
- <tr><td>Description</td><td>Allows the selection of a set of LOINC codes with a common property value (see list above)</td></tr>
- <tr><td>Property Name</td><td>One of the names listed in the "Field Name" column in LOINC Database Structure (Appendix A of the LOINC manual)</td></tr>
- <tr><td>Operations Allowed</td><td>= / regex</td></tr>
- <tr><td>Values Allowed</td><td>[string value]</td></tr>
- <tr><td>Comments</td><td>The 6 properties COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, and METHOD_TYP are most likely to be useful.</td></tr>
-</table>
+</td></tr>
+ <tr><td>Description</td> <td>Allows the selection of a set of LOINC codes with a common property value (see list above)</td></tr>
+ <tr><td>Property Name</td> <td>One of the names listed the property table above</td></tr>
+ <tr><td>Operations Allowed</td> <td>=, exists, regex, in, not-in</td></tr>
+ <tr><td>Values Allowed</td> <td>the part code (LPXX-X)</td></tr>
+ <tr><td>Comments</td> <td>The 6 properties COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, and METHOD_TYP are most likely to be useful. 
+    <br/>
+    Earlier versions of this page were not clear that the correct value of the filter is a part code, and many extant value sets use 
+    the string e.g. SCALE_TYP = Doc.ref instead of SCALE_TYP = LP32520-6. Terminology servers generally accept these filters for legacy
+    reasons, but they are not considered to be correct</td></tr>
 
+<tr><td colspan="2">
 <a name="3rd Party Copyright"> </a>
 <h5>3rd Party Copyright</h5>
-<table class="grid">
- <tr><td>Description</td><td>Allows for the inclusion or exclusion of LOINC codes that include 3rd party copyright notices</td></tr>
- <tr><td>Property Name</td><td>copyright</td></tr>
- <tr><td>Operations Allowed</td><td>=</td></tr>
- <tr><td>Values Allowed</td><td>LOINC | 3rdParty</td></tr>
- <tr><td>Comments</td><td>LOINC = only codes with a sole copyright by Regenstrief. 3rdParty = only codes with a 3rd party copyright in addition to the one from Regenstrief.</td></tr>
+</td></tr>
+ <tr><td>Description</td> <td>Allows for the inclusion or exclusion of LOINC codes that include 3rd party copyright notices</td></tr>
+ <tr><td>Property Name</td> <td>copyright</td></tr>
+ <tr><td>Operations Allowed</td> <td>=</td></tr>
+ <tr><td>Values Allowed</td> <td>LOINC | 3rdParty</td></tr>
+ <tr><td>Comments</td> <td>LOINC = only codes with a sole copyright by Regenstrief. 3rdParty = only codes with a 3rd party copyright in addition to the one from Regenstrief.</td></tr>
+
+<tr><td colspan="2">
+<a name="Component Hierarchy"> </a>
+<h5>Component Hierarchy #1</h5>
+</td></tr>
+ <tr><td>Description</td> <td>Allows for the selection of a set of codes base on their appearance in the LOINC component hierarchy </td></tr>
+ <tr><td>Property Name</td> <td>ancestor | descendant </td></tr>
+ <tr><td>Operations Allowed</td> <td>= / in</td></tr>
+ <tr><td>Values Allowed</td> <td>Part Code (or, for "in", multiple part codes separated by commas)</td></tr>
+ <tr><td>Comments</td> <td>the "parent" filter selects immediate parents only. For example, the code "44022-2" has the parent "LP52960-9". 
+  Ancestor includes parents transitively, e.g. "LP52960-9" eventually has a parent "LP31755-9", so the code "44022-2" is in the set of codes that have ancestor=LP31755-9.
+  <br/>
+  Note that because of the way LOINC is defined, the ancestors / descendants of a LOINC concept (derived from the PATH_TO_ROOT in the component hierarchy) 
+  may not match exactly the list that could be calculated from the explicit parent/child properties.
+  </td></tr>
+
+  
+<tr><td colspan="2">
+<a name="Component Hierarchy 2"> </a>
+<h5>Component Hierarchy #2</h5>
+</td></tr>
+ <tr><td>Description</td> <td>Allows for the selection of a set of codes base on their appearance in the LOINC component hierarchy </td></tr>
+ <tr><td>Property Name</td> <td>concept </td></tr>
+ <tr><td>Operations Allowed</td> <td>is</td></tr>
+ <tr><td>Values Allowed</td> <td>Part Code (or, for "in", multiple part codes separated by commas)</td></tr>
+ <tr><td>Comments</td> <td>A different to references the descendants list.</td></tr>
 </table>
 
-<a name="Multi-Axial Hierarchy"> </a>
-<h5>Multi-Axial Hierarchy</h5>
-<table class="grid">
- <tr><td>Description</td><td>Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy </td></tr>
- <tr><td>Property Name</td><td>parent | ancestor</td></tr>
- <tr><td>Operations Allowed</td><td>= / in</td></tr>
- <tr><td>Values Allowed</td><td>Part Code (or, for "in", multiple part codes separated by commas)</td></tr>
- <tr><td>Comments</td><td>"parent" selects immediate parents only. For example, the code "44022-2" has the parent "LP52960-9". Ancestor includes parents transitively, e.g. "LP52960-9" eventually has a parent "LP31755-9", so the code "44022-2" is in the set of codes that have ancestor=LP31755-9</td></tr>
-</table>
-
-<p><i>TODO: Document Ontology</i></p>
-<!--
-Document.Kind, Document.TypeOfService, Document.Setting, Document.Role, and Document.SubjectMatterDomain
--->
 
 <!-- LOINC Implicit Value Sets -->
 <a name="LOINC Implicit Value Sets"> </a>
 <h4>LOINC Implicit Value Sets</h4>
-<p>Implicit value sets are those whose specification can be predicted based on the grammar of the underlying code system, and the known structure of the URL that refers to them. LOINC defines one set of implicit value sets: By Multi-Axial Hierarchy Entry.</p>
-<p>If any value set resources exist with an identifier that conforms to the URL patterns specified below, the content of the resource must conform to the template provided. Profiles and other value set references are allowed to reference these value sets directly.</p>
-<p>The value set identifier http://loinc.org/vs is a value set that contains all LOINC codes.</p>
+<p>Implicit value sets are those whose specification can be predicted based on the grammar of the underlying code system, and 
+  the known structure of the URL that refers to them. LOINC defines several sets of implicit value sets:</p>
+<ul>
+ <li>By Component Hierarchy</li>
+ <li>Answer Lists</li>
+</ul>
+<p>If any value set resources exist with an identifier that conforms to the URL patterns specified below, the 
+content of the resource SHALL conform to the template provided. Profiles and other value set references are 
+allowed to reference these value sets directly.</p>
+<p>
+Notes:
+</p>
+<ul>
+  <li>The value set identifier http://loinc.org/vs is a value set that contains all LOINC codes.</li>
+  <li>References to these value sets may be versioned: <code>http://loinc.org/vs/[partcode]|[version]</code>. The version SHALL match an official LOINC version, and if specified, both
+  the ValueSet.version and ValueSet.compose.include.version SHALL match the specified version. In the absence of a specified version, a terminology server / service interpreting 
+  the ValueSet reference SHALL use its latest available LOINC version.</li>
+</ul>
 
-<a name="LOINC Answer Lists"> </a>
-<h5>LOINC Answer Lists</h5>
-<p>LOINC defines a set of Answer lists, each of which contains a set of LOINC codes. LOINC answer lists are value sets. The value set canonical uri "http://loinc.org/vs/[id]" identifies a value set that contains a set of LOINC codes. For instance, the value set uri http://loinc.org/vs/LL715-4 has the following definition for LOINC 2.52:</p>
+<a name="Component Hierarchy"> </a>
+<h5>Component Hierarchy Entry</h5>
+<p>A value set with an identifier of "http://loinc.org/vs/[partcode]" SHALL conform to this template, where [partcode] is a part code from the component hierarchy:</p>
 <pre class="xml">
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;text&gt;
     &lt;status value=&quot;generated&quot;/&gt;
     &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
       [some html that identifies that this value set
-      includes all LOINC codes in this answer list]
+      includes all LOINC codes subsumed by the identified
+      Multi-Axial Hierarchy Part Code]
     &lt;/div&gt;
   &lt;/text&gt;
-  &lt;url value=&quot;http://loinc.org/vs/LL715-4&quot;/&gt;
-  &lt;version value=&quot;2.52&quot;/&gt;
-  &lt;name value=&quot;Platelet morph&quot;/&gt;
-  &lt;description value=&quot;LOINC Answer List for Platelet morph&quot;/&gt;
+  &lt;url value=&quot;http://loinc.org/vs/[partcode]&quot;/&gt;
+  &lt;version value=&quot;[applicable LOINC version]&quot;/&gt;
+  &lt;name value=&quot;LOINC Value Set from Multi-Axial Hierarchy code [partcode]&quot;/&gt;
+  &lt;description value=&quot;All LOINC codes for [partcode or name]&quot;/&gt;
   &lt;status value=&quot;active&quot;/&gt;
   &lt;date value=&quot;[optional date of LOINC release]&quot;/&gt;
   &lt;compose&gt;
     &lt;include&gt;
       &lt;system value=&quot;http://loinc.org&quot;/&gt;
-      &lt;concept&gt;
-        &lt;code value=&quot;LA11165-0&quot;/&gt;
-        &lt;display value=&quot;Platelet anisocytosis&quot;/&gt;
-      &lt;/concept&gt;
-      &lt;concept&gt;
-        &lt;code value=&quot;LA11168-4&quot;/&gt;
-        &lt;display value=&quot;Platelet clump&quot;/&gt;
-      &lt;/concept&gt;
-      &lt;concept&gt;
-        &lt;code value=&quot;LA11167-6&quot;/&gt;
-        &lt;display value=&quot;Platelet large fragments&quot;/&gt;
-      &lt;/concept&gt;
-      &lt;concept&gt;
-        &lt;code value=&quot;LA11166-8&quot;/&gt;
-        &lt;display value=&quot;Platelet satellitism&quot;/&gt;
-      &lt;/concept&gt;
-      &lt;concept&gt;
-        &lt;code value=&quot;LA11169-2&quot;/&gt;
-        &lt;display value=&quot;Platelets.agranular&quot;/&gt;
-      &lt;/concept&gt;
-      &lt;concept&gt;
-        &lt;code value=&quot;LA11170-0&quot;/&gt;
-        &lt;display value=&quot;Platelets.giant&quot;/&gt;
-      &lt;/concept&gt;
-      &lt;concept&gt;
-        &lt;code value=&quot;LA11172-6&quot;/&gt;
-        &lt;display value=&quot;Platelets.large&quot;/&gt;
-      &lt;/concept&gt;
-      &lt;concept&gt;
-        &lt;code value=&quot;LA11171-8&quot;/&gt;
-        &lt;display value=&quot;Platelets.small&quot;/&gt;
-      &lt;/concept&gt;
+      &lt;version value=&quot;[LOINC version - must match ValueSet.version]&quot;/&gt;
+      &lt;filter&gt;
+        &lt;property value=&quot;ancestor&quot;/&gt;
+        &lt;op value=&quot;=&quot;/&gt;
+        &lt;value value=&quot;[partcode]&quot;/&gt;
+      &lt;/filter&gt;
+    &lt;/include&gt;
+  &lt;/compose&gt;
+&lt;/ValueSet&gt;
+</pre>
+
+<a name="LOINC Answer Lists"> </a>
+<h5>LOINC Answer Lists</h5>
+<p>A value set with an identifier of "http://loinc.org/vs/[listcode]" SHALL conform to this template, where [listcode] is answer list identifier (LLXXX-X):</p>
+
+<pre class="xml">
+&lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      [some html that identifies that this value set
+      includes all LOINC codes subsumed by the identified
+      Multi-Axial Hierarchy Part Code]
+    &lt;/div&gt;
+  &lt;/text&gt;
+  &lt;url value=&quot;http://loinc.org/vs/[listcode]&quot;/&gt;
+  &lt;version value=&quot;[applicable LOINC version]&quot;/&gt;
+  &lt;name value=&quot;LOINC Value Set from Multi-Axial Hierarchy code [partcode]&quot;/&gt;
+  &lt;description value=&quot;All LOINC codes for [partcode or name]&quot;/&gt;
+  &lt;status value=&quot;active&quot;/&gt;
+  &lt;date value=&quot;[optional date of LOINC release]&quot;/&gt;
+  &lt;compose&gt;
+    &lt;include&gt;
+      &lt;system value=&quot;http://loinc.org&quot;/&gt;
+      &lt;version value=&quot;[LOINC version - must match ValueSet.version]&quot;/&gt;
+      &lt;filter&gt;
+        &lt;property value=&quot;answer-list&quot;/&gt;
+        &lt;op value=&quot;=&quot;/&gt;
+        &lt;value value=&quot;[listcode]&quot;/&gt;
+      &lt;/filter&gt;
     &lt;/include&gt;
   &lt;/compose&gt;
 &lt;/ValueSet&gt;
@@ -206,37 +367,6 @@ Document.Kind, Document.TypeOfService, Document.Setting, Document.Role, and Docu
 &lt;/item&gt;
 </pre>
 
-<a name="Multi-Axial Hierarchy Entry"> </a>
-<h5>Multi-Axial Hierarchy Entry</h5>
-<p>A value set with an identifier of "http://loinc.org/vs/[partcode]" must conform to this template, where [partcode] is a part code from the multi-axial hierarchy:</p>
-<pre class="xml">
-&lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;text&gt;
-    &lt;status value=&quot;generated&quot;/&gt;
-    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-      [some html that identifies that this value set
-      includes all LOINC codes subsumed by the identified
-      Multi-Axial Hierarchy Part Code]
-    &lt;/div&gt;
-  &lt;/text&gt;
-  &lt;url value=&quot;http://loinc.org/vs/[partcode]&quot;/&gt;
-  &lt;version value=&quot;[optional - but strongly recommended - LOINC version]&quot;/&gt;
-  &lt;name value=&quot;LOINC Value Set from Multi-Axial Hierarchy code [partcode]&quot;/&gt;
-  &lt;description value=&quot;All LOINC codes for [partcode or name]&quot;/&gt;
-  &lt;status value=&quot;active&quot;/&gt;
-  &lt;date value=&quot;[optional date of LOINC release]&quot;/&gt;
-  &lt;compose&gt;
-    &lt;include&gt;
-      &lt;system value=&quot;http://loinc.org&quot;/&gt;
-      &lt;filter&gt;
-        &lt;property value=&quot;ancestor&quot;/&gt;
-        &lt;op value=&quot;=&quot;/&gt;
-        &lt;value value=&quot;[partcode]&quot;/&gt;
-      &lt;/filter&gt;
-    &lt;/include&gt;
-  &lt;/compose&gt;
-&lt;/ValueSet&gt;
-</pre>
 
 <a name="LOINC and Data Elements"> </a>
 <h5>LOINC and Data Elements</h5>
