@@ -1,47 +1,1036 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="attribute-estimate-type"/>
-  <meta>
-    <lastUpdated value="2024-04-24T00:00:00+00:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
-  </extension>
- 
- 
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
-  </extension>
-  <url value="http://terminology.hl7.org/ValueSet/attribute-estimate-type"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1412"/>
-  </identifier>
-  <version value="1.0.1"/>
-  <name value="StatisticAttributeEstimateType"/>
-  <title value="StatisticAttributeEstimateType"/>
-  <status value="active"/>
-  <experimental value="false"/>
-  <date value="2024-04-24T00:00:00+00:00"/>
-  <publisher value="Health Level Seven International"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="hq@HL7.org"/>
-    </telecom>
-  </contact>
-  <description value="Method of reporting variability of estimates, such as confidence intervals, interquartile range or standard deviation."/>
-  <immutable value="true"/>
-  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
-  <compose>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/attribute-estimate-type"/>
+    <id value="attribute-estimate-type"/>
+    <meta>
+        <lastUpdated value="2024-04-24T00:00:00+00:00"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="fhir"/>
+    </extension>
+
+
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="5"/>
+    </extension>
+    <url value="http://terminology.hl7.org/ValueSet/attribute-estimate-type"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.4.642.3.1412"/>
+    </identifier>
+    <version value="2.0.0"/>
+    <name value="StatisticAttributeEstimateType"/>
+    <title value="StatisticAttributeEstimateType"/>
+    <status value="active"/>
+    <experimental value="false"/>
+    <date value="2026-04-06T00:00:00+00:00"/>
+    <publisher value="Health Level Seven International"/>
+    <contact>
+        <telecom>
+            <system value="url"/>
+            <value value="http://hl7.org"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="hq@HL7.org"/>
+        </telecom>
+    </contact>
+    <description value="Method of reporting variability of estimates, such as confidence intervals, interquartile range or standard deviation."/>
+    <immutable value="true"/>
+    <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+    <compose>
+        <   <include>
+<system value="https://fevir.net/sevco"/>
+        <concept>
+            <code value="STATO:0000035"/>
+            <display value="range"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of dispersion calculated as the difference between the maximum observed value and the minimum observed value."/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:00000164"/>
+            <display value="interquartile range"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of dispersion calculated as the difference between the 75th percentile and the 25th percentile."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="middle range"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="midspread"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="IQR"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="median IQR"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000237"/>
+            <display value="standard deviation"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of dispersion that represents the average of the distances from the mean of the dataset to each data point in the dataset."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="SD"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000684"/>
+            <display value="standard deviation for sample"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A standard deviation that is the square root of the quotient of the summation across data points of the square of the distance from each data point to the sample mean, and the degrees of freedom (where the degrees of freedom is sample size minus one)."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="sample standard deviation"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="sample SD"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="S"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="s"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000113"/>
+            <display value="variance"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of dispersion that represents the square of the standard deviation."/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000643"/>
+            <display value="variance for sample"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A variance that is the quotient of the summation across data points of the square of the distance from each data point to the sample mean, and the degrees of freedom (where the degrees of freedom is sample size minus one)."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="sample variance"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="s^2"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="V"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Var"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000624"/>
+            <display value="Gini index"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of dispersion that is half the relative mean absolute difference between all pairs of observed values."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Gini coefficient"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000562"/>
+            <display value="standard error"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of dispersion applied to estimates across hypothetical repeated random samples."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="SE"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="standard error of the estimate"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000037"/>
+            <display value="standard error of the mean"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of dispersion applied to means across hypothetical repeated random samples."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="SEM"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000647"/>
+            <display value="standard error of the proportion"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of dispersion applied to proportions across hypothetical repeated random samples."/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000648"/>
+            <display value="standard error of the difference between independent means"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of dispersion applied to differences between means of independent groups across hypothetical repeated random samples."/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000649"/>
+            <display value="standard error of the difference between independent proportions"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of dispersion applied to differences between proportions arising from independent groups across hypothetical repeated random samples."/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000455"/>
+            <display value="credible interval"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="The range in which the value of the parameter of interest is likely to reside, typically within a posterior probability distribution."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="region of highest posterior density"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000196"/>
+            <display value="confidence interval"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="The estimated range of values that encompasses the point estimate and quantifies the uncertainty about that estimate in terms of a prespecified level of coverage, expected to include the true value between upper and lower bounds, across hypothetically repeated random samples, with all assumptions regarding the sampling distribution across random samples having been fully met."/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000418"/>
+            <display value="measure of heterogeneity"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A statistic that represents the variation or spread among values in the set of estimates across studies."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="measure of statistical heterogeneity"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000419"/>
+            <display value="Cochran's Q"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of heterogeneity, based on the chi-square statistic, for reporting an analytic finding regarding whether two or more multinomial distributions are equal, accounting for chance variability."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="chi square for heterogeneity"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="chi² heterogeneity statistic"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="𝜒² for homogeneity"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="𝜒² test statistic for homogeneity"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="𝜒² heterogeneity statistic"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="chi-square test statistic for heterogeneity"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="chi-square test statistic for homogeneity"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="𝜒² for heterogeneity"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="𝜒² test statistic for heterogeneity"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="chi square for homogeneity"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Cochran Q"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Cochran Q statistic"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Cochran's Q statistic"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Cochran Q test statistic"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Cochran's Q test statistic"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000420"/>
+            <display value="I-squared"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of heterogeneity that estimates the proportion of variability across studies that is in excess of the expected variability due to chance."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="I2"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="I²"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="I-square"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000421"/>
+            <display value="tau squared"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A measure of heterogeneity that estimates the variance of the distribution of true effect sizes."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="tau²"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="τ2"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="τ²"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="tau square"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="tau2"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000700"/>
+            <display value="p-value"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A hypothesis testing measure that represents the probability of obtaining a result at least as far from the value actually obtained as the value expected, assuming the null hypothesis is true."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="p value"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="P value"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="P-value"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000661"/>
+            <display value="p-value for one-sided test"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A p-value which represents the probability of obtaining a result at least as far, in one direction, from the value actually obtained as the value expected, assuming the null hypothesis is true. A p-value for one-sided test interprets 'at least as far from' with only one of two directions, either the direction of 'greater than' or the direction of 'less than'."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="p-value for one-tailed test"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="one-sided p-value"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="one-tailed p-value"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000662"/>
+            <display value="p-value for two-sided test"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A p-value which represents the probability of obtaining a result at least as far, in either direction, from the value actually obtained as the value expected, assuming the null hypothesis is true. A p-value for two-sided test interprets 'at least as far from' with both the direction of 'greater than' and the direction of 'less than'."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="p-value for two-tailed test"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="two-sided p-value"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="two-tailed p-value"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000030"/>
+            <display value="chi-square statistic"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A hypothesis testing measure that is assumed to follow a chi-square distribution."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="chi-squared statistic"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000081"/>
+            <display value="chi-square statistic for independence"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A chi-square statistic used to test whether two categorical or nominal variables are associated."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="chi-squared statistic for independence"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000708"/>
+            <display value="Cochran-Armitage chi-square statistic for trend"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A chi-square statistic used to test whether a dichotomous variable and an ordinal variable are related."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Cochran-Armitage chi-squared statistic for trend"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Cochran-Armitage chi-square statistic"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Cochran-Armitage statistic"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000698"/>
+            <display value="chi-square statistic for homogeneity"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A chi-square statistic used to test whether observed data from two or more groups follow the same distribution."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="chi-squared statistic for homogeneity"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000309"/>
+            <display value="chi-square statistic for goodness of fit"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A chi-square statistic used to test whether observed data follows a specified distribution."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="chi-squared statistic for goodness of fit"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000376"/>
+            <display value="z-statistic"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A hypothesis testing measure that is a z-score where the specified mean is based on the null hypothesis and the standard deviation is based on the observed data."/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000176"/>
+            <display value="t-statistic"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A hypothesis testing measure that is a t-score where the specified mean is based on the null hypothesis, the standard error is based on the observed data, and the degrees of freedom is based on the sample size."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Student's t"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Student's t statistic"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000266"/>
+            <display value="Bayes factor"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A hypothesis testing measure that is a ratio of the probability of the observed data under one hypothesis divided by the probability of the same observed data under a different hypothesis."/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000660"/>
+            <display value="posterior predictive p-value"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A hypothesis testing measure that is the probability that a statistic value derived from a posterior predictive distribution under the assumptions of the model is equal to or more extreme than the observed posterior value of the statistic."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Bayesian p-value"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Bayes p-value"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000069"/>
+            <display value="degrees of freedom"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A statistic that represents the number of independent values used to calculate a statistical estimate. The number of degrees of freedom ν is equal to the number of independent units of information given the model."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="number of degrees of freedom"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000104"/>
+            <display value="z-score"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A statistic that represents a measure of the divergence of an individual experimental result from a specified mean, expressed in terms of the number of standard deviations from the mean value."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Z-score"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="z score"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="Z score"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="z-value"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000699"/>
+            <display value="t-score"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A statistic that represents a measure of the divergence of an individual experimental result from a specified mean, taking sample size into account and expressed in terms of the number of standard errors from the mean value."/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="T-score"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="t score"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="T score"/>
+            </designation>
+            <designation>
+                <use>
+                    <code value="900000000000013009"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Synonym (core metadata concept)"/>
+                </use>
+                <value value="t-value"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000702"/>
+            <display value="prior probability"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A statistic that represents the likelihood of a parameter of interest, before accounting for the observed data from the study."/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="STATO:0000703"/>
+            <display value="posterior probability"/>
+            <designation>
+                <use>
+                    <code value="900000000000550004"/>
+                    <system value="http://snomed.info/sct"/>
+                    <display value="Definition (core metadata concept)"/>
+                </use>
+                <value value="A statistic that represents the likelihood of a parameter of interest, after updating its prior probability with the observed data from the study."/>
+            </designation>
+        </concept>
+        <version value="2.0"/>
     </include>
-  </compose>
+</compose>
 </ValueSet>
