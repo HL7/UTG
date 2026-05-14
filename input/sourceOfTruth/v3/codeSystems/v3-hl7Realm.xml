@@ -8,7 +8,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.1124"/>
   </identifier>
-  <version value="3.0.0"/>
+  <version value="4.0.0"/>
   <name value="Hl7Realm"/>
   <title value="HL7Realm"/>
   <status value="active"/>
@@ -31,52 +31,6 @@
   <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <content value="complete"/>
   <property>
-    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
-      <valueCode value="antisymmetric"/>
-    </extension>
-    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
-      <valueCode value="transitive"/>
-    </extension>
-    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
-      <valueCode value="irreflexive"/>
-    </extension>
-    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
-      <valueBoolean value="true"/>
-    </extension>
-    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
-      <valueCode value="Specializes"/>
-    </extension>
-    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
-      <valueString value="Generalizes"/>
-    </extension>
-    <code value="Specializes"/>
-  <description value="The child code is a more narrow version of the concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymmetric."/>
-    <type value="Coding"/>
-  </property>
-  <property>
-    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-symmetry">
-      <valueCode value="antisymmetric"/>
-    </extension>
-    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-transitivity">
-      <valueCode value="transitive"/>
-    </extension>
-    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-reflexivity">
-      <valueCode value="irreflexive"/>
-    </extension>
-    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-isNavigable">
-      <valueBoolean value="true"/>
-    </extension>
-    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
-      <valueCode value="Generalizes"/>
-    </extension>
-    <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-inverseName">
-      <valueString value="Specializes"/>
-    </extension>
-    <code value="Generalizes"/>
-  <description value="Inverse of Specializes.  Only included as a derived relationship."/>
-    <type value="Coding"/>
-  </property>
-  <property>
     <extension url="http://terminology.hl7.org/StructureDefinition/ext-mif-relationship-relationshipKind">
       <valueCode value="Other"/>
     </extension>
@@ -84,12 +38,6 @@
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#OwningAffiliate"/>
     <description value="Identifies the affiliate responsible for a binding realm or namespace realm code.  Must be specified for all codes that are not specializations of AffiliateRealms. ConceptRelationshipProperties: [relationshipKind: other; isNavigable: false; functionalism: functional; reflexivity: irreflexive; symmetry: antisymetric; connected: false; transitivity: antitransitive; allowedForTargets: all codes from the hl7PublishingSection code system; requiredForSources: all codes which are not equal to ZZ and are not specializations of the abstract code AffiliateRealms; allowedForTargets: all codes which are specializations of the abstract code AffiliateRealms;]"/>
     <type value="Coding"/>
-  </property>
-  <property>
-    <code value="internalId"/>
-    <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#v3-internal-id"/>
-  <description value="The internal identifier for the concept in the HL7 Access database repository."/>
-    <type value="code"/>
   </property>
   <property>
     <code value="status"/>
@@ -121,10 +69,6 @@
       <code value="status"/>
       <valueCode value="active"/>
     </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="23214"/>
-    </property>
   </concept>
   <concept>
     <code value="NamespaceRealms"/>
@@ -137,10 +81,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="23215"/>
     </property>
   </concept>
   <concept>
@@ -155,10 +95,6 @@
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22936"/>
-    </property>
   </concept>
   <concept>
     <code value="AR"/>
@@ -167,10 +103,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22942"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -186,10 +118,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22943"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -201,10 +129,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22944"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -220,10 +144,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22945"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -235,10 +155,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22946"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -254,10 +170,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22947"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -269,10 +181,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22948"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -288,10 +196,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22949"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -303,10 +207,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22977"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -322,10 +222,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22950"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -337,10 +233,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22951"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -356,10 +248,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22952"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -371,10 +259,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22953"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -390,10 +274,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22954"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -405,10 +285,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22955"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -424,10 +300,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22956"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -439,10 +311,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22957"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -458,10 +326,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22958"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -473,10 +337,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22959"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -492,10 +352,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22960"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -507,10 +363,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22961"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -526,10 +378,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22962"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -541,10 +389,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22963"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -560,10 +404,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22964"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -575,10 +415,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22965"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -594,10 +430,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22966"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -609,10 +441,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22967"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -628,10 +456,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22968"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -643,10 +467,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22969"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -662,10 +482,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22978"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -677,10 +493,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22970"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -696,10 +508,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22971"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -711,10 +519,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22972"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -730,10 +534,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22973"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -745,10 +545,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22975"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -764,10 +560,6 @@
       <valueCode value="active"/>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22939"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="AffiliateRealms"/>
     </property>
@@ -779,10 +571,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22976"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -800,10 +588,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22941"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -830,10 +614,6 @@
       </valueCoding>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22937"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="BindingRealms"/>
     </property>
@@ -852,10 +632,6 @@
         <system value="http://terminology.hl7.org/CodeSystem/v3-hl7Realm"/>
         <code value="UK"/>
       </valueCoding>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22974"/>
     </property>
     <property>
       <code value="subsumedBy"/>
@@ -882,10 +658,6 @@
       </valueCoding>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22938"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="BindingRealms"/>
     </property>
@@ -906,10 +678,6 @@
       </valueCoding>
     </property>
     <property>
-      <code value="internalId"/>
-      <valueCode value="22940"/>
-    </property>
-    <property>
       <code value="subsumedBy"/>
       <valueCode value="BindingRealms"/>
     </property>
@@ -921,10 +689,6 @@
     <property>
       <code value="status"/>
       <valueCode value="active"/>
-    </property>
-    <property>
-      <code value="internalId"/>
-      <valueCode value="22935"/>
     </property>
     <property>
       <code value="subsumedBy"/>

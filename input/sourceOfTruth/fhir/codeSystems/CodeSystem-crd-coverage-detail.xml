@@ -1,0 +1,108 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="crd-coverage-detail"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/crd-coverage-detail"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.177"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="CRDCoverageDetail"/>
+  <title value="CRD Coverage Detail Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2025-10-16T00:00:00+00:00"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Codes that describe additional details related to a coverage information assertion.  These live in THO rather than the CRD specification to support adding additional concepts without putting out a new CRD release."/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <caseSensitive value="true"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <property>
+    <code value="abstract"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
+    <code value="_limitation"/>
+    <display value="Limitation details"/>
+    <definition value="Identifies detail codes that define limitations of coverage.  (Category should be 'cat-limitation')"/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>
+    </property>
+    <concept>
+      <code value="allowed-quantity"/>
+      <display value="Maximum quantity"/>
+      <definition value="Indicates limitations on the number of services/products allowed (possibly per time period).  Value should be a Quantity"/>
+    </concept>
+    <concept>
+      <code value="allowed-period"/>
+      <display value="Maximum allowed period"/>
+      <definition value="Indicates the maximum period of time that can be covered in a single order.  Value should be a Period"/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="_decisional"/>
+    <display value="Decisional details"/>
+    <definition value="Identifies detail codes that may impact patient and clinician decision making  (Category should be 'cat-decisional')"/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>
+    </property>
+    <concept>
+      <code value="in-network-copay"/>
+      <display value="Copay for in-network"/>
+      <definition value="Indicates a percentage co-pay to expect if delivered in-network.  Value should be a Quantity."/>
+    </concept>
+    <concept>
+      <code value="out-network-copay"/>
+      <display value="Copay for out-of-network"/>
+      <definition value="Indicates a percentage co-pay to expect if delivered out-of-network.  Value should be a Quantity."/>
+    </concept>
+    <concept>
+      <code value="concurrent-review"/>
+      <display value="Concurrent review"/>
+      <definition value="Additional payer-defined documentation will be required prior to claim payment.  Value should be a boolean."/>
+    </concept>
+    <concept>
+      <code value="appropriate-use-needed"/>
+      <display value="Appropriate use"/>
+      <definition value="Payer-defined appropriate use process must be invoked to determine coverage.  Value should be a boolean."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="_other"/>
+    <display value="Other details"/>
+    <definition value="Identifies detail codes that are generally not relevant to clinicians/patients  (Category should be 'cat-other')"/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>
+    </property>
+    <concept>
+      <code value="policy-link"/>
+      <display value="Policy Link"/>
+      <definition value="A URL pointing to the specific portion of a payer policy, coverage agreement or similar authoritative document that provides a portion of the basis for the decision documented in the coverage-information.  Value should be a url."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="instructions"/>
+    <display value="Instructions"/>
+    <definition value="Information to display to the user that gives guidance about what steps to take in achieving the recommended actions identified by this coverage-information (e.g. special instructions about requesting authorization, details about information needed, details about data retention, etc.).  Value should be a string.  (Category may vary.)"/>
+  </concept>
+</CodeSystem>

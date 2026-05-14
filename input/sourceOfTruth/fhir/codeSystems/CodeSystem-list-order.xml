@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1107"/>
   </identifier>
-  <version value="1.0.1"/>
+  <version value="2.0.0"/>
   <name value="ListOrderCodes"/>
   <title value="List Order Codes"/>
   <status value="active"/>
@@ -30,7 +30,7 @@
       <value value="hq@HL7.org"/>
     </telecom>
   </contact>
-  <description value="Base values for the order of the items in a list resource."/>
+  <description value="Base values for the order of item lists in resources."/>
   <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/list-order"/>
@@ -74,5 +74,10 @@
     <code value="patient"/>
     <display value="Sorted by Patient"/>
     <definition value="The list is sorted by patient, with items for each patient grouped together."/>
+  </concept>
+  <concept>
+    <code value="publication-date"/>
+    <display value="Sorted by Publication Date"/>
+    <definition value="The list is sorted by the date the item was published or made publicly available. This is distinct from when an event occurred (event-date) or when the item was added to the list (entry-date)."/>
   </concept>
 </CodeSystem>
