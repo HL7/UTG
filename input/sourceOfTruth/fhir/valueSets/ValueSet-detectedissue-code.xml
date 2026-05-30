@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="detectedissue-code"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/detectedissue-code"/>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="http://hl7.org/fhir/ValueSet/detectedissue-code"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="DetectedIssueCode"/>
+  <title value="Detected Issue Code"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International / Clinical Decision Support"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/dss"/>
+    </telecom>
+  </contact>
+  <description value="Codes for issues or contraindications, such as 'drug-drug interaction', 'duplicate therapy', etc."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_AdministrationDetectedIssueCode"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_ActSuppliedItemDetectedIssueCode"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_ClinicalActionDetectedIssueCode"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="_SupplyDetectedIssueCode"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
