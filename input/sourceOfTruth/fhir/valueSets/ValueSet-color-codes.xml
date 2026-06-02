@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="color-codes"/>
+  <url value="http://terminology.hl7.org/ValueSet/color-codes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3326"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="ColorCodesOrRGB"/>
+  <title value="Color Codes (Names or RGB Values)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes color codes - either the color names as defined in [CSS Color Module Level 4](https://www.w3.org/TR/css-color-4/), or any valid RGB code (```#RRGGBB``` in Hex)."/>
+  <copyright value="[Copyright](https://www.w3.org/copyright/software-license-2023/) © 2026 World Wide Web Consortium. W3C® liability, trademark and permissive document license rules apply."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/color-names"/>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/color-rgb"/>
+    </include>
+  </compose>
+</ValueSet>
