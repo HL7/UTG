@@ -2,7 +2,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="adjudication"/>
   <meta>
-    <lastUpdated value="2024-04-24T00:00:00+00:00"/>
+    <lastUpdated value="2026-06-12T00:00:00+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -18,7 +18,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1171"/>
   </identifier>
-  <version value="1.0.1"/>
+  <version value="1.0.2"/>
   <name value="AdjudicationValueCodes"/>
   <title value="Adjudication Value Codes"/>
   <status value="active"/>
@@ -44,41 +44,106 @@
   <concept>
     <code value="submitted"/>
     <display value="Submitted Amount"/>
-    <definition value="The total submitted amount for the claim or group or line item."/>
+    <definition value="The total amount submitted by the provider for the claim, claim group, or line item prior to adjudication."/>
   </concept>
   <concept>
     <code value="copay"/>
     <display value="CoPay"/>
-    <definition value="Patient Co-Payment"/>
+    <definition value="The fixed amount the member is responsible for paying for a covered service, as defined by the benefit plan."/>
   </concept>
   <concept>
     <code value="eligible"/>
     <display value="Eligible Amount"/>
-    <definition value="Amount of the change which is considered for adjudication."/>
+    <definition value="The maximum amount of the submitted charge that the payer considers as for possible payment as a result of adjudication under the applicable coverage and contractual rules. In some jurisdictions this concept is referred to as the “allowed amount,” “eligible expense,” “payment allowance,” or “negotiated rate.” Some payers may consider the eligible amount and negotiated rate to be equivalent."/>
+  </concept>
+  <concept>
+    <code value="negotiated"/>
+    <display value="Negotiated Service or Product Amount"/>
+    <definition value="The amount for a service or product as determined by terms between the payer and the provider or supplier established outside of a formal network contract."/>
   </concept>
   <concept>
     <code value="deductible"/>
     <display value="Deductible"/>
-    <definition value="Amount deducted from the eligible amount prior to adjudication."/>
+    <definition value="The portion of the eligible amount that is applied toward the member's deductible obligation and is the member's responsibility."/>
   </concept>
   <concept>
     <code value="unallocdeduct"/>
     <display value="Unallocated Deductible"/>
-    <definition value="The amount of deductible which could not allocated to other line items."/>
+    <definition value="The portion of the deductible amount that cannot be attributed to a specific claim line or service and is reported at an aggregate level."/>
   </concept>
   <concept>
     <code value="eligpercent"/>
     <display value="Eligible %"/>
-    <definition value="Eligible Percentage."/>
+    <definition value="The percentage applied to the submitted or eligible amount to determine the portion recognized for adjudication or payment under plan rules."/>
   </concept>
   <concept>
     <code value="tax"/>
     <display value="Tax"/>
-    <definition value="The amount of tax."/>
+    <definition value="The amount of applicable tax associated with the service or product, as recognized during adjudication."/>
   </concept>
   <concept>
     <code value="benefit"/>
     <display value="Benefit Amount"/>
-    <definition value="Amount payable under the coverage"/>
+    <definition value="The amount payable by the plan for a covered service after application of coverage rules, contractual adjustments, and member cost-sharing requirements."/>
+  </concept>
+  <concept>
+    <code value="coinsurance"/>
+    <display value="Co-insurance"/>
+    <definition value="The amount the insured individual pays, as a set percentage of the cost of covered medical services, as an out-of-pocket payment to the provider or when additional coverage (e.g., secondary coverage is involved). Example: Insured pays 20% and the insurer pays 80%."/>
+  </concept>
+  <concept>
+    <code value="noncovered"/>
+    <display value="Noncovered"/>
+    <definition value="The portion of the cost of this service that was deemed not eligible by the insurer because the service or member was not covered by the subscriber's contract."/>
+  </concept>
+  <concept>
+    <code value="memberliability"/>
+    <display value="Member Liability"/>
+    <definition value="The amount of the member's obligation for the claim or service."/>
+  </concept>
+  <concept>
+    <code value="discount"/>
+    <display value="Discount"/>
+    <definition value="The amount of the discount for this claim or service applied during adjudication."/>
+  </concept>
+  <concept>
+    <code value="in-network"/>
+    <display value="In Network Amount"/>
+    <definition value="The portion of the submitted charge that the payer determined to be subject to in-network contractual pricing and benefit rules for the claim or claim line."/>
+  </concept>
+  <concept>
+    <code value="out-of-network"/>
+    <display value="Out Of Network Amount"/>
+    <definition value="The portion of the submitted charge that the payer determined to be subject to out-of-network pricing and benefit rules for the claim or claim line."/>
+  </concept>
+  <concept>
+    <code value="drugcost"/>
+    <display value="Drug Cost"/>
+    <definition value="The adjudicated price for the drug product or vaccine administration item before application of manufacturer or other discounts. This amount typically includes one or more pricing components such as ingredient cost, dispensing fee, taxes, and vaccine administration fee."/>
+  </concept>
+  <concept>
+    <code value="allowedunits"/>
+    <display value="Allowed Units"/>
+    <definition value="The total number of units approved or recognized by the payer for the service or benefit under applicable coverage and plan rules."/>
+  </concept>
+  <concept>
+    <code value="consumedunits"/>
+    <display value="Consumed Units"/>
+    <definition value="The number of units applied toward the member’s benefit limits as a result of adjudication of the claim or service."/>
+  </concept>
+  <concept>
+    <code value="denialreason"/>
+    <display value="Denial Reason"/>
+    <definition value="Indicates the reason a claim or service was denied during adjudication for payment, prior authorization, or predetermination, resulting in no payment or approval for the affected item or service."/>
+  </concept>
+  <concept>
+    <code value="rejectreason"/>
+    <display value="Reject Reason"/>
+    <definition value="Indicates the reason a claim or service request could not be processed due to administrative, technical, or validation issues, and therefore was not adjudicated. This category is used to convey processing failures prior to evaluation or adjudication."/>
+  </concept>
+  <concept>
+    <code value="brandgenericindicator"/>
+    <display value="Brand Generic Indicator"/>
+    <definition value="Indicates whether the plan adjudicated the claim as a brand or generic drug."/>
   </concept>
 </CodeSystem>
