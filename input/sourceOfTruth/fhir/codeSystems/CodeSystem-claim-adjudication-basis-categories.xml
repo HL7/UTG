@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+    <id value="claim-adjudication-basis-categories"/>
+    <meta>
+        <lastUpdated value="2026-06-12T00:00:00+00:00"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="fm"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="1"/>
+    </extension>
+    <url value="http://terminology.hl7.org/CodeSystem/claim-adjudication-basis-categories"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.5.178"/>
+    </identifier>
+    <version value="1.0.0"/>
+    <name value="ClaimAdjudicationBasisCategories"/>
+    <title value="Claim Adjudication Basis Categories"/>
+    <status value="active"/>
+    <experimental value="false"/>
+    <publisher value="Health Level Seven International"/>
+    
+    <contact>
+        <telecom>
+            <system value="url"/>
+            <value value="http://hl7.org"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="hq@HL7.org"/>
+        </telecom>
+    </contact>
+    <description value="Categories of contractual, policy, benefit, or administrative bases used by a payer when adjudicating a healthcare claim and determining the allowed, paid, or adjusted amounts. These codes include categories that describe why a claim line or claim total was adjudicated as it was, rather than the result of the adjudication."/>
+    
+    <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+    <caseSensitive value="true"/>
+    <valueSet value="http://terminology.hl7.org/ValueSet/claim-adjudication-basis-categories"/>
+    <content value="complete"/>
+    <concept>
+        <code value="billing-network-status"/>
+        <display value="Billing Provider Network Status"/>
+        <definition value="Indicates the billing provider's participation status with the payer's network or contractual arrangements used in the adjudication of the claim, including determination of applicable pricing, coverage, or payment rules."/>
+    </concept>
+    <concept>
+        <code value="rendering-network-status"/>
+        <display value="Rendering Provider Network Status"/>
+        <definition value="Indicates the rendering provider's participation status with the payer's network or contractual arrangements used in the adjudication of the claim, including determination of applicable pricing, coverage, or payment rules."/>
+    </concept>
+    <concept>
+        <code value="benefit-payment-status"/>
+        <display value="Benefit Payment Status"/>
+        <definition value="Indicates the network or contractual status of the service or product (in or out of network) in context to its provisioning used in the adjudication of the claim, including determination of applicable pricing, coverage, or payment rules"/>
+    </concept>
+    <concept>
+        <code value="adjustment-reason"/>
+        <display value="Adjustment Reason"/>
+        <definition value="Indicates that a policy, contract, or administratively defined adjustment rationale was applied during claim adjudication, affecting the allowed amount, payment amount, or member liability."/>
+    </concept>
+    <concept>
+        <code value="medical-management-requirement"/>
+        <display value="Medical Management Requirements"/>
+        <definition value="Indicates that compliance with a medical management requirement (such as prior authorization, referral, step therapy, or utilization review) was a factor in the adjudication of the claim."/>
+    </concept>
+</CodeSystem>
