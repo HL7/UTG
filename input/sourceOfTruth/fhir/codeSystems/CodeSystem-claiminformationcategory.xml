@@ -2,7 +2,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="claiminformationcategory"/>
   <meta>
-    <lastUpdated value="2024-04-24T00:00:00+00:00"/>
+    <lastUpdated value="2026-06-12T00:00:00+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -18,7 +18,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1163"/>
   </identifier>
-  <version value="1.0.1"/>
+  <version value="1.0.2"/>
   <name value="ClaimInformationCategoryCodes"/>
   <title value="Claim Information Category Codes"/>
   <status value="active"/>
@@ -110,5 +110,100 @@
     <code value="patientreasonforvisit"/>
     <display value="Patient Reason for Visit"/>
     <definition value="The reason for the patient visit."/>
+  </concept>
+  <concept>
+    <code value="medicalrecordnumber"/>
+    <display value="Medical Record Number"/>
+    <definition value="Patient Medical Record Number associated with the specific claim."/>
+  </concept>
+  <concept>
+    <code value="patientaccountnumber"/>
+    <display value="Patient Account Number"/>
+    <definition value="Patient Account Number associated with the specific claim."/>
+  </concept>
+  <concept>
+    <code value="admissionperiod"/>
+    <display value="Admission Period"/>
+    <definition value="Dates corresponding with the admission and discharge of the beneficiary to a facility."/>
+  </concept>
+  <concept>
+    <code value="clmrecvddate"/>
+    <display value="Claim Received Date"/>
+    <definition value="Date the claim was received by the payer."/>
+  </concept>
+  <concept>
+    <code value="compounddrugcode"/>
+    <display value="Compound Code"/>
+    <definition value="Code indicating whether or not the prescription is a compound."/>
+  </concept>
+  <concept>
+    <code value="dawcode"/>
+    <display value="DAW (Dispense As Written) Code"/>
+    <definition value="Code indicating the prescriber's instruction regarding substitution of generic equivalents or order to dispense the specific prescribed medication."/>
+  </concept>
+  <concept>
+    <code value="dayssupply"/>
+    <display value="Days Supply"/>
+    <definition value="Value indicating the Number of days supply of medication dispensed by the pharmacy."/>
+  </concept>
+  <concept>
+    <code value="refillnum"/>
+    <display value="Refill Number"/>
+    <definition value="Value indicating the number fill of the current dispensed supply (0, 1, 2, etc.)"/>
+  </concept>
+  <concept>
+    <code value="refillsauthorized"/>
+    <display value="Refills Authorized"/>
+    <definition value="Value indicating the number of refills authorized by the subscriber (0, 1, 2, etc.)"/>
+  </concept>
+  <concept>
+    <code value="rxorigincode"/>
+    <display value="Rx Origin Code"/>
+    <definition value="Code indicating how the prescription was communicated (e.g. transmitted as an electronic prescription, by phone, by fax, or as a written paper copy)."/>
+  </concept>
+  <concept>
+    <code value="orthodontics"/>
+    <display value="Orthodontics"/>
+    <definition value="Orthodontics treatment indicator."/>
+  </concept>
+  <concept>
+    <code value="additionalbodysite"/>
+    <display value="Additional Body Site"/>
+    <definition value="Additional physical service site on the patient (limb, tooth, etc.)."/>
+  </concept>
+  <concept>
+    <code value="patientweight"/>
+    <display value="Patient Weight"/>
+    <definition value="Patient weight at time of service."/>
+  </concept>
+  <concept>
+    <code value="ambulancetransportreason"/>
+    <display value="Ambulance Transport Reason"/>
+    <definition value="Reason ambulance transport was needed."/>
+  </concept>
+  <concept>
+    <code value="transportationdistance"/>
+    <display value="Transportation Distance"/>
+    <definition value="Transportation service distance traveled."/>
+  </concept>
+  <concept>
+    <code value="roudtrippurpose"/>
+    <display value="Round Trip Purpose"/>
+    <definition value="Transportation service reason for round trip."/>
+  </concept>
+  <concept>
+    <code value="stretcherpurpose"/>
+    <display value="Stretcher Purpose"/>
+    <definition value="Purpose of stretcher use."/>
+  </concept>
+  <concept>
+    <code value="pickuplocation"/>
+    <display value="Pick-up Location"/>
+    <definition value="Transportation service patient pick-up Location."/>
+  </concept>
+  <concept>
+    <code value="dropofflocation"/>
+    <display value="Drop-off Location"/>
+    <definition value="Transportation service patient drop-off location."/>
   </concept>
 </CodeSystem>
