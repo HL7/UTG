@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+    <id value="claim-payment-component-categories"/>
+    <meta>
+        <lastUpdated value="2026-06-12T00:00:00+00:00"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="fm"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="1"/>
+    </extension>
+    <url value="http://terminology.hl7.org/CodeSystem/claim-payment-component-categories"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.5.180"/>
+    </identifier>
+    <version value="1.0.0"/>
+    <name value="ClaimPaymentComponentCategories"/>
+    <title value="Claim Payment Component Categories"/>
+    <status value="active"/>
+    <experimental value="false"/>
+    <publisher value="Health Level Seven International"/>
+    
+    <contact>
+        <telecom>
+            <system value="url"/>
+            <value value="http://hl7.org"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="hq@HL7.org"/>
+        </telecom>
+    </contact>
+    <description value="Categories of payment amounts associated with a claim based on their source, destination, or method of payment. These codes represent components of financial settlement and are distinct from adjudication outcome categories (e.g., allowed, paid) and adjudication basis factors."/>
+    
+    <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+    <caseSensitive value="true"/>
+    <valueSet value="http://terminology.hl7.org/ValueSet/claim-payment-component-categories"/>
+    <content value="complete"/>
+    <concept>
+        <code value="prior-payer-paid"/>
+        <display value="Prior Payer Paid"/>
+        <definition value="The amount paid by a prior payer, typically reflected in coordination of benefits and used to reduce the current payer’s liability."/>
+    </concept>
+    <concept>
+        <code value="paid-by-patient"/>
+        <display value="Paid by Patient"/>
+        <definition value="The total amount paid by the patient from any or all sources."/>
+    </concept>
+    <concept>
+        <code value="paid-by-patient-cash"/>
+        <display value="Paid by Patient - Cash"/>
+        <definition value="The amount paid by the patient using cash, check, or other personal funds not associated with a health account."/>
+    </concept>
+    <concept>
+        <code value="paid-by-patient-health-account"/>
+        <display value="Paid by Patient - Health Account"/>
+        <definition value="The amount paid by the patient using a health account. (These are often tax-advantaged account such as a Health Savings Account)"/>
+    </concept>
+    <concept>
+        <code value="paid-by-patient-other"/>
+        <display value="Paid by Patient - Other"/>
+        <definition value="The amount paid by the patient using a method not other than cash (cash, check, or personal account) or health account."/>
+    </concept>
+    <concept>
+        <code value="paid-to-provider"/>
+        <display value="Paid to Provider"/>
+        <definition value="The amount disbursed to the provider for services or products rendered."/>
+    </concept>
+    <concept>
+        <code value="paid-to-patient"/>
+        <display value="Paid to Patient"/>
+        <definition value="The amount disbursed directly to the patient."/>
+    </concept>
+</CodeSystem>
