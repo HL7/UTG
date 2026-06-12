@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+    <id value="processnote-class"/>
+    <meta>
+        <lastUpdated value="2026-06-12T00:00:00+00:00"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="fm"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="1"/>
+    </extension>
+    <url value="http://terminology.hl7.org/CodeSystem/processnote-class"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.5.178"/>
+    </identifier>
+    <version value="1.0.0"/>
+    <name value="ProcessNoteClassCodes"/>
+    <title value="Process Note Class Codes"/>
+    <status value="active"/>
+    <experimental value="false"/>
+    <publisher value="Health Level Seven International"/>
+    
+    <contact>
+        <telecom>
+            <system value="url"/>
+            <value value="http://hl7.org"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="hq@HL7.org"/>
+        </telecom>
+    </contact>
+    <description value="Codes that classify human-readable process notes included in adjudication related artifacts (such as ClaimResponse, ExplanationOfBenefit, and PaymentReconciliation). These codes distinguish the intent and role of the note, such as disclaimers, adjudication explanations, conditional information, or other contextual guidance."/>
+    
+    <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+    <caseSensitive value="true"/>
+    <valueSet value="http://terminology.hl7.org/ValueSet/processnote-class"/>
+    <content value="complete"/>
+    <concept>
+        <code value="disclaimer"/>
+        <display value="Disclaimer"/>
+        <definition value="Indicates a process note that communicates a disclaimer, limitation, or caution regarding the estimate, adjudication, or related information."/>
+    </concept>
+    <concept>
+        <code value="adjudication-note"/>
+        <display value="Adjudication Note"/>
+        <definition value="Indicates a process note that describes, explains, or clarifies adjudication results in human-readable form."/>
+    </concept>
+    <concept>
+        <code value="conditional"/>
+        <display value="Conditional"/>
+        <definition value="Indicates a process note describing conditional factors or assumptions relevant to the estimate or adjudication that are not otherwise fully represented in structured data, including conditions supplementary to medical management or prior authorization information."/>
+    </concept>
+    <concept>
+        <code value="other"/>
+        <display value="Other"/>
+        <definition value="Indicates a process note whose type does not fall within another defined category."/>
+    </concept>
+    <concept>
+        <code value="payer-note"/>
+        <display value="Payer Note"/>
+        <definition value="Indicates a process note providing payer-specific explanatory or contextual information relevant to the estimate or adjudication."/>
+    </concept>
+    <concept>
+        <code value="provider-note"/>
+        <display value="Provider Note"/>
+        <definition value="Indicates a process note providing provider-supplied explanatory or contextual information relevant to the estimate or adjudication."/>
+    </concept>
+    <concept>
+        <code value="benefit-note"/>
+        <display value="Benefit Note"/>
+        <definition value="Indicates a process note explaining benefit coverage, limitations, exclusions, or member cost-sharing considerations relevant to the estimate or adjudication."/>
+    </concept>
+    <concept>
+        <code value="pricing-note"/>
+        <display value="Pricing Note"/>
+        <definition value="Indicates a process note explaining pricing assumptions, negotiated rates, network considerations, or other pricing-related factors relevant to the estimate or adjudication."/>
+    </concept>
+    <concept>
+        <code value="next-step"/>
+        <display value="Next Step"/>
+        <definition value="Indicates a process note that communicates a follow-up action, recommendation, or next step for the member, provider, or payer."/>
+    </concept>
+    <concept>
+        <code value="informational"/>
+        <display value="Informational"/>
+        <definition value="Indicates a general informational process note that provides contextual information but is not primarily a disclaimer, adjudication explanation, or conditional note."/>
+    </concept>
+</CodeSystem>
