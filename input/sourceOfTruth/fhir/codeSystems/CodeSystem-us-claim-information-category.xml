@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+    <id value="us-claim-information-category"/>
+    <meta>
+        <lastUpdated value="2026-06-12T00:00:00+00:00"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="fm"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="1"/>
+    </extension>
+    <url value="http://terminology.hl7.org/CodeSystem/us-claim-information-category"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.5.182"/>
+    </identifier>
+    <version value="1.0.0"/>
+    <name value="USClaimInformationCategoryCodes"/>
+    <title value="US Claim Information Category Codes"/>
+    <status value="active"/>
+    <experimental value="false"/>
+    <publisher value="Health Level Seven International"/>
+    
+    <contact>
+        <telecom>
+            <system value="url"/>
+            <value value="http://hl7.org"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="hq@HL7.org"/>
+        </telecom>
+    </contact>
+    <description value="Categories used in the United States to classify additional information supplied with a claim, representing exceptions, special circumstances, clinical conditions, events, or other contextual factors relevant to claim adjudication."/>
+    <jurisdiction>
+        <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+        </coding>
+    </jurisdiction>
+    <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+    <caseSensitive value="true"/>
+    <valueSet value="http://terminology.hl7.org/ValueSet/us-claim-information-category"/>
+    <content value="complete"/>
+    <concept>
+        <code value="place-of-service"/>
+        <display value="Place of Service"/>
+        <definition value="Place of service codes placed on health care claims to indicate the setting in which a service was provided."/>
+    </concept>
+    <concept>
+        <code value="type-of-bill"/>
+        <display value="Type of Bill"/>
+        <definition value="Categorization of the type of bill."/>
+    </concept>
+    <concept>
+        <code value="service-facility"/>
+        <display value="Service Facility"/>
+        <definition value="The facility where the service occurred."/>
+    </concept>
+    <concept>
+        <code value="drg"/>
+        <display value="DRG"/>
+        <definition value="Identifies the Diagnosis Related Group (DRG) assigned to an inpatient stay, representing the clinical classification used for reimbursement and resource grouping."/>
+    </concept>
+    <concept>
+        <code value="point-of-origin"/>
+        <display value="Point of Origin"/>
+        <definition value="Institutional claim Point of origin for the patient's admission or visit."/>
+    </concept>
+    <concept>
+        <code value="adm-type"/>
+        <display value="Admission Type"/>
+        <definition value="Institutional Type of admission."/>
+    </concept>
+    <concept>
+        <code value="claim-frequency"/>
+        <display value="Claim Frequency"/>
+        <definition value="Indicates the billing frequency or submission type of the claim, such as original, replacement, or void."/>
+    </concept>
+    <concept>
+        <code value="discharge-status"/>
+        <display value="Discharge Status"/>
+        <definition value="Indicates the patient's status as of the discharge date for a facility stay."/>
+    </concept>
+</CodeSystem>
