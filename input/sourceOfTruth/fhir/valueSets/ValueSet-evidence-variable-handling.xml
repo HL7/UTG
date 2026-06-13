@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="evidence-variable-handling"/>
+	<meta>
+		<lastUpdated value="2022-05-12T12:40:00+00:00"/>
+		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="cds"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="2"/>
+	</extension>
+	<url value="http://hl7.org/fhir/ValueSet/evidence_variable_handling"/>
+	<version value="1.0.0"/>
+	<name value="EvidenceVariableHandling"/>
+	<title value="Evidence Variable Handling"/>
+	<status value="active"/>
+	<experimental value="false"/>
+	<date value="2026-05-18T12:40:00+00:00"/>
+	<publisher value="HL7 (FHIR Project)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+		<telecom>
+			<system value="email"/>
+			<value value="fhir@lists.hl7.org"/>
+		</telecom>
+	</contact>
+	<description value="The types of values that can be assumed by the variable"/>
+	<immutable value="true"/>
+	<compose>
+		<include>
+			<system value="https://fevir.net/sevco"/>
+			<version value="2.0"/>
+			<concept>
+				<code value="STATO:0000252"/>
+				<display value="categorical variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A variable that can assume values from only a finite set of values."/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000721"/>
+				<display value="nominal variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A categorical variable for which the meanings of the categories do not have an ordered relationship."/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000090"/>
+				<display value="dichotomous variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A nominal variable that can assume values from 2 discrete possible values."/>
+				</designation>
+				<designation>
+					<use>
+						<code value="900000000000013009"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Synonym (core metadata concept)"/>
+					</use>
+					<value value="dichotomous nominal variable"/>
+				</designation>
+				<designation>
+					<use>
+						<code value="900000000000013009"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Synonym (core metadata concept)"/>
+					</use>
+					<value value="binary variable"/>
+				</designation>
+				<designation>
+					<use>
+						<code value="900000000000013009"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Synonym (core metadata concept)"/>
+					</use>
+					<value value="binary nominal variable"/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000724"/>
+				<display value="boolean variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A nominal variable that can assume values from 2 discrete possible values, True of False."/>
+				</designation>
+				<designation>
+					<use>
+						<code value="900000000000013009"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Synonym (core metadata concept)"/>
+					</use>
+					<value value="Boolean variable"/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000087"/>
+				<display value="polychotomous variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A nominal variable that can assume values from 3 or more discrete possible values."/>
+				</designation>
+				<designation>
+					<use>
+						<code value="900000000000013009"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Synonym (core metadata concept)"/>
+					</use>
+					<value value="polychotomous nominal variable"/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000228"/>
+				<display value="ordinal variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A categorical variable where the discrete possible values are ordered or correspond to an implicit ranking."/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000725"/>
+				<display value="dichotomous ordinal variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="An ordinal variable that can assume values from 2 discrete possible values."/>
+				</designation>
+				<designation>
+					<use>
+						<code value="900000000000013009"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Synonym (core metadata concept)"/>
+					</use>
+					<value value="binary ordinal variable"/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000726"/>
+				<display value="polychotomous ordinal variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="An ordinal variable that can assume values from 3 or more discrete possible values."/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000732"/>
+				<display value="multi-value categorical variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A categorical variable that can assume two or more values simultaneously."/>
+				</designation>
+				<designation>
+					<use>
+						<code value="900000000000013009"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Synonym (core metadata concept)"/>
+					</use>
+					<value value="multiple-value-allowed categorical variable"/>
+				</designation>
+				<designation>
+					<use>
+						<code value="900000000000013009"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Synonym (core metadata concept)"/>
+					</use>
+					<value value="multilabel categorical variable"/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000722"/>
+				<display value="quantitative variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A variable that can assume numerical values, with or without units of measure."/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000723"/>
+				<display value="discrete variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A quantitative variable for which only integer values are allowed."/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000251"/>
+				<display value="continuous variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A quantitative variable for which, within the allowable range, any value is possible."/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000727"/>
+				<display value="interval variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A continuous variable with ordered, equally spaced units where the difference between values is meaningful, but no true zero point exists."/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000728"/>
+				<display value="date variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="An interval variable for which allowable values represent a point in time on a calendar with a year, with or without a month, and with or without a day."/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000729"/>
+				<display value="dateTime variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="An interval variable for which allowable values represent a point in time on a calendar, with a year, month, and day, and on a clock, with hours, minutes, and seconds."/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000730"/>
+				<display value="ratio variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A continuous variable with a true zero point and ordered, equally spaced units where the difference between values is meaningful."/>
+				</designation>
+			</concept>
+			<concept>
+				<code value="STATO:0000731"/>
+				<display value="time-to-event variable"/>
+				<designation>
+					<use>
+						<code value="900000000000550004"/>
+						<system value="http://snomed.info/sct"/>
+						<display value="Definition (core metadata concept)"/>
+					</use>
+					<value value="A ratio variable representing the duration of observation until the event occurred, conditioned on the event occurring."/>
+				</designation>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>

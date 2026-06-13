@@ -9,8 +9,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
- 
- 
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
   </extension>
@@ -19,12 +17,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1410"/>
   </identifier>
-  <version value="1.0.1"/>
-  <name value="StatisticStatisticType"/>
-  <title value="StatisticStatisticType"/>
+  <version value="2.0.0"/>
+  <name value="Statistic Type"/>
+  <title value="Statistic Type"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2024-04-24T00:00:00+00:00"/>
+  <date value="2026-02-17T00:00:00+00:00"/>
   <publisher value="Health Level Seven International"/>
   <contact>
     <telecom>
@@ -38,10 +36,1855 @@
   </contact>
   <description value="The type of a specific statistic."/>
   <immutable value="true"/>
-  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <copyright value="https://creativecommons.org/licenses/by-sa/4.0/ copyright holder is Scientific Knowledge Accelerator Foundation"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
+      <system value="https://fevir.net/sevco"/>
+      <version value="2.0"/>
+      <concept>
+        <code value="STATO:0000668"/>
+        <display value="absolute value"/>
+        <designation>
+          <use>
+            <code value="900000000000550004"/>
+            <system value="http://snomed.info/sct"/>
+            <display value="Definition (core metadata concept)"/>
+          </use>
+          <value value="A statistic that represents the distance of a value from zero."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000047"/>
+        <display value="count"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that represents the number of instances or occurrences of something."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000669"/>
+        <display value="sum"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that represents the result of adding all the values in a collection of values."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="total"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000151"/>
+        <display value="maximum observed value"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that represents the largest non-null value in a collection of values that can be ordered by magnitude."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000150"/>
+        <display value="minimum observed value"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that represents the smallest non-null value in a collection of values that can be ordered by magnitude."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000666"/>
+        <display value="maximum possible value"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that represents the largest value that could occur."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000667"/>
+        <display value="minimum possible value"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that represents the smallest value that could occur."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000291"/>
+        <display value="quantile"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that represents the value for which the number of data points at or below it constitutes a specific portion of the total number of data points."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000613"/>
+        <display value="difference"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that is a subtraction of one quantity from another."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="delta"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000573"/>
+        <display value="mean"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of central tendency calculated as the sum of a set of values divided by the number of values in the set."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="arithmetic mean"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="average"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="average value"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="statistical mean"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000664"/>
+        <display value="mean of differences"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A mean of values in which each value is the subtraction of one quantity from another."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="mean of paired differences"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="average of differences"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="mean difference"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="average difference"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000658"/>
+        <display value="mean time-to-event"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A mean of values in which each value is the duration of time between the start of observation and the occurrence of an event."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="mean TTE"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000396"/>
+        <display value="geometric mean"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of central tendency calculated as the nth root of the product of all of the observations in a data set (n being the number of all observations)."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000574"/>
+        <display value="median"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of central tendency equal to the middle value (or mean of the two middle values) of a set of ordered data."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="center value"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="statistical median"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="middle value"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000659"/>
+        <display value="median time-to-event"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A median of values in which each value is the duration of time between the start of observation and the occurrence of an event."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="median TTE"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000033"/>
+        <display value="mode"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of central tendency that is the most frequently occurring value in a data set. If no value is repeated, there is no mode. If more than one value occurs with the same greatest frequency, each of these values is a mode."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="statistical mode"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="most common value"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="most frequent value"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000397"/>
+        <display value="harmonic mean"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of central tendency calculated by dividing the total number of observations by the sum of the reciprocals of each observed value."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000293"/>
+        <display value="percentile"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A quantile in which the specific portion of the number of data points is expressed as a percentage."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="centile"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="%ile"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000292"/>
+        <display value="decile"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A quantile in which the specific portion of the number of data points is expressed as a number of tenths."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000152"/>
+        <display value="quartile"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A quantile in which the specific portion of the number of data points is expressed as a number of fourths."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000167"/>
+        <display value="first quartile"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A quantile for which the number of data points at or below it constitutes a 25% of the total number of data points."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000170"/>
+        <display value="third quartile"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A quantile for which the number of data points at or below it constitutes a 75% of the total number of data points."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000614"/>
+        <display value="absolute difference"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that is a subtraction of one quantity from another, with no modification of the resulting value."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000616"/>
+        <display value="count difference"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that is a subtraction of one count from another."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="difference in counts"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="number difference"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000457"/>
+        <display value="difference in means"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that is a subtraction of one mean from another."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="difference of means"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000617"/>
+        <display value="difference in medians"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that is a subtraction of one median from another."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="difference of medians"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000424"/>
+        <display value="risk difference"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association that is the subtraction of the risk of an event in one group from the risk of the same event in another group."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="absolute risk difference"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="RD"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="ARD"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000665"/>
+        <display value="difference-in-differences"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that is a subtraction of one difference from another."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="difference in differences"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000615"/>
+        <display value="relative difference"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that is a difference between 1 and a ratio of the two quantities being compared."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000625"/>
+        <display value="relative mean difference"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that is a difference between 1 and a ratio of the two mean values being compared."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000626"/>
+        <display value="relative risk difference"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that is a difference between 1 and a ratio of the two risk values being compared."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000100"/>
+        <display value="standardized mean difference"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that is a difference between two means, divided by a statistical measure of dispersion."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="smd"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000618"/>
+        <display value="Cohen’s d statistic"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A standardized mean difference which is calculated as a difference between two means, divided by a square root of an average of the variances of the two groups."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000135"/>
+        <display value="strictly standardized mean difference"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A standardized mean difference which is calculated as a difference between two means, divided by the standard error of the difference between the two means."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="ssmd"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000319"/>
+        <display value="Hedges’s g"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A standardized mean difference which is calculated as a difference between two means, divided by the pooled standard deviation."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000320"/>
+        <display value="Glass’s delta"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A standardized mean difference which is calculated as a difference between two means (of an experimental group and a control group), divided by the standard deviation of the control group."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000635"/>
+        <display value="number needed to treat"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that represents the number of units that needs to be treated to prevent one additional undesired outcome. The Number Needed to Treat is calculated as the reciprocal of a treatment effect estimate, where the effect estimate is expressed as a risk difference."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="number needed to treat to benefit"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="NNT"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="NNTB"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000637"/>
+        <display value="number needed to screen to detect"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that represents the number of units that needs to be tested to identify one additional case. The Number Needed to Screen to Detect is calculated as the reciprocal of a difference in rate of detected cases with and without screening."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="NNS"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000636"/>
+        <display value="number needed to screen to prevent"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that represents the number of units that needs to be tested to prevent one additional adverse outcome, assuming that positive testing will lead to preventive intervention. The Number Needed to Screen to Prevent is calculated as the Number Needed to Treat divided by the prevalence."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="NNS"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000638"/>
+        <display value="number needed to harm"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A statistic that represents the number of units that, if treated or exposed to the intervention, to lead to one additional undesired outcome. The Number Needed to Harm is calculated as the reciprocal of a treatment effect estimate, where the effect estimate is expressed as a risk difference."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="number needed to treat to harm"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="NNH"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="NNTH"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000639"/>
+        <display value="percentage"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A ratio that is multiplied by 100, and has the same units of measurement in the numerator and the denominator."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000705"/>
+        <display value="measurement accuracy"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A percentage in which the numerator represents the absolute value of one minus the difference between the true value and the observed value, and the denominator represents the true value."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000607"/>
+        <display value="proportion"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A ratio in which the numerator represents a part, fraction or share of the amount represented by the denominator."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000413"/>
+        <display value="incidence"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A proportion in which the numerator represents new events."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="cumulative incidence"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="incidence proportion"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000412"/>
+        <display value="prevalence"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A proportion in which the numerator represents all events of interest (for example, both new and preexisting cases of a disease) in the population, which is represented by the denominator."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="period prevalence"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="point prevalence"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="lifetime prevalence"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000233"/>
+        <display value="sensitivity"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A proportion in which the numerator represents the detected items within the denominator that represents all items with the targeted attribute."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="recall"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="true positive rate"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000134"/>
+        <display value="specificity"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A proportion in which the numerator represents the non-detected items within the denominator that represents all items without the targeted attribute."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="true negative rate"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000416"/>
+        <display value="positive predictive value"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A proportion in which the numerator represents the correctly detected items within the denominator that represents all items detected."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="precision (as used in information retrieval)"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="PPV"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000619"/>
+        <display value="negative predictive value"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A proportion in which the numerator represents the correctly non-detected items within the denominator that represents all items not detected."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="NPV"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000621"/>
+        <display value="diagnostic yield"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A proportion in which the numerator represents the correctly detected items within the denominator that represents all items tested."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000620"/>
+        <display value="risk"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A proportion in which the numerator represents the cases in which an event or characteristic occurs and the denominator represents all possible cases."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="probability"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000627"/>
+        <display value="odds"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A ratio in which the numerator represents the probability that an event will occur and the denominator represents the probability that an event will not occur."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000645"/>
+        <display value="rate"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A ratio in which the numerator represents any quantity and the denominator represents an interval of time."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000670"/>
+        <display value="incidence rate"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A rate in which the number of new events per total at risk is divided by an interval of time."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="incidence density"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="average hazard rate"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000671"/>
+        <display value="hazard rate"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A conditional instantaneous rate in which the numerator represents an incidence conditioned on survival to a specified time, and the denominator represents a time interval with a duration approaching zero."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="hazard"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="hazard function"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="instantaneous hazard rate"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000672"/>
+        <display value="event rate"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="The number of occurrences per unit of time."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000673"/>
+        <display value="event frequency rate"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A ratio in which the numerator represents an event frequency and the denominator represents an interval of time."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000674"/>
+        <display value="event frequency"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A ratio in which the numerator represents a count and the denominator represents a count (without involving an interval of time)."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="frequentist probability"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000675"/>
+        <display value="density"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A ratio in which the numerator represents any quantity and the denominator represents an interval of space (distance, area, or volume)."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000676"/>
+        <display value="number density"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A ratio in which the numerator represents a count and the denominator represents an interval of space (distance, area, or volume)."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000704"/>
+        <display value="concentration"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A ratio in which the numerator is a measure of the solute and the denominator is a measure of the solvent."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000622"/>
+        <display value="ratio-based measure of association"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association expressed as a ratio."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000677"/>
+        <display value="hazard ratio"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association that is the ratio of the hazard rate of an event in one group to the hazard rate of the same event in another group."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000680"/>
+        <display value="incidence rate ratio"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association that is the ratio of two incidence rates."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="IRR"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000681"/>
+        <display value="standardized incidence ratio"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="An incidence rate ratio in which the numerator is the incidence rate in a group and the denominator is the incidence rate for a reference population."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="SIR"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000182"/>
+        <display value="odds ratio"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association that is the ratio of two odds."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000678"/>
+        <display value="prevalence ratio"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association that is the ratio of two prevalences."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000245"/>
+        <display value="risk ratio"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association that is the ratio of the risk of an event in one group to the risk of the same event in another group."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="relative risk"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000411"/>
+        <display value="likelihood ratio positive"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association that is the ratio of the probability of the test giving a positive result when testing an affected subject and the probability of the test giving a positive result when a subject is not affected."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="positive likelihood ratio"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="+LR"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="LR+"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000410"/>
+        <display value="likelihood ratio negative"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association that is the ratio of the probability of the test giving a negative result when testing an affected subject and the probability of the test giving a negative result when a subject is not affected."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="negative likelihood ratio"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="LR-"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="-LR"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000415"/>
+        <display value="diagnostic accuracy"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association that is the ratio of the number of correct results to the total number tested."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="categorical accuracy"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="classification accuracy"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000679"/>
+        <display value="diagnostic odds ratio"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association that is the ratio of the odds of a positive test in those with disease relative to the odds of a positive test in those without disease."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="DOR"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000524"/>
+        <display value="phi coefficient"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association, ranging from -1 to 1, that measures the strength and direction of the linear relationship between two binary variables."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="mean square contingency coefficient"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="Yule phi"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="Matthews correlation coefficient"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000682"/>
+        <display value="kappa"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of agreement among categorical assessments, corrected for chance agreement."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="kappa statistic"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000683"/>
+        <display value="simple chance-corrected agreement coefficient"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A Kappa statistic in which the expected agreement by chance is based on an assumption that all possible categories for assignment are equally likely."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="Bennett’s Kappa"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="Brennan-Prediger agreement coefficient"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000630"/>
+        <display value="Cohen’s kappa"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A Kappa statistic in which the expected agreement by chance is based on an assumption that the likelihood of each category for assignment is based on the proportion observed, and the number of raters is 2."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000631"/>
+        <display value="modified Cohen’s kappa for more than 2 raters"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A Kappa statistic in which the expected agreement by chance is based on an assumption that the likelihood of each category for assignment is based on the proportion observed, and the number of raters is more than 2."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000629"/>
+        <display value="Scott’s pi"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A Kappa statistic where the expected agreement between two raters is expressed in terms of the square of arithmetic means of marginal proportions of each assessment category."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000632"/>
+        <display value="misclassification rate"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A ratio of the number of incorrect results to the total number tested."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="classification error"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="misclassification error"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000628"/>
+        <display value="F1-score"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A ratio representing the harmonic mean of recall and precision."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="F1 score"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="F1 measure"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="F measure"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="F score"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="F-score"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="F-measure"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="F1-measure"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000301"/>
+        <display value="covariance"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of correlation that is not normalized by the variances of the variables."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000280"/>
+        <display value="Pearson correlation coefficient"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of correlation, ranging from -1 to 1, that measures the strength and direction of the linear relationship between values of two continuous variables."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="product moment"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="product moment correlation"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000201"/>
+        <display value="Spearman rank-order correlation coefficient"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of correlation, ranging from -1 to 1, that measures the strength and direction of the relationship between ranks by value of two ordinal or continuous variables, and is calculated as the Pearson correlation coefficient between the rank values."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="Spearman's rank correlation coefficient"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="Spearman's rho"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000240"/>
+        <display value="Kendall correlation coefficient"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of correlation, ranging from -1 to 1, that measures the strength and direction of the relationship between ranks by value of two ordinal or continuous variables, and is calculated based on the difference in the number of concordant and discordant pairs of rankings divided by the number of all possible pairs of rankings."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="Kendall's tau coefficient"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="Kendall's tau"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="Kendall's t"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="Kendall rank correlation coefficient"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="Kendall's tau-b"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000612"/>
+        <display value="Goodman and Kruskal’s gamma"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of correlation, ranging from -1 to 1, that measures the strength and direction of the relationship between ranks by value of two ordinal or continuous variables, and is calculated based on the difference in the number of concordant and discordant pairs of rankings divided by the total number of pairs of rankings, where ties are not counted among the pairs of rankings."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="Goodman-Kruskal gamma"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="gamma statistic"/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="gamma coefficient"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000565"/>
+        <display value="regression coefficient"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of association that is used as the coefficient of an independent variable in a regression model, of the dependent variable, which is linear in its parameters."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000686"/>
+        <display value="mean calibration"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of calibration that is the average of a function of the difference between the expected values and the observed values."/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000688"/>
+        <display value="calibration intercept"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of calibration that is the difference between the mean expected value and the mean observed value."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="calibration-in-the-large"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="STATO:0000687"/>
+        <display value="calibration slope"/>
+        <designation>
+        <use>
+        <code value="900000000000550004"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Definition (core metadata concept)"/>
+        </use>
+        <value value="A measure of calibration that is the rate of change in the appropriately transformed value per unit change of the correspondingly transformed predicted value."/>
+        </designation>
+        <designation>
+        <use>
+        <code value="900000000000013009"/>
+        <system value="http://snomed.info/sct"/>
+        <display value="Synonym (core metadata concept)"/>
+        </use>
+        <value value="calibration-in-the-small"/>
+        </designation>
+      </concept>
     </include>
   </compose>
 </ValueSet>

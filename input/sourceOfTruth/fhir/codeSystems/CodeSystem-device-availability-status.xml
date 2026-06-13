@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="device-availability-status" />
+  <meta>
+    <lastUpdated value="2023-03-26T15:21:02.749+11:00" />
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem" />
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2" />
+  </extension>
+  <url value="http://terminology.hl7.org/device-availability-status" />
+  <identifier>
+    <system value="urn:ietf:rfc:3986" />
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2048" />
+  </identifier>
+  <version value="1.0.0" />
+  <name value="FHIRDeviceAvailabilityStatus" />
+  <title value="FHIR Device Availability Status" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2026-06-01" />
+  <publisher value="HL7 (FHIR Project)" />
+  <contact>
+    <telecom>
+      <system value="url" />
+      <value value="http://hl7.org/fhir" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="fhir@lists.hl7.org" />
+    </telecom>
+  </contact>
+  <description value="The record status of the device." />
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm" />
+      <code value="001" />
+      <display value="World" />
+    </coding>
+  </jurisdiction>
+  <caseSensitive value="true" />
+  <valueSet value="http://terminology.hl7.org/ValueSet/device-availability-status" />
+  <content value="complete" />
+  <concept>
+    <code value="lost" />
+    <display value="Lost" />
+    <definition value="The device is lost." />
+  </concept>
+  <concept>
+    <code value="damaged" />
+    <display value="Damaged" />
+    <definition value="The device is damaged." />
+  </concept>
+  <concept>
+    <code value="destroyed" />
+    <display value="Destroyed" />
+    <definition value="The device is destroyed." />
+  </concept>
+  <concept>
+    <code value="available" />
+    <display value="Available" />
+    <definition value="The device is available." />
+  </concept>
+</CodeSystem>
