@@ -40,98 +40,75 @@
   <valueSet value="http://terminology.hl7.org/ValueSet/state-change-reason"/>
   <content value="complete"/>
   <concept>
-    <code value="adverseEvent"/>
-    <display value="adverse event"/>
-    <definition value="adverse event."/>
+    <code value="unable-to-participate"/>
+    <display value="Unable to Participate"/>
+    <definition value="The subject (ResearchSubject) is not able to take part in the ResearchStudy. Examples: subject has moved away; subject cannot drive and therefore unable to participate, etc."/>
   </concept>
   <concept>
-    <code value="death"/>
-    <display value="death (adverse event)"/>
-    <definition value="death (adverse event)."/>
+    <code value="unwilling-to-participate"/>
+    <display value="Unwilling to Participate"/>
+    <definition value="The subject (ResearchSubject) is refusing to take part in the ResearchStudy. Note: Subject refusal is a synonymous term and is used in some studies."/>
   </concept>
   <concept>
-    <code value="notEligible"/>
-    <display value="did not meet eligibility criteria"/>
-    <definition value="did not meet eligibility criteria."/>
+    <code value="screening-failure"/>
+    <display value="Screening Failure"/>
+    <definition value="The failure of the potential subject (ResearchSubject) of meeting one or more criteria required for participation in a trial."/>
   </concept>
   <concept>
-    <code value="eligibleButNo"/>
-    <display value="eligible but unwilling or unable to participate"/>
-    <definition value="eligible but unwilling or unable to participate."/>
+    <code value="intervention-complete"/>
+    <display value="Intervention Complete"/>
+    <definition value="The subject (ResearchSubject) has finished the planned protocol-specified treatment phase."/>
   </concept>
   <concept>
-    <code value="enrolled"/>
-    <display value="enrolled or registered"/>
-    <definition value="enrolled or registered."/>
+    <code value="follow-up-complete"/>
+    <display value="Follow-up Complete"/>
+    <definition value="The subject (ResearchSubject) has finished the planned protocol-specified follow-up phase."/>
   </concept>
   <concept>
-    <code value="exclusion"/>
-    <display value="exclusion"/>
-    <definition value="exclusion."/>
+    <code value="adverse-event"/>
+    <display value="Adverse Event"/>
+    <definition value="The subject (ResearchSubject) has experienced any unfavorable or unintended disease, sign, or symptom that is temporally associated with the use of a medical treatment or procedure and that may or may not be considered related to the medical treatment or procedure."/>
   </concept>
   <concept>
-    <code value="followUpComplete"/>
-    <display value="follow-up complete"/>
-    <definition value="follow-up complete."/>
+    <code value="consent-withdrawn"/>
+    <display value="Consent Withdrawn"/>
+    <definition value="The subject (ResearchSubject) has revoked permission to participate in the study or one or more components of the study."/>
   </concept>
   <concept>
-    <code value="inclusion"/>
-    <display value="inclusion"/>
-    <definition value="inclusion."/>
+    <code value="non-compliance"/>
+    <display value="Non-compliance"/>
+    <definition value="The subject (ResearchSubject) has failed to follow medical advice, take medication as directed, or adhere to a prescribed course of treatment."/>
   </concept>
   <concept>
     <code value="informedConsentSigned"/>
     <display value="Informed consent signed"/>
-    <definition value="Informed consent signed."/>
+    <definition value="The subject (ResearchSubject) has signed informed consent."/>
+    <designation>
+      <use>
+        <system value="http://snomed.info/sct"/>
+        <code value="900000000000013009"/>
+        <display value="Synonym"/>
+      </use>
+      <value value="Informed Consent"/>
+    </designation>
   </concept>
   <concept>
     <code value="intOrObsComplete"/>
     <display value="intervention or observation complete"/>
     <definition value="intervention or observation complete."/>
+    <status value="deprecated"/>
+    <property>
+      <code value="deprecationDate"/>
+      <valueDateTime value="2025-04-17"/>
+    </property>
+    <property>
+      <code value="replacedBy"/>
+      <valueCode value="intervention-complete"/>
+    </property>
   </concept>
   <concept>
-    <code value="nonCompliance"/>
-    <display value="non-compliance"/>
-    <definition value="non-compliance."/>
-  </concept>
-  <concept>
-    <code value="preReg"/>
-    <display value="pre-registered or slot reserved"/>
-    <definition value="pre-registered or slot reserved."/>
-  </concept>
-  <concept>
-    <code value="refuseConsent"/>
-    <display value="refuse consent"/>
-    <definition value="refuse consent."/>
-  </concept>
-  <concept>
-    <code value="screenFailure"/>
-    <display value="screen failure"/>
-    <definition value="screen failure."/>
-  </concept>
-  <concept>
-    <code value="studyClosed"/>
-    <display value="study permanently closed to accrual"/>
-    <definition value="study permanently closed to accrual."/>
-  </concept>
-  <concept>
-    <code value="studyTerminated"/>
-    <display value="study terminated"/>
-    <definition value="study terminated."/>
-  </concept>
-  <concept>
-    <code value="subjectRefusal"/>
-    <display value="subject refusal"/>
-    <definition value="subject refusal."/>
-  </concept>
-  <concept>
-    <code value="unwillingOrUnable"/>
-    <display value="unwilling or unable to participate"/>
-    <definition value="unwilling or unable to participate."/>
-  </concept>
-  <concept>
-    <code value="withdrawnConsent"/>
-    <display value="withdrawn consent"/>
-    <definition value="withdrawn consent."/>
+    <code value="death"/>
+    <display value="Death"/>
+    <definition value="The subject (ResearchSubject) has died."/>
   </concept>
 </CodeSystem>
