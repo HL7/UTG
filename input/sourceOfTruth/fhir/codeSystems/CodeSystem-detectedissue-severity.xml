@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="detectedissue-severity"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/detectedissue-severity"/>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="http://hl7.org/fhir/detectedissue-severity"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.207"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.197"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.105"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="DetectedIssueSeverity"/>
+  <title value="Detected Issue Severity"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2026-05-30"/>
+  <publisher value="HL7 International / Clinical Decision Support"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/dss"/>
+    </telecom>
+  </contact>
+  <description value="Indicates the potential degree of impact of the identified issue on the patient."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/detectedissue-severity"/>
+  <content value="complete"/>
+  <concept>
+    <code value="high"/>
+    <display value="High"/>
+    <definition value="Indicates the issue may be life-threatening or has the potential to cause permanent injury."/>
+  </concept>
+  <concept>
+    <code value="moderate"/>
+    <display value="Moderate"/>
+    <definition value="Indicates the issue may result in noticeable adverse consequences but is unlikely to be life-threatening or cause permanent injury."/>
+  </concept>
+  <concept>
+    <code value="low"/>
+    <display value="Low"/>
+    <definition value="Indicates the issue may result in some adverse consequences but is unlikely to substantially affect the situation of the subject."/>
+  </concept>
+</CodeSystem>

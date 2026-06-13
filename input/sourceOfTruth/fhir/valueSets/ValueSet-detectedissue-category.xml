@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="detectedissue-category"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/detectedissue-category"/>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="http://hl7.org/fhir/ValueSet/detectedissue-category"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.204"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.194"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.103"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="DetectedIssueCategory"/>
+  <title value="Detected Issue Category"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International / Clinical Decision Support"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/dss"/>
+    </telecom>
+  </contact>
+  <description value="Kinds of issues or contraindications, such as 'drug-drug interaction', 'duplicate therapy', etc."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <concept>
+        <code value="FOOD"/>
+        <display value="Food Interaction Alert"/>
+      </concept>
+      <concept>
+        <code value="DRUG"/>
+        <display value="Drug Interaction Alert"/>
+      </concept>
+      <concept>
+        <code value="ALGY"/>
+        <display value="Allergy Alert"/>
+      </concept>
+      <concept>
+        <code value="DUPTHPY"/>
+        <display value="Duplicate Therapy Alert"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
