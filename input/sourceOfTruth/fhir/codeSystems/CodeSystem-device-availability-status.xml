@@ -2,7 +2,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="device-availability-status" />
   <meta>
-    <lastUpdated value="2023-03-26T15:21:02.749+11:00" />
+    <lastUpdated value="2026-06-26T00:00:00.000+00:00" />
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem" />
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -16,12 +16,12 @@
     <system value="urn:ietf:rfc:3986" />
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2048" />
   </identifier>
-  <version value="1.0.0" />
+  <version value="2.0.0" />
   <name value="FHIRDeviceAvailabilityStatus" />
   <title value="FHIR Device Availability Status" />
   <status value="active" />
   <experimental value="false" />
-  <date value="2026-06-01" />
+  <date value="2026-06-26" />
   <publisher value="Health Level Seven International"/>
   <contact>
     <telecom>
@@ -41,27 +41,121 @@
       <display value="World" />
     </coding>
   </jurisdiction>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A property that indicates the status of the concept."/>
+    <type value="code"/>
+  </property>
   <caseSensitive value="true" />
   <valueSet value="http://terminology.hl7.org/ValueSet/device-availability-status" />
   <content value="complete" />
   <concept>
-    <code value="lost" />
-    <display value="Lost" />
-    <definition value="The device is lost." />
-  </concept>
-  <concept>
     <code value="damaged" />
     <display value="Damaged" />
     <definition value="The device is damaged." />
+    <property>
+      <code value="status"/>
+      <valueCode value="inactive"/>
+    </property>
   </concept>
   <concept>
     <code value="destroyed" />
     <display value="Destroyed" />
     <definition value="The device is destroyed." />
+    <property>
+      <code value="status"/>
+      <valueCode value="inactive"/>
+    </property>
   </concept>
   <concept>
-    <code value="available" />
-    <display value="Available" />
-    <definition value="The device is available." />
+    <code value="available"/>
+    <display value="Available"/>
+    <definition value="Device is fully operational, meets all safety/performance requirements, and is ready for immediate use."/>
+  </concept>
+  <concept>
+    <code value="in-use"/>
+    <display value="In Use"/>
+    <definition value="Device is currently assigned to and actively being used for a patient, procedure, or task."/>
+  </concept>
+  <concept>
+    <code value="reserved"/>
+    <display value="Reserved"/>
+    <definition value="Device is allocated for a future procedure or patient but not yet in active use."/>
+  </concept>
+  <concept>
+    <code value="cleaning"/>
+    <display value="Cleaning"/>
+    <definition value="Device is undergoing cleaning or disinfection and cannot be used."/>
+  </concept>
+  <concept>
+    <code value="sterilizing"/>
+    <display value="Sterilizing"/>
+    <definition value="Device is in a sterilization process required before reuse."/>
+  </concept>
+  <concept>
+    <code value="maintenance"/>
+    <display value="Maintenance"/>
+    <definition value="Device is undergoing scheduled or unscheduled maintenance or repair."/>
+  </concept>
+  <concept>
+    <code value="calibration"/>
+    <display value="Calibration"/>
+    <definition value="Device is being calibrated or verified for accuracy/performance."/>
+  </concept>
+  <concept>
+    <code value="charging"/>
+    <display value="Charging"/>
+    <definition value="Device is unavailable due to battery recharge cycle."/>
+  </concept>
+  <concept>
+    <code value="faulty"/>
+    <display value="Faulty"/>
+    <definition value="Device has a known malfunction or defect and is not safe for use."/>
+  </concept>
+  <concept>
+    <code value="quarantined"/>
+    <display value="Quarantined"/>
+    <definition value="Device is isolated pending investigation (e.g., contamination, adverse event)."/>
+  </concept>
+  <concept>
+    <code value="recalled"/>
+    <display value="Recalled"/>
+    <definition value="Device is subject to a manufacturer or regulatory recall and must not be used."/>
+  </concept>
+  <concept>
+    <code value="out-of-service"/>
+    <display value="Out of Service"/>
+    <definition value="Device is intentionally removed from availability without a specific operational workflow."/>
+  </concept>
+  <concept>
+    <code value="retired"/>
+    <display value="Retired"/>
+    <definition value="Device has been permanently removed from service but may still exist physically."/>
+  </concept>
+  <concept>
+    <code value="disposed"/>
+    <display value="Disposed"/>
+    <definition value="Device has been permanently discarded or destroyed."/>
+  </concept>
+  <concept>
+    <code value="lost"/>
+    <display value="Lost"/>
+    <definition value="Device cannot be located and is not available for use."/>
+  </concept>
+  <concept>
+    <code value="in-transit"/>
+    <display value="In Transit"/>
+    <definition value="Device is being transported between locations and is not available for use."/>
+  </concept>
+  <concept>
+    <code value="received-not-ready"/>
+    <display value="Received, Not Ready"/>
+    <definition value="Device has been received but not yet inspected, configured, or approved for use."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="Device availability is not determined."/>
   </concept>
 </CodeSystem>
