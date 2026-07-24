@@ -18,7 +18,7 @@
     <system value="urn:ietf:rfc:3986"/> 
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1048"/> 
   </identifier> 
-  <version value="1.0.0"/> 
+  <version value="2.0.0"/> 
   <name value="DataAbsentReason"/> 
   <title value="DataAbsentReason"/> 
   <status value="active"/> 
@@ -39,6 +39,12 @@
   <caseSensitive value="true"/> 
   <valueSet value="http://hl7.org/fhir/ValueSet/data-absent-reason"/> 
   <content value="complete"/> 
+  <property>
+    <code value="comment"/>
+	<uri value="http://hl7.org/fhir/xoncept-properties#comment"/>
+	<description value="A string that provides additional detail pertinent to the use or understanding of the concept"/>
+	<type value="string"/>
+  </property>
   <concept> 
     <code value="unknown"/> 
     <display value="Unknown"/> 
@@ -65,10 +71,10 @@
     </concept> 
   </concept> 
   <concept> 
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="Using &quot;masked&quot; may be breach of security or confidentiality, but there are times
-       when its use is required to support alternate workflows for gaining access to denied information."/> 
-    </extension> 
+    <property>
+	  <code value="comment"/>
+      <valueString value="Using &quot;masked&quot; may be breach of security or confidentiality, but there are times when its use is required to support alternate workflows for gaining access to denied information."/> 
+    </property> 
     <code value="masked"/> 
     <display value="Masked"/> 
     <definition value="The information is not available due to security, privacy or related reasons."/> 
@@ -84,11 +90,10 @@
     <definition value="The source system wasn't capable of supporting this element."/> 
   </concept> 
   <concept> 
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="It may be linked by internal references (e.g. xml:id). This usually implies that the value
-       could not be represented in the correct format - this may be due to system limitations,
-       or this particular data value."/> 
-    </extension> 
+    <property>
+	  <code value="comment"/>
+      <valueString value="It may be linked by internal references (e.g. xml:id). This usually implies that the value could not be represented in the correct format - this may be due to system limitations, or this particular data value."/> 
+    </property> 
     <code value="as-text"/> 
     <display value="As Text"/> 
     <definition value="The content of the data is represented in the resource narrative."/> 
@@ -98,26 +103,29 @@
     <display value="Error"/> 
     <definition value="Some system or workflow process error means that the information is not available."/> 
     <concept> 
-      <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <property>
+        <code value="comment"/>
         <valueString value="This is sometimes an output value from measuring devices."/> 
-      </extension> 
+      </property>
       <code value="not-a-number"/> 
       <display value="Not a Number (NaN)"/> 
       <definition value="The numeric value is undefined or unrepresentable due to a floating point processing error."/> 
     </concept> 
     <concept> 
-      <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <property>
+        <code value="comment"/>
         <valueString value="This is sometimes an output value from measuring devices."/> 
-      </extension> 
+      </property>
       <code value="negative-infinity"/> 
       <display value="Negative Infinity (NINF)"/> 
       <definition value="The numeric value is excessively low and unrepresentable due to a floating point processing
        error."/> 
     </concept> 
     <concept> 
-      <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <property>
+        <code value="comment"/>
         <valueString value="This is sometimes an output value from measuring devices."/> 
-      </extension> 
+      </property>
       <code value="positive-infinity"/> 
       <display value="Positive Infinity (PINF)"/> 
       <definition value="The numeric value is excessively high and unrepresentable due to a floating point processing
@@ -130,10 +138,10 @@
     <definition value="The value is not available because the observation procedure (test, etc.) was not performed."/> 
   </concept> 
   <concept> 
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="This is most often associated with required bindings that do not include the actual code
-       used, but may be used with other data types."/> 
-    </extension> 
+    <property>
+	  <code value="comment"/>
+      <valueString value="This is most often associated with required bindings that do not include the actual code used, but may be used with other data types."/> 
+    </property> 
     <code value="not-permitted"/> 
     <display value="Not Permitted"/> 
     <definition value="The value is not permitted in this context (e.g. due to profiles, or the base data types)."/> 
