@@ -2,15 +2,13 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="adverse-event-category"/>
   <meta>
-    <lastUpdated value="2024-04-24T00:00:00+00:00"/>
+    <lastUpdated value="2026-07-03T00:00:00+00:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
- 
- 
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="2"/>
   </extension>
   <url value="http://terminology.hl7.org/CodeSystem/adverse-event-category"/>
   <identifier>
@@ -22,9 +20,8 @@
   <title value="AdverseEventCategory"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2024-08-28T00:00:00+00:00"/>
+  <date value="2026-07-03T00:00:00+00:00"/>
   <publisher value="Health Level Seven International"/>
-  
   <contact>
     <telecom>
       <system value="url"/>
@@ -40,6 +37,12 @@
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/adverse-event-category"/>
   <content value="complete"/>
+  <property>
+    <code value="http://hl7.org/fhir/concept-properties#status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A property that indicates the status of the concept. One of active, experimental, deprecated, or retired."/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="clinical-research"/>
     <display value="Clinical Research"/>
@@ -72,6 +75,15 @@
   </concept>
   <concept>
     <code value="hospital-aquired-infection"/>
+    <display value="Hospital Acquired Infection"/>
+    <definition value="The adverse event pertains to a hospital acquired infection."/>
+    <property>
+      <code value="http://hl7.org/fhir/concept-properties#status"/>
+      <valueCode value="retired"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="hospital-acquired-infection"/>
     <display value="Hospital Acquired Infection"/>
     <definition value="The adverse event pertains to a hospital acquired infection."/>
   </concept>
