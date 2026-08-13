@@ -10,12 +10,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1277"/>
   </identifier>
-  <version value="9.0.0"/>
+  <version value="10.0.0"/>
   <name value="HL7Workgroup"/>
-  <title value="HL7Workgroup"/>
+  <title value="HL7 International Committees"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2025-07-17"/>
+  <date value="2026-08-13"/>
   <publisher value="Health Level Seven International"/>
   <contact>
     <telecom>
@@ -33,206 +33,1720 @@
   <valueSet value="http://terminology.hl7.org/ValueSet/hl7-work-group"/>
   <content value="complete"/>
   <property>
+    <code value="type"/>
+    <description value="The type of committee. Values are 'Work Group', 'Management Group', 'Council' and 'Governance Group'"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="committeeStatus"/>
+    <description value="The status of committee. Values are 'active' and 'inactive'"/>
+    <type value="string"/>
+  </property>
+  <property>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
-    <description value="Designation of a concept&#39;s state. Normally is not populated unless the state is retired."/>
+    <description value="Designation of a concept&#39;s state. Normally this property is not provided unless its the value is retired. Note, concepts are usually only retired if entered in error. Retirement status should not be interpreted to mean that the committee itself was retired."/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="jiraSpecItem"/>
+    <description value="Whether the group is included in the JIRA Spec Artefact file for workgroups"/>
+    <type value="boolean"/>
+  </property>
+  <property>
+    <code value="jiraKey"/>
+    <description value="The key stored in the JIRA project.  This should not change or be removed even if a work group is renamed or dissolved."/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="jiraWebcode"/>
+    <description value="The code used for the work group on the HL7 website."/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="jiraName"/>
+    <description value="The display name for the work group.  This can be update if the work group changes its name."/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="jiraDeprecated"/>
+    <description value="This is set to true for groups that can no longer be assigned responsibility for tracker items, but which may have had responsibility for historical items"/>
+    <type value="boolean"/>
+  </property>
+  <property>
+    <code value="jiraListserv"/>
+    <description value="The email address used for the work group on the HL7 website."/>
+    <type value="string"/>
+  </property>
+
+  <concept> 
+    <code value="gas"/>
+    <display value="Anesthesia"/>
+    <definition value="Anesthesia (https://www.hl7.org/Special/committees/gas/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="att"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="att"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Attachments"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
+  </concept>
+
   <concept>
     <code value="aid"/>
     <display value="Application Implementation and Design"/>
-    <definition value="Application Implementation and Design (http://www.hl7.org/Special/committees/java/index.cfm)."/>
+    <definition value="Application Implementation and Design (http://www.hl7.org/Special/committees/java/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>    
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="false"/>
+    </property>
   </concept>
+
+  <concept> 
+    <code value="arb"/>
+    <display value="Architecture Review Board"/>
+    <definition value="Architecture Review Board (https://www.hl7.org/Special/committees/arb/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Governance Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="arb"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="arb"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Architecture Review Board"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
+  </concept>
+
   <concept>
     <code value="arden"/>
     <display value="Arden Syntax"/>
     <definition value="Arden Syntax (http://www.hl7.org/Special/committees/arden/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>    
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="as"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="as"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Arden Syntax"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="ardensyntax@lists.HL7.org"/>
+    </property>
   </concept>
-  <concept>
-    <code value="att"/>
-    <display value="Clinical Attachments"/>
-    <definition value="Clinical Attachments Workgroup (inactive since mid-2018; work subsumed by Structured Documents and Financial Management).  Retained for backwards-compatibility only."/>
-  </concept>
+
   <concept>
     <code value="brr"/>
     <display value="Biomedical Research and Regulation"/>
-    <definition value="Biomedical Research and Regulation (http://www.hl7.org/Special/committees/rcrim/index.cfm)."/>
+    <definition value="Biomedical Research and Regulation (http://www.hl7.org/Special/committees/rcrim/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="brr"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="rcrim"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Biomedical Research &amp; Regulation"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="biomedrr@lists.HL7.org"/>
+    </property>
   </concept>
-  <concept>
-    <code value="cbcc"/>
-    <display value="Community Based Collaborative Care"/>
-    <definition value="Community Based Collaborative Care (http://www.hl7.org/Special/committees/cbcc/index.cfm)."/>
-  </concept>
+
   <concept>
     <code value="cdamg"/>
     <display value="CDA Management Group"/>
     <definition value="CDA Management Group (http://www.hl7.org/Special/committees/cdamg/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Management Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="cdamg"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="cdamanagement"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="CDA Management Group"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="cdamg@lists.HL7.org"/>
+    </property>
   </concept>
+
   <concept>
     <code value="cds"/>
     <display value="Clinical Decision Support"/>
-    <definition value="Clinical Decision Support (http://www.hl7.org/Special/committees/dss/index.cfm)."/>
+    <definition value="Clinical Decision Support (http://www.hl7.org/Special/committees/dss/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="cds"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="dss"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Clinical Decision Support"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="dss@lists.HL7.org"/>
+    </property>
   </concept>
+
   <concept>
     <code value="cg"/>
     <display value="Clinical Genomics"/>
-    <definition value="Clinical Genomics (http://www.hl7.org/Special/committees/clingenomics/index.cfm)."/>
+    <definition value="Clinical Genomics (http://www.hl7.org/Special/committees/clingenomics/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="cg"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="clingenomics"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Clinical Genomics"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="clingenomics@lists.HL7.org"/>
+    </property>
   </concept>
-  <concept>
-    <code value="cgp"/>
-    <display value="Cross-Group Projects"/>
-    <definition value="Cross-Group Projects (http://www.hl7.org/Special/committees/cgp/index.cfm)"/>
-  </concept>
-  <concept>
-    <code value="cic"/>
-    <display value="Clinical Interoperability Council"/>
-    <definition value="Clinical Interoperability Council (http://www.hl7.org/Special/committees/cic/index.cfm)."/>
-  </concept>
+
   <concept>
     <code value="cimi"/>
     <display value="Clinical Information Modeling Initiative"/>
     <definition value="Clinical Information Modeling Initiative (http://www.hl7.org/Special/committees/cimi/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueCode value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="cimi"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="cimi"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="CIMI"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="cimi@lists.HL7.org"/>
+    </property>
   </concept>
+
   <concept>
-    <code value="claims"/>
-    <display value="Payer/Provider Information Exchange Work Group"/>
-    <definition value="Payer/Provider Information Exchange Work Group (http://www.hl7.org/Special/committees/claims/index.cfm)"/>
+    <code value="cic"/>
+    <display value="Clinical Interoperability Council"/>
+    <definition value="Clinical Interoperability Council (http://www.hl7.org/Special/committees/cic/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="cic"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="cic"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Clinical Interoperability Council"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="ciclist@lists.HL7.org"/>
+    </property>
   </concept>
+
   <concept>
     <code value="cqi"/>
     <display value="Clinical Quality Information"/>
-    <definition value="Clinical Quality Information (http://www.hl7.org/Special/committees/cqi/index.cfm)."/>
+    <definition value="Clinical Quality Information (http://www.hl7.org/Special/committees/cqi/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="cqi"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="cqi"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Clinical Quality Information"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="cqi@lists.HL7.org"/>
+    </property>
   </concept>
+
   <concept>
-    <code value="dev"/>
-    <display value="Health Care Devices"/>
-    <definition value="Health Care Devices (http://www.hl7.org/Special/committees/healthcaredevices/index.cfm)."/>
+    <code value="cbcc"/>
+    <display value="Community-Based Care and Privacy"/>
+    <definition value="Community-Based Care and Privacy (https://www.hl7.org/Special/committees/homehealth/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="cbcc"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="homehealth"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Community-Based Care and Privacy"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="cbhs@lists.HL7.org"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
   </concept>
-  <concept>
-    <code value="education"/>
-    <display value="Education"/>
-    <definition value="Education (http://www.hl7.org/Special/committees/education/index.cfm)."/>
-  </concept>
-  <concept>
-    <code value="ehr"/>
-    <display value="Electronic Health Records"/>
-    <definition value="Electronic Health Records (http://www.hl7.org/special/committees/ehr/index.cfm)."/>
-  </concept>
-  <concept>
-    <code value="ec"/>
-    <display value="Emergency Care"/>
-    <definition value="Emergency Care (http://www.hl7.org/Special/committees/emergencycare/index.cfm)"/>
-  </concept>
-  <concept>
-    <code value="fhir"/>
-    <display value="FHIR Infrastructure"/>
-    <definition value="FHIR Infrastructure (http://www.hl7.org/Special/committees/fiwg/index.cfm)."/>
-  </concept>
-  <concept>
-    <code value="fmg"/>
-    <display value="FHIR Management Group"/>
-    <definition value="FHIR Management Group (http://www.hl7.org/Special/committees/fhirmg/index.cfm)"/>
-  </concept>
-  <concept>
-    <code value="fm"/>
-    <display value="Financial Management"/>
-    <definition value="Financial Management (http://www.hl7.org/Special/committees/fm/index.cfm)."/>
-  </concept>
-  <concept>
-    <code value="hsi"/>
-    <display value="Health Standards Integration"/>
-    <definition value="Health Standards Integration (http://www.hl7.org/Special/committees/hsi/index.cfm)."/>
-  </concept>
-  <concept>
-    <code value="hsswg"/>
-    <display value="Human and Social Services"/>
-    <definition value="Human and Social Services (http://www.hl7.org/Special/committees/hsswg/index.cfm)"/>
-  </concept>
-  <concept>
-    <code value="hta"/>
-    <display value="Terminology Authority"/>
-    <definition value="Terminology Authority (http://www.hl7.org/Special/committees/termauth/index.cfm)"/>
-  </concept>
+
   <concept>
     <code value="ictc"/>
     <display value="Conformance"/>
     <definition value="Conformance (http://www.hl7.org/Special/committees/ictc/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueCode value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="cgit"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="ictc"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Conformance"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueBoolean value="cgit@lists.HL7.org"/>
+    </property>    
   </concept>
+
+  <concept>
+    <code value="cgp"/>
+    <display value="Cross-Group Projects"/>
+    <definition value="Cross-Group Projects (http://www.hl7.org/Special/committees/cgp/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="cgp"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="cgp"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Cross-Group Projects"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="cgp@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="dev"/>
+    <display value="Devices"/>
+    <definition value="Devices (http://www.hl7.org/Special/committees/healthcaredevices/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="dev"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="healthcaredevices"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Devices"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="healthcaredevices@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="education"/>
+    <display value="Education Advisory Council"/>
+    <definition value="Education Advisory Council (http://www.hl7.org/Special/committees/education/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Council"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="false"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="ehr"/>
+    <display value="Electronic Health Records"/>
+    <definition value="Electronic Health Records (http://www.hl7.org/special/committees/ehr/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="ehr"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="ehr"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Electronic Health Record"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="ehr@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="ec"/>
+    <display value="Emergency Care"/>
+    <definition value="Emergency Care (http://www.hl7.org/Special/committees/emergencycare/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="ec"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="emergencycare"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Emergency Care"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="emergencycare@lists.HL7.org"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="ex"/>
+    <display value="Executive Committee"/>
+    <definition value="Executive Committee (https://www.hl7.org/Special/committees/execcomm/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Governance Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="ex"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="execcomm"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Executive Committee"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="fgb"/>
+    <display value="FHIR Governance Board"/>
+    <definition value="FHIR Governance Board (https://www.hl7.org/Special/committees/fhirgb/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Governance Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="fgb"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="fhirgb"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="FHIR Governance Board"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="fhir"/>
+    <display value="FHIR Infrastructure"/>
+    <definition value="FHIR Infrastructure (http://www.hl7.org/Special/committees/fiwg/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="fhir-i"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="fiwg"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="FHIR Infrastructure"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="fhir@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="fmg"/>
+    <display value="FHIR Management Group"/>
+    <definition value="FHIR Management Group (http://www.hl7.org/Special/committees/fhirmg/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Management Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="fmg"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="fhirmg"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="FHIR Mgmt Group"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="fmg@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="fm"/>
+    <display value="Financial Management"/>
+    <definition value="Financial Management (http://www.hl7.org/Special/committees/fm/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="fm"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="fm"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Financial Mgmt"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="fm@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="hsi"/>
+    <display value="Health Standards Integration"/>
+    <definition value="Health Standards Integration (http://www.hl7.org/Special/committees/hsi/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="hsi"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="hsi"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Health Standards Integration"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="eu"/>
+    <display value="HL7 Europe"/>
+    <definition value="HL7 Europe (https://www.hl7.org/about/hl7europeoffice.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Governance Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="eu"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="hl7europeoffice"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="HL7 Europe"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="hl7_europe@lists.hl7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="hsswg"/>
+    <display value="Human and Social Services"/>
+    <definition value="Human and Social Services (http://www.hl7.org/Special/committees/hsswg/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="hss"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="hsswg"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Human and Social Services"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="hsswg@lists.HL7.org"/>
+    </property>
+  </concept>
+
   <concept>
     <code value="ii"/>
     <display value="Imaging Integration"/>
-    <definition value="Imaging Integration (http://www.hl7.org/Special/committees/imagemgt/index.cfm)."/>
+    <definition value="Imaging Integration (http://www.hl7.org/Special/committees/imagemgt/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="ii"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="imagemgt"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Imaging Integration"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="dicom@lists.HL7.org"/>
+    </property>
   </concept>
-  <concept>
-    <code value="inm"/>
-    <display value="Infrastructure And Messaging"/>
-    <definition value="Infrastructure And Messaging (http://www.hl7.org/special/committees/inm/index.cfm)."/>
-  </concept>
+
   <concept>
     <code value="its"/>
     <display value="Implementable Technology Specifications"/>
-    <definition value="Implementable Technology Specifications (http://www.hl7.org/special/committees/xml/index.cfm)."/>
+    <definition value="Implementable Technology Specifications (http://www.hl7.org/special/committees/xml/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="its"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="xml"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Implementable Technology Specifications"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="its@lists.HL7.org"/>
+    </property>
   </concept>
+
+  <concept>
+    <code value="inm"/>
+    <display value="Infrastructure and Messaging"/>
+    <definition value="Infrastructure and Messaging (http://www.hl7.org/special/committees/inm/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="inm"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="inm"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Infrastructure &amp; Messaging"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="inm@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="ic"/>
+    <display value="International Council"/>
+    <definition value="International Council (https://www.hl7.org/Special/committees/international/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueCode value="Governance Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="ic"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="international"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="International Council"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueBoolean value="intl@lists.HL7.org"/>
+    </property>    
+  </concept>
+
   <concept>
     <code value="lhs"/>
     <display value="Learning Health Systems"/>
     <definition value="Learning Health Systems (http://www.hl7.org/Special/committees/lhs/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="lhs"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="lhs"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Learning Health Systems"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="lhswg@lists.HL7.org"/>
+    </property>
   </concept>
-  <concept>
-    <code value="mnm"/>
-    <display value="Modeling and Methodology"/>
-    <definition value="Modeling and Methodology (http://www.hl7.org/Special/committees/mnm/index.cfm)."/>
-  </concept>
+
   <concept>
     <code value="mobile"/>
     <display value="Mobile Health"/>
     <definition value="Mobile Health (http://www.hl7.org/Special/committees/mobile/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="mh"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="mh"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Mobile Health"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="mobilehealth@lists.HL7.org"/>
+    </property>
   </concept>
+
   <concept>
-    <code value="oo"/>
-    <display value="Orders and Observations"/>
-    <definition value="Orders and Observations (http://www.hl7.org/Special/committees/orders/index.cfm)."/>
+    <code value="mnm"/>
+    <display value="Modeling and Methodology"/>
+    <definition value="Modeling and Methodology (http://www.hl7.org/Special/committees/mnm/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="mnm"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="mnm"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Modeling &amp; Methodology"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
   </concept>
-  <concept>
-    <code value="pa"/>
-    <display value="Patient Administration"/>
-    <definition value="Patient Administration (http://www.hl7.org/Special/committees/pafm/index.cfm)."/>
-  </concept>
-  <concept>
-    <code value="pc"/>
-    <display value="Patient Care"/>
-    <definition value="Patient Care (http://www.hl7.org/Special/committees/patientcare/index.cfm)."/>
-  </concept>
-  <concept>
-    <code value="pe"/>
-    <display value="Patient Empowerment"/>
-    <definition value="Patient Empowerment (https://www.hl7.org/Special/committees/patientempowerment/index.cfm)."/>
-  </concept>
-  <concept>
-    <code value="pher"/>
-    <display value="Public Health and Emergency Response"/>
-    <definition value="Public Health and Emergency Response (http://www.hl7.org/Special/committees/pher/index.cfm)."/>
-  </concept>
-  <concept>
-    <code value="phx"/>
-    <display value="Pharmacy"/>
-    <definition value="Pharmacy (http://www.hl7.org/Special/committees/medication/index.cfm)."/>
-  </concept>
-  <concept>
-    <code value="sd"/>
-    <display value="Structured Documents"/>
-    <definition value="Structured Documents (http://www.hl7.org/Special/committees/structure/index.cfm)."/>
-  </concept>
-  <concept>
-    <code value="sec"/>
-    <display value="Security"/>
-    <definition value="Security (http://www.hl7.org/Special/committees/secure/index.cfm)."/>
-  </concept>
+
   <concept>
     <code value="soa"/>
     <display value="Orchestration, Services, and Architecture"/>
     <definition value="Orchestration, Services, and Architecture (http://www.hl7.org/Special/committees/soa/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="soa"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="soa"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Orchestration, Services, and Architecture"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="soa@lists.HL7.org"/>
+    </property>
   </concept>
+
+  <concept>
+    <code value="oo"/>
+    <display value="Orders and Observations"/>
+    <definition value="Orders and Observations (http://www.hl7.org/Special/committees/orders/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="oo"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="orders"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Orders &amp; Observations"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="ord@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="pa"/>
+    <display value="Patient Administration"/>
+    <definition value="Patient Administration (http://www.hl7.org/Special/committees/pafm/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="pa"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="pafm"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Patient Administration"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="pafm@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="pc"/>
+    <display value="Patient Care"/>
+    <definition value="Patient Care (http://www.hl7.org/Special/committees/patientcare/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="pc"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="patientcare"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Patient Care"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="patientcare@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="pe"/>
+    <display value="Patient Empowerment"/>
+    <definition value="Patient Empowerment (https://www.hl7.org/Special/committees/patientempowerment/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="pe"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="patientempowerment"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Patient Empowerment"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="patients@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="claims"/>
+    <display value="Payer/Provider Information Exchange Work Group"/>
+    <definition value="Payer/Provider Information Exchange Work Group (http://www.hl7.org/Special/committees/claims/index.cfm)"/>
+        <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="pie"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="claims"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Payer/Provider Information Exchange"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="pie@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="phx"/>
+    <display value="Pharmacy"/>
+    <definition value="Pharmacy (http://www.hl7.org/Special/committees/medication/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="pharm"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="medication"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Pharmacy"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="pharmacy@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="pic"/>
+    <display value="Process Improvement"/>
+    <definition value="Process Improvement (http://www.hl7.org/Special/committees/pi/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="pic"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="pi"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Process Improvement Committee"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="ps"/>
+    <display value="Project Services"/>
+    <definition value="Project Services (https://www.hl7.org/Special/committees/projectServices/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="ps"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="projectServices"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Project Services"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="pher"/>
+    <display value="Public Health and Emergency Response"/>
+    <definition value="Public Health and Emergency Response (http://www.hl7.org/Special/committees/pher/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="pher"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="pher"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Public Health"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="pher@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="pest"/>
+    <display value="Publishing - Electronic Services and Tooling"/>
+    <definition value="Publishing - Electronic Services and Tooling (https://www.hl7.org/Special/committees/esTools/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="pest"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="esTools"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Publishing - Electronic Services and Tooling"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="sec"/>
+    <display value="Security"/>
+    <definition value="Security (http://www.hl7.org/Special/committees/secure/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="security"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="secure"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Security"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="security@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="sgb"/>
+    <display value="Standards Governance Board"/>
+    <definition value="Standards Governance Board (https://www.hl7.org/Special/committees/sgb/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Governance Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>    
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="sgb"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="sgb"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Standards Governance Board"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="sd"/>
+    <display value="Structured Documents"/>
+    <definition value="Structured Documents (http://www.hl7.org/Special/committees/structure/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="sd"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="structure"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Structured Documents"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="strucdoc@lists.HL7.org"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="tsc"/>
+    <display value="Technical Steering Committee"/>
+    <definition value="Technical Steering Committee (http://www.hl7.org/Special/committees/tsc/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Governance Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="tsc"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="tsc"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Technical Steering Committee"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="templates"/>
+    <display value="Templates"/>
+    <definition value="Templates (https://www.hl7.org/Special/committees/template/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>    
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="templates"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="template"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Templates"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
+  </concept>
+
+  <concept>
+    <code value="hta"/>
+    <display value="Terminology Authority"/>
+    <definition value="Terminology Authority (http://www.hl7.org/Special/committees/termauth/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Governance Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="inactive"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="hta"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="termauth"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="HL7 Terminology Authority"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="termauth@lists.HL7.org"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
+  </concept>
+
   <concept>
     <code value="ti"/>
     <display value="Terminology Infrastructure"/>
@@ -241,25 +1755,149 @@
       <code value="status"/>
       <valueCode value="retired"/>
     </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="false"/>
+    </property>    
   </concept>
+
+  <concept>
+    <code value="vocab"/>
+    <display value="Terminology Infrastructure"/>
+    <definition value="Terminology Infrastructure (https://www.hl7.org/Special/committees/vocab/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Work Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="vocab"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="vocab"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Terminology Infrastructure"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="ti@lists.HL7.org"/>
+    </property>
+  </concept>
+
   <concept>
     <code value="tsmg"/>
     <display value="Terminology Services Management Group (TSMG)"/>
     <definition value="Terminology Services Management Group (TSMG) (http://www.hl7.org/Special/committees/tsmg/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Management Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="tsmg"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="tsmg"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="Terminology Services Management Group"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="tsmg@lists.HL7.org"/>
+    </property>
   </concept>
+
   <concept>
     <code value="us"/>
     <display value="US Realm Steering Committee"/>
-    <definition value="US Realm Taskforce (http://www.hl7.org/Special/committees/usrealm/index.cfm)."/>
+    <definition value="US Realm Steering Committee (http://www.hl7.org/Special/committees/usrealm/index.cfm)"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Governance Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="us-realm"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="usrealm"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="US Realm Task Force"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="usrsc@lists.hl7.org/"/>
+    </property>
+    <property>
+      <code value="jiraDeprecated"/>
+      <valueBoolean value="true"/>
+    </property>
   </concept>
+
   <concept>
     <code value="v2"/>
     <display value="V2 Management Group"/>
     <definition value="V2 Management Group (http://www.hl7.org/Special/committees/v2management/index.cfm)"/>
-  </concept>
-  <concept>
-    <code value="vocab"/>
-    <display value="Terminology Infrastructure"/>
-    <definition value="Terminology Infrastructure (http://www.hl7.org/Special/committees/Vocab/index.cfm)."/>
+    <property>
+      <code value="type"/>
+      <valueString value="Management Group"/>
+    </property>
+    <property>
+      <code value="committeeStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="v2mg"/>
+    </property>
+    <property>
+      <code value="jiraWebcode"/>
+      <valueString value="v2management"/>
+    </property>
+    <property>
+      <code value="jiraName"/>
+      <valueString value="V2 Mgmt Group"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="v2mgmtgrp@lists.HL7.org"/>
+    </property>
   </concept>
 </CodeSystem>
