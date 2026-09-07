@@ -1,0 +1,67 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
+<p>This page describes how to use BCP 13 with HL7 Standards.</p>
+
+<a name="Using BCP with FHIR R5"> </a>
+<h3>Using BCP 13 with FHIR R5</h3>
+
+<!-- SUMMARY -->
+<a name="Summary"> </a>
+<h4>Summary</h4>
+<table class="grid">
+ <tr><td>Source</td><td>BCP 13 technical specification is managed by the <a href="http://www.ietf.org/">Internet Engineering Task Force (IETF)</a></td></tr>
+ <tr><td>System</td><td>The URI <a href="urn:ietf:bcp:13">urn:ietf:bcp:13</a> identifies the BCP 13 code system</td></tr>
+ <tr><td>Version</td><td>BCP 13 is not versioned like a traditional code system with versioned releases. Accordingly, standardised version values are not defined. Version values SHALL therefore be ommited.</td></tr>
+ <tr><td>Code</td><td>A BCP 13 code is any valid media type based on the grammar defined in the BCP 13 technical specification.</td></tr>
+ <tr><td>Display</td><td>The correct display for a BCP 13 code is the BCP 13 code itself</td></tr>
+ <tr><td>Inactive</td><td>All BCP 13 must be assumed to be active. IANA maintains formal registries of BCP 13 based media types and these are also permanent.</td></tr>
+ <tr><td>Subsumption</td><td>No Subsumption relationships are defined by BCP 13</td></tr>
+ <tr><td>Filter Properties</td><td>There are some defined - see below</td></tr>
+</table>
+
+<!-- Example Usage -->
+<a name="Example Usage"> </a>
+<h4>Example Usage</h4>
+<pre class="xml" fragment="Coding">
+  &lt;coding&gt;
+    &lt;system value=&quot;urn:ietf:bcp:13&quot;/&gt;
+    &lt;code value=&quot;application/fhir+xml&quot;/&gt;
+    &lt;display value=&quot;application/fhir+xml&quot;/&gt;
+  &lt;/coding&gt;
+</pre>
+
+<!-- Copyright/License Issues -->
+<a name="CopyrightLicenseIssues"> </a>
+<h4>Copyright/License Issues</h4>
+<p>The full copyright statement and information about copyright, IP and licensing for BCP 13 and its related specifications (RFC 4289, RFC 6838 and RFC 9694) can be found on the <a href="https://datatracker.ietf.org/doc/bcp13/">IETF's BCP 13 page</a>.</p>
+
+<!-- BCP 13 Filter Properties -->
+<a name="BCP13FilterProperties"> </a>
+<h4>BCP 13 Filter Properties</h4>
+<p>This specification defines two filters that may be used with the BCP 13 code system.</p>
+<table class="grid">
+  <tr>
+    <th>Name</th>
+    <th>Operation(s)</th>
+    <th>Value(s)</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>base</td>
+    <td>=</td>
+    <td>BCP 13 type e.g. <code>text</code>, <code>application</code></td>
+    <td>Filters the code system based on the begining of a BCP 13 code and includes all concepts that starts with the filter value. The filter value may be the type, prefix and subtype parts represented using the BCP 13 grammar. For example, if filter has a value of <code>text</code>, only BCP 13 concepts starting with <code>text/</code> are included. Similarly, <code>application/vnd.oasis.opendocument</code> is a filter value that includes a prefix, and <code>application/pdf</code> is a filter value with a type and subtype.</td>
+  </tr>
+  <tr>
+    <td>registered</td>
+    <td>=</td>
+    <td><code>true</code></td>
+    <td>When <code>true</code> only BCP 13 media types that are part of the IANA registry (<a href="https://www.iana.org/assignments/media-types">https://www.iana.org/assignments/media-types</a>) are included.</td>
+  </tr>
+</table>  
+
+<!-- BCP 13 Implicit Value Sets -->
+<a name="BCP13ImplicitValueSets"> </a>
+<h4>BCP 13 Implicit Value Sets</h4>
+
+<p>There are no general implicit value set formula defined for BCP 13.</p>
+</div>
