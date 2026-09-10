@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="hl7-affiliate-group"/>
+  <id value="hl7-affiliate"/>
   <meta>
     <lastUpdated value="2026-08-13T22:00:00+10:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -9,14 +9,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="tsmg"/>
   </extension>
-  <url value="http://terminology.hl7.org/ValueSet/hl7-affiliate-group"/>
+  <url value="http://terminology.hl7.org/ValueSet/hl7-affiliate"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.11.21044"/>
   </identifier>
   <version value="1.0.0"/>
-  <name value="HL7_Affiliate_Group"/>
-  <title value="HL7 Affiliates and Affiliate Groups"/>
+  <name value="HL7_Affiliate"/>
+  <title value="HL7 Affiliates and their organization entities."/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2026-08-13"/>
@@ -36,7 +36,11 @@
   <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/hl7-affiliate-group"/>
+      <system value="http://terminology.hl7.org/CodeSystem/hl7-affiliate"/>
     </include>
+    <property value="status"/>
+    <property value="type"/>
+    <property value="entityStatus"/>
+    <property value="affiliate"/>
   </compose>
 </ValueSet>

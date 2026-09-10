@@ -31,18 +31,20 @@
     </telecom>
   </contact>
   <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
-  <description value="HL7 Staff Roles that may be assigned to technical artefacts."/>
+  <description value="HL7 International Staff Roles"/>
   <caseSensitive value="true"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/hl7-staff-role"/>
   <content value="complete"/>
   <property>
     <code value="type"/>
-    <description value="The type of staff role. Values are 'Product Director' and 'Executive'"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-organizational-entity-concept-properties#type"/>
+    <description value="The type of HL7 International staff role. Values are 'Product Director' and 'Executive'"/>
     <type value="string"/>
   </property>
   <property>
     <code value="roleStatus"/>
-    <description value="The status of the role. Values are 'active' and 'inactive'"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-organizational-entity-concept-properties#status"/>
+    <description value="The status of the HL7 International staff role. Values are 'active' and 'inactive'"/>
     <type value="string"/>
   </property>
   <property>
@@ -53,30 +55,34 @@
   </property>
   <property>
     <code value="jiraSpecItem"/>
-    <description value="Whether the role is included in the JIRA Spec Artefact file for workgroups"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#work-group-entry"/>
+    <description value="Whether the group is included in the JIRA Spec Artefact file for workgroups"/>
     <type value="boolean"/>
   </property>
   <property>
     <code value="jiraKey"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#key"/>
     <description value="The key stored in the JIRA project.  This should not change or be removed even if a work group is renamed or dissolved."/>
     <type value="string"/>
   </property>
   <property>
+    <code value="jiraWebcode"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#webcode"/>
+    <description value="The code used for the work group on the HL7 website."/>
+    <type value="string"/>
+  </property>
+  <property>
     <code value="jiraName"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#name"/>
     <description value="The display name for the work group.  This can be update if the work group changes its name."/>
     <type value="string"/>
   </property>
   <property>
-    <code value="jiraListserv"/>
-    <description value="The email address used for the role."/>
-    <type value="string"/>
-  </property>
-  <property>
     <code value="jiraDeprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#deprecated"/>
     <description value="This is set to true for groups that can no longer be assigned responsibility for tracker items, but which may have had responsibility for historical items"/>
     <type value="boolean"/>
   </property>
-
   <concept> 
     <code value="fhir-pd"/>
     <display value="FHIR Product Director"/>
@@ -106,7 +112,6 @@
       <valueString value="fhir-director@hl7.org"/>
     </property>
   </concept>
-
   <concept> 
     <code value="csdo"/>
     <display value="Chief Standards Development Officer"/>

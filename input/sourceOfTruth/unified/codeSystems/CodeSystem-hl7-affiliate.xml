@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="hl7-affiliate-group"/>
+  <id value="hl7-affiliate"/>
   <meta>
     <lastUpdated value="2026-08-13T22:00:00+10:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="tsmg"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/hl7-affiliate-group"/>
+  <url value="http://terminology.hl7.org/CodeSystem/hl7-affiliate"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.5.184"/>
   </identifier>
   <version value="1.0.0"/>
-  <name value="HL7_Affiliate_Group"/>
-  <title value="HL7 Affiliates and Affiliate Groups"/>
+  <name value="HL7_Affiliate"/>
+  <title value="HL7 Affiliate Organizational Entities"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2026-08-13"/>
@@ -31,22 +31,25 @@
     </telecom>
   </contact>
   <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
-  <description value="An HL7 Affilifate administrative unit."/>
+  <description value="HL7 Affiliates and their organizational entities."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://terminology.hl7.org/ValueSet/hl7-affiliate-group"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/hl7-affiliate"/>
   <content value="complete"/>
   <property>
     <code value="type"/>
-    <description value="The type of group. Values are 'Affiliate', 'Affiliate Work Group' and 'Affiliate Governance Group'"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-organizational-entity-concept-properties#type"/>
+    <description value="The type of HL7 Affiliate organizational entity. Values are 'Affiliate', 'Affiliate Work Group' and 'Affiliate Governance Group'"/>
     <type value="string"/>
   </property>
   <property>
-    <code value="groupStatus"/>
-    <description value="The status of the affiliate or group. Values are 'active' and 'inactive'"/>
+    <code value="entityStatus"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-organizational-entity-concept-properties#status"/>
+    <description value="The status of the HL7 Affiliate organizational entity. Values are 'active' and 'inactive'"/>
     <type value="string"/>
   </property>
   <property>
-    <code value="associatedAffiliate"/>
+    <code value="affiliate"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-organizational-entity-concept-properties#affiliate"/>
     <description value="The HL7 Affiliate a group is associated with. Note, the property must not be included in concepts representing actual affiliates"/>
     <type value="code"/>
   </property>
@@ -58,45 +61,50 @@
   </property>
   <property>
     <code value="jiraSpecItem"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#work-group-entry"/>
     <description value="Whether the group is included in the JIRA Spec Artefact file for workgroups"/>
     <type value="boolean"/>
   </property>
   <property>
     <code value="jiraKey"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#key"/>
     <description value="The key stored in the JIRA project.  This should not change or be removed even if a work group is renamed or dissolved."/>
     <type value="string"/>
   </property>
   <property>
     <code value="jiraWebcode"/>
-    <description value="The code used for the group on the HL7 website."/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#webcode"/>
+    <description value="The code used for the work group on the HL7 website."/>
     <type value="string"/>
   </property>
   <property>
     <code value="jiraName"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#name"/>
     <description value="The display name for the work group.  This can be update if the work group changes its name."/>
     <type value="string"/>
   </property>
   <property>
     <code value="jiraDeprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#deprecated"/>
     <description value="This is set to true for groups that can no longer be assigned responsibility for tracker items, but which may have had responsibility for historical items"/>
     <type value="boolean"/>
   </property>
   <property>
     <code value="jiraListserv"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#listserv"/>
     <description value="The email address used for the work group on the HL7 website."/>
     <type value="string"/>
   </property>
-
   <concept> 
     <code value="hl7-au"/>
     <display value="HL7 Australia"/>
-    <definition value="HL7 Australia (https://www.hl7.com.au/)"/>
+    <definition value="HL7 Australia (https://hl7.au)"/>
     <property>
       <code value="type"/>
       <valueString value="Affiliate"/>
     </property>
     <property>
-      <code value="groupStatus"/>
+      <code value="entityStatus"/>
       <valueString value="active"/>
     </property>
     <property>
@@ -104,7 +112,6 @@
       <valueBoolean value="false"/>
     </property>
   </concept>
-
   <concept>
     <code value="au-v2"/>
     <display value="HL7 Australia V2"/>
@@ -114,11 +121,11 @@
       <valueString value="Affiliate Work Group"/>
     </property>
     <property>
-      <code value="associatedAffiliate"/>
+      <code value="affiliate"/>
       <valueCode value="hl7-au"/>
     </property>
     <property>
-      <code value="groupStatus"/>
+      <code value="entityStatus"/>
       <valueString value="inactive"/>
     </property>    
     <property>
@@ -136,11 +143,11 @@
       <valueString value="Affiliate Work Group"/>
     </property>
     <property>
-      <code value="associatedAffiliate"/>
+      <code value="affiliate"/>
       <valueCode value="hl7-au"/>
     </property>
     <property>
-      <code value="groupStatus"/>
+      <code value="entityStatus"/>
       <valueString value="active"/>
     </property>    
     <property>
@@ -174,11 +181,11 @@
       <valueString value="Affiliate Governance Group"/>
     </property>
     <property>
-      <code value="associatedAffiliate"/>
+      <code value="affiliate"/>
       <valueCode value="hl7-au"/>
     </property>
     <property>
-      <code value="groupStatus"/>
+      <code value="entityStatus"/>
       <valueString value="active"/>
     </property>    
     <property>
@@ -212,11 +219,11 @@
       <valueString value="Affiliate Work Group"/>
     </property>
     <property>
-      <code value="associatedAffiliate"/>
+      <code value="affiliate"/>
       <valueCode value="hl7-au"/>
     </property>
     <property>
-      <code value="groupStatus"/>
+      <code value="entityStatus"/>
       <valueString value="active"/>
     </property>    
     <property>
@@ -250,11 +257,11 @@
       <valueString value="Affiliate Work Group"/>
     </property>
     <property>
-      <code value="associatedAffiliate"/>
+      <code value="affiliate"/>
       <valueCode value="hl7-au"/>
     </property>
     <property>
-      <code value="groupStatus"/>
+      <code value="entityStatus"/>
       <valueString value="active"/>
     </property>    
     <property>
@@ -278,7 +285,6 @@
       <valueString value="auerequestwglist@hl7.au"/>
     </property>
   </concept>
-
   <concept>
     <code value="au-tx"/>
     <display value="HL7 Australia Terminology"/>
@@ -288,11 +294,11 @@
       <valueString value="Affiliate Work Group"/>
     </property>
     <property>
-      <code value="associatedAffiliate"/>
+      <code value="affiliate"/>
       <valueCode value="hl7-au"/>
     </property>
     <property>
-      <code value="groupStatus"/>
+      <code value="entityStatus"/>
       <valueString value="active"/>
     </property>    
     <property>
@@ -309,12 +315,11 @@
     </property>
     <property>
       <code value="jiraName"/>
-      <valueString value="HL7 Australia AU eRequesting"/>
+      <valueString value="HL7 Australia Terminology"/>
     </property>
     <property>
       <code value="jiraListserv"/>
       <valueString value="txwglist@hl7.au"/>
     </property>
   </concept>
-
 </CodeSystem>
