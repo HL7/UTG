@@ -1,21 +1,31 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
 <p>This page describes how to use BCP 13 with HL7 Standards.</p>
-
 <a name="Using BCP with FHIR R5"> </a>
 <h3>Using BCP 13 with FHIR R5</h3>
-
+<p>The BCP 13 code system represents the open namespace of media types defined by BCP 13. The code system includes syntactically valid media types regardless of whether they are registered in the IANA Media Types registry. IANA-registered media types form a subset of the code system.</p>
+<p>Codes may also include media type parameters. Parameters form part of the code represented by this code system but do not form part of the media type registered by IANA.</p>
 <!-- SUMMARY -->
 <a name="Summary"> </a>
 <h4>Summary</h4>
 <table class="grid">
  <tr><td>Source</td><td>BCP 13 technical specification is managed by the <a href="http://www.ietf.org/">Internet Engineering Task Force (IETF)</a></td></tr>
- <tr><td>System</td><td>The URI <a href="urn:ietf:bcp:13">urn:ietf:bcp:13</a> identifies the BCP 13 code system</td></tr>
- <tr><td>Version</td><td>BCP 13 is not versioned like a traditional code system with versioned releases. Accordingly, standardised version values are not defined. Version values SHALL therefore be ommited.</td></tr>
- <tr><td>Code</td><td>A BCP 13 code is any valid media type based on the grammar defined in the BCP 13 technical specification.</td></tr>
- <tr><td>Display</td><td>The correct display for a BCP 13 code is the BCP 13 code itself</td></tr>
- <tr><td>Inactive</td><td>All BCP 13 must be assumed to be active. IANA maintains formal registries of BCP 13 based media types and these are also permanent.</td></tr>
- <tr><td>Subsumption</td><td>No Subsumption relationships are defined by BCP 13</td></tr>
- <tr><td>Filter Properties</td><td>There are some defined - see below</td></tr>
+ <tr><td>System</td><td>The URI <code>urn:ietf:bcp:13</code> identifies the BCP 13 code system</td></tr>
+ <tr><td>Version</td><td>BCP 13 is not versioned like a traditional code system with discrete versioned releases. Accordingly, standardised version values are not defined. Version values SHALL therefore be omitted.</td></tr>
+ <tr><td>Code</td>
+ <td>
+ <p>A BCP 13 code is any syntactically valid media type, optionally including media type parameters, as defined by BCP 13 and applicable media type specifications. A code does not need to identify a media type registered in the <a href="https://www.iana.org/assignments/media-types">IANA Media Types registry</a> to be a valid code in this code system.</p>
+ <p>Media type names, subtype names, and parameter names are case-insensitive. Parameter values may be case-sensitive or case-insensitive, as specified by the definition of the applicable parameter.</p>
+ </td></tr>
+ <tr><td>Display</td><td>The correct display for a BCP 13 concept is the BCP 13 code itself.</td></tr>
+ <tr><td>Inactive</td><td>All BCP 13 concepts SHALL be assumed to be active. Media types registered in the IANA Media Types registry may be deprecated or obsoleted but remain registered and active.</td></tr>
+ <tr><td>Subsumption</td>
+ <td>
+ <p>A BCP 13 concept consisting of a media type without parameters subsumes concepts consisting of the same media type with one or more parameters.</p>
+ <p>For example, <code>text/plain</code> subsumes <code>text/plain; charset=utf-8</code>.</p>
+ <p>Implementers should note that the specification for a media type may define default parameter values that apply when a parameter is omitted. Such defaults may affect the subsumption relationship between codes with and without explicitly specified parameters.</p>
+ </td>
+ </tr>
+ <tr><td>Filter Properties</td><td>Some filter properties are defined; see below.</td></tr>
 </table>
 
 <!-- Example Usage -->
@@ -32,7 +42,7 @@
 <!-- Copyright/License Issues -->
 <a name="CopyrightLicenseIssues"> </a>
 <h4>Copyright/License Issues</h4>
-<p>The full copyright statement and information about copyright, IP and licensing for BCP 13 and its related specifications (RFC 4289, RFC 6838 and RFC 9694) can be found on the <a href="https://datatracker.ietf.org/doc/bcp13/">IETF's BCP 13 page</a>.</p>
+<p>The full copyright statement and information about copyright, intellectual property, and licensing for BCP 13 and its constituent specifications, including RFC 4289, RFC 6838, and RFC 9694, can be found on the <a href="https://datatracker.ietf.org/doc/bcp13/">IETF's BCP 13 page</a>.</p>
 
 <!-- BCP 13 Filter Properties -->
 <a name="BCP13FilterProperties"> </a>
@@ -48,14 +58,20 @@
   <tr>
     <td>base</td>
     <td>=</td>
-    <td>BCP 13 type e.g. <code>text</code>, <code>application</code></td>
-    <td>Filters the code system based on the begining of a BCP 13 code and includes all concepts that starts with the filter value. The filter value may be the type, prefix and subtype parts represented using the BCP 13 grammar. For example, if filter has a value of <code>text</code>, only BCP 13 concepts starting with <code>text/</code> are included. Similarly, <code>application/vnd.oasis.opendocument</code> is a filter value that includes a prefix, and <code>application/pdf</code> is a filter value with a type and subtype.</td>
+    <td>BCP 13 media type or partial media type, e.g. <code>text</code>, <code>application/pdf</code>, <code>application/vnd.oasis.opendocument</code></td>
+    <td>Filters the code system based on the specified media type components. The filter value may represent a top-level type or a media type consisting of a type and all or part of a subtype. For example, a filter value of <code>text</code> includes only BCP 13 concepts whose media type begins with <code>text/</code>. A filter value of <code>application/pdf</code> includes application/pdf and concepts based on that media type that include parameters.</td>
   </tr>
   <tr>
     <td>registered</td>
     <td>=</td>
     <td><code>true</code></td>
-    <td>When <code>true</code> only BCP 13 media types that are part of the IANA registry (<a href="https://www.iana.org/assignments/media-types">https://www.iana.org/assignments/media-types</a>) are included.</td>
+    <td>
+    <p>When <code>true</code>, restricts the code system to codes whose media type is registered in the <a href="https://www.iana.org/assignments/media-types">IANA Media Types registry</a>. Registration is determined from the media type without parameters.</p>
+    <p>The BCP 13 code system is not limited to IANA-registered media types. A syntactically valid media type may therefore be a valid BCP 13 code even when it does not satisfy the <code>registered</code> = <code>true</code> filter.</p>
+    <p><b>Note</b>: The IANA Media Types registry registers media types identified by a top-level type and subtype. The subtype may incorporate a registration-tree prefix and/or structured syntax suffix. Parameters applicable to a registered media type may be specified by its registration or associated specification, but those parameters do not form part of the registered media type name.</p>
+    <p>Accordingly, when this filter is used with an operation of <code>=</code> and a value of <code>true</code>, registration is determined using the media type without any parameters. For example, if <code>text/plain</code> is registered, both <code>text/plain</code> and <code>text/plain;charset=utf-8</code> satisfy the filter.</p>
+    <p>The registration status of a media type is independent of whether the media type has been deprecated or obsoleted. A media type that remains in the IANA Media Types registry satisfies this filter even when it is identified as deprecated or obsolete.</p>
+    </td>
   </tr>
 </table>  
 
@@ -63,5 +79,5 @@
 <a name="BCP13ImplicitValueSets"> </a>
 <h4>BCP 13 Implicit Value Sets</h4>
 
-<p>There are no general implicit value set formula defined for BCP 13.</p>
+<p>There are currently no general implicit value sets defined for the BCP 13 code system.</p>
 </div>
