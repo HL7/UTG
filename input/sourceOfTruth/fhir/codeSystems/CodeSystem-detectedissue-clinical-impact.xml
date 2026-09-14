@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="detectedissue-clinical-impact"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/detectedissue-clinical-impact"/>
+  <version value="1.0.0"/>
+  <name value="DetectedIssueClinicalImpact"/>
+  <title value="Detected Issue Clinical Impact"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2026-09-14"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <description value="Codes that describe the potential clinical impact of a detected issue."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/detectedissue-clinical-impact"/>
+  <content value="complete"/>
+
+  <concept>
+    <code value="increased-effect"/>
+    <display value="Increased effect"/>
+    <definition value="The clinical or pharmacologic effect of one or more implicated therapies is expected to be increased."/>
+  </concept>
+  
+  <concept>
+    <code value="decreased-effect"/>
+    <display value="Decreased effect"/>
+    <definition value="The clinical or pharmacologic effect of one or more implicated therapies is expected to be decreased."/>
+  </concept>
+  
+  <concept>
+    <code value="mixed-effect"/>
+    <display value="Mixed effect"/>
+    <definition value="Mixed or differing changes in clinical or pharmacologic effects are expected."/>
+  </concept>
+  
+  <concept>
+    <code value="adverse-reaction"/>
+    <display value="Adverse reaction"/>
+    <definition value="An adverse reaction is expected or its risk is increased."/>
+  </concept>
+  
+  <concept>
+    <code value="additive-adverse-effects"/>
+    <display value="Additive adverse effects"/>
+    <definition value="Mixed or differing changes in clinical or pharmacologic effects are expected."/>
+  </concept>
+  
+  <concept>
+    <code value="avoid-concurrent-use"/>
+    <display value="Avoid concurrent use when possible"/>
+    <definition value="Concurrent use should generally be avoided because of the identified clinical risk."/>
+  </concept>
+  
+  <concept>
+    <code value="contraindicated-in-some-patients"/>
+    <display value="Contraindicated in some patients"/>
+    <definition value="Concurrent use is contraindicated for a subset of patients based on patient-specific clinical characteristics or circumstances."/>
+  </concept>
+</CodeSystem>
