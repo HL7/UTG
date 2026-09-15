@@ -59,7 +59,18 @@
     <td>base</td>
     <td>=</td>
     <td>BCP 13 media type or partial media type, e.g. <code>text</code>, <code>application/pdf</code>, <code>application/vnd.oasis.opendocument</code></td>
-    <td>Filters the code system based on the specified media type components. The filter value may represent a top-level type or a media type consisting of a type and all or part of a subtype. For example, a filter value of <code>text</code> includes only BCP 13 concepts whose media type begins with <code>text/</code>. A filter value of <code>application/pdf</code> includes application/pdf and concepts based on that media type that include parameters.</td>
+    <td>       
+      <p>Filters the code system based on the specified media type. The filter value may represent either a top-level type or a media type consisting of a type and subtype.</p>
+      <p>If the filter value specifies only a top-level type, all media types with that type are included. For example, <code>base</code> = <code>text</code> includes all media types with the <code>text</code> type.</p>
+      <p>If the filter value includes a subtype, the type and complete subtype must match. Additional subtype components introduced using <code>.</code> or a structured syntax suffix introduced using <code>+</code> are not implicitly matched.</p>
+      <p>For example:
+      <ul>
+        <li><code>base</code> = <code>application/fhir</code> does not include <code>application/fhir+xml</code>; and</li> 
+        <li><code>base</code> = <code>application/vnd.oasis.opendocument</code> does not include <code>application/vnd.oasis.opendocument.text</code></li>
+      </ul>
+      </p>
+      <p>Media type parameters are not considered when applying this filter. Accordingly, <code>base</code> = <code>application/fhir+xml</code> includes both <code>application/fhir+xml</code> and parameterised forms of that media type.</p>
+    </td>
   </tr>
   <tr>
     <td>registered</td>
