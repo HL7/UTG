@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="hl7-staff-role"/>
+  <meta>
+    <lastUpdated value="2020-04-09T21:10:28.568+00:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="tsmg"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/hl7-staff-role"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.5.185"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="HL7_Staff_Role"/>
+  <title value="HL7 International Staff Roles"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2026-08-13"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <description value="HL7 International Staff Roles"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/hl7-staff-role"/>
+  <content value="complete"/>
+  <property>
+    <code value="type"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-organizational-entity-concept-properties#type"/>
+    <description value="The type of HL7 International staff role. Values are 'Product Director' and 'Executive'"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="roleStatus"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-organizational-entity-concept-properties#status"/>
+    <description value="The status of the HL7 International staff role. Values are 'active' and 'inactive'"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="Designation of a concept&#39;s state. Normally this property is not provided unless its the value is retired. Note, concepts are usually only retired if entered in error. Retirement status should not be interpreted to mean that the role itself was retired."/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="jiraSpecItem"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#work-group-entry"/>
+    <description value="Whether the group is included in the JIRA Spec Artefact file for workgroups"/>
+    <type value="boolean"/>
+  </property>
+  <property>
+    <code value="jiraKey"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#key"/>
+    <description value="The key stored in the JIRA project.  This should not change or be removed even if a work group is renamed or dissolved."/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="jiraWebcode"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#webcode"/>
+    <description value="The code used for the work group on the HL7 website."/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="jiraDeprecated"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/hl7-jira-spec-work-group-concept-properties#deprecated"/>
+    <description value="This is set to true for groups that can no longer be assigned responsibility for tracker items, but which may have had responsibility for historical items"/>
+    <type value="boolean"/>
+  </property>
+  <concept> 
+    <code value="fhir-pd"/>
+    <display value="FHIR Product Director"/>
+    <definition value="FHIR Product Director"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Product Director"/>
+    </property>
+    <property>
+      <code value="roleStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="true"/>
+    </property>
+    <property>
+      <code value="jiraKey"/>
+      <valueString value="director"/>
+    </property>
+    <property>
+      <code value="jiraListserv"/>
+      <valueString value="fhir-director@hl7.org"/>
+    </property>
+  </concept>
+  <concept> 
+    <code value="csdo"/>
+    <display value="Chief Standards Development Officer"/>
+    <definition value="Chief Standards Development Officer"/>
+    <property>
+      <code value="type"/>
+      <valueString value="Executive"/>
+    </property>
+    <property>
+      <code value="roleStatus"/>
+      <valueString value="active"/>
+    </property>
+    <property>
+      <code value="jiraSpecItem"/>
+      <valueBoolean value="false"/>
+    </property>
+  </concept>
+</CodeSystem>

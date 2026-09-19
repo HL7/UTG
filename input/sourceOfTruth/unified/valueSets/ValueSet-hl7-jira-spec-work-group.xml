@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="hl7-jira-spec-work-group"/>
+  <meta>
+    <lastUpdated value="2026-09-11T22:00:00+10:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="tsmg"/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/hl7-jira-spec-work-group"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.11.21046"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="HL7_JIRA_SPEC_WORK_GROUP"/>
+  <title value="HL7 JIRA Spec Work Group"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2026-09-11"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="A list of all organizational entities in HL7 International and related organizations that can have responsibility for change requests in the HL7 JIRA platform."/>
+  <immutable value="true"/>
+  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/hl7-work-group"/>
+      <filter>
+        <property value="jiraSpecItem"/>
+        <op value="="/>
+        <value value="true"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/hl7-affiliate"/>
+      <filter>
+        <property value="jiraSpecItem"/>
+        <op value="="/>
+        <value value="true"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/hl7-staff-role"/>
+      <filter>
+        <property value="jiraSpecItem"/>
+        <op value="="/>
+        <value value="true"/>
+      </filter>
+    </include>
+    <property value="jiraKey"/>
+    <property value="jiraWebcode"/>
+    <property value="jiraDeprecated"/>
+    <property value="jiraListserv"/>
+  </compose>
+</ValueSet>
