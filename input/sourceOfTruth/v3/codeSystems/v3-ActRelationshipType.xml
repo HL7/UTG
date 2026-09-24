@@ -45,7 +45,7 @@
   <property>
     <code value="isDocumentCharacteristic"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-document-characteristic"/>
-  <description value="If true, indicates that the Act attribute or association (as represented by a typeCode for eaither ActRelationship or Pareticipation is a descriptor of the document (record) represented by the act object. If false, indicates the property is a descriptor of the action itself, actual, intended, or potential.  Applies to interpretation of attributes and associations with respect to changes in the value of Act.actionNegationInd and Act.moodCode. (See descriptions of these attributes for further discussion.) For example, in an order, the id attribute [isDocumentCharacteristic = true] is an identifier of the record of the order, not an identifier of the intended event.  On the other hand, the code attribute [isDocumentCharacteristic = false] describes a characteristic of the intended event."/>
+  <description value="If true, indicates that the Act attribute or association (as represented by a typeCode for either ActRelationship or Participation is a descriptor of the document (record) represented by the act object. If false, indicates the property is a descriptor of the action itself, actual, intended, or potential.  Applies to interpretation of attributes and associations with respect to changes in the value of Act.actionNegationInd and Act.moodCode. (See descriptions of these attributes for further discussion.) For example, in an order, the id attribute [isDocumentCharacteristic = true] is an identifier of the record of the order, not an identifier of the intended event.  On the other hand, the code attribute [isDocumentCharacteristic = false] describes a characteristic of the intended event."/>
     <type value="boolean"/>
   </property>
   <property>
@@ -87,13 +87,13 @@
   <property>
     <code value="Name:ActRelationship:source:Act"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-ActRelationship-source"/>
-  <description value="The name of the assciation from ActRelationship to the source Act"/>
+  <description value="The name of the association from ActRelationship to the source Act"/>
     <type value="string"/>
   </property>
   <property>
     <code value="Name:ActRelationship:target:Act"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-ActRelationship-target"/>
-  <description value="The name of the assciation from ActRelationship to the source Act"/>
+  <description value="The name of the association from ActRelationship to the source Act"/>
     <type value="string"/>
   </property>
   <property>
@@ -123,7 +123,7 @@
   <concept>
     <code value="ART"/>
     <display value="act relationship type"/>
-    <definition value="**Description:** A directed association between a source Act and a target Act.&#xD;&#xA;&#xD;&#xA;**Usage Note:** This code should never be transmitted in an instance as the value of ActRelationship.typeCode (attribute)"/>
+    <definition value="A directed association between a source Act and a target Act.&#xD;&#xA;&#xD;&#xA;**Usage Note:** This code should never be transmitted in an instance as the value of ActRelationship.typeCode (attribute)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -524,7 +524,7 @@
   <concept>
     <code value="RSON"/>
     <display value="has reason"/>
-    <definition value="**Description:** The reason or rationale for a service. A reason link is weaker than a trigger, it only suggests that some service may be or might have been a reason for some action, but not that this reason requires/required the action to be taken. Also, as opposed to the trigger, there is no strong timely relation between the reason and the action. As well as providing various types of information about the rationale for a service, the RSON act relationship is routinely used between a SBADM act and an OBS act to describe the indication for use of a medication. Child concepts may be used to describe types of indication.&#xD;&#xA;&#xD;&#xA;*Discussion:* In prior releases, the code &quot;SUGG&quot; (suggests) was expressed as &quot;an inversion of the reason link.&quot; That code has been retired in favor of the inversion indicator that is an attribute of ActRelationship."/>
+    <definition value="The reason or rationale for a service. A reason link is weaker than a trigger, it only suggests that some service may be or might have been a reason for some action, but not that this reason requires/required the action to be taken. Also, as opposed to the trigger, there is no strong timely relation between the reason and the action. As well as providing various types of information about the rationale for a service, the RSON act relationship is routinely used between a SBADM act and an OBS act to describe the indication for use of a medication. Child concepts may be used to describe types of indication.&#xD;&#xA;&#xD;&#xA;*Discussion:* In prior releases, the code &quot;SUGG&quot; (suggests) was expressed as &quot;an inversion of the reason link.&quot; That code has been retired in favor of the inversion indicator that is an attribute of ActRelationship."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1528,7 +1528,7 @@
   <concept>
     <code value="CAUS"/>
     <display value="is etiology for"/>
-    <definition value="**Description:** An assertion that an act was the cause of another act.This is stronger and more specific than the support link. The source (cause) is typically an observation, but may be any act, while the target may be any act.&#xD;&#xA;&#xD;&#xA;**Examples:**&#xD;&#xA;&#xD;&#xA; *  a growth of Staphylococcus aureus may be considered the cause of an abscess&#xD;&#xA; *  contamination of the infusion bag was deemed to be the cause of the infection that the patient experienced&#xD;&#xA; *  lack of staff on the shift was deemed to be a supporting factor (proximal factor) causing the patient safety incident where the patient fell out of bed because the bed-sides had not been put up which caused the night patient to fall out of bed"/>
+    <definition value="An assertion that an act was the cause of another act.This is stronger and more specific than the support link. The source (cause) is typically an observation, but may be any act, while the target may be any act.&#xD;&#xA;&#xD;&#xA;**Examples:**&#xD;&#xA;&#xD;&#xA; *  a growth of Staphylococcus aureus may be considered the cause of an abscess&#xD;&#xA; *  contamination of the infusion bag was deemed to be the cause of the infection that the patient experienced&#xD;&#xA; *  lack of staff on the shift was deemed to be a supporting factor (proximal factor) causing the patient safety incident where the patient fell out of bed because the bed-sides had not been put up which caused the night patient to fall out of bed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1778,7 +1778,7 @@
   <concept>
     <code value="EXACBY"/>
     <display value="exacerbated by"/>
-    <definition value="**Description:**The source act is aggravated by the target act. (Example &quot;chest pain&quot; EXACBY &quot;exercise&quot;)"/>
+    <definition value="The source act is aggravated by the target act. (Example &quot;chest pain&quot; EXACBY &quot;exercise&quot;)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2351,7 +2351,7 @@
   <concept>
     <code value="RELVBY"/>
     <display value="relieved by"/>
-    <definition value="**Description:**The source act is wholly or partially alleviated by the target act. (Example &quot;chest pain&quot; RELVBY &quot;sublingual nitroglycerin administration&quot;)"/>
+    <definition value="The source act is wholly or partially alleviated by the target act. (Example &quot;chest pain&quot; RELVBY &quot;sublingual nitroglycerin administration&quot;)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2544,7 +2544,7 @@
   <concept>
     <code value="VALUE"/>
     <display value="has value"/>
-    <definition value="**Description:**Indicates that the target Act represents the result of the source observation Act.&#xD;&#xA;&#xD;&#xA;**FormalConstraint:** Source Act must be an Observation or specialization there-of. Source Act must not have the value attribute specified&#xD;&#xA;&#xD;&#xA;**UsageNote:** This relationship allows the result of an observation to be fully expressed as RIM acts as opposed to being embedded in the value attribute. For example, sending a Document act as the result of an imaging observation, sending a list of Procedures and/or other acts as the result of a medical history observation.&#xD;&#xA;&#xD;&#xA;The valueNegationInd attribute on the source Act has the same semantics of &quot;negated finding&quot; when it applies to the target of a VALUE ActRelationship as it does to the value attribute. On the other hand, if the ActRelationship.negationInd is true for a VALUE ActRelationship, that means the specified observation does not have the indicated value but does not imply a negated finding. Because the semantics are extremely close, it is recommended that Observation.valueNegationInd be used, not ActRelationship.negationInd.&#xD;&#xA;&#xD;&#xA;**OpenIssue:** The implications of negationInd on ActRelationship and the valueNegationind on Observation."/>
+    <definition value="Indicates that the target Act represents the result of the source observation Act.&#xD;&#xA;&#xD;&#xA;**FormalConstraint:** Source Act must be an Observation or specialization there-of. Source Act must not have the value attribute specified&#xD;&#xA;&#xD;&#xA;**UsageNote:** This relationship allows the result of an observation to be fully expressed as RIM acts as opposed to being embedded in the value attribute. For example, sending a Document act as the result of an imaging observation, sending a list of Procedures and/or other acts as the result of a medical history observation.&#xD;&#xA;&#xD;&#xA;The valueNegationInd attribute on the source Act has the same semantics of &quot;negated finding&quot; when it applies to the target of a VALUE ActRelationship as it does to the value attribute. On the other hand, if the ActRelationship.negationInd is true for a VALUE ActRelationship, that means the specified observation does not have the indicated value but does not imply a negated finding. Because the semantics are extremely close, it is recommended that Observation.valueNegationInd be used, not ActRelationship.negationInd.&#xD;&#xA;&#xD;&#xA;**OpenIssue:** The implications of negationInd on ActRelationship and the valueNegationind on Observation."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3320,7 +3320,7 @@
   <concept>
     <code value="ACTIMM"/>
     <display value="active immunization against"/>
-    <definition value="**Description:** The source act is intended to provide active immunity against the effects of the target act (the target act describes an infectious disease)"/>
+    <definition value="The source act is intended to provide active immunity against the effects of the target act (the target act describes an infectious disease)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3353,7 +3353,7 @@
   <concept>
     <code value="PASSIMM"/>
     <display value="passive immunization against"/>
-    <definition value="**Description:** The source act is intended to provide passive immunity against the effects of the target act (the target act describes an infectious disease)."/>
+    <definition value="The source act is intended to provide passive immunity against the effects of the target act (the target act describes an infectious disease)."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3919,7 +3919,7 @@
   <concept>
     <code value="DIAG"/>
     <display value="diagnoses"/>
-    <definition value="**Description:** The source act is intended to help establish the presence of a (an adverse) situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
+    <definition value="The source act is intended to help establish the presence of a (an adverse) situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -3952,7 +3952,7 @@
   <concept>
     <code value="IMM"/>
     <display value="immunization against"/>
-    <definition value="**Description:** The source act is intented to provide immunity against the effects of the target act (the target act describes an infectious disease)"/>
+    <definition value="The source act is intended to provide immunity against the effects of the target act (the target act describes an infectious disease)"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -4030,7 +4030,7 @@
   <concept>
     <code value="PRYLX"/>
     <display value="prophylaxis of"/>
-    <definition value="**Description:** The source act is intended to reduce the risk of of an adverse situation to emerge as described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
+    <definition value="The source act is intended to reduce the risk of an adverse situation to emerge as described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -4063,7 +4063,7 @@
   <concept>
     <code value="TREAT"/>
     <display value="treats"/>
-    <definition value="**Description:** The source act is intended to improve a pre-existing adverse situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
+    <definition value="The source act is intended to improve a pre-existing adverse situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -4578,7 +4578,7 @@
   <concept>
     <code value="COMPLY"/>
     <display value="complies with"/>
-    <definition value="**Description:**The source act complies with, adheres to, conforms to, or is permissible under (in whole or in part) the policy, contract, agreement, law, conformance criteria, certification guidelines or requirement conveyed by the target act.&#xD;&#xA;&#xD;&#xA;Examples for compliance relationships are: audits of adherence with a security policy, certificate of conformance to system certification requirements, or consent directive in compliance with or permissible under a privacy policy."/>
+    <definition value="The source act complies with, adheres to, conforms to, or is permissible under (in whole or in part) the policy, contract, agreement, law, conformance criteria, certification guidelines or requirement conveyed by the target act.&#xD;&#xA;&#xD;&#xA;Examples for compliance relationships are: audits of adherence with a security policy, certificate of conformance to system certification requirements, or consent directive in compliance with or permissible under a privacy policy."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -4999,7 +4999,7 @@
   <concept>
     <code value="RCHAL"/>
     <display value="re-challenge"/>
-    <definition value="**Description:**A relationship in which the target act is carried out to determine whether an effect attributed to the source act can be recreated."/>
+    <definition value="A relationship in which the target act is carried out to determine whether an effect attributed to the source act can be recreated."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -5073,7 +5073,7 @@
   <concept>
     <code value="RPLC"/>
     <display value="replaces"/>
-    <definition value="A replacement source act replaces an existing target act. The state of the target act being replaced becomes obselete, but the act is typically still retained in the system for historical reference. The source and target must be of the same type."/>
+    <definition value="A replacement source act replaces an existing target act. The state of the target act being replaced becomes obsolete, but the act is typically still retained in the system for historical reference. The source and target must be of the same type."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -5482,7 +5482,7 @@
   <concept>
     <code value="ADJUNCT"/>
     <display value="adjunctive treatment"/>
-    <definition value="**Description:** The source act is intended to offer an additional treatment for the management or cure of a pre-existing adverse situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature. It is not a requirement that the non-adjunctive treatment is explicitly specified."/>
+    <definition value="The source act is intended to offer an additional treatment for the management or cure of a pre-existing adverse situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature. It is not a requirement that the non-adjunctive treatment is explicitly specified."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -5515,7 +5515,7 @@
   <concept>
     <code value="MTREAT"/>
     <display value="maintenance treatment"/>
-    <definition value="**Description:** The source act is intended to provide long term maintenance improvement or management of a pre-existing adverse situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
+    <definition value="The source act is intended to provide long term maintenance improvement or management of a pre-existing adverse situation described by the target act. This is not limited to diseases but can apply to any adverse situation or condition of medical or technical nature."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -5548,7 +5548,7 @@
   <concept>
     <code value="PALLTREAT"/>
     <display value="palliates"/>
-    <definition value="**Description:** The source act is intended to provide palliation for the effects of the target act."/>
+    <definition value="The source act is intended to provide palliation for the effects of the target act."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -5581,7 +5581,7 @@
   <concept>
     <code value="SYMP"/>
     <display value="symptomatic relief"/>
-    <definition value="**Description:** The source act is intented to provide symptomatic relief for the effects of the target act."/>
+    <definition value="The source act is intended to provide symptomatic relief for the effects of the target act."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>

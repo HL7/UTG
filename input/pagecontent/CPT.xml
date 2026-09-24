@@ -64,7 +64,7 @@ CPT defines a series of 2 letter modifier codes that provide additional informat
 Some contexts of use of CPT codes separate the base code and the modifier codes into separate fields (e.g. claiming)
 while other contexts of use expect that the modifiers will be combined with the main code (e.g. Procedure.code).
 When the modifiers are combined in a single field, modifiers are appended to the main code in any order using 
-<code>:</code> as a separater (per established X12 usage):
+<code>:</code> as a separator (per established X12 usage):
 </p>
 <pre class="xml" fragment="Coding">
   &lt;coding&gt;
@@ -77,8 +77,8 @@ When the modifiers are combined in a single field, modifiers are appended to the
 Notes:
 </p>
 <ul>
- <li>Tthe combination of base code and modifiers must be done according to the rules defined in the CPT documentation</li>
- <li>Other separator characters are used in other contexts, including in the AMA documenation, notably <code>-</code> and <code>.</code>.
+ <li>The combination of base code and modifiers must be done according to the rules defined in the CPT documentation</li>
+ <li>Other separator characters are used in other contexts, including in the AMA documentation, notably <code>-</code> and <code>.</code>.
   Expressions using these separators are not conformant, and the separators must be replaced by <code>:</code></li>
 </ul>
 
@@ -157,7 +157,7 @@ Notes:
     <td>true or false</td>
     <td>Whether the code is a modifier or not (based on the modifier property). Typically, 
     a value set would use <code>modifier=false</code> to specify base codes only, for example 
-    in <code>Claim.item.detail.productOrService</code>, while <code>modifier=true</code> woudl be used 
+    in <code>Claim.item.detail.productOrService</code>, while <code>modifier=true</code> would be used 
     to specify modifier codes, for example in <code>Claim.item.detail.modifier</code> </td>
   </tr>
   <tr>
