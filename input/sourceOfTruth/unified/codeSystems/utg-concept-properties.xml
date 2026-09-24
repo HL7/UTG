@@ -41,10 +41,10 @@
   <concept>
     <code value="v2-cld"/>
     <display value="V2 VS CLD Type"/>
-    <definition value="Categorization of Content Logical Definition for the V2 value set informing the table, as printed in the V2 ballot.  0=no expansion, 1=all codes, 2=enumerated, 3=V3 vaue set definition, 4=unique intensional definition, 5=non-HL7 value set definition, 6=FHIR value set definition"/>
+    <definition value="Categorization of Content Logical Definition for the V2 value set informing the table, as printed in the V2 ballot.  0=no expansion, 1=all codes, 2=enumerated, 3=V3 value set definition, 4=unique intensional definition, 5=non-HL7 value set definition, 6=FHIR value set definition"/>
     <property>
       <code value="comment"/>
-      <valueString value="Used only for value sets informing the coded content of HL7 V2 tables. There are only a few types of value set compose statements for V2, and this code indicates now the exapnsion for puisblishing is to be caclulated."/>
+      <valueString value="Used only for value sets informing the coded content of HL7 V2 tables. There are only a few types of value set compose statements for V2, and this code indicates now the expansion for publishing is to be calculated."/>
     </property>
   </concept>
   <concept>
@@ -86,7 +86,7 @@
   <concept>
     <code value="v2TblStatus"/>
     <display value="V2 Table Status"/>
-    <definition value="Status of the table as published in the V2 ballots. This is different from the concept status, which is the status of the concept representing the table infomration in the V2 Tables code system."/>
+    <definition value="Status of the table as published in the V2 ballots. This is different from the concept status, which is the status of the concept representing the table information in the V2 Tables code system."/>
     <property>
       <code value="comment"/>
       <valueString value="Used only in v2-tables.xml"/>
@@ -167,7 +167,7 @@
   <concept>
     <code value="v2-where-used"/>
     <display value="Field Where Used"/>
-    <definition value="String holding the segment and field where the table is bound in the interational standard."/>
+    <definition value="String holding the segment and field where the table is bound in the international standard."/>
     <property>
       <code value="comment"/>
       <valueString value="used only in v2-tables.xml"/>
@@ -176,7 +176,7 @@
   <concept>
     <code value="rim-classifies-class-code"/>
     <display value="ClassifiesC RIM Class Code"/>
-    <definition value="Associates a concept domain with th ActClass code that it is intended to be associated with, ie for late binding, informs the IG devloper which code should be populated in ActClass when a value sset for ActCode is being bound."/>
+    <definition value="Associates a concept domain with th ActClass code that it is intended to be associated with, ie for late binding, informs the IG developer which code should be populated in ActClass when a value sset for ActCode is being bound."/>
     <property>
       <code value="comment"/>
       <valueString value="used only in concept domains; in the coremif called 'ConceptualSpaceForClassCode'"/>
@@ -221,7 +221,7 @@
   <concept>
     <code value="rim-ActRelationship-source"/>
     <display value="Name:ActRelationship:source:Act"/>
-    <definition value="The name of the assciation from ActRelationship to the source Act"/>
+    <definition value="The name of the association from ActRelationship to the source Act"/>
     <property>
       <code value="comment"/>
       <valueString value="used only in structural code system content"/>
@@ -230,7 +230,7 @@
   <concept>
     <code value="rim-ActRelationship-target"/>
     <display value="Name:ActRelationship:target:Act"/>
-    <definition value="The name of the assciation from ActRelationship to the source Act"/>
+    <definition value="The name of the association from ActRelationship to the source Act"/>
     <property>
       <code value="comment"/>
       <valueString value="used only in structural code system content"/>
@@ -449,16 +449,16 @@
     <definition value="Property applies to the ConceptCodeRelationship code system. For each concept, it identifies the name of the inverse relationship."/>
     <property>
       <code value="comment"/>
-      <valueString value="only used in the code system of contept relationships..  Forgot we had this.   Not sure how it should be modeled in UTG."/>
+      <valueString value="only used in the code system of concept relationships..  Forgot we had this.   Not sure how it should be modeled in UTG."/>
     </property>
   </concept>
   <concept>
     <code value="rim-document-characteristic"/>
     <display value="isDocumentCharacteristic"/>
-    <definition value="If true, indicates that the Act attribute or association (as represented by a typeCode for eaither ActRelationship or Pareticipation is a descriptor of the document (record) represented by the act object. If false, indicates the property is a descriptor of the action itself, actual, intended, or potential.  Applies to interpretation of attributes and associations with respect to changes in the value of Act.actionNegationInd and Act.moodCode. (See descriptions of these attributes for further discussion.) For example, in an order, the id attribute [isDocumentCharacteristic = true] is an identifier of the record of the order, not an identifier of the intended event.  On the other hand, the code attribute [isDocumentCharacteristic = false] describes a characteristic of the intended event."/>
+    <definition value="If true, indicates that the Act attribute or association (as represented by a typeCode for either ActRelationship or Participation is a descriptor of the document (record) represented by the act object. If false, indicates the property is a descriptor of the action itself, actual, intended, or potential.  Applies to interpretation of attributes and associations with respect to changes in the value of Act.actionNegationInd and Act.moodCode. (See descriptions of these attributes for further discussion.) For example, in an order, the id attribute [isDocumentCharacteristic = true] is an identifier of the record of the order, not an identifier of the intended event.  On the other hand, the code attribute [isDocumentCharacteristic = false] describes a characteristic of the intended event."/>
     <property>
       <code value="comment"/>
-      <valueString value="This may not behave the same based on the final outcome from the negation project.   Or this may be the impleentation of their recommendations; need to discuss with Rob Hausam.   Clear the this is used as part of RIM documentation.  Note that this is only used in these two structural code systems."/>
+      <valueString value="This may not behave the same based on the final outcome from the negation project.   Or this may be the implementation of their recommendations; need to discuss with Rob Hausam.   Clear the this is used as part of RIM documentation.  Note that this is only used in these two structural code systems."/>
     </property>
   </concept>
   <concept>
@@ -473,7 +473,7 @@
   <concept>
     <code value="source"/>
     <display value="Source"/>
-    <definition value="Indicaates the etiology of this domain, i.e. which HL7 product family or other area that the domain originally was needed for and triggered its creation."/>
+    <definition value="Indicates the etiology of this domain, i.e. which HL7 product family or other area that the domain originally was needed for and triggered its creation."/>
     <property>
       <code value="comment"/>
       <valueString value="Current values are v2, v3, cda.  Note the ones for CDA have been added manually."/>
@@ -510,7 +510,7 @@
   <concept>
     <code value="contextBindingUV-effectiveDate"/>
     <display value="UV Binding Effective Date"/>
-    <definition value="Effective Date of the specified Value Set bound to this Concwpt Domain in the Universal Realm."/>
+    <definition value="Effective Date of the specified Value Set bound to this Concept Domain in the Universal Realm."/>
   </concept>
 
   <concept>
@@ -538,7 +538,7 @@
   <concept>
     <code value="contextBindingR1-strength"/>
     <display value="R1 Binding Coding Strength"/>
-    <definition value="Coding strength for the Representatie binding; either CWE or CNE."/>
+    <definition value="Coding strength for the Representative binding; either CWE or CNE."/>
   </concept>
 
   <concept>
@@ -569,7 +569,7 @@
     <definition value="Identifies the Value Set bound to this Concept Domain in the Example Realm."/>
    <property>
       <code value="comment"/>
-      <valueString value="C1 Bindings are used solely for provisional or draft bindings, and are intended to be removed or updated at some tiem in the future.  In general, C1 bindings may be incorrect or invalid content for real world systems, or may be subject to change without notice.  They should not be used in production systems."/>
+      <valueString value="C1 Bindings are used solely for provisional or draft bindings, and are intended to be removed or updated at some time in the future.  In general, C1 bindings may be incorrect or invalid content for real world systems, or may be subject to change without notice.  They should not be used in production systems."/>
     </property>
   </concept>
 
@@ -594,7 +594,7 @@
   <concept>
     <code value="contextBindingUS-effectiveDate"/>
     <display value="US Binding Effective Date"/>
-    <definition value="Effective Date of the specified Value Set bound to this Concwpt Domain in the US Realm."/>
+    <definition value="Effective Date of the specified Value Set bound to this Concept Domain in the US Realm."/>
   </concept>
 
   <concept>
@@ -666,7 +666,7 @@
   <concept>
     <code value="propIsMandatory"/>
     <display value="RIM Property is Mandatory"/>
-    <definition value="Boolean indicating when an attribure of a RIM class attribute is mandatory."/>
+    <definition value="Boolean indicating when an attribute of a RIM class attribute is mandatory."/>
     <property>
       <code value="comment"/>
       <valueString value="Used as a property of a property, in RIM Class Codes primarily."/>

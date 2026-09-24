@@ -69,7 +69,7 @@
   <property>
     <code value="isDocumentCharacteristic"/>
     <uri value="http://terminology.hl7.org/CodeSystem/utg-concept-properties#rim-document-characteristic"/>
-  <description value="If true, indicates that the Act attribute or association (as represented by a typeCode for eaither ActRelationship or Pareticipation is a descriptor of the document (record) represented by the act object. If false, indicates the property is a descriptor of the action itself, actual, intended, or potential.  Applies to interpretation of attributes and associations with respect to changes in the value of Act.actionNegationInd and Act.moodCode. (See descriptions of these attributes for further discussion.) For example, in an order, the id attribute [isDocumentCharacteristic = true] is an identifier of the record of the order, not an identifier of the intended event.  On the other hand, the code attribute [isDocumentCharacteristic = false] describes a characteristic of the intended event."/>
+  <description value="If true, indicates that the Act attribute or association (as represented by a typeCode for either ActRelationship or Participation is a descriptor of the document (record) represented by the act object. If false, indicates the property is a descriptor of the action itself, actual, intended, or potential.  Applies to interpretation of attributes and associations with respect to changes in the value of Act.actionNegationInd and Act.moodCode. (See descriptions of these attributes for further discussion.) For example, in an order, the id attribute [isDocumentCharacteristic = true] is an identifier of the record of the order, not an identifier of the intended event.  On the other hand, the code attribute [isDocumentCharacteristic = false] describes a characteristic of the intended event."/>
     <type value="boolean"/>
   </property>
   <property>
@@ -875,7 +875,7 @@
       <concept>
         <code value="EXPAGNT"/>
         <display value="ExposureAgent"/>
-        <definition value="**Description:** The entity playing the associated role is the physical (including energy), chemical or biological substance that is participating in the exposure. For example in communicable diseases, the associated playing entity is the disease causing pathogen."/>
+        <definition value="The entity playing the associated role is the physical (including energy), chemical or biological substance that is participating in the exposure. For example in communicable diseases, the associated playing entity is the disease causing pathogen."/>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -888,7 +888,7 @@
       <concept>
         <code value="EXPART"/>
         <display value="ExposureParticipation"/>
-        <definition value="**Description:**Direct participation in an exposure act where it is unknown that the participant is the source or subject of the exposure. If the participant is known to be the contact of an exposure then the SBJ participation type should be used. If the participant is known to be the source then the EXSRC participation type should be used."/>
+        <definition value="Direct participation in an exposure act where it is unknown that the participant is the source or subject of the exposure. If the participant is known to be the contact of an exposure then the SBJ participation type should be used. If the participant is known to be the source then the EXSRC participation type should be used."/>
         <property>
           <code value="status"/>
           <valueCode value="active"/>
@@ -900,7 +900,7 @@
         <concept>
           <code value="EXPTRGT"/>
           <display value="ExposureTarget"/>
-          <definition value="**Description:** The entity playing the associated role is the target (contact) of exposure."/>
+          <definition value="The entity playing the associated role is the target (contact) of exposure."/>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -913,7 +913,7 @@
         <concept>
           <code value="EXSRC"/>
           <display value="ExposureSource"/>
-          <definition value="**Description:**The entity playing the associated role is the source of exposure."/>
+          <definition value="The entity playing the associated role is the source of exposure."/>
           <property>
             <code value="status"/>
             <valueCode value="active"/>
@@ -1219,7 +1219,7 @@
     <concept>
       <code value="IRCP"/>
       <display value="information recipient"/>
-      <definition value="A party, who may or should receive or who has recieved the Act or subsequent or derivative information of that Act. Information recipient is inert, i.e., independent of mood.&quot; Rationale: this is a generalization of a too diverse family that the definition can&#39;t be any more specific, and the concept is abstract so one of the specializations should be used."/>
+      <definition value="A party, who may or should receive or who has received the Act or subsequent or derivative information of that Act. Information recipient is inert, i.e., independent of mood.&quot; Rationale: this is a generalization of a too diverse family that the definition can&#39;t be any more specific, and the concept is abstract so one of the specializations should be used."/>
       <property>
         <code value="status"/>
         <valueCode value="active"/>
@@ -1591,7 +1591,7 @@
     <concept>
       <code value="PRF"/>
       <display value="performer"/>
-      <definition value="**Definition:** A person, non-person living subject, organization or device that who actually and principally carries out the action. Device should only be assigned as a performer in circumstances where the device is performing independent of human intervention. Need not be the principal responsible actor.&#xD;&#xA;&#xD;&#xA;**Exampe:** A surgery resident operating under supervision of attending surgeon, a search and rescue dog locating survivors, an electronic laboratory analyzer or the laboratory discipline requested to perform a laboratory test. The performer may also be the patient in self-care, e.g. fingerstick blood sugar. The traditional order filler is a performer. This information should accompany every service event.&#xD;&#xA;&#xD;&#xA;**Note:** that existing HL7 designs assign an organization as the playing entity of the Role that is the performer. These designs should be revised in subsequent releases to make this the scooping entity for the role involved."/>
+      <definition value="**Definition:** A person, non-person living subject, organization or device that who actually and principally carries out the action. Device should only be assigned as a performer in circumstances where the device is performing independent of human intervention. Need not be the principal responsible actor.&#xD;&#xA;&#xD;&#xA;**Example:** A surgery resident operating under supervision of attending surgeon, a search and rescue dog locating survivors, an electronic laboratory analyzer or the laboratory discipline requested to perform a laboratory test. The performer may also be the patient in self-care, e.g. fingerstick blood sugar. The traditional order filler is a performer. This information should accompany every service event.&#xD;&#xA;&#xD;&#xA;**Note:** that existing HL7 designs assign an organization as the playing entity of the Role that is the performer. These designs should be revised in subsequent releases to make this the scooping entity for the role involved."/>
       <property>
         <code value="status"/>
         <valueCode value="active"/>

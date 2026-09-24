@@ -81,7 +81,7 @@
   <concept>
     <code value="ACT"/>
     <display value="act"/>
-    <definition value="A record of something that is being done, has been done, can be done, or is intended or requested to be done.&#xD;&#xA;&#xD;&#xA;*Examples:*The kinds of acts that are common in health care are (1) a clinical observation, (2) an assessment of health condition (such as problems and diagnoses), (3) healthcare goals, (4) treatment services (such as medication, surgery, physical and psychological therapy), (5) assisting, monitoring or attending, (6) training and education services to patients and their next of kin, (7) and notary services (such as advanced directives or living will), (8) editing and maintaining documents, and many others.&#xD;&#xA;&#xD;&#xA;*Discussion and Rationale:* Acts are the pivot of the RIM; all domain information and processes are represented primarily in Acts. Any profession or business, including healthcare, is primarily constituted of intentional and occasionally non-intentional actions, performed and recorded by responsible actors. An Act-instance is a record of such an action.&#xD;&#xA;&#xD;&#xA;Acts connect to Entities in their Roles through Participations and connect to other Acts through ActRelationships. Participations are the authors, performers and other responsible parties as well as subjects and beneficiaries (which includes tools and material used in the performance of the act, which are also subjects). The moodCode distinguishes between Acts that are meant as factual records, vs. records of intended or ordered services, and the other modalities in which act can appear.&#xD;&#xA;&#xD;&#xA;One of the Participations that all acts have (at least implicitly) is a primary author, who is responsible of the Act and who &quot;owns&quot; the act. Responsibility for the act means responsibility for what is being stated in the Act and as what it is stated. Ownership of the act is assumed in the sense of who may operationally modify the same act. Ownership and responsibility of the Act is not the same as ownership or responsibility of what the Act-object refers to in the real world. The same real world activity can be described by two people, each being the author of their Act, describing the same real world activity. Yet one can be a witness while the other can be a principal performer. The performer has responsibilities for the physical actions; the witness only has responsibility for making a true statement to the best of his or her ability. The two Act-instances may even disagree, but because each is properly attributed to its author, such disagreements can exist side by side and left to arbitration by a recipient of these Act-instances.&#xD;&#xA;&#xD;&#xA;In this sense, an Act-instance represents a &quot;statement&quot; according to Rector and Nowlan (1991) \[Foundations for an electronic medical record. Methods Inf Med. 30.\] Rector and Nowlan have emphasized the importance of understanding the medical record not as a collection of facts, but &quot;a faithful record of what clinicians have heard, seen, thought, and done.&quot; Rector and Nowlan go on saying that &quot;the other requirements for a medical record, e.g., that it be attributable and permanent, follow naturally from this view.&quot; Indeed the Act class is this attributable statement, and the rules of updating acts (discussed in the state-transition model, see Act.statusCode) versus generating new Act-instances are designed according to this principle of permanent attributable statements.&#xD;&#xA;&#xD;&#xA;Rector and Nolan focus on the electronic medical record as a collection of statements, while attributed statements, these are still mostly factual statements. However, the Act class goes beyond this limitation to attributed factual statements, representing what is known as &quot;speech-acts&quot; in linguistics and philosophy. The notion of speech-act includes that there is pragmatic meaning in language utterances, aside from just factual statements; and that these utterances interact with the real world to change the state of affairs, even directly cause physical activities to happen. For example, an order is a speech act that (provided it is issued adequately) will cause the ordered action to be physically performed. The speech act theory has culminated in the seminal work by Austin (1962) \[How to do things with words. Oxford University Press\].&#xD;&#xA;&#xD;&#xA;An activity in the real world may progress from defined, through planned and ordered to executed, which is represented as the mood of the Act. Even though one might think of a single activity as progressing from planned to executed, this progression is reflected by multiple Act-instances, each having one and only one mood that will not change along the Act-instance life cycle. This is because the attribution and content of speech acts along this progression of an activity may be different, and it is often critical that a permanent and faithful record be maintained of this progression. The specification of orders or promises or plans must not be overwritten by the specification of what was actually done, so as to allow comparing actions with their earlier specifications. Act-instances that describe this progression of the same real world activity are linked through the ActRelationships (of the relationship category &quot;sequel&quot;).&#xD;&#xA;&#xD;&#xA;Act as statements or speech-acts are the only representation of real world facts or processes in the HL7 RIM. The truth about the real world is constructed through a combination (and arbitration) of such attributed statements only, and there is no class in the RIM whose objects represent &quot;objective state of affairs&quot; or &quot;real processes&quot; independent from attributed statements. As such, there is no distinction between an activity and its documentation. Every Act includes both to varying degrees. For example, a factual statement made about recent (but past) activities, authored (and signed) by the performer of such activities, is commonly known as a procedure report or original documentation (e.g., surgical procedure report, clinic note etc.). Conversely, a status update on an activity that is presently in progress, authored by the performer (or a close observer) is considered to capture that activity (and is later superceded by a full procedure report). However, both status update and procedure report are acts of the same kind, only distinguished by mood and state (see statusCode) and completeness of the information."/>
+    <definition value="A record of something that is being done, has been done, can be done, or is intended or requested to be done.&#xD;&#xA;&#xD;&#xA;*Examples:*The kinds of acts that are common in health care are (1) a clinical observation, (2) an assessment of health condition (such as problems and diagnoses), (3) healthcare goals, (4) treatment services (such as medication, surgery, physical and psychological therapy), (5) assisting, monitoring or attending, (6) training and education services to patients and their next of kin, (7) and notary services (such as advanced directives or living will), (8) editing and maintaining documents, and many others.&#xD;&#xA;&#xD;&#xA;*Discussion and Rationale:* Acts are the pivot of the RIM; all domain information and processes are represented primarily in Acts. Any profession or business, including healthcare, is primarily constituted of intentional and occasionally non-intentional actions, performed and recorded by responsible actors. An Act-instance is a record of such an action.&#xD;&#xA;&#xD;&#xA;Acts connect to Entities in their Roles through Participations and connect to other Acts through ActRelationships. Participations are the authors, performers and other responsible parties as well as subjects and beneficiaries (which includes tools and material used in the performance of the act, which are also subjects). The moodCode distinguishes between Acts that are meant as factual records, vs. records of intended or ordered services, and the other modalities in which act can appear.&#xD;&#xA;&#xD;&#xA;One of the Participations that all acts have (at least implicitly) is a primary author, who is responsible of the Act and who &quot;owns&quot; the act. Responsibility for the act means responsibility for what is being stated in the Act and as what it is stated. Ownership of the act is assumed in the sense of who may operationally modify the same act. Ownership and responsibility of the Act is not the same as ownership or responsibility of what the Act-object refers to in the real world. The same real world activity can be described by two people, each being the author of their Act, describing the same real world activity. Yet one can be a witness while the other can be a principal performer. The performer has responsibilities for the physical actions; the witness only has responsibility for making a true statement to the best of his or her ability. The two Act-instances may even disagree, but because each is properly attributed to its author, such disagreements can exist side by side and left to arbitration by a recipient of these Act-instances.&#xD;&#xA;&#xD;&#xA;In this sense, an Act-instance represents a &quot;statement&quot; according to Rector and Nowlan (1991) \[Foundations for an electronic medical record. Methods Inf Med. 30.\] Rector and Nowlan have emphasized the importance of understanding the medical record not as a collection of facts, but &quot;a faithful record of what clinicians have heard, seen, thought, and done.&quot; Rector and Nowlan go on saying that &quot;the other requirements for a medical record, e.g., that it be attributable and permanent, follow naturally from this view.&quot; Indeed the Act class is this attributable statement, and the rules of updating acts (discussed in the state-transition model, see Act.statusCode) versus generating new Act-instances are designed according to this principle of permanent attributable statements.&#xD;&#xA;&#xD;&#xA;Rector and Nolan focus on the electronic medical record as a collection of statements, while attributed statements, these are still mostly factual statements. However, the Act class goes beyond this limitation to attributed factual statements, representing what is known as &quot;speech-acts&quot; in linguistics and philosophy. The notion of speech-act includes that there is pragmatic meaning in language utterances, aside from just factual statements; and that these utterances interact with the real world to change the state of affairs, even directly cause physical activities to happen. For example, an order is a speech act that (provided it is issued adequately) will cause the ordered action to be physically performed. The speech act theory has culminated in the seminal work by Austin (1962) \[How to do things with words. Oxford University Press\].&#xD;&#xA;&#xD;&#xA;An activity in the real world may progress from defined, through planned and ordered to executed, which is represented as the mood of the Act. Even though one might think of a single activity as progressing from planned to executed, this progression is reflected by multiple Act-instances, each having one and only one mood that will not change along the Act-instance life cycle. This is because the attribution and content of speech acts along this progression of an activity may be different, and it is often critical that a permanent and faithful record be maintained of this progression. The specification of orders or promises or plans must not be overwritten by the specification of what was actually done, so as to allow comparing actions with their earlier specifications. Act-instances that describe this progression of the same real world activity are linked through the ActRelationships (of the relationship category &quot;sequel&quot;).&#xD;&#xA;&#xD;&#xA;Act as statements or speech-acts are the only representation of real world facts or processes in the HL7 RIM. The truth about the real world is constructed through a combination (and arbitration) of such attributed statements only, and there is no class in the RIM whose objects represent &quot;objective state of affairs&quot; or &quot;real processes&quot; independent from attributed statements. As such, there is no distinction between an activity and its documentation. Every Act includes both to varying degrees. For example, a factual statement made about recent (but past) activities, authored (and signed) by the performer of such activities, is commonly known as a procedure report or original documentation (e.g., surgical procedure report, clinic note etc.). Conversely, a status update on an activity that is presently in progress, authored by the performer (or a close observer) is considered to capture that activity (and is later superseded by a full procedure report). However, both status update and procedure report are acts of the same kind, only distinguished by mood and state (see statusCode) and completeness of the information."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -378,7 +378,7 @@
   <concept>
     <code value="CONTAINER"/>
     <display value="record container"/>
-    <definition value="**Description:** Container of clinical statements. Navigational. No semantic content. Knowledge of the section code is not required to interpret contained observations. Represents a heading in a heading structure, or &quot;container tree&quot;.&#xD;&#xA;&#xD;&#xA;The record entries relating to a single clinical session are usually grouped under headings that represent phases of the encounter, or assist with layout and navigation. Clinical headings usually reflect the clinical workflow during a care session, and might also reflect the main author&#39;s reasoning processes. Much research has demonstrated that headings are used differently by different professional groups and specialties, and that headings are not used consistently enough to support safe automatic processing of the E H R."/>
+    <definition value="Container of clinical statements. Navigational. No semantic content. Knowledge of the section code is not required to interpret contained observations. Represents a heading in a heading structure, or &quot;container tree&quot;.&#xD;&#xA;&#xD;&#xA;The record entries relating to a single clinical session are usually grouped under headings that represent phases of the encounter, or assist with layout and navigation. Clinical headings usually reflect the clinical workflow during a care session, and might also reflect the main author&#39;s reasoning processes. Much research has demonstrated that headings are used differently by different professional groups and specialties, and that headings are not used consistently enough to support safe automatic processing of the E H R."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1099,7 +1099,7 @@
   <concept>
     <code value="OBS"/>
     <display value="observation"/>
-    <definition value="**Description:**An act that is intended to result in new information about a subject. The main difference between Observations and other Acts is that Observations have a value attribute. The **code** attribute of Observation and the **value** attribute of Observation must be considered in combination to determine the semantics of the observation.&#xD;&#xA;&#xD;&#xA;**Discussion:**&#xD;&#xA;&#xD;&#xA;Structurally, many observations are name-value-pairs, where the Observation.code (inherited from Act) is the name and the Observation.value is the value of the property. Such a construct is also known as a variable (a named feature that can assume a value) hence, the Observation class is always used to hold generic name-value-pairs or variables, even though the variable valuation may not be the result of an elaborate observation method. It may be a simple answer to a question or it may be an assertion or setting of a parameter.&#xD;&#xA;&#xD;&#xA;As with all Act statements, Observation statements describe what was done, and in the case of Observations, this includes a description of what was actually observed (results or answers); and those results or answers are part of the observation and not split off into other objects.&#xD;&#xA;&#xD;&#xA;The method of action is asserted by the Observation classCode or its subclasses at the least granular level, by the Observation.code attribute value at the medium level of granularity, and by the attribute value of observation.methodCode when a finer level of granularity is required. The method in whole or in part may also appear in the attribute value of Observation.value when using coded data types to express the value of the attribute. Relevant aspects of methodology may also be restated in value when the results themselves imply or state a methodology.&#xD;&#xA;&#xD;&#xA;An observation may consist of component observations each having their own Observation.code and Observation.value. In this case, the composite observation may not have an Observation.value for itself. For instance, a white blood cell count consists of the sub-observations for the counts of the various granulocytes, lymphocytes and other normal or abnormal blood cells (e.g., blasts). The overall white blood cell count Observation itself may therefore not have a value by itself (even though it could have one, e.g., the sum total of white blood cells). Thus, as long as an Act is essentially an Act of recognizing and noting information about a subject, it is an Observation, regardless of whether it has a simple value by itself or whether it has sub-observations.&#xD;&#xA;&#xD;&#xA;Even though observations are professional acts (see Act) and as such are intentional actions, this does not require that every possible outcome of an observation be pondered in advance of it being actually made. For instance, differential white blood cell counts (WBC) rarely show blasts, but if they do, this is part of the WBC observation even though blasts might not be predefined in the structure of a normal WBC.&#xD;&#xA;&#xD;&#xA;Clinical documents commonly have Subjective and Objective findings, both of which are kinds of Observations. In addition, clinical documents commonly contain Assessments, which are also kinds of Observations. Thus, the establishment of a diagnosis is an Observation.&#xD;&#xA;&#xD;&#xA;**Examples:**&#xD;&#xA;&#xD;&#xA; *  Recording the results of a Family History Assessment&#xD;&#xA; *  Laboratory test and associated result&#xD;&#xA; *  Physical exam test and associated result&#xD;&#xA; *  Device temperature&#xD;&#xA; *  Soil lead level"/>
+    <definition value="An act that is intended to result in new information about a subject. The main difference between Observations and other Acts is that Observations have a value attribute. The **code** attribute of Observation and the **value** attribute of Observation must be considered in combination to determine the semantics of the observation.&#xD;&#xA;&#xD;&#xA;**Discussion:**&#xD;&#xA;&#xD;&#xA;Structurally, many observations are name-value-pairs, where the Observation.code (inherited from Act) is the name and the Observation.value is the value of the property. Such a construct is also known as a variable (a named feature that can assume a value) hence, the Observation class is always used to hold generic name-value-pairs or variables, even though the variable valuation may not be the result of an elaborate observation method. It may be a simple answer to a question or it may be an assertion or setting of a parameter.&#xD;&#xA;&#xD;&#xA;As with all Act statements, Observation statements describe what was done, and in the case of Observations, this includes a description of what was actually observed (results or answers); and those results or answers are part of the observation and not split off into other objects.&#xD;&#xA;&#xD;&#xA;The method of action is asserted by the Observation classCode or its subclasses at the least granular level, by the Observation.code attribute value at the medium level of granularity, and by the attribute value of observation.methodCode when a finer level of granularity is required. The method in whole or in part may also appear in the attribute value of Observation.value when using coded data types to express the value of the attribute. Relevant aspects of methodology may also be restated in value when the results themselves imply or state a methodology.&#xD;&#xA;&#xD;&#xA;An observation may consist of component observations each having their own Observation.code and Observation.value. In this case, the composite observation may not have an Observation.value for itself. For instance, a white blood cell count consists of the sub-observations for the counts of the various granulocytes, lymphocytes and other normal or abnormal blood cells (e.g., blasts). The overall white blood cell count Observation itself may therefore not have a value by itself (even though it could have one, e.g., the sum total of white blood cells). Thus, as long as an Act is essentially an Act of recognizing and noting information about a subject, it is an Observation, regardless of whether it has a simple value by itself or whether it has sub-observations.&#xD;&#xA;&#xD;&#xA;Even though observations are professional acts (see Act) and as such are intentional actions, this does not require that every possible outcome of an observation be pondered in advance of it being actually made. For instance, differential white blood cell counts (WBC) rarely show blasts, but if they do, this is part of the WBC observation even though blasts might not be predefined in the structure of a normal WBC.&#xD;&#xA;&#xD;&#xA;Clinical documents commonly have Subjective and Objective findings, both of which are kinds of Observations. In addition, clinical documents commonly contain Assessments, which are also kinds of Observations. Thus, the establishment of a diagnosis is an Observation.&#xD;&#xA;&#xD;&#xA;**Examples:**&#xD;&#xA;&#xD;&#xA; *  Recording the results of a Family History Assessment&#xD;&#xA; *  Laboratory test and associated result&#xD;&#xA; *  Physical exam test and associated result&#xD;&#xA; *  Device temperature&#xD;&#xA; *  Soil lead level"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1141,7 +1141,7 @@
   <concept>
     <code value="POLICY"/>
     <display value="policy"/>
-    <definition value="**Description:**A mandate, regulation, obligation, requirement, rule, or expectation unilaterally imposed by one party on:&#xD;&#xA;&#xD;&#xA; *  The activity of another party&#xD;&#xA; *  The behavior of another party&#xD;&#xA; *  The manner in which an act is executed"/>
+    <definition value="A mandate, regulation, obligation, requirement, rule, or expectation unilaterally imposed by one party on:&#xD;&#xA;&#xD;&#xA; *  The activity of another party&#xD;&#xA; *  The behavior of another party&#xD;&#xA; *  The manner in which an act is executed"/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1288,7 +1288,7 @@
   <concept>
     <code value="SUBST"/>
     <display value="Substitution"/>
-    <definition value="Definition: Indicates that the subject Act has undergone or should undergo substitution of a type indicated by Act.code.&#xD;&#xA;&#xD;&#xA;Rationale: Used to specify &quot;allowed&quot; substitution when creating orders, &quot;actual&quot; susbstitution when sending events, as well as the reason for the substitution and who was responsible for it."/>
+    <definition value="Definition: Indicates that the subject Act has undergone or should undergo substitution of a type indicated by Act.code.&#xD;&#xA;&#xD;&#xA;Rationale: Used to specify &quot;allowed&quot; substitution when creating orders, &quot;actual&quot; substitution when sending events, as well as the reason for the substitution and who was responsible for it."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1462,7 +1462,7 @@
   <concept>
     <code value="STC"/>
     <display value="state transition control"/>
-    <definition value="**Description:** Sender transmits a status change pertaining to the focal act of the payload. This status of the focal act is the final state of the state transition. This can be either a request or an event, according to the mood of the control act."/>
+    <definition value="Sender transmits a status change pertaining to the focal act of the payload. This status of the focal act is the final state of the state transition. This can be either a request or an event, according to the mood of the control act."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1759,7 +1759,7 @@
   <concept>
     <code value="AEXPOS"/>
     <display value="acquisition exposure"/>
-    <definition value="**Description:** &#xD;&#xA;&#xD;&#xA;An acquisition exposure act describes the proximity (location and time) through which the participating entity was potentially exposed to a physical (including energy), chemical or biological agent from another entity. The acquisition exposure act is used in conjunction with transmission exposure acts as part of an analysis technique for contact tracing. Although an exposure can be decomposed into transmission and acquisition exposures, there is no requirement that all exposures be treated in this fashion.&#xD;&#xA;&#xD;&#xA;**Constraints:** The Acquisition Exposure inherits the participation constraints that apply to Exposure with the following exception. The EXPSRC (exposure source) participation must never be associated with the Transmission Exposure either directly or via context conduction."/>
+    <definition value="An acquisition exposure act describes the proximity (location and time) through which the participating entity was potentially exposed to a physical (including energy), chemical or biological agent from another entity. The acquisition exposure act is used in conjunction with transmission exposure acts as part of an analysis technique for contact tracing. Although an exposure can be decomposed into transmission and acquisition exposures, there is no requirement that all exposures be treated in this fashion.&#xD;&#xA;&#xD;&#xA;**Constraints:** The Acquisition Exposure inherits the participation constraints that apply to Exposure with the following exception. The EXPSRC (exposure source) participation must never be associated with the Transmission Exposure either directly or via context conduction."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1780,7 +1780,7 @@
   <concept>
     <code value="TEXPOS"/>
     <display value="transmission exposure"/>
-    <definition value="**Description:** &#xD;&#xA;&#xD;&#xA;A transmission exposure act describes the proximity (time and location) over which the participating source entity was capable of transmitting a physical (including energy), chemical or biological substance agent to another entity. The transmission exposure act is used in conjunction with acquisition exposure acts as part of an analysis technique for contact tracing. Although an exposure can be decomposed into transmission and acquisition exposures, there is no requirement that all exposures be treated in this fashion.&#xD;&#xA;&#xD;&#xA;**Constraints:** The Transmission Exposure inherits the participation constraints that apply to Exposure with the following exception. The EXPTRGT (exposure target) participation must never be associated with the Transmission Exposure either directly or via context conduction."/>
+    <definition value="A transmission exposure act describes the proximity (time and location) over which the participating source entity was capable of transmitting a physical (including energy), chemical or biological substance agent to another entity. The transmission exposure act is used in conjunction with acquisition exposure acts as part of an analysis technique for contact tracing. Although an exposure can be decomposed into transmission and acquisition exposures, there is no requirement that all exposures be treated in this fashion.&#xD;&#xA;&#xD;&#xA;**Constraints:** The Transmission Exposure inherits the participation constraints that apply to Exposure with the following exception. The EXPTRGT (exposure target) participation must never be associated with the Transmission Exposure either directly or via context conduction."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1843,7 +1843,7 @@
   <concept>
     <code value="DETPOL"/>
     <display value="determinant peptide"/>
-    <definition value="**Description:**A determinant peptide in a polypeptide as described by polypeptide."/>
+    <definition value="A determinant peptide in a polypeptide as described by polypeptide."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1864,7 +1864,7 @@
   <concept>
     <code value="EXP"/>
     <display value="expression level"/>
-    <definition value="**Description:**An expression level of genes/proteins or other expressed genomic entities."/>
+    <definition value="An expression level of genes/proteins or other expressed genomic entities."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1885,7 +1885,7 @@
   <concept>
     <code value="LOC"/>
     <display value="locus"/>
-    <definition value="**Description:**The position of a gene (or other significant sequence) on the genome."/>
+    <definition value="The position of a gene (or other significant sequence) on the genome."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1906,7 +1906,7 @@
   <concept>
     <code value="PHN"/>
     <display value="phenotype"/>
-    <definition value="**Description:**A genomic phenomenon that is expressed externally in the organism."/>
+    <definition value="A genomic phenomenon that is expressed externally in the organism."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1927,7 +1927,7 @@
   <concept>
     <code value="POL"/>
     <display value="polypeptide"/>
-    <definition value="**Description:**A polypeptide resulting from the translation of a gene."/>
+    <definition value="A polypeptide resulting from the translation of a gene."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1948,7 +1948,7 @@
   <concept>
     <code value="SEQ"/>
     <display value="bio sequence"/>
-    <definition value="**Description:**A sequence of biomolecule like the DNA, RNA, protein and the like."/>
+    <definition value="A sequence of biomolecule like the DNA, RNA, protein and the like."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1969,7 +1969,7 @@
   <concept>
     <code value="SEQVAR"/>
     <display value="bio sequence variation"/>
-    <definition value="**Description:**A variation in a sequence as described by BioSequence."/>
+    <definition value="A variation in a sequence as described by BioSequence."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -1990,7 +1990,7 @@
   <concept>
     <code value="CLUSTER"/>
     <display value="Cluster"/>
-    <definition value="**Description:**An ACT that organizes a set of component acts into a semantic grouping that have a shared subject. The subject may be either a subject participation (SBJ), subject act relationship (SUBJ), or child participation/act relationship types.&#xD;&#xA;&#xD;&#xA;**Discussion:** The focus in a CLUSTER act is the grouping of the contained acts. For example &quot;a request to cluster&quot; (RQO), &quot;a type of cluster that is allowed to occur&quot; (DEF), etc.&#xD;&#xA;&#xD;&#xA;**Examples:** &#xD;&#xA;&#xD;&#xA; *  Radiologic investigations that might include administration of a dye, followed by radiographic observations;&#xD;&#xA; *  &quot;Isolate cluster&quot; which includes all testing and specimen processing performed on a specific isolate;&#xD;&#xA; *  a set of actions to perform at a particular stage in a clinical trial."/>
+    <definition value="An ACT that organizes a set of component acts into a semantic grouping that have a shared subject. The subject may be either a subject participation (SBJ), subject act relationship (SUBJ), or child participation/act relationship types.&#xD;&#xA;&#xD;&#xA;**Discussion:** The focus in a CLUSTER act is the grouping of the contained acts. For example &quot;a request to cluster&quot; (RQO), &quot;a type of cluster that is allowed to occur&quot; (DEF), etc.&#xD;&#xA;&#xD;&#xA;**Examples:** &#xD;&#xA;&#xD;&#xA; *  Radiologic investigations that might include administration of a dye, followed by radiographic observations;&#xD;&#xA; *  &quot;Isolate cluster&quot; which includes all testing and specimen processing performed on a specific isolate;&#xD;&#xA; *  a set of actions to perform at a particular stage in a clinical trial."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2061,7 +2061,7 @@
   <concept>
     <code value="ALRT"/>
     <display value="detected issue"/>
-    <definition value="An observation identifying a potential adverse outcome as a result of an Act or combination of Acts.&#xD;&#xA;&#xD;&#xA;*Examples:* Detection of a drug-drug interaction; Identification of a late-submission for an invoice; Requesting discharge for a patient who does not meet hospital-defined discharge criteria.&#xD;&#xA;&#xD;&#xA;*Discussion:* This class is commonly used for identifying &#39;business rule&#39; or &#39;process&#39; problems that may result in a refusal to carry out a particular request. In some circumstances it may be possible to &#39;bypass&#39; a problem by modifying the request to acknowledge the issue and/or by providing some form of mitigation.&#xD;&#xA;&#xD;&#xA;*Constraints:* the Act or Acts that may cause the the adverse outcome are the target of a subject ActRelationship. The subbtypes of this concept indicate the type of problem being detected (e.g. drug-drug interaction) while the Observation.value is used to repesent a specific problem code (e.g. specific drug-drug interaction id)."/>
+    <definition value="An observation identifying a potential adverse outcome as a result of an Act or combination of Acts.&#xD;&#xA;&#xD;&#xA;*Examples:* Detection of a drug-drug interaction; Identification of a late-submission for an invoice; Requesting discharge for a patient who does not meet hospital-defined discharge criteria.&#xD;&#xA;&#xD;&#xA;*Discussion:* This class is commonly used for identifying &#39;business rule&#39; or &#39;process&#39; problems that may result in a refusal to carry out a particular request. In some circumstances it may be possible to &#39;bypass&#39; a problem by modifying the request to acknowledge the issue and/or by providing some form of mitigation.&#xD;&#xA;&#xD;&#xA;*Constraints:* the Act or Acts that may cause the adverse outcome are the target of a subject ActRelationship. The subtypes of this concept indicate the type of problem being detected (e.g. drug-drug interaction) while the Observation.value is used to represent a specific problem code (e.g. specific drug-drug interaction id)."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2199,7 +2199,7 @@
   <concept>
     <code value="GEN"/>
     <display value="genomic observation"/>
-    <definition value="**Description:**An observation of genomic phenomena."/>
+    <definition value="An observation of genomic phenomena."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2375,7 +2375,7 @@
   <concept>
     <code value="JURISPOL"/>
     <display value="jurisdictional policy"/>
-    <definition value="**Description:**A mandate, regulation, obligation, requirement, rule, or expectation unilaterally imposed by a jurisdiction on:&#xD;&#xA;&#xD;&#xA; *  The activity of another party&#xD;&#xA; *  The behavior of another party&#xD;&#xA; *  The manner in which an act is executed&#xD;&#xA;&#xD;&#xA;**Examples:**A jurisdictional mandate regarding the prescribing and dispensing of a particular medication. A jurisdictional privacy or security regulation dictating the manner in which personal health information is disclosed. A jurisdictional requirement that certain services or health conditions are reported to a monitoring program, e.g., immunizations, methadone treatment, or cancer registries."/>
+    <definition value="A mandate, regulation, obligation, requirement, rule, or expectation unilaterally imposed by a jurisdiction on:&#xD;&#xA;&#xD;&#xA; *  The activity of another party&#xD;&#xA; *  The behavior of another party&#xD;&#xA; *  The manner in which an act is executed&#xD;&#xA;&#xD;&#xA;**Examples:**A jurisdictional mandate regarding the prescribing and dispensing of a particular medication. A jurisdictional privacy or security regulation dictating the manner in which personal health information is disclosed. A jurisdictional requirement that certain services or health conditions are reported to a monitoring program, e.g., immunizations, methadone treatment, or cancer registries."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2396,7 +2396,7 @@
   <concept>
     <code value="ORGPOL"/>
     <display value="organizational policy"/>
-    <definition value="**Description:**A mandate, obligation, requirement, rule, or expectation unilaterally imposed by an organization on:&#xD;&#xA;&#xD;&#xA; *  The activity of another party&#xD;&#xA; *  The behavior of another party&#xD;&#xA; *  The manner in which an act is executed&#xD;&#xA;&#xD;&#xA;**Examples:**A clinical or research protocols imposed by a payer, a malpractice insurer, or an institution to which a provider must adhere. A mandate imposed by a denominational institution for a provider to provide or withhold certain information from the patient about treatment options."/>
+    <definition value="A mandate, obligation, requirement, rule, or expectation unilaterally imposed by an organization on:&#xD;&#xA;&#xD;&#xA; *  The activity of another party&#xD;&#xA; *  The behavior of another party&#xD;&#xA; *  The manner in which an act is executed&#xD;&#xA;&#xD;&#xA;**Examples:**A clinical or research protocols imposed by a payer, a malpractice insurer, or an institution to which a provider must adhere. A mandate imposed by a denominational institution for a provider to provide or withhold certain information from the patient about treatment options."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2417,7 +2417,7 @@
   <concept>
     <code value="SCOPOL"/>
     <display value="scope of practice policy"/>
-    <definition value="**Description:**An ethical or clinical obligation, requirement, rule, or expectation imposed or strongly encouraged by organizations that oversee particular clinical domains or provider certification which define the boundaries within which a provider may practice and which may have legal basis or ramifications on:&#xD;&#xA;&#xD;&#xA; *  The activity of another party&#xD;&#xA; *  The behavior of another party&#xD;&#xA; *  The manner in which an act is executed&#xD;&#xA;&#xD;&#xA;**Examples:**An ethical obligation for a provider to fully inform a patient about all treatment options. An ethical obligation for a provider not to disclose personal health information that meets certain criteria, e.g., where disclosure might result in harm to the patient or another person. The set of health care services which a provider is credentialed or privileged to provide."/>
+    <definition value="An ethical or clinical obligation, requirement, rule, or expectation imposed or strongly encouraged by organizations that oversee particular clinical domains or provider certification which define the boundaries within which a provider may practice and which may have legal basis or ramifications on:&#xD;&#xA;&#xD;&#xA; *  The activity of another party&#xD;&#xA; *  The behavior of another party&#xD;&#xA; *  The manner in which an act is executed&#xD;&#xA;&#xD;&#xA;**Examples:**An ethical obligation for a provider to fully inform a patient about all treatment options. An ethical obligation for a provider not to disclose personal health information that meets certain criteria, e.g., where disclosure might result in harm to the patient or another person. The set of health care services which a provider is credentialed or privileged to provide."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2438,7 +2438,7 @@
   <concept>
     <code value="STDPOL"/>
     <display value="standard of practice policy"/>
-    <definition value="**Description:**A requirement, rule, or expectation typically documented as guidelines, protocols, or formularies imposed or strongly encouraged by an organization that oversees or has authority over the practices within a domain, and which may have legal basis or ramifications on:&#xD;&#xA;&#xD;&#xA; *  The activity of another party&#xD;&#xA; *  The behavior of another party&#xD;&#xA; *  The manner in which an act is executed&#xD;&#xA;&#xD;&#xA;**Examples:**A payer may require a prescribing provider to adhere to formulary guidelines. An institution may adopt clinical guidelines and protocols and implement these within its electronic health record and decision support systems."/>
+    <definition value="A requirement, rule, or expectation typically documented as guidelines, protocols, or formularies imposed or strongly encouraged by an organization that oversees or has authority over the practices within a domain, and which may have legal basis or ramifications on:&#xD;&#xA;&#xD;&#xA; *  The activity of another party&#xD;&#xA; *  The behavior of another party&#xD;&#xA; *  The manner in which an act is executed&#xD;&#xA;&#xD;&#xA;**Examples:**A payer may require a prescribing provider to adhere to formulary guidelines. An institution may adopt clinical guidelines and protocols and implement these within its electronic health record and decision support systems."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2459,7 +2459,7 @@
   <concept>
     <code value="POSACC"/>
     <display value="position accuracy"/>
-    <definition value="**Description:**An observation representing the degree to which the assignment of the spatial coordinates, based on a matching algorithm by a geocoding engine against a reference spatial database, matches true or accepted values."/>
+    <definition value="An observation representing the degree to which the assignment of the spatial coordinates, based on a matching algorithm by a geocoding engine against a reference spatial database, matches true or accepted values."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2480,7 +2480,7 @@
   <concept>
     <code value="POSCOORD"/>
     <display value="position coordinate"/>
-    <definition value="**Description:**An observation representing one of a set of numerical values used to determine the position of a place. The name of the coordinate value is determined by the reference coordinate system."/>
+    <definition value="An observation representing one of a set of numerical values used to determine the position of a place. The name of the coordinate value is determined by the reference coordinate system."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
@@ -2522,7 +2522,7 @@
   <concept>
     <code value="SBEXT"/>
     <display value="Substance Extraction"/>
-    <definition value="**Description:** The act of removing a substance from the subject."/>
+    <definition value="The act of removing a substance from the subject."/>
     <property>
       <code value="status"/>
       <valueCode value="active"/>
