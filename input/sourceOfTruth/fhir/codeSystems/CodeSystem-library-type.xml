@@ -10,19 +10,19 @@
  
  
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="4"/>
   </extension>
   <url value="http://terminology.hl7.org/CodeSystem/library-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1230"/>
   </identifier>
-  <version value="1.0.1"/>
+  <version value="2.0.0"/>
   <name value="LibraryType"/>
-  <title value="LibraryType"/>
+  <title value="Library Type"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2024-04-24T00:00:00+00:00"/>
+  <date value="2026-09-28T00:00:00+00:00"/>
   <publisher value="Health Level Seven International"/>
   
   <contact>
@@ -43,21 +43,21 @@
   <concept>
     <code value="logic-library"/>
     <display value="Logic Library"/>
-    <definition value="The resource is a shareable library of formalized knowledge."/>
+    <definition value="The library contains computable logic, typically in a formal representation such as a CQL library or Java package. The content may also be made available in multiple representations, such as the source and compiled representations (CQL and ELM, or Java source and Java bytecode)."/>
   </concept>
   <concept>
     <code value="model-definition"/>
     <display value="Model Definition"/>
-    <definition value="The resource is a definition of an information model."/>
+    <definition value="The library contains the machine-readable definition of an information model, typically in the form of a CQL Model Info or FHIR StructureDefinition resources."/>
   </concept>
   <concept>
     <code value="asset-collection"/>
     <display value="Asset Collection"/>
-    <definition value="The resource is a collection of knowledge assets."/>
+    <definition value="The library is a collection of knowledge artifacts, each of which is identified with a composed-of relatedArtifact entry. The components of the collection may or may not be managed together."/>
   </concept>
   <concept>
     <code value="module-definition"/>
     <display value="Module Definition"/>
-    <definition value="The resource defines the dependencies, parameters, and data requirements for a particular module or evaluation context."/>
+    <definition value="The library is a description of the dependencies, parameters, and data requirements for a particular module or evaluation context. This type of library is used to represent the result of a data requirements operation, for example."/>
   </concept>
 </CodeSystem>
