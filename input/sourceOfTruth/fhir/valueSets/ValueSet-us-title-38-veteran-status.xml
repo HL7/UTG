@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="us-title-38-veteran-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/artifact-usage">
+    <valueMarkdown="This terminology should be used to capture the response of the VA's Veteran Confirmation API, typically as a Coding- or CodeableConcept-valued extension on a Patient, or potentially as part of a specific Observation if additional details such as time of API call, or provenance of the information need to be represented. It is critical that the information be treated as an indicator, with `confirmed` and `not-confirmed` values, rather than as a boolean-valued flag, due to the potential for mis-interpretation of a yes/no flag. In addition, representation that a system is capable of exchanging the information but does not know it for a particular patient should be represented with a data-absent-reason extension and a code of `unknown`."/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/us-title-38-veteran-status"/>
+  <version value="1.0.0"/>
+  <name value="USTitle38VeteranStatus"/>
+  <title value="US Title 38 Veteran Status"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2026-09-28T00:00:00+00:00"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="hq@HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Codes that identify veteran status as `confirmed` or `not confirmed`. Confirming a Veteran's status can be useful for determining eligibility for discounts, services, preferential treatment, and certain jobs or education programs.&#10;&#10;A Veteran is a person who served in the active military, naval, air, or space service, and who was discharged or released under conditions other than dishonorable. Active duty service history in the Reserves and National Guard is considered active military service. Basic eligibility for VA benefits depends on the type of military service performed, the duration of the service, and the character of discharge or separation.&#10;&#10;A status of `not confirmed` does not necessarily mean that a person is not a Veteran. A person may have served without being entitled to the VA benefits of a Title 38 Veteran, or more research may be required to determine their status."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </jurisdiction>
+  <immutable value="true"/>
+  <purpose value="This terminology is defined to align with and support modeling the response of the VA's [Veteran Confirmation API](https://developer.va.gov/explore/api/veteran-confirmation/docs?version=current). Note that there are relevant standard terminologies for representing veteran status identified in the [Representing Veteran Status](https://isp.healthit.gov/representing-veteran-status?utm_source) topic of the ONC's Interoperability Standards Advisory, but these all represent self-attested veteran status, as opposed to explicitly representing the US Title 38 Veteran Status as determined by the VA's Veteran Confirmation API."/>
+  <copyright value="This material derives from the HL7 Terminology THO. THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license.html"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/us-title-38-veteran-status-codes"/>
+    </include>
+  </compose>
+</ValueSet>
