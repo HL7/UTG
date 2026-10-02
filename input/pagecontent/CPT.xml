@@ -1,5 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/r5/fhir-single.xsd">
-<p>This page describes how to use CPT with HL7 Standards.</p>
+<p>This page describes how to use CPT with HL7 Standards and has been jointly developed by HL7 and the American Medical Association.</p>
 
 <a name="Using CPT with FHIR R5"> </a>
 <h3>Using CPT with FHIR R5</h3>
@@ -8,83 +8,187 @@
 <a name="Summary"> </a>
 <h4>Summary</h4>
 <table class="grid">
- <tr><td>Source</td><td>CPT is made managed by the <a href="http://www.ama-assn.org/ama">American Medical Association</a></td></tr>
- <tr><td>System</td><td>The URI <a href="http://www.ama-assn.org/go/cpt">http://www.ama-assn.org/go/cpt</a> identifies the CPT code system</td></tr>
- <tr><td>Version</td><td>Where a version is appropriate, use the year of release e.g. 2014</td></tr>
- <tr><td>Code</td><td>"Code" in the CPT tables (a 5-character code), a modifier code (2 characters), or an expression with modifiers (see below)</td></tr>
- <tr><td>Display</td><td>The correct display for a CPT code is one of the descriptions associated with the code. 
- There are multiple description options that vary by length and target audience, including: long descriptions, medium descriptions, short descriptions, consumer friendly descriptors and clinician descriptors.
- The long mixed-case description is the preferred general purpose display as the others are not fully descriptive. There is no
- defined display for CPT expressions</td></tr>
- <tr><td>Inactive</td><td>For CPT Link ontology licensees, inactive codes are listed in the History folder in the “Deleted_DTK_pipe” and “Deleted_DTK_tab” files.<br/>For CPT flat file licensees, codes that exist in the flat file are active and codes that are not present are inactive. Deletions/changes between the previous release year and current release year are displayed in the “Appendix B” PDF.</td></tr>
- <tr><td>Subsumption</td><td>No Subsumption relationships are defined by CPT</td></tr>
- <tr><td>Filter Properties</td><td>There are several defined - see below</td></tr>
+ <tr><td>Source</td><td><a href="https://www.ama-assn.org/practice-management/cpt">The Current Procedural Terminology (CPT®)</a> code set is created, maintained and copyrighted by the <a href="http://www.ama-assn.org/ama">American Medical Association (AMA)</a>. CPT codes provide a uniform language for coding medical services and procedures.</td></tr>
+ <tr><td>System</td><td>The URI <code>http://www.ama-assn.org/go/cpt</code> identifies the CPT code set.</td></tr>
+ <tr><td>Version</td>
+ <td>
+ The CPT code set is updated and published annually. CPT releases are identified by the year of their intended use e.g., CPT 2026. The CPT code set is periodically updated throughout the year on a set schedule and the update schedule is depicted in the <a href="https://platform.ama-assn.org/ama/#/documents/cpt/cpt-sheet">CPT® Standard Data Product sheet</a>.<br/>
+ To specify only the version year, use:
+ <ul>
+ <li><code>YYYY</code> (for the Annual release)</li>
+ </ul>
+ To specify a version of an update within a year, use:
+ <ul>
+ <li><code>YYYY-1</code> (for Update 1)</li>
+ <li><code>YYYY-2</code> (for Update 2)</li>
+ <li><code>YYYY-3</code> (for Update 3)</li>
+ <li><code>YYYY-4</code> (for Update 4)</li>
+ </ul>
+ </td></tr>
+ <tr><td>Code</td>
+ <td>
+Valid CPT codes and expressions for the <code>code</code> element when <code>system</code> is <code>http://www.ama-assn.org/go/cpt</code> include:
+<ul>
+<li>A 5-character numeric or alphanumeric CPT code</li>
+<li>A 2-character numeric or alphanumeric CPT modifier code</li>
+<li>An expression that includes a 5-character CPT code AND ends with one or more other codes (e.g., another 5-character CPT code and/or a 2-character CPT or a HCPCS Level II modifier code(s))</li>
+</ul>
+For additional information, see the <a href="#more_about_code">More about `code’ for CPT Codes and Expressions</a> subsection below. 
+</td></tr>
+ <tr><td>Display</td>
+ <td>
+ <ul>
+ <li>For a 5-character CPT code - If used, the correct display is one of the descriptors published in the CPT® Standard Data File. CPT descriptors differ in length and target audience, and there are six distinct types, including: long descriptors, medium descriptors, short descriptors, consumer-friendly descriptors in English, consumer-friendly descriptors in Spanish, and clinician descriptors. The CPT Long Descriptor is the descriptor that is officially approved by the CPT Editorial Panel when the code is created or revised and is the most detailed. It is the preferred descriptor type for general-purpose display. Other CPT descriptors may be more appropriate depending on the use case.</li>
+ <li>For a 2-character modifier code - If used, the correct display is the “Modifier Name” published in the CPT® Standard Data File.</li>
+ <li>For an expression code - the CPT code set does not define display terms for expressions. For guidance on the display element for expressions, see the <a href="#more_about_code">More about `code’ for CPT Codes and Expressions</a> subsection below.</li>
+ </ul>
+ </td></tr>
+ <tr><td>Inactive</td>
+ <td>Inactive codes are identified using the <code>inactive</code> property (see <a href="#cpt_concept_properties">CPT Concept Properties</a>, below). The CPT® Editorial Panel has the authority to approve CPT content changes (such as new, revised and/or deleted codes). An overview of the CPT code change and application process is available at <a href="https://www.ama-assn.org/about/cpt-editorial-panel/cpt-code-process">https://www.ama-assn.org/about/cpt-editorial-panel/cpt-code-process</a>.
+ </td></tr>
+ <tr><td>Subsumption</td>
+ <td>As of 2025, subsumption relationships are not included in the CPT® Standard Data File. For additional information about CPT see: <a href="http://www.ama-assn.org/cpt">http://www.ama-assn.org/cpt</a>.</td></tr>
+ <tr><td>Filter Properties</td>
+ <td>For filter properties, see <a href="#cpt_filter_properties">CPT Filter Properties</a> below.</td></tr>
 </table>
 
-<!-- Version Issues -->
-<a name="Version Issues"> </a>
-<h4>Version Issues</h4>
-<p>A new code-year of CPT is released by the end of August each year for use the subsequent calendar year. CPT versions are identified by the year of their intended use e.g. <code>2020</code>. For example, the CPT 2020 codes are released at the end of August 2019 and intended for use during the 2020 calendar year.</p>
+<!-- Copyright and Licenses -->
+<a name="Copyright and Licenses"> </a>
+<h4>Copyright and Licenses</h4>
+<p>The AMA holds the copyright in the Current Procedural Terminology (CPT) code set/coding system, and a license is required for use. CPT® is a registered trademark of the American Medical Association.</p>
+<p>When using CPT codes in FHIR artifacts such as Implementation Guides (IGs) and Value Sets (e.g., the copyright element of any value set that includes CPT codes and the IP section of any IG), SHALL include the following text with the copyright year (YYYY) adjusted to reflect the release year(s): <code>This material contains content from CPT® Copyright YYYY American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.</code></p>
+<p>Either the <code>ValueSet.copyright</code> or <code>ValueSet.compose.include.copyright</code> HL7 FHIR copyright elements can acceptably assert the CPT copyright statement.</p>
+<p>CPT licensing information is available at <a href="https://www.ama-assn.org/practice-management/cpt/ama-cpt-licensing-overview">https://www.ama-assn.org/practice-management/cpt/ama-cpt-licensing-overview</a>.</p>
+<p>Information about HL7 International's non-production CPT license for specific HL7 uses is available at under HL7 Policy Governing the Use of HL7® International Standards and Other Intellectual Property on the IP Policy web page (<a href="https://www.hl7.org/legal/ippolicy.cfm">https://www.hl7.org/legal/ippolicy.cfm</a>).</p>
 
-<!-- Example Usage -->
-<a name="Example Usage"> </a>
-<h4>Example Usage</h4>
+<!-- Versions -->
+<a name="Versions"> </a>
+<h4>Versions</h4>
+<p>CPT annual releases are identified by the year of their intended use. Each September, an updated CPT code set is released for use in the subsequent calendar year. For example, the 2026 CPT Standard Data File (for use in 2026) is released in September 2025.</p>
+
+<!-- Usage Example-->
+<a name="Usage Example"> </a>
+<h4>Usage Example</h4>
 <pre class="xml" fragment="Coding">
   &lt;coding&gt;
     &lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
-    &lt;version value=&quot;2023&quot;/&gt;
+    &lt;version value=&quot;2025&quot;/&gt;
     &lt;code value=&quot;31502&quot;/&gt;
     &lt;display value=&quot;Tracheotomy tube change prior to establishment of fistula tract&quot;/&gt;
   &lt;/coding&gt;
 </pre>
 
-<!-- Copyright/License Issues -->
-<a name="CopyrightLicenseIssues"> </a>
-<h4>Copyright/License Issues</h4>
-<p>CPT is a registered trademark of the American Medical Association. The AMA holds the copyright for the CPT coding system and a license is required for use.</p>
-<p>When Value Sets include CPT codes, the <code>ValueSet.compose.include.copyright</code> element should have the text 
-"CPT © Copyright 2023 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.". 
-The year in the copyright element should be adjusted to reflect the release year(s) being used.</p>
+<!-- More about `code' for CPT Codes and Expressions -->
+<a name="more_about_code"> </a>
+<h4>More about `code' for CPT Codes and Expressions</h4>
+This section provides additional detail about ‘code’ for CPT codes and expressions.
+<ul>
+<li>Case Sensitivity</li>
+<li><ul>
+    <li>The alphabetic characters in Category II, Category III, Proprietary Laboratory Analyses (PLA), and Administrative Multianalyte Assays with Algorithmic Analyses (Administrative MAAA) codes are represented by specific letters that shall be capitalized (i.e., 'F' for Category II, 'T' for Category III, ‘U’ for PLA, ‘M’ for Administrative MAAA).</li>
+    <li>For electronic transactions (such as HIPAA-mandated billing), codes shall be submitted as they are defined by the AMA in the CPT Code Set, which consistently uses upper case for alphabetic components.</li>
+    <li>The official alphabetic characters in modifiers are represented by specific letters that shall be reported in all uppercase letters.</li>
+    </ul>
+</li>
+<li>When <code>system</code> is <code>http://www.ama-assn.org/go/cpt</code>, CPT codes and expressions that are valid for the code element include: A 5-character numeric or alphanumeric CPT code, which can be:</li>
+<li><ul>
+    <li>A 5-character numeric Category I code - These codes represent a procedure or service. The Regex for these codes is: [0-9]{5} (e.g., 99202).</li>
+    <li>A 5-character alphanumeric Category II code - These tracking codes are supplemental codes used for performance measurement. These codes all end in F. The Regex for these codes is: [0-9]{4}F (e.g., 0001F).</li>
+    <li>A 5-character alphanumeric Category III code - These are temporary codes for new and developing technology, procedures and services. These codes all end in T. The Regex for these codes is: [0-9]{4}T (e.g., 0042T).</li>
+    <li>A 5-character alphanumeric Proprietary Laboratory Analyses (PLA) code - These codes describe proprietary clinical laboratory analyses. These codes all end in U. The Regex for these codes is: [0-9]{4}U (e.g., 0001U).</li>
+    <li>A 5-character alphanumeric Administrative Multianalyte Assays with Algorithmic Analyses (Administrative MAAA) code – These are MAAA codes used for multianalyte assays with algorithmic analyses that are not yet widely established or are specific to a particular laboratory or manufacturer. Unlike other MAAA codes, Administrative MAAA codes are not Category I codes. These codes all end in M. The Regex for these codes is: [0-9]{4}M (e.g., 0002M).</li>
+    </ul>
+</li>
+<li>A 2-character numeric or alphanumeric CPT modifier code – A modifier code indicates that a service or procedure performed has been altered by some specific circumstance but not changed in its definition or code. Modifiers provide additional information about 5-character CPT codes, and can be:</li>
+<li><ul>
+    <li>A 2-character numeric modifier code - for use with Category I and Category III CPT codes.</li>
+    <li>A 2-character numeric modifier code approved for Ambulatory Surgery Center (ASC) hospital outpatient use - for use with a subset of Category I or Category III codes.</li>
+    <li>A 2-character alphanumeric Anesthesia Physical Status modifier code - for use with Category I anesthesia services codes.</li>
+    <li>A 2-character alphanumeric Category II modifier code - for use with Category II CPT codes</li>
+    <li>A 2-character alphabetic or alphanumeric HCPCS Level II (National) modifier code - for use with Category I and Category III CPT codes.</li>
+    </ul>
+</li>
+<li><i>Note: Healthcare Common Procedure Coding System (HCPCS) Level I is comprised of CPT codes and CPT modifiers. HCPCS Level II codes and modifiers identify products, supplies, and services not included in the CPT code set. HCPCS Level II codes, modifiers, and coding guidelines are developed and maintained by the <a href="https://www.cms.gov/medicare/coding-billing/healthcare-common-procedure-system">Centers for Medicare &amp; Medicaid Services (CMS)</a>.</i></li>
+<li>An expression that includes a 5-character CPT code AND one or more other codes (e.g., another 5-character CPT code(s) and/or a 2-character CPT or HCPCS Level II modifier code(s)) –Additional guidance for expressions in FHIR:</li>
+<li><ul>
+    <li>2-character modifier code(s) should follow the 5-character CPT code that they modify.</li>
+    <li>Codes included in an expression <code>code</code> SHALL be separated from preceding code(s) by a <code>:</code> character. Other separator characters, notably <code>-</code> (e.g., <code>00100-P1</code>) and <code>..</code>, which may be used in other contexts (e.g., AMA documentation), are not conformant for <code>code</code> and must be replaced by <code>:</code>.</li>
+    <li>A specific order for CPT 5-character codes and/or modifier codes may be appropriate depending on the specific use case or context.</li>
+    </ul>
+</li>
+</ul>
 
-<p>
-Note that due to the copyright and licensing rules around CPT, HL7 does not distribute a 
-pre-built CodeSystem for CPT. If implementers would find a CPT code system useful, they 
-may build one using the HL7 Java validator. See <a href="http://confluence/link/to/provide">HL7 Confluence</a> for details.
-</p>
-
-<p>
-With regard to version, the copyright phrase above SHOULD be included in the <code>ValueSet.copyright</code> 
-statement for any value set that includes CPT codes.
-</p>   
-
-<a name="ModifierSyntax"> </a>
-<h4>Modifier Syntax</h4>
-<p>
-CPT defines a series of 2 letter modifier codes that provide additional information about the main CPT code.
-Some contexts of use of CPT codes separate the base code and the modifier codes into separate fields (e.g. claiming)
-while other contexts of use expect that the modifiers will be combined with the main code (e.g. Procedure.code).
-When the modifiers are combined in a single field, modifiers are appended to the main code in any order using 
-<code>:</code> as a separater (per established X12 usage):
-</p>
+<!-- CPT Expression Example -->
+<a name="CPT Expression Example"> </a>
+<h4>CPT Expression Example</h4>
+Note: No <code>display</code> is provided in this example. See below for guidance on <code>display</code> for expressions.
 <pre class="xml" fragment="Coding">
   &lt;coding&gt;
     &lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
-    &lt;version value=&quot;2023&quot;/&gt;
-    &lt;code value=&quot;21899:63&quot;/&gt;
+    &lt;code value=&quot;23040:52:LT&quot;/&gt;
   &lt;/coding&gt;
 </pre>
-<p>
-Notes:
-</p>
+
+<!-- More about `display' for CPT Codes and Expressions -->
+<a name="more_about_display"> </a>
+<h4>More about `display' for CPT Codes and Expressions</h4>
+<p>The CPT code set does not define human-readable terms for expressions. When <code>system</code> is <code>http://www.ama-assn.org/go/cpt</code>, suggested guidance for <code>display</code> terms for an expression <code>code</code> includes:</p>
 <ul>
- <li>Tthe combination of base code and modifiers must be done according to the rules defined in the CPT documentation</li>
- <li>Other separator characters are used in other contexts, including in the AMA documenation, notably <code>-</code> and <code>.</code>.
-  Expressions using these separators are not conformant, and the separators must be replaced by <code>:</code></li>
+<li>For 5-character CPT codes in an expression - The CPT Long Descriptor is officially approved by the CPT Editorial Panel when the code is created or revised and is the most detailed.</li>
+<li>For 2-character modifier codes in an expression - Use the “Modifier Name” for CPT modifiers referenced in the CPT® Standard Data File.  For more information see “Using HCPCS with FHIR”.</li>
+<li>Descriptors and/or Modifier Names SHALL be separated using a <code>|</code> (with a space before and after each pipe character).</li>
+<li>Display term order should adhere to the order of the codes in the expression <code>code</code>.</li>
 </ul>
+
+
+<!-- Examples of 'code' and 'display' for CPT expressions -->
+<a name="examples_of_code_and_display"> </a>
+<h4>Examples of 'code' and 'display' for CPT expressions</h4>
+<table class="grid">
+  <thead>
+  <tr>
+    <th>'code'</th>
+    <th>'display'</th>
+    <th>Explanation of Example</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>29888:LT</td>
+    <td>Arthroscopically aided anterior cruciate ligament repair/ augmentation or reconstruction | Left side (used to identify procedures performed on the left side of the body)</td>
+    <td>A CPT Category I code and a HCPCS Level II modifier</td>
+  </tr>
+  <tr>
+    <td>45380:52</td>
+    <td>Colonoscopy, flexible; with biopsy, single or multiple | Reduced Services</td>
+    <td>A CPT Category I code and a CPT modifier</td>
+  </tr>
+  <tr>
+    <td>23040:52:LT</td>
+    <td>Arthrotomy, glenohumeral joint, including exploration, drainage, or removal of foreign body | Reduced Services | Left side (used to identify procedures performed on the left side of the body)</td>
+    <td>A CPT Category I code and two modifiers (CPT and HCPCS Level II)</td>
+  </tr>
+  <tr>
+    <td>99358:99359</td>
+    <td>Prolonged evaluation and management service before and/or after direct patient care; first hour | Prolonged evaluation and management service before and/or after direct patient care; each additional 30 minutes (List separately in addition to code for prolonged service)</td>
+    <td>A CPT Category I code and a CPT Category I Add-On code</td>
+  </tr>
+  <tr>
+    <td>45378:43200:51</td>
+    <td>Colonoscopy, flexible; diagnostic, including collection of specimen(s) by brushing or washing, when performed (separate procedure) | Esophagoscopy, flexible, transoral; diagnostic, including collection of specimen(s) by brushing or washing, when performed (separate procedure) | Multiple Procedures</td>
+    <td>Two CPT Category I codes and a CPT modifier for the second Category I code (Note: Neither CPT code is an Add-On code)</td>
+  </tr>
+  <tr>
+    <td>22864:0095T</td>
+    <td>Removal of total disc arthroplasty (artificial disc), anterior approach, single interspace; cervical | Removal of total disc arthroplasty (artificial disc), anterior approach, each additional interspace, cervical (List separately in addition to code for primary procedure)</td>
+    <td>A CPT Category I code and a CPT Category III Add-On code</td>
+  </tr>
+  </tbody>
+</table>
 
 <a name="CPTConceptProperties"> </a>
 <h4>CPT Concept Properties</h4>
-<p>This specification defines three properties that all CPT concepts have:</p>
+<p>The following properties are defined as code system properties when using the CPT code set in FHIR:</p>
 <table class="grid">
   <tr>
     <th>Name</th>
@@ -93,50 +197,51 @@ Notes:
     <th>Description</th>
   </tr>
   <tr>
-    <td>modifier</td>
-    <td>1..1</td>
-    <td>boolean</td>
-    <td>True if the code is a 2 letter modifer code, and false otherwise. This property 
-     is defined to make it easy to define modifier only value sets (see value sets below)</td>
-  </tr>
-  <tr>
-    <td>modified</td>
-    <td>1..1</td>
-    <td>boolean</td>
-    <td>Whether the code is an expression - i.e. whether it includes modifiers using the modifier syntax described above.
-    All of the base codes defined in the CPT distribution have modified = false. This fairly trivial property is 
-    defined so it can be used in the filters below</td>
-  </tr>
-  <tr>
     <td>kind</td>
-    <td>0..*</td>
+    <td>1..1</td>
     <td>code</td>
     <td>
-     The kind of CPT code. The values may be one of:
+     Distinguishes the specific type/category the code belongs to. The value may be one of::
      <ul>
-      <li><code>code</code>: A base CPT code</li>
-      <li><code>cat-1</code>: CPT Level I Modifiers</li>
-      <li><code>cat-2</code>: A Category II code or modifier</li>
-      <li><code>physical-status</code>: Anesthesia Physical Status Modifiers</li>
-      <li><code>general</code>: A general modifier</li>
-      <li><code>hcpcs</code>: Level II (HCPCS/National) Modifiers</li>
-      <li><code>metadata</code>: A kind of code or designation</li>
+      <li><code>cat-I</code>: A 5-character Category I code</li>
+      <li><code>cat-II</code>: A 5-character Category II code</li>
+      <li><code>cat-III</code>: A 5-character Category III code</li>
+      <li><code>pla</code>: A 5-character Proprietary Laboratory Analyses (PLA) code</li>
+      <li><code>amaaa</code>: A 5-character Administrative Multianalyte Assays with Algorithmic Analyses (MAAA) code</li>
+      <li><code>mod</code>: A 2-character CPT modifier code (does not include HCPCS Level II modifiers)</li>
+      <li><code>expression</code>: a code as defined in the table in 6.1.1.1 Summary</li>
      </ul>
-     All predefined concepts have a type. Concepts defined by an expression do not have a kind.
-     Note that some concepts have more than one kind: some general modifiers are cat-1 modifiers, but not all are, and orthopox codes are also normal CPT codes.
     </td>
   </tr>
   <tr>
-    <td>orthopox</td>
+    <td>mod-cat-I-and-III</td>
     <td>0..1</td>
     <td>boolean</td>
-    <td>Whether code is one of the Pathology and Laboratory and Immunization Code(s) for Orthopoxvirus. This code might be used in some value set filters</td>
+    <td>True if the code is a 2-character CPT modifier code for use with Category I and Category III CPT codes (does not include HCPCS Level II modifiers)</td>
   </tr>
   <tr>
-    <td>telemedicine</td>
+    <td>mod-cat-II</td>
     <td>0..1</td>
     <td>boolean</td>
-    <td>Whether code is one of the Pathology and Laboratory and Immunization Code(s) for telemedicine. This code might be used in some value set filters, and is defined for use internally by terminology servers when validating expressions for modifier 95</td>
+    <td>True if the code is a 2-character CPT modifier code for use with Category II CPT codes</td>
+  </tr>
+  <tr>
+    <td>mod-aps</td>
+    <td>0..1</td>
+    <td>boolean</td>
+    <td>True if the code is a 2-character CPT Anesthesia Physical Status modifier code for use with CPT anesthesia codes</td>
+  </tr>
+  <tr>
+    <td>mod-hou</td>
+    <td>0..1</td>
+    <td>boolean</td>
+    <td>True if the code is a 2-character CPT modifier code approved for hospital outpatient use</td>
+  </tr>
+  <tr>
+    <td>inactive</td>
+    <td>0..1</td>
+    <td>boolean</td>
+    <td>True if the predefined CPT code has been identified by the CPT Editorial Panel as no longer intended for use, or if an expression code contains any inactive component code(s).</td>
   </tr>
 </table>
 
@@ -152,28 +257,41 @@ Notes:
     <th>Description</th>
   </tr>
   <tr>
-    <td>modifier</td>
-    <td>=</td>
-    <td>true or false</td>
-    <td>Whether the code is a modifier or not (based on the modifier property). Typically, 
-    a value set would use <code>modifier=false</code> to specify base codes only, for example 
-    in <code>Claim.item.detail.productOrService</code>, while <code>modifier=true</code> woudl be used 
-    to specify modifier codes, for example in <code>Claim.item.detail.modifier</code> </td>
-  </tr>
-  <tr>
     <td>kind</td>
     <td>=/in</td>
     <td>a kind from the list above, or a comma seperated list of kinds</td>
-    <td>Select a kind of code from the list above</td>
+    <td>
+    <p>Select one or more kinds of code (i.e., cat-I, cat-II: cat-I, cat-II, cat-III, pla, amaaa, mod, expression)</p>
+    <p>For example:</p>
+    <ul>
+    <li>A value set of 5-character CPT codes and expression codes would specify include: kind not-in mod.</li>
+    <li>A value set of CPT modifier codes would specify include: kind = mod.</li>
+    </ul>
+    </td>
   </tr>
   <tr>
-    <td>modified</td>
+    <td>mod-cat-I-and-III</td>
     <td>=</td>
     <td>true or false</td>
-    <td>Whether an expression is allowed or not. A typical use of this would be with <code>Procedure.code</code>,
-      a value set would specify two includes: <code>kind in code,cat-2</code> and <code>modified=true</code>, to indicate
-      that CPT codes might be a base CPT code or an expression.  
-    </td>
+    <td>Whether the code is a 2-character CPT modifier code for use with Category I and Category III CPT codes or not.</td>
+  </tr>
+  <tr>
+    <td>mod-cat-II</td>
+    <td>=</td>
+    <td>true or false</td>
+    <td>Whether the code is a 2-character CPT modifier code for use with Category II CPT codes or not.</td>
+  </tr>
+  <tr>
+    <td>mod-aps</td>
+    <td>=</td>
+    <td>true or false</td>
+    <td>Whether the code is a 2-character CPT Anesthesia Physical Status modifier code for use with CPT anesthesia codes or not.</td>
+  </tr>
+  <tr>
+    <td>mod-hou</td>
+    <td>=</td>
+    <td>true or false</td>
+    <td>Whether the code is a 2-character CPT modifier code approved for ambulatory surgery center (ASC) hospital outpatient use or not.</td>
   </tr>
   <tr>
     <td>code</td>
@@ -181,140 +299,23 @@ Notes:
     <td>a series of ranges seperated by commas</td>
     <td>Ranges may be a single code, or a range of codes e.g. <code>20100-69990, 92920, 92926-92928</code></td>
   </tr>
-  <tr>
-    <td>telemedicine</td>
-    <td>=</td>
-    <td>true or false</td>
-    <td>Select or unselect codes that are appropriate for use with the telemedicine modifier 95</td>
-  </tr>
-  <tr>
-    <td>orthopox</td>
-    <td>=</td>
-    <td>true or false</td>
-    <td>Select or unselect codes that are marked as orthopox codes</td>
-  </tr>
-  
 </table>  
 
 <!-- CPT Implicit Value Sets -->
 <a name="CPTImplicitValueSets"> </a>
 <h4>CPT Implicit Value Sets</h4>
+<p>There are no implicit value sets defined for CPT at this time.</p>
 
-<p>There are no general implicit value set formula defined for CPT, 
-but there are four predefined value sets that implementers may find 
-generally useful:
-</p>
-
-<table class="grid">
- <tr>
-  <th>url</th>
-  <th>Compose</th>
- </tr>
-
- <tr>
-  <td>
-  <code>http://hl7.org/fhir/ValueSet/cpt-all</code>:<br/>
-  a value set that includes all CPT codes (including base codes, modifiers and internal metadata)
-  </td>
-  <td>
-<pre>
-"compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "copyright" : "CPT © Copyright 2023 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association."
-    }]
-  }
-</pre>
-<br/>
-Note that the include level copyright is an R5 feature. IN previous versions of FHIR, the copyright must go in ValueSet.copyright.
-  </td>
- </tr>
-
- <tr>
-  <td>
-  <code>http://hl7.org/fhir/ValueSet/cpt-base</code>:<br/>
-  All codes in CPT that represent procedure codes (no modifiers allowed - e.g. for Claim.item.productOrService)
-  </td>
-  <td>
-<pre>
-  "compose" : {
-    "include" : [{
-      // plain codes (no modifiers)
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "copyright" : "CPT © Copyright 2023 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
-      "filter" : [{
-        "property" : "modified",
-        "op" : "=",
-        "value" : "false"
-      },{
-        "property" : "modifier",
-        "op" : "=",
-        "value" : "false"
-      }] 
-    }]
-  }
-</pre>
-  </td>
- </tr>
-
- <tr>
-  <td>
-  <code>http://hl7.org/fhir/ValueSet/cpt-modifiers</code>:<br/>
-  CPT modifiers (e.g. for Claim.item.modifier)
-  </td>
-  <td>
-<pre>
-  "compose" : {
-    "include" : [{
-      // only modifiers
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "copyright" : "CPT © Copyright 2023 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
-      "filter" : [{
-        "property" : "modifier",
-        "op" : "=",
-        "value" : "true"
-      }] 
-    }]
-  }
-</pre>
-  </td>
-</tr>
-
- <tr>
-  <td>
-  <code>http://hl7.org/fhir/ValueSet/cpt-usable</code>:<br/>
-  All codes in CPT codes (no modifiers) that represent procedure codes (e.g. for Procedure.code).
-  </td>
-  <td>
-<pre>
-  "compose" : {
-    "include" : [{
-      // plain codes (no modifiers)
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "copyright" : "CPT © Copyright 2023 American Medical Association. All rights reserved. AMA and CPT are registered trademarks of the American Medical Association.",
-      "filter" : [{
-        "property" : "modified",
-        "op" : "=",
-        "value" : "false"
-      },{
-        "property" : "modifier",
-        "op" : "=",
-        "value" : "false"
-      }] 
-    },{
-      // codes with modifiers (grammar enforces rules)
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "filter" : [{
-        "property" : "modified",
-        "op" : "=",
-        "value" : "true"
-      }] 
-    }]
-  }
-</pre>
-  </td>
- </tr>
-</table>
+<!-- CPT Explicit Value Sets -->
+<a name="CPTExplicitValueSets"> </a>
+<h4>CPT Explicit Value Sets</h4>
+<p>The following explicit CPT value sets have been defined by HL7 and may be of interest or useful to implementers:</p>
+<ul>
+<li><a href="https://terminology.hl7.org/en/ValueSet-cpt-all.html">AMA CPT All Codes</a></li>
+<li><a href="https://terminology.hl7.org/en/ValueSet-cpt-base.html">AMA CPT Base Codes</a></li>
+<li><a href="https://terminology.hl7.org/en/ValueSet-cpt-modifiers.html">AMA CPT Modifier Codes</a></li>
+<li><a href="https://terminology.hl7.org/en/ValueSet-cpt-usable.html">AMA CPT Usable Codes</a></li>
+</ul>
 
 <a name="r4"> </a>
 <h3>Using CPT with earlier versions of FHIR</h3>
@@ -326,4 +327,9 @@ filters and the expression syntax which add facilities not previously described,
 in those earlier pages. 
 </p>
 
+<a name="additional_CPT_educational_content"> </a>
+<h3>Additional CPT Educational Content</h3>
+<p>
+More information can be found here about educational content offered by the American Medical Association to assist in understanding and using the Current Procedural Terminology (CPT) code set. Information about the CPT code development and maintenance process is available <a href="https://www.ama-assn.org/about/cpt-editorial-panel/cpt-code-process">here</a>.
+</p>
 </div>
