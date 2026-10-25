@@ -1,0 +1,93 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="concept-property-type"/>
+  <meta>
+    <lastUpdated value="2026-10-05T18:39:10.170+00:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <url value="http://hl7.org/fhir/concept-property-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.781"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.764"/>
+  </identifier>
+  <version value="6.0.1"/>
+  <name value="ConceptPropertyType"/>
+  <title value="Concept Property Type"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 International / Terminology Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The type of a property value."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/concept-property-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="code"/>
+    <display value="code (internal reference)"/>
+    <definition value="The property value is a code that identifies a concept defined in the code system or in another code system."/>
+  </concept>
+  <concept>
+    <code value="Coding"/>
+    <display value="Coding (external reference)"/>
+    <definition value="The property  value is a code defined in an external code system. This may be used for translations, but is not the intent."/>
+  </concept>
+  <concept>
+    <code value="string"/>
+    <display value="string"/>
+    <definition value="The property value is a string."/>
+  </concept>
+  <concept>
+    <code value="integer"/>
+    <display value="integer"/>
+    <definition value="The property value is an integer (often used to assign ranking values to concepts for supporting score assessments)."/>
+  </concept>
+  <concept>
+    <code value="boolean"/>
+    <display value="boolean"/>
+    <definition value="The property value is a boolean true | false."/>
+  </concept>
+  <concept>
+    <code value="dateTime"/>
+    <display value="dateTime"/>
+    <definition value="The property is a date or a date + time."/>
+  </concept>
+  <concept>
+    <code value="decimal"/>
+    <display value="decimal"/>
+    <definition value="The property value is a decimal number."/>
+  </concept>
+</CodeSystem>
