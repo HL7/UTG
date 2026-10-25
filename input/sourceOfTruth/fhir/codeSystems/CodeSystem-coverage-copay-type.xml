@@ -2,7 +2,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="coverage-copay-type"/>
   <meta>
-    <lastUpdated value="2024-04-24T00:00:00+00:00"/>
+    <lastUpdated value="2026-06-12T00:00:00+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -18,7 +18,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1149"/>
   </identifier>
-  <version value="1.0.1"/>
+  <version value="2.0.0"/>
   <name value="CoverageCopayTypeCodes"/>
   <title value="Coverage Copay Type Codes"/>
   <status value="active"/>
@@ -39,6 +39,7 @@
   
   <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
   <caseSensitive value="true"/>
+  <hierarchyMeaning value="is-a"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/coverage-copay-type"/>
   <content value="complete"/>
   <concept>
@@ -72,6 +73,11 @@
     <definition value="A visit to an urgent care facility - typically a community care clinic."/>
   </concept>
   <concept>
+    <code value="rx"/>
+    <display value="Prescription"/>
+    <definition value="Prescription drug and pharmacy-related services."/>
+  </concept>
+  <concept>
     <code value="copaypct"/>
     <display value="Copay Percentage"/>
     <definition value="A standard percentage applied to all classes or service or product not otherwise specified."/>
@@ -85,10 +91,90 @@
     <code value="deductible"/>
     <display value="Deductible"/>
     <definition value="The accumulated amount of patient payment before the coverage begins to pay for services."/>
+    <concept>
+      <code value="FamOutDed"/>
+      <display value="Family Out of Network Deductible"/>
+      <definition value="The accumulated amount applied toward the family's out-of-network deductible before the coverage begins to pay for covered out-of-network services."/>
+    </concept>
+    <concept>
+      <code value="FamInDed"/>
+      <display value="Family In Network Deductible"/>
+      <definition value="The accumulated amount applied toward the family's in-network deductible before the coverage begins to pay for covered in-network services."/>
+    </concept>
+    <concept>
+      <code value="FamRxOutDed"/>
+      <display value="Family Pharmacy Out of Network Deductible"/>
+      <definition value="The accumulated amount applied toward the family's out-of-network pharmacy deductible before the coverage begins to pay for covered out-of-network pharmacy services."/>
+    </concept>
+    <concept>
+      <code value="FamRxInDed"/>
+      <display value="Family Pharmacy In Network Deductible"/>
+      <definition value="The accumulated amount applied toward the family's in-network pharmacy deductible before the coverage begins to pay for covered in-network pharmacy services."/>
+    </concept>
+    <concept>
+      <code value="IndOutDed"/>
+      <display value="Invidual Out of Network Deductible"/>
+      <definition value="The accumulated amount applied toward the individual's out-of-network deductible before the coverage begins to pay for covered out-of-network services."/>
+    </concept>
+    <concept>
+      <code value="IndInDed"/>
+      <display value="Individual In Network Deductible"/>
+      <definition value="The accumulated amount applied toward the individual's in-network deductible before the coverage begins to pay for covered in-network services."/>
+    </concept>
+    <concept>
+      <code value="IndRxOutDed"/>
+      <display value="Individual Pharmacy Out of Network Deductible"/>
+      <definition value="The accumulated amount applied toward the individual's out-of-network pharmacy deductible before the coverage begins to pay for covered out-of-network pharmacy services."/>
+    </concept>
+    <concept>
+      <code value="IndRxInDed"/>
+      <display value="Individual Pharmacy In Network Deductible"/>
+      <definition value="The accumulated amount applied toward the individual's in-network pharmacy deductible before the coverage begins to pay for covered in-network pharmacy services."/>
+    </concept>
   </concept>
   <concept>
     <code value="maxoutofpocket"/>
     <display value="Maximum out of pocket"/>
     <definition value="The maximum amout of payment for services which a patient, or family, is expected to incur - typically annually."/>
+    <concept>
+      <code value="FamOutMax"/>
+      <display value="Family Out of Network Out of Pocket Maximum"/>
+      <definition value="The maximum amount of out-of-pocket payment that a family is expected to incur for covered out-of-network services."/>
+    </concept>
+    <concept>
+      <code value="FamInMax"/>
+      <display value="Family In Network Out of Pocket Maximum"/>
+      <definition value="The maximum amount of out-of-pocket payment that a family is expected to incur for covered in-network services."/>
+    </concept>
+    <concept>
+      <code value="FamRxOutMax"/>
+      <display value="Family Pharmacy Out of Network Out of Pocket Maximum"/>
+      <definition value="The maximum amount of out-of-pocket payment that a family is expected to incur for covered out-of-network pharmacy services."/>
+    </concept>
+    <concept>
+      <code value="FamRxInMax"/>
+      <display value="Family Pharmacy In Network Out of Pocket Maximum"/>
+      <definition value="The maximum amount of out-of-pocket payment that a family is expected to incur for covered in-network pharmacy services."/>
+    </concept>
+    <concept>
+      <code value="IndOutMax"/>
+      <display value="Individual Out of Network Out of Pocket Maximum"/>
+      <definition value="The maximum amount of out-of-pocket payment that an individual is expected to incur for covered out-of-network services."/>
+    </concept>
+    <concept>
+      <code value="IndInMax"/>
+      <display value="Individual In Network Out of Pocket Maximum"/>
+      <definition value="The maximum amount of out-of-pocket payment that an individual is expected to incur for covered in-network services."/>
+    </concept>
+    <concept>
+      <code value="IndRxOutMax"/>
+      <display value="Individual Pharmacy Out of Network Out of Pocket Maximum"/>
+      <definition value="The maximum amount of out-of-pocket payment that an individual is expected to incur for covered out-of-network pharmacy services."/>
+    </concept>
+    <concept>
+      <code value="IndRxInMax"/>
+      <display value="Individual Pharmacy In Network Out of Pocket Maximum"/>
+      <definition value="The maximum amount of out-of-pocket payment that an individual is expected to incur for covered in-network pharmacy services."/>
+    </concept>
   </concept>
 </CodeSystem>
