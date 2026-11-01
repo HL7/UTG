@@ -4,7 +4,7 @@
   <id value="requirements-categories"/>
   <language value="en"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fm"/>
+    <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
@@ -12,13 +12,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <url value=" http://terminology.hl7.org/CodeSystem/requirements-categories"/>
-  <name value="RequirementsCategories"/>
-  <title value="RequirementsCategories"/>
+  <url value="http://terminology.hl7.org/CodeSystem/requirements-categories"/>
+  <name value="RequirementsCategoryCodes"/>
+  <title value="Requirements CategoryCodes"/>
   <status value="active"/>
   <experimental value="false"/>
-  <description value="Codes used to categorize requirements statements."/>
+  <description value="Codes used to categorize requirements statements from the Requirements resource.  These requirements apply to actors which are usually computer systems.  However, actors may also be organizations, devices, individuals, or other entities."/>
   <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/requirements-categories"/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
@@ -29,7 +30,7 @@
   <concept>
     <code value="behavioral"/>
     <display value="Behavioral"/>
-    <definition value="Categories related to how the system behaves"/>
+    <definition value="Categories related to how the actor behaves"/>
     <property>
       <code value="abstract"/>
       <valueBoolean value="true"/>
@@ -37,55 +38,55 @@
     <concept>
       <code value="business"/>
       <display value="Business"/>
-      <definition value="Requirements relating to the business operations of the entities responsible for a system"/>
+      <definition value="Requirements relating to the business operations of the actor or the entities responsible for the actor"/>
     </concept>
     <concept>
       <code value="functional"/>
       <display value="Functional"/>
-      <definition value="Requirements related to what the system does (inputs turned into outputs)"/>
+      <definition value="Requirements related to what the actor does (inputs turned into outputs)"/>
       <concept>
         <code value="exchange"/>
         <display value="Exchange"/>
-        <definition value="Requirements relating to when, how, or what data is exchanged with other systems"/>
+        <definition value="Requirements relating to when, how, or what data is exchanged with other actors"/>
       </concept>
       <concept>
         <code value="processing"/>
         <display value="Processing"/>
-        <definition value="Requirements related to how data must be analyzed, transformed, considered, or otherwise used within a system"/>
+        <definition value="Requirements related to how data must be analyzed, transformed, considered, or otherwise used by an actor"/>
       </concept>
       <concept>
         <code value="storage"/>
         <display value="Storage"/>
-        <definition value="Requirements related to if or how data is persisted in a system"/>
+        <definition value="Requirements related to if or how data is persisted by an actor"/>
       </concept>
     </concept>
     <concept>
       <code value="non-functional"/>
       <display value="Non-functional"/>
-      <definition value="Requirements related to how the system accomplishes functional requirements"/>
+      <definition value="Requirements related to the manner in which the actor accomplishes functional requirements"/>
       <concept>
         <code value="availability"/>
         <display value="Availability"/>
-        <definition value="Requirements related to how and when a system needs to be reachable and useable"/>
+        <definition value="Requirements related to how and when an actor needs to be reachable and useable"/>
       </concept>
       <concept>
         <code value="ui"/>
         <display value="User Interface"/>
-        <definition value="Requirements related to how information is collected from and exposed to humans (or animals)"/>
+        <definition value="Requirements related to how data is collected from and exposed to humans (or animals) by the actor"/>
         <concept>
           <code value="ui-accessibility"/>
           <display value="UI Accessibility"/>
-          <definition value="Requirements around user interface that ensure a satisfactory experience for users from different backgrounds or with varying physical, cognitive, and/or sensory abilities"/>
+          <definition value="Requirements around a computer system's user interface that ensure a satisfactory experience for users from different backgrounds or with varying physical, cognitive, and/or sensory abilities"/>
         </concept>
         <concept>
           <code value="ui-consistency"/>
           <display value="UI Consistency"/>
-          <definition value="Requirements around ensuring that different implementations have sufficiently aligned appearance and mechanisms of interaction"/>
+          <definition value="Requirements around ensuring that different computer system implementations have sufficiently aligned appearance and mechanisms of interaction"/>
         </concept>
         <concept>
           <code value="ui-usability"/>
           <display value="UI Usability"/>
-          <definition value="Requirements related to the intuitiveness, simplicity, and ease-of-use of a user-interface"/>
+          <definition value="Requirements related to the intuitiveness, simplicity, and ease-of-use of a computer system's user-interface"/>
         </concept>
       </concept>
       <concept>
@@ -96,12 +97,12 @@
       <concept>
         <code value="safety"/>
         <display value="Safety"/>
-        <definition value="Requirements that ensure that system operation does not negatively impact the wellbeing of people or assets"/>
+        <definition value="Requirements that ensure that actor processes do not negatively impact the wellbeing of people or assets"/>
       </concept>
       <concept>
         <code value="performance"/>
         <display value="Performance/Scalability"/>
-        <definition value="Requirements that deal with timeliness of processing and/or responsiveness under differing levels of load/volume"/>
+        <definition value="Requirements that deal with timeliness of processing and/or responsiveness under differing levels of load/volume for an actor"/>
       </concept>
     </concept>
   </concept>
