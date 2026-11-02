@@ -1106,6 +1106,32 @@
     </property>
   </concept>
   <concept>
+    <code value="auth-out-network"/>
+    <display value="Authorization needed out-of-network"/>
+    <definition value="Authorization is necessary if out-of-network."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_ActCoverageReason"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="technical"/>
+    <display value="Technical issues"/>
+    <definition value="The server encountered technical issues either internally or with their interaction with the client. It is possible these issues are transient and later calls might provide more information."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_ActReason"/>
+    </property>
+  </concept>
+  <concept>
     <code value="_ActConsentInformationAccessOverrideReason"/>
     <display value="ActConsentInformationAccessOverrideReason"/>
     <definition value="To perform one or more operations on information to which the patient has not consented as deemed necessary by authorized entities for providing care in the best interest of the patient; providing immediately needed health care for an emergent condition; or for protecting public or third party safety.&#xD;&#xA;&#xD;&#xA;*Usage Notes:* Used to convey the reason that a provider or other entity may or has accessed personal healthcare information. Typically, this involves overriding the subject&#39;s consent directives."/>
@@ -1177,6 +1203,19 @@
     </property>
   </concept>
   <concept>
+    <code value="no-active-coverage"/>
+    <display value="Coverage not active"/>
+    <definition value="The referenced coverage for the member was found but is not in force during the relevant time period for which the coverage is being evaluated."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_ActIneligibilityReason"/>
+    </property>
+  </concept>
+  <concept>
     <code value="COVSUS"/>
     <display value="coverage suspended"/>
     <definition value="When a client has no contact with the health system for an extended period, coverage is suspended. Client will be reinstated to original start date upon proof of identification, residency etc.&#xD;&#xA;&#xD;&#xA;Example: Coverage may be suspended during a strike situation, when employer benefits for employees are not covered (i.e. not in effect)."/>
@@ -1190,7 +1229,7 @@
     </property>
     <property>
       <code value="subsumedBy"/>
-      <valueCode value="_ActIneligibilityReason"/>
+      <valueCode value="no-active-coverage"/>
     </property>
   </concept>
   <concept>
@@ -1221,6 +1260,32 @@
     <property>
       <code value="internalId"/>
       <valueCode value="19730"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_ActIneligibilityReason"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="no-member-found"/>
+    <display value="Member not found"/>
+    <definition value="The system was unable to find a matching member or was unable to resolve to a single member, so no coverage information can be provided."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
+    </property>
+    <property>
+      <code value="subsumedBy"/>
+      <valueCode value="_ActIneligibilityReason"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="coverage-not-found"/>
+    <display value="Coverage not found"/>
+    <definition value="The payer is not available to resolve the provided coverage information to an existing coverage record, or it is not specific enough to resolve to a single coverage."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="active"/>
     </property>
     <property>
       <code value="subsumedBy"/>
