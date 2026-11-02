@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="data-representation-purpose"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/data-representation-purpose"/>
+  <version value="1.0.0"/>
+  <name value="DataRepresentationPurposeCodes"/>
+  <title value="Data Representation Purpose Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <description value="This code system defines a set of codes describing types of rendered forms that can be produced for FHIR resources, and potentially for other data structures."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/data-representation-purpose"/>
+  <content value="complete"/>
+  <concept>
+    <code value="patient"/>
+    <display value="Patient View"/>
+    <definition value="A rendering that exposes information relevant to and in a manner understandable to patients and their care-givers"/>
+  </concept>
+   <concept>
+    <code value="narrative"/>
+    <display value="Resource Narrative"/>
+    <definition value="Representation as FHIR-conformant XHTML appropriate for sharing as the narrative text element of a resource"/>
+  </concept>
+  <concept>
+    <code value="print"/>
+    <display value="Printed View"/>
+    <definition value="A rendering appropriate for the creation of printed pages"/>
+  </concept>
+  <concept>
+    <code value="summary"/>
+    <display value="Summary View"/>
+    <definition value="A condensed representation intended for rapid consumption of essential content"/>
+  </concept>
+</CodeSystem>
