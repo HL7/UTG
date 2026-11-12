@@ -46,12 +46,12 @@
       {
         "code": "LatestProvenanceResources",
         "display": "LatestProvenanceResources",
-        "definition": "Export will include the most recent Provenance resources associated with each of the non-provenance resources being returned. Other Provenance resources will not be returned."
+        "definition": "A Data Provider supporting this value SHALL include the most recent available Provenance resource associated with each non-Provenance resource being returned in the export, as identified by `Provenance.target`. This applies to the resources selected after all other applicable export parameters and filters have been applied, including `_type`, `_typeFilter`, `_since`, `_until`, and `patient`. The associated Provenance resources SHALL be included regardless of whether `Provenance` is specified in `_type` or whether the Provenance resources themselves satisfy the other filtering criteria. This value does not exclude Provenance resources that would otherwise be returned as part of the export."
       },
       {
         "code": "RelevantProvenanceResources",
         "display": "RelevantProvenanceResources",
-        "definition": "Export will include all Provenance resources associated with each of the non-provenance resources being returned."
+        "definition": "A Data Provider supporting this value SHALL include all available Provenance resources associated with each non-Provenance resource being returned in the export, as identified by `Provenance.target`. This applies to the resources selected after all other applicable export parameters and filters have been applied, including `_type`, `_typeFilter`, `_since`, `_until`, and `patient`. The associated Provenance resources SHALL be included regardless of whether `Provenance` is specified in `_type` or whether the Provenance resources themselves satisfy the other filtering criteria. This value does not exclude Provenance resources that would otherwise be returned as part of the export."
       }
     ]
   }
