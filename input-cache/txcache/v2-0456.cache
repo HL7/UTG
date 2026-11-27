@@ -11,12 +11,122 @@
 }}####
 e: {
   "from-server" : true,
+  "class" : "UNKNOWN",
   "error" : "Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0456 version 2.0.0"
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : true, "url": "http://terminology.hl7.org/ValueSet/v2-0456", "version": "2.0.0"}####
 e: {
   "from-server" : true,
+  "class" : "UNKNOWN",
   "error" : "Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0456 version 2.0.0"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0456"
+    }]
+  }
+}}####
+e: {
+  "source" : tx.healthall.co.kr,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "id" : "fb586efe-da63-4483-b22b-a0a435d27a4f",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:332ab0e1-26e6-4ed5-8a11-b0107e2e5252",
+    "timestamp" : "2026-10-26T01:37:29+00:00",
+    "total" : 7,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "includeDefinition",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "used-codesystem",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v2-0456|2.9"
+    }],
+    "property" : [{
+      "code" : "status",
+      "uri" : "http://hl7.org/fhir/concept-properties#status"
+    }],
+    "contains" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0456",
+      "code" : "280",
+      "display" : "Oncology",
+      "property" : [{
+        "code" : "status",
+        "valueCode" : "deprecated"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0456",
+      "code" : "994",
+      "display" : "TV/Radio",
+      "property" : [{
+        "code" : "status",
+        "valueCode" : "deprecated"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0456",
+      "code" : "260",
+      "display" : "IV Therapy",
+      "property" : [{
+        "code" : "status",
+        "valueCode" : "deprecated"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0456",
+      "code" : "301",
+      "display" : "Lab/Chemistry",
+      "property" : [{
+        "code" : "status",
+        "valueCode" : "deprecated"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0456",
+      "code" : "993",
+      "display" : "Telephone/Telegraph",
+      "property" : [{
+        "code" : "status",
+        "valueCode" : "deprecated"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0456",
+      "code" : "991",
+      "display" : "Cafeteria /Guest Tray",
+      "property" : [{
+        "code" : "status",
+        "valueCode" : "deprecated"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0456",
+      "code" : "...",
+      "display" : "No suggested values defined"
+    }]
+  }
+},
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

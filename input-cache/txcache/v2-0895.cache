@@ -11,12 +11,108 @@
 }}####
 e: {
   "from-server" : true,
+  "class" : "UNKNOWN",
   "error" : "Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0895 version 2.0.0"
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : true, "url": "http://terminology.hl7.org/ValueSet/v2-0895", "version": "2.0.0"}####
 e: {
   "from-server" : true,
+  "class" : "UNKNOWN",
   "error" : "Error from http://tx.fhir.org/r5: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0895 version 2.0.0"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0895"
+    }]
+  }
+}}####
+e: {
+  "source" : tx.healthall.co.kr,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "id" : "486d6786-bb21-42b7-9b10-d92ba2200cf5",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:9fcd7f67-8ccc-44a1-8284-97967bada025",
+    "timestamp" : "2026-10-26T01:37:46+00:00",
+    "total" : 5,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "includeDefinition",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "used-codesystem",
+      "valueUri" : "http://terminology.hl7.org/CodeSystem/v2-0895|2.9"
+    }],
+    "property" : [{
+      "code" : "status",
+      "uri" : "http://hl7.org/fhir/concept-properties#status"
+    }],
+    "contains" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0895",
+      "code" : "N",
+      "display" : "No",
+      "property" : [{
+        "code" : "status",
+        "valueCode" : "deprecated"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0895",
+      "code" : "Y",
+      "display" : "Yes",
+      "property" : [{
+        "code" : "status",
+        "valueCode" : "deprecated"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0895",
+      "code" : "E",
+      "display" : "Exempt",
+      "property" : [{
+        "code" : "status",
+        "valueCode" : "deprecated"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0895",
+      "code" : "U",
+      "display" : "Unknown",
+      "property" : [{
+        "code" : "status",
+        "valueCode" : "deprecated"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0895",
+      "code" : "W",
+      "display" : "Not applicable",
+      "property" : [{
+        "code" : "status",
+        "valueCode" : "deprecated"
+      }]
+    }]
+  }
+},
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

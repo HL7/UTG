@@ -16,7 +16,6 @@ v: {
   "error" : "Unknown code '[A-Z]{3}' in the CodeSystem 'urn:iso:std:iso:3166' version '2018'",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r5",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -33,7 +32,6 @@ v: {
       }],
       "text" : "Unknown code '[A-Z]{3}' in the CodeSystem 'urn:iso:std:iso:3166' version '2018'"
     },
-    "location" : ["Coding.code"],
     "expression" : ["Coding.code"]
   }]
 }
@@ -57,7 +55,6 @@ v: {
   "error" : "Unknown code '[A-Z]2018' in the CodeSystem 'urn:iso:std:iso:3166' version '2018'",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r5",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -74,7 +71,6 @@ v: {
       }],
       "text" : "Unknown code '[A-Z]2018' in the CodeSystem 'urn:iso:std:iso:3166' version '2018'"
     },
-    "location" : ["Coding.code"],
     "expression" : ["Coding.code"]
   }]
 }
@@ -91,6 +87,7 @@ v: {
   }
 }}####
 e: {
+  "class" : "UNKNOWN",
   "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
@@ -3875,6 +3872,7 @@ e: {
   }
 }}####
 e: {
+  "class" : "UNKNOWN",
   "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
@@ -5169,6 +5167,7 @@ e: {
   }
 }}####
 e: {
+  "class" : "UNKNOWN",
   "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
@@ -6463,6 +6462,7 @@ e: {
   }
 }}####
 e: {
+  "class" : "UNKNOWN",
   "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
@@ -7757,6 +7757,7 @@ e: {
   }
 }}####
 e: {
+  "class" : "UNKNOWN",
   "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
@@ -9051,6 +9052,7 @@ e: {
   }
 }}####
 e: {
+  "class" : "UNKNOWN",
   "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
@@ -10328,5 +10330,101 @@ e: {
   }
 },
   "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:3166",
+  "code" : "[A-Z]{3}"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "isDefaultLang":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en"
+  }]
+}}####
+v: {
+  "code" : "[A-Z]{3}",
+  "system" : "urn:iso:std:iso:3166",
+  "severity" : "error",
+  "error" : "Unknown code '[A-Z]{3}' in the CodeSystem 'urn:iso:std:iso:3166' version '2018'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.fhir.org/r5",
+  "diagnostics" : "0ms tx-op\n0ms urn:iso:std:iso:3166/vs|2018: Validate \"[urn:iso:std:iso:3166#[A-Z]{3} (\"undefined\")]\"\n0ms urn:iso:std:iso:3166/vs|2018: Check \"urn:iso:std:iso:3166#[A-Z]{3}\"\n0ms urn:iso:std:iso:3166/vs|2018: CodeSystem found: urn:iso:std:iso:3166|2018 for urn:iso:std:iso:3166|2018\n0ms urn:iso:std:iso:3166/vs|2018: check code in (urn:iso:std:iso:3166) at Coding\n0ms urn:iso:std:iso:3166/vs|2018: Code \"[A-Z]{3}\" not found in urn:iso:std:iso:3166|2018: undefined",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "Unknown_Code_in_Version"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.fhir.org/r5"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '[A-Z]{3}' in the CodeSystem 'urn:iso:std:iso:3166' version '2018'"
+    },
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:3166",
+  "code" : "[A-Z]{2}"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "isDefaultLang":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en"
+  }]
+}}####
+v: {
+  "code" : "[A-Z]{2}",
+  "system" : "urn:iso:std:iso:3166",
+  "severity" : "error",
+  "error" : "Unknown code '[A-Z]{2}' in the CodeSystem 'urn:iso:std:iso:3166' version '2018'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.fhir.org/r5",
+  "diagnostics" : "0ms tx-op\n0ms urn:iso:std:iso:3166/vs|2018: Validate \"[urn:iso:std:iso:3166#[A-Z]{2} (\"undefined\")]\"\n0ms urn:iso:std:iso:3166/vs|2018: Check \"urn:iso:std:iso:3166#[A-Z]{2}\"\n0ms urn:iso:std:iso:3166/vs|2018: CodeSystem found: urn:iso:std:iso:3166|2018 for urn:iso:std:iso:3166|2018\n0ms urn:iso:std:iso:3166/vs|2018: check code in (urn:iso:std:iso:3166) at Coding\n0ms urn:iso:std:iso:3166/vs|2018: Code \"[A-Z]{2}\" not found in urn:iso:std:iso:3166|2018: undefined",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "Unknown_Code_in_Version"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.fhir.org/r5"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '[A-Z]{2}' in the CodeSystem 'urn:iso:std:iso:3166' version '2018'"
+    },
+    "expression" : ["Coding.code"]
+  }]
+}
+
 }
 -------------------------------------------------------------------------------------

@@ -16,7 +16,6 @@ v: {
   "error" : "Unknown code 'region' in the CodeSystem 'http://unstats.un.org/unsd/methods/m49/m49.htm' version ''",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r5",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -33,7 +32,6 @@ v: {
       }],
       "text" : "Unknown code 'region' in the CodeSystem 'http://unstats.un.org/unsd/methods/m49/m49.htm' version ''"
     },
-    "location" : ["Coding.code"],
     "expression" : ["Coding.code"]
   }]
 }
@@ -55,6 +53,7 @@ v: {
   }
 }}####
 e: {
+  "class" : "UNKNOWN",
   "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
@@ -232,5 +231,53 @@ e: {
   }
 },
   "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "code" : "region"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "isDefaultLang":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en"
+  }]
+}}####
+v: {
+  "code" : "region",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "severity" : "error",
+  "error" : "Unknown code 'region' in the CodeSystem 'http://unstats.un.org/unsd/methods/m49/m49.htm'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.fhir.org/r5",
+  "diagnostics" : "0ms tx-op\n0ms http://unstats.un.org/unsd/methods/m49/m49.htm/vs: Validate \"[http://unstats.un.org/unsd/methods/m49/m49.htm#region (\"undefined\")]\"\n0ms http://unstats.un.org/unsd/methods/m49/m49.htm/vs: Check \"http://unstats.un.org/unsd/methods/m49/m49.htm#region\"\n0ms http://unstats.un.org/unsd/methods/m49/m49.htm/vs: CodeSystem found: http://unstats.un.org/unsd/methods/m49/m49.htm|null for http://unstats.un.org/unsd/methods/m49/m49.htm\n0ms http://unstats.un.org/unsd/methods/m49/m49.htm/vs: check code in (http://unstats.un.org/unsd/methods/m49/m49.htm) at Coding\n0ms http://unstats.un.org/unsd/methods/m49/m49.htm/vs: Code \"region\" not found in http://unstats.un.org/unsd/methods/m49/m49.htm|null: undefined",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "Unknown_Code_in"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.fhir.org/r5"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'region' in the CodeSystem 'http://unstats.un.org/unsd/methods/m49/m49.htm'"
+    },
+    "expression" : ["Coding.code"]
+  }]
+}
+
 }
 -------------------------------------------------------------------------------------
